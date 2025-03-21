@@ -1,0 +1,110 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6358:a17:b0:12b:d9e2:16c7 with SMTP id 23csp1263873rwa;
+        Mon, 4 Sep 2023 07:21:00 -0700 (PDT)
+X-Received: by 2002:a17:906:d3:b0:9a5:846d:d823 with SMTP id 19-20020a17090600d300b009a5846dd823mr7306857eji.45.1693837259995;
+        Mon, 04 Sep 2023 07:20:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1693837259; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hB8DvKA6OaCnuWzz1Xc1Gb6Rh8PG3DjIZUZq6UVqGzRJNbSw2w/JWa6mM4lHEBVfgF
+         MQJ9i95FrY32mmx0aW0d9Gg9Avt83xK3PleSfcQGekyVyKfGeDM6oiwOJO9Uch0yWMH+
+         wRCwn0oCcyHtghgNZdkMSn8FOA8gb+5xXr4o1Uyzp23mQSeMtMaZYiYfrtqXJHTBPWr3
+         vIaWST7hWX/WZpcky9+opHGqvn4X+yXbjI/Z1bf0AnZcKkPTkP0mNVw1uNCU2ByMWYBl
+         qT2EYovFXGLWLH0GWedNyk1JggXFdqWSiPU1k5buZgY9PH01dAiKYG8xyuKdxfUjSdw6
+         SkQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=QvJvYWfsY+L4KTlm/Mw6diEKMHiKcb1XRMMtyPpJdK8=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=QCsXLifqCw7TEHVSOUD2fjI+AqrwtWNyggoXcFIF52GS4AqtAv8+EewgoVEwOHu6JL
+         u6K5Cf1X5PS34qpPIwiKb6R01yx4CO/VQyMch2x8aeFlaO1azl/ArR81YQmoaq4WTWm2
+         UWiSNvH32VUOJMhhZGyNRwuftIpCgyPu5VndqMVTQyzox2luxVOENQZVRfMn9+voXwZ+
+         Be6jacQUG3IuHN72ZOUf7UHASQn9p8it6zk87K/nBGXc3j8yfXpn5AOVNh/QAZ38/e9G
+         C33NL7SxImE4iffa7Pi8IgNVYc+o1UEZu+we+mO3x4PsjcOfdpYHziNYxotlQHEHBA2N
+         ahiw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20221208 header.b=fIR+oz89;
+       spf=pass (google.com: domain of redpixelktm@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=redpixelktm@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <redpixelktm@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id hw7-20020a170907a0c700b009a1bdeb48fcsor3625640ejc.8.2023.09.04.07.20.59
+        for <ham@ham.email>
+        (Google Transport Security);
+        Mon, 04 Sep 2023 07:20:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of redpixelktm@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20221208 header.b=fIR+oz89;
+       spf=pass (google.com: domain of redpixelktm@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=redpixelktm@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1693837259; x=1694442059; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=QvJvYWfsY+L4KTlm/Mw6diEKMHiKcb1XRMMtyPpJdK8=;
+        b=fIR+oz89VqwHpeNTvG2UEBheKCfb3Eyh0e3JCixCeViHsRHdXJRL3HQK1cg64WDYw4
+         VtRqE0OXj8LCJn6AQuAp09YF69IbRyqAvDEBzXhnO5VYCvwGT++A9FQUjbUcx3sGSISz
+         JCMnLzFiafUyxsg/7dbG8i3nT7e/h1KQ4C6E84Coabuf+pZFE1U6JolsPORCmZ8bcJrw
+         8KnwFqLxcFJnmnX9Fc816vJxK9Ffmk7iix92B5I14+SNWCcib82V0LNP3tCTlL5LCCqW
+         5GIHQbF0vd0MKDcajfnB+UfPaAX0Hh3ztvdw7/+1VpLTBihteyCVdxQvcITThzdmXWkt
+         h2EA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1693837259; x=1694442059;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QvJvYWfsY+L4KTlm/Mw6diEKMHiKcb1XRMMtyPpJdK8=;
+        b=Y2Caop9wZWtcmZS+QcvqRqwgdPKfg9YYSTNmJVvl6xMyPVEVJv3fKa4J7zUzwvPt9f
+         Uv1wfDFxaiA0z/0TvrHoFpZgYPzTUMsRD9bkTpveKhwi3Mzv2Af+funhe20M+SIU4ARz
+         Ox62hIakSW35VL5SGNxe3vS/o4+K7FQ+zsq33buaNYUs/AAMRyUm8eqY+p7Hj3a7fDdU
+         /x7fXVaP+0mkMvkrRIxVVvtfX/pbiTOQixHCyE1a/Q7DPn2XFV19zuCDTsHwUcPUe4jp
+         p1ko7nw4fuP2tXafqvfmNvdv4wDWU7y7PFcjextAfQAk7ePrS8HH9oqX2XOAOivNYGos
+         pIag==
+X-Gm-Message-State: AOJu0YxnrxmzrD8zQhI5Y0L7UB9XS5wy8fF1AFe3jn5KSZUS0zbFQ2Uk NdEQ32nV/wi70KFN99CCMw0EDRXiNfiCS+uqYufy8eJF
+X-Google-Smtp-Source: AGHT+IEKPvvHMvgsSAfx7Ug0HPrxHLb/ziZ0/BXotUzvPX0ZvGsrig/+AMMiF0obdh7C4VPkhdzcKswRnvBQPD2BtfE=
+X-Received: by 2002:a17:906:74dd:b0:9a1:f9d7:90be with SMTP id z29-20020a17090674dd00b009a1f9d790bemr7540975ejl.18.1693837258615; Mon, 04 Sep 2023 07:20:58 -0700 (PDT)
+MIME-Version: 1.0
+From: Red Pixel <redpixelktm@gmail.com>
+Date: Mon, 4 Sep 2023 20:05:46 +0545
+Message-ID: <CAFqrnvtk3NFYLqm4n+3T+BpvfCkhQpP1cJL7yHW_K1xx7aToBg@mail.gmail.com>
+Subject: Photo
+To: ham@ham.email
+Content-Type: multipart/mixed; boundary="0000000000001bf5120604893859"
+
+--0000000000001bf5120604893859
+Content-Type: multipart/alternative; boundary="0000000000001bf50f0604893857"
+
+--0000000000001bf50f0604893857
+Content-Type: text/plain; charset="UTF-8"
+
+
+
+--0000000000001bf50f0604893857
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><br></div>
+
+--0000000000001bf50f0604893857--
+--0000000000001bf5120604893859
+Content-Type: image/jpeg; name="Receiver Paudel.jpg"
+Content-Disposition: attachment; filename="Receiver Paudel.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <f_lm4yxwzb0>
+X-Attachment-Id: f_lm4yxwzb0
+
+
+--0000000000001bf5120604893859
+Content-Type: image/jpeg; name="Receiver Paudel02.jpg"
+Content-Disposition: attachment; filename="Receiver Paudel02.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <f_lm4yy7vz1>
+X-Attachment-Id: f_lm4yy7vz1
+
+
+--0000000000001bf5120604893859
+Content-Type: image/jpeg; name="DSC_0619.jpg"
+Content-Disposition: attachment; filename="DSC_0619.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <f_lm4yyfmp2>
+X-Attachment-Id: f_lm4yyfmp2
+
+
+--0000000000001bf5120604893859--

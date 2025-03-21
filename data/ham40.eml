@@ -1,0 +1,643 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a5d:58ce:0:b0:35f:1c1a:78c8 with SMTP id o14csp22827wrf;
+        Wed, 26 Jun 2024 15:30:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGGfy4l+H4ME6MAh5VO2qwxW0BU6mmgBj70rrweixn8b9EeBqV89ygPBKBFWYARz8jhmyxx
+X-Received: by 2002:a05:6a00:7cb:b0:706:2b1f:d44d with SMTP id d2e1a72fcca58-7066e53cd6amr10508787b3a.14.1719441040043;
+        Wed, 26 Jun 2024 15:30:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1719441040; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BjlDy6xsXOf+xRytboM9t1QNGwBro+b/UHZxArLC0K06qh2nDScQMwcZ9ABIJy/4qu
+         CnOVXLmc6WCMs4VqZZZv1tkCA7zo2SB05WJexoft1Ijnkw2p9lOZcA/nyodRfE4HnFVR
+         s4+60pawt0xzoG/oZWuN8IezcTupa+fwvOuDYoqhXeAzFLrDYbg3Mc0ZPx/on0UAH8qD
+         eAYof+0vtTfAYxiCn3OpDPzECVMC7rgsCwgPQhY7PTAS6+PieRlyNQP+BmBrhoT+Z1V5
+         IvNfYebpyDcibtMPQ9Qp/cLFolPuK0RuiqTnlD7KrxXozD060/HJ3tXLwl6q8dgl2UCb
+         Offw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=9gZczmm5cSpXv/MDEkIrZilRr4y23r1PxK+Xut09At4=;
+        fh=3nXvuC8tWNtm4c2A2rIIeKxBg0kx/E4jYUyBwCB9ZEE=;
+        b=eVEmH6ChWvkqgFvlk/5H/4Q1veQqEDaUI2SL+E6nHswyOzLJgWi/HRUtHattbWlZOz
+         sqmbiIaBfWnNL/HCXJ28+KbjuEEq0KVwWWvmRpUzaPPqyZAo1GWe1ZcQKSFIvNuWJNc1
+         Y5aDaJhoebAf9dS00tCp+CYoZKK1zpodL0IC8YjauOZBbp39smLI2Q2jzF6DOcZL0n/S
+         lVmEapGDpaRARKswbg9Z4NC/1NjSyP9zZo5woQIKwKC5hBAoM0jmeXdHbF5TYzcU9p9D
+         rQ9Xpv7Re2EKYef2zEie1FG+4YpvQ7pKs3T1xbxvgRce7V/lw9K+hbT7/Jc2MT0Z3aut
+         qV9A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k2 header.b=llHrv+Dd;
+       dkim=pass header.i=@kdnuggets.com header.s=k3 header.b=Jeu0AUJx;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net designates 148.105.15.112 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+Return-Path: <bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net>
+Received: from mail112.sea91.rsgsv.net (mail112.sea91.rsgsv.net. [148.105.15.112])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-72749854b51si55109a12.529.2024.06.26.15.30.39
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Jun 2024 15:30:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net designates 148.105.15.112 as permitted sender) client-ip=148.105.15.112;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k2 header.b=llHrv+Dd;
+       dkim=pass header.i=@kdnuggets.com header.s=k3 header.b=Jeu0AUJx;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net designates 148.105.15.112 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.326970-7ba2458a0d@mail112.sea91.rsgsv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k2; t=1719440839; x=1719527239;
+	bh=9gZczmm5cSpXv/MDEkIrZilRr4y23r1PxK+Xut09At4=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=llHrv+DdQN9k0a8tyBikfo2MpuY8nQpYR15geue+Gm+nzNzikQzrSc+CmB4+Z7SMK
+	 /y9GrqBPt/9ZHjRgVKfPbi2bI50z4pmnzDYaTUDJN/3gUd66fMHvSKlZ78ePk9h3Ij
+	 xU3UxLKi9VZyCGS/O74urtQ22wGlRfrU+UuiD3NE6e3ROi8+DwwXsYD3C6V1uDF5XX
+	 OI9rikvibQStkTxAyaREbjAyZGOZGWJyeU3Nk3dOU5w5fCJg4KlKUd6EBq3l+a03ff
+	 JNSP6oaGJRaDmiZ2QxMj/kDJjKIDU8hc6mxSCEp4bPMnObxFOSpHcBgH3QmwVOiUtc
+	 Ky2g1KsEovtdQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kdnuggets.com; s=k3;
+	t=1719440839; x=1719701339; i=editor1@kdnuggets.com;
+	bh=9gZczmm5cSpXv/MDEkIrZilRr4y23r1PxK+Xut09At4=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=Jeu0AUJxpmvIa8XxZ/6CBlWKTIZCuaYQb6GDCgUPejjqcXMzRp0SxY1ajpPtebIxA
+	 eXMOC3FTgjhtNME9w58AJbxH7/u4ZbsDUrW7lkdP7nLx+qisR6/ODLwTt9UYUyCOAH
+	 C/KtW5Jsrk3wrItK21Ufki2b+JRJ50l0ZPlGKZVdusietxzG2QkiRXCxDdnpvDozGK
+	 bkag5LKqYk1NYseCdBOVeClMzY9853vD5ersJBZNmbvdczwY+56OwFwRhyPc40NUvj
+	 GA9vPRF9v/1HgFEqlWAwHaelFLUkVtmmEHenF3H4Ct3HpulqjHBCvitu2y3gDDoKIF
+	 8u/LaJRBbxEsg==
+Received: from localhost (localhost [127.0.0.1])
+	by mail112.sea91.rsgsv.net (Mailchimp) with ESMTP id 4W8bsz4yqYzK6lwj5
+	for <sminhaz18061997@gmail.com>; Wed, 26 Jun 2024 22:27:19 +0000 (GMT)
+Subject: =?utf-8?Q?5=20Free=20University=20AI=20Courses=20=E2=80=A2=20A=20Simple=20End=2Dto=2DEnd=20Project=20with=20HuggingFace?=
+From: KDnuggets <sender@kdnuggets.com>
+Reply-To: =?utf-8?Q?KDnuggets?= <sender@kdnuggets.com>
+To: <ham@ham.email>
+Date: Wed, 26 Jun 2024 22:27:05 +0000
+Message-ID: <4f2891ebb155b23f120ece0bd.7ba2458a0d.20240626222653.16fec26faa.e119d967@mail112.sea91.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID16fec26faa7ba2458a0d**
+X-Campaign: mailchimp4f2891ebb155b23f120ece0bd.16fec26faa
+X-campaignid: mailchimp4f2891ebb155b23f120ece0bd.16fec26faa
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=4f2891ebb155b23f120ece0bd&id=16fec26faa&e=7ba2458a0d
+X-MC-User: 4f2891ebb155b23f120ece0bd
+Feedback-ID: 50554633:50554633.326970:us12:mc
+List-ID: 4f2891ebb155b23f120ece0bdmc list <4f2891ebb155b23f120ece0bd.169725.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://kdnuggets.us12.list-manage.com/unsubscribe?u=4f2891ebb155b23f120ece0bd&id=b2fa8716d2&t=h&e=7ba2458a0d&c=16fec26faa>, <mailto:unsubscribe-mc.us12_4f2891ebb155b23f120ece0bd.16fec26faa-7ba2458a0d@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_385943541"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_385943541
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.kdnuggets.com/index.html
+------------------------------------------------------------
+June 26=2C 2024
+What's up=2C KDnuggets community? Lots of great content this week to share=
+ with you all=2C including free AI courses from top universities=2C a simp=
+le end-to-end Hugging Face project=2C and much more. Don't forget to check=
+ out the select offerings from our sister sites Machine Learning Mastery a=
+nd Statology in the From Around The Web section.
+
+Editor's Picks
+------------------------------------------------------------
+5 Free Artificial Intelligence Courses From Top Universities (https://www.=
+kdnuggets.com/5-free-artificial-intelligence-courses-from-top-universities=
+)
+Bala Priya C
+------------------------------------------------------------
+A Simple to Implement End-to-End Project with HuggingFace (https://www.kdn=
+uggets.com/a-simple-to-implement-end-to-end-project-with-huggingface)
+Josep Ferrer
+------------------------------------------------------------
+https://imp.i384100.net/0ZVdZN Master cutting-edge programming skills and=
+ prepare for a high-growth tech career.
+
+BSc Computer Science from University of London & Goldsmiths University > (=
+https://imp.i384100.net/0ZVdZN)
+------------------------------------------------------------
+
+This Week's Nuggets
+------------------------------------------------------------
+How to Implement Agentic RAG Using LangChain: Part 1 (https://www.kdnugget=
+s.com/how-to-implement-agentic-rag-using-langchain-part-1)
+Shittu Olumide
+------------------------------------------------------------
+Beginner=E2=80=99s Guide to Machine Learning Testing With DeepChecks (http=
+s://www.kdnuggets.com/beginners-guide-to-machine-learning-testing-with-dee=
+pchecks)
+Abid Ali Awan
+------------------------------------------------------------
+Creating AI-Driven Solutions: Understanding Large Language Models (https:/=
+/www.kdnuggets.com/creating-ai-driven-solutions-understanding-large-langua=
+ge-models)
+Shittu Olumide
+------------------------------------------------------------
+The Only Course You Need to Smash Your Data Analyst Career (https://www.kd=
+nuggets.com/the-only-course-you-need-to-smash-your-data-analyst-career)
+Nisha Arya
+------------------------------------------------------------
+Building Your First ETL Pipeline with Bash (https://www.kdnuggets.com/buil=
+ding-your-first-etl-pipeline-with-bash)
+Matthew Mayo
+------------------------------------------------------------
+Go to University from Home with These Online Degrees (https://www.kdnugget=
+s.com/go-to-university-from-home-with-these-online-degrees)
+Nisha Arya
+------------------------------------------------------------
+Understanding and Implementing Genetic Algorithms in Python (https://www.k=
+dnuggets.com/understanding-and-implementing-genetic-algorithms-in-python)
+Jayita Gulati
+------------------------------------------------------------
+5 Tips to Step Up Your Data Science Game Right Away (https://www.kdnuggets=
+=2Ecom/5-tips-to-step-up-your-data-science-game-right-away)
+Matthew Mayo
+------------------------------------------------------------
+How to Create Minimal Docker Images for Python Applications (https://www.k=
+dnuggets.com/how-to-create-minimal-docker-images-for-python-applications)
+Bala Priya C
+------------------------------------------------------------
+The Impact of AI on the Tech Industry (https://www.kdnuggets.com/the-impac=
+t-of-ai-on-the-tech-industry)
+Vidhi Chugh
+------------------------------------------------------------
+
+From Around The Web
+------------------------------------------------------------
+5 Free YouTube Channels Dedicated to Machine Learning Education (via Machi=
+ne Learning Mastery) (https://machinelearningmastery.com/5-free-youtube-ch=
+annels-dedicated-to-machine-learning-education)
+Bala Priya C
+------------------------------------------------------------
+5 Free Cheat Sheets for Quick Statistical References (via Statology) (http=
+s://www.statology.org/5-free-cheat-sheets-quick-statistical-references)
+Bala Priya C
+------------------------------------------------------------
+5 Free Books on Machine Learning Algorithms You Must Read (via Machine Lea=
+rning Mastery) (https://machinelearningmastery.com/5-free-books-on-machine=
+-learning-algorithms-you-must-read)
+Abid Ali Awan
+------------------------------------------------------------
+Tips for Choosing the Right Machine Learning Model for Your Data (via Mach=
+ine Learning Mastery) (https://machinelearningmastery.com/tips-for-choosin=
+g-the-right-machine-learning-model-for-your-data)
+Matthew Mayo
+------------------------------------------------------------
+What Are Quantized LLMs? (via Statology) (https://www.statology.org/what-q=
+uantized-llms)
+Abid Ali Awan
+------------------------------------------------------------
+5 Free Python Courses for Stats & Analytics (via Statology) (https://www.s=
+tatology.org/5-free-python-courses-stats-analytics)
+Nahla Davies
+------------------------------------------------------------
+
+"The real question is=2C when will we draft an artificial intelligence bil=
+l of rights? What will that consist of? And who will get to decide that?"
+=E2=80=94 Gray Scott
+
+https://twitter.com/kdnuggets   https://facebook.com/kdnuggets   https://w=
+ww.linkedin.com/groups/54257/
+
+About (https://www.kdnuggets.com/about/index.html)   =E2=97=A6  Privacy (h=
+ttps://www.kdnuggets.com/news/privacy-policy.html)   =E2=97=A6  Contact (h=
+ttps://www.kdnuggets.com/contact.html)
+
+=C2=A9 2024 KDnuggets
+
+This email was sent to sminhaz18061997@gmail.com (mailto:sminhaz18061997@gmail.com)
+why did I get this? (https://kdnuggets.us12.list-manage.com/about?u=3D4f28=
+91ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D16fec26faa)     uns=
+ubscribe from this list (https://kdnuggets.us12.list-manage.com/unsubscrib=
+e?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&t=3Db&e=3D7ba2458a0d&c=3D16f=
+ec26faa)     update subscription preferences (https://kdnuggets.us12.list-=
+manage.com/profile?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D16fec26faa)
+KDnuggets . 151 Calle de San Francisco . Suite 200 - PMB 5072 . San Juan=
+=2C PR 00901 . USA
+--_----------=_MCPart_385943541
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www=
+=2Ew3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>KDnuggets Weekly Newsletter</title>
+    </head>
+
+    <body style=3D"background-color:#FFFFFF; font-family:arial=2Cverdana=
+=2Ctahoma; font-size:14px;">
+
+        <table style=3D"border:0px; border-collapse:collapse; width:600px;=
+ margin-left:auto; margin-right:auto;">
+            <td>
+                <!-- Header -->
+=09=09=09=09<table style=3D"width:100%; border-collapse:collapse;">
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"width:100% border:0px;">
+=09=09=09=09=09=09=09<div style=3D"display:flex; align-items:center; text-=
+align:left; width:100%;">
+=09=09=09=09=09=09=09=09<a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D0c6efa181e&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">
+=09=09=09=09=09=09=09=09    <img src=3D"https://www.kdnuggets.com/wp-conte=
+nt/uploads/kdn-weekly-digest-header.png" alt=3D"Visit KDnuggets for more D=
+ata Science=2C Machine Learning=2C AI & Analytics =E2=80=A2" width=3D"100%=
+">
+=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</table>
+
+=09=09=09=09<!-- Date -->
+  =09=09=09=09<hr style=3D"height:2px; border-width:0; color:gray; backgro=
+und-color:#F0AE36;">
+                <div style=3D"padding-left:10px;">
+=09                <font style=3D"color:#808080; font-size:16px;">June 26=
+=2C 2024</font>
+                </div>
+                <br>
+
+
+                <!-- Greeting -->
+                <div style=3D"padding:0px 10px 0px 10px;">
+                    <font style=3D"color:#808080; font-size:15px; line-hei=
+ght: 150%;">
+                        What's up=2C KDnuggets community? Lots of great co=
+ntent this week to share with you all=2C including free AI courses from to=
+p universities=2C a simple end-to-end Hugging Face project=2C and much mor=
+e. Don't forget to check out the select offerings from our sister sites Ma=
+chine Learning Mastery and Statology in the From Around The Web section.
+                    </font>
+                </div>
+                <br><br>
+=09=09=09=09
+                <!-- Features -->
+=09=09=09=09<font size=3D"+1"><b>Editor's Picks</b></font>
+=09=09=09=09<hr style=3D"height:2px;border-width:0;color:gray;background-c=
+olor:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D4ecb855654&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>5 Free Artificial Intelligence Courses From Top Univer=
+sities</b></a><br><font color=3D"#808080">Bala Priya C</font></font>
+=09=09=09=09<br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09<font style=3D"font-size:16px; line-height: 150%">
+=09        =09<a href=3D"https://kdnuggets.us12.list-manage.com/track/clic=
+k?u=3D4f2891ebb155b23f120ece0bd&id=3D2ef69fa1ec&e=3D7ba2458a0d" style=3D"=
+color:#000000; text-decoration:none;">
+=09=09=09=09=09<b>A Simple to Implement End-to-End Project with HuggingFac=
+e</b>
+=09=09=09=09</a>
+=09=09=09=09<br>
+=09=09=09=09<font color=3D"#808080">Josep Ferrer</font>
+=09=09=09=09</font>
+=09=09=09=09<br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+                <!-- Sponsorship -->
+                <table style=3D"width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style=3D"width: 130px; border: 0px;"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Df27f61ad91&e=3D7ba2458a0d"><img src=3D"https://www.kdnugg=
+ets.com/wp-content/uploads/bsc-compsci-coursera-promo-20240626.png" alt=3D=
+"Master cutting-edge programming skills and prepare for a high-growth tech=
+ career." width=3D"120"></a></td>
+                        <td style=3D"border: 0px;"><font style=3D"font-siz=
+e:16px; line-height:150%;">Master cutting-edge programming skills and prep=
+are for a high-growth tech career.</font>
+                        <br><br>
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D3ea6ef37ec&e=3D7ba2458a0d"=
+ style=3D"text-decoration:none"><font style=3D"font-size:16px; line-height=
+:150%;" color=3D"#F3AC35"><strong>BSc Computer Science from University of=
+ London & Goldsmiths University &gt;</strong></font></a></td>
+                    </tr>
+                </table>
+                <hr style=3D"height:1px; border-width:0; background-color:=
+#D8D8D8">
+                <br><br>
+=09=09=09=09
+                <!-- This Week's Posts -->
+=09=09=09=09<font size=3D"+1"><b>This Week's Nuggets</b></font>
+=09=09=09=09<hr style=3D"height:2px;border-width:0;color:gray;background-c=
+olor:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D30573a2bbe&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>How to Implement Agentic RAG Using LangChain: Part 1</=
+b></a><br><font color=3D"#808080">Shittu Olumide</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dd5b87905d6&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Beginner=E2=80=99s Guide to Machine Learning Testing W=
+ith DeepChecks</b></a><br><font color=3D"#808080">Abid Ali Awan</font></fo=
+nt><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dfa0af75ab5&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Creating AI-Driven Solutions: Understanding Large Lang=
+uage Models</b></a><br><font color=3D"#808080">Shittu Olumide</font></font=
+><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D6790c857ac&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>The Only Course You Need to Smash Your Data Analyst Ca=
+reer</b></a><br><font color=3D"#808080">Nisha Arya</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Df92f5c1b93&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Building Your First ETL Pipeline with Bash</b></a><br>=
+<font color=3D"#808080">Matthew Mayo</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D7b841506a6&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Go to University from Home with These Online Degrees</=
+b></a><br><font color=3D"#808080">Nisha Arya</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D97920c4463&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Understanding and Implementing Genetic Algorithms in P=
+ython</b></a><br><font color=3D"#808080">Jayita Gulati</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dc02f241004&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>5 Tips to Step Up Your Data Science Game Right Away</b=
+></a><br><font color=3D"#808080">Matthew Mayo</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D4929713121&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>How to Create Minimal Docker Images for Python Applica=
+tions</b></a><br><font color=3D"#808080">Bala Priya C</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Ddb87388c45&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>The Impact of AI on the Tech Industry</b></a><br><font=
+ color=3D"#808080">Vidhi Chugh</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<br><br>
+
+                <!-- From Around The Web -->
+=09=09=09=09=09<font size=3D"+1"><b>From Around The Web</b></font>
+=09=09=09=09=09<hr style=3D"height:2px; border-width:0; color:gray; backgr=
+ound-color:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3D44d5976bd1&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>5 Free YouTube Channels Dedicated to Machine Learning=
+ Education (via Machine Learning Mastery)</b></a><br><font color=3D"#80808=
+0">Bala Priya C</font></font><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3Dcc96d3d77b&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>5 Free Cheat Sheets for Quick Statistical References=
+ (via Statology)</b></a><br><font color=3D"#808080">Bala Priya C</font></f=
+ont><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3Dd79fd0d8b3&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>5 Free Books on Machine Learning Algorithms You Must=
+ Read (via Machine Learning Mastery)</b></a><br><font color=3D"#808080">Ab=
+id Ali Awan</font></font><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3D49bdc9a917&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>Tips for Choosing the Right Machine Learning Model fo=
+r Your Data (via Machine Learning Mastery)</b></a><br><font color=3D"#8080=
+80">Matthew Mayo</font></font><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3D387414faec&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>What Are Quantized LLMs? (via Statology)</b></a><br><=
+font color=3D"#808080">Abid Ali Awan</font></font><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3Db0cfe8a257&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>5 Free Python Courses for Stats & Analytics (via Stat=
+ology)</b></a><br><font color=3D"#808080">Nahla Davies</font></font><br>
+
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<br>
+
+
+                <!-- So long! -->
+                <div style=3D"padding:0px;">
+                    <blockquote style=3D"background: #ffffff; border-left:=
+ 5px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px;">
+                        <font style=3D"color:#808080; font-size:15px; line=
+-height: 150%;">
+                            <em>"The real question is=2C when will we draf=
+t an artificial intelligence bill of rights? What will that consist of? An=
+d who will get to decide that?"</em>
+                            <br>
+                            &mdash; Gray Scott
+                        </font>
+                    </blockquote>
+                </div>
+=09=09=09=09<!-- Social media links -->
+=09=09=09=09<div style=3D"text-align:center; width:100%;">
+  =09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/=
+click?u=3D4f2891ebb155b23f120ece0bd&id=3Dd1a3a93bae&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-twitter-48.png" alt=3D"Twitter" width=3D"30" height=3D"30" bo=
+rder=3D"0" align=3D"bottom">
+                    </a>
+                    &nbsp;
+=09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/cl=
+ick?u=3D4f2891ebb155b23f120ece0bd&id=3De4a5881882&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-facebook-48.png" alt=3D"Facebook" width=3D"30" height=3D"30"=
+ border=3D"0" align=3D"bottom">
+                    </a>
+                    &nbsp;
+=09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/cl=
+ick?u=3D4f2891ebb155b23f120ece0bd&id=3D6f6bf89429&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-linkedin-48.png" alt=3D"LinkedIn" width=3D"30" height=3D"30"=
+ border=3D"0" align=3D"top">
+                    </a>
+=09=09=09    </div>
+                <br>
+
+
+=09=09=09=09<!-- Footer -->
+                <center>
+                    <p style=3D"font-size:14px;">
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D78a218f744&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">About</a>
+                        &nbsp;&nbsp;&#9702;&nbsp;
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D9dc468cbb1&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">Privacy</a>
+                        &nbsp;&nbsp;&#9702;&nbsp;
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3Db0bc0113ba&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">Contact</a>
+                    </p>
+                    <p style=3D"color:#808080; font-size:14px;">&copy; 202=
+4 KDnuggets</p>
+                </center>
+            </td>
+        </table>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" id=3D"canspamBarWrapper" style=3D"background-color:#FFFFFF; b=
+order-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"paddi=
+ng-top:20px; padding-bottom:20px;">
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" id=3D"canspamBar">
+                                <tr>
+                                    <td align=3D"center" valign=3D"top" st=
+yle=3D"color:#606060; font-family:Helvetica=2C Arial=2C sans-serif; font-s=
+ize:11px; line-height:150%; padding-right:20px; padding-bottom:5px; paddin=
+g-left:20px; text-align:center;">
+                                        This email was sent to <a href=3D"=
+mailto:sminhaz18061997@gmail.com" target=3D"_blank" style=3D"color:#404040 !importa=
+nt;">sminhaz18061997@gmail.com</a>
+                                        <br />
+                                        <a href=3D"https://kdnuggets.us12.=
+list-manage.com/about?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D16fec26faa" target=3D"_blank" style=3D"color:#404040 !important=
+;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"http=
+s://kdnuggets.us12.list-manage.com/unsubscribe?u=3D4f2891ebb155b23f120ece0=
+bd&id=3Db2fa8716d2&t=3Db&e=3D7ba2458a0d&c=3D16fec26faa" style=3D"color:#4040=
+40 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a h=
+ref=3D"https://kdnuggets.us12.list-manage.com/profile?u=3D4f2891ebb155b23f=
+120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D16fec26faa" style=3D"color:#404=
+040 !important;">update subscription preferences</a>
+                                        <br />
+                                        KDnuggets &middot; 151 Calle de Sa=
+n Francisco &middot; Suite 200 - PMB 5072 &middot; San Juan=2C PR 00901 &m=
+iddot; USA
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type=3D"text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; ma=
+rgin-top:10px !important;}
+                    }
+                </style>
+            </center><img src=3D"https://kdnuggets.us12.list-manage.com/tr=
+ack/open.php?u=3D4f2891ebb155b23f120ece0bd&id=3D16fec26faa&e=3D7ba2458a0d=
+" height=3D"1" width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_385943541--

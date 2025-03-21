@@ -1,0 +1,1089 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6520:2354:b0:2ac:6419:e1b with SMTP id c20csp85512lkc;
+        Tue, 17 Dec 2024 01:04:01 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGzfXsnwF+PrZ3YP6jmd/ux2kldlP+dnAWoT5QnnPh94XIKvrlwc62hT9XaoCOmoqx6fTJH
+X-Received: by 2002:a05:6512:3194:b0:540:2add:ba66 with SMTP id 2adb3069b0e04-54131571233mr734001e87.14.1734426240884;
+        Tue, 17 Dec 2024 01:04:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734426240; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CPUqGHzmpqjzrRbYzMiwF6zJwShCLthmTZBhj7cMdm47CNuYsbaHMsR0dq/P5/TJo8
+         UdzlZRuR0//woRlFXX3mdXcLH1DS9ClSf0H3V3JAj232XW03615syYcedv2V2xTWgPtl
+         yKhxVdQD2UY4sdt5lD1IF7hPspMAUJnr+B6Yhv9bTfOGeHJlDSt8gFCFU3nGz/0qOcYU
+         6MT9ZmBDHZ95Q7IVLdJCJNAOweTS4VKx1U1179ZBsXRsyc6RrdDLqCGaW4OtLtmq2Qjl
+         kM5c3HG03fdFJPMgrD0p1vDNnqsukvr2SO/yXeDYSCe00uoxLMtSzXuuZR0uFKOMrCKI
+         VWsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:precedence:list-unsubscribe:list-id:list-help:mime-version
+         :subject:message-id:to:from:dkim-signature:dkim-signature;
+        bh=BnxS6UyU5Hh1Mj/LjDvA9Ia+pmYV1Xxkm+ZKQftUGoY=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=EP+gdObRmKSbS6tERhTjcMfajKZ5NGOEb7v2G5V2OIEcahHljPQb0KqdTVOvDXM4mu
+         0FNeIgXEyXszrs7Jt7UETcB2bAItIK6JTnmxP2YFGn1/pfd13nJMo/8RbmsudQyn6rxn
+         jFStJiRSU26XGHaizOuVk0aiExVsZydBJatKIVpSb6jnJZeqA5+n5qZnTiGl3aC4Qeed
+         IvGsUh3WcPjr7IMq4zSkSEqJ8wo9tt5MYLO94ZD51VO12+0dVZ4LII+N0sN6ygAebS24
+         dWDp+vRkLJ5Xepv7e8akn5Itr4Bv5QuDLF9FlBjoTn3XqrWtBWLReiP1Pmlxz1NMEeQ+
+         xMsw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@antimalware.ru header.s=us header.b=FnTxFQcH;
+       dkim=pass header.i=@topeml.com header.s=jul2015 header.b=izU91qiy;
+       spf=pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) smtp.mailfrom=postman4815985@uni.antimalware.ru;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=antimalware.ru
+Return-Path: <postman4815985@uni.antimalware.ru>
+Received: from smtp1.antimalware.ru (smtp1.antimalware.ru. [31.184.203.109])
+        by mx.google.com with ESMTPS id 2adb3069b0e04-54120c17dbesi2461742e87.257.2024.12.17.01.03.55
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Dec 2024 01:04:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) client-ip=31.184.203.109;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@antimalware.ru header.s=us header.b=FnTxFQcH;
+       dkim=pass header.i=@topeml.com header.s=jul2015 header.b=izU91qiy;
+       spf=pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) smtp.mailfrom=postman4815985@uni.antimalware.ru;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=antimalware.ru
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=us; d=antimalware.ru; h=From:To:Message-Id:Subject:MIME-Version:Content-Type:List-Help:List-Id: List-Unsubscribe:Date:no; i=sender@antimalware.ru; bh=BnxS6UyU5Hh1Mj/LjDvA9Ia+pmYV1Xxkm+ZKQftUGoY=; b=FnTxFQcHl0BmfCG2Atnni2OqvHvxPKR1kv6SajrTczb6GMcACSg0axyX+W2XQOcAigzZCZmpqUYb
+   Zegl499SiD70x/519YLm8xeiySqzigBYtysRlopZPWbM/VfH249dyNM0RgLEI0dLXqeIoRju/ZFg
+   r4vjlnARwYDGbdJBRfQ=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=jul2015; d=topeml.com; h=From:To:Message-Id:Subject:MIME-Version:Content-Type:List-Help:List-Id: List-Unsubscribe:Date; bh=BnxS6UyU5Hh1Mj/LjDvA9Ia+pmYV1Xxkm+ZKQftUGoY=; b=izU91qiyVKzVsrcAMoy6+vOI0YPHAuClw+7G6Lvl0jFNi7Ausd6EasAszyQko8FMmFFifzUfnHa5
+   VOeEJcDiL6kDLuNQsJSF1g670E5UMcONVbeMasowD3LWk3QgzzkhJpqYyzGtcQjL1Xtz7+bH6IYW
+   /kfmlBj6WEmdrbXWegc=
+Received: by smtp1.antimalware.ru id hc4v7o2erm8g for <ham@ham.email>; Tue, 17 Dec 2024 09:03:14 +0000 (envelope-from <postman4815985@uni.antimalware.ru>)
+Return-Path: postman4815985@uni.antimalware.ru
+From: <sender@antimalware.ru>
+To: ham@ham.email
+Message-Id: <E1tNTaC-MW0h5N-OG@ucs701-ucs-4.msgpanel.com>
+Subject: AM Live: Итоги 2024 в ИБ: технологии
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="MXROVGFDLU1XMGg1Ti1PRw=="
+List-Help: <https://uni.antimalware.ru/ru/help/forsubscribers>
+List-Id: 3
+List-Unsubscribe: <https://uni.antimalware.ru/ru/v5/unsubscribe/immediately?hash=6impjkfzeuccgd3ig7if8bzndn3mdgyxs8xja7ua77it5tu1uddshwtfbxmq1da4gty64cqobmewoc>
+Precedence: bulk
+X-Complaints-To: abuse@uni.antimalware.ru
+X-EnvId: usproduction.b_4815985_337525290_29978758389_20290
+X-Feedback-ID: 337525290:4815985:campaign:US
+Date: Tue, 17 Dec 2024 09:03:14 +0000
+
+--MXROVGFDLU1XMGg1Ti1PRw==
+Content-Type: multipart/alternative; boundary="----=_Part_20818113_1184551902.1734426576860"
+
+------=_Part_20818113_1184551902.1734426576860
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+0JrQuNCx0LXRgNCx0LXQt9C+0L/QsNGB0L3QvtGB0YLRjCDQutCw0Log0YHQtdGA0LLQuNGBOiDR
+gdC+0YHRgtC+0Y/QvdC40LUg0Lgg0L/QtdGA0YHQv9C10LrRgtC40LLRiyDRgNGL0L3QutCwCgrC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoAoK0KDQtdCz0LjRgdGC0YDQ
+sNGG0LjRjwoK0JjRgtC+0LPQuCAyMDI0INCyINCY0JE6INGC0LXRhdC90L7Qu9C+0LPQuNC4CgrQ
+ktC+INCy0YLQvtGA0L7QuSDRh9Cw0YHRgtC4INC80Ysg0YDQsNGB0YHQutCw0LbQtdC8INC+INGC
+0LXRhdC90L7Qu9C+0LPQuNGH0LXRgdC60LjRhSDRgtC10L3QtNC10L3RhtC40Y/RhSDQvdCwINGA
+0YvQvdC60LUg0LjQvdGE0L7RgNC80LDRhtC40L7QvdC90L7QuSDQsdC10LfQvtC/0LDRgdC90L7R
+gdGC0LguINCa0LDQutC40LUg0L3QvtCy0YvQtSDRgtC10YXQvdC+0LvQvtCz0LjQuCDQuCDQv9GA
+0L7QtNGD0LrRgtGLINC/0L7Rj9Cy0LjQu9C40YHRjCDQt9CwINCz0L7QtC4g0J7QsdGB0YPQtNC4
+0Lwg0LfQvdCw0YfQuNC80YvQtSDQvdC+0LLQuNC90LrQuCwg0L7QsdC90L7QstC70LXQvdC40Y8g
+0Lgg0L/RgNC+0YDRi9Cy0Ysg0LIg0LjQvNC/0L7RgNGC0L7Qt9Cw0LzQtdGJ0LXQvdC40LguCgrQ
+ktC+0L/RgNC+0YHRiyDQtNC70Y8g0L7QsdGB0YPQttC00LXQvdC40Y86Cgrwn5GJCgrQmtCw0Log
+0L3QvtCy0YvQtSDRgtGA0LXQsdC+0LLQsNC90LjRjyDRgNC10LPRg9C70Y/RgtC+0YDQvtCyINC/
+0L7QstC70LjRj9C70Lgg0L3QsCDRgNCw0LfQstC40YLQuNC1INC/0YDQvtC00YPQutGC0L7QsiDQ
+uCDRgtC10YXQvdC+0LvQvtCz0LjQuT8KCvCfkYkKCtCf0L7QstGL0YjQtdC90LjQtSDQv9GA0L7Q
+uNC30LLQvtC00LjRgtC10LvRjNC90L7RgdGC0Lgg0YLRgNGD0LTQsCDQuCDQutCw0LTRgNC+0LLR
+i9C5INCz0L7Qu9C+0LQg0LIg0JjQkTog0LrQsNC60LjQtSDQv9GA0L7QtNGD0LrRgtGLINC4INGC
+0LXRhdC90L7Qu9C+0LPQuNC4INC/0L7QvNC+0LPQsNGO0YIg0YDQtdGI0LjRgtGMINGN0YLRgyDQ
+v9GA0L7QsdC70LXQvNGDPwoK8J+RiQoK0KfRgtC+INC90L7QstC+0LPQviDQuCDQv9GA0L7RgNGL
+0LLQvdC+0LPQviDQv9C+0Y/QstC40LvQvtGB0Ywg0LIgMjAyNCDQs9C+0LTRgyDRgdGA0LXQtNC4
+INGC0LXRhdC90L7Qu9C+0LPQuNC5INC4INGA0LXRiNC10L3QuNC5INC/0L4g0LrQuNCx0LXRgNCx
+0LXQt9C+0L/QsNGB0L3QvtGB0YLQuD8KCvCfkYkKCtCc0Ysg0LTQvtCz0L7QvdGP0LXQvCDigJzQ
+t9Cw0L/QsNC04oCdINC40LvQuCDRg9C20LUg0L/QtdGA0LXRiNC70Lgg0Log0YHQvtC30LTQsNC9
+0LjRjiDRgdCy0L7QtdC5INC90LDRhtC40L7QvdCw0LvRjNC90L7QuSDRjdC60L7RgdC40YHRgtC1
+0LzRiyDQutC40LHQtdGA0LHQtdC30L7Qv9Cw0YHQvdC+0YHRgtC4PwoK8J+RiQoK0JrQsNC6INCx
+0YPQtNGD0YIg0LLQvdC10LTRgNGP0YLRjNGB0Y8g0LDQu9Cz0L7RgNC40YLQvNGLINC80LDRiNC4
+0L3QvdC+0LPQviDQvtCx0YPRh9C10L3QuNGPINC00LvRjyDQvtCx0L3QsNGA0YPQttC10L3QuNGP
+INC4INC/0YDQtdC00YHQutCw0LfQsNC90LjRjyDQutC40LHQtdGA0LDRgtCw0Lo/Cgrwn5GJCgrQ
+mtCw0Log0LHRg9C00LXRgiDQvNC10L3Rj9GC0YzRgdGPINC60LjQsdC10YDQsdC10LfQvtC/0LDR
+gdC90L7RgdGC0Ywg0L/RgNC+0LzRi9GI0LvQtdC90L3Ri9GFINC/0YDQtdC00L/RgNC40Y/RgtC4
+0Lk/CgrQvNC+0LTQtdGA0LDRgtC+0YDRiwoK0JDRgNGC0ZHQvCDQmtCw0LvQsNGI0L3QuNC60L7Q
+sgoK0KPQv9GA0LDQstC70Y/RjtGJ0LjQuSDQtNC40YDQtdC60YLQvtGAINCm0LXQvdGC0YDQsCDQ
+uNC90YTQvtGA0LzQsNGG0LjQvtC90L3QvtC5INCx0LXQt9C+0L/QsNGB0L3QvtGB0YLQuCDQtNC+
+0YfQtdGA0L3QuNGFINC4INC30LDQstC40YHQuNC80YvRhSDQvtCx0YnQtdGB0YLQsiwg0JPQsNC3
+0L/RgNC+0LzQsdCw0L3QugoK0Y3QutGB0L/QtdGA0YLRiwoK0JjQu9GM0Y8g0JzQsNGA0LrQtdC7
+0L7QsgoK0KDRg9C60L7QstC+0LTQuNGC0LXQu9GMINC90LDQv9GA0LDQstC70LXQvdC40Y8g0YDQ
+sNC30LLQuNGC0LjRjyDQtdC00LjQvdC+0Lkg0LrQvtGA0L/QvtGA0LDRgtC40LLQvdC+0Lkg0L/Q
+u9Cw0YLRhNC+0YDQvNGLLCDCq9Cb0LDQsdC+0YDQsNGC0L7RgNC40Y/CoNCa0LDRgdC/0LXRgNGB
+0LrQvtCz0L7CuwoK0J3QuNC60LjRgtCwINCa0LjRgdC70LjRhtC40L0KCtCi0LXRhdC90LjRh9C1
+0YHQutC40Lkg0LTQuNGA0LXQutGC0L7RgCwgRi5BLkMuQy5ULgoK0JDQu9C10LrRgdCw0L3QtNGA
+INCc0LDRhdC90L7QstGB0LrQuNC5CgrQotC10YXQvdC40YfQtdGB0LrQuNC5INC00LjRgNC10LrR
+gtC+0YAsIEF2YW5wb3N0CgrQodC10YDQs9C10Lkg0KLQtdGA0LXRhdC+0LIKCtCT0LXQvdC10YDQ
+sNC70YzQvdGL0Lkg0LTQuNGA0LXQutGC0L7RgCwgwqvQm9CY0J3Ql9CQwrsKCtCY0LvRjNGPINCX
+0LDQsdC10LPQsNC10LIKCtCU0LjRgNC10LrRgtC+0YAg0L/QviDQv9GA0L7QtNGD0LrRgtGDLCDQ
+mtC40LHQtdGA0LjRgdC/0YvRgtCw0L3QuNC1CgrQkNC70LXQutGB0LXQuSDQktC+0YDQvtC90YbQ
+vtCyCgrQlNC40YDQtdC60YLQvtGAINC00LXQv9Cw0YDRgtCw0LzQtdC90YLQsCDQutC+0L3RgdCw
+0LvRgtC40L3Qs9CwLCBDbG91ZMKgTmV0d29ya3MKCtCU0LXQvdC40YEg0KHQtdC90Y7QutC+0LIK
+CtCU0LjRgNC10LrRgtC+0YAg0LTQtdC/0LDRgNGC0LDQvNC10L3RgtCwINC/0L4g0YDQsNCx0L7R
+gtC1INGBINC60L7RgNC/0L7RgNCw0YLQuNCy0L3Ri9C8INGB0LXQs9C80LXQvdGC0L7QvCwgwqvQ
+mNC90YTQvtGA0LzQt9Cw0YnQuNGC0LDCuwoKMTgg0LTQtdC60LDQsdGA0Y8gMjAyNMKg0LPQvtC0
+0LAg0LIgMTU6MDAgKNCc0KHQmikKCtCg0LXQs9C40YHRgtGA0LDRhtC40Y8gwqAKCtCe0YLQv9C4
+0YHQsNGC0YzRgdGPINC+0YIg0YDQsNGB0YHRi9C70LrQuCAoaHR0cHM6Ly91bmkuYW50aW1hbHdh
+cmUucnUvcnUvdW5zdWJzY3JpYmU/aGFzaD02aW1wamtmemV1Y2NnZDNpZzdpZjhiem5kbjNtZGd5
+eHM4eGphN3VhNzdpdDV0dTF1ZGRzaHd0ZmJ4bXExZGE0Z3R5NjRjcW9ibWV3b2Mjbm9fdHJhY2tp
+bmcpIEBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpeyB0YWJsZSNjYW5z
+cGFtQmFyIHRke2ZvbnQtc2l6ZToxNHB4ICFpbXBvcnRhbnQ7fSB0YWJsZSNjYW5zcGFtQmFyIHRk
+IGF7ZGlzcGxheTpibG9jayAhaW1wb3J0YW50OyBtYXJnaW4tdG9wOjEwcHggIWltcG9ydGFudDt9
+IH0KCg==
+------=_Part_20818113_1184551902.1734426576860
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+=09<title>=D0=9A=D0=B8=D0=B1=D0=B5=D1=80=D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=D0=
+=B0=D1=81=D0=BD=D0=BE=D1=81=D1=82=D1=8C =D0=BA=D0=B0=D0=BA =D1=81=D0=B5=D1=
+=80=D0=B2=D0=B8=D1=81: =D1=81=D0=BE=D1=81=D1=82=D0=BE=D1=8F=D0=BD=D0=B8=D0=
+=B5 =D0=B8 =D0=BF=D0=B5=D1=80=D1=81=D0=BF=D0=B5=D0=BA=D1=82=D0=B8=D0=B2=D1=
+=8B =D1=80=D1=8B=D0=BD=D0=BA=D0=B0</title>
+=09<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+=09<style type=3D"text/css">a{
+=09=09=09outline:none;
+=09=09=09color:#000;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09a:hover{
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09.active:hover{
+=09=09=09opacity:.8;
+=09=09}
+=09=09.active{
+=09=09=09-webkit-transition:all .3s ease;
+=09=09=09-moz-transition:all .3s ease;
+=09=09=09-ms-transition:all .3s ease;
+=09=09=09transition:all .3s ease;
+=09=09}
+=09=09.active a:hover{
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09p{
+=09=09=09margin:0 !important;
+=09=09}
+=09=09a img{
+=09=09=09border:none;
+=09=09}
+=09=09img{
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table td{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09.ExternalClass,.ExternalClass a,.ExternalClass span,.ExternalClass b,=
+.ExternalClass br,.ExternalClass p,.ExternalClass div{
+=09=09=09line-height:inherit;
+=09=09}
+=09=09.tpl-content{
+=09=09=09padding:0 !important;
+=09=09}
+=09=09.cke_show_borders{
+=09=09=09background:#e4e4e4 !important;
+=09=09}
+=09=09.tpl-repeatmovewrap>.tpl-repeatmove{
+=09=09=09top:-15px !important;
+=09=09}
+=09@media only screen and (max-width:500px){
+=09=09.flexible{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.table-center{
+=09=09=09float:none !important;
+=09=09=09margin:0 auto !important;
+=09=09=09width:auto !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.hide{
+=09=09=09display:none !important;
+=09=09=09width:0 !important;
+=09=09=09height:0 !important;
+=09=09=09padding:0 !important;
+=09=09=09font-size:0 !important;
+=09=09=09line-height:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.img-flex img{
+=09=09=09width:100% !important;
+=09=09=09height:auto !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.aligncenter{
+=09=09=09text-align:center !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.table-holder{
+=09=09=09display:table !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.tcap{
+=09=09=09display:table-caption !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.thead{
+=09=09=09display:table-header-group !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.trow{
+=09=09=09display:table-row !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.tfoot{
+=09=09=09display:table-footer-group !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.flex{
+=09=09=09display:block !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.holder{
+=09=09=09padding-left:10px !important;
+=09=09=09padding-right:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.pl-10{
+=09=09=09padding-left:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.ico-characters{
+=09=09=09width:125px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.ico-characters img{
+=09=09=09width:115px !important;
+=09=09=09height:auto !important;
+=09=09}
+
+}
+=09</style>
+=09<!--[if !mso]><!--><!--<![endif]-->
+</head>
+<body bgcolor=3D"#ffffff" style=3D"margin: 0px; padding: 0px; text-size-adj=
+ust: 100%; cursor: auto;">
+<table bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0" style=3D"min=
+-width:320px;" width=3D"100%">
+<!-- fix for gmail -->
+=09<tbody>
+=09=09<tr>
+=09=09=09<td style=3D"line-height: 0;mso-line-height-rule: exactly;">
+=09=09=09<div style=3D"display:none;white-space:nowrap;font:15px/1px courie=
+r;">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0</div>
+=09=09=09</td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td style=3D"mso-line-height-rule: exactly;">
+=09=09=09<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"flexible" style=3D"margin:0 auto;" width=3D"600">
+<!-- fix for gmail -->
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td class=3D"hide" style=3D"mso-line-height-rule: exactly=
+;">
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" style=3D"width=
+:600px !important;" width=3D"600">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td style=3D"min-width: 600px;font-size: 0;line-=
+height: 0;mso-line-height-rule: exactly;"></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- content -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"mso-line-height-rule: exactly;">
+<!-- banner -->
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:repeatable=
+=3D"repeat_1" mc:repeatindex=3D"0" mc:variant=3D"banner" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"img-flex" style=3D=
+"padding: 0 0 21px;mso-line-height-rule: exactly;"><a href=3D"https://uni.a=
+ntimalware.ru/ru/mail_link_tracker?hash=3D6bis9ufgy3d6dqspy9fns1s63bbmdgyxs=
+8xja7ua77it5tu1uddsuhgdd8kmb8jc91dqnix9atzd9dfftdkot6bmat5e3garudmw35qo&url=
+=3DaHR0cHM6Ly9saXZlLmFudGktbWFsd2FyZS5ydS9hbS1saXZlL2l0b2dpLWdvZGEtaWItMi8j=
+cmVn&uid=3DNDgxNTk4NQ~~&ucs=3D92b2f40c35358c1eb783036bd3f508ed"><img alt=3D=
+"=D0=98=D1=82=D0=BE=D0=B3=D0=B8 2024 =D0=B2 =D0=98=D0=91: =D1=82=D0=B5=D1=
+=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B8" data-file-id=3D"5368979" src=
+=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg&user_id=3D481598=
+5&name=3D6uw1jb7iyui1co9tn1e388kkxryu1h7t5otxn4n8b8gmzzk5ki9dynezk4s6n5bw6p=
+6byk7fu1yqyuaynm73akpka6izcu4s9msnd6tatu1eomd7zuhuo" style=3D"border: 0px;w=
+idth: 605px;height: 340px;margin: 0px;outline: none;text-decoration: none;-=
+ms-interpolation-mode: bicubic;"></a></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=3D"mfema=
+il-table mfemail-content" style=3D"border: 0px;" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"mfemail-td mfemail=
+-content__inner" style=3D"padding-top: 24px;">
+<!-- [if gte mso 9 | ie]><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"200" style=3D"width:200px;"><tbody><tr><td><![endif]-->
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"mfemail-table mfemail-button mfemail-button_type_primary mfemail-button=
+_theme_green" style=3D"border: 0px; max-width: 200px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"mfemail-t=
+d" height=3D"46" style=3D"height: 46px; background-color: #B32222; border-r=
+adius: 30px; border: 1px solid transparent;"><a class=3D"mfemail-button__in=
+ner" href=3D"https://uni.antimalware.ru/ru/mail_link_tracker?hash=3D6mbe5ep=
+jw77iehspy9fns1s63bbmdgyxs8xja7ua77it5tu1uddsihquhoc6g6bsf1dqnix9atzd9dfftd=
+kot6bmat5e3garudmw35qo&url=3DaHR0cHM6Ly9saXZlLmFudGktbWFsd2FyZS5ydS9hbS1saX=
+ZlL2l0b2dpLWdvZGEtaWItMi8jcmVn&uid=3DNDgxNTk4NQ~~&ucs=3D92b2f40c35358c1eb78=
+3036bd3f508ed" rel=3D"noreferrer" style=3D"border: none; color: #ffffff; cu=
+rsor: pointer; display: block; font-size: 15px; font-weight: bold; text-ali=
+gn: center; line-height: 46px; outline: 0px; padding-left: 32px; padding-ri=
+ght: 32px; text-decoration: none;" target=3D"_blank"><!-- [if mso]>=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0<![endif]-->=D0=A0=D0=B5=D0=B3=D0=B8=D1=81=D1=
+=82=D1=80=D0=B0=D1=86=D0=B8=D1=8F<!-- [if mso]>=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0<![endif]--></a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09<!-- [if gte mso 9 | ie]></td></tr></tbody></tab=
+le><![endif]-->
+</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=3D"mfema=
+il-table mfemail-content" style=3D"border: 0px; max-width: 600px;" width=3D=
+"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"mfemail-td mfemail-content__inner" =
+style=3D"padding: 56px 40px 72px; background-color: #ffffff;">
+=09=09=09=09=09=09=09=09=09<div style=3D"margin-bottom: 8px;">
+=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-header" style=3D"font-size=
+: 30px; font-weight: bold; line-height: 36px; margin-top: 0px; margin-right=
+: 0px; margin-left: 0px;">=D0=98=D1=82=D0=BE=D0=B3=D0=B8 2024 =D0=B2 =D0=98=
+=D0=91: =D1=82=D0=B5=D1=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B8</div>
+=09=09=09=09=09=09=09=09=09</div>
+
+=09=09=09=09=09=09=09=09=09<div style=3D"margin-bottom: 24px;">
+=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=3D"font-s=
+ize: 15px; font-weight: 400; line-height: 24px; margin-top: 0px; margin-rig=
+ht: 0px; margin-left: 0px;">=D0=92=D0=BE =D0=B2=D1=82=D0=BE=D1=80=D0=BE=D0=
+=B9 =D1=87=D0=B0=D1=81=D1=82=D0=B8 =D0=BC=D1=8B =D1=80=D0=B0=D1=81=D1=81=D0=
+=BA=D0=B0=D0=B6=D0=B5=D0=BC =D0=BE =D1=82=D0=B5=D1=85=D0=BD=D0=BE=D0=BB=D0=
+=BE=D0=B3=D0=B8=D1=87=D0=B5=D1=81=D0=BA=D0=B8=D1=85 =D1=82=D0=B5=D0=BD=D0=
+=B4=D0=B5=D0=BD=D1=86=D0=B8=D1=8F=D1=85 =D0=BD=D0=B0 =D1=80=D1=8B=D0=BD=D0=
+=BA=D0=B5 =D0=B8=D0=BD=D1=84=D0=BE=D1=80=D0=BC=D0=B0=D1=86=D0=B8=D0=BE=D0=
+=BD=D0=BD=D0=BE=D0=B9 =D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D0=
+=BE=D1=81=D1=82=D0=B8. =D0=9A=D0=B0=D0=BA=D0=B8=D0=B5 =D0=BD=D0=BE=D0=B2=D1=
+=8B=D0=B5 =D1=82=D0=B5=D1=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B8 =D0=
+=B8 =D0=BF=D1=80=D0=BE=D0=B4=D1=83=D0=BA=D1=82=D1=8B =D0=BF=D0=BE=D1=8F=D0=
+=B2=D0=B8=D0=BB=D0=B8=D1=81=D1=8C =D0=B7=D0=B0 =D0=B3=D0=BE=D0=B4. =D0=9E=
+=D0=B1=D1=81=D1=83=D0=B4=D0=B8=D0=BC =D0=B7=D0=BD=D0=B0=D1=87=D0=B8=D0=BC=
+=D1=8B=D0=B5 =D0=BD=D0=BE=D0=B2=D0=B8=D0=BD=D0=BA=D0=B8, =D0=BE=D0=B1=D0=BD=
+=D0=BE=D0=B2=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=B8 =D0=BF=D1=80=D0=BE=D1=80=
+=D1=8B=D0=B2=D1=8B =D0=B2 =D0=B8=D0=BC=D0=BF=D0=BE=D1=80=D1=82=D0=BE=D0=B7=
+=D0=B0=D0=BC=D0=B5=D1=89=D0=B5=D0=BD=D0=B8=D0=B8.<br>
+=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09<strong>=D0=92=D0=BE=D0=BF=D1=80=D0=BE=D1=81=D1=
+=8B =D0=B4=D0=BB=D1=8F =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=D0=
+=B8=D1=8F:</strong>
+</div>
+=09=09=09=09=09=09=09=09=09</div>
+
+=09=09=09=09=09=09=09=09=09<div style=3D"margin-bottom: 40px;">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"mfemail-table mfemail-list" style=3D"border: 0px;">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px;font-weight: 400;line-height: 24px;margin: 0px 0px 0px;=
+">=D0=9A=D0=B0=D0=BA =D0=BD=D0=BE=D0=B2=D1=8B=D0=B5 =D1=82=D1=80=D0=B5=D0=
+=B1=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D1=8F =D1=80=D0=B5=D0=B3=D1=83=D0=BB=D1=
+=8F=D1=82=D0=BE=D1=80=D0=BE=D0=B2 =D0=BF=D0=BE=D0=B2=D0=BB=D0=B8=D1=8F=D0=
+=BB=D0=B8 =D0=BD=D0=B0 =D1=80=D0=B0=D0=B7=D0=B2=D0=B8=D1=82=D0=B8=D0=B5 =D0=
+=BF=D1=80=D0=BE=D0=B4=D1=83=D0=BA=D1=82=D0=BE=D0=B2 =D0=B8 =D1=82=D0=B5=D1=
+=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B9?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px; font-weight: 400; line-height: 24px; margin: 0px 0px 0=
+px;">=D0=9F=D0=BE=D0=B2=D1=8B=D1=88=D0=B5=D0=BD=D0=B8=D0=B5 =D0=BF=D1=80=D0=
+=BE=D0=B8=D0=B7=D0=B2=D0=BE=D0=B4=D0=B8=D1=82=D0=B5=D0=BB=D1=8C=D0=BD=D0=BE=
+=D1=81=D1=82=D0=B8 =D1=82=D1=80=D1=83=D0=B4=D0=B0 =D0=B8 =D0=BA=D0=B0=D0=B4=
+=D1=80=D0=BE=D0=B2=D1=8B=D0=B9 =D0=B3=D0=BE=D0=BB=D0=BE=D0=B4 =D0=B2 =D0=98=
+=D0=91: =D0=BA=D0=B0=D0=BA=D0=B8=D0=B5 =D0=BF=D1=80=D0=BE=D0=B4=D1=83=D0=BA=
+=D1=82=D1=8B =D0=B8 =D1=82=D0=B5=D1=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=
+=D0=B8 =D0=BF=D0=BE=D0=BC=D0=BE=D0=B3=D0=B0=D1=8E=D1=82 =D1=80=D0=B5=D1=88=
+=D0=B8=D1=82=D1=8C =D1=8D=D1=82=D1=83 =D0=BF=D1=80=D0=BE=D0=B1=D0=BB=D0=B5=
+=D0=BC=D1=83?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 0px; =
+margin-right: 0px; margin-left: 0px;">=D0=A7=D1=82=D0=BE =D0=BD=D0=BE=D0=B2=
+=D0=BE=D0=B3=D0=BE =D0=B8 =D0=BF=D1=80=D0=BE=D1=80=D1=8B=D0=B2=D0=BD=D0=BE=
+=D0=B3=D0=BE =D0=BF=D0=BE=D1=8F=D0=B2=D0=B8=D0=BB=D0=BE=D1=81=D1=8C =D0=B2 =
+2024 =D0=B3=D0=BE=D0=B4=D1=83 =D1=81=D1=80=D0=B5=D0=B4=D0=B8 =D1=82=D0=B5=
+=D1=85=D0=BD=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B9 =D0=B8 =D1=80=D0=B5=D1=88=
+=D0=B5=D0=BD=D0=B8=D0=B9 =D0=BF=D0=BE =D0=BA=D0=B8=D0=B1=D0=B5=D1=80=D0=B1=
+=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D0=BE=D1=81=D1=82=D0=B8?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 0px; =
+margin-right: 0px; margin-left: 0px;">=D0=9C=D1=8B =D0=B4=D0=BE=D0=B3=D0=BE=
+=D0=BD=D1=8F=D0=B5=D0=BC =E2=80=9C=D0=B7=D0=B0=D0=BF=D0=B0=D0=B4=E2=80=9D =
+=D0=B8=D0=BB=D0=B8 =D1=83=D0=B6=D0=B5 =D0=BF=D0=B5=D1=80=D0=B5=D1=88=D0=BB=
+=D0=B8 =D0=BA =D1=81=D0=BE=D0=B7=D0=B4=D0=B0=D0=BD=D0=B8=D1=8E =D1=81=D0=B2=
+=D0=BE=D0=B5=D0=B9 =D0=BD=D0=B0=D1=86=D0=B8=D0=BE=D0=BD=D0=B0=D0=BB=D1=8C=
+=D0=BD=D0=BE=D0=B9 =D1=8D=D0=BA=D0=BE=D1=81=D0=B8=D1=81=D1=82=D0=B5=D0=BC=
+=D1=8B =D0=BA=D0=B8=D0=B1=D0=B5=D1=80=D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=
+=D1=81=D0=BD=D0=BE=D1=81=D1=82=D0=B8?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 0px; =
+margin-right: 0px; margin-left: 0px;">=D0=9A=D0=B0=D0=BA =D0=B1=D1=83=D0=B4=
+=D1=83=D1=82 =D0=B2=D0=BD=D0=B5=D0=B4=D1=80=D1=8F=D1=82=D1=8C=D1=81=D1=8F =
+=D0=B0=D0=BB=D0=B3=D0=BE=D1=80=D0=B8=D1=82=D0=BC=D1=8B =D0=BC=D0=B0=D1=88=
+=D0=B8=D0=BD=D0=BD=D0=BE=D0=B3=D0=BE =D0=BE=D0=B1=D1=83=D1=87=D0=B5=D0=BD=
+=D0=B8=D1=8F =D0=B4=D0=BB=D1=8F =D0=BE=D0=B1=D0=BD=D0=B0=D1=80=D1=83=D0=B6=
+=D0=B5=D0=BD=D0=B8=D1=8F =D0=B8 =D0=BF=D1=80=D0=B5=D0=B4=D1=81=D0=BA=D0=B0=
+=D0=B7=D0=B0=D0=BD=D0=B8=D1=8F =D0=BA=D0=B8=D0=B1=D0=B5=D1=80=D0=B0=D1=82=
+=D0=B0=D0=BA?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ style=3D"width: 16px; padding-right: 4px;" valign=3D"top" width=3D"16">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"color: #042c61; font-size: 15px; font-weight: 400; line-height: 24px; m=
+argin-top: 0px; margin-right: 0px; margin-left: 0px;">=F0=9F=91=89</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" class=3D"mfemail-td"=
+ valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-paragraph" style=
+=3D"font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 0px; =
+margin-right: 0px; margin-left: 0px;">=D0=9A=D0=B0=D0=BA =D0=B1=D1=83=D0=B4=
+=D0=B5=D1=82 =D0=BC=D0=B5=D0=BD=D1=8F=D1=82=D1=8C=D1=81=D1=8F =D0=BA=D0=B8=
+=D0=B1=D0=B5=D1=80=D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D0=BE=D1=
+=81=D1=82=D1=8C =D0=BF=D1=80=D0=BE=D0=BC=D1=8B=D1=88=D0=BB=D0=B5=D0=BD=D0=
+=BD=D1=8B=D1=85 =D0=BF=D1=80=D0=B5=D0=B4=D0=BF=D1=80=D0=B8=D1=8F=D1=82=D0=
+=B8=D0=B9?</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:re=
+peatable=3D"repeat_1" mc:repeatindex=3D"12" mc:variant=3D"banner" width=3D"=
+100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"img-flex"=
+ style=3D"padding: 0 0 21px;mso-line-height-rule: exactly;"></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:re=
+peatable=3D"repeat_1" mc:repeatindex=3D"13" mc:variant=3D"title" width=3D"1=
+00%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#e4e4e4=
+" style=3D"font: bold 18px/22px; color: #B32222;text-transform: uppercase;p=
+adding: 7px 10px;mso-line-height-rule: exactly;"><strong><span style=3D"fon=
+t-size:18px"><span>=D0=BC=D0=BE=D0=B4=D0=B5=D1=80=D0=B0=D1=82=D0=BE=D1=80=
+=D1=8B</span></span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:re=
+peatable=3D"repeat_1" mc:repeatindex=3D"14" mc:variant=3D"main_characters" =
+width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"holder" style=3D"padding: =
+10px 29px 5px;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:hideable=3D"hideable_repea=
+t_1:14:repeat_1_1" mc:repeatable=3D"repeat_1:14:repeat_1" mc:repeatindex=3D=
+"0" mchideable=3D"hideable_repeat_1:14:repeat_1_1">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=90=D1=80=D1=82=D1=91=D0=BC =D0=9A=D0=B0=D0=BB=D0=B0=D1=88=D0=BD=D0=B8=
+=D0=BA=D0=BE=D0=B2" src=3D"http://uni.antimalware.ru/ru/user_file?resource=
+=3Dhimg&user_id=3D4815985&name=3D6z4eaemq3zcnrh9tn1e388kkxryu1h7t5otxn4nnhe=
+pnp7ckxjn5wtruib4h1a9k4dmp5sonuta9n5h8z74wehe3y3dcfn77x7xaq9uo"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=90=D1=80=D1=82=
+=D1=91=D0=BC =D0=9A=D0=B0=D0=BB=D0=B0=D1=88=D0=BD=D0=B8=D0=BA=D0=BE=D0=B2</=
+span></span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=A3=D0=BF=D1=80=D0=B0=D0=B2=D0=BB=D1=8F=D1=8E=
+=D1=89=D0=B8=D0=B9 =D0=B4=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80 =D0=A6=
+=D0=B5=D0=BD=D1=82=D1=80=D0=B0 =D0=B8=D0=BD=D1=84=D0=BE=D1=80=D0=BC=D0=B0=
+=D1=86=D0=B8=D0=BE=D0=BD=D0=BD=D0=BE=D0=B9 =D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=
+=D0=B0=D1=81=D0=BD=D0=BE=D1=81=D1=82=D0=B8 =D0=B4=D0=BE=D1=87=D0=B5=D1=80=
+=D0=BD=D0=B8=D1=85 =D0=B8 =D0=B7=D0=B0=D0=B2=D0=B8=D1=81=D0=B8=D0=BC=D1=8B=
+=D1=85 =D0=BE=D0=B1=D1=89=D0=B5=D1=81=D1=82=D0=B2, =D0=93=D0=B0=D0=B7=D0=BF=
+=D1=80=D0=BE=D0=BC=D0=B1=D0=B0=D0=BD=D0=BA</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:re=
+peatable=3D"repeat_1" mc:repeatindex=3D"15" mc:variant=3D"title" width=3D"1=
+00%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#e4e4e4=
+" style=3D"font: bold 18px/22px;color: #B32222;text-transform: uppercase;pa=
+dding: 7px 10px;mso-line-height-rule: exactly;"><strong><span style=3D"font=
+-size:18px"><span>=D1=8D=D0=BA=D1=81=D0=BF=D0=B5=D1=80=D1=82=D1=8B</span></=
+span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:re=
+peatable=3D"repeat_1" mc:repeatindex=3D"16" mc:variant=3D"main_characters" =
+width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"holder" style=3D"padding: =
+10px 29px 5px;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=98=D0=BB=D1=8C=D1=8F =D0=9C=D0=B0=D1=80=D0=BA=D0=B5=D0=BB=D0=BE=D0=B2" =
+src=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg&user_id=3D481=
+5985&name=3D6y9sutf4bi9uzq9tn1e388kkxryu1h7t5otxn4n8rwu5bxduk94mwdp4cygzwp1=
+etkag39r6ge6tibjkwg5z5swk5b94wh8pnrcstdfy"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=98=D0=BB=D1=8C=
+=D1=8F =D0=9C=D0=B0=D1=80=D0=BA=D0=B5=D0=BB=D0=BE=D0=B2</span></span></stro=
+ng></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=A0=D1=83=D0=BA=D0=BE=D0=B2=D0=BE=D0=B4=D0=B8=
+=D1=82=D0=B5=D0=BB=D1=8C =D0=BD=D0=B0=D0=BF=D1=80=D0=B0=D0=B2=D0=BB=D0=B5=
+=D0=BD=D0=B8=D1=8F =D1=80=D0=B0=D0=B7=D0=B2=D0=B8=D1=82=D0=B8=D1=8F =D0=B5=
+=D0=B4=D0=B8=D0=BD=D0=BE=D0=B9 =D0=BA=D0=BE=D1=80=D0=BF=D0=BE=D1=80=D0=B0=
+=D1=82=D0=B8=D0=B2=D0=BD=D0=BE=D0=B9 =D0=BF=D0=BB=D0=B0=D1=82=D1=84=D0=BE=
+=D1=80=D0=BC=D1=8B, =C2=AB=D0=9B=D0=B0=D0=B1=D0=BE=D1=80=D0=B0=D1=82=D0=BE=
+=D1=80=D0=B8=D1=8F=C2=A0=D0=9A=D0=B0=D1=81=D0=BF=D0=B5=D1=80=D1=81=D0=BA=D0=
+=BE=D0=B3=D0=BE=C2=BB</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=9D=D0=B8=D0=BA=D0=B8=D1=82=D0=B0 =D0=9A=D0=B8=D1=81=D0=BB=D0=B8=D1=86=
+=D0=B8=D0=BD" src=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg=
+&user_id=3D4815985&name=3D6uj9i8soyiijts9tn1e388kkxryu1h7t5otxn4nbff6f89581=
+dyyem6gzhbxqmk8gcwgjd43p3besc9k4ko5e537jgtqdqnos3qmq36o"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=9D=D0=B8=D0=BA=
+=D0=B8=D1=82=D0=B0 =D0=9A=D0=B8=D1=81=D0=BB=D0=B8=D1=86=D0=B8=D0=BD</span><=
+/span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=A2=D0=B5=D1=85=D0=BD=D0=B8=D1=87=D0=B5=D1=81=
+=D0=BA=D0=B8=D0=B9 =D0=B4=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80, F.A.C.=
+C.T.</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=B0=D0=BD=D0=B4=D1=80 =D0=9C=D0=B0=D1=85=
+=D0=BD=D0=BE=D0=B2=D1=81=D0=BA=D0=B8=D0=B9" src=3D"http://uni.antimalware.r=
+u/ru/user_file?resource=3Dhimg&user_id=3D4815985&name=3D6qsyiy87qn8xw69tn1e=
+388kkxryu1h7t5otxn4nfpdk4k3rnat1ji41op674p6hijcgfany89hheihxbarb1y7drhka8n6=
+rxugik5zro"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=90=D0=BB=D0=B5=
+=D0=BA=D1=81=D0=B0=D0=BD=D0=B4=D1=80 =D0=9C=D0=B0=D1=85=D0=BD=D0=BE=D0=B2=
+=D1=81=D0=BA=D0=B8=D0=B9</span></span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=A2=D0=B5=D1=85=D0=BD=D0=B8=D1=87=D0=B5=D1=81=
+=D0=BA=D0=B8=D0=B9 =D0=B4=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80, Avanpo=
+st</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=A1=D0=B5=D1=80=D0=B3=D0=B5=D0=B9 =D0=A2=D0=B5=D1=80=D0=B5=D1=85=D0=BE=
+=D0=B2" src=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg&user_=
+id=3D4815985&name=3D6w7rkn7g6rdg9q9tn1e388kkxryu1h7t5otxn4nr1iaofbqupaqeu3b=
+w9ss1fisj1h9tdtijw5ptfffs179ezjiwkaic6os8nxwhiauo"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=A1=D0=B5=D1=80=
+=D0=B3=D0=B5=D0=B9 =D0=A2=D0=B5=D1=80=D0=B5=D1=85=D0=BE=D0=B2</span></span>=
+</strong></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=93=D0=B5=D0=BD=D0=B5=D1=80=D0=B0=D0=BB=D1=8C=
+=D0=BD=D1=8B=D0=B9 =D0=B4=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80, =C2=AB=
+=D0=9B=D0=98=D0=9D=D0=97=D0=90=C2=BB</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=98=D0=BB=D1=8C=D1=8F =D0=97=D0=B0=D0=B1=D0=B5=D0=B3=D0=B0=D0=B5=D0=B2" =
+src=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg&user_id=3D481=
+5985&name=3D654tmxd9iu3sm69tn1e388kkxryu1h7t5otxn4n8o8cypsw4i7dj1grobbttdn8=
+wfwmn49wb8o1pmx5couim3h7tyr94wh8pnrcstdfy"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=98=D0=BB=D1=8C=
+=D1=8F =D0=97=D0=B0=D0=B1=D0=B5=D0=B3=D0=B0=D0=B5=D0=B2</span></span></stro=
+ng></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=94=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80 =
+=D0=BF=D0=BE =D0=BF=D1=80=D0=BE=D0=B4=D1=83=D0=BA=D1=82=D1=83, =D0=9A=D0=B8=
+=D0=B1=D0=B5=D1=80=D0=B8=D1=81=D0=BF=D1=8B=D1=82=D0=B0=D0=BD=D0=B8=D0=B5</s=
+pan></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=B5=D0=B9 =D0=92=D0=BE=D1=80=D0=BE=D0=BD=
+=D1=86=D0=BE=D0=B2" src=3D"http://uni.antimalware.ru/ru/user_file?resource=
+=3Dhimg&user_id=3D4815985&name=3D6j351pcw7yyess9tn1e388kkxryu1h7t5otxn4nfpd=
+k4k3rnat1j13u4cisk9coe4zs9w7tcudtb6dc534adisaimnagd1u1tcueoede"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=90=D0=BB=D0=B5=
+=D0=BA=D1=81=D0=B5=D0=B9 =D0=92=D0=BE=D1=80=D0=BE=D0=BD=D1=86=D0=BE=D0=B2</=
+span></span></strong></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=94=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80 =
+=D0=B4=D0=B5=D0=BF=D0=B0=D1=80=D1=82=D0=B0=D0=BC=D0=B5=D0=BD=D1=82=D0=B0 =
+=D0=BA=D0=BE=D0=BD=D1=81=D0=B0=D0=BB=D1=82=D0=B8=D0=BD=D0=B3=D0=B0, Cloud=
+=C2=A0Networks</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr mc:repeatable=3D"repeat_1:16:=
+repeat_1" mc:repeatindex=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 0 17px=
+;mso-line-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"ico-char=
+acters" style=3D"mso-line-height-rule: exactly;" width=3D"140"><img alt=3D"=
+=D0=94=D0=B5=D0=BD=D0=B8=D1=81 =D0=A1=D0=B5=D0=BD=D1=8E=D0=BA=D0=BE=D0=B2" =
+src=3D"http://uni.antimalware.ru/ru/user_file?resource=3Dhimg&user_id=3D481=
+5985&name=3D64ztupgz5zwtik9tn1e388kkxryu1h7t5otxn4ngjtcgoy1t3i3izrp5kpd88zu=
+o4e17kyojzkgq5mc7e9z8mk9zwx6uyz7bmbkjfxro"></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"mso-line=
+-height-rule: exactly;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: bold 16px/20px;color: #010101;padding: 2px 0 0;mso-line-height-rule:=
+ exactly;"><strong><span style=3D"font-size:16px"><span>=D0=94=D0=B5=D0=BD=
+=D0=B8=D1=81 =D0=A1=D0=B5=D0=BD=D1=8E=D0=BA=D0=BE=D0=B2</span></span></stro=
+ng></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D=
+"font: 16px/19px;color: #010101;mso-line-height-rule: exactly;"><span style=
+=3D"font-size:16px"><span>=D0=94=D0=B8=D1=80=D0=B5=D0=BA=D1=82=D0=BE=D1=80 =
+=D0=B4=D0=B5=D0=BF=D0=B0=D1=80=D1=82=D0=B0=D0=BC=D0=B5=D0=BD=D1=82=D0=B0 =
+=D0=BF=D0=BE =D1=80=D0=B0=D0=B1=D0=BE=D1=82=D0=B5 =D1=81 =D0=BA=D0=BE=D1=80=
+=D0=BF=D0=BE=D1=80=D0=B0=D1=82=D0=B8=D0=B2=D0=BD=D1=8B=D0=BC =D1=81=D0=B5=
+=D0=B3=D0=BC=D0=B5=D0=BD=D1=82=D0=BE=D0=BC, =C2=AB=D0=98=D0=BD=D1=84=D0=BE=
+=D1=80=D0=BC=D0=B7=D0=B0=D1=89=D0=B8=D1=82=D0=B0=C2=BB</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<div style=3D"margin-top: 16px;">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"mfemail-table" style=3D"border: 0px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"mfemail-t=
+d" style=3D"padding: 16px;background-color: #881D17;border-radius: 16px;col=
+or:#fff;">
+=09=09=09=09=09=09=09=09=09=09=09=09<div class=3D"mfemail-header" style=3D"=
+font-size: 18px; font-weight: bold; line-height: 24px; margin-top: 0px; mar=
+gin-right: 0px; margin-left: 0px;">18 =D0=B4=D0=B5=D0=BA=D0=B0=D0=B1=D1=80=
+=D1=8F 2024=C2=A0=D0=B3=D0=BE=D0=B4=D0=B0 =D0=B2 15:00 (=D0=9C=D0=A1=D0=9A)=
+</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</div>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"mfemail-table mfemail-content" style=3D"border: 0px;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"mfemail-t=
+d mfemail-content__inner" style=3D"padding-top: 24px;">
+<!-- [if gte mso 9 | ie]><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"200" style=3D"width:200px;"><tbody><tr><td><![endif]-->
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"mfemail-table mfemail-button mfemail-button_type_primary mfema=
+il-button_theme_green" style=3D"border: 0px; max-width: 200px;" width=3D"10=
+0%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"=
+mfemail-td" height=3D"46" style=3D"height: 46px; background-color: #B32222;=
+ border-radius: 30px; border: 1px solid transparent;"><a class=3D"mfemail-b=
+utton__inner" href=3D"https://uni.antimalware.ru/ru/mail_link_tracker?hash=
+=3D6t66z5nrk4kiaqspy9fns1s63bbmdgyxs8xja7ua77it5tu1udds9irk55sqh85n31dqnix9=
+atzd9dfftdkot6bmat5e3garudmw35qo&url=3DaHR0cHM6Ly9saXZlLmFudGktbWFsd2FyZS5y=
+dS9hbS1saXZlL2l0b2dpLWdvZGEtaWItMi8jcmVn&uid=3DNDgxNTk4NQ~~&ucs=3D92b2f40c3=
+5358c1eb783036bd3f508ed" rel=3D"noreferrer" style=3D"border: none; color: #=
+ffffff; cursor: pointer; display: block; font-size: 15px; font-weight: bold=
+; text-align: center; line-height: 46px; outline: 0px; padding-left: 32px; =
+padding-right: 32px; text-decoration: none;" target=3D"_blank"><!-- [if mso=
+]>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0<![endif]-->=D0=A0=D0=B5=D0=B3=D0=B8=
+=D1=81=D1=82=D1=80=D0=B0=D1=86=D0=B8=D1=8F<!-- [if mso]>=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0<![endif]--></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<!-- text block --><!-- btn --><!-- title --><!-- partner=
+s logo block --><!-- questions block --><!-- main characters --><!-- footer=
+ block --><!-- separator 5px --><!-- separator 10px --><!-- separator 20px =
+-->
+</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+
+=09=09=09<center>=C2=A0
+=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"cans=
+pamBarWrapper" style=3D"background-color:#FFFFFF; border-top:1px solid #E5E=
+5E5;" width=3D"100%">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" style=3D"padding-top:20px; padding-b=
+ottom:20px;" valign=3D"top">
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" i=
+d=3D"canspamBar">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"color:#606060; fon=
+t-family:Helvetica, Arial, sans-serif; font-size:11px; line-height:150%; pa=
+dding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;=
+" valign=3D"top"><a href=3D"https://uni.antimalware.ru/ru/unsubscribe?hash=
+=3D6impjkfzeuccgd3ig7if8bzndn3mdgyxs8xja7ua77it5tu1uddshwtfbxmq1da4gty64cqo=
+bmewoc#no_tracking">=D0=9E=D1=82=D0=BF=D0=B8=D1=81=D0=B0=D1=82=D1=8C=D1=81=
+=D1=8F =D0=BE=D1=82 =D1=80=D0=B0=D1=81=D1=81=D1=8B=D0=BB=D0=BA=D0=B8</a></t=
+d>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<style type=3D"text/css">@media only screen and (max-width: 480px)=
+{
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; mar=
+gin-top:10px !important;}
+                    }
+=09=09=09</style>
+=09=09=09</center>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+<center><table><tr><td><img src=3D"https://uni.antimalware.ru/ru/mail_read_=
+tracker/4815985?hash=3D6hms5bora8r9fz9u8px8o5na9fjmdgyxs8xja7ua77it5tu1udds=
+58u4kunemfqpghk4y3uzop7ndq" width=3D"1" height=3D"1" alt=3D"" title=3D"" bo=
+rder=3D"0"></td></tr></table></center></body>
+</html>
+------=_Part_20818113_1184551902.1734426576860--
+--MXROVGFDLU1XMGg1Ti1PRw==--

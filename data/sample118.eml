@@ -1,0 +1,64 @@
+Return-Path: <contact@jae.co.jp>
+X-Original-To: wpx@protonmail.com
+Delivered-To: wpx@protonmail.com
+Received: from mta0.alison.co.jp (unknown [193.29.104.55]) (using TLSv1.3 with cipher
+ TLS_AES_256_GCM_SHA384 (256/256 bits)
+  key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256) (No
+ client certificate requested) by mailin041.protonmail.ch (Postfix) with ESMTPS id
+ 4Q2vC35hSFz4KK4w for <wpx@protonmail.com>; Fri, 21 Apr 2023 12:35:59 +0000 (UTC)
+Authentication-Results: mailin041.protonmail.ch; dmarc=none (p=none dis=none)
+ header.from=jae.co.jp
+Authentication-Results: mailin041.protonmail.ch; spf=fail smtp.mailfrom=jae.co.jp
+Authentication-Results: mailin041.protonmail.ch; arc=none smtp.remote-ip=193.29.104.55
+Authentication-Results: mailin041.protonmail.ch; dkim=none
+From: Indra Hanafi <contact@jae.co.jp>
+To: wpx@protonmail.com
+Subject: New Order from Indonesia
+Date: 21 Apr 2023 04:03:16 -0700
+Message-Id: <20230421040316.CBCC2CA7BF9EBE68@jae.co.jp>
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=---------------------d83cd990b7a1cd484c810254055c2a0b
+X-Rspamd-Server: cp4-mailin-041.plabs.ch
+X-Spamd-Result: default: False [13.74 / 25.00]; ONCE_RECEIVED_STRICT(4.00)[];
+ VIOLATED_DIRECT_SPF(3.50)[]; HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+ MIME_BASE64_TEXT_BOGUS(1.00)[]; HFILTER_HELO_IP_A(1.00)[mta0.alison.co.jp];
+ RDNS_NONE(1.00)[]; HFILTER_HELO_NORES_A_OR_MX(0.30)[mta0.alison.co.jp];
+ MIME_HTML_ONLY(0.20)[]; ONCE_RECEIVED(0.10)[]; MIME_BASE64_TEXT(0.10)[];
+ MIME_GOOD(-0.10)[multipart/mixed]; MANY_INVISIBLE_PARTS(0.10)[2];
+ BAYES_SPAM(0.04)[54.89%]; HAS_ATTACHMENT(0.00)[]; TO_DN_NONE(0.00)[];
+ RCPT_COUNT_ONE(0.00)[1]; NEURAL_HAM(-0.00)[-0.518]; DMARC_NA(0.00)[jae.co.jp];
+ TO_MATCH_ENVRCPT_ALL(0.00)[]; ARC_NA(0.00)[]; R_SPF_SOFTFAIL(0.00)[~all:c];
+ FROM_EQ_ENVFROM(0.00)[]; RCVD_COUNT_ZERO(0.00)[0]; FROM_HAS_DN(0.00)[];
+ R_DKIM_NA(0.00)[]; ASN(0.00)[asn:9009, ipnet:193.29.104.0/24, country:RO];
+ MIME_TRACE(0.00)[0:+,1:~,2:~]; MID_RHS_MATCH_FROM(0.00)[]; HAS_DATA_URI(0.00)[]
+X-Rspamd-Queue-Id: 4Q2vC35hSFz4KK4w
+X-Spam: Yes
+X-Pm-Spam: 0yezJI6cihyJeYR3pi42biOzJFtcGiiwIbxWfvN2cmciUsiOni0EUOEj4skjLlITJ
+ oxIj3y4MNwCiPJFUCR6IQsMjSlBITR0fFJFUERDllPVE6iITMwSilR2XnYnVluX2im8ZOsniPJFU
+ CR6IJweyw3NXY0WiuAjOTO3kI1ND5DcMMQz1zAzNSMiw1haWf2VZbFmt6ISZmIzhFjdGt19adxW0
+ m9Va1cv9NlYnlnZcZ8FyzIDMDMwIIsMi1nJIb9lul1WYjIioxsYWlWZLYRX1zVmcXLhdNodGzGlb
+ dJC9s0XfnIyNQiaW2iIONQDyzMDODM0EZlMG4DUNMYzyxUTZWYiQwifSi2EcOsnifNXa3chBI6bS
+ iSwMcN2viUmcjO4EJzLCy29YZQWi4EjOjLskJlInyG9cdIC6SJye1QEZlOX0S0JXQxkfTFETEVYV
+ I6VCuzUWMwCizkTMjL5IEwLj1C4NNBSs0NXaWZgQ4gaWumIYYFmyjFmcWdhRVuY2hHJdb5Cvicmc
+ SXiwNWUkJF9RT9lJT1kVVSyAI6NCuzUWMwCizkTMjL5IEwLj1C4NNBSs0NXaWZgQ4gaWw2lcMQju
+ 25WaWY1x1lZWunQbb9GjiwWYSXiwNWUkJF9RT9lJT1kVVSiAs1OlsjALIEj5y4yMSOx4QuMDgTUN
+ blGzkVGdGIulNpIHpC5cbZnhlVHbWbuV5sdCh2NbbJCdCJCLVQFl81U16CIMWEzuiwCM2cvNU6cm
+ uDAINATwdJSMCLGJxfU0MEVST91Of50TlREF8xTlbjpIM4CwiwSX1UGBNPX1GlRRQlUMbpjICM34
+ wiXSNUlTR9VIM1EV0XO9kiTFwlsOLFjdIJCLEVM1ZPX0flRTT9EXPN0XlTSRNUQVbjpIM4CwiwSX
+ FSNR9NTFTVNRQdUFbpjICMw4wiXSTF9VQN0fE9kQVWU9hURVJ0xXTUkitslOCMw4wiXSMEVST91O
+ E91T0TB14iSUwlsOLFjdSJCLERT55PX0ikUTOslydBjLCLUJhUX0fUxTQRVUINUQjIbp4wMC9X1X
+ fQ==============
+X-Attached: PO#198945.html
+X-Pm-Origin: external
+X-Pm-Transfer-Encryption: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+X-Pm-Content-Encryption: on-delivery
+X-Pm-Spamscore: 18
+X-Pm-Spam-Action: spam
+
+-----------------------d83cd990b7a1cd484c810254055c2a0b
+Content-Type: multipart/related;boundary=---------------------29dd926339358bc94e011bd1d0eb7ced
+
+-----------------------29dd926339358bc94e011bd1d0eb7ced
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: base64
+

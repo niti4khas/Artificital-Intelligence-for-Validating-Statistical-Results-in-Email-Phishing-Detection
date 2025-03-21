@@ -1,0 +1,830 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:ca90:0:b0:2ac:6419:e1b with SMTP id d16csp110119lky;
+        Wed, 4 Dec 2024 03:29:59 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGAlKraoR5mKjRh3/fdgLiKIoz/sVGx99/S3qdYwaV1cZgB+GmQ4EZ7bkWVe9mI9dqMwANw
+X-Received: by 2002:a05:6214:2aa3:b0:6d8:a274:4a76 with SMTP id 6a1803df08f44-6d8b7369230mr76674146d6.15.1733311799168;
+        Wed, 04 Dec 2024 03:29:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733311799; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O+qdnVNcQYnL+22omiD32sRT6C64Ool//uI085upySbFtUPOFWPILGqDjD1M46un0i
+         mJXDPY192SF24CBw69JuW3ywooRYwFpM3Z/J8yWH8R77OJhGopskHj+lBaGTMPv9FcAC
+         B/oBCn71ZMb05c1JjvEBNN5IXMRGI0I/4LrfHE5jcDfh6AQFOQhotFYhfGwjg6EAibsw
+         gi/knvCd1yDShJy3ETC4fHAvfgrimEgzot/lhw2rzNJ/vKKbQb53QglZSXFD7X1Be0Eg
+         O0zBNsr8Zz0VbupCxA2RI+g4yTjOxtpHUpgaiyRYOoA9JkzSsKMyivKoypxDzjsVNg1M
+         giLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:feedback-id:message-id:reply-to
+         :mime-version:list-unsubscribe-post:list-unsubscribe:date:subject:to
+         :from:dkim-signature:dkim-signature;
+        bh=TxvwK9VXaYjHb0VBK7p0yJ4tGq6xaz2uWutwUq7kons=;
+        fh=WU4XYdYyO9DxFi7ML79Nm5jpiaOBbpWbCUII8ASev5c=;
+        b=csMT976oEcfVoWNCPsz0QFpgjgNthk39ZxUwv1WAJ7A6i0MMcirZTZeucZWe4KEuKv
+         w1uunKyJEo77GAqiB1MPs6ZCEvgtkvfVMMHSK2wgH8x8Sz5ZfSNdCr9ijpCuVIBWtzpz
+         pQqWFbXv/Z61n/yoZ/6skCLItKQPbbTDIfX76+nVBv3Fx68xKhzW6QezjOlWmIs5LFU0
+         InrvvrXBSb9UYO9aDpovwG3XYKH1jq6a0UH1hXPsUaIzCp+cr5HIWSuCXZCMudm2e+4V
+         ZPJpBeZ2Vk78Fh6mOof8ExrwKh2u9CggjT4oUvv1eEyWIJRshSolgbBxBCMIx6AEQmhz
+         E5XA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.michaelpage.pl header.s=50dkim1 header.b=wOoywNzl;
+       dkim=pass header.i=@s50.y.mc.salesforce.com header.s=fbldkim50 header.b=lDwbmkvw;
+       spf=pass (google.com: domain of bounce-72_html-243874493-758394-500009245-2010@bounce.email.page.com designates 161.71.35.107 as permitted sender) smtp.mailfrom=bounce-72_HTML-243874493-758394-500009245-2010@bounce.email.page.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=michaelpage.pl
+Return-Path: <bounce-72_HTML-243874493-758394-500009245-2010@bounce.email.page.com>
+Received: from mta.email.page.com (mta.email.page.com. [161.71.35.107])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6d8a127e7e9si90168996d6.145.2024.12.04.03.29.58
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 04 Dec 2024 03:29:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-72_html-243874493-758394-500009245-2010@bounce.email.page.com designates 161.71.35.107 as permitted sender) client-ip=161.71.35.107;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.michaelpage.pl header.s=50dkim1 header.b=wOoywNzl;
+       dkim=pass header.i=@s50.y.mc.salesforce.com header.s=fbldkim50 header.b=lDwbmkvw;
+       spf=pass (google.com: domain of bounce-72_html-243874493-758394-500009245-2010@bounce.email.page.com designates 161.71.35.107 as permitted sender) smtp.mailfrom=bounce-72_HTML-243874493-758394-500009245-2010@bounce.email.page.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=michaelpage.pl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=50dkim1; d=mail.michaelpage.pl; h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version: Reply-To:Message-ID:Content-Type:Content-Transfer-Encoding; i=sender@mail.michaelpage.pl; bh=TxvwK9VXaYjHb0VBK7p0yJ4tGq6xaz2uWutwUq7kons=; b=wOoywNzlRnu7O6mXkpm9nwV07wuMw+XGydx91uqxWvTh8dt/yLyeAfP+158YgYyN19ZPjpvL7ldL
+   J5K46SL6KjFsP8KAZeyIirORXCF3PdcUI/apHdc/4mgyo/E8Nhj2KT/2BdjdyQlF5x2lf3/pMWOT
+   p9RGjaaWdQaybboTFqmWcE+AgUU4W4C7gX0XGkUMPHVe70Zmy4T0EMsTZZU4iEivTvtA3Tg11Lv3
+   /e0dOgC+3Ge9jN0JQz5NDK7it7p1CB29zPR+906UZafgJGa2QNRYtTiGL9ciNpwmFz8BhYCiLmeL
+   0cS783FqHkFpaoXssGSKW7UCDWRfcdPZe6cUug==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim50; d=s50.y.mc.salesforce.com; h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:Message-ID: Content-Type:Content-Transfer-Encoding; bh=TxvwK9VXaYjHb0VBK7p0yJ4tGq6xaz2uWutwUq7kons=; b=lDwbmkvwLlEySnKNbx1UFN8Wjzd71dY/5yS0Q7plV5NQXHLGlHB6fxT6O+5gFDLRslYGV28p832i
+   axS2zL/f/a+BdD1OKSno91GReI0JbT4iJ3bwrKu3vqcxD7+IuXY2F6OQpXIb1rGMpWpguMzScA7J
+   okSgcxynb1tsqK9dSvDu3eF76HYqVsbWXdEnq0Xf9SSVoH41Yw8plHC0NA0xoB0zHimZ7Iy5fFfd
+   MUR7IZkvPYhtb9yEzsmUWsBoRoKJkPbq5wEAKAoVFFF9qrhQqRtTtWBMay54N5DV6D2HRhVoAWG/
+   FL31DZ8cqstN03qhkhCqnbUByMh7FsYoBmDYsg==
+Received: by mta.email.page.com id ha0uje2fmd4a for <ham@ham.email>; Wed, 4 Dec 2024 11:21:34 +0000 (envelope-from <bounce-72_HTML-243874493-758394-500009245-2010@bounce.email.page.com>)
+From: <sender@mail.michaelpage.pl>
+To: <ham@ham.email>
+Subject: Gotowy na ocenę roczną?
+Date: Wed, 04 Dec 2024 05:21:34 -0600
+List-Unsubscribe: <https://click.email.page.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MDAwMDkyNDUiLCJzIjoiMjQzODc0NDkzIiwibGlkIjoiNzIiLCJqIjoiNzU4Mzk0IiwiamIiOiIyMDEwIiwiZCI6IjUwMDAxNSJ9.wf9Mo90hHP7z-82zDq8UpEY5u7WwQMskCj9hVir53BQ>, <mailto:leave-fd8213721a3c402029-fe231674766c0379711d73-febb13757d670d79-fe36117075640474771075-ff3c16707464@leave.email.page.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+X-SFMC-Stack: 50
+x-job: 500009245_758394
+Reply-To: Michael Page <reply-febb13757d670d79-72_HTML-243874493-500009245-2010@email.page.com>
+Message-ID: <0d6db88a-e2ec-4364-aceb-0fbd03403c62@fra3s50mta47.xt.local>
+Feedback-ID: 500009245:758394:161.71.35.107:sfmktgcld
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   xmlns:v="urn:schemas-microsoft-com:vml"   xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <!--[if gte mso 9]>     <xml>       <o:OfficeDocumentSettings>         <o:AllowPNG/>         <o:PixelsPerInch>96</o:PixelsPerInch>       </o:OfficeDocumentSettings>     </xml>     <![endif]-->
+    <title>Page Group</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no"/>
+    <style type="text/css">
+    body { margin: 0px auto; padding: 0; -webkit-text-size-adjust: 100% !important; -ms-text-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !important; }
+    img { border: 0 !important; outline: none !important; }
+    p { Margin: 0px !important; Padding: 0px !important; }
+    table { border-collapse: collapse; mso-table-lspace: 0px; mso-table-rspace: 0px; }
+    td, a, span { border-collapse: collapse; mso-line-height-rule: exactly; }
+    .ExternalClass * { line-height: 100%; }
+    .em_defaultlink a { color: inherit; text-decoration: none; }
+    .em_g_img + div { display: none; }
+    a[x-apple-data-detectors], u + .em_body a, #MessageViewBody a { color: inherit; text-decoration: none inherit; font-size: inherit; font-family: inherit; font-weight: inherit; line-height: inherit; }
+    @media only screen and (min-width:481px) and (max-width:619px) {
+    .em_main_table { width: 481px !important; }
+    .em_wrapper { width: 100% !important; }
+    .em_hide { display: none !important; }
+    .em_full_img img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img_1 { width: 100% !important; height: auto !important; }
+    .em_center { text-align: center !important; }
+    .em_side10 { width: 10px !important; }
+    .em_aside10 { padding: 0px 10px !important; }
+    .em_side15 { width: 15px !important; }
+    .em_aside15 { padding: 0px 15px !important; }
+    .em_ptop { padding-top: 20px !important; }
+    .em_pbottom { padding-bottom: 20px !important; }
+    .em_h20 { height: 20px !important; font-size: 1px!important; line-height: 1px!important; }
+    .em_h30 { height: 30px !important; }
+    .em_mob_block { display: block !important; }
+    .em_hauto { height: auto !important; }
+    .em_clear { clear: both !important; width: 100% !important; display: block !important; }
+    u + .em_body .em_full_wrap { width: 100% !important; width: 100vw !important; }
+    .em_padall { padding: 0 15px !important; }
+    .em_padheader { padding: 20px 15px !important; }
+    .em_padlang { padding: 20px 15px !important; }
+    .em_pfooter { padding: 20px 15px !important; }
+    .em_pt10 { padding-top: 10px !important; }
+    .em_pad1 { padding: 16px 10px 20px !important; }
+    .em_font11 { font-size: 11px !important; }
+    .em_left { text-align: left !important; padding-top: 15px !important; }
+    .em_w36 { width: 54px !important; }
+    .em_w28 { width: 45px !important; height: auto !important; }
+    .em_w28_1 { width: 45px !important; }
+    .em_w27 { width: 45px !important; height: auto !important; }
+    .em_w27_1 { width: 45px !important; }
+    .em_font_7 { font-size: 9px !important; line-height: 11px !important; }
+    .em_font_12 { font-size: 12px !important; }
+    .em_h30 { height: 40px !important; }
+    .em_h30 a { height: 40px !important; line-height: 40px !important; }
+    .em_top5 { padding-top: 5px !important; }
+    .em_left1{text-align:left !important;}
+    }
+    @media only screen and (min-width:375px) and (max-width:480px) {
+    .em_main_table { width: 375px !important; }
+    .em_wrapper { width: 100% !important; }
+    .em_hide { display: none !important; }
+    .em_full_img img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img_1 { width: 100% !important; height: auto !important; }
+    .em_center { text-align: center !important; }
+    .em_side10 { width: 10px !important; }
+    .em_aside10 { padding: 0px 10px !important; }
+    .em_side15 { width: 15px !important; }
+    .em_aside15 { padding: 0px 15px !important; }
+    .em_ptop { padding-top: 20px !important; }
+    .em_pbottom { padding-bottom: 20px !important; }
+    .em_h20 { height: 20px !important; font-size: 1px!important; line-height: 1px!important; }
+    .em_h30 { height: 30px !important; }
+    .em_mob_block { display: block !important; }
+    .em_hauto { height: auto !important; }
+    .em_clear { clear: both !important; width: 100% !important; display: block !important; }
+    u + .em_body .em_full_wrap { width: 100% !important; width: 100vw !important; }
+    .em_padall { padding: 0 15px !important; }
+    .em_padheader { padding: 20px 15px !important; }
+    .em_padlang { padding: 20px 15px !important; }
+    .em_pfooter { padding: 20px 15px !important; }
+    .em_pt10 { padding-top: 10px !important; }
+    .em_pad1 { padding: 16px 10px 20px !important; }
+    .em_font11 { font-size: 11px !important; }
+    .em_left { text-align: left !important; padding-top: 15px !important; }
+    .em_w120 { width: 120px !important; }
+    .em_w36 { width: 40px !important; }
+    .em_w28 { width: 35px !important; height: auto !important; }
+    .em_w28_1 { width: 35px !important; }
+    .em_w27 { width: 35px !important; height: auto !important; }
+    .em_w27_1 { width: 35px !important; }
+    .em_font_7 { font-size: 8px !important; line-height: 11px !important; }
+    .em_font_12 { font-size: 12px !important; }
+    .em_h30 { height: 30px !important; }
+    .em_h30 a { height: 30px !important; line-height: 30px !important; }
+    .em_top5 { padding-top: 5px !important; }
+    .em_h15 { height: 15px !important; line-height: 0px !important; font-size: 0px !important; }
+    .em_left1{text-align:left !important;}
+    }
+    @media only screen and (min-width:320px) and (max-width:374px) {
+    .em_main_table { width: 320px !important; }
+    .em_wrapper { width: 100% !important; }
+    .em_hide { display: none !important; }
+    .em_full_img img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img { width: 100% !important; height: auto !important; max-width: none !important; }
+    .em_full_img_1 { width: 100% !important; height: auto !important; }
+    .em_center { text-align: center !important; }
+    .em_side10 { width: 10px !important; }
+    .em_aside10 { padding: 0px 10px !important; }
+    .em_side15 { width: 15px !important; }
+    .em_aside15 { padding: 0px 15px !important; }
+    .em_ptop { padding-top: 20px !important; }
+    .em_pbottom { padding-bottom: 20px !important; }
+    .em_h20 { height: 20px !important; font-size: 1px!important; line-height: 1px!important; }
+    .em_h30 { height: 30px !important; }
+    .em_mob_block { display: block !important; }
+    .em_hauto { height: auto !important; }
+    .em_clear { clear: both !important; width: 100% !important; display: block !important; }
+    u + .em_body .em_full_wrap { width: 100% !important; width: 100vw !important; }
+    .em_padall { padding: 0 15px !important; }
+    .em_padheader { padding: 20px 15px !important; }
+    .em_padlang { padding: 20px 15px !important; }
+    .em_pfooter { padding: 20px 15px !important; }
+    .em_pt10 { padding-top: 10px !important; }
+    .em_pad1 { padding: 16px 10px 20px !important; }
+    .em_font11 { font-size: 11px !important; }
+    .em_left { text-align: left !important; padding-top: 15px !important; }
+    .em_w120 { width: 120px !important; }
+    .em_w36 { width: 36px !important; }
+    .em_w28 { width: 28px !important; height: auto !important; }
+    .em_w28_1 { width: 28px !important; }
+    .em_w27 { width: 27px !important; height: auto !important; }
+    .em_w27_1 { width: 27px !important; }
+    .em_font_7 { font-size: 7px !important; line-height: 11px !important; }
+    .em_font_12 { font-size: 12px !important; }
+    .em_h30 { height: 30px !important; }
+    .em_h30 a { height: 30px !important; line-height: 30px !important; }
+    .em_top5 { padding-top: 5px !important; }
+    .em_h15 { height: 15px !important; line-height: 0px !important; font-size: 0px !important; }
+    .em_left1{text-align:left !important;}
+    }
+  </style>
+  <!-- start:processor:head --><!-- start:processor:body:head --><style>body{background:#fff0}.a11yHidden{max-height:0;overflow:hidden;opacity:0}table.mso{border-collapse:collapse;padding:0;table-layout:fixed}.sc-box-sizing{display:inherit}</style><style>
+u + .body .ie-form{display:block!important}@media screen and (max-width:801px) and (min-width:800px) and (orientation: landscape) and (min-device-width: 801px){u + .body .ie-form{display:none!important} }u + .body .ie-radio-check{vertical-align:top;opacity:.99;width:auto;height:auto;float:left;border-radius:initial}u + .body .ie-btn{display:block}u + .body .ie-gmailhide{display:none!important}u + .body .ie-rating-group{display:none}u + .body .ie-rating-default{display:inline;height:0;width:0;opacity:0}
+u + .body .ie-rating-group-gmail{display:block!important}u + .body .ie-rating-group-gmail input{vertical-align:middle;float:none}u + .body .ie-rating-group-gmail .ie-btn{display:inline-block}noinput{display:inline!important}.ie-radio-check{display:inline-block;opacity:0;width:0;height:0;margin:0;margin:0 0 0 -9999px;float:left;position:absolute;-webkit-appearance:none}#MessageWebViewDiv .ie-radio-check{display:block}
+.ie-radio-check:focus + .ie-btn-wrap .ie-btn,.ie-radio-check:focus + .ie-btn,.ie-radio-check:focus + .ie-frm-btn,.ie-rating-group .ie-radio-check:focus + .ie-btn,.ie-rating-default:focus + .ie-input-group .ie-rating-group > label > .ie-btn-wrap .ie-btn{outline:Highlight auto 2px;outline:-webkit-focus-ring-color auto 5px}.ie-btn-wrap,.ie-frm-btn,select,.ie-dropdown-i{cursor:pointer}.ie-frm-btni{-webkit-appearance:none;appearance:none;border:none;background:none;padding:0;border-radius:0}
+*.ie-input-wraper{display:block}*.ie-label{display:block}.ie-b-label,.ie-btn,.ie-gmail-btn-wrap{display:inline-block;vertical-align:middle;word-wrap:normal}.ie-b-label-box{width:100%;vertical-align:middle}.ie-input{display:inline-block;box-sizing:border-box}.ie-text-in{font:inherit;color:inherit;background:inherit;border:none;width:100%;height:100%;box-sizing:border-box;vertical-align:top}fieldset{border:none;padding:0;margin:0}legend{width:100%;padding:0;text-align:inherit}.ie-btn-wrap{
+display:inline-block}.ie-btn-label-before{vertical-align:bottom;display:inline-block}.ie-btn-label-after{vertical-align:top;display:inline-block}.ie-rating-default{display:none}.ie-rating-default:checked{display:block}.ie-frm-btn{display:inline-block;text-align:center;font:inherit}.ie-icon{font-family:monospace;text-align:center}.ie-icon-star{font-family:arial}*.sc-c1hc1rqh-ic-label-box-sizing{padding:15px 0px 5px;font-weight:bold}*.sc-text-c1hc1rqh-ic-description{margin:0px;padding-top:5px;
+padding-bottom:5px}*.sc-text-c1hc1rqh-ic-required{color:#ff0000;font-weight:bold;display:inline-block}.sc-block-c1hc1rqh-ic-radio-checkbox-label{display:inline}.sc-block-c1hc1rqh-ic-star-rating-label{display:block}*.sc-c1hc1rqh-ic-star-rating-label-box-sizing{text-align:center}.ie-input-c1hc1rqh-ic-text-select{width:100%;max-width:100%}.ie-input-c1hc1rqh-ic-text-select .ie-text-in{height:30px;border:1px solid #cccccc }.ie-input-c1hc1rqh-ic-textarea{width:100%;max-width:100%}
+.ie-input-c1hc1rqh-ic-textarea .ie-text-in{height:80px}u + .body .ie-frm-btni{font:inherit;color:inherit;opacity:1;width:auto;height:auto;float:none}u + .body .ie-frm-btn{display:none}u + .body .ie-frm-btni-c1hc1rqh-ic-submit,*.ie-frm-btn-c1hc1rqh-ic-submit{width:auto;margin:15px 0px;padding:5px 10px;color:#ffffff;text-decoration:none;background:#309ddd}u + .body .ie-frm-btni{background-image:linear-gradient(transparent,transparent)}
+.ie-btn-c1hc1rqh-ic-star-rating,.ie-r-btn-c1hc1rqh-ic-star-rating,input:checked + .ie-input-group .ie-r-btn-c1hc1rqh-ic-star-rating,input:checked + .ie-btn-wrap + label .ie-r-btn-c1hc1rqh-ic-star-rating{margin-right:5px;margin-left:5px;font-size:60px;color:#dcdbda;line-height:1em}.ie-rating-group-gmail label:hover .ie-r-btn-c1hc1rqh-ic-star-rating,.ie-radio-check:focus + .ie-btn-c1hc1rqh-ic-star-rating,.ie-btn-c1hc1rqh-ic-star-rating:hover,#rebel label:hover .ie-r-btn-c1hc1rqh-ic-star-rating{
+color:#cccccc}#rebel label div:hover ~* .ie-r-btn-c1hc1rqh-ic-star-rating{margin-right:5px;margin-left:5px;font-size:60px!important;color:#dcdbda!important;line-height:1em!important}*.ie-btn-wrap-c1hc1rqh-ic-radio-checkbox{display:block}.ie-btn-c1hc1rqh-ic-radio-checkbox,.ie-r-btn-c1hc1rqh-ic-radio-checkbox,input:checked + .ie-input-group .ie-r-btn-c1hc1rqh-ic-radio-checkbox,input:checked + .ie-btn-wrap + label .ie-r-btn-c1hc1rqh-ic-radio-checkbox{width:15px;height:15px;margin:2px 4px 2px 0;
+border:1px solid #cccccc }#rebel label div:hover ~* .ie-r-btn-c1hc1rqh-ic-radio-checkbox{width:15px!important;height:15px!important;margin:2px 4px 2px 0;border:1px solid #cccccc!important}
+</style><style>@media only screen and (max-width:450px){.ie-btn-c1hc1rqh-ic-star-rating,.ie-r-btn-c1hc1rqh-ic-star-rating,input:checked + .ie-input-group .ie-r-btn-c1hc1rqh-ic-star-rating,input:checked + .ie-btn-wrap + label .ie-r-btn-c1hc1rqh-ic-star-rating{font-size:38px!important}#rebel label div:hover ~* .ie-r-btn-c1hc1rqh-ic-star-rating{font-size:38px!important} }</style><style>
+.& input:focus,.& textarea:focus,.& button:focus,.& select:focus,.& .ie-radio-check:focus + .ie-btn-wrap .ie-btn,.& .ie-radio-check:focus + .ie-btn,.& .ie-rating-group .ie-radio-check:focus + .ie-btn,.& .ie-rating-default:focus + .ie-input-group .ie-rating-group > label > .ie-btn-wrap .ie-btn{outline:Highlight auto 5px}.& .ie-text-in{padding-top:0!important;padding-bottom:0!important;padding-right:0!important}</style><style>
+#interactive:checked+#rebel .ie-form{display:block!important}@media screen and (max-width: 800px){.& #interactive:checked+#rebel .ie-form{display:none!important} }#MessageWebViewDiv #rebel#rebel .ie-form,.edo-email-view #rebel#rebel .ie-form,.edo #rebel#rebel .ie-form,#msgBody #rebel#rebel .ie-form,.netease_mail_readhtml #interactive:checked+#rebel .ie-form,.c17637 #interactive:checked+#rebel .ie-form{display:none!important}@media (hover: hover) and (pointer: fine){
+_:-webkit-full-screen,_::-webkit-full-page-media,_:future,:root .body:not(.Singleton) #rebel#rebel .ie-form{display:none!important} }@supports (justify-content: center){.ie-icon{display:inline-flex;align-items:center;justify-content:center} }.ie-icon svg{width:1em;height:1.1em;vertical-align:text-top;margin:0 auto}body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon svg,.ie-form:not([rebel]) .ie-icon svg{display:none}
+body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-star:after,.ie-form:not([rebel]) .ie-icon-star:after{content:'\2605'}body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-heart:after,.ie-form:not([rebel]) .ie-icon-heart:after{content:'\2665'}body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-check:after,.ie-form:not([rebel]) .ie-icon-check:after{content:'\2713'}
+body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-cross:after,.ie-form:not([rebel]) .ie-icon-cross:after{content:'\2715'}body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-square:after,.ie-form:not([rebel]) .ie-icon-square:after{content:'\25A0'}body[style] > div[style^="margin: 16px 0"][style$="font-size: 80%"] .ie-icon-circle:after,.ie-form:not([rebel]) .ie-icon-circle:after{content:'\25cf'}
+input:checked + .ie-btn-wrap .ie-btn-c1hc1rqh-ic-star-rating,input:checked + .ie-btn-c1hc1rqh-ic-star-rating,#rebel input:checked + .ie-btn-wrap .ie-r-btn-c1hc1rqh-ic-star-rating,.ie-r-btn-c1hc1rqh-ic-star-rating{color:#309ddd}@supports (-webkit-overflow-scrolling:touch) and (color:#ffff){#rebel label:hover .ie-r-btn-c1hc1rqh-ic-star-rating{color:#309ddd} }
+input:checked + .ie-btn-wrap .ie-btn-c1hc1rqh-ic-radio-checkbox,input:checked + .ie-btn-c1hc1rqh-ic-radio-checkbox,#rebel input:checked + .ie-btn-wrap .ie-r-btn-c1hc1rqh-ic-radio-checkbox,.ie-r-btn-c1hc1rqh-ic-radio-checkbox{background-color:#6bcdf0 }@supports (-webkit-overflow-scrolling:touch) and (color:#ffff){#rebel label:hover .ie-r-btn-c1hc1rqh-ic-radio-checkbox{background-color:#6bcdf0 } }
+</style><noscript> <style>#interactive:checked+#rebel .ie-form{display:none!important}#interactive:checked+#rebel .ie-formFallback{display:block!important}</style> </noscript><!-- end:processor:body:head --><!-- end:processor:head --></head>
+  <body class="em_body" style="margin:0px auto; padding:0px;" bgcolor="#f5f5f5"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Nie idź na rozmowę o wynagrodzeniu bez przygotowania</div><!-- start:processor:prepend --><!-- start:processor:body:prepend --><!--[if mso]><!--><input type="radio" name="limited" id="interactive" style="display:none;mso-hide:all;" checked><!--<![endif]--><div id="rebel"><!-- end:processor:body:prepend --><!-- end:processor:prepend -->
+    
+      <img src="https://click.email.page.com/open.aspx?ffcb10-febb13757d670d79-fe2015747c61027d721378-fe36117075640474771075-ff961372-fe231674766c0379711d73-ff3c16707464&d=500015&bmt=0" width="1" height="1" alt=""></custom>
+      </custom>
+
+
+    <!--VARIABLE LOADERS-->
+    <div style="font-size:0; line-height:0;">
+      <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+    </div>
+    <div style="font-size:0; line-height:0;">
+      <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"></td></tr></table>
+    </div>
+    <div style="font-size:0; line-height:0;">
+      <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<!--  -->
+<table class="em_full_wrap" style="table-layout:fixed;" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f5f5f5">
+      <tr>
+        <td valign="top" align="center">
+          <table class="em_main_table" style="width:620px; table-layout:fixed;" width="620" cellspacing="0" cellpadding="0" border="0" align="center">
+            <tr>
+              <td style="padding:20px 15px; font-family:Arial, sans-serif; font-size:9px; line-height:15px; color: #000000;" valign="top" align="center">Jeśli masz problem z wyświetleniem tego maila,  <a href="https://view.email.page.com/?qs=46371d5172ffbbd25a2baa810243f9238a85fd0230c121023541edf884a1c3b76077b1876e22b46b1a91497e939ed005163e3e0f1b01790357c66628930eee1042050a9b3c1dc05d28546f6d496069f1" target="_blank" style="text-decoration:underline; color: #a9a9a9;">otwórz go w przeglądarce</a></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>    
+<!--  -->
+<!--  --></td></tr></table>
+    </div>
+    <!--VARIABLE LOADERS-->
+    <!--CONTENT BLOCKS-->
+    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <!-- --> <!--  --><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+ 
+  <tr>
+   <td align="center" valign="top">
+    <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#ffffff;" width="620">
+     
+      <tr>
+       <td align="center" valign="top">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:620px;" width="620">
+         
+          <tr>
+           <td align="center" class="em_padlang" style="padding:33px 32px 13px;" valign="top">
+            <table align="right" border="0" cellpadding="0" cellspacing="0">
+             
+              <tr>
+               <td align="right" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0">
+                 <!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!-- --><tr>
+                   <td align="right" class="em_defaultlink" style="color: #666666; font-family: Arial, Helvetica, sans-serif; font-size: 11px; line-height:14px; padding-top:5px;" valign="top">
+                    Select your language</td><td style="width:5px; font-size:0px; line-height:0px;" width="5">
+                    &nbsp;</td><td align="center" valign="top">
+                    <a   href="https://click.email.page.com/?qs=f27efdf4d591ea9f8a7a7b003a3dcf665e1eb166ee605ee0a1e42e9e9fcd9719c1463c2f4e5778a44c85f63b5bd7b751b34d50c0540672699afb375b2ae571e9" title="English"><img alt="English" border="0" src="https://image.email.page.com/lib/fe31117075640475701d73/m/1/a0c95c20-76dd-44a8-ad72-32cbd6e2651c.png" style="position: relative; top: 5px;" width="22"></a></td><td style="width:5px; font-size:0px; line-height:0px;" width="5">
+                    &nbsp;</td></tr><!--  --></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table> <!--  --> <!--  --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<!--  --> 
+<table class="em_full_wrap" style="table-layout:fixed;" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f5f5f5">
+      <tr>
+        <td valign="top" align="center">
+          <table class="em_main_table" style="width:620px; table-layout:fixed; background-color:#ffffff;" width="620" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" align="center">
+            <tr>
+              <td valign="top" align="center">
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                  <tr>
+                    <td class="em_padheader" style="padding:20px 20px 29px;" valign="top" align="center">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                        <tr>
+                          <td valign="top">
+                            <table style="width:215px;" class="em_wrapper" width="215" cellspacing="0" cellpadding="0" border="0" align="left">
+                              <tr>
+                                <td valign="top" align="center"><a href="https://click.email.page.com/?qs=f27efdf4d591ea9f5f55f9b40769edf4547d535570f94e93628e71caa48db7c6347190cac56f07a8351e45fb131992723557736dc5df88b17aad7dc79bc45389" title="Michael Page"   target="_blank" style="text-decoration:none; color:#0b4398;"><img src="https://image.email.page.com/lib/fe36117075640474771075/m/1/8dda7c4f-0d51-4c0c-9c72-f612b06987cb.png" style="display:block; max-width:215px; font-family:Arial, sans-serif; font-size:13px; line-height:16px; color:#0b4398; font-weight:bold;" alt="Michael Page" title="Michael Page" width="215" height="55" border="0"></a></td>
+                                <td class="em_hide" style="width:10px;" width="10">&nbsp;</td>
+                              </tr>
+                            </table>
+                            <!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]-->
+                            <table class="em_wrapper" style="width:355px;" width="355" cellspacing="0" cellpadding="0" border="0" align="right">
+                              <tr>
+                                <td class="em_pt10 em_center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height:16px; color:#3f4048; font-weight:bold; padding-top:23px;" valign="top" align="right"><a   href="https://click.email.page.com/?qs=f27efdf4d591ea9f4adbd93ed9c66567cbb1e4c6c1478d1ab20c4d8bb0754032bf9718966567df052581082eed62b3a5c300e439b122c04bd03ba3c999b2b317750403d577ef1ba0" style="text-decoration: none; color: #3f4048;" target="_blank" title="Poszukiwanie pracy">Poszukiwanie pracy</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f6f6f8;">|</span>&nbsp;&nbsp;&nbsp;&nbsp;<a   href="https://click.email.page.com/?qs=f27efdf4d591ea9f5a4317d23a763421bdfff06fa13e1a27acd7f8898f4b54f16213fc5ae82d3ee3844e2292f809e556dfd82ff14cdedc43526a434c5c20325e9ed700f68b2aa50b" style="text-decoration: none; color: #3f4048;" target="_blank" title="Wyślij CV">Wyślij CV</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f6f6f8;">|
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<a   href="https://click.email.page.com/?qs=f27efdf4d591ea9f791832a73239a14d3f1a40448b3655aa7bfc5dd1711cf35c3c2a6e8b5a82b21caf6bbffb1eaa665ce475dbcaad8fe7a2b3b598af1b3e763a004bc9da0f0e52c9" style="text-decoration: none; color: #3f4048;" target="_blank" title="Kontakt">Kontakt</a></td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="height:2px; font-size:0px; line-height:0px;" height="2" bgcolor="#004fa2"><img style="display:block;" src="https://image.email.page.com/lib/fe31117075640475701d73/m/1/a8384308-0f72-43d8-8005-c2c670de9d6f.gif" alt="" width="1" height="1" border="0"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+<!--  -->
+<!--  --></td></tr></table>
+    <!--CONTENT BLOCKS-->
+    <!--SEND LOG VARIABLE LOADER--> 
+    <div style="font-size:0; line-height:0;">
+      <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--BANNER--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#f2f5fa;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:620px;" width="620">
+									
+										<tr>
+											<td align="center" class="em_full_img" valign="top">
+												<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9ff98f4b5ff1b5320891f855d86da70512d1aac770b108d4b78a8746a14da89f8dce4c4ea627df15d780883396c044b2e23a254ed68f9f720b" target="_blank" title="Poznaj swoją wartość z naszym Przeglądem Wynagrodzeń 2025"><img alt="Poznaj swoją wartość z naszym Przeglądem Wynagrodzeń 2025" data-assetid="273553" height="250" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/ade37584-30fe-4ea0-96d9-c254243eb025.png" style="display: block; font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; max-width: 620px; padding: 0px; height: 250px; width: 620px; text-align: center;" width="620"></a></td></tr></table></td></tr></table></td></tr></table><!--BANNER--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td class="stylingblock-content-wrapper camarker-inner"><!--BODY TEXT--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	<!--TWO COLUMN 1 IMAGE TEXT--></table><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="border-radius:24px 24px 0px 0px" width="100%">
+													
+														<tr>
+															<td align="center" valign="top">
+																<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width: 550px;" width="550">
+																	
+																		<tr>
+																			<td align="center" class="em_padall" style="padding: 0 0px 0;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+																					
+																						<tr>
+																							<td valign="top">
+																								<table align="right" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width: 560px;" width="560">
+																									
+																										<tr>
+																											<td align="center" class="em_ptop" valign="top">
+																											</td></tr><tr>
+																											<td align="center" class="em_padall" style="padding:0 15px 0;" valign="top">
+																												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+																													
+																														<tr>
+																															<td align="center" style="font-size:26px;line-height: 26px; font-family: Helvetica, Arial, sans-serif; color:#123495; font-weight:bold;padding-top:20px; padding-bottom:5px;" valign="top">
+																																<span style="font-size:21px;">Wiedza to potęga</span></td></tr><tr>
+																															<td align="left" class="em_pbottom" style="font-size: 14px; line-height: 22px; font-family: Helvetica, Arial, sans-serif; color: #36444d; padding-top: 13px; padding-bottom: 0px; width: 100%;" valign="top">
+																																<div style="text-align: justify;">
+																																	<span style="font-size:14px;">Cześć ham,<br>
+																																	<br>
+																																	 zbliża się koniec roku, co oznacza r&oacute;wnież rozmowy o wynagrodzeniu i ocenie wynik&oacute;w. Choć może się to wydawać stresujące, wcale nie musi takie być!</span><br>
+																																	<br>
+																																	<span style="font-size:14px;">Im więcej wiesz, tym pewniej możesz negocjować to, na co zasługujesz. Zajrzyj na naszą stronę i pobierz <b><a   data-linkto="http://" href="https://click.email.page.com/?qs=f27efdf4d591ea9fc64386b7100a25a3623a0472ed88d5b9650ea362f1b38a8696ef3638262d262b4a939235374a9474d5cdb19f68e99d65fc7cccece744f949" style="color:#123495;text-decoration:underline;" title="Przegląd Wynagrodzeń 2025">Przegląd Wynagrodzeń 2025</a></b>, aby odkryć precyzyjne widełki wynagrodzeń dla Twojej branży i stanowiska. Przygotuj się w pełni na rozmowy z przełożonymi.<br>
+																																	<br>
+																																	Wypełnij formularz na naszej stronie, a nasz <b><a   data-linkto="http://" href="https://click.email.page.com/?qs=f27efdf4d591ea9ffae06f6788e98a12ef6d127230de7c95e627953080b35899d5dc0304daa44233a3bcb53b46ab48932a7b82d98f1a474abc5168a1a37ebba0" style="color:#123495;text-decoration:underline;" title="Przegląd Wynagrodzeń">Przegląd Wynagrodzeń</a></b> trafi prosto na Twoją skrzynkę mailową. </span></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--TWO COLUMN 1 IMAGE TEXT--></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><!--EXTRA SPACE CODE-->
+<table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td style="font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); text-align: center;" valign="top">
+																&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--EXTRA SPACE CODE--><!--CTA CENTRE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td align="center" valign="top">
+																<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width: 550px;" width="550">
+																	
+																		<tr>
+																			<td align="center" class="em_padall" style="padding: 0 20px 0;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+																					
+																						<tr>
+																							<td valign="top">
+																								<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width: 219px;" width="280">
+																									
+																										<tr>
+																											<td align="center" style="width: 216.138px;" valign="top">
+																												<table align="left" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width: 200px;" width="200">
+																													
+																														<tr>
+																															<td align="center" class="em_padall" style="padding:0 15px;" valign="top">
+																																&nbsp;<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:360px;" width="360">
+																																	
+																																		<tr>
+																																			<td align="center" valign="top">
+																																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:360px; max-width:360px;" width="360">
+																																					
+																																						<tr>
+																																							<td align="center" bgcolor="#124395" height="44" style="height:44px; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 25px; display:block;" valign="middle">
+																																								<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9fc21a8481751d8e586373de4f12cd6c4dc1c22a8feb7589dc6124a351c8b5f5b678a40dde26b390bf93b59c5a560ba3f1e5a616289c6dc3bf" style="color:#ffffff;text-decoration:none; line-height:44px; display:block;" target="_blank" title="Pobierz przewodnik">Pobierz przewodnik</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--CTA CENTRE--><!--EXTRA SPACE CODE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="border-radius:0px 0px 0px 0px;" width="100%">
+													
+														<tr>
+															<td style="font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); text-align: center;" valign="top">
+																&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--EXTRA SPACE CODE--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--TWO COLUMN CENTRE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td valign="top">
+																<table align="left" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																	
+																		<tr>
+																			<td align="center" style="padding:8px 10px 0px;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="255">
+																								<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9f55144b7ba32121920808da88ca6a238c8b1c046aba2d28bb104dfeebc90f74f3333af44e69171686260c73e2dc8a90eced8ef7e822d9febb" title="Nowy rok, nowe możliwości?"><img alt="Nowy rok, nowe możliwości?" data-assetid="273516" height="152" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/d14b963a-5b46-4800-a1b4-b9a54562c36f.png" style="display: block; max-width: 255px; font-family: Arial, sans-serif; font-size: 10px; line-height: 12px; color: #000000; padding: 0px; text-align: center; height: 152px; width: 255px; border-radius: 15px;" width="255"></a></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]-->
+<table align="right" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																	
+																		<tr>
+																			<td align="center" style="padding:8px 12px 0px;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																					
+																						<tr>
+																							<td align="center" style="padding:0px 0px 0px;" valign="top">
+																								<div style="text-align: center;">
+																								</div><table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td style="font-size: 14px; line-height: 22px; font-family: Helvetica, Arial, sans-serif; color: rgb(18, 52, 149); font-weight: bold; padding-bottom: 14px; text-align: center;" valign="top">
+																												Nowy rok, nowe możliwości?</td></tr><tr>
+																											<td class="em_pbottom" style="font-size: 14px; line-height: 22px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); padding-bottom: 14px; text-align: justify;" valign="top">
+																												Czy czujesz niezadowolenie po rozmowach rocznych? Mamy setki ofert pracy na naszej stronie &ndash; Tw&oacute;j kolejny krok w karierze jest o jedno kliknięcie stąd.</td></tr><tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:24px;" valign="top">
+																												<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px; max-width:255px;" width="255">
+																													
+																														<tr>
+																															<td align="center" bgcolor="#124395" height="44" style="height:44px; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 25px; display:block;" valign="middle">
+																																<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9f55144b7ba32121920808da88ca6a238c8b1c046aba2d28bb104dfeebc90f74f3333af44e69171686260c73e2dc8a90eced8ef7e822d9febb" style="color:#ffffff;text-decoration:none; line-height:44px; display:block;" target="_blank" title="Znajdź nową pracę">Znajdź nową pracę</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]--></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--TWO COLUMN CENTRE--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--TWO COLUMN CENTRE-->
+<table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td valign="top">
+																<table align="left" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																	
+																		<tr>
+																			<td align="center" style="padding:8px 10px 0px;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="255">
+																								<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9f0360883f2be73b1fb96a18aa5b4eb4835e81b0913a37a4d5034e0f49371bb2c0f3ce45d4bf4a394036d88377374fa57b8d0d5f7710739f78" title="Analiza Trendów Talentów"><img alt="Analiza Trendów Talentów" data-assetid="273517" height="152" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/f855583b-505b-46da-b80f-4168c3a50e4a.png" style="display: block; max-width: 255px; font-family: Arial, sans-serif; font-size: 10px; line-height: 12px; color: #000000; padding: 0px; text-align: center; height: 152px; width: 255px; border-radius: 15px;" width="255"></a></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]-->
+<table align="right" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																	
+																		<tr>
+																			<td align="center" style="padding:8px 12px 0px;" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px;" width="255">
+																					
+																						<tr>
+																							<td align="center" style="padding:0px 0px 0px;" valign="top">
+																								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td style="font-size: 14px; line-height: 22px; font-family: Helvetica, Arial, sans-serif; color: rgb(18, 52, 149); font-weight: bold; padding-bottom: 14px; text-align: center;" valign="top">
+																												Analiza Trend&oacute;w Talent&oacute;w</td></tr><tr>
+																											<td class="em_pbottom" style="font-size: 14px; line-height: 22px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); padding-bottom: 14px; text-align: justify;" valign="top">
+																												Sprawdź nasz raport Talent Trends, aby zrozumieć, co dzieje się na rynku pracy i odkryj, jak zmieniają się miejsca pracy oraz firmy.</td></tr><tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:0px;" valign="top">
+																												<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:255px; max-width:255px;" width="255">
+																													
+																														<tr>
+																															<td align="center" bgcolor="#124395" height="44" style="height:44px; font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 25px; display:block;" valign="middle">
+																																<a   data-linkto="https://" href="https://click.email.page.com/?qs=f27efdf4d591ea9f0360883f2be73b1fb96a18aa5b4eb4835e81b0913a37a4d5034e0f49371bb2c0f3ce45d4bf4a394036d88377374fa57b8d0d5f7710739f78" style="color:#ffffff;text-decoration:none; line-height:44px; display:block;" target="_blank" title="Dostęp do raportu">Dostęp do raportu</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]--></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--TWO COLUMN CENTRE--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--Sign off copy-->
+<table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+ 
+  <tr>
+   <td align="center" valign="top">
+    <table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff; " width="620">
+     
+      <tr>
+       <td align="center" valign="top">
+        <table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff; " width="620">
+         
+          <tr>
+           <td align="center" class="em_padall" style="padding: 0 28.65px 0; " valign="top">
+            <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="border-radius:0px 0px 24px 24px;" width="100%">
+             
+              <tr>
+               <td style="font-size: 1px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); text-align: center; " valign="top">
+                <div>
+                 &nbsp;</div>&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--Sign off copy--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--BODY TEXT--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#ffffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#f2f5fa;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding:0 15px 0;" valign="top">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td align="center" style="font-size:22px;line-height: 20px; font-family: Helvetica, Arial, sans-serif; color:#094fa3; font-weight:bold;padding-top:17px; padding-bottom:17px;" valign="top">
+																Ch&#281;tnie Ci pomo&#380;emy:</td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--BODY TEXT--> <!--EXTRA SPACE CODE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout: fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#fffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width: 620px; table-layout: fixed; background-color: #fffff;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding: 0 28.65px 0;" valign="top">
+												<table align="center" bgcolor="#f2f5fa" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td style="font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: rgb(54, 68, 77); text-align: center;" valign="top">
+																&nbsp;</td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--EXTRA SPACE CODE--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <!--TWO COLUMN CENTRE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color: #f2f5fa;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:620px;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding:0 20px 0;" valign="top">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td valign="top">
+																<table align="left" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																	
+																		<tr>
+																			<td align="center" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="40">
+																								<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f41021d6ca558eee0516807aea0557015ca6a306be83063d4d6254f2089f55094b562f70e1bfcb344434d1a7cfce650a15d74e1ab29f8be85" style="text-decoration: none; color:#000000;" target="_blank" title="Salary"><img alt="Salary" data-assetid="164044" height="49" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/8b8ddf08-94b9-4d97-a583-09294988710d.png" style="font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; padding: 0px; height: 49px; width: 49px; text-align: center;" width="49"></a></td></tr><tr>
+																							<td align="center" style="padding:8px 10px 0px;" valign="top">
+																								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#094fa3; font-weight:bold; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f3dd18a70185a2d3f8ed30145e0d89b88fcfc112ed55fe1ec5795c4f9cabf6d21762165a2081828d9d114982da4c88e9334b20855de9a7828" style="color:#123495;text-decoration:underline;" title=""><strong>Zarabiasz wystarczaj&#261;co du&#380;o?</strong></a></td></tr><tr>
+																											<td align="center" class="em_pbottom" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9fc187304d3bdc4a9e1d6168a573260ad42263efe5580dcbed703d1e012ab5e440d42ea384086996a6360d568a640616aadfa9808df4a77d16" style="color:#36444d;text-decoration:none; " title="">Poznaj prognozy dot. rynku pracy</a></td></tr></table></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]--><table align="right" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																	
+																		<tr>
+																			<td align="center" class="em_ptop" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="40">
+																								<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9fbfb2fb39e2ec496036f31dca0beddf9d91bce9940cbf5cf0d1a0dd6ed18d14e228624d26c8625ea9f51a884419a0e2e31038773d78b4c6ae" title="Looking job"><img alt="Looking job" data-assetid="164047" height="49" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/66fb2782-4da9-4c5f-b17c-7606f981352c.png" style="font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; padding: 0px; text-align: center; height: 49px; width: 49px;" width="49"></a></td></tr><tr>
+																							<td align="center" style="padding:8px 10px 0px;padding-bottom:20px;" valign="top">
+																								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#094fa3; font-weight:bold; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9fb87546c5acd666f70928d33f88e6d5b47323b09233a61b5045927af1972c2e96ed2d1435b7b947e07bbf3bcd5b84909d651c41d89afdea9b" style="color:#123495;text-decoration:underline;" title=""><strong>Szukasz pracy w IT?</strong></a></td></tr><tr>
+																											<td align="center" class="em_pbottom" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9fb87546c5acd666f70928d33f88e6d5b47323b09233a61b5045927af1972c2e96ed2d1435b7b947e07bbf3bcd5b84909d651c41d89afdea9b" style="color:#36444d;text-decoration:none; " title="">Sprawd&#378; oferty pracy</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--TWO COLUMN CENTRE--> <!--TWO COLUMN CENTRE--><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color: #f2f5fa;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:620px;" width="620">
+									
+										<tr>
+											<td align="center" class="em_padall" style="padding:0 20px 0;" valign="top">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													
+														<tr>
+															<td valign="top">
+																<table align="left" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																	
+																		<tr>
+																			<td align="center" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="40">
+																								<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f920eebf46e2c3b01c9587a416b15b6850d4f3ac89a264378a0a60cbbef6bd4d4f32653ca7512e2cb34c73e4eb96c5c7eefa2866d9f650fe4" style="text-decoration: none; color:#000000;" target="_blank" title="Advice"><img alt="Advice" data-assetid="164045" height="49" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/75fe0475-807a-4a39-ae1b-5daeb6ce036e.png" style="font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; padding: 0px; text-align: center; height: 49px; width: 49px;" width="49"></a></td></tr><tr>
+																							<td align="center" style="padding:8px 10px 0px;" valign="top">
+																								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#094fa3; font-weight:bold; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f39a1405acdd0124c37186f207079a6e6380677735ef4d04bec1a3b11c427b86715e0effa0c99b43045cf299c3adba4e5fc330b720f2241ad" style="color:#123495;text-decoration:underline;" title=""><strong>Znasz najnowsze trendy w rekrutacji?</strong></a></td></tr><tr>
+																											<td align="center" class="em_pbottom" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f39a1405acdd0124c37186f207079a6e6380677735ef4d04bec1a3b11c427b86715e0effa0c99b43045cf299c3adba4e5fc330b720f2241ad" style="color:#36444d;text-decoration:none; " title="">Przeczytaj artyku&#322;y</a></td></tr></table></td></tr></table></td></tr></table><!--[if gte mso 9]>                           </td>                           <td valign="top">                             <![endif]--><table align="right" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																	
+																		<tr>
+																			<td align="center" class="em_ptop" valign="top">
+																				<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:280px;" width="280">
+																					
+																						<tr>
+																							<td align="center" valign="top" width="40">
+																								<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9ff8c58eb5cc5e0482f439d81c5a3c6d5cf2039fd26c19abd1dd07a48aeef678d851514131a104ecd6d4ac2d278a14368167f0c91bafd63b3b" style="text-decoration: none; color:#000000;" target="_blank" title="Discover Temp"><img alt="Discover Temp Jobs" data-assetid="164046" height="49" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/59f426e8-dce1-47de-9647-0d052fde6289.png" style="font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; padding: 0px; text-align: center; height: 49px; width: 49px;" width="49"></a></td></tr><tr>
+																							<td align="center" style="padding:8px 10px 0px;padding-bottom:20px;" valign="top">
+																								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																									
+																										<tr>
+																											<td align="center" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#094fa3; font-weight:bold; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f7add52d76241e0d148dccde1ad19c713a17bdc4fc95c4495eba2beeef9a7a9c6341bda85ba3928f47fc7825a98c3bff46e8067ea5faf6f75" style="color:#123495;text-decoration:underline;" title=""><strong>Tw&oacute;j partner w rekrutacji</strong></a></td></tr><tr>
+																											<td align="center" class="em_pbottom" style="font-size:14px;line-height: 22px; font-family: Helvetica, Arial, sans-serif; color:#36444d; padding-bottom:14px;" valign="top">
+																												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9f7add52d76241e0d148dccde1ad19c713a17bdc4fc95c4495eba2beeef9a7a9c6341bda85ba3928f47fc7825a98c3bff46e8067ea5faf6f75" style="color:#36444d;text-decoration:none; " title="">Dowiedz si&#281; wi&#281;cej o Michael Page</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!--TWO COLUMN CENTRE--></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#ffffff;" width="620">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" class="em_wrapper" style="width:620px;" width="620">
+									
+										<tr>
+											<td align="center" class="em_full_img" valign="top">
+												<a   data-linkto="other" href="https://click.email.page.com/?qs=f27efdf4d591ea9ff880c112302fc8b9780916351ad4926bc969265bcb20832b997e70c1f6b74b09d5f6104f612c4420ebe224ee92621d6d6f4340a102a5d038" target="_blank" title="Footer Banner Apply PL"><img alt="Footer Banner Apply PL" height="100" src="https://image.email.page.com/lib/fe36117075640474771075/m/1/6b796a72-23b6-4b99-9194-9ea810a18ea8.jpg" style="font-size: 17px; line-height: 20px; font-family: Arial, sans-serif; color: #000000; max-width: 620px; padding: 0px; text-align: center; height: 100px; width: 620px;" width="620"> </a></td></tr></table></td></tr></table></td></tr></table><!--EXTRA SPACE --><table bgcolor="#f5f5f5" border="0" cellpadding="0" cellspacing="0" class="em_full_wrap" style="table-layout:fixed;" width="100%">
+	
+		<tr>
+			<td align="center" valign="top">
+				<table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="em_main_table" style="width:620px; table-layout:fixed; background-color:#f2f5fa;" width="620">
+					
+						<tr>
+							<td class="em_h20" height="24" style="height:24px; font-size:0px; line-height:0px;">
+								&nbsp;&nbsp;</td></tr></table></td></tr></table> <!--EXTRA SPACE --> </td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<!--  -->
+    <table width="100%" class="em_full_wrap" style="table-layout:fixed;" bgcolor="#f5f5f5" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" valign="top">
+          <table width="620" align="center" class="em_main_table" style="width:620px; table-layout:fixed;" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" class="em_padfooter" valign="top" style="padding:15px 15px 47px;">
+                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" valign="top" style="font-size:12px; line-height:22px; font-family:Arial, sans-serif; color: #696969;">Jesteś zarejestrowany w naszej bazie pod adresem e-mail: ham@ham.email</td>
+                  </tr>
+                  <tr>
+                    <td height="20" class="em_h20" style="height:20px; font-size:0px; line-height:0px;">&nbsp;</td>
+                  </tr>
+                 <!-- -->
+                  <tr>
+                    <td align="center" valign="top">
+                      <table width="82" align="center" style="width:82px;" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="40" align="left" valign="top"><a title="Facebook" style="text-decoration: none; color:#000000;" href="https://click.email.page.com/?qs=f27efdf4d591ea9fea7c5a3b776f4ef5d04e073386652098b00d91e51d1108c1e55a072fe9af4ee789e28a0f70171e658e15fd4b1322c3021bbac3e60844673e" target="_blank"><img width="40" height="40" title="Facebook" style=" font-size:17px;                              line-height:20px; font-family:Arial, sans-serif; color:#000000;" alt="Facebook" src="https://image.email.page.com/lib/fe31117075640475701d73/m/1/054954aa-be02-479e-bec8-b95e00c6d3b0.png" border="0"></a></td>
+                          <td width="1" align="center" valign="top" style="font-size: 0px; line-height:0px; width:1px;"><img width="8" height="1" style="display:block;" alt="" src="http://image.email.page.com/lib/fe31117075640475701d73/m/1/db04aea8-f996-4b5b-8814-03861dea4186.gif" border="0"></td>
+                          <td width="40" align="left" valign="top"><a title="Linkedin" style="text-decoration: none; color:#000000;" href="https://click.email.page.com/?qs=f27efdf4d591ea9f047d8121420d85fe39e1af706643647bcc13d852988936ecefc25a354d82776151945dae38fc51777ac81280e1e20d16006183d99c90b69e" target="_blank"><img width="40" height="40" title="Linkedin" style=" font-size:17px; line-height:20px; font-family:Arial, sans-serif; color:#000000;" alt="Linkedin" src="https://image.email.page.com/lib/fe31117075640475701d73/m/1/08d2a1de-0658-4208-b4ad-215d45994eef.png" border="0"></a></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                   <!--  -->
+                   <!--  -->
+       
+         <!--  -->
+            <!--  -->
+          <!--  -->
+       
+       
+                   <!--  -->
+                  
+                   <!--  -->
+                  <!--  -->
+
+                  <!--  -->
+                  
+                  <!--  -->
+                  
+                  <!--  -->
+                 
+                                    <!--  -->
+                  
+                  <!--  -->
+                  <!--  -->
+                  <!--  -->
+                  
+                  <!--  -->
+                  <!--  -->
+      
+                  <!--  -->
+                   <!--  -->
+                   <!--   -->
+                  
+                    <!--  -->
+                  
+                    <!--  -->
+                 
+                  <tr>
+                    <td height="15" style="height:15px; font-size:0px; line-height:0px;">&nbsp;</td>
+                  </tr>  
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="center" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" valign="top" style="font-size: 14px; line-height: 16px; font-family: Arial, sans-serif; color: #696969;"><a title="" style="text-decoration: none; color: #696969;" href="https://view.email.page.com/ftaf.aspx?qs=46371d5172ffbbd25a2baa810243f9238a85fd0230c121023541edf884a1c3b7984493b38d8663d2e611463508204cbaf219d861ac4a8e7c" target="_blank"  ><span style="color: #696969;"><b>Przekaż<b></span></a>&nbsp;&nbsp;</td>
+                          <td align="left" valign="middle"><img width="2" height="13" style="display: block;" src="http://image.email.page.com/lib/fe31117075640475701d73/m/1/876f31c0-f488-466c-ad5e-ebf2e30b57a4.jpg" border="0"></td>
+                          <td align="center" valign="top" style="font-size: 14px; line-height: 16px; font-family: Arial, sans-serif; color: #696969;"><a title="" style="text-decoration: none; color: #696969;" href="https://click.email.page.com/?qs=f27efdf4d591ea9fadf0245f6ee0906e5fb5382c793d36eec8906963d6140238a22f17295c1518a3f0ac92de2e817ef4e92006ff92e28e712acd53a1967c636411adba2815d0c329" target="_blank"  >&nbsp;&nbsp;<span style="color: #696969;">Wypisz się</span></a></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="20" class="em_h20" style="height:20px; font-size:0px; line-height:0px;">&nbsp;</td>
+                  </tr>
+                 <!--  -->
+                   <tr>
+                    <td align="center" valign="top" style="font-size:11px; line-height:15px; font-family:Arial, sans-serif; color: #bebec0;">Michael Page International (Poland) Sp. z o.o. (nr licencji agencji zatrudnienia: 6359), <br>Zarejestrowana: ul. Złota 59, 00-120 Warszawa, NIP: 525-23-45-586, Sąd Rejonowy dla m. st. Warszawy, XII </br> Wydzial KRS, Nr KRS 0000241698<br><br><a style="text-decoration:none; color: #bebec0;" href="https://click.email.page.com/?qs=f27efdf4d591ea9f2381f1b9678e5d92825b25b96c4969fcd79241fe8996a20636237edff628a76a48aa1c7af8f770f2b093567a5f0a3d83f203f95ebe57a6fc" >Będziemy świadczyć usługi zgodnie z naszym <a style="text-decoration:none; color: #bebec0;" href="https://www.michaelpage.pl/regulamin-korzystania-ze-strony" alias="Regulaminem"><u>Regulaminem</u>
+</a>. Dane osobowe użytkownika są przetwarzane zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE.<br> Aby skorzystać z prawa do ochrony danych, prosimy o kontakt pod adresem <a style="text-decoration:none;color:#a6a7a9;"href="mailto:gdpr@pagegroup.eu">gdpr@pagegroup.eu</a>. <br>Więcej informacji znajduje się w zakładce poświęconej naszej<a style="text-decoration:none; color: #bebec0;" href="https://www.michaelpage.pl/polityka-prywatności" alias="Terms&Conditions"><u>polityce prywatności</u></a>.Jeśli chcesz zrezygnować z otrzymywania informacji handlowych, kliknij <a alias="Hyperlink - Contact us" href="http://www.michaelpage.pl/preference-center/003Q6000009rFQWIA2" style="text-decoration:none; color: #bebec0;" target="_blank"><u>Anuluj subskrypcję</u>
+</a> lub powiadom nas o tym nas drogą elektroniczną, wysyłając maila na adres <a style="text-decoration:none;color:#a6a7a9;"href="mailto:gdpr@pagegroup.eu">gdpr@pagegroup.eu</a>.</a>.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+<!--  -->
+</td></tr></table>
+    </div>
+    <!--SEND LOG VARIABLE LOADER-->
+    <!--MAILING ADDRESS--> 
+    <div style="font-size:0; line-height:0;"><a href="https://click.email.page.com/?qs=f27efdf4d591ea9ff49ac042135d2760a974036693b080d03b7f17297a5110e486c04dd955d59bfc71dc290879e05b961628f6dc5ffc73e64c96cc739c172695" style="display: none;">Click</a> Michael Page International (Deutschland) GmbH Carl-Theodor-Str. 1 Düsseldorf, NRW, 40213, KT15 2QW, Deutschland</div>
+    <!--MAILING ADDRESS--> 
+  <!-- start:processor:append --><!-- start:processor:body:append --><svg xmlns="http://www.w3.org/2000/svg" style="display:none"> <symbol id="ie-star"> <polygon points="10, 0, 3, 20, 20, 8, 0, 8, 17, 20" fill="currentColor"></polygon> </symbol> </svg></div><!-- end:processor:body:append --><!-- end:processor:append --></body>
+</html>

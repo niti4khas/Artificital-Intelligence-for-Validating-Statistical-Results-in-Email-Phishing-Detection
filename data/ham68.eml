@@ -1,0 +1,2984 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c3c4:0:b0:2ac:6419:e1b with SMTP id b4csp1432356lkq;
+        Wed, 11 Dec 2024 00:28:34 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFUNK/I5CoWue1pkqbRzd5KQen11t3qvmqSzNBTGzCiyTiKX4WQ1tW7u837NWMvlL1NjVkZ
+X-Received: by 2002:a05:6a00:1887:b0:725:4301:ed5a with SMTP id d2e1a72fcca58-728edb5c328mr2632297b3a.2.1733905714423;
+        Wed, 11 Dec 2024 00:28:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733905714; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VXmg8TC0eqDqyyAnGOy5I2IcQb12DQ+Yfdz1LVwShVSAjokPpObmV/QYOv2bEW/h/5
+         BFUJnY6H9Qf1kwAQlpTiFzR6+XnX1w36eRwFWQUpnQmlSdSH9auekul25E3einmc42N/
+         K4ZvvRESBTIyiZilU+Rvh6K1KwhFpZakF5V9ZKv2hdWLvbhVG9wKqsvoPQPFuIyLwbaj
+         miDNwSNrOsPxi/SQOZlQ8jlZAmjjFJXL0NIhwMwhaAL4H1glFTpI3VLrH43CcVDElmAk
+         rXNchdXt9x7CfgioxMrgykPBaHiz2xFtZ8XqMceCfpJ2Q4niSmkXMgE/SQoPK+lM/f7T
+         Eegw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=require-recipient-valid-since:feedback-id:list-unsubscribe-post
+         :list-unsubscribe:date:to:mime-version:subject:message-id:from
+         :dkim-signature:dkim-signature;
+        bh=GqqHEzFo3IenLYRGTByC13mjRNf+6TN53D39lco7qR8=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=LKoWg3qUUPsm0/XuqNwU6LwUiANMoxX4lR8WGzYZQPoHPybF5xutTY53vNo8W4XOF0
+         jcdRdjM+PO2jxrZSMIGL5bzpaH5JhCtoG5+XbWC13Ql1zIfUlu7hulc3CJL2LQjG7edX
+         YbNYWxbG9ozURwGU7u2NHXHLKkaBWk+wkbsTyaV6hk7iWDuVKG5ljg9mtPhzo+RgjIiQ
+         19wSG71WJnGtCK2ZwR1jihh8QWxPoGTE39HAilukHgPSEKc7U2/lrVknjBY5oO9iwOAT
+         k2rVACgp/OJplXQfdUGS5wMy9WKW2R62slxLqoDmUnYWDWZJUHosp5E7SJxJbEOTpI10
+         Hzgg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=HN7ZWKhK;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=Wl8uNBzX;
+       spf=pass (google.com: domain of s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com designates 2620:109:c003:104::195 as permitted sender) smtp.mailfrom=s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+Return-Path: <s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com>
+Received: from maile-cc.linkedin.com (maile-cc.linkedin.com. [2620:109:c003:104::195])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-7fd4c3e2c59si8578422a12.379.2024.12.11.00.28.33
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 11 Dec 2024 00:28:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com designates 2620:109:c003:104::195 as permitted sender) client-ip=2620:109:c003:104::195;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=HN7ZWKhK;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=Wl8uNBzX;
+       spf=pass (google.com: domain of s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com designates 2620:109:c003:104::195 as permitted sender) smtp.mailfrom=s-2ppbwwvkuhqzwpy88j20nzj8xjhqilh5ygybxsgxv2vvq8haxp15hp2s@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maile.linkedin.com; s=d2048-202308-0e; t=1733905713; bh=GqqHEzFo3IenLYRGTByC13mjRNf+6TN53D39lco7qR8=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=HN7ZWKhKuFd99dlawyaLrKle+5X/EV2tZED8GOkAy6QRi3Sbv8zXj/4/jUD1oCa7A
+	 o7w25HtOnapW31UBlvEYDwzUi+E8kclYDI/vznx4NwYu9QI1Gpi/y2IUSKk2J5t92l
+	 5M8URm1uy4kIM+MKN2pKhONM0TNC1Xa3DxiocypFoYNpxbMFK0ZCPE3sn7ZJ7gQeKf
+	 5GCGUhQXUXiAjOUFjTTJYgajW88l9spHB0RlXnkB+Vy4wkYIN8K70ZIm9z1UATtaKS
+	 Qo0by1bP37OHg1OiPuVbM3waYjXdQATsJ72rnpaUwKKW3SFb0s/jIw+SpEXQuzT8Jl
+	 Voq7RBYzLMa4A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linkedin.com; s=d2048-202308-00; t=1733905713; bh=GqqHEzFo3IenLYRGTByC13mjRNf+6TN53D39lco7qR8=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=Wl8uNBzXNjJplCke+KteV71nT9QEnq9hpjp32MQRFijePd9zuzqH9Ln454agiGep7
+	 y0F+FkG3fTWWxURAx38AZBEtWm4ml0FxkBSLDW8bmLcfCOGnNu4gSo2wwJehStZAL/
+	 I/h+wXJegckWq20PX7yEO5TTarWsw4Cs+rDRiixB6kMKkOwXEkyKOdxCKnWOHb9xNm
+	 sHmDJTchvZswZKhVsMHVGHzCubcte3w3n3JRmJ+A8p9QwYtsMUQMzvit2aEd32n2X8
+	 /quXRsezWMLVPEU+Y7mFAIOkj427DA+ai92aERhu704iB68rQIrZQOg2br/iz5OiTH
+	 /csJrOCerzcaw==
+From:  <sender-noreply@linkedin.com>
+Message-ID: <1619991394.615490.1733905713568@lva1-app54818.prod.linkedin.com>
+Subject: Microsoft December 2024 Patch Tuesday – 71 Vulnerabilities Fixed, Including 1 Zero-day & 30 RCEs
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_615488_671229845.1733905713563"
+To: <ham@ham.email>
+Date: Wed, 11 Dec 2024 08:28:33 +0000 (UTC)
+X-LinkedIn-Class: EMAIL-DEFAULT
+X-LinkedIn-Template: email_series_follow_newsletter_01
+X-LinkedIn-fbl: m2-clvfifov6ryzk1rntpxjwrvflzy1bcrpb9wspyrgvfsz2f9fgvva0qomonujvs2og0vlfoq95fqceffo58gs6e4px5m0tykaa7t46nla1tm5m7jvvbp5y322vhvnkucqz0vbrm97
+X-LinkedIn-Id: hdesgg-m4jmlsh0-lu
+List-Unsubscribe: <https://www.linkedin.com/comm/series-notifications/?action=unsubscribe&memberToken=ADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6Ok&newsletterId=7045874934954278912&newsletterTitle=Cyber%20Security%20News&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&midToken=AQGhw_YagvtrXA&midSig=0SOeOYAIVYZbw1&trk=eml-email_series_follow_newsletter_01-unsub-0-unsub&trkEmail=eml-email_series_follow_newsletter_01-unsub-0-unsub-null-hdesgg~m4jmlsh0~lu-null-null&eid=hdesgg-m4jmlsh0-lu&otpToken=MTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: email_series_follow_newsletter_01:linkedin
+Require-Recipient-Valid-Since: ham@ham.email; Fri, 14 Oct 2022 13:41:35 +0000
+
+------=_Part_615488_671229845.1733905713563
+Content-Type: text/plain;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: text-body
+
+Cyber Security News
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+   =20
+   =20
+    =D0=9F=D1=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=
+=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=
+=D1=8B =D0=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=
+=D1=8C=D1=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=
+=D0=B8=D1=8E
+=D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=B2 LinkedIn
+https://www.linkedin.com/comm/pulse/microsoft-december-2024-patch-tuesday-7=
+1-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_=
+newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&midToken=3DAQGhw_YagvtrXA&mi=
+dSig=3D0SOeOYAIVYZbw1&trk=3Deml-email_series_follow_newsletter_01-null-0-re=
+ad_more_banner_cta_&trkEmail=3Deml-email_series_follow_newsletter_01-null-0=
+-read_more_banner_cta_-null-hdesgg~m4jmlsh0~lu-null-null&eid=3Dhdesgg-m4jml=
+sh0-lu&otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhY=
+WU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2=
+YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D
+ =20
+Microsoft released a security as part of the December Patch Tuesday that ad=
+dressed 72 vulnerabilities, including 30 classified as critical Remote Code=
+ Execution (RCE) vulnerabilities. These fixes are crucial for securing Wind=
+ows operating systems and related software against potential exploitation. =
+Key Highlights of December 2024 Patch Tuesday Updates: A recent security up=
+date has addressed a total of 71 vulnerabilities across various platforms,,=
+ including 30 remote code execution vulnerabilities and 28 elevation of pri=
+vilege vulnerabilities, which represent critical risks to system security. =
+Additionally, it resolves 4 denial of service vulnerabilities, 1 spoofing v=
+ulnerability, and 7 information disclosure vulnerabilities. The update also=
+ includes 1 defense-in-depth improvement, further enhancing overall system =
+protection. Additionally, the update resolved other issues, such as the ele=
+vation of privilege vulnerabilities, security feature bypasses, and more. T=
+he affected platforms include a wide range of Windows versions, from modern=
+ systems like Windows 11 and Windows 10 to older systems such as Windows Se=
+rver 2008 and various Windows Server variants. Leveraging 2024 MITRE ATT&CK=
+ Results for SME & MSP Cybersecurity Leaders =E2=80=93=C2=A0Attend Free=C2=
+=A0Webinar Zero-day Vulnerability Exploited CVE-2024-49138 is a zero-day vu=
+lnerability that was actively exploited before being patched in Microsoft's=
+ December 2024 Patch Tuesday update. This critical security flaw affects th=
+e Windows Common Log File System Driver and is classified as an Elevation o=
+f Privilege vulnerability. The vulnerability was discovered by the Advanced=
+ Research Team at CrowdStrike. It allows attackers to gain SYSTEM privilege=
+s on Windows devices, potentially giving them full control over the affecte=
+d system. While it's confirmed that the vulnerability was actively exploite=
+d in the wild, specific details about the exploitation methods have not bee=
+n disclosed. The December 2024 Patch Tuesday update includes a fix for this=
+ vulnerability, and users are strongly advised to apply the patch immediate=
+ly. Critical Remote Code Execution Vulnerabilities This month's patch inclu=
+des fixes for CVE-2024-49116, a highly critical RCE vulnerability impacting=
+ multiple versions of Windows Server. Exploiting this flaw could allow atta=
+ckers to execute arbitrary code remotely, potentially granting full system =
+control. Here are some of the products affected by CVE-2024-49116: Windows =
+Server 2025 (Server Core Installation) Windows Server 2022, 23H2 Edition (S=
+erver Core installation) Windows Server 2022 Windows Server 2019 Windows Se=
+rver 2012 R2 Additionally, an RCE vulnerability with CVE-2024-49112 impacts=
+ Windows 10 Version 1809 for both x64 and 32-bit systems. Elevation of Priv=
+ilege Vulnerabilities Microsoft also addressed multiple Elevation of Privil=
+ege (EoP) vulnerabilities, which are critical in preventing attackers from =
+gaining unauthorized access to higher system privileges. Key Elevation of P=
+rivilege updates include: CVE-2024-49138: Affects Windows 11 Version 22H2 a=
+nd Windows 10 Version 21H2 across various architectures. CVE-2024-49110: A =
+significant EoP vulnerability affecting Windows Server 2025, Windows 11 Ver=
+sion 24H2, and other platforms. CVE-2024-49077: Impacts Windows Server 2022=
+ 23H2 Edition, as well as Windows 11 Version 23H2 systems. For Windows 11, =
+Version 22H2 addressed CVE-2024-49138 and CVE-2024-49081, targeting Elevati=
+on of Privilege risks. Version 23H2 resolved CVE-2024-49077, also related t=
+o Privilege Elevation. Additionally, Version 24H2 tackled CVE-2024-49110, a=
+ key Elevation of Privilege vulnerability. In Windows 10, Version 22H2 fixe=
+d CVE-2024-49081, addressing Elevation of Privilege flaws. Version 21H2 res=
+olved both CVE-2024-49081 and CVE-2024-49138 to mitigate privilege escalati=
+on threats. For Windows Server, critical vulnerabilities were addressed in =
+multiple versions. Windows Server 2025 patched CVE-2024-49116 (Remote Code =
+Execution) and CVE-2024-49077 (Elevation of Privilege). Windows Server 2022=
+ resolved both RCE and EoP vulnerabilities, including CVE-2024-49116 and CV=
+E-2024-49081. Windows Server 2012 and 2012 R2 fixed CVE-2024-49088 (Elevati=
+on of Privilege) and CVE-2024-49080 (Remote Code Execution) Windows Server =
+2008 and 2008 R2 addressed critical Privilege Escalation vulnerabilities su=
+ch as CVE-2024-49088. With many vulnerabilities marked as Important or Crit=
+ical, these updates are essential to prevent potential exploitation. Organi=
+zations and individuals are urged to apply these updates promptly through W=
+indows Update or other tools to safeguard against security threats. Microso=
+ft's December 2024 Patch Tuesday emphasizes consistently updating systems t=
+o mitigate vulnerabilities. With cyberattacks' growing sophistication, addr=
+essing critical issues like Remote Code execution vulnerabilities and Eleva=
+tion of Privilege flaws is paramount. Apply these patches immediately throu=
+gh=C2=A0Windows Update=C2=A0or other deployment tools to ensure your system=
+s are up to date. For more details, refer to Microsoft's official security =
+update documentation. 72 Vulnerabilities Fixed in Microsoft Patch Tuesday, =
+December 2024 Microsoft has published a=C2=A0complete list=C2=A0of patched =
+vulnerabilities, which provides detailed information about the exploitation=
+ methods, vulnerability descriptions, and other information.=C2=A0 All user=
+s should update their products to the latest version to prevent threat acto=
+rs from exploiting these vulnerabilities. Investigate Real-World Malicious =
+Links, Malware & Phishing Attacks With ANY.RUN - Try for Free
+=D0=9F=D1=80=D0=BE=D0=B4=D0=BE=D0=BB=D0=B6=D0=B8=D1=82=D1=8C =D1=87=D1=82=
+=D0=B5=D0=BD=D0=B8=D0=B5 =D0=B2 LinkedIn
+https://www.linkedin.com/comm/pulse/microsoft-december-2024-patch-tuesday-7=
+1-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_=
+newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&midToken=3DAQGhw_YagvtrXA&mi=
+dSig=3D0SOeOYAIVYZbw1&trk=3Deml-email_series_follow_newsletter_01-newslette=
+r_content_preview_text-0-readmore_button_&trkEmail=3Deml-email_series_follo=
+w_newsletter_01-newsletter_content_preview_text-0-readmore_button_-null-hde=
+sgg~m4jmlsh0~lu-null-null&eid=3Dhdesgg-m4jmlsh0-lu&otpToken=3DMTMwNTFiZTAxN=
+jJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYz=
+ZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDE=
+sMQ%3D%3D
+ =20
+     =20
+
+----------------------------------------
+
+=D0=AD=D1=82=D0=BE =D1=81=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D0=B5 =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D1=8B =D0=B0=D0=B4=D1=80=D0=B5=
+=D1=81=D0=BE=D0=B2=D0=B0=D0=BD=D0=BE =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D1=83   (Cybersecurity specialist | CEH)
+=D0=A7=D1=82=D0=BE =D1=8D=D1=82=D0=BE =D0=B7=D0=BD=D0=B0=D1=87=D0=B8=D1=82:=
+ https://www.linkedin.com/help/linkedin/answer/4788?lang=3Dru&lipi=3Durn%3A=
+li%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2=
+FRQ%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D0SOeOYAIVYZbw1&trk=3Deml-email=
+_series_follow_newsletter_01-SecurityHelp-0-textfooterglimmer&trkEmail=3Dem=
+l-email_series_follow_newsletter_01-SecurityHelp-0-textfooterglimmer-null-h=
+desgg~m4jmlsh0~lu-null-null&eid=3Dhdesgg-m4jmlsh0-lu&otpToken=3DMTMwNTFiZTA=
+xNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNW=
+YzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljL=
+DEsMQ%3D%3D
+=D0=92=D1=8B =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=
+=D0=B2=D0=B5=D0=B4=D0=BE=D0=BC=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =
+=D0=94=D1=80=D1=83=D0=B3=D0=B8=D0=B5 =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D0=B8 =D0=BC=D0=BE=D0=B3=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=
+=D1=82=D1=8C, =D1=87=D1=82=D0=BE =D0=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=
+=B5=D1=82=D0=B5=D1=81=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=
+=B8=D0=BA=D0=BE=D0=BC.
+
+=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=
+=D0=B8=D1=81=D0=BA=D1=83: https://www.linkedin.com/comm/series-notification=
+s/?action=3Dunsubscribe&memberToken=3DADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6=
+Ok&newsletterId=3D7045874934954278912&newsletterTitle=3DCyber%20Security%20=
+News&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpss=
+p6cDqTOGHByVQpir%2FRQ%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D0SOeOYAIVYZb=
+w1&trk=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimmer&=
+trkEmail=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimme=
+r-null-hdesgg~m4jmlsh0~lu-null-null&eid=3Dhdesgg-m4jmlsh0-lu&otpToken=3DMTM=
+wNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0Yj=
+VhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzY=
+zRiZjljLDEsMQ%3D%3D=C2=A0=C2=A0=C2=B7=C2=A0=C2=A0=D0=A1=D0=BF=D1=80=D0=B0=
+=D0=B2=D0=BA=D0=B0: https://www.linkedin.com/help/linkedin/answer/67?lang=
+=3Dru&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bps=
+sp6cDqTOGHByVQpir%2FRQ%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D0SOeOYAIVYZ=
+bw1&trk=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer&tr=
+kEmail=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer-nul=
+l-hdesgg~m4jmlsh0~lu-null-null&eid=3Dhdesgg-m4jmlsh0-lu&otpToken=3DMTMwNTFi=
+ZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTR=
+mNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZj=
+ljLDEsMQ%3D%3D
+
+=C2=A9 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dubl=
+in 2 (=D0=98=D1=80=D0=BB=D0=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2024=C2=A0=D0=B3.L=
+inkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=
+=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=
+=BD=D1=8B=D0=BC =D1=84=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=BD=D1=8B=D0=BC =D0=
+=BD=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5=D0=BC=
+ =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn Ireland Unlimite=
+d Company.
+LinkedIn =D0=B8 =D1=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=BC=D0=B0 LinkedIn =D1=8F=
+=D0=B2=D0=BB=D1=8F=D1=8E=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=
+=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=
+=BC=D0=B8 =D1=82=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=8B=D0=BC=D0=B8 =D0=B7=D0=
+=BD=D0=B0=D0=BA=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=
+=B8=D0=B8 LinkedIn.
+------=_Part_615488_671229845.1733905713563
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: html-body
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"ru" xml:lang=3D"ru"> <=
+head> <meta http-equiv=3D"Content-Type" content=3D"text/html;charset=3Dutf-=
+8"> <meta name=3D"HandheldFriendly" content=3D"true"> <meta name=3D"viewpor=
+t" content=3D"width=3Ddevice-width; initial-scale=3D0.666667; user-scalable=
+=3D0"> <meta name=3D"viewport" content=3D"width=3Ddevice-width"> <title></t=
+itle> <style>
+            @media (max-width: 512px) { .mercado-container { width: 100% !i=
+mportant; } }
+          </style> <style>
+            @media (max-width: 480px) { .inline-button, .inline-button tabl=
+e { display: none !important; }
+            .full-width-button, .full-width-button table { display: table !=
+important; } }
+          </style> <style>body {font-family: -apple-system, system-ui, Blin=
+kMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+            'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid S=
+ans', 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica=
+, Arial, sans-serif;}</style> <!--[if mso]><style type=3D"text/css"> </styl=
+e><![endif]--> <!--[if IE]><style type=3D"text/css"> </style><![endif]--> <=
+style>
+@media (max-width: 480px) {
+  .inline-button,
+.inline-button table {
+    display: none !important;
+  }
+
+  .full-width-button,
+.full-width-button table {
+    display: table !important;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content,
+.pulse .article-main__content > * {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h2,
+.pulse .article-main__content h2 span {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content p,
+.pulse .article-main__content p span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content blockquote {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-img=
+ {
+    width: 48px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"][data-entity-typ=
+e=3D"organization"] .pub-entity-img img {
+    height: 48px;
+    width: 48px;
+    border-radius: 0px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"][data-entity-typ=
+e=3D"member"] .pub-entity-img img {
+    height: 56px;
+    width: 56px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t {
+    padding-left: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t h1 {
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t h3 {
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t p {
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content,
+.advice .article-main__content > * {
+    font-size: 20px;
+  }
+
+  .advice .qa-redesign-article-content .article-main__content > * {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h2,
+.advice .article-main__content h2 span {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice.redesign .article-main__content h2,
+.advice.redesign .article-main__content h2 span {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content p,
+.advice .article-main__content p span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content blockquote {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar__wrapper.navbar__wrapper--x-article-split-layout {
+    margin-left: 24px;
+  }
+}
+@media (min-width: 1440px) {
+  .navbar__wrapper.navbar__wrapper--x-article-split-layout {
+    margin-left: 48px;
+  }
+}
+@media (min-width: 992px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 8px - 392px);
+  }
+}
+@media (min-width: 1200px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 32px - 392px);
+  }
+}
+@media (min-width: 1440px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 64px - 392px);
+  }
+}
+@media (min-width: 992px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 8px;
+  }
+}
+@media (min-width: 1200px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 64px;
+  }
+}
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1128px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 1680px) {}
+@media (min-width: 1920px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media screen and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media screen and (max-width: 991px) {}
+@media (max-width: 991px) {
+  .search-bar.isExpanded .search-bar__placeholder {
+    display: none;
+  }
+
+  .search-bar.isExpanded .base-search-bar__form {
+    display: flex;
+  }
+}
+@media screen and (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 992px) {}
+@media (forced-colors: active) {}
+@media (-ms-high-contrast: active), (forced-colors: active) {}
+@media (min-width: 992px) {}
+@media (min-width: 576px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 992px) {}
+@media (max-width: 575px) {}
+@media (max-width: 640px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media screen and (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 245px) {}
+@media (min-width: 330px) {}
+@media only screen and (min-width: 30.06em) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {
+  .papabear\:tab-vertical.tab-selected:after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:pointer-events-none::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:absolute::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:\!left-\[-19px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:\!top-\[6px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:bottom-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:left-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:right-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:top-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:ml-0\.5::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:ml-\[74px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:block::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:h-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:w-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:rounded-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-1::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-solid::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-color-divider::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:bg-gradient-to-b::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:from-color-transparent::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:to-color-background-scrim::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:text-color-text-low-emphasis::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:no-underline::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:shadow-\[0_0_0_500px_var\(--color-scrim\)\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\"\"\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\'\'\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\'\/\'\]::after {
+    content: "";
+  }
+}
+@media (min-width: 576px) {
+  .xs\:sticky {
+    position: sticky;
+  }
+
+  .xs\:left-\[-52px\] {
+    left: -52px;
+  }
+
+  .xs\:left-\[-56px\] {
+    left: -56px;
+  }
+
+  .xs\:top-0 {
+    top: 0px;
+  }
+}
+@media (min-width: 768px) {
+  .sm\:m-0 {
+    margin: 0px;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:pl-0\.5 {
+    padding-left: 4px;
+  }
+
+  .sm\:text-sm {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) {
+  .md\:\!absolute {
+    position: absolute !important;
+  }
+
+  .md\:absolute {
+    position: absolute;
+  }
+
+  .md\:left-\[-44px\] {
+    left: -44px;
+  }
+
+  .md\:left-\[-52px\] {
+    left: -52px;
+  }
+
+  .md\:left-\[-53px\] {
+    left: -53px;
+  }
+
+  .md\:left-\[-60px\] {
+    left: -60px;
+  }
+
+  .md\:right-\[19px\] {
+    right: 19px;
+  }
+
+  .md\:m-2 {
+    margin: 16px;
+  }
+
+  .md\:-ml-1 {
+    margin-left: -8px;
+  }
+
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:mb-8 {
+    margin-bottom: 64px;
+  }
+
+  .md\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .md\:ml-\[-12px\] {
+    margin-left: -12px;
+  }
+
+  .md\:ml-\[-41px\] {
+    margin-left: -41px;
+  }
+
+  .md\:mr-0 {
+    margin-right: 0px;
+  }
+
+  .md\:mr-4 {
+    margin-right: 32px;
+  }
+
+  .md\:mr-6 {
+    margin-right: 48px;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:box-content {
+    box-sizing: content-box;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:inline-flex {
+    display: inline-flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:h-4 {
+    height: 32px;
+  }
+
+  .md\:h-56 {
+    height: 448px;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
+  .md\:w-3\/5 {
+    width: 60%;
+  }
+
+  .md\:w-4 {
+    width: 32px;
+  }
+
+  .md\:w-\[280px\] {
+    width: 280px;
+  }
+
+  .md\:w-\[392px\] {
+    width: 392px;
+  }
+
+  .md\:w-\[452px\] {
+    width: 452px;
+  }
+
+  .md\:w-\[500px\] {
+    width: 500px;
+  }
+
+  .md\:w-\[calc\(100\%\+44px\)\] {
+    width: calc(100% + 44px);
+  }
+
+  .md\:w-\[calc\(37\%-40px\)\] {
+    width: calc(37% - 40px);
+  }
+
+  .md\:w-\[calc\(50\%-40px\)\] {
+    width: calc(50% - 40px);
+  }
+
+  .md\:max-w-\[392px\] {
+    max-width: 392px;
+  }
+
+  .md\:max-w-\[576px\] {
+    max-width: 576px;
+  }
+
+  .md\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
+  }
+
+  .md\:px-1 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .md\:px-3 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .md\:py-1\.5 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .md\:py-4 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .md\:py-6 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .md\:pb-2 {
+    padding-bottom: 16px;
+  }
+
+  .md\:pb-6 {
+    padding-bottom: 48px;
+  }
+
+  .md\:pb-\[200px\] {
+    padding-bottom: 200px;
+  }
+
+  .md\:pl-1 {
+    padding-left: 8px;
+  }
+
+  .md\:pl-4 {
+    padding-left: 32px;
+  }
+
+  .md\:pl-\[32px\] {
+    padding-left: 32px;
+  }
+
+  .md\:pl-\[41px\] {
+    padding-left: 41px;
+  }
+
+  .md\:pl-\[56px\] {
+    padding-left: 56px;
+  }
+
+  .md\:pr-1 {
+    padding-right: 8px;
+  }
+
+  .md\:pr-\[320px\] {
+    padding-right: 320px;
+  }
+
+  .md\:pr-\[88px\] {
+    padding-right: 88px;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
+  }
+
+  .md\:pt-1 {
+    padding-top: 8px;
+  }
+
+  .md\:pt-6 {
+    padding-top: 48px;
+  }
+
+  .md\:text-\[40px\] {
+    font-size: 40px;
+  }
+
+  .md\:text-md {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .lg\:\!absolute {
+    position: absolute !important;
+  }
+
+  .lg\:left-\[-48px\] {
+    left: -48px;
+  }
+
+  .lg\:left-\[-56px\] {
+    left: -56px;
+  }
+
+  .lg\:left-\[-58px\] {
+    left: -58px;
+  }
+
+  .lg\:right-\[8px\] {
+    right: 8px;
+  }
+
+  .lg\:my-6 {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .lg\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .lg\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .lg\:ml-12 {
+    margin-left: 96px;
+  }
+
+  .lg\:ml-3 {
+    margin-left: 24px;
+  }
+
+  .lg\:ml-\[-33px\] {
+    margin-left: -33px;
+  }
+
+  .lg\:ml-\[10px\] {
+    margin-left: 10px;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:inline-flex {
+    display: inline-flex;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:h-4 {
+    height: 32px;
+  }
+
+  .lg\:h-6 {
+    height: 48px;
+  }
+
+  .lg\:h-\[20px\] {
+    height: 20px;
+  }
+
+  .lg\:w-4 {
+    width: 32px;
+  }
+
+  .lg\:w-6 {
+    width: 48px;
+  }
+
+  .lg\:w-\[20px\] {
+    width: 20px;
+  }
+
+  .lg\:w-\[calc\(100\%\+56px\)\] {
+    width: calc(100% + 56px);
+  }
+
+  .lg\:w-\[calc\(37\%-32px\)\] {
+    width: calc(37% - 32px);
+  }
+
+  .lg\:w-\[calc\(50\%-32px\)\] {
+    width: calc(50% - 32px);
+  }
+
+  .lg\:max-w-x-article-width {
+    max-width: 816px;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:pl-4 {
+    padding-left: 32px;
+  }
+
+  .lg\:pl-\[33px\] {
+    padding-left: 33px;
+  }
+
+  .lg\:pl-\[40px\] {
+    padding-left: 40px;
+  }
+
+  .lg\:pl-\[41px\] {
+    padding-left: 41px;
+  }
+
+  .lg\:pl-\[88px\] {
+    padding-left: 88px;
+  }
+
+  .lg\:pr-1 {
+    padding-right: 8px;
+  }
+
+  .lg\:pr-4 {
+    padding-right: 32px;
+  }
+
+  .lg\:text-\[40px\] {
+    font-size: 40px;
+  }
+
+  .lg\:text-display-lg {
+    font-size: 48px;
+  }
+
+  .lg\:text-lg {
+    font-size: 20px;
+  }
+
+  .lg\:text-md {
+    font-size: 16px;
+  }
+
+  .lg\:text-sm {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1440px) {
+  .xl\:ml-6 {
+    margin-left: 48px;
+  }
+
+  .xl\:w-6 {
+    width: 48px;
+  }
+
+  .xl\:w-\[50px\] {
+    width: 50px;
+  }
+
+  .xl\:pl-8 {
+    padding-left: 64px;
+  }
+
+  .xl\:pl-\[120px\] {
+    padding-left: 120px;
+  }
+
+  .xl\:pr-8 {
+    padding-right: 64px;
+  }
+}
+@media (max-width: 767px) {
+  .babybear\:\!-top-0\.5 {
+    top: -4px !important;
+  }
+
+  .babybear\:-top-1 {
+    top: -8px;
+  }
+
+  .babybear\:bottom-0 {
+    bottom: 0px;
+  }
+
+  .babybear\:bottom-\[120\%\] {
+    bottom: 120%;
+  }
+
+  .babybear\:left-3 {
+    left: 24px;
+  }
+
+  .babybear\:right-4 {
+    right: 32px;
+  }
+
+  .babybear\:top-0\.5 {
+    top: 4px;
+  }
+
+  .babybear\:z-0 {
+    z-index: 0;
+  }
+
+  .babybear\:order-last {
+    order: 9999;
+  }
+
+  .babybear\:m-0 {
+    margin: 0px;
+  }
+
+  .babybear\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .babybear\:mx-1\.5 {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .babybear\:my-2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .babybear\:-mt-0\.5 {
+    margin-top: -4px;
+  }
+
+  .babybear\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .babybear\:mb-0\.5 {
+    margin-bottom: 4px;
+  }
+
+  .babybear\:mb-1 {
+    margin-bottom: 8px;
+  }
+
+  .babybear\:mb-2 {
+    margin-bottom: 16px;
+  }
+
+  .babybear\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .babybear\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .babybear\:mr-0 {
+    margin-right: 0px;
+  }
+
+  .babybear\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .babybear\:mt-0\.5 {
+    margin-top: 4px;
+  }
+
+  .babybear\:mt-\[6px\] {
+    margin-top: 6px;
+  }
+
+  .babybear\:hidden {
+    display: none;
+  }
+
+  .babybear\:h-4 {
+    height: 32px;
+  }
+
+  .babybear\:h-6 {
+    height: 48px;
+  }
+
+  .babybear\:h-\[180px\] {
+    height: 180px;
+  }
+
+  .babybear\:h-\[26px\] {
+    height: 26px;
+  }
+
+  .babybear\:h-\[360px\] {
+    height: 360px;
+  }
+
+  .babybear\:h-\[59px\] {
+    height: 59px;
+  }
+
+  .babybear\:h-\[64px\] {
+    height: 64px;
+  }
+
+  .babybear\:h-\[72px\] {
+    height: 72px;
+  }
+
+  .babybear\:h-auto {
+    height: auto;
+  }
+
+  .babybear\:max-h-4 {
+    max-height: 32px;
+  }
+
+  .babybear\:max-h-\[225px\] {
+    max-height: 225px;
+  }
+
+  .babybear\:max-h-\[250px\] {
+    max-height: 250px;
+  }
+
+  .babybear\:max-h-\[400px\] {
+    max-height: 400px;
+  }
+
+  .babybear\:min-h-\[134px\] {
+    min-height: 134px;
+  }
+
+  .babybear\:w-1 {
+    width: 8px;
+  }
+
+  .babybear\:w-11\/12 {
+    width: 91.666667%;
+  }
+
+  .babybear\:w-6 {
+    width: 48px;
+  }
+
+  .babybear\:w-\[105px\] {
+    width: 105px;
+  }
+
+  .babybear\:w-\[199px\] {
+    width: 199px;
+  }
+
+  .babybear\:w-\[26px\] {
+    width: 26px;
+  }
+
+  .babybear\:w-\[360px\] {
+    width: 360px;
+  }
+
+  .babybear\:w-\[64px\] {
+    width: 64px;
+  }
+
+  .babybear\:w-\[calc\(100\%-68px\)\] {
+    width: calc(100% - 68px);
+  }
+
+  .babybear\:w-fit {
+    width: fit-content;
+  }
+
+  .babybear\:w-full {
+    width: 100%;
+  }
+
+  .babybear\:min-w-full {
+    min-width: 100%;
+  }
+
+  .babybear\:max-w-\[300px\] {
+    max-width: 300px;
+  }
+
+  .babybear\:max-w-\[32px\] {
+    max-width: 32px;
+  }
+
+  .babybear\:max-w-\[790px\] {
+    max-width: 790px;
+  }
+
+  .babybear\:max-w-md {
+    max-width: 28rem;
+  }
+
+  .babybear\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .babybear\:flex-none {
+    flex: none;
+  }
+
+  .babybear\:basis-0 {
+    flex-basis: 0px;
+  }
+
+  .babybear\:-translate-x-50\% {
+    transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY=
+(1);
+  }
+
+  @media (max-width: 767px) {
+    .babybear\:-translate-x-50\% {
+      transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(=
+1) scaleY(1);
+    }
+
+    @media (max-width: 767px) {
+      .babybear\:-translate-x-50\% {
+        transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scale=
+X(1) scaleY(1);
+      }
+
+      @media (max-width: 767px) {
+        .babybear\:-translate-x-50\% {
+          transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) sca=
+leX(1) scaleY(1);
+        }
+
+        @media (max-width: 767px) {
+          .babybear\:-translate-x-50\% {
+            transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) s=
+caleX(1) scaleY(1);
+          }
+
+          @media (max-width: 767px) {
+            .babybear\:-translate-x-50\% {
+              transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0)=
+ scaleX(1) scaleY(1);
+            }
+
+            @media (max-width: 767px) {
+              .babybear\:-translate-x-50\% {
+                transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(=
+0) scaleX(1) scaleY(1);
+              }
+
+              @media (max-width: 767px) {
+                .babybear\:-translate-x-50\% {
+                  transform: translate(-50%, 0) rotate(90deg) skewX(0) skew=
+Y(0) scaleX(1) scaleY(1);
+                }
+
+                @media (max-width: 767px) {
+                  .babybear\:-translate-x-50\% {
+                    transform: translate(-50%, 0) rotate(90deg) skewX(0) sk=
+ewY(0) scaleX(1) scaleY(1);
+                  }
+
+                  @media (max-width: 767px) {
+                    .babybear\:-translate-x-50\% {
+                      transform: translate(-50%, 0) rotate(90deg) skewX(0) =
+skewY(0) scaleX(1) scaleY(1);
+                    }
+
+                    @media (max-width: 767px) {
+                      .babybear\:-translate-x-50\% {
+                        transform: translate(-50%, 0) rotate(90deg) skewX(0=
+) skewY(0) scaleX(1) scaleY(1);
+                      }
+
+                      @media (max-width: 767px) {
+                        .babybear\:-translate-x-50\% {
+                          transform: translate(-50%, 0) rotate(90deg) skewX=
+(0) skewY(0) scaleX(1) scaleY(1);
+                        }
+
+                        @media (max-width: 767px) {
+                          .babybear\:-translate-x-50\% {
+                            transform: translate(-50%, 0) rotate(90deg) ske=
+wX(0) skewY(0) scaleX(1) scaleY(1);
+                          }
+
+                          @media (max-width: 767px) {
+                            .babybear\:-translate-x-50\% {
+                              transform: translate(-50%, 0) rotate(90deg) s=
+kewX(0) skewY(0) scaleX(1) scaleY(1);
+                            }
+
+                            @media (max-width: 767px) {
+                              .babybear\:-translate-x-50\% {
+                                transform: translate(-50%, 0) rotate(90deg)=
+ skewX(0) skewY(0) scaleX(1) scaleY(1);
+                              }
+
+                              @media transform: translate(0, 0) rotate(0) s=
+kewX(0) skewY(0) scaleX(1) scaleY(1);
+     (max-width: 767px) {
+                                .babybear\:rotate-90 {
+                                  transform: translate(-50%, 0) rotate(90de=
+g) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                }
+
+                                @media (max-width: 767px) {
+                                  .babybear\:rotate-90 {
+                                    transform: translate(-50%, 0) rotate(90=
+deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                  }
+
+                                  @media (max-width: 767px) {
+                                    .babybear\:rotate-90 {
+                                      transform: translate(-50%, 0) rotate(=
+90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                    }
+
+                                    @media (max-width: 767px) {
+                                      .babybear\:rotate-90 {
+                                        transform: translate(-50%, 0) rotat=
+e(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                      }
+
+                                      @media (max-width: 767px) {
+                                        .babybear\:rotate-90 {
+                                          transform: translate(-50%, 0) rot=
+ate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                        }
+
+                                        @media (max-width: 767px) {
+                                          .babybear\:rotate-90 {
+                                            transform: translate(-50%, 0) r=
+otate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                          }
+
+                                          @media (max-width: 767px) {
+                                            .babybear\:rotate-90 {
+                                              transform: translate(-50%, 0)=
+ rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                            }
+
+                                            @media (max-width: 767px) {
+                                              .babybear\:rotate-90 {
+                                                transform: translate(-50%, =
+0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                              }
+
+                                              @media (max-width: 767px) {
+                                                .babybear\:rotate-90 {
+                                                  transform: translate(-50%=
+, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                }
+
+                                                @media (max-width: 767px) {
+                                                  .babybear\:rotate-90 {
+                                                    transform: translate(-5=
+0%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                  }
+
+                                                  @media (max-width: 767px)=
+ {
+                                                    .babybear\:rotate-90 {
+                                                      transform: translate(=
+-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                    }
+
+                                                    @media (max-width: 767p=
+x) {
+                                                      .babybear\:rotate-90 =
+{
+                                                        transform: translat=
+e(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                      }
+
+                                                      @media (max-width: 76=
+7px) {
+                                                        .babybear\:rotate-9=
+0 {
+                                                          transform: transl=
+ate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                        }
+
+                                                        @media (max-width: =
+767px) {
+                                                          .babybear\:rotate=
+-90 {
+                                                            transform: tran=
+slate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                          }
+
+                                                          flex-direction: r=
+ow;
+    .babybear\:flex-col {
+                                                            flex-direction:=
+ column;
+                                                          }
+
+                                                          .babybear\:flex-w=
+rap {
+                                                            flex-wrap: wrap=
+;
+                                                          }
+
+                                                          .babybear\:items-=
+start {
+                                                            align-items: fl=
+ex-start;
+                                                          }
+
+                                                          .babybear\:items-=
+center {
+                                                            align-items: ce=
+nter;
+                                                          }
+
+                                                          .babybear\:justif=
+y-start {
+                                                            justify-content=
+: flex-start;
+                                                          }
+
+                                                          .babybear\:justif=
+y-end {
+                                                            justify-content=
+: flex-end;
+                                                          }
+
+                                                          .babybear\:justif=
+y-center {
+                                                            justify-content=
+: center;
+                                                          }
+
+                                                          .babybear\:justif=
+y-between {
+                                                            justify-content=
+: space-between;
+                                                          }
+
+                                                          .babybear\:justif=
+y-around {
+                                                            justify-content=
+: space-around;
+                                                          }
+
+                                                          .babybear\:self-s=
+tart {
+                                                            align-self: fle=
+x-start;
+                                                          }
+
+                                                          .babybear\:self-c=
+enter {
+                                                            align-self: cen=
+ter;
+                                                          }
+
+                                                          .babybear\:overfl=
+ow-y-auto {
+                                                            overflow-y: aut=
+o;
+                                                          }
+
+                                                          .babybear\:rounde=
+d-\[0px\] {
+                                                            border-radius: =
+0px;
+                                                          }
+
+                                                          .babybear\:border=
+-b-1 {
+                                                            border-bottom-w=
+idth: 1px;
+                                                          }
+
+                                                          .babybear\:border=
+-r-0 {
+                                                            border-right-wi=
+dth: 0;
+                                                          }
+
+                                                          .babybear\:border=
+-solid {
+                                                            border-style: s=
+olid;
+                                                          }
+
+                                                          .babybear\:border=
+-color-border-low-emphasis {
+                                                            border-color: r=
+gba(0, 0, 0, 0.3);
+                                                          }
+
+                                                          .babybear\:bg-col=
+or-brand {
+                                                            background-colo=
+r: #0a66c2;
+                                                          }
+
+                                                          .babybear\:p-2 {
+                                                            padding: 16px;
+                                                          }
+
+                                                          .babybear\:px-0 {
+                                                            padding-left: 0=
+px;
+                                                            padding-right: =
+0px;
+                                                          }
+
+                                                          .babybear\:px-2 {
+                                                            padding-left: 1=
+6px;
+                                                            padding-right: =
+16px;
+                                                          }
+
+                                                          .babybear\:px-mob=
+ile-container-padding {
+                                                            padding-left: 1=
+6px;
+                                                            padding-right: =
+16px;
+                                                          }
+
+                                                          .babybear\:py-1 {
+                                                            padding-top: 8p=
+x;
+                                                            padding-bottom:=
+ 8px;
+                                                          }
+
+                                                          .babybear\:py-3 {
+                                                            padding-top: 24=
+px;
+                                                            padding-bottom:=
+ 24px;
+                                                          }
+
+                                                          .babybear\:pb-0 {
+                                                            padding-bottom:=
+ 0px;
+                                                          }
+
+                                                          .babybear\:pb-2 {
+                                                            padding-bottom:=
+ 16px;
+                                                          }
+
+                                                          .babybear\:pl-0\.=
+5 {
+                                                            padding-left: 4=
+px;
+                                                          }
+
+                                                          .babybear\:pr-0 {
+                                                            padding-right: =
+0px;
+                                                          }
+
+                                                          .babybear\:pr-0\.=
+5 {
+                                                            padding-right: =
+4px;
+                                                          }
+
+                                                          .babybear\:pt-0 {
+                                                            padding-top: 0p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-0\.=
+5 {
+                                                            padding-top: 4p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-1 {
+                                                            padding-top: 8p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-4 {
+                                                            padding-top: 32=
+px;
+                                                          }
+
+                                                          .babybear\:text-\=
+[10px\] {
+                                                            font-size: 10px=
+;
+                                                          }
+
+                                                          .babybear\:text-l=
+g {
+                                                            font-size: 20px=
+;
+                                                          }
+
+                                                          .babybear\:text-m=
+d {
+                                                            font-size: 16px=
+;
+                                                          }
+
+                                                          .babybear\:text-s=
+m {
+                                                            font-size: 14px=
+;
+                                                          }
+
+                                                          .babybear\:text-x=
+l {
+                                                            font-size: 24px=
+;
+                                                          }
+
+                                                          .babybear\:text-x=
+s {
+                                                            font-size: 12px=
+;
+                                                          }
+
+                                                          .babybear\:font-b=
+old {
+                                                            font-weight: 60=
+0;
+                                                          }
+
+                                                          .babybear\:leadin=
+g-\[150px\] {
+                                                            line-height: 15=
+0px;
+                                                          }
+
+                                                          .babybear\:last\:=
+border-b-0:last-child {
+                                                            border-bottom-w=
+idth: 0;
+                                                          }
+
+                                                        }
+
+                                                      }
+
+                                                    }
+
+                                                  }
+
+                                                }
+
+                                              }
+
+                                            }
+
+                                          }
+
+                                        }
+
+                                      }
+
+                                    }
+
+                                  }
+
+                                }
+
+                              }
+
+                            }
+
+                          }
+
+                        }
+
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+}
+@media (max-width: 991px) {
+  .babymamabear\:invisible {
+    visibility: hidden;
+  }
+
+  .babymamabear\:static {
+    position: static;
+  }
+
+  .babymamabear\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .babymamabear\:mx-mobile-container-padding {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .babymamabear\:mb-1\.5 {
+    margin-bottom: 12px;
+  }
+
+  .babymamabear\:ml-\[-9999px\] {
+    margin-left: -9999px;
+  }
+
+  .babymamabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .babymamabear\:flex {
+    display: flex;
+  }
+
+  .babymamabear\:hidden {
+    display: none;
+  }
+
+  .babymamabear\:h-\[1px\] {
+    height: 1px;
+  }
+
+  .babymamabear\:h-\[48px\] {
+    height: 48px;
+  }
+
+  .babymamabear\:w-\[100vw\] {
+    width: 100vw;
+  }
+
+  .babymamabear\:w-\[1px\] {
+    width: 1px;
+  }
+
+  .babymamabear\:w-full {
+    width: 100%;
+  }
+
+  .babymamabear\:min-w-\[50px\] {
+    min-width: 50px;
+  }
+
+  .babymamabear\:basis-1\/2 {
+    flex-basis: 50%;
+  }
+
+  .babymamabear\:flex-col {
+    flex-direction: column;
+  }
+
+  .babymamabear\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .babymamabear\:bg-color-transparent {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .babymamabear\:p-0 {
+    padding: 0px;
+  }
+
+  .babymamabear\:px-mobile-container-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .babymamabear\:py-1\.5 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .mamabear\:absolute {
+    position: absolute;
+  }
+
+  .mamabear\:-top-0\.5 {
+    top: -4px;
+  }
+
+  .mamabear\:-top-1 {
+    top: -8px;
+  }
+
+  .mamabear\:right-4 {
+    right: 32px;
+  }
+
+  .mamabear\:top-\[58px\] {
+    top: 58px;
+  }
+
+  .mamabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .mamabear\:mt-\[68px\] {
+    margin-top: 68px;
+  }
+
+  .mamabear\:hidden {
+    display: none;
+  }
+
+  .mamabear\:\!h-4 {
+    height: 32px !important;
+  }
+
+  .mamabear\:h-\[100\%\] {
+    height: 100%;
+  }
+
+  .mamabear\:\!min-h-\[32px\] {
+    min-height: 32px !important;
+  }
+
+  .mamabear\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .mamabear\:w-48 {
+    width: 384px;
+  }
+
+  .mamabear\:w-\[744px\] {
+    width: 744px;
+  }
+
+  .mamabear\:w-\[calc\(100\%-97px\)\] {
+    width: calc(100% - 97px);
+  }
+
+  .mamabear\:w-full {
+    width: 100%;
+  }
+
+  .mamabear\:min-w-0 {
+    min-width: 0px;
+  }
+
+  .mamabear\:min-w-full {
+    min-width: 100%;
+  }
+
+  .mamabear\:max-w-\[790px\] {
+    max-width: 790px;
+  }
+
+  .mamabear\:flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .mamabear\:flex-row {
+    flex-direction: row;
+  }
+
+  .mamabear\:items-start {
+    align-items: flex-start;
+  }
+
+  .mamabear\:items-center {
+    align-items: center;
+  }
+
+  .mamabear\:self-center {
+    align-self: center;
+  }
+
+  .mamabear\:rounded-tr-none {
+    border-top-right-radius: 0px;
+  }
+
+  .mamabear\:px-2 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mamabear\:px-3 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .mamabear\:px-mobile-container-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mamabear\:py-3 {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .mamabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .mamabear\:text-center {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .papamamabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .after\:papamamabear\:\!h-\[37px\]::after {
+    content: undefined;
+    height: 37px !important;
+  }
+
+  @media (min-width: 768px) {
+    .after\:papamamabear\:\!h-\[37px\]::after {
+      content: "";
+    }
+
+    content: "".after\:papamamabear\:\!h-\[37px\]::after:content-\[\'\'\]::=
+after {
+      content: "";
+    }
+
+    .after\:papamamabear\:\!h-\[37px\]::after:content-\[\"\"\]::after {
+      content: "";
+    }
+
+    .after\:papamamabear\:up-down-divider::after {
+      display: flex;
+      height: 100%;
+      width: 1px;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      content: undefined;
+    }
+
+    @media (min-width: 768px) {
+      .after\:papamamabear\:up-down-divider::after {
+        content: "";
+      }
+
+      content: "".after\:papamamabear\:up-down-divider::after:content-\[\'\=
+'\]::after {
+        content: "";
+      }
+
+      .after\:papamamabear\:up-down-divider::after:content-\[\"\"\]::after =
+{
+        content: "";
+      }
+
+    }
+
+  }
+}
+@media (min-width: 992px) {
+  .papabear\:absolute {
+    position: absolute;
+  }
+
+  .papabear\:-top-1 {
+    top: -8px;
+  }
+
+  .papabear\:top-\[58px\] {
+    top: 58px;
+  }
+
+  .papabear\:\!mx-2 {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .papabear\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .papabear\:mb-\[18px\] {
+    margin-bottom: 18px;
+  }
+
+  .papabear\:ml-column-gutter {
+    margin-left: 24px;
+  }
+
+  .papabear\:mr-2 {
+    margin-right: 16px;
+  }
+
+  .papabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .papabear\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .papabear\:mt-0\.5 {
+    margin-top: 4px;
+  }
+
+  .papabear\:mt-\[-100px\] {
+    margin-top: -100px;
+  }
+
+  .papabear\:mt-\[68px\] {
+    margin-top: 68px;
+  }
+
+  .papabear\:inline-block {
+    display: inline-block;
+  }
+
+  .papabear\:flex {
+    display: flex;
+  }
+
+  .papabear\:hidden {
+    display: none;
+  }
+
+  .papabear\:\!h-4 {
+    height: 32px !important;
+  }
+
+  .papabear\:h-6 {
+    height: 48px;
+  }
+
+  .papabear\:h-\[100\%\] {
+    height: 100%;
+  }
+
+  .papabear\:\!min-h-\[32px\] {
+    min-height: 32px !important;
+  }
+
+  .papabear\:min-h-\[96px\] {
+    min-height: 96px;
+  }
+
+  .papabear\:w-48 {
+    width: 384px;
+  }
+
+  .papabear\:w-\[1128px\] {
+    width: 1128px;
+  }
+
+  .papabear\:w-\[219px\] {
+    width: 219px;
+  }
+
+  .papabear\:w-\[400px\] {
+    width: 400px;
+  }
+
+  .papabear\:w-\[calc\(100\%-97px\)\] {
+    width: calc(100% - 97px);
+  }
+
+  .papabear\:w-auto {
+    width: auto;
+  }
+
+  .papabear\:w-content-max-w {
+    width: 1128px;
+  }
+
+  .papabear\:w-core-rail-width {
+    width: 784px;
+  }
+
+  .papabear\:w-right-rail-width {
+    width: calc(1128px - 24px - 784px);
+  }
+
+  .papabear\:min-w-0 {
+    min-width: 0px;
+  }
+
+  .papabear\:max-w-\[550px\] {
+    max-width: 550px;
+  }
+
+  .papabear\:flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .papabear\:flex-col {
+    flex-direction: column;
+  }
+
+  .papabear\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .papabear\:items-start {
+    align-items: flex-start;
+  }
+
+  .papabear\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .papabear\:justify-center {
+    justify-content: center;
+  }
+
+  .papabear\:self-start {
+    align-self: flex-start;
+  }
+
+  .papabear\:rounded-tr-none {
+    border-top-right-radius: 0px;
+  }
+
+  .papabear\:border-4 {
+    border-width: 4px;
+  }
+
+  .papabear\:p-0 {
+    padding: 0px;
+  }
+
+  .papabear\:p-details-container-padding {
+    padding: 24px;
+  }
+
+  .papabear\:py-2 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .papabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .papabear\:text-xl {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .-md\:ml-2 {
+    margin-left: 16px;
+  }
+
+  .-md\:mt-1 {
+    margin-top: 8px;
+  }
+
+  .-md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+</style></head> <body dir=3D"ltr" class=3D"font-sans bg-color-background-ca=
+nvas w-full m-0 p-0 pt-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; margin: 0px; width: 100%; background-color: #f3f2f0; pa=
+dding: 0px; padding-top: 8px; font-family: -apple-system, system-ui, BlinkM=
+acSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Ox=
+ygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe U=
+I Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, =
+Arial, sans-serif;"> <div class=3D"h-0 opacity-0 text-transparent invisible=
+ overflow-hidden w-0 max-h-[0]" style=3D"visibility: hidden; height: 0px; m=
+ax-height: 0; width: 0px; overflow: hidden; opacity: 0; mso-hide: all;" dat=
+a-email-preheader=3D"true">Microsoft released a security as part of the Dec=
+ember Patch Tuesday that=E2=80=A6</div> <div class=3D"h-0 opacity-0 text-tr=
+ansparent invisible overflow-hidden w-0 max-h-[0]" style=3D"visibility: hid=
+den; height: 0px; max-height: 0; width: 0px; overflow: hidden; opacity: 0; =
+mso-hide: all;"> =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 </div> <table role=3D"presentation" valig=
+n=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"512" al=
+ign=3D"center" class=3D"mercado-container w-[512px] max-w-[512px] mx-auto m=
+y-0 p-0 bg-color-background-container" style=3D"-webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: =
+0px; width: 512px; max-width: 512px; background-color: #ffffff; padding: 0p=
+x;"> <tbody> <tr> <td class=3D"text-center p-3" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; padding: 24px; text-align: center;"> <table role=3D"presentati=
+on" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=
+=3D"100%" class=3D"min-w-full" style=3D"-webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-=
+width: 100%;"> <tbody> <tr> <td align=3D"left" valign=3D"middle" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/fe=
+ed/?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp=
+6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeO=
+YAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-header-0-home_gli=
+mmer_dynamic_badging_high_dpi&amp;trkEmail=3Deml-email_series_follow_newsle=
+tter_01-header-0-home_glimmer_dynamic_badging_high_dpi-null-hdesgg~m4jmlsh0=
+~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiY=
+zljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdk=
+Y2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%=
+3D%3D" target=3D"_blank" class=3D"w-[84px]" style=3D"color: #0a66c2; cursor=
+: pointer; display: inline-block; text-decoration: none; -webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; width: 84px;"> <img class=3D"h-[3=
+7px] w-[101px]" alt=3D"LinkedIn" src=3D"https://www.linkedin.com/comm/dms/l=
+ogo/v2?badgeTheme=3Dmercado&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series=
+_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midSig=3D0SOeOYA=
+IVYZbw1&amp;midToken=3DAQGhw_YagvtrXA&amp;trkEmail=3Deml-email_series_follo=
+w_newsletter_01-null-0-comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2-null-hdesgg=
+%7Em4jmlsh0%7Elu-null-null&amp;trk=3Deml-email_series_follow_newsletter_01-=
+null-0-comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2&amp;_sig=3D16Q1AKu_1YZbw1" =
+data-test-header-dynamic-badging-img-high-dpi style=3D"outline: none; text-=
+decoration: none; -ms-interpolation-mode: bicubic; height: 37px; width: 101=
+px;" width=3D"101" height=3D"37"> </a> </td> <td valign=3D"middle" align=3D=
+"right" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%=
+; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentati=
+on" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=
+=3D"100%" data-test-header-profile style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"=
+> <tbody> <tr> <td align=3D"right" valign=3D"middle" class=3D"w-[32px]" sty=
+le=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table=
+-lspace: 0pt; mso-table-rspace: 0pt; width: 32px;" width=3D"32"> <a href=3D=
+"https://de.linkedin.com/comm/in/ham-414963253?lipi=3Durn%=
+3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir=
+%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;t=
+rk=3Deml-email_series_follow_newsletter_01-header-0-profile_glimmer&amp;trk=
+Email=3Deml-email_series_follow_newsletter_01-header-0-profile_glimmer-null=
+-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DM=
+TMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0=
+YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjU=
+zYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: p=
+ointer; display: inline-block; text-decoration: none; -webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%;"> <img alt=3D"ham" =
+src=3D"https://media.licdn.com/dms/image/v2/D4D03AQEM1vk0gR-4FA/profile-dis=
+playphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/171502807343=
+9?e=3D2147483647&amp;v=3Dbeta&amp;t=3DWi3Eduwafs4wgwPld37nysUW8pRLTBn3Pe9ZB=
+5xgYMU" class=3D"rounded-[100%] w-[32px] h-[32px]" style=3D"outline: none; =
+text-decoration: none; -ms-interpolation-mode: bicubic; height: 32px; width=
+: 32px; border-radius: 100%;" width=3D"32" height=3D"32"> </a> </td> </tr> =
+</tbody> </table> </td> </tr> </tbody> </table> </td> </tr> <tr> <td class=
+=3D"px-0 pb-3" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjus=
+t: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-left: 0px; p=
+adding-right: 0px; padding-bottom: 24px;"> <div> <table role=3D"presentatio=
+n" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D=
+"100%" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td data-test=
+-id=3D"newsletter-entity-lockup" class=3D"px-3 pt-1" style=3D"-webkit-text-=
+size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-t=
+able-rspace: 0pt; padding-left: 24px; padding-right: 24px; padding-top: 8px=
+;"> <table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"100%" class=3D"font-sans" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt; font-family: -apple-system, system-ui, BlinkMacSystem=
+Font, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'O=
+xygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji'=
+, 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, s=
+ans-serif;"> <tbody> <tr> <td valign=3D"top" class=3D"pr-1 w-6" style=3D"-w=
+ebkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; width: 48px; padding-right: 8px;" width=3D"48"=
+> <a href=3D"https://www.linkedin.com/comm/newsletters/7045874934954278912?=
+lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDq=
+TOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIV=
+YZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_entity_loc=
+kup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_series_follow_newslett=
+er_01-newsletter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4jmlsh0=
+~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiY=
+zljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdk=
+Y2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%=
+3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; display:=
+ inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%;"> <img class=3D"inline-block relative bg-color-entit=
+y-ghost-background w-6 h-6 rounded-md" src=3D"https://media.licdn.com/dms/i=
+mage/v2/D5612AQHy-Bq-v0EHTg/series-logo_image-shrink_100_100/series-logo_im=
+age-shrink_100_100/0/1679867465184?e=3D2147483647&amp;v=3Dbeta&amp;t=3D8G7O=
+xvphOftgFYq_VwaM8_8xM7zUZAEmYJa6cGY_6xo" alt=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=
+=8B=D1=82=D1=8C: Cyber Security News" style=3D"outline: none; text-decorati=
+on: none; -ms-interpolation-mode: bicubic; position: relative; display: inl=
+ine-block; height: 48px; width: 48px; border-radius: 8px; background-color:=
+ #eae6df;" width=3D"48" height=3D"48"> </a> </td> <td valign=3D"top" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentation" valign=3D=
+"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/newsletters/7=
+045874934954278912?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsl=
+etter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp=
+;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-ne=
+wsletter_entity_lockup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_ser=
+ies_follow_newsletter_01-newsletter_entity_lockup-0-newsletter_entity_cta-n=
+ull-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=
+=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0=
+Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg=
+4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" class=3D"no-underline" style=
+=3D"color: #0a66c2; cursor: pointer; display: inline-block; text-decoration=
+: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-de=
+coration-line: none;"> <div class=3D"pb-0.5" style=3D"padding-bottom: 4px;"=
+> <span class=3D"text-md font-bold text-color-text break-words leading-regu=
+lar" style=3D"overflow-wrap: break-word; font-size: 16px; font-weight: 600;=
+ line-height: 1.25; color: rgba(0, 0, 0, 0.9);"> Cyber Security News </span=
+> </div> </a> </td> </tr> <tr> <td style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"=
+> <a href=3D"https://www.linkedin.com/comm/newsletters/7045874934954278912?=
+lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDq=
+TOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIV=
+YZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_entity_loc=
+kup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_series_follow_newslett=
+er_01-newsletter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4jmlsh0=
+~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiY=
+zljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdk=
+Y2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%=
+3D%3D" target=3D"_blank" class=3D"no-underline" style=3D"color: #0a66c2; cu=
+rsor: pointer; display: inline-block; text-decoration: none; -webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line: none;">=
+ <span class=3D"text-xs text-color-text-low-emphasis leading-regular" style=
+=3D"font-size: 12px; line-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Get Da=
+ily Cyber Security News Letters Directly From Cyber Space </span> </a> </td=
+> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> <tr dat=
+a-test-id=3D"newsletter-content-preview"> <td class=3D"px-3 pt-2" style=3D"=
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; padding-left: 24px; padding-right: 24px; pad=
+ding-top: 16px;"> <table role=3D"presentation" valign=3D"top" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"-webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt;"> <tbody> <tr> <td class=3D"overflow-hidden " style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; overflow: hidden;"> <table role=3D"presentation"=
+ valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"1=
+00%" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-w=
+ebkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pul=
+se/microsoft-december-2024-patch-tuesday-71-vulnerabilities-uoanc?lipi=3Dur=
+n%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQp=
+ir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp=
+;trk=3Deml-email_series_follow_newsletter_01-newsletter_content_preview-0-h=
+eadline_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_co=
+ntent_preview-0-headline_-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesg=
+g-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4Zm=
+NiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3N=
+mJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" clas=
+s=3D"w-full" style=3D"color: #0a66c2; cursor: pointer; display: inline-bloc=
+k; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adj=
+ust: 100%; width: 100%;"> <img class=3D"block w-full aspect-[744/400] objec=
+t-cover overflow-hidden" data-test-id=3D"newsletter-content-preview__cover-=
+image" alt=3D"=D0=93=D0=BB=D0=B0=D0=B2=D0=BD=D0=BE=D0=B5 =D0=B8=D0=B7=D0=BE=
+=D0=B1=D1=80=D0=B0=D0=B6=D0=B5=D0=BD=D0=B8=D0=B5 =D1=80=D0=B0=D1=81=D1=81=
+=D1=8B=D0=BB=D0=BA=D0=B8" src=3D"https://media.licdn.com/dms/image/v2/D5612=
+AQG4ebBt2vIjsQ/article-cover_image-shrink_720_1280/article-cover_image-shri=
+nk_720_1280/0/1733900176188?e=3D2147483647&amp;v=3Dbeta&amp;t=3D-ULxmmYcsaz=
+tPQtJID7o7MNnpvAKYTrV5VmDCmRU5Qw" style=3D"outline: none; text-decoration: =
+none; -ms-interpolation-mode: bicubic; display: block; aspect-ratio: 744/40=
+0; width: 100%; overflow: hidden; object-fit: cover;"> </a> </td> </tr> <tr=
+> <td class=3D"py-2" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size=
+-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-top: 1=
+6px; padding-bottom: 16px;"> <table role=3D"presentation" valign=3D"top" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/microsoft-decem=
+ber-2024-patch-tuesday-71-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Apage%3Aem=
+ail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;=
+midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_s=
+eries_follow_newsletter_01-newsletter_content_preview-0-title_&amp;trkEmail=
+=3Deml-email_series_follow_newsletter_01-newsletter_content_preview-0-title=
+_-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpTok=
+en=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZj=
+A0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5Y=
+Tg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" class=3D"no-underline font-m=
+edium text-sm m-0 text-system-gray-90" style=3D"cursor: pointer; display: i=
+nline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; margin: 0px; font-size: 14px; font-weight: 500; color:=
+ #282828; text-decoration-line: none;"> <h2 class=3D"m-0 text-display-sm le=
+ading-regular text-color-text font-bold font-sans" style=3D"margin: 0px; fo=
+nt-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto=
+, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, =
+'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Seg=
+oe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 24=
+px; font-weight: 600; line-height: 1.25; color: rgba(0, 0, 0, 0.9);"> Micro=
+soft December 2024 Patch Tuesday =E2=80=93 71 Vulnerabilities Fixed, Includ=
+ing 1 Zero-day &amp; 30 RCEs </h2> </a> </td> </tr> <tr> <td style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt;"> <table role=3D"presentation" valign=3D"top" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" data-test-id=
+=3D"newsletter-author-lockup-redesign" class=3D"mt-1 mb-2" style=3D"-webkit=
+-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt;=
+ mso-table-rspace: 0pt; margin-bottom: 16px; margin-top: 8px;"> <tbody> <tr=
+> <td valign=3D"middle" align=3D"left" class=3D"w-3" style=3D"-webkit-text-=
+size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-t=
+able-rspace: 0pt; width: 24px;" width=3D"24"> <a href=3D"https://www.linked=
+in.com/comm/company/cybersecurity-news?lipi=3Durn%3Ali%3Apage%3Aemail_email=
+_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=
+=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_fo=
+llow_newsletter_01-newsletter_content_preview-0-author_&amp;trkEmail=3Deml-=
+email_series_follow_newsletter_01-newsletter_content_preview-0-author_-null=
+-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DM=
+TMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0=
+YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjU=
+zYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: p=
+ointer; display: inline-block; text-decoration: none; -webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%;"> <img class=3D"inline-block relativ=
+e bg-color-entity-ghost-background w-4 h-4 align-middle" src=3D"https://med=
+ia.licdn.com/dms/image/v2/C510BAQHWcytRG2ULdA/company-logo_100_100/company-=
+logo_100_100/0/1630626984749/cybersecurity_news_logo?e=3D2147483647&amp;v=
+=3Dbeta&amp;t=3DYb5f1OLa5WlNYNOAE8euP_8-pFUGluW3LLF3RFp1CFQ" alt=3D"=D0=98=
+=D0=B7=D0=BE=D0=B1=D1=80=D0=B0=D0=B6=D0=B5=D0=BD=D0=B8=D0=B5 =D0=B0=D0=B2=
+=D1=82=D0=BE=D1=80=D0=B0" style=3D"outline: none; text-decoration: none; -m=
+s-interpolation-mode: bicubic; position: relative; display: inline-block; h=
+eight: 32px; width: 32px; background-color: #eae6df; vertical-align: middle=
+;" width=3D"32" height=3D"32"> </a> </td> <td style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/company/cybersecurity=
+-news?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bps=
+sp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SO=
+eOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_cont=
+ent_preview-0-author_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-=
+newsletter_content_preview-0-author_-null-hdesgg~m4jmlsh0~lu-null-null&amp;=
+eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDE=
+xZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1Ym=
+FmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_=
+blank" class=3D"no-underline ml-1" style=3D"color: #0a66c2; cursor: pointer=
+; display: inline-block; text-decoration: none; -webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; margin-left: 8px; text-decoration-line: no=
+ne;"> <span class=3D"font-sans font-bold text-sm mb-3 text-color-text-low-e=
+mphasis leading-regular" style=3D"margin-bottom: 24px; font-family: -apple-=
+system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue'=
+, 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'App=
+le Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lu=
+cida Grande', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 6=
+00; line-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Cyber Security News =C2=
+=AE </span> </a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td class=
+=3D"pb-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 8px;"> <d=
+iv class=3D"p-3 bg-color-surface-tint rounded-md font-sans" data-test-id=3D=
+"newsletter-cta-banner" style=3D"border-radius: 8px; background-color: #f5f=
+7f9; padding: 24px; font-family: -apple-system, system-ui, BlinkMacSystemFo=
+nt, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxy=
+gen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', =
+'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, san=
+s-serif;"> <div class=3D"mb-1.5" style=3D"margin-bottom: 12px;"> <span clas=
+s=3D"text-md leading-regular font-bold text-color-text" style=3D"font-size:=
+ 16px; font-weight: 600; line-height: 1.25; color: rgba(0, 0, 0, 0.9);"> =
+=D0=9F=D1=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=81=
+=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=D1=
+=8B =D0=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=D1=
+=8C=D1=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=D0=
+=B8=D1=8E </span> </div> <table role=3D"presentation" valign=3D"top" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"email-bu=
+tton " data-test-id=3D"email-button" style=3D"-webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+;"> <tbody> <tr> <td valign=3D"middle" align=3D"left" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/microso=
+ft-december-2024-patch-tuesday-71-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Ap=
+age%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D=
+%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml=
+-email_series_follow_newsletter_01-newsletter_content_preview-0-read_more_b=
+anner_cta_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_=
+content_preview-0-read_more_banner_cta_-null-hdesgg~m4jmlsh0~lu-null-null&a=
+mp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmVi=
+NDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ=
+1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=
+=3D"_blank" aria-label=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=8B=D1=82=D1=8C =D1=8D=
+=D1=82=D1=83 =D1=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn" class=3D=
+"align-top no-underline " style=3D"color: #0a66c2; cursor: pointer; display=
+: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; vertical-align: top; text-decoration-line: none;"> =
+<table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" width=3D"auto" class=3D"border-separate " style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt=
+; mso-table-rspace: 0pt; border-collapse: separate;"> <tbody> <tr> <td clas=
+s=3D"btn-sm btn-primary border-color-brand button-link leading-regular !min=
+-h-[auto] !shadow-none border-1 border-solid" style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; height: min-content; border-radius: 24px; padding-top: 7px; padd=
+ing-bottom: 7px; padding-left: 16px; padding-right: 16px; text-align: cente=
+r; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration-line=
+: none; background-color: #0a66c2; color: #ffffff; border-width: 1px; borde=
+r-style: solid; border-color: #0a66c2; line-height: 1.25; min-height: auto =
+!important; box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000 !important;"> <a hr=
+ef=3D"https://www.linkedin.com/comm/pulse/microsoft-december-2024-patch-tue=
+sday-71-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_f=
+ollow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_Y=
+agvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsl=
+etter_01-newsletter_content_preview-0-read_more_banner_cta_&amp;trkEmail=3D=
+eml-email_series_follow_newsletter_01-newsletter_content_preview-0-read_mor=
+e_banner_cta_-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-l=
+u&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYW=
+U4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2Y=
+Tk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" tabindex=3D"-1" =
+aria-hidden=3D"true" class=3D"no-underline" style=3D"color: #0a66c2; cursor=
+: pointer; display: inline-block; text-decoration: none; -webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line: none;"> <sp=
+an class=3D"no-underline text-white" style=3D"color: #ffffff; text-decorati=
+on-line: none;"> =D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=
+=B2 LinkedIn </span> </a> </td> </tr> </tbody> </table> </a> </td> </tr> </=
+tbody> </table> </div> </td> </tr> <tr data-test-id=3D"newsletter-content-p=
+review--content"> <td class=3D"series-article-body" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; font-family: -apple-system, system-ui, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen=
+ Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-s=
+erif; font-size: 16px; line-height: 1.5; color: rgba(0, 0, 0, 0.9);"> <p st=
+yle=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line=
+-height: 1.5;">Microsoft released a security as part of the December Patch =
+Tuesday that addressed 72 vulnerabilities, including 30 classified as criti=
+cal Remote Code Execution (RCE) vulnerabilities.</p><p style=3D"margin: 0; =
+font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">The=
+se fixes are crucial for securing Windows operating systems and related sof=
+tware against potential exploitation.</p><h2 style=3D"margin: 0; margin-lef=
+t: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 8px; font-size: =
+20px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: =
+rgba(0, 0, 0, 0.9);">Key Highlights of December 2024 Patch Tuesday Updates:=
+</h2><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size:=
+ 1em; line-height: 1.5;">A <a href=3D"https://gbhackers.com/microsoft-patch=
+-tuesday-december-2024/" target=3D"_blank" rel=3D"nofollow noopener" style=
+=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; display: inline; cursor: pointer; font-weight: 600; color: #0a6=
+6c2; text-decoration-line: none;">recent security update</a> has addressed =
+a total of 71 vulnerabilities across various platforms,, including 30 remot=
+e code execution vulnerabilities and 28 elevation of privilege vulnerabilit=
+ies, which represent critical risks to system security.</p><p style=3D"marg=
+in: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.=
+5;">Additionally, it resolves 4 denial of service vulnerabilities, 1 spoofi=
+ng vulnerability, and 7 information disclosure vulnerabilities. The update =
+also includes 1 defense-in-depth improvement, further enhancing overall sys=
+tem protection.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8=
+em; font-size: 1em; line-height: 1.5;">Additionally, the update resolved ot=
+her issues, such as the elevation of privilege vulnerabilities, security fe=
+ature bypasses, and more.</p><p style=3D"margin: 0; font-weight: 400; margi=
+n-top: 0.8em; font-size: 1em; line-height: 1.5;">The affected platforms inc=
+lude a wide range of Windows versions, from modern systems like Windows 11 =
+and Windows 10 to older systems such as Windows Server 2008 and various Win=
+dows Server variants.</p><blockquote style=3D"margin-top: 24px; margin-bott=
+om: 24px; margin-left: 0px; margin-right: 0px; display: block; border-width=
+: 0; border-left-width: 4px; border-style: solid; border-left-color: #42424=
+2; padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left:=
+ 12px; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI=
+', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Ca=
+ntarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emo=
+ji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif; font=
+-size: 20px; font-weight: 600; font-style: normal; line-height: 1.5; color:=
+ #38434f;"><p style=3D"margin: 0; margin-top: 0.8em; font-size: 16px; font-=
+weight: 500; line-height: 1.25;"><strong>Leveraging 2024 MITRE ATT&amp;CK R=
+esults for SME &amp; MSP Cybersecurity Leaders =E2=80=93&nbsp;</strong><a h=
+ref=3D"https://go.cynet.com/mitre_2024?utm_source=3Dcyber_security_news&amp=
+;utm_medium=3Dsocial&amp;utm_campaign=3DQ4-sponsored-content&amp;utm_conten=
+t=3DMITREATT&amp;CK2024" target=3D"_blank" rel=3D"nofollow noopener" style=
+=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; display: inline; cursor: pointer; font-weight: 600; color: #0a6=
+6c2; text-decoration-line: none;"><strong>Attend Free&nbsp;Webinar</strong>=
+</a></p></blockquote><h2 style=3D"margin: 0; margin-left: 0px; margin-right=
+: 0px; margin-top: 8px; margin-bottom: 8px; font-size: 20px; font-weight: 6=
+00; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);"=
+>Zero-day Vulnerability Exploited</h2><p style=3D"margin: 0; font-weight: 4=
+00; margin-top: 0.8em; font-size: 1em; line-height: 1.5;"><a href=3D"https:=
+//msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-49138" target=3D"=
+_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cursor:=
+ pointer; font-weight: 600; color: #0a66c2; text-decoration-line: none;">CV=
+E-2024-49138</a> is a zero-day vulnerability that was actively exploited be=
+fore being patched in Microsoft's December 2024 Patch Tuesday update. This =
+critical security flaw affects the Windows ...</p> </td> </tr> <tr> <td cla=
+ss=3D"pt-2 no-underline" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-to=
+p: 16px; text-decoration-line: none;"> <table role=3D"presentation" valign=
+=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" cl=
+ass=3D"email-button series-content-preview__bottom-cta" data-test-id=3D"ema=
+il-button" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 1=
+00%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td valig=
+n=3D"middle" align=3D"left" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a hr=
+ef=3D"https://www.linkedin.com/comm/pulse/microsoft-december-2024-patch-tue=
+sday-71-vulnerabilities-uoanc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_f=
+ollow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_Y=
+agvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsl=
+etter_01-newsletter_content_preview-0-readmore_button_&amp;trkEmail=3Deml-e=
+mail_series_follow_newsletter_01-newsletter_content_preview-0-readmore_butt=
+on_-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpT=
+oken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2Jj=
+ZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk=
+5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" aria-label=3D"=D0=9E=D1=82=
+=D0=BA=D1=80=D1=8B=D1=82=D1=8C =D0=B2 LinkedIn: Cyber Security News" class=
+=3D"align-top no-underline " style=3D"color: #0a66c2; cursor: pointer; disp=
+lay: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; vertical-align: top; text-decoration-line: none;=
+ width: 100%;"> <table role=3D"presentation" valign=3D"top" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"border-separate "=
+ style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-t=
+able-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: separate; width: =
+100%;"> <tbody> <tr> <td class=3D"btn-md btn-secondary-emphasis border-colo=
+r-brand button-link leading-regular !min-h-[auto] !shadow-none border-1 bor=
+der-solid font-sans" data-test-id=3D"newsletter-content-preview-redesign-bo=
+ttom-cta" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; height: min-content; bord=
+er-radius: 24px; padding-top: 12px; padding-bottom: 12px; padding-left: 24p=
+x; padding-right: 24px; text-align: center; font-size: 16px; font-weight: 6=
+00; cursor: pointer; text-decoration-line: none; background-color: rgba(0, =
+0, 0, 0); color: #0a66c2; border-width: 1px; border-style: solid; border-co=
+lor: #0a66c2; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'S=
+egoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sa=
+ns', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe=
+ UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-seri=
+f; line-height: 1.25; min-height: auto !important; box-shadow: 0 0 #0000, 0=
+ 0 #0000, 0 0 #0000 !important;"> <a href=3D"https://www.linkedin.com/comm/=
+pulse/microsoft-december-2024-patch-tuesday-71-vulnerabilities-uoanc?lipi=
+=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGH=
+ByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw=
+1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_content_previe=
+w-0-readmore_button_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-n=
+ewsletter_content_preview-0-readmore_button_-null-hdesgg~m4jmlsh0~lu-null-n=
+ull&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmE=
+wZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMW=
+QwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" tar=
+get=3D"_blank" tabindex=3D"-1" aria-hidden=3D"true" class=3D"no-underline" =
+style=3D"color: #0a66c2; cursor: pointer; display: inline-block; text-decor=
+ation: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; te=
+xt-decoration-line: none; width: 100%;"> <span class=3D"no-underline text-c=
+olor-brand" style=3D"color: #0a66c2; text-decoration-line: none;"> =D0=9F=
+=D1=80=D0=BE=D0=B4=D0=BE=D0=BB=D0=B6=D0=B8=D1=82=D1=8C =D1=87=D1=82=D0=B5=
+=D0=BD=D0=B8=D0=B5 =D0=B2 LinkedIn </span> </a> </td> </tr> </tbody> </tabl=
+e> </a> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> <=
+/tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> <=
+/table> </div> </td> </tr> <tr> <td class=3D"bg-color-background-canvas p-3=
+" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f3f2f0; paddin=
+g: 24px;"> <table role=3D"presentation" valign=3D"top" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"text-xs" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; font-size: 12px;"> <tbody> <tr> <td class=3D"pb-=
+1 m-0" data-test-id=3D"email-footer__intended" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; margin: 0px; padding-bottom: 8px;"> =D0=AD=D1=82=D0=BE =D1=81=
+=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D0=B5 =D1=8D=D0=BB.=C2=A0=D0=BF=
+=D0=BE=D1=87=D1=82=D1=8B =D0=B0=D0=B4=D1=80=D0=B5=D1=81=D0=BE=D0=B2=D0=B0=
+=D0=BD=D0=BE =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=D0=BA=D1=83 ham (Cybersecurity specialist | CEH) </td> </tr> <tr> <td class=
+=3D"pb-1 m-0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0px; padding-=
+bottom: 8px;"> <a href=3D"https://www.linkedin.com/help/linkedin/answer/478=
+8?lang=3Dru&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newslett=
+er_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;mi=
+dSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-Secur=
+ityHelp-0-footerglimmer&amp;trkEmail=3Deml-email_series_follow_newsletter_0=
+1-SecurityHelp-0-footerglimmer-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3D=
+hdesgg-m4jmlsh0-lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0Y=
+mQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTlj=
+NDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank"=
+ class=3D"text-inherit underline" style=3D"cursor: pointer; display: inline=
+-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; color: inherit; text-decoration-line: underline;">=D0=A3=D0=
+=B7=D0=BD=D0=B0=D0=B9=D1=82=D0=B5, =D0=BF=D0=BE=D1=87=D0=B5=D0=BC=D1=83 =D1=
+=8D=D1=82=D0=BE =D0=B7=D0=B4=D0=B5=D1=81=D1=8C =D1=83=D0=BA=D0=B0=D0=B7=D0=
+=B0=D0=BD=D0=BE.</a> </td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt; margin: 0px; padding-bottom: 8px;">=D0=92=D1=8B =
+=D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=D0=B2=D0=B5=
+=D0=B4=D0=BE=D0=BC=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =D1=8D=D0=BB.=
+=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =D0=94=D1=80=D1=
+=83=D0=B3=D0=B8=D0=B5 =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=D0=BA=D0=
+=B8 =D0=BC=D0=BE=D0=B3=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=D1=82=D1=8C, =
+=D1=87=D1=82=D0=BE =D0=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D0=B5=
+=D1=81=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=B8=D0=BA=D0=BE=
+=D0=BC.</td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; margin: 0px; padding-bottom: 8px;"> <a href=3D"https://www.link=
+edin.com/comm/series-notifications/?action=3Dunsubscribe&amp;memberToken=3D=
+ADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6Ok&amp;newsletterId=3D7045874934954278=
+912&amp;newsletterTitle=3DCyber%20Security%20News&amp;lipi=3Durn%3Ali%3Apag=
+e%3Aemail_email_series_follow_newsletter_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3=
+D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-e=
+mail_series_follow_newsletter_01-unsubscribe-0-footerGlimmer&amp;trkEmail=
+=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimmer-null-h=
+desgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&amp;otpToken=3DMTM=
+wNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4NjZjN2JjZjA0Njk0Yj=
+VhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5ZDQ5Yzk5YTg4ZjUzY=
+zRiZjljLDEsMQ%3D%3D" target=3D"_blank" class=3D"text-inherit underline" sty=
+le=3D"cursor: pointer; display: inline-block; text-decoration: none; -webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: inherit; text-=
+decoration-line: underline;">=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=D1=82=D1=
+=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D0=BA=D1=83</a> =C2=A0=C2=A0=C2=B7=
+=C2=A0=C2=A0 <a href=3D"https://www.linkedin.com/help/linkedin/answer/67?la=
+ng=3Dru&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_0=
+1%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=
+=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-help-0-fo=
+oterglimmer&amp;trkEmail=3Deml-email_series_follow_newsletter_01-help-0-foo=
+terglimmer-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-lu&a=
+mp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhYWU4N=
+jZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2YTk5=
+ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" class=3D"text-inher=
+it underline" style=3D"cursor: pointer; display: inline-block; text-decorat=
+ion: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; colo=
+r: inherit; text-decoration-line: underline;">=D0=A1=D0=BF=D1=80=D0=B0=D0=
+=B2=D0=BA=D0=B0</a> </td> </tr> <tr> <td class=3D"pb-1" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt; padding-bottom: 8px;"> <a href=3D"https://www.linkedin=
+.com/comm/feed/?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newslett=
+er_01%3Bpssp6cDqTOGHByVQpir%2FRQ%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;mi=
+dSig=3D0SOeOYAIVYZbw1&amp;trk=3Deml-email_series_follow_newsletter_01-foote=
+r-0-logoGlimmer&amp;trkEmail=3Deml-email_series_follow_newsletter_01-footer=
+-0-logoGlimmer-null-hdesgg~m4jmlsh0~lu-null-null&amp;eid=3Dhdesgg-m4jmlsh0-=
+lu&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YmQ4ZmNiZDc0MDlhY=
+WU4NjZjN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTZmMWQwYzQ1YmFmZTljNDA3NmJkYzFlZjU2=
+YTk5ZDQ5Yzk5YTg4ZjUzYzRiZjljLDEsMQ%3D%3D" target=3D"_blank" style=3D"color:=
+ #0a66c2; cursor: pointer; display: inline-block; text-decoration: none; -w=
+ebkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;"> <img src=3D"htt=
+ps://static.licdn.com/aero-v1/sc/h/9ehe6n39fa07dc5edzv0rla4e" alt=3D"Linked=
+In" class=3D"block h-[14px] w-[56px] image-rendering-crisp" style=3D"outlin=
+e: none; text-decoration: none; image-rendering: -moz-crisp-edges; image-re=
+ndering: -o-crisp-edges; image-rendering: -webkit-optimize-contrast; image-=
+rendering: crisp-edges; -ms-interpolation-mode: nearest-neighbor; display: =
+block; height: 14px; width: 56px;" width=3D"56" height=3D"14"> </a> </td> <=
+/tr> <tr> <td data-test-copyright-text style=3D"-webkit-text-size-adjust: 1=
+00%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt;"> =C2=A9 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place=
+, Dublin 2 (=D0=98=D1=80=D0=BB=D0=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2024=C2=A0=
+=D0=B3. LinkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=B7=D0=
+=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=
+=D0=BD=D0=BD=D1=8B=D0=BC =D1=84=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=BD=D1=8B=
+=D0=BC =D0=BD=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=
+=D0=B5=D0=BC =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn Irel=
+and Unlimited Company. <span data-test-trademarks-text> LinkedIn =D0=B8 =D1=
+=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=BC=D0=B0 LinkedIn =D1=8F=D0=B2=D0=BB=D1=8F=
+=D1=8E=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=
+=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=BC=D0=B8 =D1=82=
+=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=8B=D0=BC=D0=B8 =D0=B7=D0=BD=D0=B0=D0=BA=
+=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedI=
+n. </span> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> <img=
+ alt role=3D"presentation" src=3D"https://www.linkedin.com/emimp/ip_YUdSbGM=
+yZG5MVzAwYW0xc2MyZ3dMV3gxOlpXMWhhV3hmYzJWeWFXVnpYMlp2Ykd4dmQxOXVaWGR6YkdWMG=
+RHVnlYekF4OmRYSnVPbXhwT214cGJtdGxaRWx1UVhKMGFXTnNaVG8zTWpjeU5UQXlOell3TURZM=
+U9USXhNREkx.gif" style=3D"outline: none; text-decoration: none; -ms-interpo=
+lation-mode: bicubic; width: 1px; height: 1px;" width=3D"1" height=3D"1"> <=
+/body> </html>
+------=_Part_615488_671229845.1733905713563--

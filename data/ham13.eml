@@ -1,0 +1,991 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:811:b0:12f:6342:5d6f with SMTP id e17csp1278dyi;
+        Thu, 18 Jul 2024 11:53:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHOgO0Y/1VNTbtYdknc1j/qZyOipxfovgmk/0E3aD0R6LcDIyBrThsi3j9bBVQlfIZXdfyu
+X-Received: by 2002:a05:620a:46ab:b0:7a1:3fea:797e with SMTP id af79cd13be357-7a193909e8emr204965585a.33.1721328802915;
+        Thu, 18 Jul 2024 11:53:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1721328802; cv=none;
+        d=google.com; s=arc-20160816;
+        b=VQSVJwejRsvzLBxo7yF7Uhu/lKHRsr1Y9ee3IJ7Stf5pMGMg3rCp3fbGjt+S5+n2BF
+         WHBqVGYa+l8sGxTmcvSVw5DnzQ3aBBzjX2CCnrDkJZeN2DHXMTLSrZ3ln2/ddc+vY8iC
+         CGP1NnA5LGfPiFhZWocOhBbGkeGj/z8aRE+XxGFR3x+7ApQjtUImCDlazLgna1uePQCE
+         2OFo2f58yuf0WY59m34ZUCbxGZ9JftNcGe4nJWFndiXZrNlFfFl3IVSMQSumpSSwfpTA
+         AztqRE3HoOsD1NRvXJ4ErKvbOh1JdC2bAT9PEscCRXmbwRboBMZRUEMXs3LcnoDvNxWs
+         Lgsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=RFZpG1spCSaYcj0WVkwqodYOMUPgUiPRun2aBbSahLA=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=j7292Hs0N/KSvy0fSmaDxuuL5SDvskEDynXTZti9kDwLmQRxXoLHE7Ba058PFwPZ8J
+         VT6xMHfto9GGCpYfw8+MozEKd831tX7uph2oql0+zYzUp5kzUg5IvwjsbkhWRA4K3+aK
+         RjXjOYspdn305OonHh+wk1pebb/u99m+H1W0WpeESGvQ2TpmlFV0/8LD5J5kJCIan6pE
+         WkFb2DHqDVSn5cMGphrrH+5Oy7Fh6Lch1B5TYT6V6D4Fyujhod74Vn8MtXZTAn+NA56h
+         1i/0VhIMrYv9NZ6mMtAwQx846BNU0NMf7hNZ92V5hiWvM4hyWxycgY7nJCKXjOWuNtE1
+         dh2g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sheerid.com header.s=s1 header.b=LYmjgLpu;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=eVojWoH+;
+       spf=pass (google.com: domain of bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com designates 168.245.7.154 as permitted sender) smtp.mailfrom="bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=sheerid.com
+Return-Path: <bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com>
+Received: from o1.verify-smtp.sheerid.com (o1.verify-smtp.sheerid.com. [168.245.7.154])
+        by mx.google.com with ESMTPS id af79cd13be357-7a1939de28esi118006185a.712.2024.07.18.11.53.21
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Jul 2024 11:53:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com designates 168.245.7.154 as permitted sender) client-ip=168.245.7.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sheerid.com header.s=s1 header.b=LYmjgLpu;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=eVojWoH+;
+       spf=pass (google.com: domain of bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com designates 168.245.7.154 as permitted sender) smtp.mailfrom="bounces+7631439-5384-receiver.receiver=gmail.com@em5043.sheerid.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=sheerid.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sheerid.com; h=content-type:from:mime-version:subject:x-feedback-id:to:cc: content-type:from:subject:to; s=s1; bh=RFZpG1spCSaYcj0WVkwqodYOMUPgUiPRun2aBbSahLA=; b=LYmjgLpuWCkpKMG4wkcdCUe1ZgAQYPw61uSs0gFq8vlmvmx2/UXyzexAeEXTnN91WQN6 G5jP9Og9LM2/9V5MLPhdXFWzVF7n9vJtlfHELnIq/a5Edayr7OKb3zX8VIxZAFhOiOVZhP zlNpnVbR4DmuPPY6snYyh9Obceo4oYbqdVDpzM5XQgns6QnoPOvOCjIvR9+e30ed3Y7MU+ GAA1wOhCXTh7p93ruu/cc0CLv5pN45iE5OIqMyr9RocpYLLd+2YNi71yI8HgDlcWxxpaCE h0SAbFYxGuof2AEMP4F66Kg8b4b2TfHBnyJqcUYVCg/e2izZiV6UIstnCCrfWfJw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:mime-version:subject:x-feedback-id:to:cc: content-type:from:subject:to; s=smtpapi; bh=RFZpG1spCSaYcj0WVkwqodYOMUPgUiPRun2aBbSahLA=; b=eVojWoH+bS8EJnSb7LR8214NofkFMwlRxS6WSnEcxisNZcRoRiAit71x3SxQ1z/syred I9ds5OX1yLX8oWjqnpEm/eU6J0o/rA2slK2FANWfWNx3z3Lm0MfPbpZ2LlGI4uEwVNk4XB GZm+X8iA34eO5KOblfgIu2laaS1AQUPlI=
+Received: by recvd-7f95b5f9cb-2xk2s with SMTP id recvd-7f95b5f9cb-2xk2s-1-669964A0-93 2024-07-18 18:53:20.839952741 +0000 UTC m=+780070.749548071
+Received: from NzYzMTQzOQ (unknown) by geopod-ismtpd-15 (SG) with HTTP id dVo1mb3ESxmohFYMQvcAoA Thu, 18 Jul 2024 18:53:20.785 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=5b0672d14e98741841f9c0a426b2a1dbae8315942a29676c660a2fd95499
+Date: Thu, 18 Jul 2024 18:53:20 +0000 (UTC)
+From: SheerID Verification <Verify@sheerid.com>
+Mime-Version: 1.0
+Message-ID: <dVo1mb3ESxmohFYMQvcAoA@geopod-ismtpd-15>
+Subject: Congratulations: your student status is confirmed
+X-Feedback-ID: 7631439:SG
+X-SG-EID: u001.yd7qW3K/BBI7Oj8naYQzE8s6PuGP9beOjPQFMOaueGllaVEGsC2wcodyAJuhYOsAZSY2Fn/GrJC9Yp2GLTar27U35D1qGuT3+OZlWbwTWcgWmZ6KhyR8BJHLfduQF8SzFLsuAXqWCoRqEbsEXeZskxc3MEJitSKPQNciVN8WgrsMdKP0Q4aw075nSrYG8lGeJuMmni43hq/iOg7uYNQX9zawhOLKz9nmWLX9u/ZxYA+ILMEmpOsP65p+wIXEYgak5ffe28qhpnM6aPnicG+stg==
+X-SG-ID: u001.SdBcvi+Evd/bQef8eZF3BpTL9BgbK5wfSJMJGMsmprAHbvUuIyeL+YxnhevD9L2UUCFh1IGW+WJT9/aHIgf+4iSTEUs5MfJUzkOr4Q6QXIjZhWsjtnEZDBJZ9IlpulbrbAwa6wxMadUFLTdL0LyKYg==
+To: ham@ham.email
+X-Entity-ID: u001.k0rrcXjtZXZhkJ8vJCIEaQ==
+
+--5b0672d14e98741841f9c0a426b2a1dbae8315942a29676c660a2fd95499
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+                                                                    96     =
+                                                                           =
+                                     =20
+                               =20
+                                                   =20
+                               =20
+                                                 =20
+                                                                       =20
+                                                                           =
+      (https://www.youtube.com/)                                         =
+=20
+                                                           =20
+                                       =20
+                       =20
+                                           =20
+                             =20
+                   =20
+                               =20
+                                                   =20
+                               =20
+                                                                        &#8=
+202;                                 =20
+                                        &#8202;                            =
+     =20
+                                        We have successfully confirmed your=
+ student status                                 =20
+                                        &#8202;                            =
+     =20
+                                        Congratulations!                   =
+              =20
+                                        &#8202;                            =
+                               =20
+                       =20
+                                           =20
+                             =20
+
+                               =20
+                                                   =20
+                               =20
+                                                                        &#8=
+202;                                 =20
+                                        You are now eligible for a student =
+membership.                                                           =20
+                       =20
+                                           =20
+                             =20
+
+                               =20
+                                                   =20
+                               =20
+                                                                        &#8=
+202;                                 =20
+                                        &#8202;                            =
+     =20
+                                       =20
+                                                            Continue       =
+        (https://www.youtube.com/premium/student?sld=3DCgl1bmxpbWl0ZWQQBRgO=
+&svid=3D669964227d670905720827e7&oid=3DAI97cZmEE2eFKFNlU49FxlgurrYY5ZRpaxnl=
+YMv4DvrMiAPqFyCquFJ6z1EtSrCwNj2Kj_AFJmy3)                                  =
+ =20
+                                 =20
+                                        &#8202;                            =
+                               =20
+                       =20
+                                           =20
+                             =20
+                               =20
+                               =20
+                                                   =20
+                               =20
+                                                                        Sha=
+re this offer                                 =20
+                                        &#8202;                            =
+     =20
+                                       =20
+                                                            Share          =
+     (https://www.youtube.com/premium)                                   =
+=20
+                                                           =20
+                       =20
+                                           =20
+                             =20
+                   =20
+                               =20
+                                                   =20
+                               =20
+                                                                        &#8=
+202;                                 =20
+                                        Verification service powered by She=
+erID                                 =20
+                                        &#8202;                            =
+     =20
+                                        You are receiving this email becaus=
+e you submitted a verification request with YouTube and its trusted partner=
+, SheerID.                                 =20
+                                        &#8202;                            =
+     =20
+                                        SheerID will only contact you in re=
+gard to confirming your verification status. Your email address will not be=
+ added to any mailing list without your explicit request.                  =
+               =20
+                                        &#8202;                            =
+     =20
+                                        Click here for more info about Shee=
+rID (https://offers.sheerid.com/sheerid/help-center/?locale=3Den_US)       =
+                          =20
+                                        &#8202;                            =
+                               =20
+                       =20
+                                           =20
+                             =20
+                     =20
+--5b0672d14e98741841f9c0a426b2a1dbae8315942a29676c660a2fd95499
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Mime-Version: 1.0
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+  <head>
+    <title>
+     =20
+    </title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-px-220 { width:220px !important; max-width: 220px; }
+.mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-px-220 { width:220px !important; max-width:=
+ 220px; }
+.moz-text-html .mj-column-per-100 { width:100% !important; max-width: 100%;=
+ }
+    </style>
+   =20
+ =20
+    <style type=3D"text/css">
+   =20
+   =20
+
+    @media only screen and (max-width:480px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+    <style type=3D"text/css">
+   =20
+    </style>
+                        </head>
+  <body style=3D"word-spacing:normal;background-color:${backdropColor};">
+   =20
+   =20
+      <div
+         style=3D"background-color:${backdropColor};"
+      >
+             =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#ff0001" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ff0001;background-color:#ff0001;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ff0001;background-color:#ff000=
+1;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:220px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-px-220 mj-outlook-group-fix" style=3D"font-size=
+:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;=
+width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"
+      >
+        <tbody>
+          <tr>
+            <td  style=3D"vertical-align:top;padding-top:25px;padding-botto=
+m:25px;">
+             =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"center" style=3D"font-size:0px;padding:10px 25p=
+x;padding-left:0px;word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"
+      >
+        <tbody>
+          <tr>
+            <td  style=3D"width:195px;">
+             =20
+        <a
+           href=3D"https://www.youtube.com/" target=3D"_blank"
+        >
+         =20
+      <img
+         alt=3D"YouTube" height=3D"auto" src=3D"https://assets-resources.sh=
+eerid.com/youtube/premium/img/yt_logo_mono_dark.png" style=3D"border:0;disp=
+lay:block;outline:none;text-decoration:none;height:auto;width:100%;font-siz=
+e:15px;" width=3D"195"
+      />
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+         =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ffffff;background-color:#ffffff;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ffffff;background-color:#fffff=
+f;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:22px;l=
+ine-height:26px;text-align:left;color:#000000;"
+      >We have successfully confirmed your student status</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:15px;l=
+ine-height:20px;text-align:left;color:#000000;"
+      >Congratulations!</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ffffff;background-color:#ffffff;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ffffff;background-color:#fffff=
+f;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:15px;l=
+ine-height:20px;text-align:left;color:#000000;"
+      >You are now eligible for a student membership.</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" st=
+yle=3D"width:600px;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"li=
+ne-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ffffff;background-color:#ffffff;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ffffff;background-color:#fffff=
+f;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+                          <tr>
+                <td
+                   align=3D"left" vertical-align=3D"middle" style=3D"font-s=
+ize:0px;padding:10px 25px;padding-left:0px;word-break:break-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:separate;width:250px;line-height:100%;"
+      >
+        <tbody>
+          <tr>
+            <td
+               align=3D"center" bgcolor=3D"#065fd4" role=3D"presentation" s=
+tyle=3D"border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px=
+;background:#065fd4;" valign=3D"middle"
+            >
+              <a
+                 href=3D"https://www.youtube.com/premium/student?sld=3DCgl1=
+bmxpbWl0ZWQQBRgO&svid=3D669964227d670905720827e7&oid=3DAI97cZmEE2eFKFNlU49F=
+xlgurrYY5ZRpaxnlYMv4DvrMiAPqFyCquFJ6z1EtSrCwNj2Kj_AFJmy3" style=3D"display:=
+inline-block;width:200px;background:#065fd4;color:#ffffff;font-family:Helve=
+tica, arial, sans-serif;font-size:15px;font-weight:normal;line-height:20px;=
+margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-pad=
+ding-alt:0px;border-radius:3px;" target=3D"_blank"
+              >
+                Continue
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+     =20
+           =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ffffff;background-color:#ffffff;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ffffff;background-color:#fffff=
+f;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:15px;l=
+ine-height:20px;text-align:left;color:#000000;"
+      >Share this offer</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" vertical-align=3D"middle" class=3D"mso-hi=
+de" style=3D"font-size:0px;padding:10px 25px;padding-left:0px;word-break:br=
+eak-word;"
+                >
+                 =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:separate;width:250px;line-height:100%;"
+      >
+        <tbody>
+          <tr>
+            <td
+               align=3D"center" bgcolor=3D"#065fd4" role=3D"presentation" s=
+tyle=3D"border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px=
+;background:#065fd4;" valign=3D"middle"
+            >
+              <a
+                 href=3D"https://www.youtube.com/premium" style=3D"display:=
+inline-block;width:200px;background:#065fd4;color:#ffffff;font-family:Helve=
+tica, arial, sans-serif;font-size:15px;font-weight:normal;line-height:20px;=
+margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-pad=
+ding-alt:0px;border-radius:3px;" target=3D"_blank"
+              >
+                Share
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+         =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#ffffff" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div  style=3D"background:#ffffff;background-color:#ffffff;margin:0px=
+ auto;max-width:600px;">
+       =20
+        <table
+           align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#ffffff;background-color:#fffff=
+f;width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=3D"direction:ltr;font-size:0px;padding:0 20px;text-a=
+lign:center;"
+              >
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]-->
+           =20
+      <div
+         class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-siz=
+e:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%;"
+      >
+       =20
+      <table
+         border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"vertical-align:top;" width=3D"100%"
+      >
+        <tbody>
+         =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:11px;l=
+ine-height:15px;text-align:left;color:#000000;"
+      >Verification service powered by SheerID</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:11px;l=
+ine-height:15px;text-align:left;color:#000000;"
+      >You are receiving this email because you submitted a verification re=
+quest with YouTube and its trusted partner, SheerID.</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:11px;l=
+ine-height:15px;text-align:left;color:#000000;"
+      >SheerID will only contact you in regard to confirming your verificat=
+ion status. Your email address will not be added to any mailing list withou=
+t your explicit request.</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:10px;line-height:10px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   align=3D"left" style=3D"font-size:0px;padding:0;word-bre=
+ak:break-word;"
+                >
+                 =20
+      <div
+         style=3D"font-family:Helvetica, arial, sans-serif;font-size:11px;l=
+ine-height:15px;text-align:left;color:#000000;"
+      ><a href=3D"https://offers.sheerid.com/sheerid/help-center/?locale=3D=
+en_US" target=3D'_blank' mj-class=3D"link" style=3D'color: #065fd4; text-de=
+coration:none !important;'>Click here for more info about SheerID</a></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td
+                   style=3D"font-size:0px;word-break:break-word;"
+                >
+                 =20
+      <div
+         style=3D"height:20px;line-height:20px;"
+      >&#8202;</div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+      </div>
+   =20
+  <img src=3D"http://url4221.sheerid.com/wf/open?upn=3Du001.jjN7WJkxBP3-2Bm=
+X45kHyWvvrQOvZdAkcz17PsMGuDwjC33x0n6cg7v3TyYRmmPu1RDVPQleS7Gw809dKIIcjcHlUm=
+Mk9UjjJTYP1PV82G2s5734AEBu1MqcpijFABU6kmJd-2BCCXkeNK3VyoX6HI58qz4HG8EQGHdiP=
+J-2BskpphLaKu0s4yL3Y9cNzl753yLJqEYLeUujwDiNb3Ecue134Xq28p58ERUyQMImt8uwLeAZ=
+J5tWbIr-2Fpn9srOn7xvtcHtLxH9F8wDFFL7-2Fh0rWSt1yAiu9oQRIBQQ5mSAXgo-2BDeFFRlm=
+Br7ee-2B9ZBrakFwbGDUzoIxf4NnP2pQb-2Bgemgd7A-3D-3D" alt=3D"" width=3D"1" hei=
+ght=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;=
+border-width:0 !important;margin-top:0 !important;margin-bottom:0 !importan=
+t;margin-right:0 !important;margin-left:0 !important;padding-top:0 !importa=
+nt;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !i=
+mportant;"/></body>
+</html>
+ =20
+--5b0672d14e98741841f9c0a426b2a1dbae8315942a29676c660a2fd95499--

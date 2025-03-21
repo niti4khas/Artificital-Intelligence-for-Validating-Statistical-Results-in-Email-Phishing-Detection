@@ -1,0 +1,70 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6520:2354:b0:2ac:6419:e1b with SMTP id c20csp174413lkc;
+        Tue, 17 Dec 2024 04:15:00 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFdXQUwuKUQ7sgIEyhdJAloazo46lq+asRqlZfda5d9kAgu9wHtAQ/i03qQBZAAZssJRjqJ
+X-Received: by 2002:a05:622a:190f:b0:461:2150:d59c with SMTP id d75a77b69052e-467a574ba2fmr293772651cf.9.1734437699827;
+        Tue, 17 Dec 2024 04:14:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734437699; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Hvopxx/GG/lsNgnQmM9lDGLOsGlEL2j98Gnh2H7S5rZZqFa91dCFWVYn0sZzu/lo68
+         r3keEKuxiyheGxw6VLeLv9SLsiDLb1W2NxPKz/Y22kXWIP+VtyEWaFPLQj4FCnoKMs3a
+         e0aQ4Xsav6qu21uTwMt0Uz15QmL31S0RUZ6y5sXYrnerxtVLn1jXUbIg3cpryb0JTyTI
+         V+DmCL1vjFeUuFT63mAiJjjFUA9TuA7tkI1rjlw6q6DubcEhTimA/Mkhpf7dt7tDCSCK
+         NY2AZEK73BXVUixm2ynmOkM0aTgAR3lsnJX5NmW8Img9CZhX8wdb4Kk5MucxTrra4RLj
+         Yfzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:mime-version:date:content-transfer-encoding:message-id
+         :subject:to:from:dkim-signature:dkim-signature;
+        bh=V3z+rXv0z41wvsmMd1nqEP433N5B8LeL660AbMKBoGE=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=I5819GcNvCgRD12Ci63xjohc5fBYrdadAQF2+8gvYM/ry2Be1H2Y5G1s9wLD+bZYot
+         u6T7EoNyjowb5kotY7Nf1citpTIgBTv1nv8o4Cd1z2G4Q81SS9MsRbrRW4lVXKvjbrpZ
+         1wzvwatKV+mosMU6F+sHLwYIUPu7MExuyToyyXqH7MqBeo+klt/6GnE4azd4nZLbTqd/
+         fIFjVvA1Y1Q0bkjDI0NjcS/eHWt3SHy/NNMFmjzs6fN3lKf05Vwy2zj91BfdyLqB/UuV
+         XnPLWpxvayeo9aH/3HLcq0r5cW795OAVsQDHV1OKtmhyNSu3amojtrshA1sefU9jormE
+         Hi+w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hello.swype.jobs header.s=resend header.b="Gb/UCJf+";
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=KVHKhcmx;
+       spf=pass (google.com: domain of 01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs designates 54.240.9.26 as permitted sender) smtp.mailfrom=01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs
+Return-Path: <01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs>
+Received: from a9-26.smtp-out.amazonses.com (a9-26.smtp-out.amazonses.com. [54.240.9.26])
+        by mx.google.com with ESMTPS id d75a77b69052e-467b2efb2dasi110702661cf.585.2024.12.17.04.14.59
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Dec 2024 04:14:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs designates 54.240.9.26 as permitted sender) client-ip=54.240.9.26;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hello.swype.jobs header.s=resend header.b="Gb/UCJf+";
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=KVHKhcmx;
+       spf=pass (google.com: domain of 01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs designates 54.240.9.26 as permitted sender) smtp.mailfrom=01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@send.hello.swype.jobs
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend; d=hello.swype.jobs; t=1734437699; h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type; bh=V3z+rXv0z41wvsmMd1nqEP433N5B8LeL660AbMKBoGE=; b=Gb/UCJf+uKMyB5HeA9Em7GMue7t8s1pwTbKL//c+JTyPuHJsclwBPAjFVoCEPxEr STlkaQCE5P1jbWcy/D9i4HtzwgZ5MiCBRsvLNDZfp4jl6Bldw8wJV5w47azmdNYpHMF KruZyaLWAgkAPL4p6VoyQP/nsciqvZ2r/ac9cgYc=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1734437699; h=From:To:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID; bh=V3z+rXv0z41wvsmMd1nqEP433N5B8LeL660AbMKBoGE=; b=KVHKhcmxueY+ho5wM+xEZyAMMjpgjwsVgJ+9IvYjbF14uPaAqn7c5G+Oa2n8QMDA qXZjOsOeeFD9nOYAPp3yA6QdqH1uigTFQLcMtdVmfYK4MTYSLJ5P4q5HwtwVaa4+B0V 8ejV4Dfp3dvdWWYUGQSblGz+PC/JIdD4GpVKMiv0=
+From:  <sender@hello.swype.jobs>
+To: ham@ham.email
+Subject: Swyper, yes swyping
+Message-ID: <01000193d48aff59-32e851e3-1939-4fb5-b2e3-fa7b6626e384-000000@email.amazonses.com>
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 17 Dec 2024 12:14:59 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Feedback-ID: ::1.us-east-1.epbACCJLarUaEI78XZoGREJ9LamRjxMH5pM2kZb64rA=:AmazonSES
+X-SES-Outgoing: 2024.12.17-54.240.9.26
+
+Hey ham,
+
+Welcome to Swype! Your job search will officially never be the same.
+
+As you Swype, confirmation emails for your applications will get sent to th=
+is email.=20
+
+For realtime updates and direct access to the founders, join our community =
+on Discord (https://discord.gg/jtpevHUXsc).
+
+Happy Swyping,
+sender
+
+Schedule a call with us: https://cal.com/marvy101/swypers
+sender
+Co-Founder | Swype

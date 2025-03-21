@@ -1,0 +1,139 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:b7a6:b0:117:1fd:cd05 with SMTP id cx38csp3318980dyb;
+        Tue, 21 May 2024 09:53:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWgJ2gLX6xHtVMdQ1UmtcJ0LFAMkgEz594N1PWZstZyYtRTkBBXQLWvaxBaKlTCPEOytKr6c7lLM2mKY41YWSduX+CBuJAHacEBOYJJfQ==
+X-Received: by 2002:a5b:3d2:0:b0:dcc:623e:1b5d with SMTP id 3f1490d57ef6-df490666d24mr6759513276.31.1716310420219;
+        Tue, 21 May 2024 09:53:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1716310420; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ahcYAqq0GDxB7e3Ic3Cz7bStEjy9PmvxgQXaXZsVyC6J9x8ugh+tRVQEnBw1ZFuI8a
+         VVedZfgi9ealYlw9ULRqDMipbbEgocDPEcpmjaFLqDjW3IF3gwjuiy88gT1ZbfUTbGJU
+         F5Jzeghp2quqZc+6LuTog0c7kmOHIc1wAUtzboOQaXR+B2M8IwXFErGenXkz1t7T0TDL
+         ZzVXf4qyc6ocG20Z8UMdryD+D22TCnIccgi1+DK0XRSEWQ1PEjqQRKiqaPBXtuaNigUo
+         MYlWEfC6F9pgyQ3ITShE8p1gG5Z403H6ZEHHYAyfuCfX5leLmmz1UYzHStnhGkQKN8Kf
+         myyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=RC5jawY38WcGpXlg9DYboFookuQGjKny5rLF6JXRBOY=;
+        fh=1DjDGp0ytJW9py4RKSddzUrwlyHxKAe0xatYwryntjc=;
+        b=U9ss4ySjepqJIy/J0VEcuLnw/nPj2FWQnQjJASlGlvgt2OEjMHMr9osqRHe0qCzYRD
+         3jEVTKtHVQ2jDBzcsmY8s8tjcUMwdNMCzEko29atk2khyfFcTeMtheCWdM25t89LIDqg
+         B765KRt3yh7plPzTmxdtAUhxyq53NJEILZ+JIa71pHXVf+LcXFbqnvjSBCo5MAQIJ+3j
+         F4AU+awmeU48FbQYpx/dSklsWrkAc5ouDMTfTCNd7crsM/s9Ao98w3l7wKXgaOfG+VqT
+         VwW4LbMGstLVkYAY5YytrRWUjyEt2Rj69hzEk+n6EM0GfZJSRewfV8Gs+hNWaMEMyXlN
+         MDiQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aUeMYA03;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <sender@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 3f1490d57ef6-debd2f15274sor9941803276.1.2024.05.21.09.53.39
+        (Google Transport Security);
+        Tue, 21 May 2024 09:53:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=aUeMYA03;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1716310419; x=1716915219; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RC5jawY38WcGpXlg9DYboFookuQGjKny5rLF6JXRBOY=;
+        b=aUeMYA03WwykvvHKra0xEMz3sKpGlV3lXwjpn1eGVjkHIbaHTtMQOE/P3Zn+VBU0Fz
+         YPjdj1glYKjQ614KKzo3m0KkUauuTnhctrY0VHgDXzILqY2faRQ5HTyU4HdIdsPa9zwE
+         5nK5EjaLH6XZEjmc27L49zaq1HHAj88e7vzn5QXcSmy3bG62BdDNypLLGM34LNidLngp
+         E1PQ9xXO8MrAY+bxDcmtUyj0VrGqVlATyJr+bEl2J38jm8kXFNXcaodimUQ9k95G4/EG
+         KqG4Q8yIZxiCeIw1gidw0HWuj3dQ2TOFziw4vMzsSDSsMl2df+ZLVg3zAkQbhxnuspkm
+         Mjzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1716310419; x=1716915219;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RC5jawY38WcGpXlg9DYboFookuQGjKny5rLF6JXRBOY=;
+        b=UmQ1Y0wzcgk1VLkuPH/v5o3oCrRMt747YtL9xSb5wCeeU11s1hC3Ux7o2tb0s/lcsu
+         MOn+b2GHyK6hrTDpyw8uEWTZIY4O1SCZu3T+wrLZPxkvwIZEYvfxXeZKAXfIV4qG/QJC
+         Wrvid9uG4FkAWds2Hh9I2O/Cqp3KG3u2I9gaeABT7vYllfHIMUhUFIuaneecs/FA2spc
+         Y27Z8RiSivksxWX/UlLEg+LxBut7W/0McxN7iUDETzJv/x7BcX7kAIK4sIL4hrDlBwl6
+         6Fc5Qf+sYYiu7wIya8wEHGI5AM6ntPWKXb7W3smQcT361ah71AxCysOskHVNgRYCpKta
+         U51w==
+X-Forwarded-Encrypted: i=1; AJvYcCVPh9BOQZLTST/Ow/5LI/XPz/K8TB0aksPN6QcalIhfg/gkfo/URvmqVj2JnyEnByLvk46g18L4kFrq+47jl1KEg6DqnMNMApgd1cRLnWm+6sFJcIhccqV2eWbkkcGMrfSAt5Nlsd7BSvZfeejL9iI0kEyoYcENYjeXf9yxvALz6XfywgmMBig/Oz8fGW0cI10x7aM/NIXQQ53jQ4zo8E60Tr1GjEWCoeD+LqDEv/IY/9bGkKHJCJ/psta89hHqzly7q1TE+6tS+hvpBz/ZgaW0XCIEhFtNi025n/04vtpE/S+f1zyTxpQwlJ046ECqZLn0iSPQ8WI+KIuLsE6V/qUm8Jfiov4Z5j/gNwDYWErrgw5viivZSYZ8zEkpf+nfqOGR+4hun3KTajtOLj/XdlHw24T5OsO+CubRsmt7JgVqwFuB1YR+7DXFbwgq7Hf8+1P9JNlEu6WhvbJp6aOGw64FhTrvVjAtPnCeJ6WciwhJLPLdFH5W9LcscfpugZtnj4gYmxVFwvttEsF0OP21oCPK/7CvVRsQacvyPlri8LEsvjDFpW3CFgnmG8ibet6oq/8pczuUVsheYJ+2oHbfMW8Hg15ga/oUgc2EIs+jBjgvls4tBbnJJ0mBHYVf0Qfd4ZKAHsyXlQqUQqklgA4lFpn4WRH9F9IhbjvPbzPmpJwtn3gYJMmSjcnXDjmmyZm7QYuUHkOlM7YMz0Q3zL8h/XOe7OYQ72DaHKo5RpziZQ8tramuNSyXsW0uXjnQ7sqOcG54NBrzktGBaWbz0v4HIrYgA+uy3JbgqvKs910x3xus0eeiG7YVD1P1g/YVoKCWz3FgdQDzjRlQ8aeWeL+J/w==
+X-Gm-Message-State: AOJu0YwXwaK75Q0YjB+haGWfIUmA049dUFujYAFftAicj/f7bps4ZEot lzBKJZJdYnkfd+YybJ7VhZs7fDdglqY2spXFbxF0HPioG/6s1nUeJa8Q7xHbC7tbCnXkc1f+bff JqjRa3IDdPBf9Fx1/SqdTFJQy6r511UXcuvQ=
+X-Google-Smtp-Source: AGHT+IEvavaK38D4LItEBZZ5ky2jD9D0j+5x5CrAoIWyk4goKXo/OeOo9pdhaxdkw64pzZnJGnntqRkHRMaRc7nIj9g=
+X-Received: by 2002:a05:6902:2b0c:b0:dcc:6894:4ac0 with SMTP id 3f1490d57ef6-df4906032c2mr7903246276.20.1716310419516; Tue, 21 May 2024 09:53:39 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAM-cCG154eyv2gajB6UyP5+qTCOpu3bK0Ri-H+xu2f1QGgLncw@mail.gmail.com> <PR3PR04MB7436DE005A8D3C5062BCA65DB3232@PR3PR04MB7436.eurprd04.prod.outlook.com> <CAM-cCG1xxwJ9zrAjUCjkNPPuS4ZxJ5UFtGUXvd=GpKTz6WEy=w@mail.gmail.com> <PR3PR04MB7436175223C9D38DD31B8139B3222@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74362C3DCBD6CF37CE191124B32C2@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74367583DD081E6A0A261A08B33E2@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74368C8945F5FB719C6D28EFB31A2@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB7436032CE4F59D82B702D08FB3E42@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74366F188B35819D96E6C1ADB3ED2@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74368756EFB72D4B12B8F3C7B3E82@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB74369A2EA478E8280AAC2EF3B3E82@PR3PR04MB7436.eurprd04.prod.outlook.com> <PR3PR04MB7436856AB0BF9E216D2C6223B3E82@PR3PR04MB7436.eurprd04.prod.outlook.com>
+In-Reply-To: <PR3PR04MB7436856AB0BF9E216D2C6223B3E82@PR3PR04MB7436.eurprd04.prod.outlook.com>
+From: Mahnoor Jamil <sender@gmail.com>
+Date: Tue, 21 May 2024 19:53:27 +0300
+Message-ID: <CALQ7KeoqnrJDKmJz5hxWDvrLP6K+Srnoz4ZuFmWNvuQMUEXp2g@mail.gmail.com>
+Subject: Requesting a Project instead of Cryptography Examination
+To: Vesna Dimitrova <vesna.dimitrova@finki.ukim.mk>
+Cc: "Danko Nakić" <danko.nakic@gmail.com>, abdaal khan khattak <abdalkhattak111@gmail.com>, adeopatoye@gmail.com, aigerimmoldakhanova7@gmail.com, Aldiyar Ismailov <aldiyar.ismailov@gmail.com>, asem2000m@gmail.com, baverly7@gmail.com, "José Luis Cano" <cano.jl1995@gmail.com>, Chukwu Ikechukwu John <cikechukwujohn@gmail.com>, eb.atabey@gmail.com, edratabaku@gmail.com, hamroz.gavharov@gmail.com, helmihibatullah393@gmail.com, houssememrbt@gmail.com, Ibrahim Isiaq Bolaji <ibrahimbolaji50.ib@gmail.com>, kebalbhandari123@gmail.com, klesidagjana@gmail.com, lydiahmuigua@gmail.com, minhaz18061997@gmail.com, ham@ham.email, Izuchukwu Patrick Udechukwu <pi.udechukwu.max@gmail.com>, r.bedii.gumus@gmail.com, rhussein202@gmail.com, samsoonnaharshampa@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000e137dc0618f9a88c"
+
+--000000000000e137dc0618f9a88c
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Professor,
+
+I hope you are doing well.
+
+I wanted to take a moment to express my sincere appreciation for all the
+efforts you have put into our course. Given the unique challenges this
+semester, including the online format and various visa and formalities
+issues, it has been difficult for many of us to fully concentrate.
+
+Considering that other courses are offering projects in place of exams, I
+kindly request, on behalf of the *majority of the students who have agreed,
+if we could also have a project for our cryptography course instead of the
+traditional exam. *
+
+This adjustment would greatly help us manage our workload and ensure we can
+demonstrate our understanding effectively.
+
+Thank you for your consideration.
+
+Best regards,
+Mahnoor Jamil.
+
+>
+
+--000000000000e137dc0618f9a88c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div dir=3D"auto">Dear Professor,</div><div dir=3D"auto">=
+<br></div><div dir=3D"auto">I hope you are doing well.</div><div dir=3D"aut=
+o"><br></div><div dir=3D"auto">I wanted to take a moment to express my sinc=
+ere appreciation for all the efforts you have put into our course. Given th=
+e unique challenges this semester, including the online format and various =
+visa and formalities issues, it has been difficult for many of us to fully =
+concentrate.</div><div dir=3D"auto"><br></div><div dir=3D"auto">Considering=
+ that other courses are offering projects in place of exams, I kindly reque=
+st, on behalf of the <b>majority of the students who have agreed, if we cou=
+ld also have a project for our cryptography course instead of the tradition=
+al exam.=C2=A0</b></div><div dir=3D"auto"><br></div><div dir=3D"auto">This =
+adjustment would greatly help us manage our workload and ensure we can demo=
+nstrate our understanding effectively.</div><div dir=3D"auto"><br></div><di=
+v dir=3D"auto">Thank you for your consideration.</div><div dir=3D"auto"><br=
+></div><div dir=3D"auto">Best regards,</div><div dir=3D"auto">Mahnoor Jamil=
+.</div><div class=3D"gmail_quote" dir=3D"auto"><blockquote class=3D"gmail_q=
+uote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1e=
+x"><div dir=3D"ltr">
+<div style=3D"background-color:rgb(255,255,255)"></div>
+<div style=3D"background-color:rgb(255,255,255)"></div>
+<blockquote style=3D"margin:0px 0px 0px 0.8ex;padding-left:1ex;border-left:=
+1px solid rgb(204,204,204)">
+<div style=3D"background-color:rgb(255,255,255)"></div>
+</blockquote>
+</div>
+
+</blockquote></div>
+</div>
+
+--000000000000e137dc0618f9a88c--

@@ -1,0 +1,122 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6359:5181:b0:168:b307:8e94 with SMTP id od1csp2554467rwb;
+        Wed, 25 Oct 2023 01:09:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFuMrkM0WQPtHRqWwnJ2Gb1mLHIejQi/JYoN1owtFTemDE29xyT/1PmFbakMUDAXr5EOYTX
+X-Received: by 2002:a05:6122:1d42:b0:490:c49e:3fe0 with SMTP id gd2-20020a0561221d4200b00490c49e3fe0mr14216562vkb.11.1698221390256;
+        Wed, 25 Oct 2023 01:09:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698221390; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yZILpY/mQIJKFzdh1fPnZxMlTCOMtaVs/F68V2RBFXEHcG6Ox1tWb4MDlcMYFn/azB
+         swZpGabeqPCzM51RTZ+20qT45U5rhCMy3o2k6TvZDSk75+rTyMr5GTvX9fk8VK2/btFq
+         UFBj1VEaQ5hLqViCm8yc2PRrzbVMmWiuXCM1Mkg3xoqwnbf/Uv3lXI5IkmTMcdfZRCPP
+         Ahr9OYNO0H5xDy93Rd6y+KMswUBuPBevIqBLT4es6Q7WHSBuhB+90Yv39xvctxiaVXNS
+         SsHjtMVYjOQd6PwefPdOJ2AfGfEB22NKJrEG81o1Q6sPXfeMwpMsRoWM/ZZpjMyaVyqK
+         xcIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=importance:mime-version:subject:message-id:to:from:date;
+        bh=fCQb3eHuJrKuvqyTRir1/imdFT08FI26tMSM8D/YaYU=;
+        fh=Ua+udgAFYD+zzH9Lf2SD1JYmJvvMyRQ6kefty8DZfkg=;
+        b=rQqVuf/lWbYa28zNWONBmONVTLUSRQZ4M3hKCb0QzoZRZ856TEKUMTln3XRKVdEnAj
+         5F0iy4DXTbO1aSdmKQsRvLvnM565lp9bXEypDWOBKsTM3GSaFlsvisD2vc6LOO5/ul9o
+         DJAYJ6app30A8ZQHeCBdAqKl4HT8TPQCyk184jYX38O3sD47rusJf4BiQlc1DxuNM+H2
+         xNKu3oN6j1YmZPQnlw+j0MWevJ66YjPBX8MNK45UHDmY9GiHfUnly8RAlRQlZbj1qgPU
+         H+2QsxwOJlwZVL5wAy4XYVnv3Wd7G4EAlGj3wNPhF5jso35r2jmOOh76Wvth8o2GkyBx
+         i/TA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of info@cybermacs.eu designates 68.178.252.64 as permitted sender) smtp.mailfrom=info@cybermacs.eu
+Return-Path: <info@cybermacs.eu>
+Received: from p3plsmtp22-06.prod.phx3.secureserver.net (p3plsmtp22-06-2.prod.phx3.secureserver.net. [68.178.252.64])
+        by mx.google.com with ESMTPS id s188-20020a0dd0c5000000b0059f5275707asi10403626ywd.453.2023.10.25.01.09.49
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 25 Oct 2023 01:09:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@cybermacs.eu designates 68.178.252.64 as permitted sender) client-ip=68.178.252.64;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of info@cybermacs.eu designates 68.178.252.64 as permitted sender) smtp.mailfrom=info@cybermacs.eu
+X-MW-NODE: 
+X-CMAE-Analysis: v=2.4 cv=cvteL30i c=1 sm=1 tr=0 ts=6538cd4c a=dFffxkGDbYo3ckkjzRcKYg==:117 a=dFffxkGDbYo3ckkjzRcKYg==:17 a=ZPoPlOjXdmEA:10 a=MKtGQD3n3ToA:10 a=9CjcxtfHJdoA:10 a=N-_6tccPaCTKyTw2HpsA:9 a=QEXdDO2ut3YA:10 a=KN1gMBPd-XmOtjYWHQwA:9 a=xnarWs7BUmLs_bQ4:21 a=_W_S_7VecoQA:10 a=m3Tn036rMoaPK5X_GIqr:22
+X-SECURESERVER-ACCT: info@cybermacs.eu
+X-SID: vYxSqoPCDSyI3
+Date: Wed, 25 Oct 2023 11:09:41 +0300 (TRT)
+From: Info CyberMACS <info@cybermacs.eu>
+To: "İnfo CyberMACS" <info@cybermacs.eu>
+Message-ID: <1048707458.3504375.1698221381867@eu1.myprofessionalmail.com>
+Subject: EMA (Erasmus Mundus Association) Representative Election Results
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_3504374_2099866078.1698221381866"
+X-Priority: 3
+Importance: Normal
+X-Mailer: Open-Xchange Mailer v8.17.36
+X-Originating-IP: 31.145.7.2
+X-Originating-Client: open-xchange-appsuite
+X-CMAE-Envelope: MS4xfIKnBZK1rev93l0brazSYlOfLOCrJMsoCpADYEHWLy1bHhEPvOA/bSeDm6VWxVkwb9wuoRm8BtLwEwG0LQ41I4G8M7uSaPByEhXytCJCOuDGckyAQnHr +afnBv7CU5A5t9KT9O/uLyfkH93jCZm46/eKJ1LWj9w4STjUln9DD5tc/7JAwlMaT2dnprEzVH1T9aoyCgPrOGSshfUSCvED+K6HxSobmImNQ8g3j2ApjC3T qocD1kR76LMKSMaVp6VUH2ITp3NVWwTbpOkJiRVjMgh2jAGrRb9j8FgT7bWGPBQ3c9Lpdv4BPIieVBSQvxpM9v8UfMAjeBcV3WpKwNUZBH2c719SskroCiMK T6HVlLiFBuPqd15tWj296Y9jKZnMUSm9ByvB9hhFxwJaEohy4MttbH721xlYxwabtGNBtTu0DUWwPhZq91Q6c0w5AQoDo4l0DZMYhFJUJj7/wd26WuQ1voZA VxPD9X+Qy2FoDrJd+Tk2ENzRL2+/ik6A3Gxtcdc/3+06ui+nIeJJs4iez6KmBggxqKIk0dxLXhMgGODIG0fMvSH/TLBPMGmKkJd5NMlfXG+t5q7FxO31v3Yo /xxNLjnCW3HUjQNNR61/EF7g3I3s4BJakUwxBzaWxLjzeLWA/WPFNPgEu8Gzxb9wWCnR6AmhC1UaM58fkjhX+HtiNpWmt1stbICShRFi5lL8qiCfwXo/tPOo ns6ljgIUCzXQSWgbbqPm/QxVUZ/MHawK9iHHvftitzhBOOZHFWA4QcmFWnp3ZHOGnWkxrOZsQg4viG9RK/hBozPc9r2eLNBBFpNzKi+D3NRwNtcatcR1nndy 4HUQLq73o/I0oefAVBgk3i5l+HRH5asYhkxcRb6CB+H+lQYdqMJlY/3nmdx55FTAFueHhyw6n7BdYmq1gljiYtFBsctQFF8PGtq0FKzzCx7BTd/R9/LhJfKn tHus9ivMD7xPNnPtTAuB7bwjmGZEXl9qoUWbrZuJo8WgXPxoUmIw/yGxY3JZEmWb6pXXpaQ+38AIWRHB+CNlxSg4UDPSTFLCo0B8s+JteVpe9BD+CmhVvHGJ F9MRKx5jze7eqeq8N1bJgaamlbssfE0rRkvQXjKgacgaJEq4lAZy2k5lv+TZoQ9J1HdIQHRkL1w5HJ5LtxM6wn/tt6RUr+43WPNWuik6wcQg+ZnQN7704KxK QTFn2L5vLrXaAk4A00kaKxmmoQRCAxa1Mq/LyFVEugnymWdXBjxOREEmXRygT4vw5O+woapyGNjJL7ryezpnpno8SvX7KwfEc0LNbhWQ5pc=
+
+------=_Part_3504374_2099866078.1698221381866
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Students,  
+ 
+Firstly, we would like to extend our gratitude to each one of you for actively participating in the voting process to select the Erasmus Mundus Association (EMA) representative for the CyberMACS Programme 2023-2024 Student Edition. 
+ 
+We had a total of 19 votes cast. Based on the majority of votes, we are pleased to announce that Mahnoor Jamil has been elected as the EMA representative for our program. We congratulate Mahnoor on her new role and trust she will represent us with passion. 
+ 
+We thank you once again for your active participation.  
+ 
+ 
+Warm Regards,
+CyberMACS Team 
+ 
+------=_Part_3504374_2099866078.1698221381866
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+ </head>
+ <body>
+  <div class="default-style">
+   <div>
+    Dear Students,&nbsp;&nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    Firstly, we would like to extend our gratitude to each one of you for actively participating in the voting process to select the Erasmus Mundus Association (EMA) representative for the CyberMACS Programme 2023-2024 Student Edition.&nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    We had a total of 19 votes cast. Based on the majority of votes, we are pleased to announce that <strong>Mahnoor Jamil has been elected as the EMA representative</strong> for our program. We congratulate Mahnoor on her new role and trust she will represent us with passion.&nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    We thank you once again for your active participation.&nbsp;&nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    Warm Regards,
+   </div>
+   <div>
+    CyberMACS Team&nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+  </div>
+ </body>
+</html>
+------=_Part_3504374_2099866078.1698221381866--

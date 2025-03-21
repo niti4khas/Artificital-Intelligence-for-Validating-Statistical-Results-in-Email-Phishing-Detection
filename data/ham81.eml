@@ -1,0 +1,178 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c3c4:0:b0:2ac:6419:e1b with SMTP id b4csp1830534lkq;
+        Wed, 11 Dec 2024 11:44:08 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGY2gzOYWflfpSWcVO4vg15rXKbHS0jHgmxQ6L0M/hJQ28PmOCPO6nEYj3B4ItzkJ6Ufeqb
+X-Received: by 2002:a05:620a:8801:b0:7b6:6c6f:fb5c with SMTP id af79cd13be357-7b6f2537aecmr91372185a.15.1733946248151;
+        Wed, 11 Dec 2024 11:44:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733946248; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WsFn26lwP+dlnIi7FRw70N9k4EunrFPVH5ODtwreWupIimLnvNunKxJ2kJL4J0O3Xj
+         vBkUC2Xf2mq4QflYHCk/Efj4cc2BR9K9akAOBQ4ASBe7Q7qpe3cJxePXvxuiBiG8NkxL
+         bkPdKXCI2eXPoTeAQNlPs9w1fimVj26lazHJ648ShqYBlP8S8mpqxR/LXEcB9SFqYyxc
+         Q9zzY+WbLUmyvMlObQkINfcRk2+XZ7Yr4Aecjjrx1IgP1tiCreZgnl62f9YIJvsfqdsW
+         NoudDpefios8bZhmMV3dhwWE3hjMdiGJNwV5A3NcKz/PpqKGOvcPIMy9qfgomPGOY+aj
+         6Giw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature;
+        bh=Exo+zNl3JcQngR0/jlff1PmZc8iXQ6IRd6MfQlGLv1A=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=EjOMRdutQ77xjHrBgvdFDGxfMrcz4qmYcHwoxoJiLfjlGMF9Xq6SqJ2hBK8ASrGN1X
+         n2s7LT0lZmV9aJP+RHny8xMsNWJufQWdtEs//iBH1Qa4givCN7iLVVpSV6atIR0BmwVe
+         keBTL1JYzPzBIqAWXkKGTOvKGxT5EMVgYQf/c9YVPb92MpuMUX9WdLq7Jdy/b+b2FddZ
+         G3yUNEaQUhlXjgoX2Lsf66NdCWmdEsDTbj0o5eMLqaGFEof3L5+bNHhvBEgMn9JSi0Gm
+         BH0S5o9bIQf4PHGppYkdKqPer70cX04n7MdPF9YVSG/sa25gtki/1F+Is12B6zdExp7/
+         11sw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=GAbIjA7v;
+       spf=pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.40 as permitted sender) smtp.mailfrom=sender@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Return-Path: <sender@noreply12.jobs2web.com>
+Received: from mail324.cloudmail.ondemand.com (mail324.cloudmail.ondemand.com. [155.56.128.40])
+        by mx.google.com with ESMTPS id af79cd13be357-7b6b5a90651si2075255085a.346.2024.12.11.11.44.07
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 11:44:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.40 as permitted sender) client-ip=155.56.128.40;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=GAbIjA7v;
+       spf=pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.40 as permitted sender) smtp.mailfrom=jobnotification@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Received: from pc33j2wmail01.dc033.sf.priv (unknown [130.214.228.227]) by mail324.cloudmail.ondemand.com (Postfix) with ESMTPS id 0FCF420EE0 for <ham@ham.email>; Wed, 11 Dec 2024 19:44:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=noreply12.jobs2web.com; s=1; t=1733946247; bh=sGajRPWdwKr9QFYVrJkJP+igJmog1SRSE3qRWa/0K8o=; h=Date:From:To:Subject:List-Unsubscribe; b=GAbIjA7vlcGLaTlBq+vlWMyBFqK2qCQxLji4bLHSaYe8ybEZLy8IdFoSBxhmx0ovj
+	 DMthg/Sts/EGGHadzKkcHy8P7LdhadQiGiZUdMx99/v6PU5ilS/A6Wych0VkkmfmqE
+	 hHvUq8xru9ziYJbm7pDa5VxZyUWUZnITs5hh9Sy0=
+Received: from pc33j2wmail01 (localhost [127.0.0.1]) by pc33j2wmail01.dc033.sf.priv (Postfix) with ESMTP id EE9601802804 for <ham@ham.email>; Wed, 11 Dec 2024 19:44:06 +0000 (UTC)
+Date: Wed, 11 Dec 2024 19:44:06 +0000
+From: sender@noreply12.jobs2web.com
+To: <ham@ham.email>
+Message-ID: <1402418004.105139391733946246976.JavaMail.tomee@pc33j2wmail01>
+Subject: Neue Jobs auf careers.ey.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe: <https://careers.ey.com/unsubscribe/?from=email&refid=25669009601&utm_source=J2WEmail&source=2&eid=40801-202444110744-30175151101&locale=de_DE>
+
+<p>Hey,<br /><br/>
+Du erh=C3=A4ltst diese E-Mail, weil du der Talent-Community von  EY am 14.0=
+8.24 beigetreten bist. Diese Nachricht wird alle 7 Tag(e) verschickt.<br/><=
+br/>
+<b>Dein Job-Agent (Praktikant IT-Consulting - Cyber Security mit Schwerpunk=
+t Banken oder Versicherungen (FSO) (w/m/d), Eschborn / Frankfurt (Main) HE =
+DE, K=C3=B6ln NW DE, Berlin BE DE, Hannover NI DE, D=C3=BCsseldorf NW DE, S=
+tuttgart DE, Hamburg HH DE, M=C3=BCnchen BY DE) hat die folgenden Jobs auf =
+<a class=3D"agentsitelink" href=3D"http://careers.ey.com/?from=3Demail&refi=
+d=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-202444110744-3=
+0175151101&locale=3Dde_DE">careers.ey.com</a> f=C3=BCr dich identifiziert.<=
+/b>  <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu=
+/careers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navB=
+arLevel=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">((Klicken zum &#196;ndern))=
+</a><br /><br />
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Penetration-=
+Tester-Cyber-Security-Consulting-%28Financial-Services%29-%28wmd%29-HE-6576=
+0/1084766701/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=
+=3D2&eid=3D40801-202444110744-30175151101&locale=3Dde_DE">Penetration Teste=
+r - Cyber Security - Consulting (Financial Services) (w/m/d) - Eschborn / F=
+rankfurt (Main), HE, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Praktikant-p=
+r%C3%BCfungsnahe-Beratung-im-Bank-Versicherungsaufsichtsrecht-%28Financial-=
+Services%29-%28wmd%29-HE-65760/1093556401/?from=3Demail&refid=3D25669009601=
+&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-202444110744-30175151101&loca=
+le=3Dde_DE">Praktikant pr&uuml;fungsnahe Beratung im Bank- / Versicherungsa=
+ufsichtsrecht (Financial Services) (w/m/d) - Eschborn / Frankfurt (Main), H=
+E, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Praktikant-D=
+ata-Science-im-Bereich-pr%C3%BCfungsnahe-Beratung-Quants-%28Financial-Servi=
+ces%29-%28wmd%29-HE-65760/1093472901/?from=3Demail&refid=3D25669009601&utm_=
+source=3DJ2WEmail&source=3D2&eid=3D40801-202444110744-30175151101&locale=3D=
+de_DE">Praktikant Data Science im Bereich pr&uuml;fungsnahe Beratung / Quan=
+ts (Financial Services) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE, 6576=
+0</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/D%C3%BCsseldorf-Praktikant-Wirtschaftspr%C=
+3%BCfung-im-Bereich-Banken-Assurance-%28Financial-Services%29-%28wmd%29-NW-=
+40213/1093455701/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&so=
+urce=3D2&eid=3D40801-202444110744-30175151101&locale=3Dde_DE">Praktikant Wi=
+rtschaftspr&uuml;fung im Bereich Banken - Assurance (Financial Services) (w=
+/m/d) - D&uuml;sseldorf, NW, DE, 40213</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/M%C3%BCnchen-Praktikant-pr%C3%BCfungsnahe-=
+Beratung-Assurance-%28Financial-Services%29-%28wmd%29-BY-80636/1093475801/?=
+from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D408=
+01-202444110744-30175151101&locale=3Dde_DE">Praktikant pr&uuml;fungsnahe Be=
+ratung - Assurance (Financial Services) (w/m/d) - M&uuml;nchen, BY, DE, 806=
+36</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Praktikant-W=
+irtschaftspr%C3%BCfung-im-Bereich-Versicherungen-Assurance-%28Financial-Ser=
+vices%29-%28wmd%29-HE-65760/1093456101/?from=3Demail&refid=3D25669009601&ut=
+m_source=3DJ2WEmail&source=3D2&eid=3D40801-202444110744-30175151101&locale=
+=3Dde_DE">Praktikant Wirtschaftspr&uuml;fung im Bereich Versicherungen - As=
+surance (Financial Services) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE,=
+ 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Manager-Kapi=
+talmarkt-Compliance-Crypto-Assets-Compliance-Consulting-%28Financial-Servic=
+es%29-%28wmd%29-HE-65760/836034501/?from=3Demail&refid=3D25669009601&utm_so=
+urce=3DJ2WEmail&source=3D2&eid=3D40801-202444110744-30175151101&locale=3Dde=
+_DE">Manager Kapitalmarkt-Compliance / Crypto Assets Compliance - Consultin=
+g (Financial Services) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE, 65760=
+</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/D%C3%BCsseldorf-Consultant-Insurance-Produ=
+ct-Manager-Consulting-%28Financial-Services%29-%28wmd%29-NW-40213/108475020=
+1/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D=
+40801-202444110744-30175151101&locale=3Dde_DE">Consultant Insurance Product=
+ Manager - Consulting (Financial Services) (w/m/d) - D&uuml;sseldorf, NW, D=
+E, 40213</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Berlin-Consultant-Quantitative-Risk-Mathe%=
+2C-Physik%2C-Informatik-Consulting-%28Financial-Services%29-%28wmd%29-BE-10=
+117/1084753601/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&sour=
+ce=3D2&eid=3D40801-202444110744-30175151101&locale=3Dde_DE">Consultant Quan=
+titative Risk - Mathe, Physik, Informatik - Consulting (Financial Services)=
+ (w/m/d) - Berlin, BE, DE, 10117</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Berlin-%28Senior%29-Consultant-Finance-Pro=
+cess-&amp;-Innovative-Technologies-Financial-Services-%28wmd%29-BE-10117/83=
+9991301/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&=
+eid=3D40801-202444110744-30175151101&locale=3Dde_DE">(Senior) Consultant - =
+Finance Process &amp; Innovative Technologies - Financial Services (w/m/d) =
+- Berlin, BE, DE, 10117</a><br/>
+<br />
+<b>Hier kannst du deine aktualisieren.</b><br/>
+1) <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu/c=
+areers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navBar=
+Level=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">Einen weiteren Job-Agenten hi=
+nzuf&#252;gen (Schl&#252;sselwort und Standort f&#252;r die Suche nach Jobs=
+).</a><br/>
+2) <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu/c=
+areers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navBar=
+Level=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">=C3=84ndere die H=C3=A4ufigke=
+it des Job-Agenten-Versands.</a><br/><br/>
+Leite diese Jobs gerne auch an Freund:innen und Bekannte weiter, die Intere=
+sse an einer dieser Stellen haben k=C3=B6nnten.<br/><br/>
+Es wurde systemseitig ein Passwort f=C3=BCr dich erzeugt, das du eventuell =
+bereits ge=C3=A4ndert hast. Solltest du dein Passwort vergessen haben, dann=
+ klicke auf "Passwort vergessen?", um dein Passwort zur=C3=BCckzusetzen. Im=
+ Anschluss kannst du dein Profil anpassen sowie deinen Job-Agenten konfigur=
+ieren.<br/></p>
+Die Datenschutzerkl=C3=A4rung wird regelm=C3=A4=C3=9Fig =C3=BCberpr=C3=BCft=
+ und bei Bedarf angepasst. Melde dich bitte =C3=BCber die <b><a ref=3D=E2=
+=80=9Dnoopener=E2=80=9D href=3D"https://career5.successfactors.eu/career?ca=
+reer_company=3DEYHRISPRD1&lang=3Dde_DE&company=3DEYHRISPRD1&site=3D&loginFl=
+owRequired=3Dtrue&_s.crb=3DLWSPqpHEn6xb4wMFw5HTD0gE2gF%2bIQiKQC8CSWQDEV8%3d=
+">EY Karriereseite an<a/></b>, um die aktuellste Version der Datenschutzerk=
+l=C3=A4rung einzusehen.<br/><br/>
+<hr align=3D"left" >
+<p align=3D"right"><a class=3D"agentmodifylink" href=3D"https://career5.suc=
+cessfactors.eu/careers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lan=
+g=3Dde_DE&navBarLevel=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">E-Mail-Einste=
+llungen</a> | <a class=3D"agentunsubscribelink" href=3D"https://careers.ey.=
+com/unsubscribe/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&sou=
+rce=3D2&eid=3D40801-202444110744-30175151101&locale=3Dde_DE">Abonnement sto=
+rnieren</a></p>

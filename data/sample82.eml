@@ -1,0 +1,173 @@
+Received: from DS7PR19MB5856.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Sun, 20 Nov 2022 10:40:29
+ +0000
+Received: from FR0P281CA0126.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:97::6) by
+ DS7PR19MB5856.namprd19.prod.outlook.com (2603:10b6:8:7b::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5834.15; Sun, 20 Nov 2022 10:40:28 +0000
+Received: from VI1EUR04FT038.eop-eur04.prod.protection.outlook.com
+ (2603:10a6:d10:97:cafe::1c) by FR0P281CA0126.outlook.office365.com
+ (2603:10a6:d10:97::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.17 via Frontend
+ Transport; Sun, 20 Nov 2022 10:40:27 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.218.44)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.218.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.218.44; helo=mail-ej1-f44.google.com; pr=C
+Received: from mail-ej1-f44.google.com (209.85.218.44) by
+ VI1EUR04FT038.mail.protection.outlook.com (10.152.28.100) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5834.8 via Frontend Transport; Sun, 20 Nov 2022 10:40:27 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:6DAF553946BCEEF24725D8C37DFF525F0A5D837CCE26D0688C090AE15FFF676C;UpperCasedChecksum:70EA19245543DC8FECB3A28B7088F2233C348BA3C01020FBAE2ACADD44BB4EEC;SizeAsReceived:2393;Count:15
+Received: by mail-ej1-f44.google.com with SMTP id ud5so22729055ejc.4
+        for <phishing@pot>; Sun, 20 Nov 2022 02:40:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UHQwCz/k9AzvaPuK7+HGFZdXaYL5QmIvcBOsSN1rhZE=;
+        b=qmY1iAV+Mh9wZ8t9g4oJKxcWbiEAVDPn/1RjSFpk9vkHig/myPdB2Qg/6BDWpV3A+W
+         Qj21IMtQSwVzEqPe7UPKotto72t09WUpR5QcTm5tbHK/Jl7vS/yN0teKASaYii6bxax9
+         Q/Sqnc0VO91ecFuPdmdtFSP/62YTd+XRKMbeztM2N5C+qJvdK3+jkaBq1ozg0WfIblht
+         +NiBvrhNXTqt6Q5uSMZn3dRQcAS8eLeaz68SUDl+gwfGxQTSNRyfh6uaEi5l+Vj1fJNu
+         6WOMw0t/hEztqlLGBa16fa6432rBcp5L6FXDQtCYJzxefnhYDL4X4DsNg1eb9OmomZ2x
+         dw9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UHQwCz/k9AzvaPuK7+HGFZdXaYL5QmIvcBOsSN1rhZE=;
+        b=wIz4TGPjSp3XHHGhDNgYmux2Flcie2Ikb3L2pPYjuI+mItAHdUITJBwFNGoxBXyAWK
+         7e7Kr4JKFXn0UanyDkk5CvfADvjU5QgjyEzjf4F3E5aQRGWMnRUjMNlgTEyYFsJB26Dw
+         zW+ClbZqzQwFS3G3RLxwJFBjc0KhabaLXpY1sRud14Ngl03AJTqe6CT9Pg+Xw3pyPc8S
+         doRn6g3mov3xaGLD3vk+3JY+4XDFqLMn57RxUfQ0HdylJAD2uBRmR3VX3hg7lc27kLtg
+         rUf59UhSiOTgbddlxkvgVxHBJSqPpAp0T3CXhtwUSqckR3qmW0VcWhoW+aheSt+MiapN
+         52Jw==
+X-Gm-Message-State: ANoB5plGdXcMZA6p+Kft4dIlj41Oha/6ImzU1DteVZvHnAFqe9/vH+A/
+	MsudzHdDYQRrPFFIEnkhiZJYoBBhN2VT24UwKvQ=
+X-Google-Smtp-Source: AA0mqf62Lq+xWiun05JTNVl8j8zW5a5tsU03w5ddh5YUhNSEUl5X/VIjAm6osaT25fSGpBAEbzMgIzT3VRDow+qvPCA=
+X-Received: by 2002:a17:906:c24d:b0:7ac:2e16:a8d2 with SMTP id
+ bl13-20020a170906c24d00b007ac2e16a8d2mr2085586ejb.584.1668940826497; Sun, 20
+ Nov 2022 02:40:26 -0800 (PST)
+Received: by 2002:a05:7208:90d5:b0:5d:394c:9ad8 with HTTP; Sun, 20 Nov 2022
+ 02:40:25 -0800 (PST)
+From: Eliane Burrage <deborahjonesekr6@gmail.com>
+Date: Sun, 20 Nov 2022 13:40:25 +0300
+Message-ID: <CALfzY28AwiOgenFKOaOOkhAdXOx6q3Jmx5U2d1g7o4hWOX0pDw@mail.gmail.com>
+Subject: Now.get.up.to.1.BTC
+To: computer_namphong2086@yahoo.com.vn
+Content-Type: multipart/mixed; boundary="0000000000001de7d405ede49110"
+Bcc: phishing@pot
+X-IncomingHeaderCount: 15
+Return-Path: deborahjonesekr6@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 20 Nov 2022 10:40:27.1999
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 4c3912b4-0e3c-4988-e2d5-08dacae3a345
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1EUR04FT038:EE_|DS7PR19MB5856:EE_
+X-MS-Exchange-Organization-AuthSource:
+ VI1EUR04FT038.eop-eur04.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/20/2022 10:11:47 AM
+X-MS-Office365-Filtering-Correlation-Id: 4c3912b4-0e3c-4988-e2d5-08dacae3a345
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.218.44
+X-SID-PRA: DEBORAHJONESEKR6@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2022 10:40:27.1687
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4c3912b4-0e3c-4988-e2d5-08dacae3a345
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ VI1EUR04FT038.eop-eur04.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR19MB5856
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.7063876
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5834.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(90000117)(90005022)(91005020)(91035115)(5061607266)(5061608174)(9050020)(9100338)(4810004)(4910033)(8820095)(9610025)(9560006)(10180021)(9320005)(9245025);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow+TJ3FL5IT89B+4U/VMQEpSjhqGTvCsINzDTo8QG/NOD5pikX/PWzkG8FMX7Muq7b7bic4oIEF/uP/oduz8y8PTeo3nP1v3wusKQrjBJd3G1gFJmC+hudFTwrlQfx+ki+bl1Mg3OUx+4sjXokvGYL9LzlxMWA/rD196EfZC1mhbg6thsdmqjX9oPHFssoKP1q0=
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?NDRPQUFnWVZUS0I0UUQxWGhrajR5VDFkNU9KaVZiYnNLcy8rR0lEWVE4cjZw?=
+ =?utf-8?B?K1YwYTZnVTkyNkc0MFpkMzBOTUU1eU5IeU9pOFN6VjhORDJmeHFPVnZuM3pB?=
+ =?utf-8?B?ZzhHSDdueWFUZDBXdWFiMWlEcE54ek1wVXd2bHJwUVFIQ1pIYnp2K0g1czVa?=
+ =?utf-8?B?S1JSc1pVOGRUR3pJM0NSVlB4eEk5Q1JHaEVHMHlaQ1BDS0hSSWZGTFFjM0JZ?=
+ =?utf-8?B?VWM2bkF2dTdOYTBXeUZqVGVMYWIwOVlJR21VTDFRcFk4UUMrbk1IcnVMemEw?=
+ =?utf-8?B?K3pLRVBHS1ZZVnY3amNNQk15cVBVMUFmQTNsM0VINEhZOG5vcUlHS09yUVB6?=
+ =?utf-8?B?ZHZNNlQwd2kybEZsQTExcEFIVE9Gcmkyem9YTnZKeTFucmxzS0RrOEtSSThi?=
+ =?utf-8?B?NUxEMnBlSWR5a2d4eitYSE1vNEVZZWdDUkZnQkpBZG5XT0pkV0Q1N1FSdG5h?=
+ =?utf-8?B?Q0tTSkZMK0tma2lqVFBuSDhkL0d5Z1A1dDRtYS9QNEJKUmJ2MldMRXBRZ0JB?=
+ =?utf-8?B?aVNNMG1hK2lYSExTVHNHZ3JQTXB5RWhwUkpVM3EvMWxSVFI2dTYyMGxscXRx?=
+ =?utf-8?B?MStlbGpQTjkwZ1BjVVp2Qk5QQnlPZE9ZNHRHakVRYlJaUGNuczNuWEVJV1hD?=
+ =?utf-8?B?cENPTzRBWEFFTitPMGdBNDhwS1FHMmt0QzBac1BKQ0kzRnpzdlFUZFJ2eDRs?=
+ =?utf-8?B?amE2MCtDZkpEeU5pYko3aGtNZHBFbXBiUUtDSG5aTmdPK3dxeUU1LzFGMHRa?=
+ =?utf-8?B?RnNDZ2VGTXI5djc1b3NXaHFBQnlxQWRWWkdtWWM4ajl0R0wzLzhYenhOTExU?=
+ =?utf-8?B?RTZxOFpXemxXYVdqV2hNVHVUaStSdVZSWFZTczk0bmRDVEhIZ3phVlovSHVJ?=
+ =?utf-8?B?QXBRa05kRk11VGloci9hMmQ1dWdtSEdLWjUvMEw4anNKbVM0RENtR2o2YThI?=
+ =?utf-8?B?Y0QvTWxUYm43WHZPejFEZ0RHdVpyTGpsUmRVb2w4cmVOWFJPd0JxWDFoVnlk?=
+ =?utf-8?B?VWFqRFQ0b2IrSEZsdW94enhHS2JXYzNRVVNCc3J0dFE4Z1JQMm83V2wzQ3lh?=
+ =?utf-8?B?cGVLNVE4YTFiS1orMDVWMFdaVEptclkyaFAyYnJyemxNVFY0cTg2NzNCci9q?=
+ =?utf-8?B?ZDdDN3ZtMXk2ZWpGVXBLWmVQVGVZcnZiMDBXdGRyS1ppRFlmYTRoSDBxUmpO?=
+ =?utf-8?B?SWpVU241OXQ2Z1RTQUg1MGZrekJZTVNLeUY2S3J0dFlMZzdUN1lFM1MrRzVE?=
+ =?utf-8?B?UUdpYkJXUHBKcHRQV29KS0N0MVpudk5JMm5LNUlNWTNydG05Umd1OVhQbUh6?=
+ =?utf-8?B?YmNObTdrdHdSbStwdVdzWlFBQTJYM25kajE2WjZPMWNtVzJZVlVMTFYzZk9W?=
+ =?utf-8?B?QU4ySHRYbjBoS1VjWC9jUVR1YStwSjgxWGh0N0JJczZ5ZlpRU0tPQ2RsUHBB?=
+ =?utf-8?B?aC9JNVBIem9WQ3J1dzN2TExRQ2VabHoxNk1mbkpMcnhiejNDdkVSNVpQWmZH?=
+ =?utf-8?B?VUZ5Qml4MHNkVGlSaVNOZ0MvVm80WTFSWHFJUFZzNXRoT2Y3RXhqZzlkQmZP?=
+ =?utf-8?B?UU9WdDJIMXlKUDVIaW9HeVZjUEE4NUpxR1NnS3UxaEdOMXhOckRjcml1U2xW?=
+ =?utf-8?B?ZTB5OFRTNVNLRFA5bW1aVWt4dHR2NzZzaVZacFlVQVBRVDhUYTYxdWY2V3BK?=
+ =?utf-8?B?V1l6M3g2T0NDRHJHZy8reUZuM1pEMEZ6RXkvM2gybnl6dnEvVVQ5bno5emVR?=
+ =?utf-8?B?aTFIT0tGY1RRaVkyVkg4WnhyOXV4dktCbWN1ZWtOU3BoVzR4OG9KeklrMXdO?=
+ =?utf-8?B?U05oWHZUVEtFaHY5MXE4eFVpMkdEYk50SUc0VHJQZFQ3ai9hZ2wxSXVxTW5D?=
+ =?utf-8?B?YTVjeWlRVVhCZThWTFdjV09sdHpNcDdraTF4WS9Nd3RzdVRZdWdZRGNmKzlQ?=
+ =?utf-8?B?c1VEYnhiZTZsYmU5bmo5c0tFZWIvQTZEdnVyUDl1djdwTjBBZ3NrRFI2OTNi?=
+ =?utf-8?B?ME40UXRIMVFLRktsN2pGSENhTm9aL1VnQkJ6dkJPb0QySE04NUQrTXcyQ1R5?=
+ =?utf-8?B?bG93a0xtQzl0MFgzMTZUbjAxeHlXOTNMeEZIamZCdkVtc0dzQ0E0T0tJVkEx?=
+ =?utf-8?B?YmpuelNZZ0JvUE5HZms5SGtVUkVLck50bSt2SUduMjUzOEhHME4xVnppV3p1?=
+ =?utf-8?B?cTFQNDBtNldoQk5jYVpQS2IxSVprZGsyRVFybHh3Vk9HZ0JxMG5FZ3JXamc1?=
+ =?utf-8?B?dWt2RGRKWng3NGtEL0ZkNHVGMFVYa3RqdHl6bzRDcVNRMGxSNkw4V25HNlo3?=
+ =?utf-8?B?WGEyUHNOZUJrNEpSSzA3ZzEyZlMycG5nSi91ZjZOcFArenBjMFJxWUlXV0I5?=
+ =?utf-8?B?MEVkU09jb3RNblR5MkVmTng0bFZ4QnBkYmNHaU13bE9Nb0lKQVNsejBFRFRa?=
+ =?utf-8?B?VWQ5b2xtRHUwZVpPZEgyTUlqTFVwK2hnOEM0MlRhRndVVEpBUElSRzdlS282?=
+ =?utf-8?B?d0pPNVBZL0xxUG9qWjZHTHl2VjdaZmRReVU3TFA4MXY3WkpWcFNLUkJLUXpq?=
+ =?utf-8?B?akFyMlBjYkV0UFJ5a2t4dnJLVThEUjNwQW5pSVVXaDRQU1JrTGVtOERNVUVN?=
+ =?utf-8?B?cWMveDY4MU0xQnpGRDVDVENCV2ZEVDBRUWlrNzVqeTA3WjBWa0NreXJjc0c1?=
+ =?utf-8?Q?lVV9?=
+MIME-Version: 1.0
+
+--0000000000001de7d405ede49110
+Content-Type: text/plain; charset="UTF-8"
+
+Get your 1 Bitcoin jackpot now
+
+
+
+Dumbledore didn't answer.
+
+--0000000000001de7d405ede49110
+Content-Type: application/pdf; 
+	name="1.BTC.Jackpot.in.a.win-win.lottery-843438zVZPj4tAyw7Fc.pdf"
+Content-Disposition: attachment; 
+	filename="1.BTC.Jackpot.in.a.win-win.lottery-843438zVZPj4tAyw7Fc.pdf"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: file0
+

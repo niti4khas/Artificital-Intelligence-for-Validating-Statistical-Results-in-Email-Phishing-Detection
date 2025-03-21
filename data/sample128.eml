@@ -1,0 +1,151 @@
+Received: from DS0PR19MB6527.namprd19.prod.outlook.com (2603:10b6:8:c5::19) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Sun, 27 Nov 2022 22:21:05
+ +0000
+Received: from DM6PR12CA0004.namprd12.prod.outlook.com (2603:10b6:5:1c0::17)
+ by DS0PR19MB6527.namprd19.prod.outlook.com (2603:10b6:8:c5::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.22; Sun, 27 Nov
+ 2022 22:21:04 +0000
+Received: from DM6NAM10FT114.eop-nam10.prod.protection.outlook.com
+ (2603:10b6:5:1c0:cafe::1c) by DM6PR12CA0004.outlook.office365.com
+ (2603:10b6:5:1c0::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.22 via Frontend
+ Transport; Sun, 27 Nov 2022 22:21:04 +0000
+Authentication-Results: spf=pass (sender IP is 198.2.144.42)
+ smtp.mailfrom=mail42.atl301.rsgsv.net; dkim=pass (signature was verified)
+ header.d=southampton.ac.uk;dmarc=pass action=none
+ header.from=southampton.ac.uk;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of mail42.atl301.rsgsv.net
+ designates 198.2.144.42 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.2.144.42; helo=mail42.atl301.rsgsv.net; pr=C
+Received: from mail42.atl301.rsgsv.net (198.2.144.42) by
+ DM6NAM10FT114.mail.protection.outlook.com (10.13.153.209) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5857.19 via Frontend Transport; Sun, 27 Nov 2022 22:21:04 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:20B7040D2145A2FA16A4A054336CAA7A11BA129E4E43D015A93154B8EAB6D247;UpperCasedChecksum:A83F28C92DA9506D068C8710AFF09742434931655A50248E4A7E383F9CD237AC;SizeAsReceived:2087;Count:20
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=southampton.ac.uk;
+	s=k1; t=1669585562; x=1669887962; i=device@southampton.ac.uk;
+	bh=zqSbgx0WVa1S5zSV3X9VtLkUlSMJQVVBFzB4Oiofs3I=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=Ubc310TZLCoKqcHXZ93dWA1z9nDN28cJ6N03sVYuivQQpNdIrqe9SxAHgdHM/22is
+	 Wa8kcENZzhz43ZZAQvv2z+lG76x1csxtrHBq13E+t2HtSfWbVm5WSUB2fH8EMpC3e3
+	 kyOUitMb+ICPXuMJk1rQOk8FJoNsx7b7rvVYkJ6o=
+Received: from localhost (localhost [127.0.0.1])
+	by mail42.atl301.rsgsv.net (Mailchimp) with ESMTP id 4NL2Gf1twVzKtHDcs
+	for <phishing@pot>; Sun, 27 Nov 2022 21:46:02 +0000 (GMT)
+Subject: =?utf-8?Q?Scan=20your=20device=20to=20protect=20your=20assets?=
+From: =?utf-8?Q?Katie=20from=20Ledger?= <device@southampton.ac.uk>
+Reply-To: =?utf-8?Q?Katie=20from=20Ledger?= <device@southampton.ac.uk>
+To: <phishing@pot>
+Date: Sun, 27 Nov 2022 21:45:48 +0000
+Message-ID: <c299c0fb17f046bcb08075f46.1e6a700173.20221127214539.55fdb917dd.585b75f9@mail42.atl301.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID55fdb917dd1e6a700173**
+X-Campaign: mailchimpc299c0fb17f046bcb08075f46.55fdb917dd
+X-campaignid: mailchimpc299c0fb17f046bcb08075f46.55fdb917dd
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=c299c0fb17f046bcb08075f46&id=55fdb917dd&e=1e6a700173
+X-MC-User: c299c0fb17f046bcb08075f46
+Feedback-ID: 57519125:57519125.1461590:us13:mc
+List-ID: c299c0fb17f046bcb08075f46mc list <c299c0fb17f046bcb08075f46.480106.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://southampton.us13.list-manage.com/unsubscribe?u=c299c0fb17f046bcb08075f46&id=8c1d27a7b8&e=1e6a700173&c=55fdb917dd>, <mailto:unsubscribe-mc.us13_c299c0fb17f046bcb08075f46.55fdb917dd-1e6a700173@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_2041219809"
+X-IncomingHeaderCount: 20
+Return-Path:
+ bounce-mc.us13_57519125.1461590-1e6a700173@mail42.atl301.rsgsv.net
+X-MS-Exchange-Organization-ExpirationStartTime: 27 Nov 2022 22:21:04.4760
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 168493cc-e0d6-4514-6c42-08dad0c5ac55
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6NAM10FT114:EE_|DS0PR19MB6527:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DM6NAM10FT114.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/27/2022 8:00:37 PM
+X-MS-Office365-Filtering-Correlation-Id: 168493cc-e0d6-4514-6c42-08dad0c5ac55
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 198.2.144.42
+X-SID-PRA: DEVICE@SOUTHAMPTON.AC.UK
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Nov 2022 22:21:04.3823
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 168493cc-e0d6-4514-6c42-08dad0c5ac55
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ DM6NAM10FT114.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR19MB6527
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.3919848
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5857.022
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(90000117)(90005022)(91005020)(91035115)(5061607266)(5061608174)(9050020)(9100338)(4810004)(4910033)(8820095)(10005027)(9710001)(9610025)(9540006)(10160021)(9320005)(9245025);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow/niR7i5dxfSJUem/WdDK6Qkmsf7OGDcx3I3g43eNw9xTQ07JRgU5e1bLB+hp4MCVeejr+0ZIkmpljKA8A9mGEWwBiSKdQKzy3c3I++LznWkhzSrU8aus2CKlAAUaIdsTnJRrs6hc5ikr8CDDutsafsERVYhK2UQ0KsOaw7ncPACXSLSwLs5F4ekQykeBU7o9ivsg1l2WZR4Q==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?NXZBT3UrcG9uRURDdStBZEVvWXhib1c4dWpTT0lRRGMvWG11QU51YmpXMVRS?=
+ =?utf-8?B?aVYwNlhQakNPZXY2cE92bmRZUmlRbjEzQXB6ME84REk4OVpUUEdPZ0hBa0hH?=
+ =?utf-8?B?T1BrTVM2QWdDV0RyaG4rcGtiNm8ySDNWWE1ETkdtUkh2TTVRKzUyN2dpb2lM?=
+ =?utf-8?B?Z0xwRmhtU0dmTXc0cm1vTnpjNkxIU1hqSzhsZjVGMURUQWZwV0dCRXZZUHJT?=
+ =?utf-8?B?czh0TkhtUUNRV3Zka3ZrVEhhaERsZWFZRVZSamcvL202bUNkeXJWQWNBZGxw?=
+ =?utf-8?B?WThjeFkyT3RXKzQxc05Qd3JNQjM1TTdSdFZsWGhSeW5XaDMyV1kzQ2NuZmZB?=
+ =?utf-8?B?RzhxWEJvSDFDVXZXN0VtZ0ZpL2tUVDdUeGZjTG1qNGFML2FIcERobzZJSXpi?=
+ =?utf-8?B?N0QvVVdoeDUyNFlFRE85QUd3U0poSGVKTW1LUGdYQWJ1cmtML2g4SUhKSWtY?=
+ =?utf-8?B?eE9mUWh3MmpFUzdBREdDMjEraGFaeDJkK0FGSC9JbTZoYVVqUXRvQWZTcUw2?=
+ =?utf-8?B?djZBeXI1cVl4RXEvbllMRkROSFQ0RDR4V2N6RnFOQlY1M2ZmUmx0MFlvczdS?=
+ =?utf-8?B?cElNdTM0Q3ZhNlI4WGJnUnNhbGoxL3psQWxTdzVYcG5YajlyN29qMkRDUUtX?=
+ =?utf-8?B?ZmFBNDhCb2tTTllIUzdwMGVpamU4MCtCV2xVK3dZbUtjUWNSUkdNU2lzWWIv?=
+ =?utf-8?B?blBlMXdZeFhhcG5Vak1KR1FEV09uMXcrL0NXTC9pTll0YnZrQnVtTUZydHZF?=
+ =?utf-8?B?U0k0MlRTUGtmdDlob1czbUt3Umc2aHFCb0xaUFRtWktsUlV4MURPZTVnQjB4?=
+ =?utf-8?B?SUJmNzFsM0RZWksvQnZFdE5JOC9tU3hLblFVdXdibjgyM2F1Zkl5WEtEemVv?=
+ =?utf-8?B?bmpkQVNHY2ptekpSYlRIUTU1ZXNCaW1lZ1ZvZ21lc2RwNkJhVzJNSmJPTlBZ?=
+ =?utf-8?B?YXhrdnBlMHkwVG4zclNsWDB4eTBOd0NVNUladkFWR053eWxhVys0a3VCeDU0?=
+ =?utf-8?B?ZHJrOXBvamtRd2ZURVJSd3Jpc3VEWGFJQnNrc204Wlovd1V5QTg5d2gwMnlz?=
+ =?utf-8?B?VEtDTUhMZkI0ZStJK2M0WW1vTGF3Ni9Xc0g4di9oZW9PZHVZelNpNWVYZFgy?=
+ =?utf-8?B?TVZqNm9FeTJKRng4UFBObUtGV1gvdUdlMk9KcTUwUjEzOVBlM0xvZ2JRalEy?=
+ =?utf-8?B?NzVkWHpQZzFURnpRU241UkYyVy9CSzRXTW95Q29ZWXFidXQyNEY0WFV1bmxQ?=
+ =?utf-8?B?M3FnZFdUT09jRkUvOUhSV1QxUGg3SFhxVVZOZ2Q1blRuSURGOEdxZGNiOThy?=
+ =?utf-8?B?bVoxajEwMmFJcENCVlpKVmgvSjRTUHdhRUE1ZUZCVHNuOUc3a1dSSDE4MThF?=
+ =?utf-8?B?V0NXNWpiTnpjUURZeUVOd2RBdExMUGJ0Z1kxaVlQZnpZbFJzUnB0NkFDaXFZ?=
+ =?utf-8?B?ZnFFbWZjakgzcHlEWk9OS2F6WjZpT3c3ODZsWi8yczlXbDZrV0JTQVhaS3hK?=
+ =?utf-8?B?NE1LWHBWSzVSeGRNRitNQ2RpTkZVY0YxUTFrSXhKcmZ6S1FCSzRNeW9QcWRz?=
+ =?utf-8?B?dEZMNXZzY2w2dEJua0poWjdYT2RMYWRadVlLVEMzSWVDeGJnOWM4aWpYZmF5?=
+ =?utf-8?B?dzRzQ2I5dktia3hxc0Y4YzhFMjlVaUgwWWMwS2VuQ0dKbms1cE0yUi83eW1H?=
+ =?utf-8?B?VkNJUk1BZ2QyTVhhZUV4Sm4wY1d0cG9aSjBtQzduaFN5VHlVQkJ5YmxWWHd2?=
+ =?utf-8?B?aUI4RTZtSkMyL3E0YWtSdCthU2JLaDE0cDhidWYydU8wYXZLaHhnM29lNU9j?=
+ =?utf-8?B?cTVHMzZ6VnFWRDZjeUV2c3Y4UHJPV01KZWVxOFZGdGYwdkRtNW1DU0FobXI0?=
+ =?utf-8?B?NXRTdnJxSnZYR1pOeDVzMGh6ZjhwV1ppMlFYdmY4N1hMVjdVU0EvSy84aGYx?=
+ =?utf-8?B?Nkcrc29uemVtb1kvUVlUa1AwcktPdFFGYlVEN3dJam1ENlp4VzdiZDdrZitS?=
+ =?utf-8?B?ZWVvNFBSNm1hMUJmUGxydXVEYi9semk3U0dRd0tybnZWNUZ3ejlhN2UrOHND?=
+ =?utf-8?B?MmFiUFYyaGhUSVJuajNpYnJTc2t1TC9adUU5SHRYS0xJVXhKYW5VKyttNTg0?=
+ =?utf-8?B?NFhqS0JHNzJ3Y3FOejBpQklnSE01cHlIZmJSdHhxK0pYb0dGd05UTmIzbEs4?=
+ =?utf-8?B?VEZCOE91SmVBWm9qUU4ySXJkZFZzZ042aFZad1MwVUJ4SnVLVGYyRnNhU0V1?=
+ =?utf-8?B?Tm1jSS9reVViWG5QZWtBYVF3WFhZbG9xREwxL1VpRFZSQ0FEWFlHeDYxYTdS?=
+ =?utf-8?B?SWJodEw0dUw0QVp2QmVsMWhxS2JYM0dMQTdqUlZxS1BQdlRHL3NvNE91blE3?=
+ =?utf-8?B?alF2R2RTWjRheHFSZm9uTVRiYUd5aktSMnpVQVIzK1RPZGtDU3lLa0lTclBF?=
+ =?utf-8?B?aWRCZmNxS0pidktBWTZRWGFFTnEyZWhDaTVuZkRrUVVDSUhVR2tkSkdVMG5L?=
+ =?utf-8?B?Kzg3a2Z0VElqVVhGRVhnRHE4QkU1UzJQamhOQmhCWnpOVXVRbSsxT3RwRlN3?=
+ =?utf-8?B?T1pPSFIreFJTZVRWL3REVmExNG1ZNkZPWjJFNkpENGlRV2pvV3hGdFhnRnVL?=
+ =?utf-8?B?azFyMEloVVJkc3hnKzhLcktONkN2ZjhRZWJuQjB1TDNsbTNLYnN2Znk1YU9U?=
+ =?utf-8?B?bkVMbmJWMGF3aDVPdHJuaUxLL09OQ2hkQkV2YXNwUEh1OVp5T1J1ZGY5N2cx?=
+ =?utf-8?B?ZVVxNllhVmh0RkFqUU1TekFxNnpjRTJ1bW0rL1g0Nm9tOXhmYW1hbVUzU3Mw?=
+ =?utf-8?B?Mng3amZpUTlMWUhJWk5hc1Y4Tzdra3dLcldlRnFmdVNoQUdjK2p0NXQ2Z0pC?=
+ =?utf-8?Q?2Fv+gBzxKSG97ORAPtJu5b4MueIiI1I12w8xYr3M=3D?=
+MIME-Version: 1.0
+

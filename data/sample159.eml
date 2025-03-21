@@ -1,0 +1,158 @@
+Received: from MW4PR19MB6578.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Sat, 23 Sep 2023 03:13:01
+ +0000
+Received: from AM5PR0101CA0017.eurprd01.prod.exchangelabs.com
+ (2603:10a6:206:16::30) by MW4PR19MB6578.namprd19.prod.outlook.com
+ (2603:10b6:303:1e3::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Sat, 23 Sep
+ 2023 03:12:59 +0000
+Received: from AM6EUR05FT004.eop-eur05.prod.protection.outlook.com
+ (2603:10a6:206:16:cafe::9c) by AM5PR0101CA0017.outlook.office365.com
+ (2603:10a6:206:16::30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.34 via Frontend
+ Transport; Sat, 23 Sep 2023 03:12:58 +0000
+Authentication-Results: spf=pass (sender IP is 198.2.177.93)
+ smtp.mailfrom=mandrillapp.com; dkim=pass (signature was verified)
+ header.d=pepsup.com;dmarc=pass action=none
+ header.from=pepsup.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of mandrillapp.com
+ designates 198.2.177.93 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.2.177.93; helo=mail.pepsup.com; pr=C
+Received: from mail.pepsup.com (198.2.177.93) by
+ AM6EUR05FT004.mail.protection.outlook.com (10.233.240.227) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6838.14 via Frontend Transport; Sat, 23 Sep 2023 03:12:57 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:5B758B3132490D028BB259E71CEB2C9231A26D1364511B42FA659D3ED8FA8A0A;UpperCasedChecksum:76EA27446A37683182A07DA0E2018B36E60EBE4343039F637965B31123AB957A;SizeAsReceived:2107;Count:16
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pepsup.com;
+	s=mandrill; t=1695438287; x=1695698787; i=noreply@pepsup.com;
+	bh=UlUekAmpWwhK0Zg/LH1Wc+GM9UMHwJBc0MB+jrVKtX4=;
+	h=From:Subject:Reply-To:To:Feedback-ID:Message-Id:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=n7pZ6z5NuivEURJwE46ztrfqa2dcXlyk6h9AezWPWCkoaidHSQlZ7VOh7i2dtJvHJ
+	 Svt8qYgYnjBUEsg/xr4NMfxaUGj4KrQCAI0J++wBKZntLPlUar2SiloC00V2MFuLL7
+	 cyGV3gZ2uQnySKq9hOb/WPifappmNN+9OGpBaPJc=
+Received: from pmta14.mandrill.prod.suw01.rsglab.com (localhost [127.0.0.1])
+	by mail.pepsup.com (Mailchimp) with ESMTP id 4RsvBR5ZCHz7msGWT
+	for <phishing@pot>; Sat, 23 Sep 2023 03:04:47 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1695438287; h=From : 
+ Subject : Reply-To : To : Message-Id : Date : MIME-Version : 
+ Content-Type : From : Subject : Date : X-Mandrill-User : 
+ List-Unsubscribe; bh=UlUekAmpWwhK0Zg/LH1Wc+GM9UMHwJBc0MB+jrVKtX4=; 
+ b=cHFjWZuTMMKmZKG8WlWB6dH65vdK4CeI3sbTc7AvPprQggCtVpopNpwoQh1rSyc7KdeiZg
+ uBm8VnEjA+qX1JAyLLnov8wF2rVqY+RDoF5nL/3db6uynzIrB4YnN1agYFjDxZJ6CXkJQ9sI
+ fUbAdbbUOuFSTttlGODKO1Xg/16iM=
+From: TrustWallet APP <noreply@pepsup.com>
+Subject: =?utf-8?Q?[TrustWallet=20APP]=20Compliance=20Alert:=20Avoid=20Asset=20Freeze?=
+Received: from [51.210.188.51] by mandrillapp.com id ded5d0c1b37340c7a2f84630fda2d950; Sat, 23 Sep 2023 03:04:47 +0000
+Reply-To: igsw.gjysi8@cikue.com
+To: phishing@pot
+X-Native-Encoded: 1
+X-Report-Abuse: =?UTF-8?Q?Please=20forward=20a=20copy=20of=20this=20message,=20including=20all=20headers,=20to=20abuse@mandrill.com.=20You=20can=20also=20report=20abuse=20here:=20https://mandrillapp.com/contact/abuse=3Fid=3D30477602.ded5d0c1b37340c7a2f84630fda2d950?=
+X-Mandrill-User: md_30477602
+Feedback-ID: 30477602:30477602.20230923:md
+Message-Id: <30477602.20230923030447.650e55cfb17de8.96972542@mail.pepsup.com>
+Date: Sat, 23 Sep 2023 03:04:47 +0000
+Content-Type: multipart/alternative; boundary="_av-COM2BoKO5D_LrqoyRjaOXQ"
+X-IncomingHeaderCount: 16
+Return-Path:
+ bounce-md_30477602.650e55cf.v1-ded5d0c1b37340c7a2f84630fda2d950@mandrillapp.com
+X-MS-Exchange-Organization-ExpirationStartTime: 23 Sep 2023 03:12:58.0861
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 2f66c877-f186-4e5c-7ecf-08dbbbe2fcc5
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM6EUR05FT004:EE_|MW4PR19MB6578:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM6EUR05FT004.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/23/2023 3:12:52 AM
+X-MS-Office365-Filtering-Correlation-Id: 2f66c877-f186-4e5c-7ecf-08dbbbe2fcc5
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 198.2.177.93
+X-SID-PRA: NOREPLY@PEPSUP.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 9
+X-Microsoft-Antispam: BCL:2;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2023 03:12:57.9767
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f66c877-f186-4e5c-7ecf-08dbbbe2fcc5
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM6EUR05FT004.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR19MB6578
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.8488563
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6813.014
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90010023)(91010020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9710001)(9520007)(10115022)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow8O6DOHQzJgvP+EsztZ+eFbYpfaIuPamSdfGB/S3ybTVTahGRF4unrZIbUqet+VHlcdtHsfYHF2K80ShEQhPbtTu/gHJYysoFkXgj3K6F5nle63/aeicHpIWDk/us1i9mO/j3G34truYcjRUmiijyW4Ol+3aJZKV+/2Nd/1r/pB+kAapmhlQH+QwVXBDVqenB1XyNmqCHlFFw==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?MTJVdStjUExvU3hDdGFwNzZzN1VRbXpyY2ZHZHV0QnBEN2YvK0FjdWpZcFN6?=
+ =?utf-8?B?c2NrMTEzVG9oQmthUWJSZGRMYXRFaTE5U2hTMmxPWXR5anBGU0RiYzYzOHBU?=
+ =?utf-8?B?WUFRR1UyU0ZsekRJbG4wdkVyZHdQUnVKNEZ0OGkxZU5yZHRHeS9MSWZzTXhQ?=
+ =?utf-8?B?ZCs5N0wrUU9HK2JSZHkrY1JrekpWemYzVlBsdUgyNVhSaVNNdFljbEFUZ1dW?=
+ =?utf-8?B?M1U1eXFjSTdVWmdLTHJPTU94RC93YWd1UHpuRUNDeE1OYXZSTm55NUZVaGZx?=
+ =?utf-8?B?K2JuL1JSLzFUQWlCVVk4MS9DWXE3TTgwTmE4TmIxQzRnb0tPTFJIc01EWSs4?=
+ =?utf-8?B?MldOeHg4OERERy84SThhNmMycnAycnRBZjhPcGdtSmE4dVYvSExveS8rdlBi?=
+ =?utf-8?B?bkx4M0ZCTGRNVnVIcE84VklVT1ZJK1NsWFdvNmN4UytVOTJ2eUdwcytKYXU0?=
+ =?utf-8?B?SVExaDlKalBocE5ZbFlrQmtsYUlvZ0IvWUp3YVdNZWNBbjlNc25EM3dDbW5l?=
+ =?utf-8?B?M0Y1eTh3eGk1elNZWTdNVE5zUlh6Nm56YTJSYnJpdkEwMVhJRlNyTmJJczhF?=
+ =?utf-8?B?aU1PVUNpdk92Y0tVb3d5Rkc4UDBlSmc0SHNxZkoxdEhxc09lSFhySnJPcTRC?=
+ =?utf-8?B?UTZmR0grQUxBNzhFcWtsYmlSbkZrcWpRcGdseDU5cEgxckhqMnFwbW94UDA5?=
+ =?utf-8?B?aWQzWXFSWWJadEt4RFYwdTZsSHBraENCaW9VYWJTdkhZMVQrUGp3K0xXenZ5?=
+ =?utf-8?B?bHBPOTkrdUxLMDcvOG16RDY0V2VEZ0dHOEM0Z0RrV2tESHYxRDcxUEFGRExD?=
+ =?utf-8?B?ZjNMajJtdFJONVhEVXNkR3FOVm5NelNqR3pZRzRiWFFrY01UZisrMFdNeGt4?=
+ =?utf-8?B?UjJzbk1hU1ZHdzN3WTR2NnBPMlo5cXpPOGdGbWlLS0ZkRDZVSCs0Z292Uko5?=
+ =?utf-8?B?VGN5S1k4cTc4dFUwYUNXNXZ6dUNsZm9jMUlMa0JZNE1KczcrWi9aNkJiWXYy?=
+ =?utf-8?B?Y09GMGdlNHhQcEFSQVE2OWdTU1ZPNWZaaGNCZ2RMc0dtR0M1Ulg5U1FvVnFN?=
+ =?utf-8?B?a3VkNFFkWWFOVDh5Ni9HWHZGb093K1NBUG5SbzRUbGFaSXBrclE0bktvZHg5?=
+ =?utf-8?B?WTZxRHRhZGQ4VkxrUWd5Mk9yc091QTJZM05hVmFMazYrZ3FaVmhReFQyV0pY?=
+ =?utf-8?B?SVR5clRhbzFRWmlZOHRCdDFHQnFDaFR4L1RrZU1la2tCd0FnVU51c2c0bXRD?=
+ =?utf-8?B?c2F0K0VENkpPVThwVTltaUhIMWpNQlRVZGIrRGIrRGdwcG1DdHJqNFhJa1Rj?=
+ =?utf-8?B?YzNBdmp2SDdyZWlDdG9YV1BLL082bXhXV0JjS0MreFR5ZlZvTTdEMnQ5aHVH?=
+ =?utf-8?B?eGFlZGpMTi9EaVpNQXFCSEdrUlB2ZGVDNU5paEdEK04wUFlwWGI5L3NFUzgw?=
+ =?utf-8?B?K2pSSjJVeFFmei9ERTBtWG53eXR0bjRHLzBaR1UvQkNnalZINlhTRnh0Z2tj?=
+ =?utf-8?B?ZU83NW00RUxkd1RqOEorU1FBYXFPNjB5aVlrdzZFYUVLUkVPK3pxL0JvZzhD?=
+ =?utf-8?B?b2UzMDhBeDRMQ0gwVUF4T2pJQTFYSGVjcnBSYVYzYitzQU85TWsrZHpkaGgz?=
+ =?utf-8?B?djF1V3RqbDZ2TVBYZzJvQU9tNWJaVTNITFA3TWpiS0swZFlOUG5IYTJDbWpM?=
+ =?utf-8?B?T1ZCTzQ4UFFOc1doUXNSUnA3MUJzSUwySWp5Z1FKek5jQVJVaXV0SFFUN3FC?=
+ =?utf-8?B?Q2tmWjY1cVVkS2ZzK2RWaDhiMllVL0tIb2p6VVZmRThUZVFhWVdSU3ovQTIr?=
+ =?utf-8?B?MlYybm8yaXhodWdNdlhBYzdobTJVM0hHT2xPU00vMEYxTkkraWY4dmo3WStl?=
+ =?utf-8?B?bm5HQXNxVTQyMGVkWTJxNEhnVTVLY254WkUyd1RlM0xRM0FPa2ZKQjVJWVJF?=
+ =?utf-8?B?TVBjL2tPRko4THF5d3M1MnpSNVNVWmoxeHhuaGlGNWMxQjFZZVJ0ZVV3WmU5?=
+ =?utf-8?B?STNNb2FIcHBQK2pCMW1KaG1RcEloTTc4QUhBOU45VWQ1RzR2UEVPWHUvY3R0?=
+ =?utf-8?B?OS9QTnJUTVBjSW1HUk5mbGZNVHRkSlE2N3lUK3JqbDRYSVlnc21mM2hKdENV?=
+ =?utf-8?B?Qno1cnFMZ1NlTTZkVHNVMXRhbnkrazlQVnBOVHdNNDRUMk5TWlJXWUpWZHNu?=
+ =?utf-8?B?YUtaMHEwWDBma05UY0FDallwTk1mNjZSeWVPUndJRTlwaWM5MXloNmE1TFZK?=
+ =?utf-8?B?MDVvZzhKT2ZYeUk3QnBOK2V0S0Ird2ozRWoydW5Zd1pxRVRhT2Z3TU43Tmc1?=
+ =?utf-8?B?OEozVWlpeWFyb1R0K1QxamhaSVNBdkxKdlJNTzBjclJiS2I4bjd4R1dZUk5h?=
+ =?utf-8?B?WUsvcTVTUGl6OEtuWE9yTUlONmdSUzBCYk1JaFloMVpsWmU4R2hTdVpvRkE0?=
+ =?utf-8?B?ZzAwU0dLNkFtMUh6VUJVUkJsWFVzamVnUUZkOUxQUnplRkplUDFUT1poRzk3?=
+ =?utf-8?B?OFFiY3gzRzQyS2xtRVlpcHNWMW94djdkakg1N0tFdlRUS3l3UWtJVDhrMFBU?=
+ =?utf-8?B?eGNkNSs5YUx6Ny85QnduYlhpTFl2Q0lXVWlVSWxOblBOZUU4eG9KMzhpUno5?=
+ =?utf-8?B?OW8zWVVRd1JpekpWWmZzenJoUm4xOHBua2U1NEpJdEFGTnY2eGJENkxTU21M?=
+ =?utf-8?B?Rkc3cmlNeWRRTkRTZ1F4KzNybUM4Q0lHbjhLeVdYeGJoaWN3bUJwbTNGd3dL?=
+ =?utf-8?B?ekVFVEJqQWlzbVJRR1VzOXdPMHRCR2dickhpVFBhVFhVVGdQUnRIb3RTczBF?=
+ =?utf-8?B?V2pOMUxLeTltWTdSekIxY3BPczJJN1FNQW9oL3M0d1BCWFVSaGlHNlZnMVUz?=
+ =?utf-8?B?VWxncWFvRzBQOUJ5R09HRDFjK0RmY1hLUHNIWXpDZlc0T3kwS3BiY3NNZkR3?=
+ =?utf-8?B?b1R4eVhpY1FMTFlnRk8vOVlER2xURVRRR01ZekxMaERPTHVMdE1DaFdFNlBG?=
+ =?utf-8?B?empsdFhFdThXVTYrQnJTaStZLzh5ZUNOaFUxUFM1MWRxMExIZTA5cUw0ZzRS?=
+ =?utf-8?B?YUZnOU90dm5ldEt5bTFMNkZKT25CYnlaSytYTVcwSzlGRXBzYksvWEIxRTZV?=
+ =?utf-8?B?a2tIeWdGVWVHU1pmUXdkZVJlOWl1ZEpZMUh2ZWJZSm1xT05RZVBRb1NUTnBv?=
+ =?utf-8?Q?awF4i4k=3D?=
+MIME-Version: 1.0

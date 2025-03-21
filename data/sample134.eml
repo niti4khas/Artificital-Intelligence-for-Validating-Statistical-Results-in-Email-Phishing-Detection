@@ -1,0 +1,166 @@
+Received: from LV2PR19MB5863.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Mon, 11 Sep 2023 09:23:59
+ +0000
+Received: from AM6PR01CA0038.eurprd01.prod.exchangelabs.com
+ (2603:10a6:20b:e0::15) by LV2PR19MB5863.namprd19.prod.outlook.com
+ (2603:10b6:408:173::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6745.36; Mon, 11 Sep
+ 2023 09:23:57 +0000
+Received: from AM6EUR05FT023.eop-eur05.prod.protection.outlook.com
+ (2603:10a6:20b:e0:cafe::cd) by AM6PR01CA0038.outlook.office365.com
+ (2603:10a6:20b:e0::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6768.35 via Frontend
+ Transport; Mon, 11 Sep 2023 09:23:56 +0000
+Authentication-Results: spf=pass (sender IP is 198.37.147.85)
+ smtp.mailfrom=em3017.exprealty.com; dkim=pass (signature was verified)
+ header.d=exprealty.com;dmarc=pass action=none
+ header.from=exprealty.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of em3017.exprealty.com
+ designates 198.37.147.85 as permitted sender)
+ receiver=protection.outlook.com; client-ip=198.37.147.85;
+ helo=o6.sgmail.circlepix.com; pr=C
+Received: from o6.sgmail.circlepix.com (198.37.147.85) by
+ AM6EUR05FT023.mail.protection.outlook.com (10.233.241.96) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6792.11 via Frontend Transport; Mon, 11 Sep 2023 09:23:55 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:DAC3D9966074ECEC317542B968D8981A54821B021FBF1B15407901F5A03A0DB5;UpperCasedChecksum:6E1C5B8B791DD993F1679C8E91BA285817917BF0D85F63B3655DDC51F4280B61;SizeAsReceived:2425;Count:17
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=exprealty.com;
+	h=subject:from:mime-version:content-type:content-transfer-encoding:
+	reply-to:to:cc:content-type:from:subject:to;
+	s=exp; bh=fM35zkvgGNrNMJ9cPGHp9a120ZQPkRfI/NNh0BuWL4U=;
+	b=WrLPphdJMntiprxi8ZzpwzdLgqGZhfVoaeURhV+bqycGmPUR/VUMuEduxMa1ZjYClHy0
+	IBCjweg0WJEGFegLZJXyXY8b/b8IjEo+BdDHwuqLqPF3zVDYA488GXDc85l5PSYYbhPv3D
+	WQQUZ/Q82vPvKCspF4CnuNr7e84E0XzsAtTH84vKrQ8exQjCaZpZ9TtvysOnZRO45UbQ+f
+	jVWg4U2Rfih7owmWXST1rQWY5YrTd9Iqd5TPT3f4cI9Wgcf8e1I2/KmfuGAkrbPagcra6u
+	v2EDLSiAYB4LTHc0PMILlkBxnplTI7CVqs8pechpyiIA4Q5L9RBFdhdIITuAA9aw==
+Received: by filterdrecv-6bbccbcb8c-tnmhm with SMTP id filterdrecv-6bbccbcb8c-tnmhm-1-64FEDCA9-4F
+        2023-09-11 09:23:53.933980345 +0000 UTC m=+10662255.075419486
+Received: from [127.0.0.1] (unknown)
+	by geopod-ismtpd-4 (SG) with ESMTP
+	id z6CquUoRRzWD9pi1_049Hw
+	for <phishing@pot>;
+	Mon, 11 Sep 2023 09:23:53.898 +0000 (UTC)
+Message-ID: <4925993341bb5454a92005d0aff30d6a@swift.generated>
+Date: Mon, 11 Sep 2023 09:23:53 +0000 (UTC)
+Subject: Action Required: Account Suspension Notification.
+From: Trust Wallet Team <orlando.reid@exprealty.com>
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-MC-Metadata: {"mailId":111857,"source":"KunversionApi\\Models\\IRE\\ScheduledEmail","account":"expcorporate377","email_id":"64fedca9be56c","contact_id":"99987311"}
+X-ACCOUNT-ID: 377
+Reply-To: reply+Yzk5OTg3MzExLXUxMzg4NDA0LWEzNzctY3ItYmMyZjkxZGY=@kvcore.com
+X-SG-EID:
+ =?us-ascii?Q?PJTXchHg3=2FmsS3AKIQ4Iun9q0yIahWwf+n8RqYVFy9FYssO1YORuRfTPfD+Tml?=
+ =?us-ascii?Q?ak0d07B6SiZZ6uZ+NarEvWS7AlutnYv0LIrkUOL?=
+ =?us-ascii?Q?HNMALwoBsWcPKE6J9A86kpTObw5v8bsE1MxzRWt?=
+ =?us-ascii?Q?EJs4vV1TMjD9LnQaD2ISYMS+7dilknXC7opGLZK?=
+ =?us-ascii?Q?R+AByqhzqTZLkUWdKN3WvTffz888gpGDzHPwXGI?=
+ =?us-ascii?Q?96glGbvUw3E4mmCYN247OtPs9k1QsNmC6nmc4SB?=
+ =?us-ascii?Q?EBsL2Ri+X8VNnV1vcrJqw=3D=3D?=
+X-SG-ID:
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FIpmFK=2Fu6PZEHZcKjoEwI?=
+ =?us-ascii?Q?l4echE5Mzqp4G8=2FtGRSzFY4b1yCN2ec2CShE85B?=
+ =?us-ascii?Q?MJslfm2iPu+aYIhggD8jEwWzXLxEVUKoI0GElTh?=
+ =?us-ascii?Q?QcoF9qh5R7Q8aHU8+glz4sIQ3OFsS30MxdwBasC?=
+ =?us-ascii?Q?VQBOdIgxHHzdPthpJGzoBJvavCQNpn0MWFnv9Js?=
+ =?us-ascii?Q?Pp2ECPCxHTCtb+n55qEi3ppZ9PxR=2FUEQZDRMPG?=
+To: phishing@pot
+X-Entity-ID: AyfULY4AvuPgcm4pxDLrkw==
+X-IncomingHeaderCount: 17
+Return-Path: bounces+20995-112b-phishing@pot=hotmail.com@em3017.exprealty.com
+X-MS-Exchange-Organization-ExpirationStartTime: 11 Sep 2023 09:23:56.2883
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ b263f48e-a438-42dd-9f08-08dbb2a8d2bc
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM6EUR05FT023:EE_|LV2PR19MB5863:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM6EUR05FT023.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/11/2023 9:14:20 AM
+X-MS-Office365-Filtering-Correlation-Id: b263f48e-a438-42dd-9f08-08dbb2a8d2bc
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 198.37.147.85
+X-SID-PRA: ORLANDO.REID@EXPREALTY.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2023 09:23:55.6477
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b263f48e-a438-42dd-9f08-08dbb2a8d2bc
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM6EUR05FT023.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR19MB5863
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5808663
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6768.024
+X-Microsoft-Antispam-Mailbox-Delivery:
+	wl:1;pcwl:1;ucf:0;jmr:0;ex:0;auth:1;dest:I;OFR:TrustedSenderList;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90010023)(91010020)(91040095)(9050020)(9100341)(944500132)(2008001134)(4810010)(4910033)(9610028)(9560006)(10180021)(9439006)(9310011)(9220031)(120001);
+X-Message-Info:
+	qZelhIiYnPkbqNJvavXNn8r9LkCV7XAUmu5eITEY3NWGalCB8apiW7tn48z4Gtnuk9gGJH7OccOqHXO6dv/SchU6VvQDe6kEsFXJ76HSPTYnK34eEH+12Hgp2Lml2E4h9RoayHROPpCWH3ZW2GO2hxOFAYtvHf3ApRLMPfhDHdthuUbdLAdWvxxn5Kk0UPtb73IjdVrsrWay4PbK8I/Kbg==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?bkJ1OHlQYXJUYmF6ajVxbzltUWdZNjI0NHdWNkFjME00Tzlwc0FRYzkzRm9B?=
+ =?utf-8?B?aWdEOStSZ2dDMjc1M3c4ZUVqeldtNnBkWFkxdElyWUdaZ21wRHZxcEwxSGNr?=
+ =?utf-8?B?Z0w0NGFzWk5JWjJibG1GV3VHbmJwaG5XOE1Zd003VGdoU21JVTVlUHpUdnI5?=
+ =?utf-8?B?NDJlajN6K0taNHQ4Y01ZUEpGOFBCMWt0alhmZFphSms5UjZCbWxQMnlVU1J6?=
+ =?utf-8?B?QU16eUVnV1Q3dFlLSEZhUGZQTFNINnZXM3FadWJPUEFVTlA2MEFWbFNpUkRE?=
+ =?utf-8?B?aFBka3RweGE1Qm5Jb1RLVDJFR09Jd0lrWmhvSC94amhXeFlrNUVhVmh6dnJS?=
+ =?utf-8?B?TW96L0JKd3lBY1NDZ211dzF2bzgxaENiSXVWeHpubDAwK0ZGYk1CeVkvZzVP?=
+ =?utf-8?B?REMzM2o3NW4wTDFIbW5vZDhUUFVaa3hlNmIxODVXTXEyTGI5bmdoTmhPNXd5?=
+ =?utf-8?B?VVJHcUIrelAyc1BZdmpVZWNBdE5zQzFvZUh3ekNIR3FhMVVuNjM4S1FORE1P?=
+ =?utf-8?B?Z3h1b3ZhbkNhSG1CTGV0aXg1NUxseE1yNXo5T3RpaFpQMWFkaitDMVZPazNR?=
+ =?utf-8?B?aSticjYxeThpSkVtL0ZpTk1JaURDSDZIYWlFRmtOUmRxeVB5Tk5zeVpMTEVQ?=
+ =?utf-8?B?T1Rmc3FFZ3JLMzRmdjBFMTFIZHRJYWFsUXlCWWRtVWhrWkg4V00weVZtaklZ?=
+ =?utf-8?B?RWgyVHNCZS80T2lrQUpVMCttM05CbVUxakJtZU5JcFU2SGhUY1p0OGFiM1ln?=
+ =?utf-8?B?OEx1QVFRaFREeGVzcW9xMHVaWkp6K1JBVC85eDZORkhmZXZYeUlCR2hkYXdt?=
+ =?utf-8?B?N0FpRkdlOEh4dmlKcEk2Tm9SZWtSWXF1bFZWdDNUNmVRbVVES2NndDVCZWJF?=
+ =?utf-8?B?ZUpTZkxGWlluK3V1cXhwb1dtZGUwSEVwNkdQWGl3RjdVWityZTRzZnFzV1ds?=
+ =?utf-8?B?eFpWYk0va0NkNEZjQTYvU29MZzlrMmptYno3cTkxN1VRcnBNb05pajM4WWsy?=
+ =?utf-8?B?WWNYQk1FVGJ0VWx4b3VKYlhUWGZrT05XYXRNdEdtOWE3R1gwZmpYZHU2V2Zy?=
+ =?utf-8?B?SVlnWEtkUDhhZjIwbUNsdHF2ajNNOGpPWHRKS1h1dVREWXNQR3RIWlVFZG9P?=
+ =?utf-8?B?WG9LM0Y4VEJsYTR0YUhxZk5sL1VSM0lQTDBoY3dUZHpPa0E2ODhRVUV1cndX?=
+ =?utf-8?B?MEJKcnZ6Z3JQNGJTVGF6QS9YWC9yTnRHdnErMitGRlpjaWZpUms0UVBmVVNj?=
+ =?utf-8?B?VnhHTFh1T3ZwSlAzdVk1V1J2b0lNU2gybE9BUW9pajZXVUd2N2VhK3l2TjJO?=
+ =?utf-8?B?bDFXN2RaNFVyTE80YnFWSDhCRVk2OEwwL1llOEdNM2NNbXNBcXZkelNsM2Na?=
+ =?utf-8?B?VWRuaUs1cGQ2Z0VlMlpJTzVlbWJiK21rS0dHWUhhYkZJOU9RdFlRZUZhQVUr?=
+ =?utf-8?B?RFl0VEt5VlJ1RDdyQjJKUVhVT01VMlFUNS9xbmpqSXRSVkIzcnp5S1Z6U3lL?=
+ =?utf-8?B?SDkvTkVhb1VjWmtJdXZUUEh0Y0FHQWxMV2RQNlk5SGl4cTl1WHBXMm54a0VE?=
+ =?utf-8?B?YVVud3hQazNBZ0M2ZjhMQ0NpLzRxNEptZGs2ZEpLM2RVNmd6akZLRU1UM25O?=
+ =?utf-8?B?OTFxRG1oc09ka0ZJRXRNVm1SM1NObTNHblZ2NnJZWnlydlh0dW01TW91cmdI?=
+ =?utf-8?B?eTlMV3RKcHhnbDdBc1lMeGppSW50c3FpbFVkWHFpTGtZZWRpZHVZempkN0xk?=
+ =?utf-8?B?d0FUdDVUVi83ejI5Q0NNN1ovS1NBZFRYSldORU4wNHhDNS9rTnlWTkF6M1hT?=
+ =?utf-8?B?L1FVYjdGaWRpdEJEUTh0L1dGNkw4ZUdpemZhblcyYm4xUUozb25XZTM1dDMv?=
+ =?utf-8?B?N3Vpam9PaldJNFVCM1BIK1pzR2R4UGl3TlIxN2tOY1JUbU1URnh3ZVJpaFpY?=
+ =?utf-8?B?a0dsWjNjYXo5MzRldGJIYm5jeE5tbnp2WWZDQjcrRGVvUlZCc3JRaWhPa1BQ?=
+ =?utf-8?B?QVBNdG5MYkxXdHVhTUxlMStPNFpJUWU5emlzME54dzYwL3BFVDFNaVlwSm9x?=
+ =?utf-8?B?dEEzWjdMTVBQeUVKeWp0ZkowT1BMVk4rMGNjcXRLeVM5ZTd4NU91Wkp6MC9x?=
+ =?utf-8?B?U0VBVytNNFVmSXBsWFVOT2wrRDdxNmt6Z2Jtb0hMajFvOUJvZnQ3MHo1Tk5s?=
+ =?utf-8?B?enFvMCtrYUQ3bDBlcFA1YTZNSGFhaE93YzE1NnZHVS9WZ3Nrd2xqMUFKUERy?=
+ =?utf-8?B?b05VUW9zd0NlNDA2aFpqTGd0Nnh1dUpzcitvNzVtN0R6Qi9PWWFqVmJYc2FX?=
+ =?utf-8?B?dTFCZUxsYXM3Y2N4MndMbEc2b2R1Rm5OUFQ2Y3pVZERiK0VBY1FzdllBVWt0?=
+ =?utf-8?B?dnhVV0VvcUFXdGZPYTVFSXFGL3hJNWdwbTJZMUYxN201NWdFLzBLb2Npa0pC?=
+ =?utf-8?B?QXpGRjFkOUZkZWp0NG5VUndGbmNxY0w1SW9SSVNoK0JDZFNzcFU1N1Y1YTFw?=
+ =?utf-8?B?SldDVG1hRUR4MmlUUW9oY3NYZ1UxaWsxQWtxM2xnSnVHR1lkMTBId0NnaGN2?=
+ =?utf-8?B?RENmUWVJM3hjMnFLNXhObkQ3cDBONkM4KzA1U0FCQmt5d1R5S1prai82Y0dn?=
+ =?utf-8?B?OWxWdHhYZEovN1dYbWR2aEh6MXJ4ZVJaSnYwU2x0VVorL1F5SVVwRmtjQ0lq?=
+ =?utf-8?B?MGpDVnlEanM5RFg5K2M4b0FVNkFTcWRRcXlqcFoxSmw1UXlXNkVlK0ZuS0Q1?=
+ =?utf-8?B?b3JVWUxGWnNSMnlyWldRVFhqa1RFVGlqcnJmR0hzWjlCalpFNm5GMlE2Wkta?=
+ =?utf-8?Q?T7SZlxjI1YHOid919/4lAADf2ZYoDzFtkKFOElMWED?=
+MIME-Version: 1.0
+
+
+           =20

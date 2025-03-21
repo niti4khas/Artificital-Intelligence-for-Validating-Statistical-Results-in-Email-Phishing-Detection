@@ -1,0 +1,234 @@
+Delivered-To: ham@ham.email
+Received: by 2002:adf:a31a:0:b0:371:b8f2:e378 with SMTP id c26csp522273wrb;
+        Thu, 5 Sep 2024 02:43:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWTwMWatYPUeVNbv7wObwLE4TF/8feg6ywhvukQ9vjfS0UCFddFm3Of/9XXX3pr+SEMVfuh/9QWISIXw713D4Y=@gmail.com
+X-Google-Smtp-Source: AGHT+IErGMvoVyRJcEAf/4HiAnwcdogPNekh26CRoei2CHYz/XqpZ5Rl6l2qgOB8xvgLLGuNVPmv
+X-Received: by 2002:a05:6214:398f:b0:6c5:1f00:e8d7 with SMTP id 6a1803df08f44-6c51f00e8ffmr25961586d6.52.1725529383150;
+        Thu, 05 Sep 2024 02:43:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1725529383; cv=none;
+        d=google.com; s=arc-20240605;
+        b=L/ofyIBb7QpMyNIenpjrDEXzqs35g0CTuExlBzwpnzZSE1Q3l8UveeiQno2b6kAgpw
+         rGkbjXMPvM8mQAUHG/pjXOML7CBoJ/WX3DoGKSumBURy2pxXKNUfA9VhqqEbJ3CqKPmt
+         P49ZycSgi3vG5gQKX1j2T+EDJwgo32m6kskvUiv+vV3+T0s7e1LcLgmPoqlwI4EAKCup
+         wGJPPVnA+TYs4WynCKWBR4Ttewhy23XMo4CO3jRSZTejS0RiKLBJhjZSQN8m5yyZg3FK
+         BSBjdiyWwzNKHMQ8wxQphc85vG9WBlRsK9x0CDt9BPLO6rcYR4705LgGPToCgkSPHXQY
+         Hemg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=destinations:list-unsubscribe-post:list-unsubscribe:list-post
+         :list-archive:list-id:precedence:content-transfer-encoding
+         :mime-version:subject:message-id:cc:to:reply-to:from:date
+         :dkim-signature;
+        bh=YJfCRt+hlmqG7tY5a+3vRxBYOWR7k9jXG8RklyKN0lY=;
+        fh=4WlqmK8pXS4xWUViNME/Fkbq1WjSktFTgl6WZX5fJao=;
+        b=N0L2T+ZSTb37TpMhGO9JWEAeKMJbSi8sBaJw9i+dFKZqbCNfwj320lx/2FNrMGLtXw
+         pumZXYmrTHyvdMShhWr2Sb/02RCg0jpAAQhkkOyoc/IkkhNu69wR0wPPZ4nDLYUvIW1B
+         Rq24RKiAW2QCmNmEk1YFFRApY5kP/v8tdMvtqm6ImLywqyDc2tnTwn77rnRALV0Ohni/
+         /nj4QfPS9K1hAmXAvqNmud+cYyxUJc5NPnLNlje9ArHhpjfg3hB3tZOXGOij1PdTdJUW
+         l8jj/bfDV4PY30URF63AAW4c76I6DlFUs9ALWV8cCoI+Nb7tKjjINk+TFrrf2Tyr4LY2
+         a7Fg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=BcBK3On9;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.208 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-25.smtp.github.com (out-25.smtp.github.com. [192.30.252.208])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6c520511cdesi15936796d6.396.2024.09.05.02.43.02
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Sep 2024 02:43:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.208 as permitted sender) client-ip=192.30.252.208;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=BcBK3On9;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.208 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-f56830d.ash1-iad.github.net [10.56.209.75])
+	by smtp.github.com (Postfix) with ESMTPA id BBEF414125A
+	for <sminhaz18061997@gmail.com>; Thu,  5 Sep 2024 02:43:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1725529382;
+	bh=YJfCRt+hlmqG7tY5a+3vRxBYOWR7k9jXG8RklyKN0lY=;
+	h=Date:From:Reply-To:To:Cc:Subject:List-ID:List-Archive:List-Post:
+	 List-Unsubscribe:List-Unsubscribe-Post:From;
+	b=BcBK3On9iOadV16mrcSzsuBcLx0R5rEp72d78CpZxBNUxghzEqcO8BtU7fkh77g1x
+	 Q+84xc/gdNIsAUFiLFx/mfTyKit9IEeO9uON37PivUDPeQ/HmOZTEBwIzh7TdVdQuT
+	 ZliKj3Tvb3H1AWL/KjBSIwEVRMx2pQU8Q3RPIkhs=
+Date: Thu, 05 Sep 2024 02:43:02 -0700
+From: Daniel Norman <sender@github.com>
+Reply-To: ipfs/ipfs-docs <reply+AQRTH3MDRGUBYQVM3VOQ6DWE4VPCNEVBNHHJK4STP4@reply.github.com>
+To: ipfs/ipfs-docs <ham@ham.email>
+Cc: Subscribed <sender@noreply.github.com>
+Message-ID: <ipfs/ipfs-docs/pull/1923@github.com>
+Subject: [ipfs/ipfs-docs] feat: add ipfs check video (PR #1923)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66d97d26b8bcb_a91ce85243b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: 2color
+X-GitHub-Recipient: minhaz1205013
+X-GitHub-Reason: subscribed
+List-ID: ipfs/ipfs-docs <ipfs-docs.ipfs.github.com>
+List-Archive: https://github.com/ipfs/ipfs-docs
+List-Post: <mailto:reply+AQRTH3MDRGUBYQVM3VOQ6DWE4VPCNEVBNHHJK4STP4@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AQRTH3MDRGUBYQVM3VOQ6DWE4VPCNEVBNHHJK4STP4@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/one-click/AQRTH3J6UL2UEXM25KQHMQDZVARSNANCNFSM6AAAAABNWC4GIA>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Auto-Response-Suppress: All
+destinations: sminhaz18061997@gmail.com
+X-GitHub-Recipient-Address: sminhaz18061997@gmail.com
+
+
+----==_mimepart_66d97d26b8bcb_a91ce85243b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+# Describe your changes
+&lt;!-- 
+In a few sentences, described the changes made here, and why the changes are being made
+!--&gt;
+
+
+# Files changed
+&lt;!-- 
+Add the paths of the files that are being updated in this PR
+!--&gt;
+- &lt;!-- EXAMPLE: docs/install/ipfs-companion.md !--&gt;
+- 
+- 
+
+# What issue(s) does this address?
+
+&lt;!-- 
+Ideally, your PR should reference an open GitHub issue that it addresses. Add links to any issues that this PR addresses. 
+!--&gt;
+
+- 
+- 
+- 
+
+# Does this update depend on any other PRs?
+
+&lt;!-- 
+Add links to any PRs that this PR depends on. For example, if this is a documentation update describing a new feature that imust be tested and merged before the documentation can be published, link to that PR here
+!--&gt;
+
+- 
+- 
+
+## Checklist before requesting a review
+- [ ] Passing the beta version of the **Check Markdown links for modified files** check. Action results can be viewed [here](https://github.com/ipfs/ipfs-docs/actions/workflows/action.yml).
+
+## Checklist before merging
+- [ ] Passing all required checks (The beta **Check Markdown links for modified files** check is not required)
+
+You can view, comment on, or merge this pull request online at:
+
+  https://github.com/ipfs/ipfs-docs/pull/1923
+
+-- Commit Summary --
+
+  * feat: add ipfs check video
+
+-- File Changes --
+
+    M docs/reference/diagnostic-tools.md (8)
+
+-- Patch Links --
+
+https://github.com/ipfs/ipfs-docs/pull/1923.patch
+https://github.com/ipfs/ipfs-docs/pull/1923.diff
+
+-- 
+Reply to this email directly or view it on GitHub:
+https://github.com/ipfs/ipfs-docs/pull/1923
+You are receiving this because you are subscribed to this thread.
+
+Message ID: &lt;ipfs/ipfs-docs/pull/1923@github.com&gt;
+
+----==_mimepart_66d97d26b8bcb_a91ce85243b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1 dir="auto">Describe your changes</h1>
+
+<h1 dir="auto">Files changed</h1>
+
+<ul dir="auto">
+<li>
+
+</li>
+<li></li>
+<li></li>
+</ul>
+<h1 dir="auto">What issue(s) does this address?</h1>
+
+<ul dir="auto">
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h1 dir="auto">Does this update depend on any other PRs?</h1>
+
+<ul dir="auto">
+<li></li>
+<li></li>
+</ul>
+<h2 dir="auto">Checklist before requesting a review</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> Passing the beta version of the <strong>Check Markdown links for modified files</strong> check. Action results can be viewed <a href="https://github.com/ipfs/ipfs-docs/actions/workflows/action.yml">here</a>.</li>
+</ul>
+<h2 dir="auto">Checklist before merging</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> Passing all required checks (The beta <strong>Check Markdown links for modified files</strong> check is not required)</li>
+</ul>
+
+<hr>
+
+<h4>You can view, comment on, or merge this pull request online at:</h4>
+<p>&nbsp;&nbsp;<a href='https://github.com/ipfs/ipfs-docs/pull/1923'>https://github.com/ipfs/ipfs-docs/pull/1923</a></p>
+
+<h4>Commit Summary</h4>
+<ul>
+  <li><a href="https://github.com/ipfs/ipfs-docs/pull/1923/commits/d5c88f9d5339caaf5a9d38b284eb799dd18c42b8" class="commit-link">d5c88f9</a>  feat: add ipfs check video</li>
+</ul>
+
+<h4 style="display: inline-block">File Changes </h4> <p style="display: inline-block">(<a href="https://github.com/ipfs/ipfs-docs/pull/1923/files">1&nbsp;file</a>)</p>
+<ul>
+  <li>
+    <strong>M</strong>
+    <a href="https://github.com/ipfs/ipfs-docs/pull/1923/files#diff-0369f27ad67a2a54e3823c9747d5424a9204c4d9f9dd5c8db354d6b719a18c75">docs/reference/diagnostic-tools.md</a>
+    (8)
+  </li>
+</ul>
+
+<h4>Patch Links:</h4>
+<ul>
+  <li><a href='https://github.com/ipfs/ipfs-docs/pull/1923.patch'>https://github.com/ipfs/ipfs-docs/pull/1923.patch</a></li>
+  <li><a href='https://github.com/ipfs/ipfs-docs/pull/1923.diff'>https://github.com/ipfs/ipfs-docs/pull/1923.diff</a></li>
+</ul>
+
+<p style="font-size:small;-webkit-text-size-adjust:none;color:#666;">&mdash;<br />Reply to this email directly, <a href="https://github.com/ipfs/ipfs-docs/pull/1923">view it on GitHub</a>, or <a href="https://github.com/notifications/unsubscribe-auth/AQRTH3N5IBVUFOE55XWSM2LZVARSNAVCNFSM6AAAAABNWC4GICVHI2DSMVQWIX3LMV43ASLTON2WKOZSGUYDOMRZG43DMMY">unsubscribe</a>.<br />You are receiving this because you are subscribed to this thread.<img src="https://github.com/notifications/beacon/AQRTH3IVEJJX746QMBXEC3TZVARSNA5CNFSM6AAAAABNWC4GICWGG33NNVSW45C7OR4XAZNFJFZXG5LFVJRW63LNMVXHIX3JMTHJK4STP4.gif" height="1" width="1" alt="" /><span style="color: transparent; font-size: 0; display: none; visibility: hidden; overflow: hidden; opacity: 0; width: 0; height: 0; max-width: 0; max-height: 0; mso-hide: all">Message ID: <span>&lt;ipfs/ipfs-docs/pull/1923</span><span>@</span><span>github</span><span>.</span><span>com&gt;</span></span></p>
+<script type="application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/ipfs/ipfs-docs/pull/1923",
+"url": "https://github.com/ipfs/ipfs-docs/pull/1923",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>
+
+----==_mimepart_66d97d26b8bcb_a91ce85243b--

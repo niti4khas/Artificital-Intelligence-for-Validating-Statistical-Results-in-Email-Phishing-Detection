@@ -1,0 +1,1815 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp938730lke;
+        Fri, 6 Dec 2024 08:36:45 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEeNogahlxaVv+gj/qtVNuYk/D1pLHYLwB0N74pZ9sBA+ucJXfQAgotThRu4/r2R/zYVPt7
+X-Received: by 2002:aa7:d3c8:0:b0:5d3:cd5b:64a9 with SMTP id 4fb4d7f45d1cf-5d3cd5b656dmr1754382a12.34.1733503005692;
+        Fri, 06 Dec 2024 08:36:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733503005; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lftcjlNfYozuukRs5vd8cpD4cMCTLA6+oS1a9bxzrO1hMqSVPPWTOHStgFomm3bHwf
+         lL/7X8sx8jOLyOCJMaeMJCQwEjIIvMG+UIB0MtWDzw5f7Dkof4lxxcAuc6JBeG+Pj4W+
+         RSBJZ+lrZKynVVALmMFuWS4ebKMb+yFlTJxpoEtwG378KpbEKBW8TX/4nmYgdGr4VfcO
+         alvS4fqw36092L1gGbuADq8PnI6uH7WkxuZzDGnT1gkBynAhuTmmXnRvl4UmyiVbuJWP
+         mhSdTKNq+B0KYH11HUs+HcIMlyPNjGVIFURWd4nZjG6OmrgcmPl6QGskngN6bi7/r4pz
+         NygQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:mime-version:reply-to:to:date:subject:from
+         :domainkey-signature:dkim-signature;
+        bh=WFDZO5eSy+EgjYKQkFK/w2uNtjAx4df3Z8Mp9LTAW1M=;
+        fh=WU4XYdYyO9DxFi7ML79Nm5jpiaOBbpWbCUII8ASev5c=;
+        b=fbOlzQxo1AcI2Z70LtzUB4zp93Zhh02PxQ/plBYJIwGsU3HVA+sifQevkZWRdEqiQz
+         bb+s7UFmtCjjtWyx5J8+04yTeQJc1nwboOIeWCimLy5O6+cifS2tXmBr578VZAZvSjRj
+         ebdlN9p8yv28lcDaB5+n2nhdLpgNtqVZ5ciDk+wpIMO/DbCAWMFqwjH8NaV6om7VtjAP
+         IFzGmkPb8dFXuumFxluDelqRuEyIk8pY+hzkl7vxftK5qUvYCw9mNLVgeD7auYHRUkTy
+         ukbX61/SETsWOfIacufK2yCz79VmmQL8EHVLDtaQUJ/CpX3SIGgVFp2T+zBU+rHmKVFS
+         rL4g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ryanairemail.com header.s=mailserver header.b=dBZsWwWE;
+       spf=pass (google.com: domain of bounce@ryanairemail.com designates 34.242.153.56 as permitted sender) smtp.mailfrom=bounce@ryanairemail.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ryanairemail.com
+Return-Path: <bounce@ryanairemail.com>
+Received: from ac86.ryanairemail.com (ac86.ryanairemail.com. [34.242.153.56])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5d3cedbae74si832822a12.370.2024.12.06.08.36.45
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Dec 2024 08:36:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce@ryanairemail.com designates 34.242.153.56 as permitted sender) client-ip=34.242.153.56;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ryanairemail.com header.s=mailserver header.b=dBZsWwWE;
+       spf=pass (google.com: domain of bounce@ryanairemail.com designates 34.242.153.56 as permitted sender) smtp.mailfrom=bounce@ryanairemail.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=ryanairemail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mailserver; d=ryanairemail.com; h=domainkey-signature:from:subject:date:to:reply-to:mime-version:x-mailer:message-id:content-type; bh=WFDZO5eSy+EgjYKQkFK/w2uNtjAx4df3Z8Mp9LTAW1M=; b=dBZsWwWEdNyIGZyNxE2BQJfNmd2TxM+ZJLX8uGMsMLMHLbuDVz+GPrK0KDunl1pbo3zv/DBjTnlOLtz04oh1p7kzVGYmni4W4WOLV5TOx0MvE1XYaJEBYB0q3c6a0v4UVT6jUe04a3sGZOfjKEq6hWsi2FdPTrUdmdE7SHNf/Zk=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=mailserver; d=ryanairemail.com; h=From:Subject:Date:To:Reply-To:MIME-Version:X-mailer:Message-ID:Content-Type; b=T0H+Ekd36AsjXQO2D3KEM/GEvxpiWXDZ7g4jwWLEppBJicOgnKkVnBmK7hMGQeD1ABtIgdsQ6bf+0pEiTTUJDgCeoO2FuxjIy3DWLMV/rQb3Qixc7hlIZ0f7AH+9TpiZhomaO7rGljierZWaqsK/VRTlEBcEgfVc2mjJSKoSqOY=
+From:  <sender@ryanairemail.com>
+Subject: OUJL4H | Need a hand?
+Date: Fri, 06 Dec 2024 16:31:36 GMT
+To: <ham@ham.email>
+Reply-To:  <sender@ryanairemail.com>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM61ADD9DE10C293FA0RyanairProdMEI2@ryanairemail.com>
+Content-Type: multipart/alternative; charset="windows-1252"; boundary="----=_NextPart_178_4ED827CC.4ED827CC"
+
+------=_NextPart_178_4ED827CC.4ED827CC
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: 8bit
+
+  
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f33e&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0lNDBWT3RqeG1sb3pma0xEOUo3aUFOWHBIbnpuMG1aeE1jMzczSlZ5engzUTJNJTNE&s=Wsh4R5baKxwccb2DZNzhA1Ej7CVcwf5z9csKNHN60tQ View online 	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f33f&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=fZshD1Nb2W-XfOj28RMEFBwbVxUU5bRZPnmHua30V3U 	
+	
+	
+
+	
+
+	
+
+	Your flight details 	
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f340&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0vaWUvZW4vJnAyPTgwMzc2MzY3Mw&s=4tIQVcsjmFTZ1EuhdXM7wtZ0fcD7GgNVFOGuD27v6V0 My itinerary 	
+	
+	
+
+	OUJL4H	
+	
+	<!--[if false]><a style="pointer-events:auto;"><![endif]-->Berlin<!--[if false]></a><![endif]-->	
+	
+
+	4 Jan	
+	
+	20:20	
+	
+	
+
+	
+
+Reservation: 	OUJL4H	
+
+	
+
+Destination: 	<!--[if false]><a style="pointer-events:auto;"><![endif]-->Berlin<!--[if false]></a><![endif]-->	
+	
+	
+
+	
+
+Date: 	4 Jan	
+
+	
+
+Depart: 	20:20	
+	
+ETA: 	22:05	
+	
+	
+	
+
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f341&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0vaWUvZW4vJnAyPTgwMzc2MzY3Mw&s=h6NgWylva7DtLhllB3lmMip-fbA7CdtsUczXbeSjA2M My itinerary 	
+
+	
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f342&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=cl6MY2Eq_IPz4C99cmLUgn3bTVmmk35FOXGb1xy12JI  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f343&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=Jir2zcL46XlOOtUx_u_xWOjjQRL60RTkMSpSLGdsCAY 	
+	
+	
+	
+
+Wondering how to check-in? How many pairs of shoes to pack? 
+
+Well, our Help Centre can help with (nearly) all of your questions. 	
+	
+	
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f344&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=lSQFkwgTBnxOwzJLJfPOXzrmMZrjBswDHUgw2CV08B4 Help Centre 	
+	
+	
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f345&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=Po4a-CHaQT3SwUreWV1lbwdqWp6pksUhAh2DWNATRWk  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f346&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=lCrAKlCWXmq3fvAksXaXXzFT9_FSXjwd_QYjfP6dWo0 	
+	
+	
+	
+
+Booking Changes 	
+	
+
+You can make changes to your own booking through your MyRyanair account, this includes flight and name changes. We've even given you a step-by-step guide to give you that extra push. 
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f347&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=ElVcGBplIaem1AFnXINcIG_VWSzVNOLOuQswYf5SMg8 Find out more  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f348&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=rXhjr3_Hr935Ha4v8pJfqkyepClCDvF2FUHeDrDim6A 
+
+	
+	
+	
+	
+	
+
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f349&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=nefh73yWbOY8Njd9xTyGl0hfw6BMgP2lBFhm-ynVu-Y  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34a&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=gD2CSLe4phQNpC4V_-_xUzqrGJV908aWYYnd2Qn5lck 	
+	
+	
+	
+
+Bag Policies 	
+	
+
+Not sure what size your cabin bag needs to be? Don't wait until you're at the gate. Save the gambling till you're on holiday with low SPFs and cocktails. Fly responsibly. 
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34b&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=mNbZlSh8d_Ev3l-olcndcUaRltmBMw-ASw_R4qn5xGU Find out more  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34c&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=hPTypa90DHBdbK9_9cdaZF9dJOcT2TJPBe-A6RnymWA 
+
+	
+	
+	
+	
+	
+
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34d&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=-dNwslQzwCg6B2Tv9YU47ij9ycc8NmA2W_WfWt_m6do  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34e&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=hJoGk6LGkGRqYZ8kJ30euMQLWBfU8g71QANm9UTTcNI 	
+	
+	
+	
+
+Online Check-in 	
+	
+
+Never used a smart phone before? That's ok. Find out how and when to check-in online on our Help Centre. It's completely free to do online, we will charge you a fee at the airport if you have not checked in. 
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f34f&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=9YdXQiCuwrgiA5404o8OrsKwk9sh0opTXO8Y3f-x_dM Find out more  http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f350&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=33eU1AB3udjPdGB7Taq_GAhqnipRqnqwGeFStI8tq6c 
+
+	
+	
+	
+	
+	
+
+ http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f351&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=U578AKKczI8l4hum4nm4GllLtue5-_CKzpIuddXhUPs Help Centre 	
+	
+	
+	
+	
+	
+
+	 http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f352&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=hb5LIBBAJgMTDGx8x4TB5wFF2Pv7kQ5rYCofKIQyQC0 
+2024 � Ryanair DAC.  |    http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f353&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=YCgyQIoMan4H7WF6s2gRpxP2hy_aJUrIIt_O4IVixcg Terms & Conditions    |    http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f354&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=LG_d3mlcPEBMfFHRwkJsDrT5GczHSs7u6CTzK5dfHqY Privacy Policy    |    http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f355&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=wT0HeQB-_bZ8n0oOTyGrOBkFrZJD03NBJwhCMkkU_5c Contact us   
+http://www.ryanairemail.com/r/?id=t60675ef0,7dbef6a7,2776f356&e=dXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0lNDBOM3Qya3EyY3NmJTJGNHdHTU1JdzcybUElM0QlM0Q&s=bfDcLFUvcEATonFtfmz23awebfPeCajOUahlL8cFjhg
+
+------=_NextPart_178_4ED827CC.4ED827CC
+Content-Type: text/html; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head><meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Ty=
+pe">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<title></title>
+<style type=3D"text/css">
+* {
+  mso-line-height-rule: exactly;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+table th {
+  margin: 0!important;
+  padding: 0!important;
+  vertical-align: top;
+  font-weight: normal;
+}
+html, body, p, div {
+  margin: 0;
+  padding: 0;
+}
+.ExternalClass {
+  width: 100%;
+  width: 100%;
+}
+.ExternalClass * { line-height: 110%; }
+img {
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  border: 0;
+}
+a[x-apple-data-detectors] {
+  color: inherit!important;
+  text-decoration: none!important;
+  font-size: inherit!important;
+  font-family: inherit!important;
+  font-weight: inherit!important;
+  line-height: inherit!important;
+}
+body {
+  margin: 0!important;
+  padding: 0!important;
+  width: 100%!important;
+}
+div[style*=3D"margin:16px 0"] { margin: 0!important; }
+table {
+  mso-table-lspace: 0;
+  mso-table-rspace: 0;
+}
+td {
+  border-collapse: collapse;
+  font-size: inherit;
+}
+.table { display: table; }
+.table-cell { display: table-cell; }
+.mobshow { display: none; }
+
+.lg-50 { width: 50%!important; }
+.lg-200px { width: 200px!important; }
+
+.hero-text-bg {
+  position: relative;
+  padding: 20px 16px 10px 16px;
+  border-radius: 10px;
+}
+
+.hero-module-txt { width: 200px; }
+.hero-module-img { width: 400px; }
+.hero-module-divider { width: 10px; }
+
+.nolink a {
+  border: 0!important;
+  color: inherit!important;
+  pointer-events: none;
+  text-decoration: inherit!important;
+}
+</style>
+<style type=3D"text/css">
+@media only screen and (min-width:600px)  {=20
+  .wrapto600px  {  width: 600px!important;  }=20
+  .hide-for-lg  {=20
+    display: none!important;
+    font-size: 0!important;
+    height: 0!important;
+    max-height: 0!important;
+    max-width: 0!important;
+    mso-hide: all!important;
+    overflow: hidden!important;
+    visibility: hidden!important;
+    width: 0!important;
+   }=20
+  .lg-no-bg  {  background: none!important;  }=20
+  .block-for-lg  {  display: block!important;  }=20
+  .header-symbol  {=20
+    background-image: url(https://www.ryanair.com/content/dam/ryanair/trade=
+-crm/activetripcrm/taxitesting/header-harp.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+   }=20
+  .header-symbol table  {  width: 100px!important;  }=20
+  .header-symbol--lauda  {  width: 114px!important;  }=20
+  .pillar .show-for-lg  {=20
+    display: block!important;
+    height: auto!important;
+    max-height: none!important;
+    max-width: none!important;
+    visibility: visible!important;
+    width: auto!important;
+   }=20
+ }=20
+</style>
+<style type=3D"text/css">
+@media only screen and (max-width:600px) {
+  table tbody tr {
+    width: 100%!important;
+    display: table!important;
+  }
+  /* stack columns */
+  .colsplit {
+    width: 100%!important;
+    float: left!important;
+    display: block!important;
+  }
+  .borderright { border-right: none!important; }
+  .wrapto100pc {
+    width: 100%!important;
+    max-width: 100%!important;
+    height: auto!important;
+  }
+  .wrapto100pcline {
+    width: 100%!important;
+    max-width: 100%!important;
+    min-width: 100%!important;
+    height: auto!important;
+  }
+  .wrapto100pctable {
+    width: 100%!important;
+    max-width: 100%!important;
+    height: auto!important;
+    display: table!important;
+  }
+  .wrapto100pcmax {
+    width: auto!important;
+    max-width: 100%!important;
+    height: auto!important;
+    display: block!important;
+  }
+  .clearheight {
+    width: auto!important;
+    max-width: 100%!important;
+    height: auto!important;
+  }
+  .nomob { display: none!important; }
+  .mobshow {
+    display: block!important;
+    overflow: visible!important;
+    float: none!important;
+    width: 100%!important;
+    height: auto!important;
+    max-height: inherit!important;
+  }
+  .faretext {
+    vertical-align: middle!important;
+    height: auto!important;
+  }
+  .horizicon {
+    display: table-cell!important;
+    font-size: inherit!important;
+    line-height: inherit!important;
+    mso-hide: none!important;
+    overflow: visible!important;
+    visibility: visible!important;
+    width: 44px!important;
+    padding: 0px 16px 0px 0px;
+  }
+  .horiziconright { padding: 0px 0px 0px 16px; }
+  .show-for-lg {
+    display: none!important;
+    font-size: 0!important;
+    height: 0!important;
+    max-height: 0!important;
+    max-width: 0!important;
+    mso-hide: all!important;
+    overflow: hidden!important;
+    visibility: hidden!important;
+    width: 0!important;
+  }
+  .hide-for-lg, .sm-maxh-none { max-height: none!important; }
+  .hide-for-lg, .sm-full { max-width: none!important; }
+  .hide-for-lg {
+    font-size: inherit!important;
+    line-height: inherit!important;
+    mso-hide: none!important;
+    overflow: visible!important;
+    visibility: visible!important;
+    width: auto!important;
+  }
+  div.hide-for-lg, img.hide-for-lg { display: block!important; }
+  span.hide-for-lg { display: inline!important; }
+  table.hide-for-lg { display: table!important; }
+  td.hide-for-lg { display: table-cell!important; }
+  .sm-12, table.sm-12, table.sm-12>tbody, table.sm-12>tbody>tr, table.sm-12=
+>tr {
+    display: inline-block!important;
+    height: auto!important;
+    width: 100%!important;
+  }
+  .sm-full { width: 100%!important; }
+  .sm-50 { width: 50%!important; }
+  .sm-block, .sm-width-auto { width: auto!important; }
+  .sm-block, .sm-height-auto, .sm-inline-block { height: auto!important; }
+  .sm-block { display: block!important; }
+  .sm-inline { display: inline!important; }
+  .sm-inline-block { display: inline-block!important; }
+  .sm-clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  .sm-float-center,
+  .sm-text-center { text-align: center!important; }
+  .sm-float-center,
+  .sm-float-left,
+  .sm-float-none,
+  .sm-float-right { float: none!important; }
+  .sm-float-center {
+    Margin: 0 auto!important;
+    margin: 0 auto!important;
+  }
+  .sm-float-left { margin: 0 auto 0 0!important; }
+  .sm-float-right { margin: 0 0 0 auto!important; }
+  .sm-text-left { text-align: left!important; }
+  .sm-text-right { text-align: right!important; }
+  .sm-fs-0 { font-size: 0!important; }
+  .sm-fs-6 { font-size: 6px!important; }
+  .sm-fs-10 { font-size: 10px!important; }
+  .sm-fs-12 { font-size: 12px!important; }
+  .sm-fs-13 { font-size: 13px!important; }
+  .sm-fs-14 { font-size: 14px!important; }
+  .sm-fs-16 { font-size: 16px!important; }
+  .sm-fs-18 { font-size: 18px!important; }
+  .sm-fs-20 { font-size: 20px!important; }
+  .sm-fs-21 { font-size: 21px!important; }
+  .sm-fs-24 { font-size: 24px!important; }
+  .sm-fs-32 { font-size: 32px!important; }
+  .sm-fs-36 { font-size: 36px!important; }
+  .sm-fs-40 { font-size: 40px!important; }
+  .sm-fs-48 { font-size: 48px!important; }
+  .sm-fs-54 { font-size: 54px!important; }
+  .sm-fs-60 { font-size: 60px!important; }
+  .sm-fw-normal { font-weight: 400!important; }
+  .sm-fw-medium { font-weight: 500!important; }
+  .sm-height-10 { height: 10px!important; }
+  .sm-lh-0 { line-height: 0!important; }
+  .sm-lh-6 { line-height: 6px!important; }
+  .sm-lh-14 { line-height: 14px!important; }
+  .sm-lh-16 { line-height: 16px!important; }
+  .sm-lh-18 { line-height: 18px!important; }
+  .sm-lh-20 { line-height: 20px!important; }
+  .sm-lh-22 { line-height: 22px!important; }
+  .sm-lh-24 { line-height: 24px!important; }
+  .sm-lh-26 { line-height: 26px!important; }
+  .sm-lh-28 { line-height: 28px!important; }
+  .sm-lh-32 { line-height: 32px!important; }
+  .sm-lh-36 { line-height: 36px!important; }
+  .sm-lh-40 { line-height: 40px!important; }
+  .sm-lh-44 { line-height: 44px!important; }
+  .sm-lh-48 { line-height: 48px!important; }
+  .sm-lh-52 { line-height: 52px!important; }
+  .sm-lh-54 { line-height: 54px!important; }
+  .sm-lh-58 { line-height: 58px!important; }
+  .sm-lh-60 { line-height: 60px!important; }
+  .sm-lh-64 { line-height: 64px!important; }
+  .sm-padding-0 { padding: 0!important; }
+  .sm-padding-bottom-0 { padding-bottom: 0!important; }
+  .sm-padding-bottom-8 { padding-bottom: 8px!important; }
+  .sm-padding-bottom-12 { padding-bottom: 12px!important; }
+  .sm-padding-bottom-20 { padding-bottom: 20px!important; }
+  .sm-padding-left-0 { padding-left: 0!important; }
+  .sm-padding-left-8 { padding-left: 8px!important; }
+  .sm-padding-left-12 { padding-left: 12px!important; }
+  .sm-padding-left-16 { padding-left: 16px!important; }
+  .sm-padding-left-20 { padding-left: 20px!important; }
+  .sm-padding-right-0 { padding-right: 0!important; }
+  .sm-padding-right-8 { padding-right: 8px!important; }
+  .sm-padding-right-12 { padding-right: 12px!important; }
+  .sm-padding-right-16 { padding-right: 16px!important; }
+  .sm-padding-right-20 { padding-right: 20px!important; }
+  .sm-padding-top-0 { padding-top: 0!important; }
+  .sm-padding-top-8 { padding-top: 8px!important; }
+  .sm-padding-top-12 { padding-top: 12px!important; }
+  .sm-padding-top-20 { padding-top: 20px!important; }
+  .sm-border-0 { border: 0!important; }
+  .sm-minh-auto { min-height: 0!important; }
+  .sm-table { display: table!important; }
+  .sm-table-row { display: table-row!important; }
+  .sm-table-cell { display: table-cell!important; }
+  .sm-width-10 { width: 10px!important; }
+  .sm-width-12 { width: 12px!important; }
+  .sm-width-16 { width: 16px!important; }
+  .sm-color-default { color: #2e2e2e!important; }
+  .sm-no-bg { background: none!important; }
+  .sm-no-bg-image { background-image: none!important; }
+  .button { padding: 10px 20px!important; }
+  .button-href { font-size: 12px!important; }
+}
+</style>
+<style type=3D"text/css">
+@media only screen and (max-width:600px) {
+  .pillar { padding: 12px 8px!important; }
+  .header-logo { height:15px; }
+  .footer-connect { padding: 0 0 12px!important; }
+  .footer-connect-social-img {
+    height: 40px;
+    width: 40px;
+  }
+  .email-footer-app {
+    padding: 6px 0 12px!important;
+    width: 133px!important;
+  }
+  .row-product-list-text { padding: 5px 10px 5px 10px!important; }
+  .cars { padding: 0 0 8px; }
+  .car {
+    background-image: inherit;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0 8px 16px;
+    height: 219px;
+    width: 187px;
+  }
+  .car-1 { background-position: 0 0; }
+  .car-2 { background-position: -186px 0; }
+  .car-3 { background-position: -372px 0; }
+  .room-block {
+    background: inherit;
+    display: block;
+    margin: auto;
+    max-width: 320px;
+  }
+  .room {
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    border: 8px solid #FFF;
+    display: block;
+    padding:0 0 160.5%;
+  }
+  .room-1 { background-position: .685% 0; }
+  .room-2 { background-position: 50% 0; }
+  .room-3 { background-position: 99.315% 0; }
+  .awareness-horz .sm-table-cell {
+    padding-bottom: 20px;
+    vertical-align: top;
+  }
+  .awareness-horz .spacer { height: 4px; }
+  .form-search .button { padding:10px 20px 10px 10px!important; }
+  .form-search .button img {
+    border: 0!important;
+    height: 14px;
+    padding: 2px 0 0;
+    vertical-align: top!important;
+    width: 22px;
+  }
+  .hero-module-txt {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+  }
+  .hero-module-img {
+    display: block;
+    width: 100%;
+  }
+  .hero-module-img img { width: 100%!important; }
+  .hero-module-divider {
+    display: block;
+    height: 10px;
+    width: 1px;
+  }
+  .hero-solid-text-base-desktop-bg { background-image: none!important; }
+  .hero-solid-text-base-mobile-bg { background-position: center center!impo=
+rtant; }
+}
+</style>
+<style type=3D"text/css">
+@media only screen and (max-width:360px) {
+  .hide-for-xs { display: none!important; }
+  .xs-fs-30 { font-size: 30px!important; }
+
+  .pillar { padding: 12px 6px!important; }
+  .app-img, .email-footer-app { width: 120px!important; }
+  .car-logo-td {
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+  }
+}
+</style>
+<style type=3D"text/css">
+.black {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+</style>
+<style type=3D"text/css">@media only screen and (max-width:600px) {
+  .content-container {  }
+  .email-header-logo {
+    max-height: 14px !important;
+    width: 120px !important;
+  }
+}</style>
+<style type=3D"text/css">
+@import url('https://fonts.googleapis.com/css?family=3DRoboto:400,500,700')=
+;
+</style>
+<!--[if (mso)|(IE)]>
+<style type=3D"text/css">
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+  table, td, div, p {
+    font-family: Arial, sans-serif !important;
+    line-height: normal;
+  }
+  .hide-for-mso {
+    display: none !important;
+    height: 0 !important;
+    mso-hide: all;
+    padding: 0 !important;
+    width: 0 !important;
+  }
+  .collapse-for-mso,
+  .collapse-for-mso table,
+  .collapse-for-mso tr,
+  .collapse-for-mso th,
+  .collapse-for-mso td { border-collapse: collapse; }
+  .collapse-for-mso tr {
+    font-size: 0;
+    line-height: 0;
+  }
+  .show-for-mso { display: block !important; }
+  .no-border-mso { border: 0 !important; }
+  .pillar .show-for-lg {
+    display: block!important;
+    height: auto!important;
+    max-height: none!important;
+    max-width: none!important;
+    visibility: visible!important;
+    width: auto!important;
+  }
+  .multi-voucher-head-item {
+    border-bottom: 3px solid #041F50;
+    padding-bottom: 8px !important;
+  }
+  .multi-voucher-lb th { border-top: 1px solid #FFFFFF; }
+  .ab-border-h-mso,
+  .ab-border-v-mso { background-color: #aaaaaa; }
+  .ab-border-h-mso {
+    font-size: 1px !important;
+    height: 1px;
+    line-height: 1px !important;
+  }
+  .ab-border-v-mso { width: 1px !important; }
+  .ab-perf-horz {
+    border-bottom: 1px dashed #C3C7CC;
+    height: 1px;
+  }
+</style>
+<![endif]-->
+<!--[if gte mso 9]>
+  <xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+  </xml>
+<![endif]-->
+</head>
+<body style=3D"padding:0; margin:0;" class=3D"body" bgcolor=3D"#E6EAED">
+<table bgcolor=3D"#E6EAED" role=3D"presentation" width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center">
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"wrapto600px" align=3D"center">
+<tr>
+<td class=3D"nomob" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+<td width=3D"600" align=3D"left"><!-- rich editable style --><!-- end rich =
+editable style --><!-- documentdefaults --><!-- end documentdefaults --><!-=
+- dynamiccodes -->
+<span style=3D"display:none;">
+
+                     =20
+                   =20
+
+                     =20
+                   =20
+
+</span><!-- end dynamiccodes --><!-- gmail promotions tab --><!-- end gmail=
+ promotions tab --><!-- preheader -->
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%" style=3D"display:none;font-size:0;line-height:0;max-heigh=
+t:0;max-width:0;mso-hide:all;overflow:hidden;width:0;visibility:hidden;">
+<tr>
+<td style=3D"font-size:0; line-height:0px;"></td>
+</tr>
+</table><!-- end preheader --><!-- header --><!-- end header --><!-- header=
+ v2 --><!-- <field type=3D"checkbox" name=3D"showmyaccount" label=3D"My Acc=
+ount" default=3D"false"></field> -->
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"nomob" style=3D"min-width:100%;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"color:#2a4679;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:12px;line-height:14px;padding:10p=
+x 20px 10px 20px;">
+<a _type=3D"mirrorPage" target=3D"_blank" style=3D"color:#2a4679;text-decor=
+ation:none!important;" href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef=
+0,7dbef6a7,2776f127&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2F=
+tcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm=
+9scyZwMT0lNDBWT3RqeG1sb3pma0xEOUo3aUFOWHBIbnpuMG1aeE1jMzczSlZ5engzUTJNJTNE&=
+s=3DP8KrMkATaVAgSZ0OHfAqQlWtlbVbDAfSnE6UH2iUX5M">View online</a>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0">
+<tr>
+<td style=3D"font-size:0;line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td align=3D"center" valign=3D"middle" style=3D"font-size:0;line-height:0;"=
+ bgcolor=3D"#073590">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapto600px" role=3D"presentation" width=3D"100%">
+<tr>
+<td align=3D"center" valign=3D"middle" width=3D"100%" style=3D"font-size:0;=
+line-height:0;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentatio=
+n">
+<tr>
+<td style=3D"font-size:1px;line-height:1px;padding:20px 20px;">
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f128&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DlzJUuE7uGCA=
+svClXt_gW9Z76EyL16grZBU64VbHteko"><img src=3D"https://www.ryanair.com/conte=
+nt/dam/ryanair/crm/templates/pb/_elements/Email-Menu-Logo.png" border=3D"0"=
+ width=3D"218" height=3D"29" class=3D"header-logo sm-width-auto" style=3D"d=
+isplay:block;" alt=3D"Ryanair logo"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- end of header v2 --><!-- content -->
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0">
+<tr>
+<td class=3D"content-container"><!-- Flight Info JS - BOARDING / CHECKIN / =
+HEADER / RIGHT ALIGNED WITH TITLE -->
+
+                            <table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"display:none;font-size:0;line-height:0;max=
+-height:0;max-width:0;mso-hide:all;overflow:hidden;width:0;visibility:hidde=
+n;">
+                              <tr>
+                                <td style=3D"font-size:0">
+                                 =20
+                                </td>
+                              </tr>
+                            </table>
+                          <!-- /Flight Info JS - CHECKIN / HEADER / RIGHT A=
+LIGNED WITH TITLE --><!-- Flight Info JS - ABANDONED BASKET --><!-- /Flight=
+ Info JS - ABANDONED BASKET -->
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" class=3D"wrapto100pc" width=3D"100%">
+<tr>
+<td valign=3D"top" style=3D"font-size:0px;line-height:0px;">
+<table role=3D"presentation" bgcolor=3D"#F1C933" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" class=3D"wrapto100pc" width=3D"100%">
+<tr>
+<td height=3D"2" style=3D"font-size:1px;line-height:1px;"><img src=3D"https=
+://www.ryanair.com/content/dam/ryanair/crm/templates/pb/_elements/sp.gif" a=
+lt=3D"" border=3D"0" width=3D"1" height=3D"1" style=3D"display:block;"></td=
+>
+</tr>
+</table>
+<table role=3D"presentation" bgcolor=3D"#00A149" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" class=3D"wrapto100pc" width=3D"100%">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:2px 16px;text=
+-transform:none;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td valign=3D"top" style=3D"font-size:1px;line-height:1px;padding:4px 6px 4=
+px 0;width:16px;"><img src=3D"https://www.ryanair.com/content/dam/ryanair/c=
+rm/templates2/_elements/icon-check-circle-white-filled.png" alt=3D"" border=
+=3D"0" width=3D"16" height=3D"16" style=3D"display:block;"></td>
+<td align=3D"left" valign=3D"top" style=3D"color:#FFFFFF;font-family:Arial,=
+Helvetica,sans-serif,'Roboto';font-size:14px;line-height:16px;padding:4px 0=
+;">Your flight details</td>
+<td align=3D"right" class=3D"hide-for-mso" valign=3D"top" style=3D"font-siz=
+e:0;line-height:0;padding:0 0 0 8px;">
+<div class=3D"hide-for-lg hide-for-mso" style=3D"display:none;font-size:0;l=
+ine-height:0;max-height:0;max-width:0;mso-hide:all;overflow:hidden;width:0;=
+vertical-align:top;visibility:hidden;">
+<table align=3D"right" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" cla=
+ss=3D"hide-for-mso" role=3D"presentation">
+<tr>
+<td align=3D"right" class=3D"hide-for-mso" valign=3D"top" style=3D"font-fam=
+ily:Arial,Helvetica,sans-serif,'Roboto';font-size:14px;line-height:16px;pad=
+ding:4px 0;"><a style=3D"color:#FFFFFF;text-decoration:underline;" href=3D"=
+http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f129&e=3DdXRtX3N=
+vdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbH=
+BDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0vaWUvZW4vJnAyPTgwMzc2M=
+zY3Mw&s=3D7HwYogTqcGeV8lg2wv8XxkC34c2x-CDJhxkzUf7QkVM">My itinerary</a></td=
+>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<div class=3D"hide-for-lg hide-for-mso" style=3D"display:none;font-size:0;l=
+ine-height:0;max-height:0;max-width:0;mso-hide:all;overflow:hidden;width:0;=
+vertical-align:top;visibility:hidden;">
+<table bgcolor=3D"#073590" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ class=3D"hide-for-mso wrapto100pc" role=3D"presentation" width=3D"100%">
+<tr style=3D"display:table-row!important;">
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:8px;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentatio=
+n" class=3D"hide-for-mso" width=3D"100%">
+<tr style=3D"display:table-row!important;">
+<td valign=3D"top" width=3D"50%" style=3D"font-size:0;line-height:0;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"hide-for-m=
+so" role=3D"presentation">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:8px 8px 4px 8=
+px;width:16px;"><img src=3D"https://www.ryanair.com/content/dam/ryanair/crm=
+/templates2/_elements/plane.png" alt=3D"" border=3D"0" class=3D"hide-for-ms=
+o" width=3D"16" height=3D"16"></td>
+<td valign=3D"top" style=3D"color:#FFFFFF;font-family:Arial,Helvetica,sans-=
+serif,'Roboto';font-size:14px;font-weight:bold;line-height:16px;padding:8px=
+ 8px 4px 0;">OUJL4H</td>
+</tr>
+</table>
+</td>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"hide-for-m=
+so" role=3D"presentation">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:8px 8px 4px 8=
+px;width:16px;"><img src=3D"https://www.ryanair.com/content/dam/ryanair/crm=
+/templates2/_elements/route.png" alt=3D"" border=3D"0" class=3D"hide-for-ms=
+o" width=3D"16" height=3D"16"></td>
+<td class=3D"nolink" valign=3D"top" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;padding:8px 8px 4px 0;"><!--[if false]><a style=3D"pointer-events:aut=
+o;"><![endif]-->Berlin<!--[if false]></a><![endif]--></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style=3D"display:table-row!important;">
+<td valign=3D"top" style=3D"font-size:0;line-height:0;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"hide-for-m=
+so" role=3D"presentation">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:4px 8px 8px 8=
+px;width:16px;"><img src=3D"https://www.ryanair.com/content/dam/ryanair/crm=
+/templates2/_elements/calendar.png" alt=3D"" border=3D"0" class=3D"hide-for=
+-mso" width=3D"16" height=3D"16"></td>
+<td valign=3D"top" class=3D"nolink" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;padding:4px 8px 8px 0;"><!--[if false]><a style=3D"pointer-events:aut=
+o;"><![endif]-->4 Jan<!--[if false]></a><![endif]--></td>
+</tr>
+</table>
+</td>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"hide-for-m=
+so" role=3D"presentation">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:4px 8px 8px 8=
+px;width:16px;"><img src=3D"https://www.ryanair.com/content/dam/ryanair/crm=
+/templates2/_elements/flight_time.png" alt=3D"" border=3D"0" class=3D"hide-=
+for-mso" width=3D"16" height=3D"16"></td>
+<td class=3D"nolink" valign=3D"top" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;padding:4px 8px 8px 0;">20:20</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<table role=3D"presentation" bgcolor=3D"#073590" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"show-for-lg wrapto100pc">
+<tr>
+<th align=3D"left" valign=3D"top" style=3D"font-size:0;font-weight:normal;l=
+ine-height:0;text-transform:none;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:12px 20px;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<th bgcolor=3D"#1976DB" width=3D"5" style=3D"border-radius:3px;font-size:0;=
+line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"5">
+<tr>
+<td style=3D"font-size:0;line-height:0;"></td>
+</tr>
+</table>
+</th>
+<th align=3D"left" valign=3D"top" width=3D"50%" style=3D"font-size:0;font-w=
+eight:normal;line-height:0;text-transform:none;vertical-align:top;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td valign=3D"top" width=3D"100%" style=3D"font-size:0;line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:0 8px 0 8px;"=
+>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td nowrap valign=3D"top" style=3D"color:#E7EBF4;font-family:Arial,Helvetic=
+a,sans-serif,'Roboto';font-size:14px;line-height:16px;padding:0 3px 0 0;">R=
+eservation:</td>
+<td valign=3D"top" style=3D"color:#FFFFFF;font-family:Arial,Helvetica,sans-=
+serif,'Roboto';font-size:14px;font-weight:bold;line-height:16px;">OUJL4H</t=
+d>
+</tr>
+</table>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td height=3D"4" style=3D"font-size:0;line-height:0;"></td>
+</tr>
+</table>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td nowrap valign=3D"top" style=3D"color:#E7EBF4;font-family:Arial,Helvetic=
+a,sans-serif,'Roboto';font-size:14px;line-height:16px;padding:0 3px 0 0;">D=
+estination:</td>
+<td class=3D"nolink" valign=3D"top" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;"><!--[if false]><a style=3D"pointer-events:auto;"><![endif]-->Berlin=
+<!--[if false]></a><![endif]--></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</th>
+<th bgcolor=3D"#F1C933" width=3D"5" style=3D"border-radius:3px;font-size:0;=
+line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"5">
+<tr>
+<td style=3D"font-size:0;line-height:0;"></td>
+</tr>
+</table>
+</th>
+<th align=3D"left" valign=3D"top" style=3D"font-size:0;font-weight:normal;l=
+ine-height:0;text-transform:none;vertical-align:top;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td valign=3D"top" width=3D"100%" style=3D"font-size:0;line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%" style=3D"mso-line-height-rule:exactly;">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:0 0 0 8px;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td nowrap valign=3D"top" style=3D"color:#E7EBF4;font-family:Arial,Helvetic=
+a,sans-serif,'Roboto';font-size:14px;line-height:16px;padding:0 3px 0 0;">D=
+ate:</td>
+<td valign=3D"top" class=3D"nolink" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;"><!--[if false]><a style=3D"pointer-events:auto;"><![endif]-->4 Jan<=
+!--[if false]></a><![endif]--></td>
+</tr>
+</table>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td height=3D"4" style=3D"font-size:0;line-height:0;"></td>
+</tr>
+</table>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%">
+<tr>
+<td valign=3D"top" style=3D"font-size:0;line-height:0;padding:0 10px 0 0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td valign=3D"top" style=3D"color:#E7EBF4;font-family:Arial,Helvetica,sans-=
+serif,'Roboto';font-size:14px;line-height:16px;padding:0 3px 0 0;">Depart:<=
+/td>
+<td valign=3D"top" class=3D"nolink" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;">20:20</td>
+</tr>
+</table>
+</td>
+<td align=3D"right" valign=3D"top" style=3D"font-size:0;line-height:0;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td valign=3D"top" style=3D"color:#E7EBF4;font-family:Arial,Helvetica,sans-=
+serif,'Roboto';font-size:14px;line-height:16px;padding:0 3px 0 0;">ETA:</td=
+>
+<td valign=3D"top" class=3D"nolink" style=3D"color:#FFFFFF;font-family:Aria=
+l,Helvetica,sans-serif,'Roboto';font-size:14px;font-weight:bold;line-height=
+:16px;">22:05</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</th>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</th>
+<th bgcolor=3D"#FFFFFF" width=3D"2" style=3D"font-size:0;line-height:0;"></=
+th>
+<th align=3D"right" valign=3D"middle" width=3D"1" style=3D"font-size:0;font=
+-weight:normal;line-height:0;text-transform:none;vertical-align:middle;">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+<tr>
+<td align=3D"center" nowrap style=3D"color:#F1C933;font-family:Arial,Helvet=
+ica,sans-serif,'Roboto';font-size:14px;line-height:16px;padding:12px 24px;w=
+hite-space:nowrap;"><span style=3D"color:#F1C933;font-family:Arial,Helvetic=
+a,sans-serif,'Roboto';text-decoration:underline;white-space:nowrap;"><a sty=
+le=3D"color:#F1C933;text-decoration:underline;white-space:nowrap;" href=3D"=
+http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f12a&e=3DdXRtX3N=
+vdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbH=
+BDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0vaWUvZW4vJnAyPTgwMzc2M=
+zY3Mw&s=3DJe7GGLY0wbMKTLBbhB94RDKQ-nJOYbTKZfRSI7czdKQ">My itinerary</a></sp=
+an></td>
+</tr>
+</table>
+</th>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><!-- Flight Info JS - ABANDONED BASKET --><!-- /Flight Info JS - AB=
+ANDONED BASKET -->
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<div style=3D"width:0; overflow:hidden; float:left; display:none; max-heigh=
+t:0px; mso-hide:all;" class=3D"mobshow"><a href=3D"http://www.ryanairemail.=
+com/r/?id=3Dh60675ef0,7dbef6a7,2776f12b&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl=
+1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm=
+9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DCF6P6lEP-pObIyCMKHvfInYhBA9ncOoHqIrfb8bQKLY"><=
+img src=3D"https://www.ryanair.com/content/dam/ryanair/trade-crm/assets-202=
+3/august/help-centre-refresh/Email-Header.jpg" border=3D"0" class=3D"sm-ful=
+l hide-for-lg" style=3D"border:0;outline:0;width:100%;display:none;font-siz=
+e:0;line-height:0;max-height:0;max-width:0;mso-hide:all;overflow:hidden;wid=
+th:0;visibility:hidden;"></a></div>
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f12c&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DJFoFgNE6ZW1=
+CrdOLJbpP_JxZw51hGW8k4IPq5nscvsE"><img src=3D"https://www.ryanair.com/conte=
+nt/dam/ryanair/trade-crm/assets-2023/august/help-centre-refresh/Email-Heade=
+r.jpg" width=3D"600" border=3D"0" style=3D"border:0;display:block;outline:0=
+;max-width:100%;width:100%" class=3D"nomob"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"sm-padding-left-16 sm-padding-=
+right-16" style=3D"padding:20px 50px 0px 50px;text-transform:none;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:23px;line-height:29px;color:#073590;">
+Wondering how to check-in? How many pairs of shoes to pack?<br><br>Well, ou=
+r Help Centre can help with (nearly) all of your questions.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:20px 16px 10px 16px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" style=3D"padding:0px 0 20px 0;">
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">
+<tr>
+<td bgcolor=3D"#f1c933" align=3D"center" style=3D"padding:15px 25px;font-we=
+ight:bold; border-radius:4px;  color:#073590; font-size:16px;line-height:20=
+px; text-decoration:none; font-family: 'Roboto', Helvetica, Arial, sans-ser=
+if;">
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f12d&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DfkDCfjzFIhz=
+Qnj9FS3Yl8WIcJOKJ4TBEahU3rw9kip4" style=3D"color:#073590; text-decoration: =
+none;display:block;" class=3D"button-href">Help Centre</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table></td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<div style=3D"width:0; overflow:hidden; float:left; display:none; max-heigh=
+t:0px; mso-hide:all;" class=3D"mobshow"><a href=3D"http://www.ryanairemail.=
+com/r/?id=3Dh60675ef0,7dbef6a7,2776f12e&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl=
+1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm=
+9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DEpXzF52GjZn8DwDIuS_ZfH0RWu5mnG9PAgb48_z322U"><=
+img src=3D"https://www.ryanair.com/content/dam/ryanair/trade-crm/assets-202=
+3/august/help-centre-refresh/updated/MicrosoftTeams-image-(246).png" border=
+=3D"0" class=3D"sm-full hide-for-lg" style=3D"border:0;outline:0;width:100%=
+;display:none;font-size:0;line-height:0;max-height:0;max-width:0;mso-hide:a=
+ll;overflow:hidden;width:0;visibility:hidden;"></a></div>
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f12f&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DiLRNnEAaXjk=
+vDp5anaPern_9vxn2K7nGCbsNI0WSRBU"><img src=3D"https://www.ryanair.com/conte=
+nt/dam/ryanair/trade-crm/assets-2023/august/help-centre-refresh/updated/Mic=
+rosoftTeams-image-(246).png" width=3D"600" border=3D"0" style=3D"border:0;d=
+isplay:block;outline:0;max-width:100%;width:100%" class=3D"nomob"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#f4f4f4">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"sm-padding-left-16 sm-padding-=
+right-16" style=3D"padding:10px 50px 0px 50px;text-transform:none;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:24px;line-height:30px;color:#073590;">
+<strong style=3D"">Booking Changes  </strong>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:20px;line-height:26px;color:#073590;">
+You can make changes to your own booking through your MyRyanair account, th=
+is includes flight and name changes. We've even given you a step-by-step gu=
+ide to give you that extra push.  <br><br><a style=3D"color:#35a9ff; text-d=
+ecoration: underline;" target=3D"_blank" href=3D"http://www.ryanairemail.co=
+m/r/?id=3Dh60675ef0,7dbef6a7,2776f130&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1b=
+T1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9h=
+Yl9ub2Rpdl9ub3Bfbm9scw&s=3Di0LvXUsqkXd1Nhasb2bkUcXTn7yfSm4Ui3ePkBiqO6Y"><st=
+rong style=3D"">Find out more</strong></a><a style=3D"color:#35a9ff; text-d=
+ecoration: underline;" target=3D"_blank" href=3D"http://www.ryanairemail.co=
+m/r/?id=3Dh60675ef0,7dbef6a7,2776f131&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1b=
+T1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9h=
+Yl9ub2Rpdl9ub3Bfbm9scw&s=3DfYXQZWVBxygIRI67Ny6ecBGtEK_el1BxSf2h87gjOws"><st=
+rong style=3D""><br><br></strong></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff">
+<tr>
+<td class=3D"show-for-lg" valign=3D"top" style=3D"font-size:0;line-height:0=
+;" height=3D"20"></td>
+</tr>
+<tr class=3D"hide-for-mso">
+<td class=3D"hide-for-mso" valign=3D"top" style=3D"font-size:0;line-height:=
+0;">
+<div class=3D"hide-for-lg hide-for-mso" style=3D"display:none;font-size:0;h=
+eight:10px;line-height:0;max-height:0;max-width:0;mso-hide:all;overflow:hid=
+den;width:0;visibility:hidden;"></div>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<div style=3D"width:0; overflow:hidden; float:left; display:none; max-heigh=
+t:0px; mso-hide:all;" class=3D"mobshow"><a href=3D"http://www.ryanairemail.=
+com/r/?id=3Dh60675ef0,7dbef6a7,2776f132&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl=
+1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm=
+9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DcUwaQCX_gzTC5KfxgRAieheTrK8xTsaF65bT9fysWhk"><=
+img src=3D"https://www.ryanair.com/content/dam/ryanair/trade-crm/assets-202=
+3/august/help-centre-refresh/updated/MicrosoftTeams-image-(245).png" border=
+=3D"0" class=3D"sm-full hide-for-lg" style=3D"border:0;outline:0;width:100%=
+;display:none;font-size:0;line-height:0;max-height:0;max-width:0;mso-hide:a=
+ll;overflow:hidden;width:0;visibility:hidden;"></a></div>
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f133&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DeVLgMT3PPcb=
+7hKOuQty7FbgEjPKRYV_kXRUe-uh6AVA"><img src=3D"https://www.ryanair.com/conte=
+nt/dam/ryanair/trade-crm/assets-2023/august/help-centre-refresh/updated/Mic=
+rosoftTeams-image-(245).png" width=3D"600" border=3D"0" style=3D"border:0;d=
+isplay:block;outline:0;max-width:100%;width:100%" class=3D"nomob"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#f4f4f4">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"sm-padding-left-16 sm-padding-=
+right-16" style=3D"padding:10px 50px 0px 50px;text-transform:none;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:24px;line-height:30px;color:#073590;">
+<strong style=3D"">Bag Policies  </strong>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:20px;line-height:26px;color:#073590;">
+Not sure what size your cabin bag needs to be? Don't wait until you're at t=
+he gate. Save the gambling till you're on holiday with low SPFs and cocktai=
+ls. Fly responsibly.  <br><br><a style=3D"color:#35a9ff; text-decoration: u=
+nderline;" target=3D"_blank" href=3D"http://www.ryanairemail.com/r/?id=3Dh6=
+0675ef0,7dbef6a7,2776f134&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1d=
+G1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9u=
+b3Bfbm9scw&s=3DwRsHAOQUjTMRLUCeslh_DIHN2ON336HQcgE8XJTX5dg"><strong style=
+=3D"">Find out more</strong></a><a style=3D"color:#35a9ff; text-decoration:=
+ underline;" target=3D"_blank" href=3D"http://www.ryanairemail.com/r/?id=3D=
+h60675ef0,7dbef6a7,2776f135&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ=
+1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl=
+9ub3Bfbm9scw&s=3DlErmTAAVy4VutIY8uOgwcBpfCcJ0tAmQ_xKpDr3Sfo0"><strong style=
+=3D""><br><br></strong></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#FFFFFF">
+<tr>
+<td class=3D"show-for-lg" valign=3D"top" style=3D"font-size:0;line-height:0=
+;" height=3D"20"></td>
+</tr>
+<tr class=3D"hide-for-mso">
+<td class=3D"hide-for-mso" valign=3D"top" style=3D"font-size:0;line-height:=
+0;">
+<div class=3D"hide-for-lg hide-for-mso" style=3D"display:none;font-size:0;h=
+eight:10px;line-height:0;max-height:0;max-width:0;mso-hide:all;overflow:hid=
+den;width:0;visibility:hidden;"></div>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0px 0px 0px 0px;">
+<div style=3D"width:0; overflow:hidden; float:left; display:none; max-heigh=
+t:0px; mso-hide:all;" class=3D"mobshow"><a href=3D"http://www.ryanairemail.=
+com/r/?id=3Dh60675ef0,7dbef6a7,2776f136&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl=
+1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm=
+9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DCFUhFIhvq3n2iY2z7ujD50me6YurJwGfZ40ZzBwjvco"><=
+img src=3D"https://www.ryanair.com/content/dam/ryanair/trade-crm/assets-202=
+3/august/help-centre-refresh/updated/MicrosoftTeams-image-(244).png" border=
+=3D"0" class=3D"sm-full hide-for-lg" style=3D"border:0;outline:0;width:100%=
+;display:none;font-size:0;line-height:0;max-height:0;max-width:0;mso-hide:a=
+ll;overflow:hidden;width:0;visibility:hidden;"></a></div>
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f137&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DoUhT5F3tZlw=
+ToroifNwmCv3yR-oibNDMUy1XH6xnS04"><img src=3D"https://www.ryanair.com/conte=
+nt/dam/ryanair/trade-crm/assets-2023/august/help-centre-refresh/updated/Mic=
+rosoftTeams-image-(244).png" width=3D"600" border=3D"0" style=3D"border:0;d=
+isplay:block;outline:0;max-width:100%;width:100%" class=3D"nomob"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#f4f4f4">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"sm-padding-left-16 sm-padding-=
+right-16" style=3D"padding:10px 50px 0px 50px;text-transform:none;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:24px;line-height:30px;color:#073590;">
+<strong style=3D"">Online Check-in  </strong>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"font-size:0;line-height:0;padding:0px 0px 10px 0px;" align=3D"=
+center">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"center">
+<tr>
+<td align=3D"center" style=3D"font-family:'Roboto', Helvetica, Arial, sans-=
+serif;font-size:20px;line-height:26px;color:#073590;">
+Never used a smart phone before? That's ok. Find out how and when to check-=
+in online on our Help Centre. It's completely free to do online, we will ch=
+arge you a fee at the airport if you have not checked in.  <br><br><a style=
+=3D"color:#35a9ff; text-decoration: underline;" target=3D"_blank" href=3D"h=
+ttp://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f138&e=3DdXRtX3Nv=
+dXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHB=
+DZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3Dj_wK8EJECo4Cv8ScUof8qRt=
+IBQy5mfjfmTyfCjuZDgg"><strong style=3D"">Find out more</strong></a><a style=
+=3D"color:#35a9ff; text-decoration: underline;" target=3D"_blank" href=3D"h=
+ttp://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f139&e=3DdXRtX3Nv=
+dXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9TRVJWX0hlbHB=
+DZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DTcH0FzzzVTjANEiAz1PUfOG=
+lw-NU8E1RJHApx5RFwxQ"><strong style=3D""><br><br></strong></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%; margin:0 a=
+uto;max-width:600px;overflow:hidden;width:100%;" bgcolor=3D"#FFFFFF">
+<tr>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" width=3D"100%" class=3D"wrapto100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"min-width:100%;border:none=
+;">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:20px 16px 10px 16px;">
+<table role=3D"presentation" width=3D"100%" style=3D"min-width:100%;" class=
+=3D"wrapto100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+<td align=3D"center" style=3D"padding:10px 0px 20px 0px;">
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0">
+<tr>
+<td bgcolor=3D"#f1c933" align=3D"center" style=3D"padding:15px 25px;font-we=
+ight:bold; border-radius:4px;  color:#073590; font-size:16px;line-height:20=
+px; text-decoration:none; font-family: 'Roboto', Helvetica, Arial, sans-ser=
+if;">
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f13a&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3Da0-5NQGusSu=
+hKQ0r5JFDcEfxH-ooX8-ZHipyhx_JTJg" style=3D"color:#073590; text-decoration: =
+none;display:block;" class=3D"button-href">Help Centre</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+</table><!-- end of content --><!-- Footer --><!-- end of footer --><!-- fo=
+oter v2 -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%" style=3D"font-size:0;line-height:0;">
+<tr>
+<td background=3D"https://www.ryanair.com/content/dam/ryanair/trade-crm/act=
+ivetripcrm/taxitesting/header-bg.jpg" bgcolor=3D"#073590" valign=3D"top" st=
+yle=3D"text-align:center;">
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"font-size:0;line-height:0;">
+<tr>
+<td style=3D"font-size:0;line-height:0;mso-line-height-rule:exactly;"><!--[=
+if ((gte mso 9)&(lt mso 15))|gte mso 16]>
+                            <v:rect xmlns:v=3D"urn:schemas-microsoft-com:vm=
+l" fill=3D"true" stroke=3D"false" style=3D"width:600px;">
+                              <v:fill type=3D"tile" src=3D"https://www.ryan=
+air.com/content/dam/ryanair/trade-crm/activetripcrm/taxitesting/header-bg.j=
+pg" color=3D"#073590"/>
+                              <v:textbox style=3D"mso-fit-shape-to-text:tru=
+e;" inset=3D"0,0,0,0">
+                                <![endif]-->
+<div style=3D"font-size:0;line-height:0;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" width=3D"100%" style=3D"font-size:0;line-height:0;">
+<tr>
+<td width=3D"8"></td>
+<td class=3D"sm-text-center" style=3D"padding:8px 0 8px 0;text-align:right;=
+"><!--[if gte mso 9]>
+                                        <table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"font-siz=
+e:0;line-height:0;">
+                                          <tr>
+                                            <td valign=3D"middle" width=3D"=
+116">
+                                              <table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"font-size:0;line-=
+height:0;">
+                                                <tr>
+                                                  <td width=3D"8"></td>
+                                                  <td style=3D"padding:8px =
+0 8px 0;">
+                                                    <![endif]--><!--[if !(g=
+te mso 9)]><!-->
+<div style=3D"display:inline-block;padding:8px 8px 8px 8px;vertical-align:t=
+op;"><!--<![endif]-->
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f13b&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DkpzFzTOtQe_=
+c9rizrmiJxU6hYvtkhhse3m8g-jRgLmo" target=3D"_blank"><img style=3D"display:b=
+lock;" border=3D"0" src=3D"https://www.ryanair.com/content/dam/ryanair/crm/=
+templates/pb/_elements/ryanair_logo_footer_2x.png" width=3D"100" height=3D"=
+12" alt=3D"Ryanair logo"></a><!--[if !(gte mso 9)]><!-->
+</div><!--<![endif]--><!--[if gte mso 9]>
+                                                  </td>
+                                                  <td width=3D"8"></td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                            <td valign=3D"middle">
+                                              <table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"fo=
+nt-size:0;line-height:0;">
+                                                <tr>
+                                                  <td width=3D"8"></td>
+                                                  <td style=3D"color:#FFFFF=
+F;font-family:Arial,Helvetica,sans-serif,'Roboto';font-size:10px;line-heigh=
+t:12px;padding:8px 0 8px 0;text-align:right;">
+                                                    <![endif]--><!--[if !(g=
+te mso 9)]><!-->
+<div style=3D"display:inline-block;max-width:100%;padding:8px 8px 8px 8px;v=
+ertical-align:top;">
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"font-size:0;line-height:0;">
+<tr>
+<td align=3D"right" class=3D"sm-text-center" valign=3D"middle" style=3D"col=
+or:#FFFFFF;font-family:Arial,Helvetica,sans-serif,'Roboto';font-size:10px;l=
+ine-height:12px;width:450px;"><!--<![endif]-->
+
+                                                                2024 =A9 Ry=
+anair DAC.
+                                                             =20
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f13c&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DPuXD9joz6z3=
+JrDXRejv-x5SdfCiGko4KUUtrIyz2HAg" style=3D"color:#FFFFFF;text-decoration:no=
+ne;">Terms&nbsp;&amp;&nbsp;Conditions
+</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f13d&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3DfkM9EDAJYwj=
+8hr1sutW6p_uJfVpI33q0tCvzyP0vw6w" style=3D"color:#FFFFFF;text-decoration:no=
+ne;">Privacy&nbsp;Policy
+</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,2776f13e&=
+e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWxfVV9=
+TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scw&s=3D15NAo9Px6yE=
+9rhNVHgQIcVaXaADPT1Az5m0k2WVigeM" style=3D"color:#FFFFFF;text-decoration:no=
+ne;">Contact&nbsp;us
+</a>
+<a _type=3D"optout" style=3D"padding-right:16px;color:#FFFFFF;text-decorati=
+on:none;" href=3D"http://www.ryanairemail.com/r/?id=3Dh60675ef0,7dbef6a7,27=
+76f33d&e=3DdXRtX3NvdXJjZT1jcm0mdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1h=
+aWxfVV9TRVJWX0hlbHBDZW50cmVfZW5fbm9zZWdfbm9hYl9ub2Rpdl9ub3Bfbm9scyZwMT0lNDB=
+OM3Qya3EyY3NmJTJGNHdHTU1JdzcybUElM0QlM0Q&s=3D877cw6xASUVcRCsHAs5ETFoqR0zkec=
+CvJdJYZQcJRYM"><!--[if !(gte mso 9)]><!-->
+</td>
+</tr>
+</table>
+</div><!--<![endif]--><!--[if gte mso 9]>
+                                                  </td>
+                                                  <td width=3D"8"></td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <![endif]-->
+</td>
+<td width=3D"8"></td>
+</tr>
+</table>
+</div><!--[if ((gte mso 9)&(lt mso 15))|gte mso 16]>
+                                <p style=3D"font-size:0;line-height:0;margi=
+n:0;mso-hide:all"><o:p xmlns:o=3D"urn:schemas-microsoft-com:office:office">=
+&nbsp;</o:p></p>
+                              </v:textbox>
+                            </v:rect>
+                            <![endif]-->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><!-- end of footer v2 -->
+</td>
+<td class=3D"nomob" style=3D"font-size:0px; line-height:0px;">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<img height=3D'0' width=3D'0' alt=3D'' src=3D'http://www.ryanairemail.com/r=
+/?id=3Dh60675ef0,7dbef6a7,1'/></body>
+</html>
+
+------=_NextPart_178_4ED827CC.4ED827CC--

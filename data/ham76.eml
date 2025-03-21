@@ -1,0 +1,892 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c2e6:0:b0:2ac:6419:e1b with SMTP id j6csp1545074lkp;
+        Sun, 15 Dec 2024 05:26:05 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFV0nJubnVrmPEvBKDFknOyRJS8xPfqI6814lwJ4rw0AO/uXjU4uJVeOgsnyb4EMIq6YR9u
+X-Received: by 2002:a92:c26a:0:b0:3a7:635e:d365 with SMTP id e9e14a558f8ab-3aff69dc06amr98083495ab.6.1734269165468;
+        Sun, 15 Dec 2024 05:26:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734269165; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gBEYD3HJQ0JERfB/AK8CwHE1ISiZGMXQdfWevSnACmKux0ATDA2lGHFtVhLijfCQqF
+         wtwNtMSsPfTv0Mhv+Y6LWOiunYrzrNS//vq6ECrc5SjqM0E/jhQq8i6M9BHcndcNlMER
+         djKxTdqtSL1AcpImqh4ob1tPCL34xwleY3XYRnOtx4PdLGJ3FmYMPJYFyUSRUHqMEQ7v
+         2sPQ4oOTTNiPfEIQDmPsxvSGUhdxc6/GOU6jVPykS9yIBtu/sYyM/0ZgqCgcdv/zS+mx
+         18a2zp3K/nMMC27lLeRH0NIIFOqIxR7LWQCndXv//fOfZWOTAqGtjdS0xwjoPOX10GFJ
+         fAiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=require-recipient-valid-since:feedback-id:list-unsubscribe-post
+         :list-unsubscribe:date:to:mime-version:subject:message-id:from
+         :dkim-signature:dkim-signature;
+        bh=UAFkC8sKrPGSju3e9lSIYtPYbzPI7UUUYdepireWXys=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=SqP98X2hJ95LAIt4oiaEoEZoRDmqKayos8uS9ceK0D/b2nsqfsRelfeTy4d5Bd9NgD
+         1laQpcI7fVagyB6M2gN32SCQkXTWiVHyhmP8p6WjqFknASkMDUe5q5DTHEX4hMD81+Tb
+         2/4FlCECHCIjhA4w2rho9Rnj6BFL9IgIoiIv6kVqs00OlwzIeVedksT0LSnT7BL8Ym4s
+         qpxQpTRLM1Nvi+385M/s/tmBKIdxxZnHYcV2p+wx6Ws3GaEGQyI7gVGihtWvt1cG8zka
+         GC48ehEfohJgp7eGfEqIprlMWdjfwM3b/cctT3Lz5HR2TIn5qPGQzN3v4lUm35bkMp2A
+         K0Kw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=Ex0RTdse;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=trY4QOBv;
+       spf=pass (google.com: domain of s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com designates 108.174.3.206 as permitted sender) smtp.mailfrom=s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+Return-Path: <s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com>
+Received: from maile-bf.linkedin.com (maile-bf.linkedin.com. [108.174.3.206])
+        by mx.google.com with ESMTPS id 8926c6da1cb9f-4e5e4252a52si1973025173.175.2024.12.15.05.26.05
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 15 Dec 2024 05:26:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com designates 108.174.3.206 as permitted sender) client-ip=108.174.3.206;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=Ex0RTdse;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=trY4QOBv;
+       spf=pass (google.com: domain of s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com designates 108.174.3.206 as permitted sender) smtp.mailfrom=s-2io4xd181l298t5h3yyobugcdu8kh5wte8e4rka1szccmli3yy6zyq7r@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maile.linkedin.com; s=d2048-202308-0e; t=1734269165; bh=UAFkC8sKrPGSju3e9lSIYtPYbzPI7UUUYdepireWXys=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=Ex0RTdseTiCHsQN7vMxgi2cNc8WpQv2pgwhy128WKgVB0DRaRSypWUt6qofUjya/X
+	 iY4HTtpDgXEjX9QzTZplDBCgCk/HKv+HHLJ6TRUPwTtdnBHbhLuntqMA+6hlreE0wn
+	 KBW2OeTLuqkudJ7dKzU6U6/rv4WIDBHUy38HvdV3T8mAY8zd3J5ffHGlQxtJNug71Y
+	 9n6bugNWpKbvWuxOQyC8qoPBP9G62JgCC+J8gxl4Ar0pGoNdzFw8fddu67NsUzrdef
+	 MggeOBfaWON94uME/bnLrHLusJYR+CDAfnuxKnH8yQQdUOpVnbhXi1a+bxOwO6yboQ
+	 jraJS4RL+Ky7w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linkedin.com; s=d2048-202308-00; t=1734269165; bh=UAFkC8sKrPGSju3e9lSIYtPYbzPI7UUUYdepireWXys=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=trY4QOBvw0LZStNxa45WBy1S4OcT84lTV4lQq59gHTYv9ZhL4uuktWJXuePqDD5kf
+	 9G4N8JCZUEhaAubbj7RuHQ6qXE69sp3u5d5HDtwCcNaDy3kHFMMsYJiVr0DZ95eyLB
+	 gTafVF/HQxWH8Bvro1qDkgdenCEE2nJFbQs29hRgFx4WEzcDHJKS1r3C1QHRGF4Hjs
+	 Z8YELy5tZUGdwQL8CenIoUlRCD+B7LJOmQYTjFc1rTUp4Nw93up72mg0MNeabLgko4
+	 cmH776/LB2c+ls4yHDO6/OmoZG/pEVIQ9HImgxSARm+GP5zFjC/AwDpX1ojVBPhbSc
+	 gymL8fzBex9OQ==
+From: <sender@linkedin.com>
+Message-ID: <301570300.14064296.1734269165028@lva1-app101995.prod.linkedin.com>
+Subject: ConvoC2 - A Red Teamers Tool To Execute Commands on Hacked Hosts Via Microsoft Teams
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_14064294_830289718.1734269165024"
+To: <ham@ham.email>
+Date: Sun, 15 Dec 2024 13:26:05 +0000 (UTC)
+X-LinkedIn-Class: EMAIL-DEFAULT
+X-LinkedIn-Template: email_series_follow_newsletter_01
+X-LinkedIn-fbl: m2-clvfvqpneil2f03ybolbsr8udo57hzjjz6dq3caoz5381kjidl0xyvq3k5rk5jkxl1hm6ljjvde7ohx8fuxufo3nfvt0fg03gnud2x0wad6q6iijo1lday6yj9ohn22fwmsnpv1n
+X-LinkedIn-Id: hdesgg-m4pn2zhy-5k
+List-Unsubscribe: <https://www.linkedin.com/comm/series-notifications/?action=unsubscribe&memberToken=ADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6Ok&newsletterId=7045874934954278912&newsletterTitle=Cyber%20Security%20News&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&midToken=AQGhw_YagvtrXA&midSig=1TNm6wiLkC3bA1&trk=eml-email_series_follow_newsletter_01-unsub-0-unsub&trkEmail=eml-email_series_follow_newsletter_01-unsub-0-unsub-null-hdesgg~m4pn2zhy~5k-null-null&eid=hdesgg-m4pn2zhy-5k&otpToken=MTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: email_series_follow_newsletter_01:linkedin
+Require-Recipient-Valid-Since: ham@ham.email; Fri, 14 Oct 2022 13:41:35 +0000
+
+------=_Part_14064294_830289718.1734269165024
+Content-Type: text/plain;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: text-body
+
+Cyber Security News
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+   =20
+   =20
+    =D0=9F=D1=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=
+=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=
+=D1=8B =D0=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=
+=D1=8C=D1=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=
+=D0=B8=D1=8E
+=D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=B2 LinkedIn
+https://www.linkedin.com/comm/pulse/convoc2-red-teamers-tool-execute-comman=
+ds-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newslett=
+er_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D1TN=
+m6wiLkC3bA1&trk=3Deml-email_series_follow_newsletter_01-null-0-read_more_ba=
+nner_cta_&trkEmail=3Deml-email_series_follow_newsletter_01-null-0-read_more=
+_banner_cta_-null-hdesgg~m4pn2zhy~5k-null-null&eid=3Dhdesgg-m4pn2zhy-5k&otp=
+Token=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2J=
+jZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZT=
+hkMGVhYmNhNzVkNjExLDEsMQ%3D%3D
+ =20
+A stealthy Command-and-Control (C2) infrastructure Red Team tool named Conv=
+oC2 showcases how cyber attackers can exploit Microsoft Teams to execute sy=
+stem commands on compromised hosts remotely. This innovative project, desig=
+ned with Red Team operations in mind, uses Teams messages for hidden data e=
+xfiltration and command execution, demonstrating a significant security cha=
+llenge for organizations relying on the Microsoft collaboration tool. How C=
+onvoC2 Works ConvoC2 leverages Microsoft Teams as a medium to infiltrate an=
+d exfiltrate data covertly. Exploiting hidden tags in Teams messages inject=
+s commands for execution on compromised systems. To exfiltrate data, output=
+s are hidden within Adaptive Cards' image URLs, triggering outbound HTTP re=
+quests to a C2 server controlled by attackers. The unique methodology minim=
+izes detection: No direct connection exists between the victim and attacker=
+, as traffic flows through Microsoft's servers. Antivirus and monitoring to=
+ols rarely inspect Teams logs, making this technique stealthier. Even if a =
+user does not accept the attacker's chat request, the commands are still ca=
+ched in Teams logs and can be executed. Architecture and Demonstration A de=
+monstration video highlights ConvoC2 in action. In the test, two compromise=
+d hosts one running the new Teams on Windows 11 and another operating the o=
+ld Teams on Windows 10=E2=80=94are controlled via the ConvoC2 server. In so=
+me scenarios, the attacker is external to the victim=E2=80=99s organization=
+, emphasizing its cross-org exploitation potential. Are you From SOC/DFIR T=
+eams? Analyze Malware and Phishing with ANY.RUN=E2=80=99s Interactive Sandb=
+ox =E2=80=93 Try for Free Setting Up ConvoC2 Interested in testing this too=
+l? Here's what ConvoC2 requires: Install the ConvoC2 Server and Agent: Serv=
+er Download Agent Download Set Up a Teams Channel with Incoming Webhooks: C=
+reate a Teams channel and configure a Workflow Incoming Webhook. This acts =
+as the medium to receive Adaptive Cards containing extracted data. Fetch Vi=
+ctim IDs and Auth Tokens: Using a web proxy, intercept Teams API requests t=
+o obtain the victim's unique IDs and Bearer token. This allows the server t=
+o authenticate and send commands. Run and Operate the Server: Using public-=
+facing HTTP traffic on port 80, the server manages connected agents and exe=
+cutes commands on victim systems. Requirements for Execution Microsoft Team=
+s must be running on the victim=E2=80=99s system (even in the background). =
+A configurable C2 server with HTTP traffic enabled. Basic setup knowledge t=
+o configure webhooks and capture IDs/authentication tokens. For a detailed =
+setup walkthrough, refer to the project's=C2=A0repository instructions. Con=
+voC2 draws inspiration from the earlier research,=C2=A0GIFShell, conducted =
+by=C2=A0Bobbyrsec, which identified vulnerabilities in embedding commands w=
+ithin Base64-encoded GIFs posted in Teams chats. Though Microsoft has parti=
+ally addressed those issues, ConvoC2 pioneers an alternative that embeds co=
+mmands directly in hidden=C2=A0=C2=A0tags within messages, bypassing prior =
+security measures. Example: Commands are hidden in the=C2=A0=C2=A0attribute=
+ of=C2=A0=C2=A0tags with=C2=A0. Microsoft Teams logs these, enabling comman=
+d execution stealthily. The developer has outlined several enhancements to =
+improve ConvoC2's capabilities: Integrating=C2=A0AES encryption=C2=A0for me=
+ssage security. Implementing a keepalive mechanism to detect if an agent is=
+ inactive. Adding a=C2=A0PowerShell=C2=A0version of the agent for broader c=
+ompatibility. The Developer Invites ConvoC2 serves as a vital reminder of t=
+he evolving landscape of cyber threats. By exploiting a trusted collaborati=
+on platform like Microsoft Teams, attackers can achieve unprecedented steal=
+th when carrying out malicious operations. Organizations are urged to: Enha=
+nce monitoring of Microsoft Teams environments. Regularly audit server and =
+log activity for unusual patterns. Implement defensive measures such as end=
+point detection and response (EDR) tools capable of inspecting Teams logs. =
+The developer invites the cybersecurity community to=C2=A0contribute improv=
+ements=C2=A0to the project or identify potential bugs. Researchers and engi=
+neers can submit pull requests via the=C2=A0ConvoC2 GitHub repository. Coll=
+aboration with the community remains a cornerstone for identifying vulnerab=
+ilities and strengthening defenses.=C2=A0Stay vigilant, and ensure your org=
+anization is prepared for emerging threats like ConvoC2. 2024 MITRE ATT&CK =
+Evaluation Results: ONLY Cynet Delivers 100% Detection & Protection - Downl=
+oad Free Guide
+=D0=9F=D1=80=D0=BE=D0=B4=D0=BE=D0=BB=D0=B6=D0=B8=D1=82=D1=8C =D1=87=D1=82=
+=D0=B5=D0=BD=D0=B8=D0=B5 =D0=B2 LinkedIn
+https://www.linkedin.com/comm/pulse/convoc2-red-teamers-tool-execute-comman=
+ds-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newslett=
+er_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D1TN=
+m6wiLkC3bA1&trk=3Deml-email_series_follow_newsletter_01-newsletter_content_=
+preview_text-0-readmore_button_&trkEmail=3Deml-email_series_follow_newslett=
+er_01-newsletter_content_preview_text-0-readmore_button_-null-hdesgg~m4pn2z=
+hy~5k-null-null&eid=3Dhdesgg-m4pn2zhy-5k&otpToken=3DMTMwNTFiZTAxNjJiYzljNGI=
+yMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NT=
+JmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D
+ =20
+     =20
+
+----------------------------------------
+
+=D0=AD=D1=82=D0=BE =D1=81=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D0=B5 =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D1=8B =D0=B0=D0=B4=D1=80=D0=B5=
+=D1=81=D0=BE=D0=B2=D0=B0=D0=BD=D0=BE =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D1=83 (Cybersecurity specialist | CEH)
+=D0=A7=D1=82=D0=BE =D1=8D=D1=82=D0=BE =D0=B7=D0=BD=D0=B0=D1=87=D0=B8=D1=82:=
+ https://www.linkedin.com/help/linkedin/answer/4788?lang=3Dru&lipi=3Durn%3A=
+li%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xf=
+g%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D1TNm6wiLkC3bA1&trk=3Deml-email_s=
+eries_follow_newsletter_01-SecurityHelp-0-textfooterglimmer&trkEmail=3Deml-=
+email_series_follow_newsletter_01-SecurityHelp-0-textfooterglimmer-null-hde=
+sgg~m4pn2zhy~5k-null-null&eid=3Dhdesgg-m4pn2zhy-5k&otpToken=3DMTMwNTFiZTAxN=
+jJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYz=
+ZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDE=
+sMQ%3D%3D
+=D0=92=D1=8B =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=
+=D0=B2=D0=B5=D0=B4=D0=BE=D0=BC=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =
+=D0=94=D1=80=D1=83=D0=B3=D0=B8=D0=B5 =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D0=B8 =D0=BC=D0=BE=D0=B3=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=
+=D1=82=D1=8C, =D1=87=D1=82=D0=BE =D0=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=
+=B5=D1=82=D0=B5=D1=81=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=
+=B8=D0=BA=D0=BE=D0=BC.
+
+=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=
+=D0=B8=D1=81=D0=BA=D1=83: https://www.linkedin.com/comm/series-notification=
+s/?action=3Dunsubscribe&memberToken=3DADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6=
+Ok&newsletterId=3D7045874934954278912&newsletterTitle=3DCyber%20Security%20=
+News&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbT=
+sXZ0XRtmTdPEL5r9Xfg%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D1TNm6wiLkC3bA1=
+&trk=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimmer&tr=
+kEmail=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimmer-=
+null-hdesgg~m4pn2zhy~5k-null-null&eid=3Dhdesgg-m4pn2zhy-5k&otpToken=3DMTMwN=
+TFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVh=
+NTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzV=
+kNjExLDEsMQ%3D%3D=C2=A0=C2=A0=C2=B7=C2=A0=C2=A0=D0=A1=D0=BF=D1=80=D0=B0=D0=
+=B2=D0=BA=D0=B0: https://www.linkedin.com/help/linkedin/answer/67?lang=3Dru=
+&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0=
+XRtmTdPEL5r9Xfg%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D1TNm6wiLkC3bA1&trk=
+=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer&trkEmail=
+=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer-null-hdes=
+gg~m4pn2zhy~5k-null-null&eid=3Dhdesgg-m4pn2zhy-5k&otpToken=3DMTMwNTFiZTAxNj=
+JiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZ=
+DdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEs=
+MQ%3D%3D
+
+=C2=A9 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dubl=
+in 2 (=D0=98=D1=80=D0=BB=D0=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2024=C2=A0=D0=B3.L=
+inkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=
+=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=
+=BD=D1=8B=D0=BC =D1=84=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=BD=D1=8B=D0=BC =D0=
+=BD=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5=D0=BC=
+ =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn Ireland Unlimite=
+d Company.
+LinkedIn =D0=B8 =D1=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=BC=D0=B0 LinkedIn =D1=8F=
+=D0=B2=D0=BB=D1=8F=D1=8E=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=
+=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=
+=BC=D0=B8 =D1=82=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=8B=D0=BC=D0=B8 =D0=B7=D0=
+=BD=D0=B0=D0=BA=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=
+=B8=D0=B8 LinkedIn.
+------=_Part_14064294_830289718.1734269165024
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: html-body
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"ru" xml:lang=3D"ru"> <=
+head> <meta http-equiv=3D"Content-Type" content=3D"text/html;charset=3Dutf-=
+8"> <meta name=3D"HandheldFriendly" content=3D"true"> <meta name=3D"viewpor=
+t" content=3D"width=3Ddevice-width; initial-scale=3D0.666667; user-scalable=
+=3D0"> <meta name=3D"viewport" content=3D"width=3Ddevice-width"> <title></t=
+itle> <style>
+            @media (max-width: 512px) { .mercado-container { width: 100% !i=
+mportant; } }
+          </style> <style>
+            @media (max-width: 480px) { .inline-button, .inline-button tabl=
+e { display: none !important; }
+            .full-width-button, .full-width-button table { display: table !=
+important; } }
+          </style> <style>body {font-family: -apple-system, system-ui, Blin=
+kMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+            'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid S=
+ans', 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica=
+, Arial, sans-serif;}</style> <!--[if mso]><style type=3D"text/css"> </styl=
+e><![endif]--> <!--[if IE]><style type=3D"text/css"> </style><![endif]--> <=
+/head> <body dir=3D"ltr" class=3D"font-sans bg-color-background-canvas w-fu=
+ll m-0 p-0 pt-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adj=
+ust: 100%; margin: 0px; width: 100%; background-color: #f3f2f0; padding: 0p=
+x; padding-top: 8px; font-family: -apple-system, system-ui, BlinkMacSystemF=
+ont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Ox=
+ygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji',=
+ 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sa=
+ns-serif;"> <div class=3D"h-0 opacity-0 text-transparent invisible overflow=
+-hidden w-0 max-h-[0]" style=3D"visibility: hidden; height: 0px; max-height=
+: 0; width: 0px; overflow: hidden; opacity: 0; mso-hide: all;" data-email-p=
+reheader=3D"true">A stealthy Command-and-Control (C2) infrastructure Red Te=
+am tool named ConvoC2=E2=80=A6</div> <div class=3D"h-0 opacity-0 text-trans=
+parent invisible overflow-hidden w-0 max-h-[0]" style=3D"visibility: hidden=
+; height: 0px; max-height: 0; width: 0px; overflow: hidden; opacity: 0; mso=
+-hide: all;"> =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+ =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 </div> <table role=3D"presentation" valign=
+=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"512" ali=
+gn=3D"center" class=3D"mercado-container w-[512px] max-w-[512px] mx-auto my=
+-0 p-0 bg-color-background-container" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; margin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0=
+px; width: 512px; max-width: 512px; background-color: #ffffff; padding: 0px=
+;"> <tbody> <tr> <td class=3D"text-center p-3" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; padding: 24px; text-align: center;"> <table role=3D"presentatio=
+n" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D=
+"100%" class=3D"min-w-full" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-wid=
+th: 100%;"> <tbody> <tr> <td align=3D"left" valign=3D"middle" style=3D"-web=
+kit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/feed/=
+?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0=
+XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC=
+3bA1&amp;trk=3Deml-email_series_follow_newsletter_01-header-0-home_glimmer_=
+dynamic_badging_high_dpi&amp;trkEmail=3Deml-email_series_follow_newsletter_=
+01-header-0-home_glimmer_dynamic_badging_high_dpi-null-hdesgg~m4pn2zhy~5k-n=
+ull-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNG=
+IyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5N=
+TJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D=
+" target=3D"_blank" class=3D"w-[84px]" style=3D"color: #0a66c2; cursor: poi=
+nter; display: inline-block; text-decoration: none; -webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; width: 84px;"> <img class=3D"h-[37px] =
+w-[101px]" alt=3D"LinkedIn" src=3D"https://www.linkedin.com/comm/dms/logo/v=
+2?badgeTheme=3Dmercado&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_foll=
+ow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midSig=3D1TNm6wiLkC3bA1=
+&amp;midToken=3DAQGhw_YagvtrXA&amp;trkEmail=3Deml-email_series_follow_newsl=
+etter_01-null-0-comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2-null-hdesgg%7Em4pn=
+2zhy%7E5k-null-null&amp;trk=3Deml-email_series_follow_newsletter_01-null-0-=
+comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2&amp;_sig=3D2JtHMaAr8C3bA1" data-te=
+st-header-dynamic-badging-img-high-dpi style=3D"outline: none; text-decorat=
+ion: none; -ms-interpolation-mode: bicubic; height: 37px; width: 101px;" wi=
+dth=3D"101" height=3D"37"> </a> </td> <td valign=3D"middle" align=3D"right"=
+ style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-t=
+able-lspace: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentation" val=
+ign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"=
+ data-test-header-profile style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody>=
+ <tr> <td align=3D"right" valign=3D"middle" class=3D"w-[32px]" style=3D"-we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: =
+0pt; mso-table-rspace: 0pt; width: 32px;" width=3D"32"> <a href=3D"https://=
+de.linkedin.com/comm/in/ham-414963253?lipi=3Durn%3Ali%3Apa=
+ge%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D=
+&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-em=
+ail_series_follow_newsletter_01-header-0-profile_glimmer&amp;trkEmail=3Deml=
+-email_series_follow_newsletter_01-header-0-profile_glimmer-null-hdesgg~m4p=
+n2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAx=
+NjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWY=
+zZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLD=
+EsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; dis=
+play: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%;"> <img alt=3D"ham" src=3D"http=
+s://media.licdn.com/dms/image/v2/D4D03AQEM1vk0gR-4FA/profile-displayphoto-s=
+hrink_200_200/profile-displayphoto-shrink_200_200/0/1715028073439?e=3D21474=
+83647&amp;v=3Dbeta&amp;t=3DWi3Eduwafs4wgwPld37nysUW8pRLTBn3Pe9ZB5xgYMU" cla=
+ss=3D"rounded-[100%] w-[32px] h-[32px]" style=3D"outline: none; text-decora=
+tion: none; -ms-interpolation-mode: bicubic; height: 32px; width: 32px; bor=
+der-radius: 100%;" width=3D"32" height=3D"32"> </a> </td> </tr> </tbody> </=
+table> </td> </tr> </tbody> </table> </td> </tr> <tr> <td class=3D"px-0 pb-=
+3" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; padding-left: 0px; padding-right=
+: 0px; padding-bottom: 24px;"> <div> <table role=3D"presentation" valign=3D=
+"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td data-test-id=3D"newsl=
+etter-entity-lockup" class=3D"px-3 pt-1" style=3D"-webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace:=
+ 0pt; padding-left: 24px; padding-right: 24px; padding-top: 8px;"> <table r=
+ole=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"100%" class=3D"font-sans" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans',=
+ Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI =
+Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;">=
+ <tbody> <tr> <td valign=3D"top" class=3D"pr-1 w-6" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; width: 48px; padding-right: 8px;" width=3D"48"> <a href=3D=
+"https://www.linkedin.com/comm/newsletters/7045874934954278912?lipi=3Durn%3=
+Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9X=
+fg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=
+=3Deml-email_series_follow_newsletter_01-newsletter_entity_lockup-0-newslet=
+ter_entity_cta&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newslet=
+ter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4pn2zhy~5k-null-null=
+&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZm=
+ViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmY=
+zk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=
+=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; display: inline-block=
+; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adju=
+st: 100%;"> <img class=3D"inline-block relative bg-color-entity-ghost-backg=
+round w-6 h-6 rounded-md" src=3D"https://media.licdn.com/dms/image/v2/D5612=
+AQHy-Bq-v0EHTg/series-logo_image-shrink_100_100/series-logo_image-shrink_10=
+0_100/0/1679867465184?e=3D2147483647&amp;v=3Dbeta&amp;t=3D8G7OxvphOftgFYq_V=
+waM8_8xM7zUZAEmYJa6cGY_6xo" alt=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=8B=D1=82=D1=
+=8C: Cyber Security News" style=3D"outline: none; text-decoration: none; -m=
+s-interpolation-mode: bicubic; position: relative; display: inline-block; h=
+eight: 48px; width: 48px; border-radius: 8px; background-color: #eae6df;" w=
+idth=3D"48" height=3D"48"> </a> </td> <td valign=3D"top" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt;"> <table role=3D"presentation" valign=3D"top" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"-webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace=
+: 0pt;"> <a href=3D"https://www.linkedin.com/comm/newsletters/7045874934954=
+278912?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BY=
+bTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm=
+6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_entit=
+y_lockup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_series_follow_new=
+sletter_01-newsletter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4p=
+n2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAx=
+NjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWY=
+zZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLD=
+EsMQ%3D%3D" target=3D"_blank" class=3D"no-underline" style=3D"color: #0a66c=
+2; cursor: pointer; display: inline-block; text-decoration: none; -webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line: no=
+ne;"> <div class=3D"pb-0.5" style=3D"padding-bottom: 4px;"> <span class=3D"=
+text-md font-bold text-color-text break-words leading-regular" style=3D"ove=
+rflow-wrap: break-word; font-size: 16px; font-weight: 600; line-height: 1.2=
+5; color: rgba(0, 0, 0, 0.9);"> Cyber Security News </span> </div> </a> </t=
+d> </tr> <tr> <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a href=3D"http=
+s://www.linkedin.com/comm/newsletters/7045874934954278912?lipi=3Durn%3Ali%3=
+Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D=
+%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml=
+-email_series_follow_newsletter_01-newsletter_entity_lockup-0-newsletter_en=
+tity_cta&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_en=
+tity_lockup-0-newsletter_entity_cta-null-hdesgg~m4pn2zhy~5k-null-null&amp;e=
+id=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDEx=
+ZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk=
+5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_b=
+lank" class=3D"no-underline" style=3D"color: #0a66c2; cursor: pointer; disp=
+lay: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; text-decoration-line: none;"> <span class=3D"tex=
+t-xs text-color-text-low-emphasis leading-regular" style=3D"font-size: 12px=
+; line-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Get Daily Cyber Security =
+News Letters Directly From Cyber Space </span> </a> </td> </tr> </tbody> </=
+table> </td> </tr> </tbody> </table> </td> </tr> <tr data-test-id=3D"newsle=
+tter-content-preview"> <td class=3D"px-3 pt-2" style=3D"-webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; padding-left: 24px; padding-right: 24px; padding-top: 16px;"> <=
+table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" width=3D"100%" style=3D"-webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <=
+tbody> <tr> <td class=3D"overflow-hidden " style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; overflow: hidden;"> <table role=3D"presentation" valign=3D"top" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/convoc2-red-team=
+ers-tool-execute-commands-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email=
+_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3D=
+AQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follo=
+w_newsletter_01-newsletter_content_preview-0-headline_&amp;trkEmail=3Deml-e=
+mail_series_follow_newsletter_01-newsletter_content_preview-0-headline_-nul=
+l-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3D=
+MTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk=
+0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYm=
+NhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" class=3D"w-full" style=3D"color: =
+#0a66c2; cursor: pointer; display: inline-block; text-decoration: none; -we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; width: 100%;"> <im=
+g class=3D"block w-full aspect-[744/400] object-cover overflow-hidden" data=
+-test-id=3D"newsletter-content-preview__cover-image" alt=3D"=D0=93=D0=BB=D0=
+=B0=D0=B2=D0=BD=D0=BE=D0=B5 =D0=B8=D0=B7=D0=BE=D0=B1=D1=80=D0=B0=D0=B6=D0=
+=B5=D0=BD=D0=B8=D0=B5 =D1=80=D0=B0=D1=81=D1=81=D1=8B=D0=BB=D0=BA=D0=B8" src=
+=3D"https://media.licdn.com/dms/image/v2/D5612AQE0JUyd6jZSoQ/article-cover_=
+image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1734262605595?e=
+=3D2147483647&amp;v=3Dbeta&amp;t=3DjMGCjwbmAHJaqXZZ245dkpQxCfqS4HUX40HHmfhF=
+Hc0" style=3D"outline: none; text-decoration: none; -ms-interpolation-mode:=
+ bicubic; display: block; aspect-ratio: 744/400; width: 100%; overflow: hid=
+den; object-fit: cover;"> </a> </td> </tr> <tr> <td class=3D"py-2" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; padding-top: 16px; padding-bottom: 16px;"> =
+<table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" width=3D"100%" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> =
+<tbody> <tr> <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adj=
+ust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https=
+://www.linkedin.com/comm/pulse/convoc2-red-teamers-tool-execute-commands-ha=
+cked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01=
+%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D=
+1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_c=
+ontent_preview-0-title_&amp;trkEmail=3Deml-email_series_follow_newsletter_0=
+1-newsletter_content_preview-0-title_-null-hdesgg~m4pn2zhy~5k-null-null&amp=
+;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViND=
+ExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3M=
+Tk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"=
+_blank" class=3D"no-underline font-medium text-sm m-0 text-system-gray-90" =
+style=3D"cursor: pointer; display: inline-block; text-decoration: none; -we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0px; font-=
+size: 14px; font-weight: 500; color: #282828; text-decoration-line: none;">=
+ <h2 class=3D"m-0 text-display-sm leading-regular text-color-text font-bold=
+ font-sans" style=3D"margin: 0px; font-family: -apple-system, system-ui, Bl=
+inkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu=
+, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Seg=
+oe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helveti=
+ca, Arial, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.25=
+; color: rgba(0, 0, 0, 0.9);"> ConvoC2 - A Red Teamers Tool To Execute Comm=
+ands on Hacked Hosts Via Microsoft Teams </h2> </a> </td> </tr> <tr> <td st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentation" valign=
+=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" da=
+ta-test-id=3D"newsletter-author-lockup-redesign" class=3D"mt-1 mb-2" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; margin-bottom: 16px; margin-top: 8px;"> =
+<tbody> <tr> <td valign=3D"middle" align=3D"left" class=3D"w-3" style=3D"-w=
+ebkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; width: 24px;" width=3D"24"> <a href=3D"https:/=
+/www.linkedin.com/comm/company/cybersecurity-news?lipi=3Durn%3Ali%3Apage%3A=
+email_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;=
+midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_s=
+eries_follow_newsletter_01-newsletter_content_preview-0-author_&amp;trkEmai=
+l=3Deml-email_series_follow_newsletter_01-newsletter_content_preview-0-auth=
+or_-null-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpT=
+oken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2Jj=
+ZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZTh=
+kMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; c=
+ursor: pointer; display: inline-block; text-decoration: none; -webkit-text-=
+size-adjust: 100%; -ms-text-size-adjust: 100%;"> <img class=3D"inline-block=
+ relative bg-color-entity-ghost-background w-4 h-4 align-middle" src=3D"htt=
+ps://media.licdn.com/dms/image/v2/C510BAQHWcytRG2ULdA/company-logo_100_100/=
+company-logo_100_100/0/1630626984749/cybersecurity_news_logo?e=3D2147483647=
+&amp;v=3Dbeta&amp;t=3DYb5f1OLa5WlNYNOAE8euP_8-pFUGluW3LLF3RFp1CFQ" alt=3D"=
+=D0=98=D0=B7=D0=BE=D0=B1=D1=80=D0=B0=D0=B6=D0=B5=D0=BD=D0=B8=D0=B5 =D0=B0=
+=D0=B2=D1=82=D0=BE=D1=80=D0=B0" style=3D"outline: none; text-decoration: no=
+ne; -ms-interpolation-mode: bicubic; position: relative; display: inline-bl=
+ock; height: 32px; width: 32px; background-color: #eae6df; vertical-align: =
+middle;" width=3D"32" height=3D"32"> </a> </td> <td style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/company/cyberse=
+curity-news?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_0=
+1%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=
+=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsletter_01-newslette=
+r_content_preview-0-author_&amp;trkEmail=3Deml-email_series_follow_newslett=
+er_01-newsletter_content_preview-0-author_-null-hdesgg~m4pn2zhy~5k-null-nul=
+l&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZ=
+mViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVm=
+Yzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" targe=
+t=3D"_blank" class=3D"no-underline ml-1" style=3D"color: #0a66c2; cursor: p=
+ointer; display: inline-block; text-decoration: none; -webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; margin-left: 8px; text-decoration-li=
+ne: none;"> <span class=3D"font-sans font-bold text-sm mb-3 text-color-text=
+-low-emphasis leading-regular" style=3D"margin-bottom: 24px; font-family: -=
+apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica=
+ Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans'=
+, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol=
+', 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 14px; font-wei=
+ght: 600; line-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Cyber Security Ne=
+ws =C2=AE </span> </a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td c=
+lass=3D"pb-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 8px;"=
+> <div class=3D"p-3 bg-color-surface-tint rounded-md font-sans" data-test-i=
+d=3D"newsletter-cta-banner" style=3D"border-radius: 8px; background-color: =
+#f5f7f9; padding: 24px; font-family: -apple-system, system-ui, BlinkMacSyst=
+emFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, =
+'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoj=
+i', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial,=
+ sans-serif;"> <div class=3D"mb-1.5" style=3D"margin-bottom: 12px;"> <span =
+class=3D"text-md leading-regular font-bold text-color-text" style=3D"font-s=
+ize: 16px; font-weight: 600; line-height: 1.25; color: rgba(0, 0, 0, 0.9);"=
+> =D0=9F=D1=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=
+=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=
+=D1=8B =D0=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=
+=D1=8C=D1=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=
+=D0=B8=D1=8E </span> </div> <table role=3D"presentation" valign=3D"top" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"email=
+-button " data-test-id=3D"email-button" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt;"> <tbody> <tr> <td valign=3D"middle" align=3D"left" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/conv=
+oc2-red-teamers-tool-execute-commands-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3=
+Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp=
+;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_=
+series_follow_newsletter_01-newsletter_content_preview-0-read_more_banner_c=
+ta_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_content=
+_preview-0-read_more_banner_cta_-null-hdesgg~m4pn2zhy~5k-null-null&amp;eid=
+=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZG=
+UzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5Z=
+jE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_bla=
+nk" aria-label=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=8B=D1=82=D1=8C =D1=8D=D1=82=
+=D1=83 =D1=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn" class=3D"align=
+-top no-underline " style=3D"color: #0a66c2; cursor: pointer; display: inli=
+ne-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-s=
+ize-adjust: 100%; vertical-align: top; text-decoration-line: none;"> <table=
+ role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" width=3D"auto" class=3D"border-separate " style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; border-collapse: separate;"> <tbody> <tr> <td class=3D"b=
+tn-sm btn-primary border-color-brand button-link leading-regular !min-h-[au=
+to] !shadow-none border-1 border-solid" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; height: min-content; border-radius: 24px; padding-top: 7px; padding-bo=
+ttom: 7px; padding-left: 16px; padding-right: 16px; text-align: center; fon=
+t-size: 14px; font-weight: 600; cursor: pointer; text-decoration-line: none=
+; background-color: #0a66c2; color: #ffffff; border-width: 1px; border-styl=
+e: solid; border-color: #0a66c2; line-height: 1.25; min-height: auto !impor=
+tant; box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000 !important;"> <a href=3D"=
+https://www.linkedin.com/comm/pulse/convoc2-red-teamers-tool-execute-comman=
+ds-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newslett=
+er_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midS=
+ig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsletter_01-newslet=
+ter_content_preview-0-read_more_banner_cta_&amp;trkEmail=3Deml-email_series=
+_follow_newsletter_01-newsletter_content_preview-0-read_more_banner_cta_-nu=
+ll-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=
+=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0=
+Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGV=
+hYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" tabindex=3D"-1" aria-hidden=3D=
+"true" class=3D"no-underline" style=3D"color: #0a66c2; cursor: pointer; dis=
+play: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; text-decoration-line: none;"> <span class=3D"no=
+-underline text-white" style=3D"color: #ffffff; text-decoration-line: none;=
+"> =D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=B2 LinkedIn <=
+/span> </a> </td> </tr> </tbody> </table> </a> </td> </tr> </tbody> </table=
+> </div> </td> </tr> <tr data-test-id=3D"newsletter-content-preview--conten=
+t"> <td class=3D"series-article-body" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', R=
+oboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantar=
+ell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji',=
+ 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif; font-siz=
+e: 16px; line-height: 1.5; color: rgba(0, 0, 0, 0.9);"> <p style=3D"margin:=
+ 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;"=
+>A stealthy Command-and-Control (C2) infrastructure Red Team tool named Con=
+voC2 showcases how cyber attackers can exploit Microsoft Teams to execute s=
+ystem commands on compromised hosts remotely.</p><p style=3D"margin: 0; fon=
+t-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">This i=
+nnovative project, designed with Red Team operations in mind, uses Teams me=
+ssages for hidden data exfiltration and command execution, demonstrating a =
+significant security challenge for organizations relying on the Microsoft c=
+ollaboration tool.</p><h3 style=3D"margin: 0; margin-left: 0px; margin-righ=
+t: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: =
+600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);=
+">How ConvoC2 Works</h3><p style=3D"margin: 0; font-weight: 400; margin-top=
+: 0.8em; font-size: 1em; line-height: 1.5;">ConvoC2 leverages Microsoft Tea=
+ms as a medium to infiltrate and exfiltrate data covertly. Exploiting hidde=
+n tags in Teams messages injects commands for execution on compromised syst=
+ems.</p><figure style=3D"margin: 0px;"><img data-media-urn data-li-src=3D"h=
+ttps://media.licdn.com/dms/image/v2/D5612AQFvu4L6EdjqTQ/article-inline_imag=
+e-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1734262698686?e=
+=3D1740009600&amp;v=3Dbeta&amp;t=3DxXqmOj_rLIBNhIv4IH7W8EQDiHrLBJfM0d1gPzSO=
+uW0" src=3D"https://media.licdn.com/dms/image/v2/D5612AQFvu4L6EdjqTQ/articl=
+e-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/173=
+4262698686?e=3D1740009600&amp;v=3Dbeta&amp;t=3DxXqmOj_rLIBNhIv4IH7W8EQDiHrL=
+BJfM0d1gPzSOuW0" width=3D"480" style=3D"outline: none; text-decoration: non=
+e; -ms-interpolation-mode: bicubic; margin-top: 1em; display: block; max-wi=
+dth: 100%; margin-left: auto; margin-right: auto; width: 100%;"><figcaption=
+ style=3D"margin-top: 8px; text-align: center; font-family: -apple-system, =
+system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira =
+Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color=
+ Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Gra=
+nde', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.25; col=
+or: rgba(0, 0, 0, 0.6);"></figcaption></figure><p style=3D"margin: 0; font-=
+weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">To exfil=
+trate data, outputs are hidden within Adaptive Cards' image URLs, triggerin=
+g outbound HTTP requests to a C2 server controlled by attackers.</p><p styl=
+e=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-h=
+eight: 1.5;"></p><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em=
+; font-size: 1em; line-height: 1.5;">The unique methodology minimizes detec=
+tion:</p><ul style=3D"margin-top: 1em; margin-right: 0px; margin-bottom: 0p=
+x; margin-left: 1.5em; display: block; padding: 0px;"><li style=3D"margin-l=
+eft: 1em; font-size: 1em; line-height: 1.5; letter-spacing: -0.15%; color: =
+#282828;"><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-=
+size: 1em; line-height: 1.5;">No direct connection exists between the victi=
+m and attacker, as traffic flows through Microsoft's servers.</p></li><li s=
+tyle=3D"margin-left: 1em; font-size: 1em; line-height: 1.5; letter-spacing:=
+ -0.15%; color: #282828;"><p style=3D"margin: 0; font-weight: 400; margin-t=
+op: 0.8em; font-size: 1em; line-height: 1.5;">Antivirus and monitoring tool=
+s rarely inspect Teams logs, making this technique stealthier.</p></li><li =
+style=3D"margin-left: 1em; font-size: 1em; line-height: 1.5; letter-spacing=
+: -0.15%; color: #282828;"><p style=3D"margin: 0; font-weight: 400; margin-=
+top: 0.8em; font-size: 1em; line-height: 1.5;">Even if a user does not acce=
+pt the attacker's chat request, the commands are still cached in Teams logs=
+ and can be executed.</p></li></ul><h3 style=3D"margin: 0; margin-left: 0px=
+; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; =
+font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0=
+, 0, 0, 0.9);">Architecture and Demonstration</h3><p style=3D"margin: 0; fo=
+nt-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">A dem=
+onstration video highlights ConvoC2 in action. In the test, two compromised=
+ hosts one running the new Teams on Windows 11 and another operating the ol=
+d Teams on Windows 10=E2=80=94are controlled via the ConvoC2 server.</p><ta=
+ble class=3D"email-iframe-wrapper" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; =
+margin-top: 1em; width: 100%; background-color: #f5f7f9; text-align: center=
+;" width=3D"100%"><tbody><tr><td class=3D"email-iframe-td-padding-top" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; padding-top: 64px;"></td></tr><tr><td s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;"><img src=3D"https://media.licdn.com=
+/media/AAYQAgQJAAgAAQAAAAAAAEI_gKaSVYsWRCWh_qg9aKt9IQ.png" class=3D"email-i=
+frame-image" style=3D"outline: none; text-decoration: none; -ms-interpolati=
+on-mode: bicubic; margin-top: 1em; display: block; max-width: 100%; margin:=
+ auto; height: 64px; width: 64px;" width=3D"64" height=3D"64"></td></tr><tr=
+><td class=3D"email-iframe-td-padding-middle" style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; padding-top: 16px;"><a href=3D"https://www.linkedin.com/pulse/co=
+nvoc2-red-teamers-tool-execute-commands-hacked-ptcsc" target=3D"_blank" cla=
+ss=3D"email-iframe-button" style=3D"text-decoration: none; -webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; cursor: pointer; display: inlin=
+e-block; border-radius: 34px; border-width: 1px; border-style: solid; borde=
+r-color: #0a66c2; padding-top: 0.4em; padding-bottom: 0.4em; padding-left: =
+1em; padding-right: 1em; text-align: center; font-size: 1em; font-weight: 6=
+00; line-height: 1.25; color: #0a66c2; text-decoration-line: none;">View me=
+dia</a></td></tr><tr><td class=3D"email-iframe-td-padding-bottom" style=3D"=
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; padding-bottom: 64px;"></td></tr></tbody></t=
+able><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size:=
+ 1em; line-height: 1.5;">In some scenarios, the attacker is external to the=
+ victim=E2=80=99s organization, emphasizing its...</p> </td> </tr> <tr> <td=
+ class=3D"pt-2 no-underline" style=3D"-webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; paddin=
+g-top: 16px; text-decoration-line: none;"> <table role=3D"presentation" val=
+ign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"=
+ class=3D"email-button series-content-preview__bottom-cta" data-test-id=3D"=
+email-button" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td va=
+lign=3D"middle" align=3D"left" style=3D"-webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a=
+ href=3D"https://www.linkedin.com/comm/pulse/convoc2-red-teamers-tool-execu=
+te-commands-hacked-ptcsc?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow=
+_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA=
+&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsletter_0=
+1-newsletter_content_preview-0-readmore_button_&amp;trkEmail=3Deml-email_se=
+ries_follow_newsletter_01-newsletter_content_preview-0-readmore_button_-nul=
+l-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3D=
+MTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk=
+0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYm=
+NhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" aria-label=3D"=D0=9E=D1=82=D0=BA=
+=D1=80=D1=8B=D1=82=D1=8C =D0=B2 LinkedIn: Cyber Security News" class=3D"ali=
+gn-top no-underline " style=3D"color: #0a66c2; cursor: pointer; display: in=
+line-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; vertical-align: top; text-decoration-line: none; width:=
+ 100%;"> <table role=3D"presentation" valign=3D"top" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"border-separate " style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; border-collapse: separate; width: 100%;"=
+> <tbody> <tr> <td class=3D"btn-md btn-secondary-emphasis border-color-bran=
+d button-link leading-regular !min-h-[auto] !shadow-none border-1 border-so=
+lid font-sans" data-test-id=3D"newsletter-content-preview-redesign-bottom-c=
+ta" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; ms=
+o-table-lspace: 0pt; mso-table-rspace: 0pt; height: min-content; border-rad=
+ius: 24px; padding-top: 12px; padding-bottom: 12px; padding-left: 24px; pad=
+ding-right: 24px; text-align: center; font-size: 16px; font-weight: 600; cu=
+rsor: pointer; text-decoration-line: none; background-color: rgba(0, 0, 0, =
+0); color: #0a66c2; border-width: 1px; border-style: solid; border-color: #=
+0a66c2; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe U=
+I', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', C=
+antarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Em=
+oji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif; lin=
+e-height: 1.25; min-height: auto !important; box-shadow: 0 0 #0000, 0 0 #00=
+00, 0 0 #0000 !important;"> <a href=3D"https://www.linkedin.com/comm/pulse/=
+convoc2-red-teamers-tool-execute-commands-hacked-ptcsc?lipi=3Durn%3Ali%3Apa=
+ge%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D=
+&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-em=
+ail_series_follow_newsletter_01-newsletter_content_preview-0-readmore_butto=
+n_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_content_=
+preview-0-readmore_button_-null-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdes=
+gg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4O=
+WM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNk=
+MWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" tab=
+index=3D"-1" aria-hidden=3D"true" class=3D"no-underline" style=3D"color: #0=
+a66c2; cursor: pointer; display: inline-block; text-decoration: none; -webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line=
+: none; width: 100%;"> <span class=3D"no-underline text-color-brand" style=
+=3D"color: #0a66c2; text-decoration-line: none;"> =D0=9F=D1=80=D0=BE=D0=B4=
+=D0=BE=D0=BB=D0=B6=D0=B8=D1=82=D1=8C =D1=87=D1=82=D0=B5=D0=BD=D0=B8=D0=B5 =
+=D0=B2 LinkedIn </span> </a> </td> </tr> </tbody> </table> </a> </td> </tr>=
+ </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </tab=
+le> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </div> </td=
+> </tr> <tr> <td class=3D"bg-color-background-canvas p-3" style=3D"-webkit-=
+text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt; background-color: #f3f2f0; padding: 24px;"> <table r=
+ole=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" width=3D"100%" class=3D"text-xs" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; font-size: 12px;"> <tbody> <tr> <td class=3D"pb-1 m-0" data-test-id=
+=3D"email-footer__intended" style=3D"-webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin:=
+ 0px; padding-bottom: 8px;"> =D0=AD=D1=82=D0=BE =D1=81=D0=BE=D0=BE=D0=B1=D1=
+=89=D0=B5=D0=BD=D0=B8=D0=B5 =D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D1=
+=8B =D0=B0=D0=B4=D1=80=D0=B5=D1=81=D0=BE=D0=B2=D0=B0=D0=BD=D0=BE =D1=83=D1=
+=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=D0=BA=D1=83  (Cyberse=
+curity specialist | CEH) </td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt; margin: 0px; padding-bottom: 8px;"> <a href=
+=3D"https://www.linkedin.com/help/linkedin/answer/4788?lang=3Dru&amp;lipi=
+=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmT=
+dPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&=
+amp;trk=3Deml-email_series_follow_newsletter_01-SecurityHelp-0-footerglimme=
+r&amp;trkEmail=3Deml-email_series_follow_newsletter_01-SecurityHelp-0-foote=
+rglimmer-null-hdesgg~m4pn2zhy~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp=
+;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY=
+5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNT=
+E4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=3D"_blank" class=3D"text-inherit=
+ underline" style=3D"cursor: pointer; display: inline-block; text-decoratio=
+n: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color:=
+ inherit; text-decoration-line: underline;">=D0=A3=D0=B7=D0=BD=D0=B0=D0=B9=
+=D1=82=D0=B5, =D0=BF=D0=BE=D1=87=D0=B5=D0=BC=D1=83 =D1=8D=D1=82=D0=BE =D0=
+=B7=D0=B4=D0=B5=D1=81=D1=8C =D1=83=D0=BA=D0=B0=D0=B7=D0=B0=D0=BD=D0=BE.</a>=
+ </td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D"-webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace:=
+ 0pt; margin: 0px; padding-bottom: 8px;">=D0=92=D1=8B =D0=BF=D0=BE=D0=BB=D1=
+=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=D0=B2=D0=B5=D0=B4=D0=BE=D0=BC=D0=
+=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=
+=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =D0=94=D1=80=D1=83=D0=B3=D0=B8=D0=B5=
+ =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=D0=BA=D0=B8 =D0=BC=D0=BE=D0=B3=
+=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=D1=82=D1=8C, =D1=87=D1=82=D0=BE =D0=
+=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D0=B5=D1=81=D1=8C =D0=BF=D0=
+=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=B8=D0=BA=D0=BE=D0=BC.</td> </tr> <tr> =
+<td class=3D"pb-1 m-0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0px;=
+ padding-bottom: 8px;"> <a href=3D"https://www.linkedin.com/comm/series-not=
+ifications/?action=3Dunsubscribe&amp;memberToken=3DADoAAD6cmJABZPgpbXUnlaTx=
+ubyQwFKMcq1Y6Ok&amp;newsletterId=3D7045874934954278912&amp;newsletterTitle=
+=3DCyber%20Security%20News&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_=
+follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3D%3D&amp;midToken=3DAQGhw_Ya=
+gvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Deml-email_series_follow_newsle=
+tter_01-unsubscribe-0-footerGlimmer&amp;trkEmail=3Deml-email_series_follow_=
+newsletter_01-unsubscribe-0-footerGlimmer-null-hdesgg~m4pn2zhy~5k-null-null=
+&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZm=
+ViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NTJmMGVmY=
+zk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ%3D%3D" target=
+=3D"_blank" class=3D"text-inherit underline" style=3D"cursor: pointer; disp=
+lay: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; color: inherit; text-decoration-line: underline;=
+">=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=
+=D0=B8=D1=81=D0=BA=D1=83</a> =C2=A0=C2=A0=C2=B7=C2=A0=C2=A0 <a href=3D"http=
+s://www.linkedin.com/help/linkedin/answer/67?lang=3Dru&amp;lipi=3Durn%3Ali%=
+3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3=
+D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Dem=
+l-email_series_follow_newsletter_01-help-0-footerglimmer&amp;trkEmail=3Deml=
+-email_series_follow_newsletter_01-help-0-footerglimmer-null-hdesgg~m4pn2zh=
+y~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJi=
+YzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDd=
+kY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ=
+%3D%3D" target=3D"_blank" class=3D"text-inherit underline" style=3D"cursor:=
+ pointer; display: inline-block; text-decoration: none; -webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; color: inherit; text-decoration-li=
+ne: underline;">=D0=A1=D0=BF=D1=80=D0=B0=D0=B2=D0=BA=D0=B0</a> </td> </tr> =
+<tr> <td class=3D"pb-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text-s=
+ize-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bot=
+tom: 8px;"> <a href=3D"https://www.linkedin.com/comm/feed/?lipi=3Durn%3Ali%=
+3Apage%3Aemail_email_series_follow_newsletter_01%3BYbTsXZ0XRtmTdPEL5r9Xfg%3=
+D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D1TNm6wiLkC3bA1&amp;trk=3Dem=
+l-email_series_follow_newsletter_01-footer-0-logoGlimmer&amp;trkEmail=3Deml=
+-email_series_follow_newsletter_01-footer-0-logoGlimmer-null-hdesgg~m4pn2zh=
+y~5k-null-null&amp;eid=3Dhdesgg-m4pn2zhy-5k&amp;otpToken=3DMTMwNTFiZTAxNjJi=
+YzljNGIyMmEwZmViNDExZGUzYjY4OWM3ZDE0NzlkYTg4ZTY5N2JjZjA0Njk0YjVhNTRmNWYzZDd=
+kY2U5NTJmMGVmYzk3MTk5ZjE4MmNkMWU1YTAzODdmODVmNTE4ZThkMGVhYmNhNzVkNjExLDEsMQ=
+%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; display=
+: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%;"> <img src=3D"https://static.licdn.com/aero-v1/sc/h=
+/9ehe6n39fa07dc5edzv0rla4e" alt=3D"LinkedIn" class=3D"block h-[14px] w-[56p=
+x] image-rendering-crisp" style=3D"outline: none; text-decoration: none; im=
+age-rendering: -moz-crisp-edges; image-rendering: -o-crisp-edges; image-ren=
+dering: -webkit-optimize-contrast; image-rendering: crisp-edges; -ms-interp=
+olation-mode: nearest-neighbor; display: block; height: 14px; width: 56px;"=
+ width=3D"56" height=3D"14"> </a> </td> </tr> <tr> <td data-test-copyright-=
+text style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;"> =C2=A9 LinkedIn Ireland Unli=
+mited Company, Wilton Plaza, Wilton Place, Dublin 2 (=D0=98=D1=80=D0=BB=D0=
+=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2024=C2=A0=D0=B3. LinkedIn =D1=8F=D0=B2=D0=BB=
+=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=81=
+=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=BC =D1=84=
+=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=BD=D1=8B=D0=BC =D0=BD=D0=B0=D0=B8=D0=BC=
+=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5=D0=BC =D0=BA=D0=BE=D0=BC=
+=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn Ireland Unlimited Company. <span da=
+ta-test-trademarks-text> LinkedIn =D0=B8 =D1=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=
+=BC=D0=B0 LinkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D1=8E=D1=82=D1=81=D1=8F =D0=B7=
+=D0=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=
+=B0=D0=BD=D0=BD=D1=8B=D0=BC=D0=B8 =D1=82=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=
+=8B=D0=BC=D0=B8 =D0=B7=D0=BD=D0=B0=D0=BA=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=
+=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn. </span> </td> </tr> </tbody> </=
+table> </td> </tr> </tbody> </table> <img alt role=3D"presentation" src=3D"=
+https://www.linkedin.com/emimp/ip_YUdSbGMyZG5MVzAwY0c0eWVtaDVMVFZyOlpXMWhhV=
+3hmYzJWeWFXVnpYMlp2Ykd4dmQxOXVaWGR6YkdWMGRHVnlYekF4OmRYSnVPbXhwT214cGJtdGxa=
+RWx1UVhKMGFXTnNaVG8zTWpjME1ESTBNekkwTXpBeE1qazVOekV5.gif" style=3D"outline:=
+ none; text-decoration: none; -ms-interpolation-mode: bicubic; width: 1px; =
+height: 1px;" width=3D"1" height=3D"1"> </body> </html>
+------=_Part_14064294_830289718.1734269165024--

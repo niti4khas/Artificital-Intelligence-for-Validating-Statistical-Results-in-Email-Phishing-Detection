@@ -1,0 +1,84 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7301:31c6:b0:137:3158:9850 with SMTP id iw6csp1984071dyb;
+        Mon, 19 Aug 2024 03:07:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG4xXbs2ApUd2d6rDESh9KHtyPOEspJCx3bDCSYETE8ccHrH8wKszTPJ72i04GN8jCuhVA/
+X-Received: by 2002:a17:907:e204:b0:a7a:c812:36bb with SMTP id a640c23a62f3a-a83928aa084mr732169066b.8.1724062066744;
+        Mon, 19 Aug 2024 03:07:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1724062066; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XQFlAyS4X+2glynHLo1nBxFyzQerMT8XYLG8oEpyzA94xHkuLYwcV27bg3NDXbj8Af
+         s2bpq4H+wNS5LQNjdACkPNquqSEZoxazKm77rVzx66vKRXnkMUa0mAp355CO+1lZgrlh
+         w/qPiX7FMdWzFZGYVyvuq4BSfQkoO4Ww7mQqPOsooYRuvE52QR+Hwt9OpAHer/ff5AVM
+         3Y8V4IX+29BYP+xr15cERnVdBq+i9EK1PAtFbGmSkBg4zGIeWox8vrH6wJ3C4Z1LMehI
+         LHl8CTkGsqwmOQAnCH6toHAR2kWF+Dou2eYW0kJ25VLq+al8iSIo5+24pYPwQjp6YpuD
+         MdEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:sender
+         :message-id:subject:reply-to:from:to:date:dkim-signature
+         :dkim-signature;
+        bh=TMCsEmo7dN3WOsHKt3QaFEhFyquG/betWjv3EU98QVU=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=raqAwWeOq3h1okQ4LXt/cLgv5/PtXDGqDRwusirrb5/lGb1Je+6oExQj2sbaYWwiAI
+         vksWJmfyVyZUGSIPNkWSzAOD+5/Q+O2Js0HswVJO7kxemlXbVFDYIdANThSEM0nOaEJj
+         s/FSHbWBP0BC1I3LJHxC+lWnGUHzONMO3LHAcqEiKDOI/GcsN74P3nmvdQcnzl3Ni4Pa
+         7ULI2fqqPbJ+uvZTDho3Uo4RQ95w7Yxxw2FDGIb5NTQWILUmP+Ykj3FHS0dU+3sSGEKk
+         Wg9SkwFlAgmCzNZDeMV+qIN+jMgTfHgCBBDjjMXWlImlbH61/oylG7de4FV0K8WvSjni
+         K6CA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@berlinovo.de header.s=o2vp5lrqm6qjita3dxdyl5ki3jp4qf2e header.b=I2cgiTbR;
+       dkim=pass header.i=@amazonses.com header.s=uku4taia5b5tsbglxyj6zym32efj7xqv header.b=iwQRY6IB;
+       spf=pass (google.com: domain of 010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com designates 54.240.4.8 as permitted sender) smtp.mailfrom=010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com
+Return-Path: <010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com>
+Received: from a4-8.smtp-out.eu-west-1.amazonses.com (a4-8.smtp-out.eu-west-1.amazonses.com. [54.240.4.8])
+        by mx.google.com with ESMTPS id a640c23a62f3a-a838394b1e6si549221266b.668.2024.08.19.03.07.46
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Aug 2024 03:07:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com designates 54.240.4.8 as permitted sender) client-ip=54.240.4.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@berlinovo.de header.s=o2vp5lrqm6qjita3dxdyl5ki3jp4qf2e header.b=I2cgiTbR;
+       dkim=pass header.i=@amazonses.com header.s=uku4taia5b5tsbglxyj6zym32efj7xqv header.b=iwQRY6IB;
+       spf=pass (google.com: domain of 010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com designates 54.240.4.8 as permitted sender) smtp.mailfrom=010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=o2vp5lrqm6qjita3dxdyl5ki3jp4qf2e; d=berlinovo.de; t=1724062066; h=Date:To:From:Reply-To:Subject:Message-ID:Sender:MIME-Version:Content-Type:Content-Transfer-Encoding; bh=jOfTcQ/DD95jGExQSWWDVW2L+urDwiBuIq6Ap+YS/Oc=; b=I2cgiTbROJ/WfPoG0tzVNT7Te1LutRIogMD7pavyzpeY2wkb3s2Unt2CD/N7Al+w Kq1ui+jU9Uh6VhjUj7nGxjQUip/2AySFpz12eMgRkeTd397AIvKscu2eZ5KzAiUukRv p4/iHYelFnnkpb0kO4rnMiyKQljwLpYEXGXhE+NU=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=uku4taia5b5tsbglxyj6zym32efj7xqv; d=amazonses.com; t=1724062066; h=Date:To:From:Reply-To:Subject:Message-ID:Sender:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID; bh=jOfTcQ/DD95jGExQSWWDVW2L+urDwiBuIq6Ap+YS/Oc=; b=iwQRY6IBlOyWpVKJ6HshPrTUelgyR+m8PzIF+qJaY0Dq72BcrE3BWkDnG76fw0a1 yDm+lIX+eHQkAheK/8l8Ud/foeykOq5HsSKJYOgrFiFz2+cNFw49fsr6DjF7P4JRg1O oCM6pHKLEWXWh29uhUCLYIjSKkkwiWKaUgfPZEUQ=
+Date: Mon, 19 Aug 2024 10:07:46 +0000
+To: ham@ham.email
+From: Berlinovo Apartment GmbH <apartment@berlinovo.de>
+Reply-To: Berlinovo Apartment GmbH <apartment@berlinovo.de>
+Subject: Bestätigungsmail
+Message-ID: <010201916a1b65bd-a855ac03-375b-43c4-ac51-bd3523a06efb-000000@eu-west-1.amazonses.com>
+X-Mailer: PHPMailer 6.1.7 (https://github.com/PHPMailer/PHPMailer)
+Sender: apartment@berlinovo.de
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8Bit
+Feedback-ID: ::1.eu-west-1.AUljd3O+ItHUO0gUob1JoVvyeABeW4jxcep38Qr2MQw=:AmazonSES
+X-SES-Outgoing: 2024.08.19-54.240.4.8
+
+<html>
+<head>
+  <title>Bestätigungsmail</title>
+</head>
+<body>
+<p>Sehr geehrte Damen und Herren,<br />&#13;
+<br />&#13;
+vielen Dank für Ihre Mietanfrage und das damit zum Ausdruck gebrachte Interesse an den Apartments der <strong>berlinovo</strong>.</p>&#13;
+&#13;
+<p>Wir werden Ihre Bewerbung zeitnah bearbeiten.<br />&#13;
+<br />&#13;
+Bitte haben Sie dafür Verständnis, dass wir uns aus organisatorischen Gründen nur dann zeitnah bei Ihnen melden, sofern wir ein Angebot für Sie haben.</p>&#13;
+&#13;
+<p>Sollten Sie nach 14 Werktagen keine Antwort erhalten haben, können Sie davon ausgehen, dass das gewünschte Apartment anderweitig vergeben wurde.</p>&#13;
+&#13;
+<p>Aus organisatorischen Gründen versenden wir in diesem Fall keine persönliche Absage an Sie. Wir bitten Sie, in diesen Fällen von Nachfragen abzusehen.</p>&#13;
+&#13;
+<p>Nicht berücksichtigte Bewerbungsunterlagen werden unter Beachtung der Datenschutz-Grundverordnung (DSGVO) sowie dem neuen Bundesdatenschutzgesetz (BDSG) gelöscht.</p>&#13;
+&#13;
+<p>Mit freundlichen Grüßen / Best regards</p>&#13;
+&#13;
+<p>Ihr Vermietungsteam<br />&#13;
+Bestandsmanagement Apartments<br />&#13;
+Immobilienmanagement Apartments/Wohnen</p>
+</body>
+</html>

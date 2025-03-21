@@ -1,0 +1,932 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c2e6:0:b0:2ac:6419:e1b with SMTP id j6csp296250lkp;
+        Fri, 13 Dec 2024 01:13:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGouJ10Sh6I6sqLjJNJAMcjnuDmj20guGw/LcIYiAg4Dv29aULZ1VCVtIbNHNWFWefLv86C
+X-Received: by 2002:ad4:5d62:0:b0:6d4:12c:c6cc with SMTP id 6a1803df08f44-6dc8ca88a21mr28927506d6.25.1734081229888;
+        Fri, 13 Dec 2024 01:13:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734081229; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DJBrDR8NoumbbahpulD6L2Kr99TWcJADvSAXvbh9uRopQIGsnq0srQvKt1JdVqIeja
+         cdrCdqM9ddJd8ABRFO7N4saUZnCYG3NCEq7mmN4AAEwMqFKXDouoPCSJ5zC1VBd+/BqP
+         oNB76b6swiixmMdGlRttQDPsx/bqPTmiANyWV5LJkyAO0VthpmIlJ53V5rAYTnqSjJoY
+         I/tywd1wX6OvwVRGwoq+JiRSvrqWqqgNh0sXUThFSySy/GVswGCLCU+N2O3ZEv4ZBhmg
+         Xu1ypxFbGKCV5oyV+C+ix454gMvSSd9JAoJnSFqAPe16f6tevGYSCMzppcjXYau8xweF
+         J6Gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:message-id:subject:list-unsubscribe:precedence
+         :organization:to:list-help:list-id:list-unsubscribe-post:from
+         :mime-version:content-transfer-encoding:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=j0/rsjg+XaviF3JTE/lVgxtFlyQhN5qLMXVV6O7gY68=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=NpB+6f7/eunsOHbNaNXzvc3RanG6X2DjLkYeF74rRJ7SSDXxEs2gY8w28JxbV0ffWu
+         amQsB/dS6tqfwExxvuxDKJeAcf3C4kNEWkITj3pt7bn+7A6CUba82S35WMidYuy2SEPL
+         ruRv36GTGfRZpmGSgkvH4Yn2XOSYQdqmyYlcKDs5VPK8bzVwCoiaY/BkFACoZ2/9eJ6P
+         lKbBCn9HKFgvGRxKABFXqHD2/VYTPV7L5fdayV6eQVdQEbMNvPhZpVrlFtLGsoC/P3MU
+         MkryqTbOMWD5U7nG5zYNBOeXrPSJJFarn9DNMFf/m3139JFkmVrT29vktic9DRPIi1sa
+         j4Ew==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@adzuna.co.uk header.s=v44ri6wph333krm7eb5aaxe23p42557p header.b=Ns+l+Fs5;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=VtLezus6;
+       dkim=fail header.i=@adzuna.co.uk header.s=adhunter header.b=VjILkxvM;
+       spf=pass (google.com: domain of 01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com designates 23.249.217.113 as permitted sender) smtp.mailfrom=01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=adzuna.co.uk
+Return-Path: <01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com>
+Received: from d217-113.smtp-out.amazonses.com (d217-113.smtp-out.amazonses.com. [23.249.217.113])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6d8dac2ac34si239457066d6.483.2024.12.13.01.13.49
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Dec 2024 01:13:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com designates 23.249.217.113 as permitted sender) client-ip=23.249.217.113;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@adzuna.co.uk header.s=v44ri6wph333krm7eb5aaxe23p42557p header.b=Ns+l+Fs5;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=VtLezus6;
+       dkim=fail header.i=@adzuna.co.uk header.s=adhunter header.b=VjILkxvM;
+       spf=pass (google.com: domain of 01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com designates 23.249.217.113 as permitted sender) smtp.mailfrom=01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@amazonses.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=adzuna.co.uk
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=v44ri6wph333krm7eb5aaxe23p42557p; d=adzuna.co.uk; t=1734081229; h=Content-Type:Content-Transfer-Encoding:MIME-Version:From:List-Unsubscribe-Post:List-ID:List-Help:To:List-Unsubscribe:Subject:Message-ID:Date; bh=V6/6zH1Affaw82WOu5iuP2KNeoPuRxfkeb3smuQeQWk=; b=Ns+l+Fs5Z3qm4OMgXTDPwDTrDJb1ZqfqwzFm5+SjEvbWRkSCeol/j6uYl9IZGHwd KVjPrYQo8n55zJ722zAhyotxu9eS4TGdIXYzUJcYr9qkWNYZUNCH/w7oX9x5MA2twR6 Axz4VPcJ7N+BNNDea9UINwjJotUY+tzu0VjKdoK8=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1734081229; h=Content-Type:Content-Transfer-Encoding:MIME-Version:From:List-Unsubscribe-Post:List-ID:List-Help:To:List-Unsubscribe:Subject:Message-ID:Date:Feedback-ID; bh=V6/6zH1Affaw82WOu5iuP2KNeoPuRxfkeb3smuQeQWk=; b=VtLezus6TnidLjjCJVms1mi/zq0IvOWI0HBM+uJU+n+CEBXYz3bl5GwPUX1yBMC5 Hl4elsHEoEZOeKWmq2Yt1swEL+af6EXZ6VfaDYi9KjERjNNdBV31qtAlOoFUsV/4Qkv XuEkdcsdrqci3TwZ5SWCl6E5QdQtsG9Kp6+85v34=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed; d=adzuna.co.uk; h=content-type:content-transfer-encoding:mime-version:from:list-id:list-help:to:list-unsubscribe:subject; s=adhunter; bh=V6/6zH1Affaw82WOu5iuP2KNeoPuRxfkeb3smuQeQWk=; b=VjILkxvM0FvDADtjgOVO8aj6rVEXmC0t4rizIJ9ZijVqot/zL5m6j3Lf+U5R/wLtSB2ajesUDSmwaS5Nfd1HiXsQ5ldzZVFXpQIRf14Vs52kdKVBOieYowG+VSCnscZRTqq0yGFhsQugP/4foSeyYOf0xTKbAy/Mm3sl+9Ltm6Y=
+Content-Type: multipart/alternative; boundary="----------=_1734081229-82859-17621"
+Content-Transfer-Encoding: binary
+MIME-Version: 1.0
+X-Mailer: MIME-tools 5.510 (Entity 5.510)
+From: <sender@sender.co.uk>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-ID: <notification.4cea02ae5dd0637260ed122a5eb3ce7bc1530b14@adzuna.co.uk>
+X-Rpcampaign: ADZJobAlertUK13122024
+X-Zuna-Uuid: amazon_east_1/adzuna-uk-ca-set
+List-Help: <https://www.adzuna.co.uk/jobs/my-alerts?id=110762042&vhash=4cea02ae5dd0637260ed122a5eb3ce7bc1530b14>
+To: ham@ham.email
+Organization: Adzuna
+Precedence: bulk
+X-Zuna-Mail-Type: web_alert
+List-Unsubscribe: <https://www.adzuna.co.uk/jobs/unsubscribe?id=110762042&vhash=4cea02ae5dd0637260ed122a5eb3ce7bc1530b14>, <mailto:pmrgc3dhei5cesctgi2tmit5.pmrg42jchiytcmbxgyzdanbsfqrhiir2ge3tgnbqhaydamjqfqrgcir2ej2w443vmirh2.tyrbz6xicj2frl24krnrnpbfq7xnd5fldarorogpn24aqw2xha2q@lists.adzuna.co.uk>
+Subject: You could be a great fit with Co-op
+Message-ID: <01000193bf4bb2be-3d85ccf4-7618-42cf-818a-d796979c2ecd-000000@email.amazonses.com>
+Date: Fri, 13 Dec 2024 09:13:49 +0000
+Feedback-ID: ::1.us-east-1.Qp3uDswf8+Bv3KqVSBGTP+SIm7aOrlReywS0JweAv7g=:AmazonSES
+X-SES-Outgoing: 2024.12.13-23.249.217.113
+
+------------=_1734081229-82859-17621
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+
+Adzuna Job alert
+
+443 new TRAINEE OR ETHICAL OR HACKER OR EMPLOYABILITY OR BOOTCAMP jobs in M=
+ilton Street. View your latest job matches here:
+
+https://www.adzuna.co.uk/jobs/search?loc=3D63949&d=3D15&qor=3DTrainee+Ethic=
+al+Hacker+Employability+Bootcamp&adv=3D1&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D=
+110762042&utm_source=3Dalerts&utm_medium=3Demail&utm_content=3Dtrainee_ethi=
+cal_hacker_employability_bootcamp_near_milton_street~milton_street~hostedap=
+ply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24
+
+Edit your alerts here:
+
+https://www.adzuna.co.uk/jobs/my-alerts?id=3D110762042&vhash=3D4cea02ae5dd0=
+637260ed122a5eb3ce7bc1530b14&utm_source=3Dalerts&utm_medium=3Demail&utm_con=
+tent=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~mil=
+ton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3D=
+Alerts_13_10_24&autoedit=3D1
+------------=_1734081229-82859-17621
+Content-Type: text/html; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Mailer: MIME-tools 5.510 (Entity 5.510)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+    <!--[if !mso]><!-->
+   =20
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+    <!--<![endif]-->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+   =20
+    <title></title>
+    <!--[if (gte mso 9)|(IE)]>
+    <style type=3D"text/css">
+        table {border-collapse: collapse;}
+    </style>
+    <![endif]-->
+        <meta name=3D"format-detection" content=3D"telephone=3Dno">
+</head>
+<body style=3D"margin: 0 !important; padding: 0; background-color: #ffffff;=
+">
+    <center style=3D"width: 100%; table-layout: fixed; -webkit-text-size-ad=
+just: 100%;  -ms-text-size-adjust: 100%;">
+        <div style=3D"max-width: 600px; margin: 0 auto;">
+        =09
+            <!--[if (gte mso 9)|(IE)]>
+=09=09=09<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0">
+=09=09=09=09<tr>
+=09=09=09=09=09<td>
+=09=09=09<![endif]-->
+=09=09=09
+=09=09=09<table style=3D"margin: 0 auto;width: 95%;max-width: 600px; paddin=
+g:0;" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><di=
+v style=3D"display:none;font-size:1px;color:#333333;line-height:1px;max-hei=
+ght:0px;max-width:0px;opacity:0;overflow:hidden;">Apply now to the latest j=
+ob matches for you from Adzuna - we have 10 Similar jobs to Trainee Ethical=
+ Hacker (Employability Bootcamp) near Milton Street</div><tr><td style=3D"m=
+argin:0; text-align:center; padding-top:20px; padding-bottom:20px;"><a href=
+=3D"https://www.adzuna.co.uk/jobs?utm_source=3Dalerts&utm_medium=3Demail&ut=
+m_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_stree=
+t~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campai=
+gn=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/images/e=
+mails/adzuna_logo.png" style=3D"border:0; display:inline-block;" width=3D"2=
+04" height=3D"52" alt=3D"Adzuna" /></a></td></tr><tr>
+    <td style=3D"text-align:center; padding-bottom:10px;">
+        <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">
+            <tr>
+                <td style=3D"background-color:#279B37; color:white; font-fa=
+mily:Arial, sans-serif; font-size:18px; font-weight:bold; text-align:center=
+; padding:10px; border-radius:10px;">Latest job matches for you            =
+    </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976291611?v=3D1C24850F6956F80AC4B418A3FBD2BBA631CC0EE3&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Mobile Funeral Arranger (Apply in =
+minutes)</span></a>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#279B37;background-color:#279B37;color:white">
+                        <span style=3D"text-decoration: none;">TOP MATCH</s=
+pan>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Co-op - EASTBOURNE , East Sussex, BN22=
+ 9PW<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976291611?v=3D1C=
+24850F6956F80AC4B418A3FBD2BBA631CC0EE3&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D11=
+0762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_conten=
+t=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton=
+_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAle=
+rts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span sty=
+le=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497629=
+1611?v=3D1C24850F6956F80AC4B418A3FBD2BBA631CC0EE3&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/p8J05OTLnde1VYJa3zMqid-ifwk.png" width=3D"100" height=
+=3D"75" alt=3D"Placed-App" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976170169?v=3D1829959F2936469713240F7CE3D9BF4AFA306B4D&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Mobile Funeral Arranger</span></a>=
+                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Co-op - Eastbourne, UK, UK - =C2=A312.=
+62 per hour plus benefits<br/><a href=3D"https://www.adzuna.co.uk/jobs/land=
+/ad/4976170169?v=3D1829959F2936469713240F7CE3D9BF4AFA306B4D&se=3D9OGzuS-57x=
+G8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medi=
+um=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near=
+_milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~s=
+l2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:=
+underline;"><span style=3D"color:#279B37">more details &raquo;</span></a></=
+p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497617=
+0169?v=3D1829959F2936469713240F7CE3D9BF4AFA306B4D&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/p8J05OTLnde1VYJa3zMqid-ifwk.png" width=3D"100" height=
+=3D"75" alt=3D"Coop (Radancy UK AIA)" style=3D"display:block;border:0;"></a=
+>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976233735?v=3D23B27A35385683773BC4E3C123C497238F58E4AE&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">School Kitchen Assistant</span></a=
+>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Compass Group UK - Uckfield, East Suss=
+ex<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976233735?v=3D23B2=
+7A35385683773BC4E3C123C497238F58E4AE&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D1107=
+62042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_content=
+=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton_=
+street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAler=
+ts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span styl=
+e=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+3735?v=3D23B27A35385683773BC4E3C123C497238F58E4AE&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/ISM57a9t9rMMmPdrJPcdhlRbvEE.png" width=3D"100" height=
+=3D"75" alt=3D"Reed.co.uk" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976233759?v=3D337387762D7852F4F967129381FA80F4539A5E5D&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">School Kitchen Assistant</span></a=
+>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Compass Group UK - Eastbourne, East Su=
+ssex<br/><span style=3D"color:#777">This job is available in multiple locat=
+ions</span><br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976233759=
+?v=3D337387762D7852F4F967129381FA80F4539A5E5D&se=3D9OGzuS-57xG8DbjUjf90lA&n=
+id=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm=
+_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street=
+~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaig=
+n=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><s=
+pan style=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+3759?v=3D337387762D7852F4F967129381FA80F4539A5E5D&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/ISM57a9t9rMMmPdrJPcdhlRbvEE.png" width=3D"100" height=
+=3D"75" alt=3D"Reed.co.uk" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976233754?v=3DB5D02686BBA72A69C1EE3C3D42DAD7EC93FA5887&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">School Catering Supervisor</span><=
+/a>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Compass Group UK - Uckfield, East Suss=
+ex<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976233754?v=3DB5D0=
+2686BBA72A69C1EE3C3D42DAD7EC93FA5887&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D1107=
+62042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_content=
+=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton_=
+street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAler=
+ts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span styl=
+e=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+3754?v=3DB5D02686BBA72A69C1EE3C3D42DAD7EC93FA5887&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/ISM57a9t9rMMmPdrJPcdhlRbvEE.png" width=3D"100" height=
+=3D"75" alt=3D"Reed.co.uk" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976236809?v=3DDA060FEE7F51C91206A5C0CBEB164AE9CFC23134&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Flexible Funeral Services Represen=
+tative (Apply in minutes)</span></a>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Co-op - EASTBOURNE , East Sussex, BN22=
+ 9PW<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976236809?v=3DDA=
+060FEE7F51C91206A5C0CBEB164AE9CFC23134&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D11=
+0762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_conten=
+t=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton=
+_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAle=
+rts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span sty=
+le=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+6809?v=3DDA060FEE7F51C91206A5C0CBEB164AE9CFC23134&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/p8J05OTLnde1VYJa3zMqid-ifwk.png" width=3D"100" height=
+=3D"75" alt=3D"Placed-App" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976236805?v=3D31B506C3FE2C72783F50C327259E9F80B95C1140&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Field Funeral Coordinator (Apply i=
+n minutes)</span></a>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Co-op - EASTBOURNE , East Sussex, BN22=
+ 9PW<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976236805?v=3D31=
+B506C3FE2C72783F50C327259E9F80B95C1140&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D11=
+0762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_conten=
+t=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton=
+_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAle=
+rts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span sty=
+le=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+6805?v=3D31B506C3FE2C72783F50C327259E9F80B95C1140&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/p8J05OTLnde1VYJa3zMqid-ifwk.png" width=3D"100" height=
+=3D"75" alt=3D"Placed-App" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4972551079?v=3DE537FCF1D5A51ED06714EBBB3355026A342F2D10&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Trainee Project Coordinator</span>=
+</a>                    </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">IT Career Switch - Brighton, East Suss=
+ex - =C2=A325,000 - =C2=A345,000 per year<br/><a href=3D"https://www.adzuna=
+.co.uk/jobs/land/ad/4972551079?v=3DE537FCF1D5A51ED06714EBBB3355026A342F2D10=
+&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=
+=3Dalerts&utm_medium=3Demail&utm_content=3Dtrainee_ethical_hacker_employabi=
+lity_bootcamp_near_milton_street~milton_street~hostedapply~hostedapply~~~re=
+c_false~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37=
+; text-decoration:underline;"><span style=3D"color:#279B37">more details &r=
+aquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497255=
+1079?v=3DE537FCF1D5A51ED06714EBBB3355026A342F2D10&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com//imag=
+es/global/jobs/partners/logo_reed.co.uk.png" width=3D"100" height=3D"75" al=
+t=3D"Reed.co.uk" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px; border-bottom:1px s=
+olid #DADADA;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976188384?v=3D11EFA1BD6178E248DA97C3BD753D4DC157EF32C0&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Mobile Funeral Arranger - Comprehe=
+nsive Training Provided (Apply in minutes)</span></a>                    </=
+h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">Co-op - EASTBOURNE , East Sussex, BN22=
+ 9PW<br/><a href=3D"https://www.adzuna.co.uk/jobs/land/ad/4976188384?v=3D11=
+EFA1BD6178E248DA97C3BD753D4DC157EF32C0&se=3D9OGzuS-57xG8DbjUjf90lA&nid=3D11=
+0762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail&utm_conten=
+t=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_street~milton=
+_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAle=
+rts_13_10_24" style=3D"color:#279B37; text-decoration:underline;"><span sty=
+le=3D"color:#279B37">more details &raquo;</span></a></p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497618=
+8384?v=3D11EFA1BD6178E248DA97C3BD753D4DC157EF32C0&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/logo/jobs/partners/p8J05OTLnde1VYJa3zMqid-ifwk.png" width=3D"100" height=
+=3D"75" alt=3D"Placed-App" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:10px;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"text-align:left; padding-right:20px; font-fami=
+ly:Arial, sans-serif; font-size:18px;">
+                    <h2 style=3D"font-size:16px; font-weight:bold; line-hei=
+ght:20px; margin:0 0 4px 0;"><a href=3D"https://www.adzuna.co.uk/jobs/land/=
+ad/4976234038?v=3DCCC7EA0D68BD92082FF9C3B4E2100BD23DC24019&se=3D9OGzuS-57xG=
+8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_mediu=
+m=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_=
+milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl=
+2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoration:u=
+nderline;"><span style=3D"color:#279B37">Maths Teacher</span></a>          =
+          </h2>
+                   =20
+<table cellpadding=3D"0" cellspacing=3D"0">
+    <tr>
+   =20
+        <td style=3D"padding-right:4px; padding-bottom:4px;">
+            <table cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                    <td style=3D"padding:4px;font-size:12px;font-family:Ari=
+al, sans-serif;line-height:12px;border-radius:4px;border-width: 1px;border-=
+style: solid;border-color:#F6E05E;background-color:#F6E05E;color:black">
+                        <span style=3D"text-decoration: none;">NEW</span>
+                    </td>
+               </tr>
+            </table>
+        </td>
+   =20
+    </tr>
+</table>
+
+                    <p style=3D"font-size:12px; line-height:16px; font-weig=
+ht:normal; color:#212121; margin:0;">ARK SCHOOLS - East Sussex, - =C2=A332,=
+251 - =C2=A351,051 Per Year<br/><a href=3D"https://www.adzuna.co.uk/jobs/la=
+nd/ad/4976234038?v=3DCCC7EA0D68BD92082FF9C3B4E2100BD23DC24019&se=3D9OGzuS-5=
+7xG8DbjUjf90lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_me=
+dium=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_ne=
+ar_milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443=
+~sl2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#279B37; text-decoratio=
+n:underline;"><span style=3D"color:#279B37">more details &raquo;</span></a>=
+</p>
+                </td>
+                <td width=3D"100" valign=3D"top">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/land/ad/497623=
+4038?v=3DCCC7EA0D68BD92082FF9C3B4E2100BD23DC24019&se=3D9OGzuS-57xG8DbjUjf90=
+lA&nid=3D110762042&sl=3Dsl2&et=3Djre&utm_source=3Dalerts&utm_medium=3Demail=
+&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milton_st=
+reet~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&utm_cam=
+paign=3DAlerts_13_10_24"><img src=3D"https://zunastatic-abf.kxcdn.com/image=
+s/global/jobs/partners/logo_theguardian.png" width=3D"100" height=3D"75" al=
+t=3D"The Guardian" style=3D"display:block;border:0;"></a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr>
+    <td style=3D"padding-top:10px; padding-bottom:20px;">
+        <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=
+=3D"margin:0 auto;">
+            <tr>
+                <td style=3D"background-color:#279B37; color:white; font-fa=
+mily:Arial, sans-serif; font-size:18px; font-weight:bold; text-align:center=
+; padding:10px 20px; border-radius:10px;">
+                    <a href=3D"https://www.adzuna.co.uk/jobs/search?loc=3D6=
+3949&d=3D15&qor=3DTrainee+Ethical+Hacker+Employability+Bootcamp&adv=3D1&se=
+=3D9OGzuS-57xG8DbjUjf90lA&nid=3D110762042&utm_source=3Dalerts&utm_medium=3D=
+email&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_near_milt=
+on_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~443~sl2&ut=
+m_campaign=3DAlerts_13_10_24" style=3D"color:white;text-decoration:none;">V=
+iew all job matches                    </a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr><td style=3D"padding-bottom:20px;"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+    <tr>
+        <td align=3D"center" style=3D"padding-top: 20px; padding-bottom: 0;=
+">
+            <table cellpadding=3D"0" cellspacing=3D"0" width=3D"285" align=
+=3D"center">
+                <tr>
+                    <td align=3D"center">
+                        <tr>
+                            <td align=3D"center">
+                                <a href=3D"https://app.appsflyer.com/id9760=
+23178?pid=3DEmail_UK&c=3Dbottomlogo&b=3Dappstore" target=3D"_blank" style=
+=3D"width:135px; display:inline-block;">
+                                    <img src=3D"https://zunastatic-abf.kxcd=
+n.com/assets/emails/app_store/app_store_uk.png" height=3D"40" alt=3D"App st=
+ore button" />
+                                </a>
+                                <a href=3D"https://play.google.com/store/ap=
+ps/details?id=3Dcom.adzuna&referrer=3Dutm_source%3DEmail_UK%26utm_campaign%=
+3Dbottomlogo" target=3D"_blank" style=3D"width:135px; display:inline-block;=
+">
+                                    <img src=3D"https://zunastatic-abf.kxcd=
+n.com/assets/emails/play_store/google_play_uk.png" height=3D"40" alt=3D"Pla=
+y store butotn" />
+                                </a>
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table></td></tr><tr><td style=3D"padding-bottom:20px;"><table width=3D"10=
+0%" style=3D"background:#E4F5F8;border-radius:10px; text-align:center;">
+    <tr>
+        <td style=3D"padding-left:20px; padding-right:20px; padding-top:20p=
+x; font-size:18px; line-height:22px; font-weight:normal; color:#009FBB; fon=
+t-family:Arial, sans-serif; margin:0;">
+            ValueMyCV
+        </td>
+    </tr>
+    <tr>
+        <td style=3D"padding-left:20px; padding-right:20px; font-size:12px;=
+ line-height:18px; font-weight:normal; color:#212121; font-family:Arial, sa=
+ns-serif; margin:0;">
+            53% of Brits feel underpaid. Calculate how much your CV is wort=
+h.
+        </td>
+    </tr>
+    <tr>
+        <td style=3D"padding-left:20px; padding-right:20px; padding-top:10p=
+x; padding-bottom:20px;">
+            <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" sty=
+le=3D"margin:0 auto;">
+                <tr>
+                    <td style=3D"background-color:#009FBB; color:white; fon=
+t-family:Arial, sans-serif; font-size:18px; font-weight:bold; text-align:ce=
+nter; padding:10px; border-radius:10px;">
+                        <a href=3D"https://www.adzuna.co.uk/jobs/value-my-c=
+v?utm_source=3Dalerts&utm_medium=3Demail&utm_content=3Dtrainee_ethical_hack=
+er_employability_bootcamp_near_milton_street~milton_street~hostedapply~host=
+edapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24" style=3D"c=
+olor:white;text-decoration:none;">
+                            Value my CV now
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</td></tr><tr><td style=3D"padding-bottom:20px;"><table cellpadding=3D"0" c=
+ellspacing=3D"6" border=3D"0" align=3D"center" style=3D"margin:0 auto;"><tr=
+><td style=3D"text-align:center" align=3D"center"><a href=3D"https://www.tw=
+itter.com/adzuna" target=3D"_blank"><img src=3D"https://zunastatic-abf.kxcd=
+n.com/images/emails/icon_twitter_large.png" width=3D"44" height=3D"44" styl=
+e=3D"display:inline-block;" alt=3D"@adzuna" /></a></td><td style=3D"text-al=
+ign:center" align=3D"center"><a href=3D"https://www.facebook.com/adzuna" ta=
+rget=3D"_blank"><img src=3D"https://zunastatic-abf.kxcdn.com/images/emails/=
+icon_facebook_large-1.0.0-vsn.png" width=3D"44" height=3D"44" style=3D"disp=
+lay:inline-block;" alt=3D"Facebook" /></a></td><td style=3D"text-align:cent=
+er" align=3D"center"><a href=3D"https://www.adzuna.co.uk/blog?utm_source=3D=
+alerts&utm_medium=3Demail&utm_content=3Dtrainee_ethical_hacker_employabilit=
+y_bootcamp_near_milton_street~milton_street~hostedapply~hostedapply~~~rec_f=
+alse~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24" target=3D"_blank"><img sr=
+c=3D"https://zunastatic-abf.kxcdn.com/images/emails/icon_adzuna_large.png" =
+width=3D"44" height=3D"44" style=3D"display:inline-block;" alt=3D"Adzuna bl=
+og" /></a></td></tr></table></td></tr><tr><td><table align=3D"center" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"><tr><td align=3D=
+"center" style=3D"color:#9c9c9c;padding-bottom:40px;text-align: center; fon=
+t-family:Arial, sans-serif; font-size:12px; line-height:20px; "><span style=
+=3D"color:#212121"><b>Job alert keywords:</b> Similar jobs to Trainee Ethic=
+al Hacker (Employabil...<br/></span>If you want to improve your job alerts,=
+ please click here:<br/><a href=3D"https://www.adzuna.co.uk/jobs/my-alerts?=
+id=3D110762042&vhash=3D4cea02ae5dd0637260ed122a5eb3ce7bc1530b14&utm_source=
+=3Dalerts&utm_medium=3Demail&utm_content=3Dtrainee_ethical_hacker_employabi=
+lity_bootcamp_near_milton_street~milton_street~hostedapply~hostedapply~~~re=
+c_false~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24&autoedit=3D1" style=3D"=
+color:#279B37">Edit job alert</a><br/><br/>Click here to <a href=3D"https:/=
+/www.adzuna.co.uk/jobs/unsubscribe?id=3D110762042&vhash=3D4cea02ae5dd063726=
+0ed122a5eb3ce7bc1530b14&t=3Dweb_alert&et=3Djre&nid=3D110762042&v=3D&c=3Djob=
+s&rec=3D0&utm_source=3Dalerts&utm_medium=3Demail&utm_content=3Dtrainee_ethi=
+cal_hacker_employability_bootcamp_near_milton_street~milton_street~hostedap=
+ply~hostedapply~~~rec_false~0~10~443~sl2&utm_campaign=3DAlerts_13_10_24" st=
+yle=3D"color:#9c9c9c"><span style=3D"color:#9c9c9c">cancel</span></a> your =
+alert<br/><a href=3D"https://www.adzuna.co.uk/jobs/my-alerts?id=3D110762042=
+&vhash=3D4cea02ae5dd0637260ed122a5eb3ce7bc1530b14&utm_source=3Dalerts&utm_m=
+edium=3Demail&utm_content=3Dtrainee_ethical_hacker_employability_bootcamp_n=
+ear_milton_street~milton_street~hostedapply~hostedapply~~~rec_false~0~10~44=
+3~sl2&utm_campaign=3DAlerts_13_10_24" style=3D"color:#9c9c9c"><span style=
+=3D"color:#9c9c9c">Create a new alert</span></a></td></tr></table></td></tr=
+><img style=3D"width:0px; height:0px;" src=3D"https://www.adzuna.co.uk/jobs=
+/tracking/email?action=3Dopen&t=3Dweb_alert&nid=3D110762042&v=3D&c=3Djobs&e=
+poch=3D1734080010&se=3D9OGzuS-57xG8DbjUjf90lA&rec=3D0&acq=3Dhostedapply&uq=
+=3D0&et=3Djre&sl=3Dsl2">   =20
+            </table>
+=09=09=09<!--[if (gte mso 9)|(IE)]>
+=09=09=09=09=09</td>
+=09=09=09=09</tr>
+=09=09=09</table>
+=09=09=09<![endif]-->
+        </div>
+    </center>
+   =20
+
+
+   =20
+   =20
+
+</body>
+</html>
+
+------------=_1734081229-82859-17621--

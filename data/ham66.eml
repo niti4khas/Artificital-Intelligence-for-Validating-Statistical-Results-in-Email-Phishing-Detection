@@ -1,0 +1,756 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c3c4:0:b0:2ac:6419:e1b with SMTP id b4csp1556407lkq;
+        Wed, 11 Dec 2024 05:00:05 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFRyjpc5P/d1c6r+eWOF5ChWxijcthIxp1HuemZUPb9zH20yeQKN0X/o/LoGz0SXu4kcvje
+X-Received: by 2002:a05:600c:1c01:b0:434:a10f:c3 with SMTP id 5b1f17b1804b1-4361c360d64mr20705095e9.9.1733922005554;
+        Wed, 11 Dec 2024 05:00:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733922005; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jrUS7hFTcF5trwdvML3jSo34bG7SO0D8F9GFcgAXOjCn9sk9NPWCo17sjrldfubgxz
+         w4xVZj3/b9KuqbaWCmiQnVv4qIrx/5ppzlmyuZBtEBTsLZ/lpouwVo8YxV+QkVkJBgcc
+         FNeqPh3bzCcT/hH0T+rBV4ZJI3/jQdeUgqRFm1spEklNiC9leZfIWAb0v8xKupsfWKpf
+         OhQeMkBALQCQ3CHDy+iZm7oyqNXu0yfQr/T6Hu6tnoJdeKDY6mmeNvCPqr60nhE9h/pV
+         xz/7y5QJhxgqZUbNO2DRjwoGH0iIWIFvg2CNYRLgPr8d21eH1c/DF6iSb1oIAGqzaXwa
+         gbkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=reply-to:message-id:mime-version:list-unsubscribe-post
+         :list-unsubscribe:list-id:from:feedback-id:date:subject:to
+         :dkim-signature:dkim-signature;
+        bh=EO7BbRYB2b7SrfhKVbF3oRRCXK1TQjlOKXZCMwXNPI8=;
+        fh=WU4XYdYyO9DxFi7ML79Nm5jpiaOBbpWbCUII8ASev5c=;
+        b=HvpXfWTgnlDe5mp5T9r1PCheoBPcV2ryASiAKisoH/5bIUKEwO7Y3NRID4MtYMuZ/2
+         mhM/CiMLN3utIksB9/VNE2EnlbLlxCvupIGP9DakBdQAJKva2RI4acGP97177S2Rs4Bs
+         zvZ6hO4uK7hiMVh9Un//FjX5PH25wDsb/5MQzDOwGzcBAoTwjvtuShPoCCKlLM0lldix
+         qsuRYNGMcYeM1jhNVbGqHswrXOinr4ZX3n6r2sKJmak5crkGU6tF0or0MbwPU470aARH
+         2+O/57XHkp11O4AoJma5AgL/QTGa99uRqn/DBQtsOjrD9WVNGPlh50FKdpHZ/5pbzHdc
+         dzBA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hackthebox.com header.s=mail header.b=MmGDU7yB;
+       dkim=pass header.i=@mailin.fr header.s=mail header.b=SKILnzTx;
+       spf=pass (google.com: domain of bounces-6650o-sender=hackthebox.com@ak.d.mailin.fr designates 185.41.28.11 as permitted sender) smtp.mailfrom="bounces-6650o-academy=hackthebox.com@ak.d.mailin.fr";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=hackthebox.com
+Return-Path: <bounces-6650o-sender=hackthebox.com@ak.d.mailin.fr>
+Received: from ak.d.mailin.fr (ak.d.mailin.fr. [185.41.28.11])
+        by mx.google.com with ESMTPS id 5b1f17b1804b1-4351243c0c1si21598955e9.77.2024.12.11.05.00.05
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 05:00:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces-6650o-sender=hackthebox.com@ak.d.mailin.fr designates 185.41.28.11 as permitted sender) client-ip=185.41.28.11;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hackthebox.com header.s=mail header.b=MmGDU7yB;
+       dkim=pass header.i=@mailin.fr header.s=mail header.b=SKILnzTx;
+       spf=pass (google.com: domain of bounces-6650o-sender=sender.com@ak.d.mailin.fr designates 185.41.28.11 as permitted sender) smtp.mailfrom="bounces-6650o-academy=hackthebox.com@ak.d.mailin.fr";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=hackthebox.com
+DKIM-Signature: a=rsa-sha256; bh=EO7BbRYB2b7SrfhKVbF3oRRCXK1TQjlOKXZCMwXNPI8=; c=relaxed/relaxed; d=hackthebox.com; h=to:cc:from:reply-to:subject:date:mime-version:content-type:list-id:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:sender:x-sib-id:x-mailin-client:x-mailin-campaign:feedback-id; q=dns/txt; s=mail; t=1733922004; v=1; b=MmGDU7yBlWN1uhdEnCV9xeh1b+xtFyv+gwOmgumhnMZr6aAnkqCSVxWFrgKCV7iMtGu36KCB p8Q/PXvx0111lqyfJd7O4aFuceAJvpo6PFzvqPh6wFas7aB3DtWvQcUTB1vj+MMt2aj24F9zRKK tfOAoNfTtrZuK3GYaKTt/nAA=
+DKIM-Signature: a=rsa-sha256; bh=EO7BbRYB2b7SrfhKVbF3oRRCXK1TQjlOKXZCMwXNPI8=; c=relaxed/relaxed; d=mailin.fr; h=to:cc:from:reply-to:subject:date:mime-version:content-type:list-id:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:sender:x-sib-id:x-mailin-client:x-mailin-campaign:feedback-id; q=dns/txt; s=mail; t=1733922004; v=1; b=SKILnzTxtM/Z1g+NAmJfCnH/W2OPMorK3xHhwFfm6+RtbL86moPxQgSldPI92W2Q3iWQTwFF xX7k12n3bQU3iFv8LK7g93ulQDDX+FiXhAcRr/nQU51mhb9tRXfgDK0h+FGVWx6tNXYws1zaNEZ Kbv27CMhfav1cP/8Xn5dK66s=
+To: <ham@ham.email>
+Subject: 👨🏻‍🎓 Get Certified in Active Directory Penetration Testing (+25% OFF Gold Annual Plan)
+Content-Type: multipart/alternative; boundary="-------?=_76717-6307162062169"
+Date: Wed, 11 Dec 2024 13:00:04 +0000
+Feedback-ID: 185.41.28.11:3579920_838:3579920:Sendinblue
+From:  <sender@sender.com>
+List-Id: MzU3OTkyMC04NTg0ODgtMTA= <MzU3OTkyMC04NTg0ODgtMTA=.list-id.mailin.fr>
+List-Unsubscribe: <mailto:unsubscribe@ak.d.mailin.fr?subject=unsub-fkerwskmm0k2rj&body=fkerwskmm0k2rj>,<https://6650o.r.a.d.sendibm1.com/mk/un/li/sh/7nVTPdbLJ2bPbnH8bqsG410xl108319/lAyeeNdO3Uu2>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Message-Id: <202411121300.fkerwskmm0k2rj@ak.d.mailin.fr>
+Reply-To: <marketing@hackthebox.eu>
+X-Csa-Complaints: csa-complaints@eco.de
+X-Mailer: Sendinblue
+X-Mailin-Campaign: 838
+X-Mailin-Client: 3579920
+X-sib-id: JErjUkMKGx8p55wnDUpPzPYPCk9zD0CbWPo3p-kzdGl-eHm0nGvTb3uOykJOIk19LxzJsi_IFk5eWXg_b9HHob8KYBLc4oLL27Vf2OhkXb-0hu0NrwbkYaeMoilhPGB3eWvEIg3MX2goHmQXtmswzugheNo4eyEH7cPDWLedKBJQqSgUk0kuu63zt2UApEuT-MvcVFlg9_AfohPxUrvnAddI8pMQmkFhWTiY98ESYFi-tFw
+
+---------?=_76717-6307162062169
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+[ View in browser](https://6650o.r.a.d.sendibm1.com/mk/mr/sh/7nVTPdZCTJDXPW=
+B1XmYncubCWa33bOt/FdYFbf51_m_B)
+
+###Become a Certified Active Directory Pentesting Expert with HTB Academy
+
+####=C2=A0(=F0=9F=94=A5 25% OFF on Gold Annual Plan =E2=80=94 for a limited=
+ time!)
+
+We're excited to announce the [HTB Certified Active Directory Pentesting Ex=
+pert (HTB CAPE)](https://academy.hackthebox.com/preview/certifications/htb-=
+certified-active-directory-pentesting-expert) =E2=80=93 a hands-on, next-le=
+vel certification that will prove you have what it takes to tackle the most=
+ complex Active Directory (AD) vulnerabilities.
+
+
+**SAVE 25% ON YOUR CERTIFICATION=C2=A0**
+-----------------------------------
+
+Save 25% on HTB Academy Gold Annual Plan and get access to the full job-rol=
+e path and exam voucher for CAPE -**valid for a limited time! =F0=9F=8F=83*=
+*
+
+Payment method specified? Discount auto-applied.
+No payment method? Use coupon **25offgoldannual** at checkout.
+
+=C2=A0
+
+[**=E2=86=92 UPGRADE NOW =E2=86=90**](https://academy.hackthebox.com/billin=
+g)
+-------------------------------------------------------------
+
+
+###**Why CAPE?**
+
+
+=C2=A0
+
+[HTB CAPE](https://academy.hackthebox.com/preview/certifications/htb-certif=
+ied-active-directory-pentesting-expert) isn=E2=80=99t your typical certific=
+ation =E2=80=93 it=E2=80=99s a deep dive into the real-world challenges of =
+AD and Windows penetration testing. Whether you're defending your own syste=
+ms or testing those of others, this certification sharpens your skills in i=
+dentifying and exploiting AD vulnerabilities. This certification will set y=
+ou apart in the field of Active Directory security as you master advanced a=
+ttack paths, complex misconfigurations, and everything in between.=C2=A0
+
+=C2=A0
+
+If you're ready to prove your mastery of AD pentesting techniques and gain =
+a competitive edge in the cybersecurity field, the [HTB CAPE](https://acade=
+my.hackthebox.com/preview/certifications/htb-certified-active-directory-pen=
+testing-expert) certification is for you!
+
+
+[ **Learn more =E2=86=92**](https://academy.hackthebox.com/preview/certific=
+ations/htb-certified-active-directory-pentesting-expert)
+
+
+###**Start your certification journey**
+
+
+=C2=A0
+
+Start your training with the [Active Directory Penetration Tester Job-Role =
+Path](https://academy.hackthebox.com/news/new-job-role-training-path-active=
+-directory-penetration-tester). Once completed, you can purchase a voucher =
+for the exam.
+
+=C2=A0
+
+We suggest getting a Gold Annual subscription=C2=A0 (which is 25% OFF =E2=
+=80=94 for a limited time) for direct access to the job role path and the e=
+xam, along with other perks. [Learn more here =E2=86=92=C2=A0](https://www.=
+hackthebox.com/blog/new-gold-annual-subscription)
+
+
+[ **Start path =C2=A0=E2=86=92**](https://academy.hackthebox.com/news/new-j=
+ob-role-training-path-active-directory-penetration-tester)
+
+
+38 Walton Road, Folkestone, Kent, CT19 5QS, United Kingdom
+
+This email was sent to=C2=A0ham@ham.email
+
+You've received this email because you've subscribed to our newsletter.
+
+[Unsubscribe](https://6650o.r.a.d.sendibm1.com/mk/un/sh/7nVTPdbLJ2bPbnH8bqs=
+G410xl108319/lAyeeNdO3Uu2)
+
+
+---------?=_76717-6307162062169
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><head><meta=
+ http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><meta h=
+ttp-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta name=3D"format-de=
+tection" content=3D"telephone=3Dno"><meta name=3D"viewport" content=3D"widt=
+h=3Ddevice-width, initial-scale=3D1.0"><title>=F0=9F=91=A8=F0=9F=8F=BB=E2=
+=80=8D=F0=9F=8E=93 Get Certified in Active Directory Penetration Testing (+=
+25% OFF Gold Annual Plan)</title><style type=3D"text/css" emogrify=3D"no">#=
+outlook a { padding:0; } .ExternalClass { width:100%; } .ExternalClass, .Ex=
+ternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td,=
+ .ExternalClass div { line-height: 100%; } table td { border-collapse: coll=
+apse; mso-line-height-rule: exactly; } .editable.image { font-size: 0 !impo=
+rtant; line-height: 0 !important; } .nl2go_preheader { display: none !impor=
+tant; mso-hide:all !important; mso-line-height-rule: exactly; visibility: h=
+idden !important; line-height: 0px !important; font-size: 0px !important; }=
+ body { width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size=
+-adjust:100%; margin:0; padding:0; } img { outline:none; text-decoration:no=
+ne; -ms-interpolation-mode: bicubic; } a img { border:none; } table { borde=
+r-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; } th { fon=
+t-weight: normal; text-align: left; } *[class=3D"gmail-fix"] { display: non=
+e !important; } </style><style type=3D"text/css" emogrify=3D"no"> @media (m=
+ax-width: 600px) { .gmx-killpill { content: ' \03D1';} } </style><style typ=
+e=3D"text/css" emogrify=3D"no">@media (max-width: 600px) { .gmx-killpill { =
+content: ' \03D1';} .r0-o { border-style: solid !important; margin: 0 auto =
+0 auto !important; width: 100% !important } .r1-i { background-color: trans=
+parent !important } .r2-c { box-sizing: border-box !important; text-align: =
+center !important; valign: top !important; width: 320px !important } .r3-o =
+{ border-style: solid !important; margin: 0 auto 0 auto !important; width: =
+320px !important } .r4-i { padding-bottom: 5px !important; padding-top: 5px=
+ !important } .r5-c { box-sizing: border-box !important; display: block !im=
+portant; valign: top !important; width: 100% !important } .r6-o { border-st=
+yle: solid !important; width: 100% !important } .r7-i { padding-left: 0px !=
+important; padding-right: 0px !important } .r8-c { box-sizing: border-box !=
+important; padding-left: 10px !important; padding-right: 10px !important; t=
+ext-align: center !important; width: 100% !important } .r9-i { background-c=
+olor: #ffffff !important } .r10-c { box-sizing: border-box !important; text=
+-align: center !important; valign: top !important; width: 100% !important }=
+ .r11-i { background-color: #111927 !important; padding-bottom: 0px !import=
+ant; padding-left: 15px !important; padding-right: 15px !important; padding=
+-top: 0px !important } .r12-o { background-size: auto !important; border-st=
+yle: solid !important; margin: 0 auto 0 auto !important; width: 100% !impor=
+tant } .r13-i { padding-bottom: 0px !important; padding-left: 0px !importan=
+t; padding-right: 0px !important; padding-top: 0px !important } .r14-o { bo=
+rder-style: solid !important; margin: 0 auto 0 0 !important; width: 100% !i=
+mportant } .r15-i { padding-left: 20px !important; padding-right: 20px !imp=
+ortant; padding-top: 20px !important; text-align: center !important } .r16-=
+i { padding-bottom: 20px !important; padding-left: 0px !important; padding-=
+right: 0px !important } .r17-c { box-sizing: border-box !important; padding=
+-bottom: 15px !important; padding-left: 40px !important; padding-right: 40p=
+x !important; padding-top: 20px !important; text-align: left !important; va=
+lign: top !important; width: 100% !important } .r18-i { padding-bottom: 20p=
+x !important; padding-left: 0px !important; padding-right: 0px !important; =
+padding-top: 0px !important } .r19-o { background-size: auto !important; bo=
+rder-bottom-color: #9fef00 !important; border-bottom-width: 1px !important;=
+ border-left-color: #9fef00 !important; border-left-width: 1px !important; =
+border-right-color: #9fef00 !important; border-right-width: 1px !important;=
+ border-style: solid !important; border-top-color: #9fef00 !important; bord=
+er-top-width: 1px !important; margin: 0 auto 0 auto !important; width: 100%=
+ !important } .r20-i { color: #a4b1cd !important; padding-bottom: 15px !imp=
+ortant; padding-top: 15px !important; text-align: center !important } .r21-=
+c { box-sizing: border-box !important; padding-bottom: 15px !important; pad=
+ding-left: 40px !important; padding-right: 40px !important; padding-top: 15=
+px !important; text-align: left !important; valign: top !important; width: =
+100% !important } .r22-o { border-style: solid !important; margin: 0 auto 0=
+ auto !important; margin-bottom: 15px !important; margin-top: 15px !importa=
+nt; width: 100% !important } .r23-i { text-align: center !important } .r24-=
+r { background-color: #111927 !important; border-color: #9fef00 !important;=
+ border-radius: 20px !important; border-width: 1px !important; box-sizing: =
+border-box; height: initial !important; padding-bottom: 12px !important; pa=
+dding-left: 5px !important; padding-right: 5px !important; padding-top: 12p=
+x !important; text-align: center !important; width: 100% !important } .r25-=
+c { box-sizing: border-box !important; padding-bottom: 15px !important; pad=
+ding-top: 15px !important; text-align: center !important; valign: top !impo=
+rtant; width: 100% !important } .r26-r { background-color: #9fef00 !importa=
+nt; border-radius: 30px !important; border-width: 0px !important; box-sizin=
+g: border-box; height: initial !important; padding-bottom: 12px !important;=
+ padding-left: 5px !important; padding-right: 5px !important; padding-top: =
+12px !important; text-align: center !important; width: 100% !important } .r=
+27-i { padding-bottom: 0px !important; padding-left: 15px !important; paddi=
+ng-right: 15px !important; padding-top: 0px !important } .r28-o { backgroun=
+d-image: url('https://img.mailinblue.com/3579920/images/content_library/ori=
+ginal/620bd279f9b65d38a6179e4e.png') !important; background-size: cover !im=
+portant; border-style: solid !important; margin: 0 auto 0 auto !important; =
+margin-top: 0px !important; width: 100% !important } .r29-i { padding-botto=
+m: 20px !important; padding-left: 15px !important; padding-right: 15px !imp=
+ortant; padding-top: 20px !important } .r30-i { padding-bottom: 15px !impor=
+tant; padding-top: 40px !important } .r31-c { box-sizing: border-box !impor=
+tant; text-align: center !important; width: 100% !important } .r32-o { bord=
+er-style: solid !important; margin: 0 auto 0 auto !important; margin-bottom=
+: 100px !important; margin-top: 100px !important; width: 99% !important } .=
+r33-i { font-size: 0px !important; padding-bottom: 0px !important; padding-=
+left: 43px !important; padding-right: 44px !important; padding-top: 15px !i=
+mportant } .r34-c { box-sizing: border-box !important; width: 32px !importa=
+nt } .r35-o { border-style: solid !important; margin-right: 8px !important;=
+ width: 32px !important } .r36-c { box-sizing: border-box !important; text-=
+align: left !important; valign: top !important; width: 100% !important } .r=
+37-i { padding-bottom: 0px !important; padding-top: 15px !important; text-a=
+lign: center !important } .r38-i { padding-bottom: 0px !important; padding-=
+top: 30px !important; text-align: center !important } .r39-i { padding-bott=
+om: 0px !important; padding-top: 0px !important; text-align: center !import=
+ant } .r40-i { padding-bottom: 15px !important; padding-top: 15px !importan=
+t; text-align: center !important } body { -webkit-text-size-adjust: none } =
+.nl2go-responsive-hide { display: none } .nl2go-body-table { min-width: uns=
+et !important } .mobshow { height: auto !important; overflow: visible !impo=
+rtant; max-height: unset !important; visibility: visible !important } .resp=
+-table { display: inline-table !important } .magic-resp { display: table-ce=
+ll !important } } </style><!--[if !mso]><!--><style type=3D"text/css" emogr=
+ify=3D"no">@import url("https://fonts.googleapis.com/css2?family=3DMontserr=
+at"); @import url("https://fonts.googleapis.com/css2?family=3DBitter&family=
+=3DLato&family=3DLobster&family=3DNoto Sans JP&family=3DOpen Sans&family=3D=
+Oswald&family=3DPermanent Marker&family=3DPoiret One&family=3DRaleway&famil=
+y=3DRoboto&family=3DRoboto Condensed&family=3DRoboto Mono&family=3DSource S=
+ans Pro"); </style><!--<![endif]--><style type=3D"text/css">p, h1, h2, h3, =
+h4, ol, ul, li { margin: 0; } .nl2go-default-textstyle { color: #3b3f44; fo=
+nt-family: Roboto; font-size: 14px; line-height: 1.5; word-break: break-wor=
+d } .default-button { color: #1a2332; font-family: Roboto; font-size: 16px;=
+ font-style: normal; font-weight: normal; line-height: 1.15; text-decoratio=
+n: none; word-break: break-word } a, a:link { color: #0092ff; text-decorati=
+on: underline } .default-heading1 { color: #1F2D3D; font-family: Roboto, Ar=
+ial; font-size: 36px; word-break: break-word } .default-heading2 { color: #=
+1F2D3D; font-family: Roboto, Arial; font-size: 32px; word-break: break-word=
+ } .default-heading3 { color: #1F2D3D; font-family: Roboto, Arial; font-siz=
+e: 24px; word-break: break-word } .default-heading4 { color: #1F2D3D; font-=
+family: Roboto, Arial; font-size: 18px; word-break: break-word } a[x-apple-=
+data-detectors] { color: inherit !important; text-decoration: inherit !impo=
+rtant; font-size: inherit !important; font-family: inherit !important; font=
+-weight: inherit !important; line-height: inherit !important; } .no-show-fo=
+r-you { border: none; display: none; float: none; font-size: 0; height: 0; =
+line-height: 0; max-height: 0; mso-hide: all; overflow: hidden; table-layou=
+t: fixed; visibility: hidden; width: 0; } </style><!--[if mso]><xml> <o:Off=
+iceDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </=
+o:OfficeDocumentSettings> </xml><![endif]--><style type=3D"text/css">a:link=
+{color: #0092ff; text-decoration: underline;}</style></head><body bgcolor=
+=3D"#ffffff" text=3D"#3b3f44" link=3D"#0092ff" yahoo=3D"fix" style=3D"backg=
+round-color: #ffffff;"> <table cellpadding=3D"0" border=3D"0" cellspacing=
+=3D"0" style=3D" mso-hide: all; display: none;"><tr><td>Brand new certifica=
+tion + 25% OFF Gold Annual Plan =3D =F0=9F=94=A5&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zw=
+nj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;=
+&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nb=
+sp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;=
+&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#8=
+47;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;=
+&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</td></tr></table> <!--[if =
+mso]> <img width=3D"1" height=3D"1" src=3D"https://6650o.r.a.d.sendibm1.com=
+/mk/op/sh/7nVTPddU8lzHo4NFfvBiV7QizRxCUdP/rE7tcuLf8Aun" /> <![endif]-->
+=09<!--[if !mso]> <!----> <img style=3D"display:none" src=3D"https://6650o.=
+r.a.d.sendibm1.com/mk/op/sh/7nVTPddU8lzHo4NFfvBiV7QizRxCUdP/rE7tcuLf8Aun" /=
+> <!-- <![endif]-->  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" role=3D"presentation" class=3D"nl2go-body-table" width=3D"100%" style=3D"=
+background-color: #ffffff; width: 100%;"><tr><td> <table cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=
+=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; width: 100%;"><tr>=
+<td valign=3D"top" class=3D"r1-i" style=3D"background-color: transparent;">=
+ <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentati=
+on" width=3D"600" align=3D"center" class=3D"r3-o" style=3D"table-layout: fi=
+xed;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 5px; padding-top: 5px=
+;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c" =
+style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"t=
+able-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" sty=
+le=3D"padding-left: 10px; padding-right: 10px;"> <table width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td =
+class=3D"r8-c nl2go-default-textstyle" align=3D"center" style=3D"color: #3b=
+3f44; font-family: Roboto; font-size: 14px; word-break: break-word; line-he=
+ight: 16px; padding-left: 30px; padding-right: 30px; text-align: center;"> =
+<div><p style=3D"margin: 0;"><a href=3D"https://6650o.r.a.d.sendibm1.com/mk=
+/mr/sh/7nVTPdZCTJDXPWB1XmYncubCWa33bOt/FdYFbf51_m_B" style=3D"color: #0092f=
+f; text-decoration: underline;"> <span style=3D"font-family: arial,helvetic=
+a,sans-serif; color: #858588; font-size: 12px; text-decoration: underline;"=
+> View in browser</span></a></p></div> </td> </tr></table></td> </tr></tabl=
+e></th> </tr></table></td> </tr></table></td> </tr></table><table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"600"=
+ align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 600px=
+;"><tr><td valign=3D"top" class=3D"r9-i" style=3D"background-color: #ffffff=
+;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation" width=3D"100%" align=3D"center" class=3D"r0-o" style=3D"table-layout=
+: fixed; width: 100%;"><tr><td class=3D"r11-i" style=3D"background-color: #=
+111927;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D=
+"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation" width=3D"600" align=3D"center" cl=
+ass=3D"r12-o" style=3D"table-layout: fixed; width: 600px;"><tr><td class=3D=
+"r13-i" style=3D"font-size: 0px; line-height: 0px;"> <img src=3D"https://66=
+50o.img.a.d.sendibm1.com/im/sh/vF8n2af9EgM4.png?u=3D2BpAyz2gMiWnccbj4o2UWZ2=
+lOljWkB6jY3" width=3D"600" border=3D"0" style=3D"display: block; width: 100=
+%;" sib_img_id=3D"0"></td> </tr></table><table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"left" cl=
+ass=3D"r14-o" style=3D"table-layout: fixed; width: 100%;"><tr><td align=3D"=
+center" valign=3D"top" class=3D"r15-i nl2go-default-textstyle" style=3D"col=
+or: #3b3f44; font-family: Roboto; font-size: 14px; line-height: 1.5; word-b=
+reak: break-word; padding-left: 20px; padding-right: 20px; padding-top: 20p=
+x; text-align: center;"> <div><h3 class=3D"default-heading3" style=3D"margi=
+n: 0; color: #1f2d3d; font-family: Roboto,Arial; font-size: 24px; word-brea=
+k: break-word;"><span style=3D"color: #9fef00; font-family: Arial, helvetic=
+a, sans-serif; font-size: 24px;">Become a Certified Active Directory Pentes=
+ting Expert with HTB Academy</span></h3><h4 class=3D"default-heading4" styl=
+e=3D"margin: 0; color: #1f2d3d; font-family: Roboto,Arial; font-size: 18px;=
+ word-break: break-word;"><span style=3D"color: #ffffff; font-family: Robot=
+o; font-size: 17px;">=C2=A0(=F0=9F=94=A5 25% OFF on Gold Annual Plan =E2=80=
+=94 for a limited time!)</span></h4></div> </td> </tr></table></th> </tr></=
+table></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r0-o"=
+ style=3D"background-color: #111927; table-layout: fixed; width: 100%;"><tr=
+><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: nor=
+mal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pres=
+entation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width=
+: 100%;"><tr><td valign=3D"top" class=3D"r16-i" style=3D"padding-bottom: 20=
+px; padding-left: 10px; padding-right: 10px;"> <table width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td cl=
+ass=3D"r17-c nl2go-default-textstyle" align=3D"left" style=3D"color: #3b3f4=
+4; font-family: Roboto; font-size: 14px; line-height: 1.5; word-break: brea=
+k-word; padding-bottom: 15px; padding-left: 40px; padding-right: 40px; padd=
+ing-top: 20px; text-align: left; valign: top;"> <div><p style=3D"margin: 0;=
+ color: #a4b1cd; font-family: Arial, helvetica, sans-serif; font-size: 15px=
+;"><span style=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif=
+; font-size: 15px;">We're excited to announce the</span><span style=3D"colo=
+r: #9fef00; font-family: Arial, helvetica, sans-serif; font-size: 15px;"> <=
+/span><a href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfsTTD=
+1Kb0H8uVJMLDj0WY7/l8a6_0gvG0tH" target=3D"_blank" style=3D"color: #0092ff; =
+text-decoration: underline;" sib_link_id=3D"0" templating=3D"n"><span style=
+=3D"color: #9fef00; font-family: Arial, helvetica, sans-serif; font-size: 1=
+5px;">HTB Certified Active Directory Pentesting Expert (HTB CAPE)</span></a=
+><span style=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif; =
+font-size: 15px;"> =E2=80=93 a hands-on, next-level certification that will=
+ prove you have what it takes to tackle the most complex Active Directory (=
+AD) vulnerabilities.</span></p></div> </td> </tr><tr><td class=3D"r10-c" al=
+ign=3D"center"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" rol=
+e=3D"presentation" width=3D"522" class=3D"r12-o" style=3D"border-collapse: =
+separate; border-radius: 30px; table-layout: fixed; width: 522px;"><tr><td =
+class=3D"r18-i" style=3D"border-radius: 30px; font-size: 0px; line-height: =
+0px; padding-bottom: 20px;"> <a href=3D"https://6650o.r.a.d.sendibm1.com/mk=
+/cl/f/sh/7nVU1aA2nfuMSjWdZZVawrdAVaDnGUd/w8aYTpO6y3xw" target=3D"_blank" st=
+yle=3D"color: #0092ff; text-decoration: underline;" sib_link_id=3D"1" templ=
+ating=3D"n"> <img src=3D"https://6650o.img.a.d.sendibm1.com/im/sh/XT3FziPZR=
+aIh.png?u=3D2BpAyz2gMiWnceUibJLT5nUnl5Xh6ftTUZ" width=3D"522" border=3D"0" =
+style=3D"display: block; width: 100%; border-radius: 30px;" sib_img_id=3D"1=
+"></a> </td> </tr></table></td> </tr><tr><td class=3D"r10-c" align=3D"cente=
+r"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation" width=3D"90%" class=3D"r19-o" style=3D"border-bottom-color: #9fef00;=
+ border-bottom-width: 1px; border-collapse: separate; border-left-color: #9=
+fef00; border-left-width: 1px; border-radius: 20px; border-right-color: #9f=
+ef00; border-right-width: 1px; border-style: solid; border-top-color: #9fef=
+00; border-top-width: 1px; table-layout: fixed; width: 90%;"><tr><td align=
+=3D"center" valign=3D"top" class=3D"r20-i nl2go-default-textstyle" style=3D=
+"line-height: 1.5; word-break: break-word; border-radius: 19px; color: #a4b=
+1cd; font-family: arial,helvetica,sans-serif; font-size: 16px; padding-bott=
+om: 15px; padding-top: 15px; text-align: center;"> <div><p style=3D"margin:=
+ 0;"><span style=3D"color: #9fef00; font-family: Arial, helvetica, sans-ser=
+if; font-size: 20px;"><strong>SAVE 25% ON YOUR CERTIFICATION=C2=A0</strong>=
+</span><br>Save 25% on <span style=3D"color: #ffffff;">HTB Academy Gold Ann=
+ual Plan</span> and get access to the full job-role path and exam voucher f=
+or CAPE -<span style=3D"color: #ffffff;"><strong> valid for a limited time!=
+ =F0=9F=8F=83</strong></span></p><p style=3D"margin: 0;">Payment method spe=
+cified? Discount auto-applied.<br>No payment method? Use coupon <span style=
+=3D"color: #ffffff;"><strong>25offgoldannual</strong></span> at checkout.</=
+p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0;"><a href=3D"http=
+s://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwFSG1wY8k2zDwyfwia0R9/lUP=
+csSkUP9Jq" target=3D"_blank" style=3D"color: #0092ff; text-decoration: unde=
+rline;" sib_link_id=3D"2" templating=3D"n"><span style=3D"color: #9fef00; f=
+ont-family: Arial, helvetica, sans-serif; font-size: 19px;"><strong>=E2=86=
+=92 UPGRADE NOW =E2=86=90</strong></span></a></p></div> </td> </tr></table>=
+</td> </tr><tr><td class=3D"r21-c nl2go-default-textstyle" align=3D"left" s=
+tyle=3D"color: #3b3f44; font-family: Roboto; font-size: 14px; line-height: =
+1.5; word-break: break-word; padding-bottom: 15px; padding-left: 40px; padd=
+ing-right: 40px; padding-top: 15px; text-align: left; valign: top;"> <div><=
+h3 class=3D"default-heading3" style=3D"margin: 0; color: #1f2d3d; font-fami=
+ly: Roboto,Arial; font-size: 24px; word-break: break-word; text-align: cent=
+er;"><span style=3D"color: #ffffff; font-family: Arial, helvetica, sans-ser=
+if; font-size: 24px;"><strong>Why CAPE?</strong></span></h3><p style=3D"mar=
+gin: 0;">=C2=A0</p><p style=3D"margin: 0;"><a href=3D"https://6650o.r.a.d.s=
+endibm1.com/mk/cl/f/sh/7nVU1aA2nfy8RmXFWhyV1aGmqJDMkNf/KcnslZYujzUv" target=
+=3D"_blank" style=3D"color: #0092ff; text-decoration: underline;" sib_link_=
+id=3D"3" templating=3D"n"><span style=3D"color: #9fef00; font-family: Arial=
+, helvetica, sans-serif; font-size: 15px;">HTB CAPE</span></a><span style=
+=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif; font-size: 1=
+5px;"> isn=E2=80=99t your typical certification =E2=80=93 it=E2=80=99s a de=
+ep dive into the real-world challenges of AD and Windows penetration testin=
+g. Whether you're defending your own systems or testing those of others, th=
+is certification sharpens your skills in identifying and exploiting AD vuln=
+erabilities. This certification will set you apart in the field of Active D=
+irectory security as you master advanced attack paths, complex misconfigura=
+tions, and everything in between.=C2=A0</span></p><p style=3D"margin: 0;">=
+=C2=A0</p><p style=3D"margin: 0;"><span style=3D"color: #a4b1cd; font-famil=
+y: Arial, helvetica, sans-serif; font-size: 15px;">If you're ready to prove=
+ your mastery of AD pentesting techniques and gain a competitive edge in th=
+e cybersecurity field, the </span><a href=3D"https://6650o.r.a.d.sendibm1.c=
+om/mk/cl/f/sh/7nVU1aA2ng01RJ2YVHCx3wab0fi9UKB/xnQjloUVE1Mw" target=3D"_blan=
+k" style=3D"color: #0092ff; text-decoration: underline;" sib_link_id=3D"4" =
+templating=3D"n"><span style=3D"color: #9fef00; font-family: Arial, helveti=
+ca, sans-serif; font-size: 15px;">HTB CAPE</span></a><span style=3D"color: =
+#a4b1cd; font-family: Arial, helvetica, sans-serif; font-size: 15px;"> cert=
+ification is for you!</span></p></div> </td> </tr><tr><td class=3D"r10-c" a=
+lign=3D"center"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" ro=
+le=3D"presentation" width=3D"348" class=3D"r22-o" style=3D"table-layout: fi=
+xed; width: 348px;"><tr class=3D"nl2go-responsive-hide"><td height=3D"15" s=
+tyle=3D"font-size: 15px; line-height: 15px;">=C2=AD</td> </tr><tr><td heigh=
+t=3D"18" align=3D"center" valign=3D"top" class=3D"r23-i nl2go-default-texts=
+tyle" style=3D"color: #3b3f44; font-family: Roboto; font-size: 14px; line-h=
+eight: 1.5; word-break: break-word;">  <!--[if mso]> <v:roundrect xmlns:v=
+=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:off=
+ice:word" href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng1uQ=
+pXrTqRP6IuPB2CwEGh/1Ze8qgNQ9-vv" style=3D"v-text-anchor:middle; height: 43p=
+x; width: 349px;" arcsize=3D"46%" fillcolor=3D"#111927" strokecolor=3D"#9fe=
+f00" strokeweight=3D"1px" data-btn=3D"1" sib_link_id=3D"5" templating=3D"n"=
+> <w:anchorlock> </w:anchorlock> <v:textbox inset=3D"0,0,0,0"> <div style=
+=3D"display:none;"> <center class=3D"default-button"><span><span style=3D"c=
+olor:#ffffff;"><strong>Learn more =E2=86=92</strong></span></span></center>=
+ </div> </v:textbox> </v:roundrect> <![endif]-->  <!--[if !mso]><!-- --> <a=
+ href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng1uQpXrTqRP6I=
+uPB2CwEGh/1Ze8qgNQ9-vv" class=3D"r24-r default-button" target=3D"_blank" da=
+ta-btn=3D"1" style=3D"font-style: normal; font-weight: normal; line-height:=
+ 1.15; text-decoration: none; word-break: break-word; border-style: solid; =
+word-wrap: break-word; display: block; -webkit-text-size-adjust: none; back=
+ground-color: #111927; border-color: #9fef00; border-radius: 20px; border-w=
+idth: 1px; color: #111927; font-family: arial,helvetica,sans-serif; font-si=
+ze: 16px; height: 18px; mso-hide: all; padding-bottom: 12px; padding-left: =
+5px; padding-right: 5px; padding-top: 12px; width: 336px;" sib_link_id=3D"5=
+" templating=3D"n"> <span><span style=3D"color: #ffffff;"><strong>Learn mor=
+e =E2=86=92</strong></span></span></a> <!--<![endif]--> </td> </tr><tr clas=
+s=3D"nl2go-responsive-hide"><td height=3D"15" style=3D"font-size: 15px; lin=
+e-height: 15px;">=C2=AD</td> </tr></table></td> </tr><tr><td class=3D"r21-c=
+ nl2go-default-textstyle" align=3D"left" style=3D"color: #3b3f44; font-fami=
+ly: Roboto; font-size: 14px; line-height: 1.5; word-break: break-word; padd=
+ing-bottom: 15px; padding-left: 40px; padding-right: 40px; padding-top: 15p=
+x; text-align: left; valign: top;"> <div><h3 class=3D"default-heading3" sty=
+le=3D"margin: 0; color: #1f2d3d; font-family: Roboto,Arial; font-size: 24px=
+; word-break: break-word; text-align: center;"><span style=3D"color: #fffff=
+f; font-family: Arial, helvetica, sans-serif; font-size: 24px;"><strong>Sta=
+rt your certification journey</strong></span></h3><p style=3D"margin: 0;">=
+=C2=A0</p><p style=3D"margin: 0;"><span style=3D"color: #a4b1cd; font-famil=
+y: Arial, helvetica, sans-serif; font-size: 15px;">Start your training with=
+ the </span><a href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2=
+ng3nQM3ASPfr8fEDLOhiyDD/6ESgaVSvCS3Z" target=3D"_blank" style=3D"color: #00=
+92ff; text-decoration: underline;" sib_link_id=3D"6" templating=3D"n"><span=
+ style=3D"color: #9fef00; font-family: Arial, helvetica, sans-serif; font-s=
+ize: 15px;">Active Directory Penetration Tester Job-Role Path</span></a><sp=
+an style=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif; font=
+-size: 15px;">. Once completed, you can purchase a voucher for the exam.</s=
+pan></p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0;"><span sty=
+le=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif; font-size:=
+ 15px;">We suggest getting a Gold Annual subscription=C2=A0</span><span sty=
+le=3D"color: #ffffff; font-family: Arial, helvetica, sans-serif; font-size:=
+ 15px;"> (which is 25% OFF =E2=80=94 for a limited time)</span><span style=
+=3D"color: #a4b1cd; font-family: Arial, helvetica, sans-serif; font-size: 1=
+5px;"> for direct access to the job role path and the exam, along with othe=
+r perks. </span><a href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU=
+1aA2ng5gPsYTQyuJB1Y1VlCVi9j/E9LMD9gL8GRW" target=3D"_blank" style=3D"color:=
+ #0092ff; text-decoration: underline;" sib_link_id=3D"7" templating=3D"n"><=
+span style=3D"color: #9fef00; font-family: Arial, helvetica, sans-serif; fo=
+nt-size: 15px;">Learn more here =E2=86=92=C2=A0</span></a></p></div> </td> =
+</tr><tr><td class=3D"r25-c" align=3D"center" style=3D"font-size: 0px; line=
+-height: 0px; padding-bottom: 15px; padding-top: 15px; valign: top;"> <a hr=
+ef=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7ZPP3mPY8lDNrpg=
+7hIS6F/mrVKk-8yZcX2" target=3D"_blank" style=3D"color: #0092ff; text-decora=
+tion: underline;" sib_link_id=3D"8" templating=3D"n"> <img src=3D"https://6=
+650o.img.a.d.sendibm1.com/im/sh/09cuukCozmfJ.png?u=3D2BpAyz2gMiWncgNi7oeRf1=
+wq7PLrTAgDR5" width=3D"580" border=3D"0" style=3D"display: block; width: 10=
+0%;" sib_img_id=3D"2"></a> </td> </tr><tr><td class=3D"r10-c" align=3D"cent=
+er"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presen=
+tation" width=3D"290" class=3D"r22-o" style=3D"table-layout: fixed; width: =
+290px;"><tr class=3D"nl2go-responsive-hide"><td height=3D"15" style=3D"font=
+-size: 15px; line-height: 15px;">=C2=AD</td> </tr><tr><td height=3D"18" ali=
+gn=3D"center" valign=3D"top" class=3D"r23-i nl2go-default-textstyle" style=
+=3D"color: #3b3f44; font-family: Roboto; font-size: 14px; line-height: 1.5;=
+ word-break: break-word;">  <!--[if mso]> <v:roundrect xmlns:v=3D"urn:schem=
+as-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" hre=
+f=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9SOvZ5O7NDFkBdqU=
+C5C2l/fC65lXL_-ANb" style=3D"v-text-anchor:middle; height: 41px; width: 289=
+px;" arcsize=3D"50%" fillcolor=3D"#9fef00" strokecolor=3D"#9fef00" strokewe=
+ight=3D"1px" data-btn=3D"2" sib_link_id=3D"9" templating=3D"n"> <w:anchorlo=
+ck> </w:anchorlock> <v:textbox inset=3D"0,0,0,0"> <div style=3D"display:non=
+e;"> <center class=3D"default-button"><span><span style=3D"font-family:robo=
+to;"><strong>Start path =C2=A0=E2=86=92</strong></span></span></center> </d=
+iv> </v:textbox> </v:roundrect> <![endif]-->  <!--[if !mso]><!-- --> <a hre=
+f=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9SOvZ5O7NDFkBdqU=
+C5C2l/fC65lXL_-ANb" class=3D"r26-r default-button" target=3D"_blank" data-b=
+tn=3D"2" style=3D"font-style: normal; font-weight: normal; line-height: 1.1=
+5; text-decoration: none; word-break: break-word; border-style: solid; word=
+-wrap: break-word; display: block; -webkit-text-size-adjust: none; backgrou=
+nd-color: #9fef00; border-color: #9fef00; border-radius: 30px; border-width=
+: 0px; color: #1a2332; font-family: Roboto; font-size: 16px; height: 18px; =
+mso-hide: all; padding-bottom: 12px; padding-left: 5px; padding-right: 5px;=
+ padding-top: 12px; width: 280px;" sib_link_id=3D"9" templating=3D"n"> <spa=
+n><span style=3D"font-family: roboto;"><strong>Start path =C2=A0=E2=86=92</=
+strong></span></span></a> <!--<![endif]--> </td> </tr><tr class=3D"nl2go-re=
+sponsive-hide"><td height=3D"15" style=3D"font-size: 15px; line-height: 15p=
+x;">=C2=AD</td> </tr></table></td> </tr></table></td> </tr></table></th> </=
+tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"=
+presentation" width=3D"100%" align=3D"center" class=3D"r0-o" style=3D"table=
+-layout: fixed; width: 100%;"><tr><td class=3D"r27-i"> <table width=3D"100%=
+" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><t=
+r><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: no=
+rmal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pre=
+sentation" width=3D"600" align=3D"center" class=3D"r0-o" style=3D"table-lay=
+out: fixed;"><tr><td class=3D"r13-i" style=3D"height: 3px;"> <table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion"><tr><td><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" role=3D"presentation" class=3D"r13-i" height=3D"3" style=3D"borde=
+r-top-style: solid; background-clip: border-box; border-top-color: #9fef00;=
+ border-top-width: 3px; font-size: 3px; line-height: 3px;"><tr><td height=
+=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table=
+></td> </tr></table></td> </tr></table></th> </tr></table></td> </tr></tabl=
+e><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentat=
+ion" width=3D"100%" align=3D"center" class=3D"r0-o" style=3D"table-layout: =
+fixed; width: 100%;"><tr><td class=3D"r27-i"> <table width=3D"100%" cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th wid=
+th=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <=
+table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation=
+" width=3D"600" align=3D"center" class=3D"r0-o" style=3D"table-layout: fixe=
+d;"><tr><td class=3D"r13-i" style=3D"height: 3px;"> <table width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><=
+td><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" r=
+ole=3D"presentation" class=3D"r13-i" height=3D"3" style=3D"border-top-style=
+: solid; background-clip: border-box; border-top-color: #9fef00; border-top=
+-width: 3px; font-size: 3px; line-height: 3px;"><tr><td height=3D"0" style=
+=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr>=
+</table></td> </tr></table></th> </tr></table></td> </tr></table><table cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"100%" align=3D"center" class=3D"r28-o" style=3D"background-color: #1a23=
+32; background-image: url('https://img.mailinblue.com/3579920/images/conten=
+t_library/original/620bd279f9b65d38a6179e4e.png'); background-position: bot=
+tom; background-repeat: no-repeat; background-size: cover; font-size: 0; ta=
+ble-layout: fixed; width: 100%;"><tr><td class=3D"r29-i" style=3D"padding-b=
+ottom: 20px; padding-top: 20px;"> <table width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" =
+valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"1=
+00%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td val=
+ign=3D"top" class=3D"r7-i" style=3D"padding-left: 25px; padding-right: 25px=
+;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation"><tr><td class=3D"r10-c" align=3D"center"> <table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D=
+"220" class=3D"r12-o" style=3D"table-layout: fixed; width: 220px;"><tr><td =
+class=3D"r30-i" style=3D"font-size: 0px; line-height: 0px; padding-bottom: =
+15px; padding-top: 40px;"> <img src=3D"https://6650o.img.a.d.sendibm1.com/i=
+m/sh/S5LUAb7QyuNn.png?u=3D2BpAyz2gMiWnck9hApGOnUquq2yCCAFhK7" width=3D"220"=
+ border=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"4"></td>=
+ </tr></table></td> </tr><tr><td class=3D"r31-c" align=3D"center"> <table c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"550" align=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; widt=
+h: 550px;"><tr><td valign=3D"top"> <table width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r31-c=
+" align=3D"center" style=3D"display: inline-block;"> <table cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"550" align=
+=3D"center" class=3D"r32-o" style=3D"table-layout: fixed; width: 550px;"><t=
+r class=3D"nl2go-responsive-hide"><td height=3D"100" style=3D"font-size: 10=
+0px; line-height: 100px;">=C2=AD</td> </tr><tr><td class=3D"r33-i" style=3D=
+"padding-left: 175px; padding-right: 175px;"> <table width=3D"100%" cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th wid=
+th=3D"40" class=3D"r34-c mobshow resp-table" style=3D"font-weight: normal;"=
+> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentat=
+ion" width=3D"100%" class=3D"r35-o" style=3D"table-layout: fixed; width: 10=
+0%;"><tr><td class=3D"r4-i" style=3D"font-size: 0px; line-height: 0px; padd=
+ing-bottom: 5px; padding-top: 5px;"> <a href=3D"https://6650o.r.a.d.sendibm=
+1.com/mk/cl/f/sh/WCPzyXJTZ6vLwu5hk58ywUWWUm7AfKxX/GS_nQBmYvvRs" target=3D"_=
+blank" style=3D"color: #0092ff; text-decoration: underline;" sib_link_id=3D=
+"10" templating=3D"n"> <img src=3D"https://6650o.img.a.d.sendibm1.com/im/sh=
+/YunzUA04MfWa.png?u=3D2BpAyz2gMiWncm2ghKZNMjIxCMmMYf2RGd" width=3D"32" bord=
+er=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"5"></a> </td>=
+ <td class=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-size: 0px; l=
+ine-height: 1px;">=C2=AD </td> </tr></table></th> <th width=3D"40" class=3D=
+"r34-c mobshow resp-table" style=3D"font-weight: normal;"> <table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%=
+" class=3D"r35-o" style=3D"table-layout: fixed; width: 100%;"><tr><td class=
+=3D"r4-i" style=3D"font-size: 0px; line-height: 0px; padding-bottom: 5px; p=
+adding-top: 5px;"> <a href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/W=
+CPzyXJTZ7390wIy6AceiEgJdZ0Hv2Zf/gK8-iStvkmtB" target=3D"_blank" style=3D"co=
+lor: #0092ff; text-decoration: underline;" sib_link_id=3D"11" templating=3D=
+"n"> <img src=3D"https://6650o.img.a.d.sendibm1.com/im/sh/5pxO-AK5agQj.png?=
+u=3D2BpAyz2gMiWncnvgDpsLvxkzYgaWv9pBD9" width=3D"32" border=3D"0" style=3D"=
+display: block; width: 100%;" sib_img_id=3D"6"></a> </td> <td class=3D"nl2g=
+o-responsive-hide" width=3D"8" style=3D"font-size: 0px; line-height: 1px;">=
+=C2=AD </td> </tr></table></th> <th width=3D"40" class=3D"r34-c mobshow res=
+p-table" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r35-o" =
+style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"r4-i" style=3D=
+"font-size: 0px; line-height: 0px; padding-bottom: 5px; padding-top: 5px;">=
+ <a href=3D"https://6650o.r.a.d.sendibm1.com/mk/cl/f/sh/WCPzyXJTZ7Aw4yWESG6=
+KTyq6mLtPAkBn/7ZOiqHYlXyZa" target=3D"_blank" style=3D"color: #0092ff; text=
+-decoration: underline;" sib_link_id=3D"12" templating=3D"n"> <img src=3D"h=
+ttps://6650o.img.a.d.sendibm1.com/im/sh/oJ1ffjx0EK-E.png?u=3D2BpAyz2gMiWncp=
+ofkLBKVCD1v0OhHebv9f" width=3D"32" border=3D"0" style=3D"display: block; wi=
+dth: 100%;" sib_img_id=3D"7"></a> </td> <td class=3D"nl2go-responsive-hide"=
+ width=3D"8" style=3D"font-size: 0px; line-height: 1px;">=C2=AD </td> </tr>=
+</table></th> <th width=3D"40" class=3D"r34-c mobshow resp-table" style=3D"=
+font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0" role=3D"presentation" width=3D"100%" class=3D"r35-o" style=3D"table-lay=
+out: fixed; width: 100%;"><tr><td class=3D"r4-i" style=3D"font-size: 0px; l=
+ine-height: 0px; padding-bottom: 5px; padding-top: 5px;"> <a href=3D"https:=
+//6650o.r.a.d.sendibm1.com/mk/cl/f/sh/WCPzyXJTZ7Ij90jUoLa0Fiztv8mWQRnv/_T1d=
+Ij1utHne" target=3D"_blank" style=3D"color: #0092ff; text-decoration: under=
+line;" sib_link_id=3D"13" templating=3D"n"> <img src=3D"https://6650o.img.a=
+.d.sendibm1.com/im/sh/9mEIuVgrZ21X.png?u=3D2BpAyz2gMiWncrhfGqUJ4Qf4HKCre9Of=
+6B" width=3D"32" border=3D"0" style=3D"display: block; width: 100%;" sib_im=
+g_id=3D"8"></a> </td> <td class=3D"nl2go-responsive-hide" width=3D"8" style=
+=3D"font-size: 0px; line-height: 1px;">=C2=AD </td> </tr></table></th> <th =
+width=3D"40" class=3D"r34-c mobshow resp-table" style=3D"font-weight: norma=
+l;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presen=
+tation" width=3D"100%" class=3D"r35-o" style=3D"table-layout: fixed; width:=
+ 100%;"><tr><td class=3D"r4-i" style=3D"font-size: 0px; line-height: 0px; p=
+adding-bottom: 5px; padding-top: 5px;"> <a href=3D"https://6650o.r.a.d.send=
+ibm1.com/mk/cl/f/sh/WCPzyXJTZ7QWD2wlAR3g1T9h3vfdg9Q3/GJ-Wsb1RJby3" target=
+=3D"_blank" style=3D"color: #0092ff; text-decoration: underline;" sib_link_=
+id=3D"14" templating=3D"n"> <img src=3D"https://6650o.img.a.d.sendibm1.com/=
+im/sh/GM8U3SGWq6Di.png?u=3D2BpAyz2gMiWnctaenLnHdf76de120eBP2h" width=3D"32"=
+ border=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"9"></a> =
+</td> <td class=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-size: 0=
+px; line-height: 1px;">=C2=AD </td> </tr></table></th> </tr></table></td> <=
+/tr><tr class=3D"nl2go-responsive-hide"><td height=3D"100" style=3D"font-si=
+ze: 100px; line-height: 100px;">=C2=AD</td> </tr></table></td> </tr></table=
+></td> </tr></table></td> </tr><tr><td class=3D"r36-c" align=3D"left"> <tab=
+le cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" w=
+idth=3D"100%" class=3D"r14-o" style=3D"table-layout: fixed; width: 100%;"><=
+tr><td align=3D"center" valign=3D"top" class=3D"r37-i nl2go-default-textsty=
+le" style=3D"color: #3b3f44; font-family: Roboto; word-break: break-word; f=
+ont-size: 18px; line-height: 1.5; padding-top: 15px; text-align: center;"> =
+<div><p style=3D"margin: 0; font-size: 14px;"><span style=3D"color: #ffffff=
+;">38 Walton Road, Folkestone, Kent, CT19 5QS, United Kingdom</span></p></d=
+iv> </td> </tr></table></td> </tr><tr><td class=3D"r36-c" align=3D"left"> <=
+table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation=
+" width=3D"100%" class=3D"r14-o" style=3D"table-layout: fixed; width: 100%;=
+"><tr><td align=3D"center" valign=3D"top" class=3D"r38-i nl2go-default-text=
+style" style=3D"color: #3b3f44; font-family: Roboto; word-break: break-word=
+; font-size: 18px; line-height: 1.5; padding-top: 30px; text-align: center;=
+"> <div><p style=3D"margin: 0; font-size: 14px;"><span style=3D"color: #A4B=
+1CD; font-size: 11px;">This email was sent to=C2=A0</span>ham@ham.email</p></div> </td> </tr></table></td> </tr><tr><td class=3D"r36-=
+c" align=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation" width=3D"100%" class=3D"r14-o" style=3D"table-layout:=
+ fixed; width: 100%;"><tr><td align=3D"center" valign=3D"top" class=3D"r39-=
+i nl2go-default-textstyle" style=3D"color: #3b3f44; font-family: Roboto; wo=
+rd-break: break-word; font-size: 18px; line-height: 1.5; text-align: center=
+;"> <div><p style=3D"margin: 0; font-size: 14px;"><span style=3D"color: #a4=
+b1cd; font-size: 11px;">You've received this email because you've subscribe=
+d to our newsletter.</span></p></div> </td> </tr></table></td> </tr><tr><td=
+ class=3D"r36-c" align=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0"=
+ border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r14-o" style=3D=
+"table-layout: fixed; width: 100%;"><tr><td align=3D"center" valign=3D"top"=
+ class=3D"r40-i nl2go-default-textstyle" style=3D"color: #3b3f44; font-fami=
+ly: Roboto; word-break: break-word; font-size: 18px; line-height: 1.5; padd=
+ing-bottom: 15px; padding-top: 15px; text-align: center;"> <div><p style=3D=
+"margin: 0; font-size: 14px;"><a href=3D"https://6650o.r.a.d.sendibm1.com/m=
+k/un/sh/7nVTPdbLJ2bPbnH8bqsG410xl108319/lAyeeNdO3Uu2" target=3D"_blank" sty=
+le=3D"color: #0092ff; text-decoration: underline;"><span style=3D"color: #9=
+fef00; font-size: 11px;">Unsubscribe</span></a></p></div> </td> </tr></tabl=
+e></td> </tr></table></td> </tr></table></th> </tr></table></td> </tr></tab=
+le></td> </tr></table></td> </tr></table>   </body></html>
+
+
+---------?=_76717-6307162062169--

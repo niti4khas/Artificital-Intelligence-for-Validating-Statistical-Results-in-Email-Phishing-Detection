@@ -1,0 +1,97 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7301:3895:b0:146:39d8:272 with SMTP id kb21csp1910743dyb;
+        Thu, 31 Oct 2024 11:44:43 -0700 (PDT)
+X-Received: by 2002:a05:6808:201b:b0:3e3:e713:b293 with SMTP id 5614622812f47-3e638248399mr18561205b6e.16.1730400281696;
+        Thu, 31 Oct 2024 11:44:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1730400281; cv=none;
+        d=google.com; s=arc-20240605;
+        b=awhnXAi/LfDyU2dMKto50Iqy/zVyJ9H2DmuNv1Rx5Up2f513/Vr+mf54h/8tTnv+sw
+         lp1jbpEe+Ns1GxmXvWEl7C+oiqkeXm+u1meukNXBLC5Y2U7ce9LDE5hA0c90sgAsERse
+         +30cTX167KRYt4/j/pxuC1Qpk9KjkQAg5K7XnlEThaNaDcS2+IoLVMLUYvZgzJ4SSY/G
+         73xHyNqC2eVELdwZAIzbxkCaAnMqdjNQ73NXdbvf6R0Q6snOXRNYg0fu8qnHQNWrjjF4
+         c4TksE+A74F4374pJ6D5aZAxLWhTfxU3KN7PCbZkJwbrEbbe6F4BbjdFfYn5UqjgoVCC
+         sG5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=WunTiF/SqOcT/g3kTYUdVGboZ2c0JRJjIbuunjH8rts=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=JJ0SAjurf8h5gT1b3tsvrdPo+qmpmCT4FeeWbdpPHlsXyIhz4T0IUsQFt9J+ovrTzP
+         JovuksCwii6JqnhNqarpV9vAZ15zc60L8cuEC2ThBPjKBvUxlHF4JPdDvH+HDq/Nh9Vr
+         Rlctf3KeTFPm5R1knNqnbKvj85MXzlCVD5mWojCbYj+08/4n9wvr4jejeJivPWHgZLfZ
+         pJAf5lZNGaRf8npkGiIeeI58AWtQihZqlrKCO7ZnDQjiV/U2HovrJbKUS7pxuw8vGS9r
+         oJzdb88bJxWvuo9RqD30kMdoiey3LCnkQLrOsLEDV7UnS0Mkb08qOIS/FT1jJawqjWiy
+         bw0g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VnO1gudI;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <sender@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5614622812f47-3e7135d6160sor357797b6e.14.2024.10.31.11.44.40
+        for <ham@ham.email>
+        (Google Transport Security);
+        Thu, 31 Oct 2024 11:44:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VnO1gudI;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730400280; x=1731005080; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WunTiF/SqOcT/g3kTYUdVGboZ2c0JRJjIbuunjH8rts=;
+        b=VnO1gudI9cLLiZi4urch+/UsAZdZjKX7sjxGPXd0a6aD/ftd731XmtVqrNZNSc5A1/
+         7TbPbu9fifHciApfgRHQdJvGajUmL6BxLfzp1YFQ/uNwVSp5YFqfGAHW3LrSTIuvGz8M
+         W0aKZ/EZrSm14sYsHigy1XAs+bqeHtHfHdGVYqU7oUFEciGfxQoaDJDAqR7NXp59TpIb
+         WfAuLpKfQ/+tG7Gpgf6FE/EWHwA53BzIbVPijFolTFIJoU5lm/DHD/3BhUJg+W8JEVES
+         qpGs7WKb1F4B6Z62eN2UG0iI5oUOQJxjeyhbFoUtAKjamrMIfyCfrs60ajNaV4lJwE2c
+         gdSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730400280; x=1731005080;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WunTiF/SqOcT/g3kTYUdVGboZ2c0JRJjIbuunjH8rts=;
+        b=CbkeamgdR+mweYRNiJg8Ckrfsu5MBIFqjWyelPk5UilbqMw6zJ0MyBtElD/SjIWfJa
+         4lKW/X+L47JFw9+0FD7lEpKrBfXN5k5UhNRsixHnOYA6pnSe906Kmpe8opNT00gFZMnG
+         EO2c2uV+G2+JrwHXIcLlbZtXMq31+wXM5b8PPNSKO9fcVUfC9lOgCT13Aoxj/UYvnIOz
+         x7cH1UlM+9RtWJ7Z7K4KIbSLaizm0T3rISMCH0RviycuYxXMljC/4+AFk+YGmcF/a23v
+         s4pGbMtCdLK+zENrnPeL4inmmwHW7grNcdPZz7sNTdPw5WcfyxA3/RGlHfks8byQ3BiA
+         DqeA==
+X-Gm-Message-State: AOJu0YzhvK8P+uNTiHnFmK5O+B/ZOTOntlH1Qf2dxxxOodDEjOk+cJZ4 fnlRkEvWFC2Mh22PB8qR4RwMUnOTONoVttihejgoqeoObe3IB1bQ6wdOnQe59K8qmOkvPolMXP1 JbJylMuBDHKa83EG9R5ggfYe3PnJ/Ng==
+X-Google-Smtp-Source: AGHT+IEejwhFNhRM7a16IyL48CS620YbXowRsjgzinir32hFJEuLgZUEPJmZSqRrHy3I0HOjdzCED6LYOm7LEICAt/g=
+X-Received: by 2002:a05:6808:2116:b0:3e6:263b:9108 with SMTP id 5614622812f47-3e6384403a5mr17751027b6e.22.1730400276789; Thu, 31 Oct 2024 11:44:36 -0700 (PDT)
+MIME-Version: 1.0
+From: Yildiz Cetiner <sender@gmail.com>
+Date: Thu, 31 Oct 2024 21:44:24 +0300
+Message-ID: <CAB8JEZh97aq_22O5Ci6JM4eLGhH-WreLH18rPnFSzoWNmp-vYA@mail.gmail.com>
+Subject: Slides
+To: ham@ham.email
+Content-Type: multipart/mixed; boundary="000000000000d5902a0625ca3516"
+
+--000000000000d5902a0625ca3516
+Content-Type: multipart/alternative; boundary="000000000000d590290625ca3514"
+
+--000000000000d590290625ca3514
+Content-Type: text/plain; charset="UTF-8"
+
+
+
+--000000000000d590290625ca3514
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><br></div>
+
+--000000000000d590290625ca3514--
+--000000000000d5902a0625ca3516
+Content-Type: application/pdf; name="Slides NP.pdf"
+Content-Disposition: attachment; filename="Slides NP.pdf"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m2xnk3zi0>
+X-Attachment-Id: f_m2xnk3zi0
+
+
+--000000000000d5902a0625ca3516--

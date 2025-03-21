@@ -1,0 +1,1324 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:ca90:0:b0:2ac:6419:e1b with SMTP id d16csp164066lky;
+        Wed, 4 Dec 2024 05:02:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFwDdjaumeitQYcCt9uji/n2qDVZaxWXloS9Db2Gn/NgHvXcqiBIkEY8cyY4bbVnDT1x131
+X-Received: by 2002:a05:6000:471d:b0:385:e394:37ed with SMTP id ffacd0b85a97d-385fd3eb189mr6204294f8f.18.1733317375377;
+        Wed, 04 Dec 2024 05:02:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733317375; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gMLMuP5qhcU83BdJIVcXCV59jSEMxQURDWe38bzxxEeMVdLLURQRzFL/trruWhnRe+
+         R37683B7dCFl4PAGNk/eA8uSQJEmue0rAm0zEFmDB4n05wbERzgsED01EXf4fximf/bB
+         ukQ0t1Y5ZqddFu6W5Fv6qwQiJDU8Gib/libVtrnV39CxK6Giek8n8Sk1cgeWiXsJH93l
+         JEFyw6xSEibBfkH9912V7+FqFCBoFvcQH4qMNBNCkQ3MriN5SYYyQnMHSzdOgcf9+93N
+         ksx+dHgDIvBIbo4q7Q5vKAJDK5DE1zcZLBbkr091vVt/hjGz/WihEg4pkhIU4uC2Uudu
+         zdyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-id:list-unsubscribe-post:list-unsubscribe:feedback-id:reply-to
+         :from:subject:mime-version:date:message-id:to:dkim-signature;
+        bh=SIZ8Pvri5frICgwgWqXOmyG7n+tCDtO3TlvbfYPikT0=;
+        fh=WRs60X2LgD40ZDIQe3tct9u7VIoX9EvykYPzSKXt6PY=;
+        b=WdFDS0pol/Wzup5Z237OkAGOUEemXqBo5XqYepuO3Ec/sJhStz9W17ogMMynUb8gHa
+         QvjhtkRoTxNFSx9bVWK39596Wt51igPoiXUPMHkjWhzMN9+/mu1kVJcsklBt/47or76T
+         QwyXUMqzd5PrXK/06y7+YwqLr0/Tgfw0wK8/iRfz+WsKxB41mnH9PFZ+GLuSDPGqZYu3
+         qkqxLtywE512yeKWTwxfAEOnaxiqLCSQbpFiImC4AERmgQmP16RQWSK1lFiiZRVFLsmi
+         wewivtyy2Wp3CEaaoVmi5M4vsFuxk4lAU/54ayx9XnnZXeuE2WBTpzUo3uF2bLkyplC7
+         M99g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@jobs.totaljobsmail.com header.s=scph0721 header.b=Nc2eQZBl;
+       spf=pass (google.com: domain of msprvs1=20068y9nae1eb=bounces-9762-6@bounce.jobs.totaljobsmail.com designates 192.174.94.12 as permitted sender) smtp.mailfrom="msprvs1=20068Y9nae1EB=bounces-9762-6@bounce.jobs.totaljobsmail.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=jobs.totaljobsmail.com
+Return-Path: <msprvs1=20068Y9nae1EB=bounces-9762-6@bounce.jobs.totaljobsmail.com>
+Received: from mta-174-94-12.totaljobsmail.com.sparkpostmail.com (mta-174-94-12.totaljobsmail.com.sparkpostmail.com. [192.174.94.12])
+        by mx.google.com with ESMTPS id a640c23a62f3a-aa5996c7a44si1029781566b.54.2024.12.04.05.02.55
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 04 Dec 2024 05:02:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of msprvs1=20068y9nae1eb=bounces-9762-6@bounce.jobs.totaljobsmail.com designates 192.174.94.12 as permitted sender) client-ip=192.174.94.12;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@jobs.totaljobsmail.com header.s=scph0721 header.b=Nc2eQZBl;
+       spf=pass (google.com: domain of msprvs1=20068y9nae1eb=bounces-9762-6@bounce.jobs.totaljobsmail.com designates 192.174.94.12 as permitted sender) smtp.mailfrom="msprvs1=20068Y9nae1EB=bounces-9762-6@bounce.jobs.totaljobsmail.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=jobs.totaljobsmail.com
+X-MSFBL: H4rjHPlpS4kL5SPiI+/OK2XsSBBE+jGCpGCldwF7lek=|eyJ0ZW5hbnRfaWQiOiJ zcGNldSIsImN1c3RvbWVyX2lkIjoiOTc2MiIsInIiOiJhaWdlcmltbW9sZGFraGF ub3ZhN0BnbWFpbC5jb20iLCJzdWJhY2NvdW50X2lkIjoiNiIsIm1lc3NhZ2VfaWQ iOiI2NzQ0ZmQ1MjUwNjc5MGNlM2FhMyJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jobs.totaljobsmail.com; s=scph0721; t=1733317373; i=@jobs.totaljobsmail.com; bh=SIZ8Pvri5frICgwgWqXOmyG7n+tCDtO3TlvbfYPikT0=; h=To:Message-ID:Date:Content-Type:Subject:From:List-Unsubscribe:
+	 List-Unsubscribe-Post:From:To:Cc:Subject; b=Nc2eQZBlmcLOoTz/gQh3IxllZzT4Yk9/vJKNDZEhG32OTfJ+iG33Vo57Peo25wUFO
+	 TBdToLHoXUoZPLfYMHiihxhDvLZ5sL7UTlKczZOargNf195HB1ObYauLG4VKj9J+Eo
+	 +pOsIhO7Z0U9/ThWIxgB/r6MOxNdidHRt8oiRkuU=
+To: <ham@ham.email>
+Message-ID: <3A.A3.01630.DF250576@i-02d6c7b0b581163e5.mta3vrest.sd.prd.sparkpost>
+Date: Wed, 04 Dec 2024 13:02:53 +0000
+Content-Type: multipart/alternative; boundary="_----1yRm9fmB8kdcl7kGh0kn2Q===_D9/A3-01630-DF250576"
+MIME-Version: 1.0
+Subject: Our recommendation: Information System Security Engineer
+From:  <sender@jobs.senderemail.com>
+x-cid: STSTUK_TJ_UK_B2C_IJM_EN
+Reply-To: sender@jobs.senderemail.com
+Feedback-ID: 10457dd7-ddff-43dd-be93-44e792d042d5:99421367:STSTUK_TJ_UK_B2C_IJM_EN:STSTSPARKPOST
+List-Unsubscribe: <mailto:unsubscribe@eu.sparkpostmail.com?subject=unsubscribe:7R1oI8-1J-i5YyyaACHvkmmvkk05i3cqADiQDzgud_8~|eyAicmNwdF90byI6ICJhaWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb20iLCAidGVuYW50X2lkIjogInNwY2V1IiwgImN1c3RvbWVyX2lkIjogIjk3NjIiLCAic3ViYWNjb3VudF9pZCI6ICI2IiwgIm1lc3NhZ2VfaWQiOiAiNjc0NGZkNTI1MDY3OTBjZTNhYTMiIH0~>,<https://unsubscribe.eu.spmta.com/u/6ZhZvygoOLNaXNP0Sf8y3Q~~/AAAmIgA~/RgRpMtf9PFcFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Id: <spceu.9762.6.sparkpostmail.com>
+
+--_----1yRm9fmB8kdcl7kGh0kn2Q===_D9/A3-01630-DF250576
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+Hello ham,
+
+We recommend this job for you. Take a look and see if you want to apply.
+
+
+
+
+Information System Security Engineer
+Defence
+Buckinghamshire Permanent Negotiable=20
+ 1 day ago
+
+https://click.totaljobsmail.com/f/a/JXDWNLZ80OE7tTupc9YkEg~~/AAAmIgA~/RgRpM=
+tf9P4RIAWh0dHBzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4=
+P0pvYklkPTEwMzkwMzI0NCZHVUlEPTgwNDA3NDM4LThmZmUtNDI4Yi1hYzRlLTIzOGYzNzJmMzE=
+zZSZSZWNvbW1lbmRlZEpvYj0xJkRDTVA9Ul9FTV9JSk1fVEpfU1RfMDQxMjIwMjQmYmF0Y2hpbn=
+N0YW5jZUlkPTdiYTc1NDM0LWRmYjYtNGYwYS1hOTc3LWFiMzU1YzJhZmIxMSZ1bWlkPTIwMjQxM=
+jA0MTMwMjUzLTBkZmQ0ZWJjLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZCZhZGp1c3RfdD0x=
+ODcxa2Jpcl8xOGV0a3Y3ZCZhZGp1c3RfY2FtcGFpZ249SUpNJm9mZmVyX3Bvc2l0aW9uPTFXBXN=
+wY2V1QgpnRP1SUGeQzjqjUh5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~
+
+
+
+Join a reputable business who have a number of awards, most recently been n=
+amed as an Award winner (Gold Award) in MoD Defence Employer Recognition Sc=
+heme!
+The opportunity:
+My client is seeking a highly skilled and motivated Cybersecurity Specialis=
+t to implement and maintain security controls for classified information sy=
+stems. This role will focus on ensuring the integrity and security of their=
+ classified environments through proactive security management, assessments=
+, and the implementation of best practices for network and system security.
+Responsibilities:
+Implement and maintain robust security controls for classified information =
+systems.
+Assist in the configuration and administration of secure networks and syste=
+ms.
+Conduct routine security assessments and vulnerability scans on classified =
+systems.
+Contribute to the development and implementation of security policies and p=
+rocedures specific to classified environments.
+Monitor security events and incidents within the classified network, ensuri=
+ng rapid response and resolution.
+Support the accreditation and certification processes for classified system=
+s.
+Maintain accurate documentation of system configurations, security controls=
+, and other necessary records.
+Collaborate with other team members to troubleshoot and resolve security is=
+sues.
+Participate in security awareness training for system users to enhance over=
+all security culture.
+Stay informed on the latest cybersecurity threats and mitigation strategies=
+ relevant to classified environments.
+
+Requirements:
+Experience in cybersecurity, with a solid foundation in general IT.
+Bachelor's degree in Computer Science, Information Technology, or a related=
+ field.
+Strong understanding of network security, endpoint protection, and cloud se=
+curity concepts.
+Proficiency in using and managing SIEM tools and other security platforms.
+Experience in creating security procedures, run books, and reports.
+Proven ability to conduct threat hunting and root cause analysis.
+Excellent analytical and problem-solving skills.
+Outstanding communication skills, both written and verbal.
+Ability to work collaboratively with team members in a fast-paced environme=
+nt.
+
+Preferred Qualifications:
+Relevant advanced certifications such as CISSP, GIAC, or CEH.
+Experience with security orchestration and automation tools.
+Knowledge of regulatory compliance standards (e.g., NIST, ISO 27001, HIPAA)=
+.
+Familiarity with scripting languages such as Python or PowerShell for autom=
+ation and analysis.
+Experience in designing and implementing security architectures.
+
+Special Requirements:
+Must be able to obtain and maintain a Secret or higher-level security clear=
+ance.
+Ability to work non-standard hours or be on-call for security incidents.
+Must adhere to all security protocols and procedures in a classified enviro=
+nment.
+
+To learn more about this opportunity then please reach out to me!
+
+
+Read the full job description here
+https://click.totaljobsmail.com/f/a/OGH1m--jD3h11pbcqailpQ~~/AAAmIgA~/RgRpM=
+tf9P4RDAWh0dHBzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4=
+P0pvYklkPTEwMzkwMzI0NCZHVUlEPTgwNDA3NDM4LThmZmUtNDI4Yi1hYzRlLTIzOGYzNzJmMzE=
+zZSZEQ01QPVJfRU1fSUpNX1RKX1NUXzA0MTIyMDI0X2pvYlNob3dNb3JlJmJhdGNoaW5zdGFuY2=
+VJZD03YmE3NTQzNC1kZmI2LTRmMGEtYTk3Ny1hYjM1NWMyYWZiMTEmdW1pZD0yMDI0MTIwNDEzM=
+DI1My0wZGZkNGViYy0wODU4LTRhNmQtYjMwZi1kNmFiMDZjZDQ1NWQmYWRqdXN0X3Q9MTg3MWti=
+aXJfMThldGt2N2QmYWRqdXN0X2NhbXBhaWduPUlKTSZvZmZlcl9wb3NpdGlvbj0xVwVzcGNldUI=
+KZ0T9UlBnkM46o1IeYWlnZXJpbW1vbGRha2hhbm92YTdAZ21haWwuY29tWAQAAAAG
+
+Top skills
+You're a great fit for this role if you have the following skills:
+CEH - SIEM - NIST - Iso 27001 - vulnerability -=20
+
+
+
+-------------------------------------------------
+
+Manage all your subscriptions
+https://click.totaljobsmail.com/f/a/QKsxE2n_CQrsYdOOemdMXA~~/AAAmIgA~/RgRpM=
+tf9P0T9aHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9Kb2JTZWFyY2gvRW1haWxMaW5rLmFzcHg_=
+R1VJRD04MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UmUmV0dXJuVXJsPWh0dHB=
+zJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20lMkZBdXRoZW50aWNhdGVkJTJGTG9naW4uYXNweC=
+UzRkRDTVAlM0RSX0VNX0lKTV9USl9TVF8wNDEyMjAyNCZ1bWlkPTIwMjQxMjA0MTMwMjUzLTBkZ=
+mQ0ZWJjLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZFcFc3BjZXVCCmdE_VJQZ5DOOqNSHmFp=
+Z2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~
+
+Unsubscribe from this email
+https://click.totaljobsmail.com/f/a/sfKSeYY4trnS8xmtTY_edQ~~/AAAmIgA~/RgRpM=
+tf9P4QnAWh0dHBzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4=
+P0dVSUQ9ODA0MDc0MzgtOGZmZS00MjhiLWFjNGUtMjM4ZjM3MmYzMTNlJlJldHVyblVybD1odHR=
+wcyUzQSUyRiUyRnd3dy50b3RhbGpvYnMuY29tJTJGQWNjb3VudCUyRkVtYWlsJTJGVW5zdWJzY3=
+JpYmUlMkY4MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UlM0ZEQ01QJTNEUl9FT=
+V9JSk1fVEpfU1RfMDQxMjIwMjQmdW1pZD0yMDI0MTIwNDEzMDI1My0wZGZkNGViYy0wODU4LTRh=
+NmQtYjMwZi1kNmFiMDZjZDQ1NWRXBXNwY2V1QgpnRP1SUGeQzjqjUh5haWdlcmltbW9sZGFraGF=
+ub3ZhN0BnbWFpbC5jb21YBAAAAAY~
+
+Please be aware that this email and its links include data about your indiv=
+idual search profile. In order to avoid that third parties can access your =
+personal data, you should not forward this email and the links contained in=
+ it.
+
+-------------------------------------------------
+
+=C2=A9 2024 The Stepstone Group UK
+Blue Fin, 110 Southwark Street, London SE1 0TA
+Registered in England & Wales under company number 04269861
+
+
+
+Terms of use: https://click.totaljobsmail.com/f/a/3PpXkvkbxixaSSU4lvX7FA~~/=
+AAAmIgA~/RgRpMtf9P0Q0aHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9hYm91dC90ZXJtcy1hbm=
+QtY29uZGl0aW9uc1cFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtY=
+WlsLmNvbVgEAAAABg~~
+Privacy policy: https://click.totaljobsmail.com/f/a/EiS4Zb-BtY0fFrwODHQPKw~=
+~/AAAmIgA~/RgRpMtf9P0T5aHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9Kb2JTZWFyY2gvRW1h=
+aWxMaW5rLmFzcHg_R1VJRD04MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UmUmV=
+0dXJuVXJsPWh0dHBzJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20lMkZhYm91dCUyRnByaXZhY3=
+ktcG9saWN5JTNGRENNUCUzRFJfRU1fSUpNX1RKX1NUXzA0MTIyMDI0JnVtaWQ9MjAyNDEyMDQxM=
+zAyNTMtMGRmZDRlYmMtMDg1OC00YTZkLWIzMGYtZDZhYjA2Y2Q0NTVkVwVzcGNldUIKZ0T9UlBn=
+kM46o1IeYWlnZXJpbW1vbGRha2hhbm92YTdAZ21haWwuY29tWAQAAAAG
+Contact us: https://click.totaljobsmail.com/f/a/19cRAaUif7IPyE42zzui0Q~~/AA=
+AmIgA~/RgRpMtf9P0TtaHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9Kb2JTZWFyY2gvRW1haWxM=
+aW5rLmFzcHg_R1VJRD04MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UmUmV0dXJ=
+uVXJsPWh0dHBzJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20lMkZDb250YWN0LVVzJTNGRENNUC=
+UzRFJfRU1fSUpNX1RKX1NUXzA0MTIyMDI0JnVtaWQ9MjAyNDEyMDQxMzAyNTMtMGRmZDRlYmMtM=
+Dg1OC00YTZkLWIzMGYtZDZhYjA2Y2Q0NTVkVwVzcGNldUIKZ0T9UlBnkM46o1IeYWlnZXJpbW1v=
+bGRha2hhbm92YTdAZ21haWwuY29tWAQAAAAG
+
+
+Facebook: https://click.totaljobsmail.com/f/a/IacAaDOAMU-0j37C3B2uvQ~~/AAAm=
+IgA~/RgRpMtf9P0QiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1RvdGFsam9ic1cFc3BjZXVCCm=
+dE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~
+
+Youtube: https://click.totaljobsmail.com/f/a/meBItm4Pr0ax-VdsplEOSw~~/AAAmI=
+gA~/RgRpMtf9P0QiaHR0cHM6Ly93d3cueW91dHViZS5jb20vQHRvdGFsam9ic1cFc3BjZXVCCmd=
+E_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~
+
+Twitter: https://click.totaljobsmail.com/f/a/thR2xxcQyfb1WQV6N2Fe4w~~/AAAmI=
+gA~/RgRpMtf9P0QfaHR0cHM6Ly90d2l0dGVyLmNvbS90b3RhbGpvYnNVS1cFc3BjZXVCCmdE_VJ=
+QZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~
+
+Blog: https://click.totaljobsmail.com/f/a/A71P9XVaQMzh1BbAlvj65g~~/AAAmIgA~=
+/RgRpMtf9P0QuaHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9hZHZpY2UvY2FyZWVyLWFkdmljZV=
+cFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAAB=
+g~~
+--_----1yRm9fmB8kdcl7kGh0kn2Q===_D9/A3-01630-DF250576
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" lang=3D"en" xml:lang=3D"en" xmlns:v=3D"urn:schemas-microsof=
+t-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><head><meta =
+http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" /><meta =
+name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0" /><=
+meta name=3D"format-detection" content=3D"telephone=3Dno,date=3Dno,address=
+=3Dno,email=3Dno" /><meta name=3D"color-scheme" content=3D"light dark" /><m=
+eta name=3D"supported-color-schemes" content=3D"light dark" /><!--[if !mso]=
+><!-- --><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" /><!--<=
+![endif]--><meta name=3D"x-apple-disable-message-reformatting" /><!--[if gt=
+e mso 9]>
+        <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+    <![endif]--><title>Totaljobs</title><style>:root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
+
+        table, td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+        }
+
+        td.linkwhite a, td.linkwhite a:visited, td.linkwhite a:active {
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+
+        a.linkblack, td.linkblack a, td.linkblack a:visited, td.linkblack a=
+:active {
+            color: #0C2577 !important;
+            text-decoration: none !important;
+        }
+
+        td.linkblack2 a, td.linkblack2 a:visited, td.linkblack2 a:active {
+            color: #0C2577 !important;
+        }
+
+        td.linkblue a, td.linkblue a:visited, td.linkblue a:active, th.w-fu=
+llblock a, th.w-fullblock a:visited, th.w-fullblock a:active {
+            color: #008194 !important;
+            text-decoration: none !important;
+        }
+
+        .darkimage {
+            display: none !important;
+        }
+
+        .lightimage {
+                display: block !important;
+            }
+
+=09=09/* Start with postings */
+        .ijm_offer-specs__offer {
+            display: inline-block;
+        }
+
+        #ijm__title-company-logo-container {
+            padding-right: 20px;
+        }
+
+        .w-lg-title {
+            width: 15px !important;
+        }
+
+        .imageSquareTable {
+            height: 56px !important;
+            width: 56px !important;
+        }
+
+        h1 {
+            font-size: 0px !important;
+            line-height: 0px !important;
+            margin: 0;
+            padding: 0;
+        }
+       =20
+        h2 {
+            font-size: 22px !important;
+            line-height: 32px !important;
+            margin: 0;
+            padding: 0;
+        }
+       =20
+        .w-full {
+                width: 100% !important;
+        }
+
+=09=09/* End with postings */
+
+
+=09=09/* Start with postings */
+        @media only screen and (max-width:530px) {
+
+            span .mobile-hide {
+                display: none !important;
+            }
+
+            .spacer-mobile-show {
+                display: block !important;
+            }
+
+            .imageSquareTable {
+                height: 46px !important;
+                width: 46px !important;
+            }
+
+            .imageSquare {
+                max-width: 46px !important;
+                min-width: 46px !important;
+                max-height: 46px !important;
+                min-height: 46px !important;
+                height: 46px !important;
+                width: 46px !important;
+            }
+
+            .imageSquare img {
+                width: 46px !important;
+            }
+        }
+=09=09/* End with postings */
+
+        @media only screen and (max-width: 420px) {
+=09=09=09/* Start with postings */
+            .ijm_offer-specs__offer {
+=09=09=09=09display: block !important;
+=09=09=09}
+
+            .imageSquareTable {
+                height: 36px !important;
+                width: 36px !important;
+            }
+
+            .imageSquare {
+                max-width: 36px !important;
+                min-width: 36px !important;
+                max-height: 36px !important;
+                min-height: 36px !important;
+                height: 36px !important;
+                width: 36px !important;
+            }
+
+            .imageSquare img {
+                width: 36px !important;
+=09=09=09}
+
+            .w-lg-title {
+=09=09=09=09width: 10px !important;
+=09=09=09}
+
+            .title {
+                font-size: 18px !important;
+                line-height: 28px !important;
+            }
+
+=09=09=09/* End with postings */
+            .w-left-right {
+                width: 4% !important;
+            }
+
+            .w-middle {
+                width: 92% !important;
+            }
+
+            h2 {
+                font-size: 18px !important;
+                line-height: 28px !important;
+            }
+
+            .button {
+                width: 100% !important;
+            }
+
+            .w-full {
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            .w-full2 {
+                width: 100% !important;
+            }
+
+            .w-fullblock {
+                width: 100% !important;
+                display: block !important;
+                text-align: center !important;
+            }
+
+            .w-fullblock2 {
+                width: 100% !important;
+                display: block !important;
+                padding: 0 !important;
+            }
+
+            .d-sm-table {
+                display: table !important;
+            }
+
+            .d-sm-table-cell {
+                display: table-cell !important;
+            }
+
+            .pr-sm-1 {
+                padding-right: 8px !important;
+            }
+
+            .hl-sentiment {
+                font-size: 14px !important;
+                line-height: 20px !important;
+            }
+
+            .img-sentiment {
+                width: 264px !important;
+                height: 42px !important;
+            }
+
+            .mobile-hide {
+                display: none !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                background-repeat: no-repeat !important;
+            }
+
+            .mobile-show {
+                display: initial !important;
+                max-height: none !important;
+                overflow: visible !important;
+            }
+
+            .block-element{
+                display: block!important;
+                width: 100%!important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .colorgreen-darkmode {
+                color: #00B046 !important;
+            }
+
+            .colorred-darkmode {
+                color: #FF8472 !important;
+            }
+
+            .colorblue-darkmode {
+                color: #008194 !important;
+            }
+
+            .color-darkmode {
+                color: #FFFFFF !important;
+            }
+
+            .bodybg-darkmode {
+                background-color: #2a2c2e !important;
+            }
+
+            .bg-darkmode {
+                background-color: #202124 !important;
+            }
+
+            .bg-darkmode2 {
+                background-color: #0B0B05 !important;
+            }
+
+            .badges-darkmode {
+                background-color: #CCFFE0 !important;
+            }
+
+            a.linkblack, td.linkblack a, td.linkblack a:visited, td.linkbla=
+ck a:active {
+                color: #FFFFFF !important;
+            }
+
+            td.linkblack2 a, td.linkblack2 a:visited, td.linkblack2 a:activ=
+e {
+                color: #FFFFFF !important;
+            }
+
+            .darkimage {
+                display: block !important;
+            }
+
+            .lightimage {
+                display: none !important;
+            }
+
+            .squareImgDarkmode {
+                background-color: #fdfeff !important;
+            }
+            .positive-color-darkmode {
+                color: #00B046 !important;
+            }
+        }
+
+        [data-ogsc] .colorred-darkmode {
+            color: #FF8472 !important;
+        }
+
+        [data-ogsc] .colorgreen-darkmode {
+            color: #00B046 !important;
+        }
+
+        [data-ogsc] .colorblue-darkmode {
+            color: #008194 !important;
+        }
+
+        [data-ogsc] .color-darkmode {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsc] .bodybg-darkmode {
+            background-color: #2a2c2e !important;
+        }
+
+        [data-ogsc] .bg-darkmode {
+            background-color: #202124 !important;
+        }
+        [data-ogsc] .bg-darkmode2 {
+            background-color: #0B0B05 !important;
+        }
+
+        [data-ogsc] .badges-darkmode {
+            background-color: #CCFFE0 !important;
+        }
+
+        [data-ogsc] .badges-text-darkmode {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsc] td.linkblack a, [data-ogsc] td.linkblack a:visited, [da=
+ta-ogsc] td.linkblack a:active {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsc] td.linkblack2 a, [data-ogsc] td.linkblack2 a:visited, [=
+data-ogsc] td.linkblack2 a:active {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsc] .darkimage {
+            display: block !important;
+        }
+
+        [data-ogsc] .lightimage {
+            display: none !important;
+        }
+
+        [data-ogsc] .positive-color-darkmode {
+            color: #00B046 !important;
+        }
+
+        [data-ogsb] .colorred-darkmode {
+            color: #FF8472 !important;
+        }
+
+        [data-ogsb] .colorgreen-darkmode {
+            color: #00B046 !important;
+        }
+
+        [data-ogsb] .colorblue-darkmode {
+            color: #008194 !important;
+        }
+
+        [data-ogsb] .color-darkmode {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsb] .bodybg-darkmode {
+            background-color: #2a2c2e !important;
+        }
+
+        [data-ogsb] .bg-darkmode {
+            background-color: #202124 !important;
+        }
+
+        [data-ogsb] .bg-darkmode2 {
+            background-color: #0B0B05 !important;
+        }
+
+        [data-ogsb] td.linkblack a, [data-ogsb] td.linkblack a:visited, [da=
+ta-ogsb] td.linkblack a:active {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsb] td.linkblack2 a, [data-ogsb] td.linkblack2 a:visited, [=
+data-ogsb] td.linkblack2 a:active {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsb] .positive-color-darkmode {
+            color: #00B046 !important;
+        }
+
+        /* Start with postings */
+        [data-ogsc] .border-darkmode {
+            border-bottom-color: #2a2c2e !important;
+        }
+
+        [data-ogsc] .squareImgDarkmode {
+            background-color: #fdfeff !important;
+        }
+
+        [data-ogsb] .squareImgDarkmode {
+            background-color: #fdfeff !important;
+        }
+
+        [data-ogsb] .border-darkmode {
+            border-bottom-color: #2a2c2e !important;
+        }
+        /* End with postings */</style><style>/* jobcard css */
+        .jcs-offer-specs__offer {
+            display: inline-block;
+        }
+       =20
+        table.jcs-offer-specs__offer td {
+            white-space: nowrap !important;
+        }
+
+        .jcs-w-lg-title {
+            width: 15px !important;
+        }
+
+        .jcs-image-square-table {
+            height: 64px !important;
+            width: 64px !important;
+        }
+   =20
+        .jcs-clogo-left-space {
+            width: 15px !important;
+        }
+
+        .jcs-title, .jcs-content-section h2 {
+            font-weight: 700;
+            letter-spacing:0;
+            font-size: 22px !important;
+            line-height: 32px !important;
+            color:#0C2577;
+            font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+=09=09}
+
+=09=09@media only screen and (max-width:530px) {
+
+                .jcs-clogo-bottom-space {
+                    line-height: 0px !important;
+                    height: 0px !important;
+                }
+
+=09=09=09=09.jcs-image-square-table {
+=09=09=09=09=09height: 46px !important;
+=09=09=09=09=09width: 46px !important;
+=09=09=09=09}
+
+=09=09=09=09.jcs-image-square {
+=09=09=09=09=09max-width: 46px !important;
+=09=09=09=09=09min-width: 46px !important;
+=09=09=09=09=09max-height: 46px !important;
+=09=09=09=09=09min-height: 46px !important;
+=09=09=09=09=09height: 46px !important;
+=09=09=09=09=09width: 46px !important;
+=09=09=09=09}
+
+                .jcs-image-square img {
+                    width: 46px !important;
+                }
+
+=09=09=09}
+
+        @media only screen and (max-width: 420px) {
+           =20
+            span .jcs-mobile-hide {
+                display: none !important;
+            }
+
+            .jcs-offer-specs__offer {
+=09=09=09=09display: block !important;
+=09=09=09}
+
+            table.jcs-offer-specs__offer td {
+                white-space: normal !important;
+            }
+
+            .jcs-clogo-bottom-space {
+                line-height: 10px !important;
+                height: 10px !important;
+            }
+
+            .jcs-clogo-left-space {
+                width: 10px !important;
+            }
+
+            .jcs-image-square-table {
+                height: 36px !important;
+                width: 36px !important;
+            }
+
+            .jcs-image-square {
+                max-width: 36px !important;
+                min-width: 36px !important;
+                max-height: 36px !important;
+                min-height: 36px !important;
+                height: 36px !important;
+                width: 36px !important;
+            }
+
+            .jcs-image-square img {
+                width: 36px !important;
+=09=09=09}
+
+            .jcs-w-lg-title {
+=09=09=09=09width: 10px !important;
+=09=09=09}
+
+            .jcs-title {
+                font-size: 18px !important;
+                line-height: 28px !important;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            .jcs-badges-darkmode {
+                background-color: #CCFFE0 !important;
+            }
+
+            .jcs-square-img-darkmode {
+                background-color: #fdfeff !important;
+            }
+
+            /* CV2Jobs-Match */
+            .bg-match-darkmode {
+                background-color: #202637 !important;
+            }
+
+            .bg-match-darkmode-box {
+                background-color: #4d515f !important;
+            }
+            /* END CV2Jobs-Match */
+        }
+
+        [data-ogsc] .jcs-badges-darkmode {
+            background-color: #CCFFE0 !important;
+        }
+
+        [data-ogsc] .jcs-badges-text-darkmode {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsb] .jcs-badges-darkmode {
+            background-color: #CCFFE0 !important;
+        }
+
+        /* CV2Jobs-Match */
+        [data-ogsc] .bg-match-darkmode {
+            background-color: #202637 !important;
+        }
+
+        [data-ogsc] .bg-match-darkmode-box {
+            background-color: #4d515f !important;
+        }
+        /* END CV2Jobs-Match */
+
+        [data-ogsb] .jcs-badges-text-darkmode {
+            color: #FFFFFF !important;
+        }
+
+        [data-ogsc] .jcs-border-darkmode {
+            border-bottom-color: #2a2c2e !important;
+        }
+
+        [data-ogsc] .jcs-square-img-darkmode {
+            background-color: #fdfeff !important;
+        }
+
+        [data-ogsb] .jcs-square-img-darkmode {
+            background-color: #fdfeff !important;
+        }
+
+        [data-ogsb] .jcs-border-darkmode {
+            border-bottom-color: #2a2c2e !important;
+        }
+
+        /* CV2Jobs-Match */
+        [data-ogsb] .bg-match-darkmode {
+            background-color: #202637 !important;
+        }
+
+        [data-ogsb] .bg-match-darkmode-box {
+            background-color: #4d515f !important;
+        }
+        /* END CV2Jobs-Match */
+    /* END jobcard css */</style> <style>.btn {
+    text-decoration: none !important;
+    }
+
+@media only screen and (max-width: 420px) {
+.btn {
+=09width: 100% !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+.btn {
+    color: #ffffff !important;
+    }
+.btn-secondary {
+    border-color: #008194 !important;
+    background-color: #000f0f !important;
+    color: #94C9FF !important;
+    }
+}
+
+[data-ogsc] .btn {
+    color: #ffffff !important;
+}
+
+[data-ogsc] .btn-secondary {
+    border-color: #008194 !important;
+    background-color: #000f0f !important;
+    color: #94C9FF !important;
+}
+
+[data-ogsb] .btn {
+     color: #ffffff !important;
+}
+
+[data-ogsb] .btn-secondary {
+     border-color: #008194 !important;
+     background-color: #000f0f !important;
+     color: #94C9FF !important;
+}</style><!--[if mso]>
+<style type=3D"text/css">
+    a.btn {
+        border: none !important;
+        background-color: transparent !important;
+        text-decoration: none !important;
+    }
+ </style>
+<![endif]--></head><body class=3D"body" style=3D"background-color:#f5f5f5; =
+margin:0; padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%=
+;-ms-interpolation-mode: bicubic;" bgcolor=3D"#f5f5f5">
+<div style=3D"color:transparent;visibility:hidden;opacity:0;font-size:0px;b=
+order:0;max-height:1px;width:1px;margin:0px;padding:0px;border-width:0px!im=
+portant;display:none!important;line-height:0px!important;"><img border=3D"0=
+" width=3D"1" height=3D"1" src=3D"https://click.totaljobsmail.com/q/S0Q7MKk=
+h6gl1lf9RV_b_DA~~/AAAmIgA~/RgRpMtf9PVcFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1t=
+b2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~" alt=3D""/></div>
+<span style=3D"display: none;">Information System Security Engineer</span> =
+<div style=3D"display: none; font-size: 1px; line-height: 1px; max-height: =
+0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-fami=
+ly: 'Helvetica Neue', Helvetica, Arial, sans-serif;">&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div><table width=3D"100%" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#f5f5f5" class=3D"=
+bodybg-darkmode" role=3D"presentation"><tr><td valign=3D"top" align=3D"cent=
+er"><div style=3D"max-width: 600px; margin: 0 auto;"><!--[if (gte mso 9)|(I=
+E)]>
+                    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ width=3D"600" align=3D"center" role=3D"presentation">
+                      <tr>
+                          <td valign=3D"top">
+                    <![endif]--><table width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" align=3D"center" bgcolor=3D"#ffffff" class=3D"b=
+g-darkmode" role=3D"presentation"><!-- Header --><tr><td valign=3D"top" col=
+span=3D"3" align=3D"left"><a href=3D"https://click.totaljobsmail.com/f/a/L-=
+f2LM-rJOqRW7kJP0qXmw~~/AAAmIgA~/RgRpMtf9P0ULaGVhZGVyX2xvZ29E3Gh0dHBzOi8vd3d=
+3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0dVSUQ9ODA0MDc0MzgtOG=
+ZmZS00MjhiLWFjNGUtMjM4ZjM3MmYzMTNlJkRDTVA9Ul9FTV9JSk1fVEpfU1RfMDQxMjIwMjQmU=
+mV0dXJuVXJsPWh0dHBzJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20mdW1pZD0yMDI0MTIwNDEz=
+MDI1My0wZGZkNGViYy0wODU4LTRhNmQtYjMwZi1kNmFiMDZjZDQ1NWRXBXNwY2V1QgpnRP1SUGe=
+QzjqjUh5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" target=3D"_blank=
+" ><img src=3D"https://e.totaljobs.com/images/ITE/totaljobs/lg_B2C_IJM_Tota=
+ljobs-ani-desktop.gif" alt=3D"Totaljobs logo" width=3D"600" style=3D"displa=
+y: block; width: 100%; height: auto; max-width: 600px" title=3D"Totaljobs" =
+border=3D"0" class=3D"mobile-hide" /></a> <span style=3D"mso-element: field=
+-begin"></span><div style=3D"display: none" class=3D"mobile-show"><img src=
+=3D"https://e.totaljobs.com/images/ITE/totaljobs/lg_B2C_IJM_Totaljobs-ani-m=
+obile.gif" width=3D"390" alt=3D"Totaljobs logo" border=3D"0" style=3D"width=
+: 100%; height: auto; min-width: 100%" /></div><span style=3D"mso-element: =
+field-end"></span></td></tr><!-- END Header --><!-- Content --><tr><td cols=
+pan=3D"3" height=3D"24" style=3D"font-size: 1px; line-height: 1px; height: =
+24px;">&nbsp;</td></tr><tr><td valign=3D"top" width=3D"4%" class=3D"w-left-=
+right">&nbsp;</td><td valign=3D"top" width=3D"92%" align=3D"left" style=3D"=
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:400=
+;font-size:16px;color:#0C2577;line-height:24px;" class=3D"w-middle color-da=
+rkmode"><span style=3D"display:inline-block; max-height:0; max-width:0;mso-=
+font-width:0%;mso-style-textfill-type: none; white-space: nowrap;"><span st=
+yle=3D"max-height:1px; max-width:1px; display:inline-block; overflow:hidden=
+; font-size:1px;color:rgba(0,0,0,0);text-indent:9px;"><h1>New Job Opportuni=
+ty based on your recent search</h1></span></span> Hello ham,<br /><br /=
+>We recommend this job for you. Take a look and see if you want to apply.</=
+td><td valign=3D"top" width=3D"4%" class=3D"w-left-right">&nbsp;</td></tr><=
+tr><td colspan=3D"3" height=3D"24" style=3D"font-size: 1px; line-height: 1p=
+x; height: 24px;">&nbsp;</td></tr><tr><td style=3D"font-size: 1px; line-hei=
+ght: 1px;">&nbsp;</td><td valign=3D"top" height=3D"17" style=3D"font-size: =
+1px; line-height: 1px; height: 17px;"><div style=3D"height:1px; border-top:=
+1px solid #CFD6E7;">&nbsp;</div></td><td style=3D"font-size: 1px; line-heig=
+ht: 1px;">&nbsp;</td></tr><!-- Offer IJM --><tr><td valign=3D"top" class=3D=
+"w-left-right">&nbsp;</td><td valign=3D"top" align=3D"left" style=3D"font-f=
+amily:'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:400;font-s=
+ize:16px;color:#0C2577;line-height:24px" class=3D"w-middle color-darkmode">=
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" role=
+=3D"presentation"><tr><td align=3D"left" style=3D"font-family:'Helvetica Ne=
+ue', Helvetica, Arial, sans-serif"><div class=3D"title color-darkmode" styl=
+e=3D"font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight=
+:700;font-size:22px;color:#0C2577;line-height:32px;">Information System Sec=
+urity Engineer</div><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ class=3D"ijm_offer-specs" style=3D"width:100%" role=3D"presentation"><tr><=
+td height=3D"4" style=3D"font-size: 1px; line-height: 1px; height: 4px;">&n=
+bsp;</td></tr><tr><td align=3D"left" style=3D"font-family:'Helvetica Neue',=
+ Helvetica, Arial, sans-serif;font-weight:400;font-size:14px;line-height:24=
+px"><div style=3D"line-height:24px" class=3D"color-darkmode"><span class=3D=
+"ijm_offer-specs__offer color-darkmode d-sm-table"><span class=3D"d-sm-tabl=
+e-cell pr-sm-1"><img alt=3D"company" width=3D"18" height=3D"16" src=3D"http=
+s://e.totaljobs.com/images/ITE/briefcase-icon.png" style=3D"vertical-align:=
+middle" /></span><span style=3D"color:#0C2577" class=3D"d-sm-table-cell col=
+or-darkmode"><span class=3D"mobile-hide">&nbsp;&nbsp;</span>Defence</span>&=
+emsp;</span><span class=3D"ijm_offer-specs__offer color-darkmode d-sm-table=
+"><span class=3D"d-sm-table-cell pr-sm-1"><img alt=3D"location" width=3D"18=
+" height=3D"16" src=3D"https://e.totaljobs.com/images/ITE/mapmarker-icon.pn=
+g" style=3D"vertical-align:middle" /></span><span style=3D"color:#0C2577" c=
+lass=3D"d-sm-table-cell color-darkmode"><span class=3D"mobile-hide">&nbsp;&=
+nbsp;</span>Buckinghamshire</span>&emsp;</span><span class=3D"ijm_offer-spe=
+cs__offer color-darkmode d-sm-table"><span class=3D"d-sm-table-cell pr-sm-1=
+"><img alt=3D"contract type" width=3D"18" height=3D"16" src=3D"https://e.to=
+taljobs.com/images/ITE/document-icon.png" style=3D"vertical-align:middle" /=
+></span><span style=3D"color:#0C2577" class=3D"d-sm-table-cell color-darkmo=
+de"><span class=3D"mobile-hide">&nbsp;&nbsp;</span>Permanent</span>&emsp;</=
+span><span class=3D"ijm_offer-specs__offer color-darkmode d-sm-table"><span=
+ class=3D"d-sm-table-cell pr-sm-1"><img alt=3D"salary" width=3D"18" height=
+=3D"16" src=3D"https://e.totaljobs.com/images/ITE/salary-icon.png" style=3D=
+"vertical-align:middle" /></span><span style=3D"color:#0C2577" class=3D"d-s=
+m-table-cell color-darkmode"><span class=3D"mobile-hide">&nbsp;&nbsp;</span=
+>Negotiable</span>&emsp;</span><div><span class=3D"color-darkmode" style=3D=
+"white-space:nowrap;color:#0C2577">1&nbsp;day&nbsp;ago</span></div></div></=
+td></tr></table></td><td width=3D"15" class=3D"w-lg-title">&nbsp;</td><td a=
+lign=3D"right" style=3D"padding-top:0;vertical-align:top" valign=3D"top"><t=
+able align=3D"right" style=3D"border-collapse:separate!important;" class=3D=
+"imageSquareTable" role=3D"presentation"><tr><td align=3D"center" class=3D"=
+imageSquare squareImgDarkmode" style=3D"padding:4px;width:56px;height:56px;=
+max-width:56px;min-width:56px;min-height:56px;max-height:56px;border:1px so=
+lid #CFD6E7;border-radius:8px;"><div><img align=3D"middle" src=3D"https://w=
+ww.stepstone.de/images/1x1trans.gif" border=3D"0" style=3D"max-width:56px;v=
+ertical-align:middle" width=3D"56" alt=3D"Defence" /></div></td></tr></tabl=
+e></td></tr></table></td><td valign=3D"top" class=3D"w-left-right">&nbsp;</=
+td></tr><!-- END Offer IJM --><!-- IJM Button top --><tr><td valign=3D"top"=
+ class=3D"w-left-right">&nbsp;</td><td valign=3D"top" align=3D"center" styl=
+e=3D"padding:30px 0 0;"><!--[if mso]><noscript><v:roundrect xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word=
+" style=3D"height:56px; v-text-anchor:middle; width:240px;" arcsize=3D"50%"=
+ stroke=3D"f" fillcolor=3D"#008194"><w:anchorlock/><center></noscript><![en=
+dif]--> <a class=3D"btn" href=3D"https://click.totaljobsmail.com/f/a/eOAsvw=
+e6hzMADoq3Wb8tDQ~~/AAAmIgA~/RgRpMtf9P0UNYXBwbHlfbm93X3RvcIRIAWh0dHBzOi8vd3d=
+3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0pvYklkPTEwMzkwMzI0NC=
+ZHVUlEPTgwNDA3NDM4LThmZmUtNDI4Yi1hYzRlLTIzOGYzNzJmMzEzZSZSZWNvbW1lbmRlZEpvY=
+j0xJkRDTVA9Ul9FTV9JSk1fVEpfU1RfMDQxMjIwMjQmYmF0Y2hpbnN0YW5jZUlkPTdiYTc1NDM0=
+LWRmYjYtNGYwYS1hOTc3LWFiMzU1YzJhZmIxMSZ1bWlkPTIwMjQxMjA0MTMwMjUzLTBkZmQ0ZWJ=
+jLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZCZhZGp1c3RfdD0xODcxa2Jpcl8xOGV0a3Y3ZC=
+ZhZGp1c3RfY2FtcGFpZ249SUpNJm9mZmVyX3Bvc2l0aW9uPTFXBXNwY2V1QgpnRP1SUGeQzjqjU=
+h5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" target=3D"_blank" styl=
+e=3D"display:inline-block; width:240px; padding:14px 0; border-radius:30px;=
+ line-height:28px; color:#ffffff; text-decoration:none; text-align: center;=
+ white-space:nowrap; background-color: #008194; font-family: 'Helvetica Neu=
+e', Helvetica, Arial, sans-serif; font-weight:700; font-size:18px;" ><span =
+style=3D"text-decoration:none;" class=3D"btn">Apply&nbsp;Now</span>&nbsp;<s=
+pan style=3D"mso-hide:all;"><img border=3D"0" style=3D"padding-bottom:3px; =
+vertical-align:middle; border:none;" src=3D"https://e.totaljobs.com/images/=
+ITE/chevron.png" width=3D"9" height=3D"16" alt=3D"" /></span><!--[if mso]><=
+span style=3D"font-size:20px;">&rsaquo;</span><![endif]--></a><!--[if mso]>=
+<noscript></center></v:roundrect></noscript><![endif]--></td><td valign=3D"=
+top" class=3D"w-left-right">&nbsp;</td></tr><!-- END IJM Button top --><!--=
+ Top Skills --><tr><td height=3D"47" colspan=3D"3" style=3D"font-size: 1px;=
+ line-height: 1px; height: 47px;">&nbsp;</td></tr><tr><td valign=3D"top" cl=
+ass=3D"w-left-right">&nbsp;</td><td valign=3D"top" align=3D"left"><table wi=
+dth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"prese=
+ntation"><tbody><tr><td valign=3D"top" align=3D"left"><table width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation"><tb=
+ody><tr><td align=3D"left" style=3D"font-family:'Helvetica Neue', Helvetica=
+, Arial, sans-serif;font-weight:700;font-size:22px;color:#0C2577;line-heigh=
+t:32px;" class=3D"color-darkmode"><h2>Top skills</h2></td></tr><tr><td heig=
+ht=3D"8" style=3D"font-size:1px;line-height:1px;height:8px">&nbsp;</td></tr=
+><tr><td align=3D"left" style=3D"font-family:'Helvetica Neue', Helvetica, A=
+rial, sans-serif;font-weight:400;font-size:14px;color:#0C2577;line-height:2=
+4px;" class=3D"color-darkmode">You're a great fit for this role if you have=
+ the following skills:</td></tr><tr><td height=3D"10" style=3D"font-size:1p=
+x;line-height:1px;height:10px">&nbsp;</td></tr></tbody></table></td></tr><t=
+r><td valign=3D"top" align=3D"left"><table border=3D"0" align=3D"left" cell=
+spacing=3D"0" cellpadding=3D"0" style=3D"float:left;" role=3D"presentation"=
+><tr><td style=3D"padding:0 8px 10px 0"><table cellspacing=3D"0" cellpaddin=
+g=3D"0" align=3D"left" style=3D"border: 1px solid #CFD6E7;border-radius: 20=
+px;border-collapse:separate !important;" role=3D"presentation"><tr><td alig=
+n=3D"left" valign=3D"top" height=3D"40"><table align=3D"left" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" height=3D"40" style=3D"border: none;" r=
+ole=3D"presentation"><tr><td align=3D"center" style=3D"font-family:'Helveti=
+ca Neue', Helvetica, Arial, sans-serif;font-weight:400;padding:8px 16px;tex=
+t-align: center;font-size:16px; color:#0C2577; line-height:24px;" class=3D"=
+color-darkmode">CEH</td></tr></table></td></tr></table></td></tr></table><t=
+able border=3D"0" align=3D"left" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"float:left;" role=3D"presentation"><tr><td style=3D"padding:0 8px 10px =
+0"><table cellspacing=3D"0" cellpadding=3D"0" align=3D"left" style=3D"borde=
+r: 1px solid #CFD6E7;border-radius: 20px;border-collapse:separate !importan=
+t;" role=3D"presentation"><tr><td align=3D"left" valign=3D"top" height=3D"4=
+0"><table align=3D"left" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" h=
+eight=3D"40" style=3D"border: none;" role=3D"presentation"><tr><td align=3D=
+"center" style=3D"font-family:'Helvetica Neue', Helvetica, Arial, sans-seri=
+f;font-weight:400;padding:8px 16px;text-align: center;font-size:16px; color=
+:#0C2577; line-height:24px;" class=3D"color-darkmode">SIEM</td></tr></table=
+></td></tr></table></td></tr></table><table border=3D"0" align=3D"left" cel=
+lspacing=3D"0" cellpadding=3D"0" style=3D"float:left;" role=3D"presentation=
+"><tr><td style=3D"padding:0 8px 10px 0"><table cellspacing=3D"0" cellpaddi=
+ng=3D"0" align=3D"left" style=3D"border: 1px solid #CFD6E7;border-radius: 2=
+0px;border-collapse:separate !important;" role=3D"presentation"><tr><td ali=
+gn=3D"left" valign=3D"top" height=3D"40"><table align=3D"left" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" height=3D"40" style=3D"border: none;" =
+role=3D"presentation"><tr><td align=3D"center" style=3D"font-family:'Helvet=
+ica Neue', Helvetica, Arial, sans-serif;font-weight:400;padding:8px 16px;te=
+xt-align: center;font-size:16px; color:#0C2577; line-height:24px;" class=3D=
+"color-darkmode">NIST</td></tr></table></td></tr></table></td></tr></table>=
+<table border=3D"0" align=3D"left" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"float:left;" role=3D"presentation"><tr><td style=3D"padding:0 8px 10px=
+ 0"><table cellspacing=3D"0" cellpadding=3D"0" align=3D"left" style=3D"bord=
+er: 1px solid #CFD6E7;border-radius: 20px;border-collapse:separate !importa=
+nt;" role=3D"presentation"><tr><td align=3D"left" valign=3D"top" height=3D"=
+40"><table align=3D"left" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+height=3D"40" style=3D"border: none;" role=3D"presentation"><tr><td align=
+=3D"center" style=3D"font-family:'Helvetica Neue', Helvetica, Arial, sans-s=
+erif;font-weight:400;padding:8px 16px;text-align: center;font-size:16px; co=
+lor:#0C2577; line-height:24px;" class=3D"color-darkmode">Iso 27001</td></tr=
+></table></td></tr></table></td></tr></table><table border=3D"0" align=3D"l=
+eft" cellspacing=3D"0" cellpadding=3D"0" style=3D"float:left;" role=3D"pres=
+entation"><tr><td style=3D"padding:0 8px 10px 0"><table cellspacing=3D"0" c=
+ellpadding=3D"0" align=3D"left" style=3D"border: 1px solid #CFD6E7;border-r=
+adius: 20px;border-collapse:separate !important;" role=3D"presentation"><tr=
+><td align=3D"left" valign=3D"top" height=3D"40"><table align=3D"left" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" height=3D"40" style=3D"border:=
+ none;" role=3D"presentation"><tr><td align=3D"center" style=3D"font-family=
+:'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:400;padding:8px=
+ 16px;text-align: center;font-size:16px; color:#0C2577; line-height:24px;" =
+class=3D"color-darkmode">vulnerability</td></tr></table></td></tr></table><=
+/td></tr></table></td></tr></tbody></table></td><td valign=3D"top" class=3D=
+"w-left-right">&nbsp;</td></tr><!-- END Top Skills --><!-- Content Sections=
+ --><tr><td colspan=3D"3" height=3D"20" style=3D"font-size:1px;line-height:=
+1px;height:20px">&nbsp;</td></tr><tr><td valign=3D"top" class=3D"w-left-rig=
+ht">&nbsp;</td><td valign=3D"top" align=3D"left" class=3D"linkblue" style=
+=3D"font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:=
+400;font-size:16px;color:#0C2577;line-height:24px;"><div class=3D"content-s=
+ection"><div class=3D"color-darkmode" style=3D"padding-bottom:10px;"><p>Joi=
+n a reputable business who have a number of awards, most recently been name=
+d as an Award winner (Gold Award) in MoD Defence Employer Recognition Schem=
+e!</p><p><strong>The opportunity:</strong></p><p>My client is seeking a hig=
+hly skilled and motivated <strong>Cybersecurity Specialist</strong> to impl=
+ement and maintain security controls for <strong>classified information sys=
+tems</strong>. This role will focus on ensuring the integrity and security =
+of their classified environments through proactive security management, ass=
+essments, and the implementation of best practices for network and system s=
+ecurity.</p><p><strong>Responsibilities:</strong></p><ul><li>Implement and =
+maintain robust <strong>security controls</strong> for classified informati=
+on systems.</li><li>Assist in the <strong>configuration and administration<=
+/strong> of secure networks and systems.</li><li>Conduct routine <strong>se=
+curity assessments</strong> and <strong>vulnerability scans</strong> on cla=
+ssified systems.</li><li>Contribute to the development and <strong>implemen=
+tation of security policies and procedures</strong> specific to classified =
+environments.</li><li><strong>Monitor security events and incidents</strong=
+> within the classified network, ensuring rapid response and resolution.</l=
+i><li>Support the <strong>accreditation and certification processes</strong=
+> for classified systems.</li><li>Maintain <strong>accurate documentation</=
+strong> of system configurations, security controls, and other necessary re=
+cords.</li><li>Collaborate with other team members to <strong>troubleshoot =
+and resolve security issues</strong>.</li><li>Participate in <strong>securi=
+ty awareness training</strong> for system users to enhance overall security=
+ culture.</li><li>Stay informed on the latest <strong>cybersecurity threats=
+</strong> and <strong>mitigation strategies</strong> relevant to classified=
+ environments.</li></ul><p><strong>Requirements:</strong></p><ul><li><stron=
+g>Experience</strong> in cybersecurity, with a solid foundation in general =
+IT.</li><li>Bachelor's degree in <strong>Computer Science</strong>, <strong=
+>Information Technology</strong>, or a related field.</li><li>Strong unders=
+tanding of <strong>network security</strong>, <strong>endpoint protection</=
+strong>, and <strong>cloud security</strong> concepts.</li><li>Proficiency =
+in using and managing <strong>SIEM tools</strong> and other security platfo=
+rms.</li><li><strong>Experience</strong> in creating <strong>security proce=
+dures</strong>, <strong>run books</strong>, and <strong>reports</strong>.</=
+li><li>Proven ability to conduct <strong>threat hunting</strong> and <stron=
+g>root cause analysis</strong>.</li><li><strong>Excellent analytical and pr=
+oblem-solving skills</strong>.</li><li><strong>Outstanding communication sk=
+ills</strong>, both written and verbal.</li><li>Ability to work collaborati=
+vely with team members in a fast-paced environment.</li></ul><p><strong>Pre=
+ferred Qualifications:</strong></p><ul><li>Relevant advanced certifications=
+ such as <strong>CISSP</strong>, <strong>GIAC</strong>, or <strong>CEH</str=
+ong>.</li><li>Experience with <strong>security orchestration and automation=
+ tools</strong>.</li><li>Knowledge of <strong>regulatory compliance standar=
+ds</strong> (e.g., <strong>NIST</strong>, <strong>ISO 27001</strong>, <stro=
+ng>HIPAA</strong>).</li><li>Familiarity with scripting languages such as <s=
+trong>Python</strong> or <strong>PowerShell</strong> for automation and ana=
+lysis.</li><li>Experience in designing and implementing <strong>security ar=
+chitectures</strong>.</li></ul><p><strong>Special Requirements:</strong></p=
+><ul><li>Must be able to obtain and maintain a <strong>Secret</strong> or h=
+igher-level <strong>security clearance</strong>.</li><li>Ability to work no=
+n-standard hours or be on-call for <strong>security incidents</strong>.</li=
+><li>Must adhere to all security protocols and procedures in a <strong>clas=
+sified environment</strong>.</li></ul><p>To learn more about this opportuni=
+ty then please reach out to me! </p></div></div><div class=3D"color-darkmod=
+e">Read the full job description  <a href=3D"https://click.totaljobsmail.co=
+m/f/a/E-m75omazLuZt-xsJ-ZX1g~~/AAAmIgA~/RgRpMtf9P0UMbGlzdGluZ19wYWdlhEMBaHR=
+0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9Kb2JTZWFyY2gvRW1haWxMaW5rLmFzcHg_Sm9iSWQ9MT=
+AzOTAzMjQ0JkdVSUQ9ODA0MDc0MzgtOGZmZS00MjhiLWFjNGUtMjM4ZjM3MmYzMTNlJkRDTVA9U=
+l9FTV9JSk1fVEpfU1RfMDQxMjIwMjRfam9iU2hvd01vcmUmYmF0Y2hpbnN0YW5jZUlkPTdiYTc1=
+NDM0LWRmYjYtNGYwYS1hOTc3LWFiMzU1YzJhZmIxMSZ1bWlkPTIwMjQxMjA0MTMwMjUzLTBkZmQ=
+0ZWJjLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZCZhZGp1c3RfdD0xODcxa2Jpcl8xOGV0a3=
+Y3ZCZhZGp1c3RfY2FtcGFpZ249SUpNJm9mZmVyX3Bvc2l0aW9uPTFXBXNwY2V1QgpnRP1SUGeQz=
+jqjUh5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" style=3D"text-deco=
+ration:underline;font-weight:normal;color:#008194;" target=3D"_blank" >here=
+</a>.</div></td><td valign=3D"top" class=3D"w-left-right">&nbsp;</td></tr><=
+tr><td height=3D"14" colspan=3D"3" style=3D"font-size: 1px; line-height: 1p=
+x; height: 14px;">&nbsp;</td></tr><!-- IJM Button bottom --><tr><td valign=
+=3D"top" class=3D"w-left-right">&nbsp;</td><td valign=3D"top" align=3D"cent=
+er" style=3D"padding:30px 0 0;"><!--[if mso]><noscript><v:roundrect xmlns:v=
+=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:off=
+ice:word" style=3D"height:56px; v-text-anchor:middle; width:240px;" arcsize=
+=3D"50%" stroke=3D"f" fillcolor=3D"#008194"><w:anchorlock/><center></noscri=
+pt><![endif]--> <a class=3D"btn" href=3D"https://click.totaljobsmail.com/f/=
+a/Lr8Ec_tzpB8TnbCXpdANhw~~/AAAmIgA~/RgRpMtf9P0UQYXBwbHlfbm93X2JvdHRvbYRIAWh=
+0dHBzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0pvYklkPT=
+EwMzkwMzI0NCZHVUlEPTgwNDA3NDM4LThmZmUtNDI4Yi1hYzRlLTIzOGYzNzJmMzEzZSZSZWNvb=
+W1lbmRlZEpvYj0xJkRDTVA9Ul9FTV9JSk1fVEpfU1RfMDQxMjIwMjQmYmF0Y2hpbnN0YW5jZUlk=
+PTdiYTc1NDM0LWRmYjYtNGYwYS1hOTc3LWFiMzU1YzJhZmIxMSZ1bWlkPTIwMjQxMjA0MTMwMjU=
+zLTBkZmQ0ZWJjLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZCZhZGp1c3RfdD0xODcxa2Jpcl=
+8xOGV0a3Y3ZCZhZGp1c3RfY2FtcGFpZ249SUpNJm9mZmVyX3Bvc2l0aW9uPTFXBXNwY2V1QgpnR=
+P1SUGeQzjqjUh5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" target=3D"=
+_blank" style=3D"display:inline-block; width:240px; padding:14px 0; border-=
+radius:30px; line-height:28px; color:#ffffff; text-decoration:none; text-al=
+ign: center; white-space:nowrap; background-color: #008194; font-family: 'H=
+elvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:18=
+px;" ><span style=3D"text-decoration:none;" class=3D"btn">Apply&nbsp;Now</s=
+pan>&nbsp;<span style=3D"mso-hide:all;"><img border=3D"0" style=3D"padding-=
+bottom:3px; vertical-align:middle; border:none;" src=3D"https://e.totaljobs=
+.com/images/ITE/chevron.png" width=3D"9" height=3D"16" alt=3D"" /></span><!=
+--[if mso]><span style=3D"font-size:20px;">&rsaquo;</span><![endif]--></a><=
+!--[if mso]><noscript></center></v:roundrect></noscript><![endif]--></td><t=
+d valign=3D"top" class=3D"w-left-right">&nbsp;</td></tr><!-- END IJM Button=
+ bottom --><tr><td height=3D"40" colspan=3D"3" style=3D"font-size: 1px; lin=
+e-height: 1px; height: 40px;">&nbsp;</td></tr><!-- END Offer iJM --><!-- Fo=
+oter box --> <tr><td valign=3D"top" bgcolor=3D"#F4F4ED" class=3D"bg-darkmod=
+e2">&nbsp;</td><td valign=3D"top" align=3D"left" bgcolor=3D"#F4F4ED" class=
+=3D"bg-darkmode2"><table width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" role=3D"presentation"><tr><td height=3D"35" style=3D"font-siz=
+e: 1px; line-height: 1px; height: 35px;">&nbsp;</td></tr><tr><td valign=3D"=
+top" align=3D"left" style=3D"font-family: 'Helvetica Neue', Helvetica, Aria=
+l, sans-serif;font-weight:400;font-size:14px;color:#0C2577;line-height:24px=
+;" class=3D"linkblack2"><a target=3D"_blank" style=3D"text-decoration: unde=
+rline !important; color:#0C2577;" href=3D"https://click.totaljobsmail.com/f=
+/a/0wTl93v7WdhJxGE5kBOj2Q~~/AAAmIgA~/RgRpMtf9P0UTZWRpdF9lbWFpbF9zZXR0aW5nc0=
+T9aHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9Kb2JTZWFyY2gvRW1haWxMaW5rLmFzcHg_R1VJR=
+D04MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UmUmV0dXJuVXJsPWh0dHBzJTNB=
+JTJGJTJGd3d3LnRvdGFsam9icy5jb20lMkZBdXRoZW50aWNhdGVkJTJGTG9naW4uYXNweCUzRkR=
+DTVAlM0RSX0VNX0lKTV9USl9TVF8wNDEyMjAyNCZ1bWlkPTIwMjQxMjA0MTMwMjUzLTBkZmQ0ZW=
+JjLTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZFcFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2Vya=
+W1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~" class=3D"color-darkmode">Manag=
+e all your subscriptions</a><span class=3D"mobile-hide">&nbsp;&nbsp;&nbsp;<=
+/span> <span class=3D"spacer-mobile-show" style=3D"display: none; mso-hide:=
+ all;"><br /></span><a target=3D"_blank" style=3D"text-decoration: underlin=
+e !important; color:#0C2577;" href=3D"https://click.totaljobsmail.com/f/a/V=
+3db63b3MIRTIWwNTJNglA~~/AAAmIgA~/RgRpMtf9P0UQbGlua191bnN1YnNjcmliZYQnAWh0dH=
+BzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0dVSUQ9ODA0M=
+Dc0MzgtOGZmZS00MjhiLWFjNGUtMjM4ZjM3MmYzMTNlJlJldHVyblVybD1odHRwcyUzQSUyRiUy=
+Rnd3dy50b3RhbGpvYnMuY29tJTJGQWNjb3VudCUyRkVtYWlsJTJGVW5zdWJzY3JpYmUlMkY4MDQ=
+wNzQzOC04ZmZlLTQyOGItYWM0ZS0yMzhmMzcyZjMxM2UlM0ZEQ01QJTNEUl9FTV9JSk1fVEpfU1=
+RfMDQxMjIwMjQmdW1pZD0yMDI0MTIwNDEzMDI1My0wZGZkNGViYy0wODU4LTRhNmQtYjMwZi1kN=
+mFiMDZjZDQ1NWRXBXNwY2V1QgpnRP1SUGeQzjqjUh5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFp=
+bC5jb21YBAAAAAY~" class=3D"color-darkmode">Unsubscribe from this email</a><=
+/td></tr><tr><td height=3D"35" style=3D"font-size: 1px; line-height: 1px; h=
+eight: 35px;">&nbsp;</td></tr><tr><td align=3D"left" valign=3D"top" style=
+=3D"mso-line-height-rule: exactly; font-size: 12px; line-height: 20px; font=
+-weight: 400; color: #0C2577; font-family: 'Helvetica Neue', Helvetica, Ari=
+al, sans-serif;" class=3D"color-darkmode">Please be aware that this email a=
+nd its links include data about your individual search profile. In order to=
+ avoid that third parties can access your personal data, you should not for=
+ward this email and the links contained in it.</td></tr><tr><td height=3D"2=
+4" style=3D"font-size: 1px; line-height: 1px; height: 24px;">&nbsp;</td></t=
+r></table></td><td valign=3D"top" bgcolor=3D"#F4F4ED" class=3D"bg-darkmode2=
+">&nbsp;</td></tr><!-- Footer Logo --><tr><td valign=3D"top" colspan=3D"3" =
+align=3D"left"><a href=3D"https://click.totaljobsmail.com/f/a/ScweW19cIME65=
+U1KbbDPMA~~/AAAmIgA~/RgRpMtf9P0ULZm9vdGVyX2xvZ29E3Gh0dHBzOi8vd3d3LnRvdGFsam=
+9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0dVSUQ9ODA0MDc0MzgtOGZmZS00MjhiL=
+WFjNGUtMjM4ZjM3MmYzMTNlJkRDTVA9Ul9FTV9JSk1fVEpfU1RfMDQxMjIwMjQmUmV0dXJuVXJs=
+PWh0dHBzJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20mdW1pZD0yMDI0MTIwNDEzMDI1My0wZGZ=
+kNGViYy0wODU4LTRhNmQtYjMwZi1kNmFiMDZjZDQ1NWRXBXNwY2V1QgpnRP1SUGeQzjqjUh5haW=
+dlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" target=3D"_blank" ><img src=
+=3D"https://e.totaljobs.com/images/ITE/totaljobs/tj-footer-logo-desktop.png=
+" alt=3D"Totaljobs logo" width=3D"600" style=3D"display: block; width: 100%=
+; height: auto; max-width: 600px" title=3D"Totaljobs" border=3D"0" class=3D=
+"mobile-hide" /></a> <span style=3D"mso-element: field-begin"></span><div s=
+tyle=3D"display: none" class=3D"mobile-show"><img src=3D"https://e.totaljob=
+s.com/images/ITE/totaljobs/tj-footer-lg-mobile.png" width=3D"390" alt=3D"To=
+taljobs logo" border=3D"0" style=3D"width: 100%; height: auto; min-width: 1=
+00%" /></div><span style=3D"mso-element: field-end"></span></td></tr><!-- E=
+ND Footer Logo --><tr><td valign=3D"top" bgcolor=3D"#F4F4ED" class=3D"bg-da=
+rkmode2">&nbsp;</td><td valign=3D"top" align=3D"left" bgcolor=3D"#F4F4ED" c=
+lass=3D"bg-darkmode2"><table width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" role=3D"presentation"><tr><td height=3D"16" style=3D"font=
+-size: 1px; line-height: 1px; height: 16px;">&nbsp;</td></tr><tr><td valign=
+=3D"top" align=3D"left" style=3D"font-family: 'Helvetica Neue', Helvetica, =
+Arial, sans-serif;font-weight:400;font-size:12px;color:#0C2577;line-height:=
+12px;" class=3D"color-darkmode"><strong>=C2=A9 2024 The Stepstone Group UK<=
+/strong><br /><br /> <div style=3D"line-height:21px;">Blue Fin, 110 Southwa=
+rk Street, London SE1 0TA<br/>Registered in England & Wales under company n=
+umber 04269861</div></td></tr><tr><td height=3D"40" style=3D"font-size: 1px=
+; line-height: 1px; height: 40px;">&nbsp;</td></tr><tr><td valign=3D"top" a=
+lign=3D"left" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, san=
+s-serif;font-weight:400;font-size:14px;color:#0C2577;line-height:20px;" cla=
+ss=3D"linkblack2"><span class=3D"color-darkmode"> <a href=3D"https://click.=
+totaljobsmail.com/f/a/1s1bIGDkqpeToXN2XSoPLQ~~/AAAmIgA~/RgRpMtf9P0UMdGVybXN=
+fb2ZfdXNlRDRodHRwczovL3d3dy50b3RhbGpvYnMuY29tL2Fib3V0L3Rlcm1zLWFuZC1jb25kaX=
+Rpb25zVwVzcGNldUIKZ0T9UlBnkM46o1IeYWlnZXJpbW1vbGRha2hhbm92YTdAZ21haWwuY29tW=
+AQAAAAG" target=3D"_blank" style=3D"text-decoration: underline !important; =
+color:#0C2577;" >Terms of use</a> -  <a href=3D"https://click.totaljobsmail=
+.com/f/a/yRf--rz61gEIv8nbwE-DHQ~~/AAAmIgA~/RgRpMtf9P0URcHJpdmFjeV9zdGF0ZW1l=
+bnRE-Wh0dHBzOi8vd3d3LnRvdGFsam9icy5jb20vSm9iU2VhcmNoL0VtYWlsTGluay5hc3B4P0d=
+VSUQ9ODA0MDc0MzgtOGZmZS00MjhiLWFjNGUtMjM4ZjM3MmYzMTNlJlJldHVyblVybD1odHRwcy=
+UzQSUyRiUyRnd3dy50b3RhbGpvYnMuY29tJTJGYWJvdXQlMkZwcml2YWN5LXBvbGljeSUzRkRDT=
+VAlM0RSX0VNX0lKTV9USl9TVF8wNDEyMjAyNCZ1bWlkPTIwMjQxMjA0MTMwMjUzLTBkZmQ0ZWJj=
+LTA4NTgtNGE2ZC1iMzBmLWQ2YWIwNmNkNDU1ZFcFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1=
+tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~" target=3D"_blank" style=3D"text-=
+decoration: underline !important; color:#0C2577;" >Privacy policy</a> -  <a=
+ href=3D"https://click.totaljobsmail.com/f/a/1NL0JSLdHMHdltjWVyrrww~~/AAAmI=
+gA~/RgRpMtf9P0UQY29udGFjdF91c19lbWFpbETtaHR0cHM6Ly93d3cudG90YWxqb2JzLmNvbS9=
+Kb2JTZWFyY2gvRW1haWxMaW5rLmFzcHg_R1VJRD04MDQwNzQzOC04ZmZlLTQyOGItYWM0ZS0yMz=
+hmMzcyZjMxM2UmUmV0dXJuVXJsPWh0dHBzJTNBJTJGJTJGd3d3LnRvdGFsam9icy5jb20lMkZDb=
+250YWN0LVVzJTNGRENNUCUzRFJfRU1fSUpNX1RKX1NUXzA0MTIyMDI0JnVtaWQ9MjAyNDEyMDQx=
+MzAyNTMtMGRmZDRlYmMtMDg1OC00YTZkLWIzMGYtZDZhYjA2Y2Q0NTVkVwVzcGNldUIKZ0T9UlB=
+nkM46o1IeYWlnZXJpbW1vbGRha2hhbm92YTdAZ21haWwuY29tWAQAAAAG" target=3D"_blank=
+" style=3D"text-decoration: underline !important; color:#0C2577;" >Contact =
+us</a></span></td></tr><tr><td height=3D"34" style=3D"font-size: 1px; line-=
+height: 1px; height: 34px;">&nbsp;</td></tr><tr><td valign=3D"top" align=3D=
+"left"><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"pres=
+entation"><tr><td width=3D"40" height=3D"40"> <a href=3D"https://click.tota=
+ljobsmail.com/f/a/TJPA48gd5zehdaRyqoMy2g~~/AAAmIgA~/RgRpMtf9P0UIZmFjZWJvb2t=
+EImh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9Ub3RhbGpvYnNXBXNwY2V1QgpnRP1SUGeQzjqjUh=
+5haWdlcmltbW9sZGFraGFub3ZhN0BnbWFpbC5jb21YBAAAAAY~" target=3D"_blank" ><img=
+ src=3D"https://e.totaljobs.com/images/ITE/social-facebook-gn.png" width=3D=
+"40" height=3D"40" border=3D"0" alt=3D"Facebook" style=3D"display: block;" =
+/></a></td><td width=3D"16">&nbsp;</td><td width=3D"40" height=3D"40"> <a h=
+ref=3D"https://click.totaljobsmail.com/f/a/XPjLUbfPeQLjnpHoXOXAjA~~/AAAmIgA=
+~/RgRpMtf9P0UHeW91dHViZUQiaHR0cHM6Ly93d3cueW91dHViZS5jb20vQHRvdGFsam9ic1cFc=
+3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~=
+" target=3D"_blank" ><img src=3D"https://e.totaljobs.com/images/ITE/social-=
+youtube-gn.png" width=3D"40" height=3D"40" border=3D"0" alt=3D"Youtube" sty=
+le=3D"display: block;" /></a></td><td width=3D"16">&nbsp;</td><td width=3D"=
+40" height=3D"40"> <a href=3D"https://click.totaljobsmail.com/f/a/blxydYKS7=
+Vl01GY2skW9CA~~/AAAmIgA~/RgRpMtf9P0UHdHdpdHRlckQfaHR0cHM6Ly90d2l0dGVyLmNvbS=
+90b3RhbGpvYnNVS1cFc3BjZXVCCmdE_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtY=
+WlsLmNvbVgEAAAABg~~" target=3D"_blank" ><img src=3D"https://e.totaljobs.com=
+/images/ITE/social-twitter-gn.png" width=3D"40" height=3D"40" border=3D"0" =
+alt=3D"Twitter" style=3D"display: block;" /></a></td><td width=3D"16">&nbsp=
+;</td><td width=3D"40" height=3D"40"> <a href=3D"https://click.totaljobsmai=
+l.com/f/a/Fo1x4njdXTZpFo2Xlp-I9w~~/AAAmIgA~/RgRpMtf9P0UEYmxvZ0QuaHR0cHM6Ly9=
+3d3cudG90YWxqb2JzLmNvbS9hZHZpY2UvY2FyZWVyLWFkdmljZVcFc3BjZXVCCmdE_VJQZ5DOOq=
+NSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~" target=3D"_blank" >=
+<img src=3D"https://e.totaljobs.com/images/ITE/blog-gn.png" width=3D"40" he=
+ight=3D"40" border=3D"0" alt=3D"Blog" style=3D"display: block;" /></a></td>=
+<td width=3D"16">&nbsp;</td></tr></table></td></tr><tr><td height=3D"34" st=
+yle=3D"font-size: 1px; line-height: 1px; height: 34px;">&nbsp;</td></tr></t=
+able></td><td valign=3D"top" bgcolor=3D"#F4F4ED" class=3D"bg-darkmode2">&nb=
+sp;</td></tr><!-- END Footer box --><!-- END Content --></table><!--[if (gt=
+e mso 9)|(IE)]>
+                                </td>
+                            </tr>
+                          </table>
+                    <![endif]--></div></td></tr></table>
+<img border=3D"0" width=3D"1" height=3D"1" alt=3D"" src=3D"https://click.to=
+taljobsmail.com/q/_ddfsRRJNFn9FyCH5C2Xdg~~/AAAmIgA~/RgRpMtf9PlcFc3BjZXVCCmd=
+E_VJQZ5DOOqNSHmFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbVgEAAAABg~~">
+</body></html>
+--_----1yRm9fmB8kdcl7kGh0kn2Q===_D9/A3-01630-DF250576--

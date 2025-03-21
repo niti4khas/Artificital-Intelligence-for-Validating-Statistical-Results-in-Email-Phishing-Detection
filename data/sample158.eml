@@ -1,0 +1,137 @@
+Received: from PH7PR19MB5561.namprd19.prod.outlook.com (2603:10b6:510:133::22)
+ by MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Wed, 20 Sep 2023
+ 22:34:01 +0000
+Received: from AS4P191CA0051.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:657::23)
+ by PH7PR19MB5561.namprd19.prod.outlook.com (2603:10b6:510:133::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.27; Wed, 20 Sep
+ 2023 22:34:00 +0000
+Received: from AM2PEPF0001C715.eurprd05.prod.outlook.com
+ (2603:10a6:20b:657:cafe::75) by AS4P191CA0051.outlook.office365.com
+ (2603:10a6:20b:657::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.30 via Frontend
+ Transport; Wed, 20 Sep 2023 22:33:58 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.48.119)
+ smtp.mailfrom=amazonses.com; dkim=pass (signature was verified)
+ header.d=iceapple.tech;dmarc=bestguesspass action=none
+ header.from=iceapple.tech;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of amazonses.com designates
+ 54.240.48.119 as permitted sender) receiver=protection.outlook.com;
+ client-ip=54.240.48.119; helo=a48-119.smtp-out.amazonses.com; pr=C
+Received: from a48-119.smtp-out.amazonses.com (54.240.48.119) by
+ AM2PEPF0001C715.mail.protection.outlook.com (10.167.16.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6792.20 via Frontend Transport; Wed, 20 Sep 2023 22:33:58 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:7A797DD9B84F4D8EF91083253D4C2780CA2F23CE057C27BEF561DFC7920F2766;UpperCasedChecksum:B779DFC105FF38F07869A9CB8616D9E1C1AE1A8F03F3AB76B77AE46BA55FA985;SizeAsReceived:1570;Count:11
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=u6hv2uak3gt77gdux4vqladw5rfzw5fs; d=iceapple.tech; t=1695249238;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=iaynrt8+EA0pvZKl6vTivHN0OCb8+yAp6tm1U6G6voY=;
+	b=lTls5MbFfehJf/xrGH7HsbnwIN9q6BLFivxzepMrAeo599WMlta6m+31B7giHKQq
+	Un8E232cZT68lRPuQd0I+ZTLT7/gAu9SAs1N9+lxxuSFNZcFO54Eqhtej93AM1pt1Et
+	A7FaAzyFAi9pwyh5SyVfDOlPDsmWehjktVcvklViEAqcsiAinwvnf38P9tQd/HFRP2J
+	X73ogw4noxkGIJ/Z2apI5cUUsbz+FcN9x50CnDFNyqz8zMzZ+V++pmEj2knS2F0GEBS
+	TEn6kr0N9DMNbckht2DQbChAQcK5X4HQ1gYHXFJHtpBaQgNr/T8IQf7RXP7S9oiEJEY
+	OyUcsiZ5vw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1695249238;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:Feedback-ID;
+	bh=iaynrt8+EA0pvZKl6vTivHN0OCb8+yAp6tm1U6G6voY=;
+	b=Wu5KbbbjclSpe8jfthDLpEvU9W1U389APysT7sRfeh4QR00Yn3ZY6CB6YbjtfjiR
+	kJ/JUc0b7/1CMsc+HkjpPRZekcxykppVxex5jZmShCRr7nNhVa06oidWaGtiVzna/Bi
+	/omRnca2oWzZkMJIC9Te/eYcthNqi8GvQpSOGbsM=
+From: "Claim Assist(FTX)" <claims-ivsig@iceapple.tech>
+To: phishing@pot
+Subject: Important Notice: Case Authorization for Assets
+Date: Wed, 20 Sep 2023 22:33:58 +0000
+Message-ID: <0100018ab4ba88a5-18ccc1df-5998-4c0a-bbbb-37804e78226e-000000@email.amazonses.com>
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0012_0B86474E.BA75F12E"
+Feedback-ID: 1.us-east-1.4utA1wjsfdhI+hfxF2nxri4MHWr1gFWvRp0sFl5KrQo=:AmazonSES
+X-SES-Outgoing: 2023.09.20-54.240.48.119
+X-IncomingHeaderCount: 11
+Return-Path:
+ 0100018ab4ba88a5-18ccc1df-5998-4c0a-bbbb-37804e78226e-000000@amazonses.com
+X-MS-Exchange-Organization-ExpirationStartTime: 20 Sep 2023 22:33:58.9037
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 864dcdfd-b131-4867-7598-08dbba29ae9d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM2PEPF0001C715:EE_|PH7PR19MB5561:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM2PEPF0001C715.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/20/2023 10:23:45 PM
+X-MS-Office365-Filtering-Correlation-Id: 864dcdfd-b131-4867-7598-08dbba29ae9d
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 54.240.48.119
+X-SID-PRA: CLAIMS-IVSIG@ICEAPPLE.TECH
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2023 22:33:58.6224
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 864dcdfd-b131-4867-7598-08dbba29ae9d
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM2PEPF0001C715.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB5561
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2832959
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6792.025
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Info:
+	qZelhIiYnPnh9Y2RFisIkKh+++8HydO4TDAhI5AIvoC+9fImT3KLLlXMyGvr0pUPRVDPC4ASCgbw5/xaACWyMphhkxY9J/tjt9Ct/0xGgfVvBHUB2TTHuGoKmRpIPUomokJ180j+ISz9q2GEYynnyl/B67N9ecGlo2z2xHd8Lv9EcdcxFeqlLI9rwp1OFQakLwGRUqaTe0ITkMzStfynGA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?windows-1250?Q?c6MA+LYIQmJdtjakFE8nUVdT3RA5TQphLkvTbI0yIMpOyaIHiHYRgA4w?=
+ =?windows-1250?Q?4fK3Nx/Nt4iObzUE/27qk5M49VEwfDpuCQ8C5/jHWt0bEVmcuqIWiMRr?=
+ =?windows-1250?Q?cpy4T8zBBktTqVX43woPjSwjWIP+a67ECpozwypl6k3C0nUaC0c7tYO6?=
+ =?windows-1250?Q?INtXhBaFhw+azAdFlo8+cGuKGtCZTo9eq6Br7u3eWVh/sq63fGiamvuC?=
+ =?windows-1250?Q?Yrtf4/V1ts0VQNyMkA5erZ0g/9IwxdlaoVqQu3uRyTeHJSL3KDqg4wk5?=
+ =?windows-1250?Q?oWnWwHpn93/21mhSuJLqtwopZMPHEUBlc9KX7n00Km5b1DJ+jZkG1BS4?=
+ =?windows-1250?Q?SA/tD47g7rj/WzLtfxXtBgwaz8Ewdh2/xT8SgVrns8g4/+ve9B5aijHp?=
+ =?windows-1250?Q?t1Wran7tOiX9XrK/7dh5FyiHAAAcgl8uHNhyqf6yLJod2rj163xD3UPH?=
+ =?windows-1250?Q?/hQJ+387xFIsKFOnSlanuXbvIsUy4xfrgQmT1JzNiF29TRlxl5Oz2MZf?=
+ =?windows-1250?Q?v2h95DS0cDpeg8gw6OzzZvRCfLTEAZ+1DnXbz0BzJbcv4kkTlwOgprPD?=
+ =?windows-1250?Q?OtLCI8bpioBnvTl4CFYSj+p0zP/c+SKJ0K+jXXBiEaDjkv+CIR4g8edT?=
+ =?windows-1250?Q?IAykrHRM7H1B3Odcu9jW+LcKyHnkaNOcN0XsCr/kzSIGcR828huOSIJv?=
+ =?windows-1250?Q?mWSz6Okr9LInzFAI0VOBKtAMyHAvPYSi+TCeh2a4FqZlw8NKOdL2aY0u?=
+ =?windows-1250?Q?gatR95ZO0SKXMv6JoZQsKozIXwdDVu6qT6USaqc6y+QlKiCVaMPVwuBe?=
+ =?windows-1250?Q?xBQpNVQAAozTjD3ryOQ8qXFysIfIhlXj1fWOpzhZtPHRPLitCCOKE8tI?=
+ =?windows-1250?Q?Ld9O28vPrJWprpIWxx9celFFLlSuxhjixqnkQojznjPwaLM+Uog9TF2O?=
+ =?windows-1250?Q?dyhbBPX8DNBMaHlx40kZlC8LnO2owtNrxqzJrVK0vK9GvQTRm78YqZ1+?=
+ =?windows-1250?Q?7Xg95g0pPkTW/KjNtxR4KYFTcc3qLbBNc84gRXiY0pQRG+xGaJwoMCcW?=
+ =?windows-1250?Q?Hi5zDiI6QIIgmNWUWUeLES33FciPAAbNCnW9vHv5+RQ/F3XfCAfq9dpk?=
+ =?windows-1250?Q?anzgAImTmokk6JxKifJMbJdZrj9vZoZVYrrGjaLcHkvLg6OmO9erbGCn?=
+ =?windows-1250?Q?wfXYfYsGociA8ihOtsa/A24p0IXjkgPVVBKnIPdg4IwC65SxvqN8JF8+?=
+ =?windows-1250?Q?F8LwMwhZHyxnsX53xvroif285u+ma3wE/FMiw3k6bzIvreeQn0HotXda?=
+ =?windows-1250?Q?PUMH1kCENoFeGbgFUi+OJJv6eu92Dqm6lWYuMMIgTn/ycmHyOt3GPVMg?=
+ =?windows-1250?Q?0NdgunpERlx0MwqRgfN6BwOZQcIhfnDVFZYYDxCD891QJaV9G0xlkjGR?=
+ =?windows-1250?Q?8wzydAV0AOBWt/a/5pjsfl9ckcxWE/kqmOPGQJfY7QAgNJheAevhAKKm?=
+ =?windows-1250?Q?vnrTZsBnVat9+mCCIYFWU7A4RYGuGpNtDwuLZTreSnfq5jw8GdsdLizv?=
+ =?windows-1250?Q?+/RkWC/D/Iqmy6d2UhmMYXvefPYqPgughe5WBhGiYDL/34/zd6QAmzgG?=
+ =?windows-1250?Q?muFD4yj72i1dJuoeZuaI5BzaiXAdGLUhFB9XPqxmYjxgZD6+KGujJ2DL?=
+ =?windows-1250?Q?+STULBrSZxcHEZlkf6RHYK2hyrFFATc7mtByjwrNKWlcHGPHDKRI/bGd?=
+ =?windows-1250?Q?XJ5Ds7rarFcBcp2EP/BSCgUcAvdZn4Xr5VoZxwtZwfwAyKS9MoZ1Ksah?=
+ =?windows-1250?Q?8dANIEpwjhyK0uKxOHm6RxIQiDQ=3D?=
+MIME-Version: 1.0
+
+------=_NextPart_000_0012_0B86474E.BA75F12E
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+

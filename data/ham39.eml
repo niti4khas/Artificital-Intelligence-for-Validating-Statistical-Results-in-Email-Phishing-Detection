@@ -1,0 +1,707 @@
+Delivered-To: ham@ham.email
+Received: by 2002:adf:e9cd:0:b0:367:8c3c:ed13 with SMTP id l13csp1493479wrn;
+        Tue, 6 Aug 2024 12:23:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEgm79QmGq9g3b7Ued/AGyVkx4t2MRcY/p6jaZ1GUUxDTCIgxMDYH5wmb7A8S0O7KF5p1Np
+X-Received: by 2002:a05:6358:52cd:b0:1a6:769e:4753 with SMTP id e5c5f4694b2df-1af3bb6e200mr1917969355d.19.1722972212369;
+        Tue, 06 Aug 2024 12:23:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1722972212; cv=none;
+        d=google.com; s=arc-20160816;
+        b=v8GZp/fPr1MFVfcQ26jAJcBgomBew2BKJZ4FHWAWstXqAuCFUs1kDySB4WlbbnlLQn
+         QSlcBuKm2m3d1rl7Eh3vZ9Pzk68Y+izpwUOD03Jo2YYivvo8c1+qgre34v7HFSgRSaoF
+         4apCYRiH2B42/QXPq4rZnbNxxfj36IlK1cjbuDgu2YpEgi6JFX+1G9Nf6R58x8RNjApl
+         3Yrfaakgfpzas6GQtgSE0/hSsW5froPBNvvmNPwUTQ0WOclDuL9KF4rzMiy0mfAiC8ib
+         1/K8a86ar2RnD9LshSf7ZOhw8kFpe/9dRI48Co+njsVBg2bAe4A0YVN+lloI4c0laS/a
+         OqJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:list-unsubscribe-post:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=yLQPKV9SfWsftq1TAizN2V8VcPZ9Ht7Q/XyGSSrs6aI=;
+        fh=0kXyVBQFLqDLD7nIsTXJ5X3X1RzebGREaH8Omcbyh3A=;
+        b=Mcz6DO/DkWuxFN6wItto4qyNj9UQMzb2dSu33ph3LP8+M9AXLjq+rHXPNkHaxNLaMS
+         KNRaTDSfGvHE+SMAJx2HrI8Y/OIttcWKuYKxaW+iRtBme07RbnDbqPUyW1cqZJ4dj+JI
+         qUhcZa/3MWapCG2nPIUx+QRZB9KFmsvMv6HG8okEZXNWb2ubnNeva0H/oEKadXqsHFwq
+         MECyXZ4z4RYN8/3TZZJTg377nYp11vU5b5HKCapgoNH+AbavcRdkLOKEWBkU++T5od0H
+         DEL7Cv8KR0tYW0TgvUv3j+t6svJXeJnuS4haFWSONVPLz9xxkvBTV+4X4IqLOD1Mg01y
+         borg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@promos.memrise.com header.s=s1 header.b=HljkWLmY;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=H7r7IoaM;
+       spf=pass (google.com: domain of bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com designates 167.89.82.158 as permitted sender) smtp.mailfrom="bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com";
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=memrise.com
+Return-Path: <bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com>
+Received: from o1207.abmail.promos.memrise.com (o1207.abmail.promos.memrise.com. [167.89.82.158])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6bb9c8e08c5si127178596d6.603.2024.08.06.12.23.31
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Aug 2024 12:23:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com designates 167.89.82.158 as permitted sender) client-ip=167.89.82.158;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@promos.memrise.com header.s=s1 header.b=HljkWLmY;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=H7r7IoaM;
+       spf=pass (google.com: domain of bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com designates 167.89.82.158 as permitted sender) smtp.mailfrom="bounces+7960752-e1da-sminhaz18061997=gmail.com@abmail.promos.memrise.com";
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=memrise.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=promos.memrise.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe-post:
+	list-unsubscribe:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=yLQPKV9SfWsftq1TAizN2V8VcPZ9Ht7Q/XyGSSrs6aI=;
+	b=HljkWLmY2XlAJPYajEaLgaqxp09pRRB4h6pnOg9EM3/tFB5PBXXdgRpHIAgwVLONwvSS
+	7QBmaTlh7m89bgGgHHk14GlYha3O6ObCxuhF5q6QAaMoXDPdT1Lz1a+xBxWUOfe8KDp+Mq
+	o+xWaMxyVFPbxOkrPJcAI6hI1ytfhXcDoDqYMm/odys9CK14w3HUgy3czUgCNnhT79k0Bx
+	IuA4YQT1DoayVqLNcjz/zWkkUKHWoSg8tXaHjtvsQsqdE5ISGghCRANtMUUv3bQc3NBIf1
+	HOtKzlhdqSLORqi4CRXuZ3tcpaP0DeUOdomAm9vQWK4BvMJvy0dY1BnUoX6u/HBg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe-post:
+	list-unsubscribe:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=yLQPKV9SfWsftq1TAizN2V8VcPZ9Ht7Q/XyGSSrs6aI=;
+	b=H7r7IoaMPxWfSeWN1NA5imjEw900TAtbuhK3LSgX8lHupv46/Hg05B6riOVtbJMQ6PVY
+	mKj8UCCWbd5EtuhbR/ukI5JJZpMISs8Vm1PXXMJ5Y9cwPEWqASLDhAn2mtsYJCkVDdk2Sc
+	nNHd+9UbgBOUT0P5tilAw+axkH9dYhcNk=
+Received: by recvd-668d6bdc77-f7rl6 with SMTP id recvd-668d6bdc77-f7rl6-1-66B27833-3B
+	2024-08-06 19:23:31.537989674 +0000 UTC m=+684271.281064065
+Received: from Nzk2MDc1Mg (unknown)
+	by geopod-ismtpd-canary-0 (SG) with HTTP
+	id 0PCf6ZDcR3K_KSPBHA2x9w
+	Tue, 06 Aug 2024 19:23:31.486 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=925f5028eb6de7bd08a1e06d974e9d309501987794682457cf9ad474d005
+Date: Tue, 06 Aug 2024 19:23:31 +0000 (UTC)
+From: Memrise <sender@promos.memrise.com>
+Mime-Version: 1.0
+Message-ID: <0PCf6ZDcR3K_KSPBHA2x9w@geopod-ismtpd-canary-0>
+Subject: Who's patient and can get you speaking a language in 20 minutes? It's
+ MemBot!
+Reply-To: sender@promos.memrise.com
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2F01=2Eemailinboundprocessing=2Eeu=2Fenc=5Fuser=2Flist=5Funsubscrib?=
+ =?us-ascii?Q?e=3Fd=3D%241%24KYcnsoFPGar2PEcc9sf9Ww%3D%3D?=
+ =?us-ascii?Q?%24PH3z2JUaLk3kEib7lJNQrIQ4roPzSPOAIBG4?=
+ =?us-ascii?Q?RHV2vyLivc%2BS2G2BOCoTszsX%0AkK6mRrTBWR?=
+ =?us-ascii?Q?LbnRUbQ0n448Ya%2BTXxf%2BPh5bzTnnKaPK5r2?=
+ =?us-ascii?Q?CNADOhRdcch8Y9Q%0AyH2Kv8K4heXmV%2FCIIRa?=
+ =?us-ascii?Q?hFB8q9bnvNT4yebCE6l4UmzYAiIKc99dvUKNwiC?=
+ =?us-ascii?Q?uD%0AuXJNQ59f99VCf3CjvdypBtBBV6qX1dbDIM?=
+ =?us-ascii?Q?zMZd2PdpMPX7OdGJ9IIoTuzzKi%0AIycPD6le0a?=
+ =?us-ascii?Q?y1CuTp4Q6Thrchnr7CxmKz%2FDbxAqnGAo9W%2B?=
+ =?us-ascii?Q?IWdZ055Nd64nY9n%0A4Ypq0NeX4is8Tr4kbMEAl?=
+ =?us-ascii?Q?QezLHkbzfVasIjeaMbiTEkyc%2B0QPUp6d8UYQo?=
+ =?us-ascii?Q?xv%0Aiwox2ineDMsrwMc3YB6C0TAg&1=3D1=3E=2C=3Cmai?=
+ =?us-ascii?Q?lto=3A4=5Fmpzjvqfriz9uzgwls66vc3cgcda2pwkhi?=
+ =?us-ascii?Q?1ow471c9pdb20ras2201k=40unsubscribe=2Eemail?=
+ =?us-ascii?Q?inboundprocessing=2Eeu=3Fsubject=3DUnsubscrib?=
+ =?us-ascii?Q?e%20pnrcgsq596hg1q3lf4nijv0b5nwbjpk7l0u?=
+ =?us-ascii?Q?j4tgye0iqnhnwovcfd&body=3DDO=5FNOT=5FDELETE-4?=
+ =?us-ascii?Q?dat2n09jxtp6kx6bplf629b01mxdq1vb73ith5q?=
+ =?us-ascii?Q?1g71inp2e8u8ldrwy5c914yxuyqr33hnlmqpnn9?=
+ =?us-ascii?Q?kqqob6prr1j2b1-DO=5FNOT=5FDELETE=3E?=
+X-Feedback-ID: 7960752:SG
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Et2TKL4WsEIKUqgXDiVELN2uIwv1IBHc=2FIUAnw9SWYUNKnw14ZVLvzCkyt?=
+ =?us-ascii?Q?9qBx1El08Dnaa5yjNmW9N3SQFTM2KzwGACxRui=2F?=
+ =?us-ascii?Q?vsNaGCCQmEze1YPRDSylpq=2F+UyX3EWUM9tT2rlT?=
+ =?us-ascii?Q?MEBQmgTwEAaR1vUBpI3AcsWSlMXslplpbf5ScZR?=
+ =?us-ascii?Q?o01UV1zUr1StXXSTlyxwM=2F9wK0WG6lLfHLx0F3f?=
+ =?us-ascii?Q?T=2FkUtQwFT07yfUHMb9sYZ8tT0T4iKyv6ldX1lbf?= =?us-ascii?Q?+ubz?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MXF=2F8Bv0hV5nBN80zjicbfmJDSZohbCJ+H?=
+ =?us-ascii?Q?4kEmKovZKBUuD3T93YERwhTTTDo7IAT8WWt8s5D?=
+ =?us-ascii?Q?Ux9NVn0ECoMvwyn86HywoLS7py+oA5SM6W628U6?=
+ =?us-ascii?Q?ydaqSIz67Vc12uoPWuzZZjaDtowInBkwpDaATEp?=
+ =?us-ascii?Q?3Hh2yoomDbNFvb+xxgzwaCJgppoHCd2imrss2mW?=
+ =?us-ascii?Q?13Uvy7vzOqnxujG=2FOTwlROFv29FzM78UgMYrbrL?=
+ =?us-ascii?Q?UklSXBIFNIuEhr5yiZmkJIRPtXMpWI8k=2FLO0=2FZM?=
+ =?us-ascii?Q?=2F1ETwPHzrJc=2FsGwVr0H15KA5ZtuIhy6rc=2FXZaUE?=
+ =?us-ascii?Q?QtmAipkppe0xS6tfp8g9Ww3kjI0vSlZwjm3ofRn?=
+ =?us-ascii?Q?F+tsRhnjp+IBgH89hd1ng3TmSxzyqeRux=2FzgHw9?=
+ =?us-ascii?Q?sLyA1AuLullbW8ys=2FGXrUYnH9Ofvf2W4XvB8+KL?=
+ =?us-ascii?Q?tsb469wwLZ8snZzm32Mi18JewmC2lNxnHs3VEXs?=
+ =?us-ascii?Q?sC5IlpOtQwnBJeCyxuF3UJvQ=2F2Z+imqWixss7RJ?=
+ =?us-ascii?Q?GNZWLiCTEiV4?=
+To: sminhaz18061997@gmail.com
+X-Entity-ID: u001./ibxwbeUqBeRmRHsc8zaMw==
+
+--925f5028eb6de7bd08a1e06d974e9d309501987794682457cf9ad474d005
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+I'm an image
+
+Who's patient and can get you speaking a language in 20 minutes?
+It's MemBot!
+
+Hallo,
+
+
+I would guess that you're probably using other language learning
+apps at the moment, but do they have an AI language tutor named
+MemBot, that speaks 23 languages?
+
+MemBot has never given a dirty look for incorrect grammar or
+word order.
+
+MemBot builds confidence by providing helpful suggestions and
+hints that prepare you for speaking in the real world.
+
+And as Rhodri Marsden from The Financial Times has said...
+
+"Membot will remain patient while you try to remember the
+imperfect subjunctive. It=E2=80=99s also very helpful, discreetly
+correcting spelling and word order. Pick from a multitude of
+role-play scenarios (including =E2=80=9Csay I love you without saying =E2=
+=80=98I
+love you=E2=80=99=E2=80=9D =E2=80=93 and you=E2=80=99re off."
+
+Don't believe us?
+
+( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZu=
+lgQoVudglWLwt-2BZneWzQ2fQEQGGtt9lV8PaN7kG7sxn5EtLocvSF8RQFrGeq3acL9FQMEoxQ3=
+P7u-2FhzwgyHgA7X0-3Dlrtd_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2s=
+GSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uF=
+NoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbV=
+VogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2Fumu=
+jLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwO=
+Gu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9=
+aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWx=
+IzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC=
+9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n9j=
+N-2F84blKHI5XuQvDNSflo3ho947n1rr8q7-2BdG0cMApsBGEu-2FBrfAp976651bxRcaeOqbyP=
+YUWUiCo3KUTp-2FJyk8A7qr6mwZ6CJ-2Ba59JW18-2FHEJ-2FKgQ3HY6e5hTPhUpUg-3D )
+
+Facebook ( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7=
+NfsMpPLZulgSvNNvtQ7lZxFWnZPc6Ss05Cai6YvynVAr2WPGRRPKAt2a0sAMlGFoZD1BP9n2Rec=
+Q-3D-3D-jSX_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3=
+x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77R=
+rQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGO=
+hBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-=
+2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORu=
+vKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r=
+6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2F=
+sZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF=
+5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n8mOrATFLO-2BY8Y=
+Fck-2Bp-2FdDJZiqcMYzZgdlBkIl73ULybyAq6oxXkPqwHn-2FeglgQQkONuP9-2F6aQV8b5eYJ=
+RuO5VdKbXkzfsqvwFn6-2BF06LXyd4FNpnGxI629yGS-2FMzRWfFE-3D )
+Twitter ( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7N=
+fsMpPLZulgZHqlTisP-2FR-2FLVlrv5-2FBbLOL8phOISgc-2F5pwJ4Vd5sV27bA8lDd23Og20t=
+igGyizZQ-3D-3D2v6d_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyj=
+tDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBqu=
+oDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzI=
+tgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V5=
+7lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9n=
+FtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RN=
+JL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe=
+9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2=
+dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n-2F0l07G=
+W61TmpG7la5DrJxv-2FIQ23dr5mq4Rb6dqVsnQhBbneriX5mMcJs6quvBMFdZq3j9xdQR3ESoIm=
+y2bI8xzrjn3fydVHhqoxGMlUiextOwM3qBev7LUyvKdf24r8HQ-3D )
+Instagram ( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO=
+7NfsMpPLZulgaDdFqCiytIwtmiaSqXIr8m4wSkC0sQT-2BAJDkPuAC-2Fx79wcGLODA1836Xshp=
+9-2Fu3Ig-3D-3DMKM7_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyj=
+tDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBqu=
+oDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzI=
+tgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V5=
+7lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9n=
+FtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RN=
+JL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe=
+9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2=
+dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n-2B3d-2F=
+JrIkiVVmdMr9y-2B-2BxmaMv6eNLTuYmigXzOfezTB2o3GOu7sfvMrBVlZpkXnyoHERbXntYa11=
+6DmrO6SJZvhdXS2Dj14VBHy1t48L3eDd2TgkbSAditGJawhGLq-2FQzc-3D )
+LinkedIn=20
+( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZu=
+lgdJMhnth88wdOBiLAckMcB9HMIEBzM4AMMB2FbyRQebyp4U5QUzZybompZG5yTIS35Lbltiij4=
+5bI15uxjo8yPE-3DZGaP_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNb=
+yjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQB=
+quoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogL=
+zItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6=
+V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R=
+9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0=
+RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUG=
+Le9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2d=
+E2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n8txe-2=
+FIqDDbrsVLJE-2BngSMw-2F4gO-2BhpSPAw9wrwhlFbRC-2F2IMvPNsQJci4xqnCibzqEOGmPwl=
+Dn2ELqP4gdpdy7s-2FZJJiMZXa-2Fz3fWJwq3oqwllxi7OGUILAhjw79I7Nb7g-3D )
+
+
+( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZu=
+lgbUcuyPJDIiq7dh5ehuk9Y1V6lpaFO7fWTP6ohiaB-2FREkJwVqAopELiT3UQR7ZjvnD4YRqN4=
+YUJ2YdUSQ8PNC-2FBty9gwU3ASCggNQqcGAKRvd_xi_M9pkhGr4qpANuqGVV-2BbId0slx815qU=
+dBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsB=
+tEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxV=
+fydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8=
+xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d=
+2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrz=
+keYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n=
+-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9Yiuu=
+RIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOw=
+riYJIAwYMUOUUj8n9RQoWDh0HX1KNuoDVA0ygxcPIyezjfcDdqte7AzYRlEWxJD16u-2B-2FkHN=
+oq6NpVdAH4b-2F5DkqCAFa0D-2FHJ4ga3khoBYZ4Qja8eXLoYTcSMNIT4D-2BqGzJD3Ox2vVwkn=
+FTInY-3D )
+
+
+( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZu=
+lgbFxJigglAlJhpDWBqQCoiGQtdi51EvZ7zTfZkgwwM4Gz01VP70GDBLPE42hIZ2VR6q2yqseu6=
+qmerqLZ6bY3ND2imo3qX0yOFWvuBTwLBfdiUv-2B73t4KYRIA9-2BYUY99oMbr-2Ba1gU898fTa=
+Hs6T6CIM-3Dt90d_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA=
+5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDd=
+l77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm=
+0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm=
+1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtP=
+OORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7=
+JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jn=
+z-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJ=
+EWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUUj8n9lqAo05grX9=
+G3nXTcJQkUk9TdV1uCsKtu0lnXh-2FjRGnvfF5mIBoGagezk8OVWubKJEo1-2BzRxoHH1X2uLoG=
+vAKTiM15nSxLSYUYN3AtLOBgQ-2B3d-2BYunKPFyoinmYBBkrXg-3D )
+
+
+No longer need our help? Unsubscribe here=20
+( https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZu=
+lgaQeGnl96fRtON7peC4fyz97qJypW5TZtM3YVfDbZXGv5eI-2FkvBcF73ykeofF0gM75Y8UJXL=
+l9ok-2BYm7NkmrDy-2FhQcax1Hlpi6yyw7xil2PLSqLFeSibBDRkWNJcQYba9t60sh4H59UiqG6=
+3dkmRJBCo9BSNOx-2Fjwebrl1dZB76PxKTJf39aDh5uh7dSVyjrKwXkYt3B9WFDP29VmeGxNG82=
+1tiyMUPDbKYd6vs86g7Awyhc1GDp-2F9TL5C5pQMYSQdIcv59oc5NUMCW-2FssWTgDat1obG0b0=
+m2IPPlZfeZM3sOi4eCu6oLSmYK0Bg28yPDwBSLaX2Kdn9G-2FAWmw8z9Hql5vyTNo6QIjcXpNA2=
+rFOfarA7vTtLZJPf40seGSd1lvE3AFzp3C8cTqvlPbcjhO-2BsVuWXQ9dEOcXFGH-2FILt8de6J=
+nfTTTQLzY-2FUC5lo3ry5C5DTtbCQuE4Qcg4sRsJX2Mj1yfP50uAODSRVOP86GmKBsKWwAVKs7Z=
+sixYgc3vZr6Gz5AiyHxQBlJ-2FFc265f2H0H2bjna0bwI-2BvVnEAdGANNhi3NBA8BxfVw3Xkzq=
+etKJ3mdm-2FxhXuBKlP24ppw5PA7sQELwRTFr2scqCV2ai1e9j-2F-2Ffg3Ch8rrAPXYjj5HJdA=
+L2UN6Zbpf9jYvSqc9OIglwuzz5wqfJDU9X0O27q59fj7zPwD2oQBWCzTYmhhLHsTkSCL20zE-2B=
+X5kDQRN6z2t9iCF6-2BLUdsN1KhterqhTB0qkfvkf2OWHyqNerfKuAfF3FookCjRkiTG7ydM1oe=
+R-2FRfEbR0pJQEnpTZl0j6P2-2BfYMSmNxtZK6GChtC3R0uU577zVUXNJoL-2BvR5l3LeuR6N3n=
+NNcUYaFpi1QRx9RA3GoJThJDuqiUU23v9-2FpX3lRzNzPLGCRcHNTd8eLqQypdeuzAepRnHac3e=
+PtGX-2BgPsAZmh2iexWAJMQzNy5eZZAs6AlxJrtBLEXLZ7qdjsgd0pJD6soMNdY6lvzIHJAzhs-=
+2FEAzduRNFPh5jTzm2e4sK6ulKAuSxpPHqN-2FwpWx9Me-2F4bQndC-2BbDLkbjOOXeAi5IdRTJ=
+KMwHC-2BgJoR3GYBnR7f55jDQ8AUxv111jDmPrX-2BjDPijL9vM13vZejcJ-2Fu83eQ8o-2B4VJ=
+Ck10A0LyGTpG-2BD8dKuvfrS2KoI4Jb7WAqFXiBSWQToB7nLYKTDyiQUs1sKoNuroXzHb17E-2B=
+DG3I0iNcSuszRPUTXeOOK5iDj-2F2gQH-2FEojI10mtqAA27FuCjnzLYcr-2B-2FT46LPPerX9t=
+Zx2WGNGLL1HauuSdMVQfMCv1SVyGssg8ChymsP-2Fs6c9ieG8xvb8rkfgsDwRLqXDXR2LwmQrCz=
+b6Mid7Pz-2BWwHPQ79-2F-2FJBJveJP9CV2lfywwT37vy9nHTlUoQbI1ATm7hGIRmDFUmK5Nq2X=
+R5YRXpF9qAS9O5dX-2F8SrJ9Xaf-2Fb3UGfQfh6KWJgkWyMGDEiDTqf3iaWT6WJoR2SCXQl0E-2=
+F2mXKbZr7OKK028y4Vck4F2mPbaX3uzkmmlL3v6HsPP6VlgCNlTfJ8bCX6SfgW3WgsPMR6t-2B4=
+mOMY2fX6MSTM5Ly2-2F14yTpSVDMbw3bM12XzP6Xp77h2BOoq5csvNYUR7IPZNzWk8oOw9IsY7q=
+LyFoHUnvMVuGS42pMlEhZg-2Bh-2BukVLgMgwYQfLRleOzu85uwUbc-2F7zNhqf7NFZM7qbPKrE=
+7wTyVobA7xUlXSVbLmHtXWbyobpiJD74bdn3ifOlBG1npPJ0gXdVwbmGqRKgjBr-2BRWk4Jw9pC=
+f9h3-2FL0OE-2FyBgFevTndDcfaCevkKGKsBXi4G2Ls-3DWimH_M9pkhGr4qpANuqGVV-2BbId0=
+slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTS=
+gDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvu=
+fhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJz=
+sa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbV=
+T1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w=
+8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt=
+2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveE=
+K9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE1=
+3JE-2FOwriYJIAwYMUOUUj8n9MmmhtF9AUWiZ5dWs3HP-2BD6zuJfa54e7PhAl5AudrthM7WBUu=
+pRVVEIIuuBW1B85nfb8jC-2BmS5rjGVOP4Xyq0UhJ3P8rK8O2vt7hD38K6SP06P4aqK7SJudlof=
+DEBdS10-3D )
+
+
+2023 Memrise
+3-5 Fashion Street, E1 6PX, London.
+
+This email was sent to
+You received this email because you are registered with Memrise.
+--925f5028eb6de7bd08a1e06d974e9d309501987794682457cf9ad474d005
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" lang=3D"en">
+<head>
+<title></title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPe=
+rInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !ms=
+o]><!--><link href=3D"https://fonts.googleapis.com/css?family=3DRoboto" rel=
+=3D"stylesheet" type=3D"text/css">
+<!--<![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none} @media (max-width:660px){.social_block.desk=
+top_hide .social-table{display:inline-block!important}.image_block div.full=
+Width{max-width:100%!important}.mobile_hide{display:none}.row-content{width=
+:100%!important}.stack .column{width:100%;display:block}.mobile_hide{min-he=
+ight:0;max-height:0;max-width:0;overflow:hidden;font-size:0}.desktop_hide,.=
+desktop_hide table{display:table!important;max-height:none!important}}
+</style>
+<!--[if true]><style>.forceBgColor{background-color: white !important}</sty=
+le><![endif]-->
+</head>
+<body class=3D"body forceBgColor" style=3D"background-color:transparent;mar=
+gin:0;padding:0;-webkit-text-size-adjust:none;text-size-adjust:none"><img s=
+rc=3D"https://ablink.promos.memrise.com/wf/open?upn=3Du001.IwDvfjLlvI-2BxPw=
+UgtOGx1nv2Fud2O71WYTHTIreDPYtsOw-2B0ywXB0eN36TelJvcIgUAvokK949UHw1VIRUfxzmb=
+YzLeqvEi8ztxGJytLQRU0twhP-2BlZRdVRJLUikjn-2BBe1tYDEcI7-2FT1rWzb9vkvP0vkuxOH=
+g14GTWdWwlnxkXP3yKYFNnTBRWjiL0Y0VV-2BLmzrPIoj1gTNnl1R1afy7QI9u5nrPW-2FilTkV=
+yCMZgBoyvfWeXNFjnZNXMN3weH1k0-2BKUpwveuU-2BvDDrhgE6ghi8SvzKqSYSdVvozIchJQaZ=
+LFVo5gPQm-2FDNW8SGpi-2Fa7OTjvV-2FLDiV0QP8YDXVhXEJcBRMyuUS-2FRc9zy4qQLjHJuFr=
+3c9XYAa7b-2BXwqoZvl9W4yEB9gI5x-2FJMycS4nDIlf-2BxomPuH7uckbixplxK8zT6SsZ2Dqs=
+ss8k1tRTw9Xc4lkNY7M7YIE7JWXoRs0a-2FkNazYhiHn-2BCSabSFv-2B3YHk9J4auycNZNIOYd=
+06XiK-2F1jgzAF1rL4JnzsclL4YqsNdrYu56T2xd3SOf7arzMgC17JGzBaoEE8Si-2FpkulWr63=
+Agm6BLmWLSlwyqpzQnlnyO31PtPvn66Grfu-2B4UqhVQXl3IeIUDtxO24zo2F2-2BCVnFYqMdfd=
+GrrO3VuXEbT930pIrerqYNDmgC2SiLS1lAB6bgj8EIyoNS2MfT2YX45FTUPBlx1P06YqIzYcbPO=
+gXjtsPldm6jJjFyLJueANGWhdAtJnuwP-2B6TG-2F5SFY-2FANzQ1U" alt=3D"" width=3D"1=
+" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impor=
+tant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !imp=
+ortant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !im=
+portant;padding-bottom:0 !important;padding-right:0 !important;padding-left=
+:0 !important;"/><table class=3D"nl-container" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;background-color:transparent"><tbody><tr><td>
+<table class=3D"row row-1" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stac=
+k" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#fcfaf2;border-radius:0;color:#000;width:640px;margin:0 auto" width=
+=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"image_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+ style=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignmen=
+t" align=3D"center" style=3D"line-height:10px"><div class=3D"fullWidth" sty=
+le=3D"max-width:640px"><img src=3D"https://cdn.braze.eu/appboy/communicatio=
+n/assets/image_assets/images/64b11da4f042f72e7c71d171/original.png?16893290=
+60" style=3D"display:block;height:auto;border:0;width:100%" width=3D"640" h=
+eight=3D"auto"></div></div></td></tr></table></td></tr></tbody></table></td=
+></tr></tbody></table>
+<table class=3D"row row-2" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0">
+<tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fcfaf2;color:#000;wi=
+dth:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=3D"column colum=
+n-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-wei=
+ght:400;text-align:left;vertical-align:top;border-top:0;border-right:0;bord=
+er-bottom:0;border-left:0">
+<table class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:20px;width:=
+100%;padding-right:0;padding-left:0"><div class=3D"alignment" align=3D"cent=
+er" style=3D"line-height:10px"><div class=3D"fullWidth" style=3D"max-width:=
+448px"><img src=3D"https://cdn.braze.eu/appboy/communication/assets/image_a=
+ssets/images/6408bac9975d6438fed17dee/original.jpg?1678293705" style=3D"dis=
+play:block;height:auto;border:0;width:100%" width=3D"448" alt=3D"I'm an ima=
+ge" title=3D"I'm an image" height=3D"auto"></div></div></td></tr></table>
+<table class=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"pa=
+dding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:20px"><d=
+iv style=3D"font-family:sans-serif"><div class style=3D"font-size:12px;text=
+-align:center;font-family:Roboto,Arial,Sans-serif;mso-line-height-alt:14.39=
+9999999999999px;color:#555;line-height:1.2">
+<p style=3D"margin:0;mso-line-height-alt:14.399999999999999px"><span style=
+=3D"word-break: break-word; font-size: 24px;"><strong>Who's patient and can=
+ get you speaking a language in 20 minutes? It's MemBot!</strong></span></p=
+>
+<p style=3D"margin:0;font-size:12px;mso-line-height-alt:14.399999999999999p=
+x">&nbsp;</p>
+</div></div></td></tr></table>
+<table class=3D"text_block block-3" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"pa=
+dding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:10px"><d=
+iv style=3D"font-family:sans-serif"><div class style=3D"font-size:12px;font=
+-family:Roboto,Arial,Sans-serif;mso-line-height-alt:18px;color:#293749;line=
+-height:1.5">
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;
+</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px"><span style=
+=3D"word-break: break-word; font-size: 14px;">Hallo,
+</span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><strong>I would gu=
+ess that you're probably using other language learning apps at the moment, =
+but do they have an AI language tutor named MemBot, that speaks 23 language=
+s?</strong></span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><strong> MemBot ha=
+s never given a dirty look for incorrect grammar or word order. </strong></=
+span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px"><span style=
+=3D"word-break: break-word; font-size: 14px;"><strong>MemBot builds confide=
+nce by providing helpful suggestions and hints that prepare you for speakin=
+g in the real world.</strong></span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px"><span style=
+=3D"word-break: break-word; font-size: 14px;"><strong>And as Rhodri Marsden=
+ from The Financial Times has said...</strong></span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><strong>"Membot wi=
+ll remain patient while you try to remember the imperfect subjunctive. It=
+=E2=80=99s also very helpful, discreetly correcting spelling and word order=
+. Pick from a multitude of role-play scenarios (including =E2=80=9Csay I lo=
+ve you without saying =E2=80=98I love you=E2=80=99=E2=80=9D =E2=80=93 and y=
+ou=E2=80=99re off."</strong></span></p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:18px">&nbsp;</p>
+<p style=3D"margin:0;font-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><strong>Don't beli=
+eve us?</strong></span></p>
+</div></div></td></tr></table>
+</td></tr></tbody></table></td></tr></tbody>
+</table>
+<table class=3D"row row-3" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stac=
+k" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#fcfaf2;border-radius:0;color:#000;width:640px;margin:0 auto" width=
+=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"image_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+ style=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignmen=
+t" align=3D"center" style=3D"line-height:10px"><div class=3D"fullWidth" sty=
+le=3D"max-width:320px"><a href=3D"https://ablink.promos.memrise.com/ls/clic=
+k?upn=3Du001.jQvMFBtBO7NfsMpPLZulgQoVudglWLwt-2BZneWzQ2fQEQGGtt9lV8PaN7kG7s=
+xn5EtLocvSF8RQFrGeq3acL9FQMEoxQ3P7u-2FhzwgyHgA7X0-3D_i8D_M9pkhGr4qpANuqGVV-=
+2BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM=
+9-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFH=
+MNCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhM=
+NhyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hd=
+CoANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2=
+F4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvC=
+ZrTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X=
+4UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvY=
+aixyE13JE-2FOwriYJIAwYMUOUUj8n8EHTEIRi4pCRGoAyCNtHO2DB7-2F-2FLH7ouwZrl0HMZl=
+zL5ugNPKXZAnv-2BW01aMeyuYSWo8Dhgo14BhYyjzVGvHDLYQI6WUe-2F2egZwGoeAc4FI1uY1M=
+WXuqdccOmW7v04K4k-3D" target=3D"_blank" style=3D"outline:none" tabindex=3D"=
+-1"><img src=3D"https://cdn.braze.eu/appboy/communication/assets/image_asse=
+ts/images/64b12177edc3a730526d9c6c/original.png?1689330039" style=3D"displa=
+y:block;height:auto;border:0;width:100%" width=3D"320" height=3D"auto"></a>=
+</div></div></td></tr></table></td></tr></tbody></table></td></tr></tbody><=
+/table>
+<table class=3D"row row-4" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stac=
+k" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#f5c60a;border-radius:0;color:#000;width:640px;margin:0 auto" width=
+=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"social_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+ style=3D"padding-bottom:10px;padding-top:10px;text-align:center;padding-ri=
+ght:0;padding-left:0"><div class=3D"alignment" align=3D"center"><table clas=
+s=3D"social-table" width=3D"144px" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;display:inline-block"><tr>
+<td style=3D"padding:0 2px 0 2px"><a href=3D"https://ablink.promos.memrise.=
+com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZulgSvNNvtQ7lZxFWnZPc6Ss05Cai6Yvyn=
+VAr2WPGRRPKAt2a0sAMlGFoZD1BP9n2RecQ-3D-3Dz_G5_M9pkhGr4qpANuqGVV-2BbId0slx81=
+5qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKb=
+gsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5=
+JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K=
+9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5d=
+Y5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxY=
+PrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ=
+67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9Y=
+iuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2=
+FOwriYJIAwYMUOUUj8n-2FobkEchImAb2ym7oaxGIFkD6K3AMq6kC2yETGoOKhC-2B84X7Fc-2F=
+PCnQhiwwIRLqrboIarzHukb3N04G4HJDPvZzmfFLgSVRlewzKiKExzfoayYl6OiMwuWa8o-2FSS=
+VWSaLc-3D" target=3D"_blank"><img src=3D"https://braze-social-icons.s3.amaz=
+onaws.com/social-networks-icon-sets/t-outline-circle-dark-gray/facebook@2x.=
+png" width=3D"32" height=3D"auto" alt=3D"Facebook" title=3D"Facebook" style=
+=3D"display:block;height:auto;border:0"></a></td>
+<td style=3D"padding:0 2px 0 2px"><a href=3D"https://ablink.promos.memrise.=
+com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZulgZHqlTisP-2FR-2FLVlrv5-2FBbLOL8=
+phOISgc-2F5pwJ4Vd5sV27bA8lDd23Og20tigGyizZQ-3D-3DaSIv_M9pkhGr4qpANuqGVV-2Bb=
+Id0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2=
+FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNC=
+vvufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhy=
+zJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoA=
+NbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4A=
+W6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrT=
+WLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQ=
+veEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaix=
+yE13JE-2FOwriYJIAwYMUOUUj8n-2Fu7-2F2Cb4hG4U-2BGtmGjVXfkLib0TTmfMEX5v3AlYQNo=
+oalR7H541gjIC1a7iFJAmnlkPPyoL4aZg7PcYKM7dAyuyzGTEOQoYe04PKTXqWS92wOBzSGuftI=
+WAHsxrF3LjLE-3D" target=3D"_blank"><img src=3D"https://braze-social-icons.s=
+3.amazonaws.com/social-networks-icon-sets/t-outline-circle-dark-gray/twitte=
+r@2x.png" width=3D"32" height=3D"auto" alt=3D"Twitter" title=3D"Twitter" st=
+yle=3D"display:block;height:auto;border:0"></a></td>
+<td style=3D"padding:0 2px 0 2px"><a href=3D"https://ablink.promos.memrise.=
+com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZulgaDdFqCiytIwtmiaSqXIr8m4wSkC0sQ=
+T-2BAJDkPuAC-2Fx79wcGLODA1836Xshp9-2Fu3Ig-3D-3DARK7_M9pkhGr4qpANuqGVV-2BbId=
+0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FT=
+SgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvv=
+ufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJ=
+zsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANb=
+VT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6=
+w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWL=
+t2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQve=
+EK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE=
+13JE-2FOwriYJIAwYMUOUUj8n9yuibh34wR9-2Bk8emsdwNU9HLU1wlqgv4ZkPrcLilEWnzOUye=
+EHdJGMRLN0Ru8kRWVxQhD9OKYmpOHX-2BdaOye4SMI-2FMTTJKPC6CAsJV254CUN-2BW0YMrVkc=
+sYSkFRXOKQdY-3D" target=3D"_blank"><img src=3D"https://braze-social-icons.s=
+3.amazonaws.com/social-networks-icon-sets/t-outline-circle-dark-gray/instag=
+ram@2x.png" width=3D"32" height=3D"auto" alt=3D"Instagram" title=3D"Instagr=
+am" style=3D"display:block;height:auto;border:0"></a></td>
+<td style=3D"padding:0 2px 0 2px">
+<a href=3D"https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7=
+NfsMpPLZulgdJMhnth88wdOBiLAckMcB9HMIEBzM4AMMB2FbyRQebyp4U5QUzZybompZG5yTIS3=
+5Lbltiij45bI15uxjo8yPE-3D500p_M9pkhGr4qpANuqGVV-2BbId0slx815qUdBxcfZhNUHtr2=
+jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgDHKbgsBtEWqjd7bN5AaY=
+EG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufhca5JxVfydoxEBCQD5JG=
+8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa59K9d8xD8Mw6AeIe4x-=
+2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1E5dY5d2kede9Is3w-2B=
+7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8MKxYPrzkeYx9er-2FsZL=
+EjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a9QQ67n-2Fa9eSJKpNLv=
+QcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9H9YiuuRIWHOjJx5GuGB=
+1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13JE-2FOwriYJIAwYMUOUU=
+j8n-2BW7UziS-2Bnr-2BYkcOtgQKiHPSETIasYmWq-2FDllbPy76coW9TTZqrbbBS-2BBS2KcUY=
+Dnn-2F-2BQrBKL9EEzr8XA0p-2FVJZ56s7sII1e-2BVcJ27C9cJlT7FlF7NCcY0W0qnxgnwXR5I=
+-3D" target=3D"_blank"><img src=3D"https://braze-social-icons.s3.amazonaws.=
+com/social-networks-icon-sets/t-outline-circle-dark-gray/linkedin@2x.png" w=
+idth=3D"32" height=3D"auto" alt=3D"LinkedIn" title=3D"LinkedIn" style=3D"di=
+splay:block;height:auto;border:0"></a>
+</td>
+</tr></table></div></td></tr></table></td></tr></tbody></table></td></tr></=
+tbody></table>
+<table class=3D"row row-5" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;background-size:auto"><tbody><tr><td><table clas=
+s=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;background-size:auto;background-color:#fcfaf2;border-radius:0;color:#000=
+;width:640px;margin:0 auto" width=3D"640"><tbody><tr>
+<td class=3D"column column-1" width=3D"50%" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;padding-=
+top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;bord=
+er-left:0"><table class=3D"image_block block-1" width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:=
+5px;width:100%;padding-right:0;padding-left:0"><div class=3D"alignment" ali=
+gn=3D"center" style=3D"line-height:10px"><div style=3D"max-width:160px"><a =
+href=3D"https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7Nfs=
+MpPLZulgbUcuyPJDIiq7dh5ehuk9Y1V6lpaFO7fWTP6ohiaB-2FREkJwVqAopELiT3UQR7ZjvnD=
+4YRqN4YUJ2YdUSQ8PNC-2FBty9gwU3ASCggNQqcGAKRvgUhb_M9pkhGr4qpANuqGVV-2BbId0sl=
+x815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2FTSgD=
+HKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCvvufh=
+ca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyzJzsa=
+59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoANbVT1=
+E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW6w8M=
+KxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTWLt2a=
+9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQveEK9=
+H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixyE13J=
+E-2FOwriYJIAwYMUOUUj8n98fM8CmSpG84FbgZwYHFqVcqjRWu1gPbvQ9pVgCEdyedQhl7kTOUT=
+I5rAIzUP18Og8MkbVf6LHu-2BFfRqyGLDmfRkb60XcyJ-2FuQZQ5TowJy91sRv8xczfxLAK6ZUk=
+YsdD4-3D" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img src=
+=3D"https://cdn.braze.eu/appboy/communication/assets/image_assets/images/64=
+ee112df594cb004c0f4be2/original.png?1693323564" style=3D"display:block;heig=
+ht:auto;border:0;width:100%" width=3D"160" height=3D"auto"></a></div></div>=
+</td></tr></table></td>
+<td class=3D"column column-2" width=3D"50%" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;padding-=
+top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;bord=
+er-left:0"><table class=3D"image_block block-1" width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bott=
+om:10px;width:100%;padding-right:0;padding-left:0"><div class=3D"alignment"=
+ align=3D"center" style=3D"line-height:10px">
+<div style=3D"max-width:176px"><a href=3D"https://ablink.promos.memrise.com=
+/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPLZulgbFxJigglAlJhpDWBqQCoiGQtdi51EvZ7z=
+TfZkgwwM4Gz01VP70GDBLPE42hIZ2VR6q2yqseu6qmerqLZ6bY3ND2imo3qX0yOFWvuBTwLBfdi=
+Uv-2B73t4KYRIA9-2BYUY99oMbr-2Ba1gU898fTaHs6T6CIM-3DQoN6_M9pkhGr4qpANuqGVV-2=
+BbId0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9=
+-2FTSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHM=
+NCvvufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMN=
+hyzJzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdC=
+oANbVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F=
+4AW6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZ=
+rTWLt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4=
+UQveEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYa=
+ixyE13JE-2FOwriYJIAwYMUOUUj8n8MPrn8de4Ui0yy5lhgh-2FtIe9QDhKwMQsQluAHIa5t3cA=
+gqHrHqZskB5tVVEVmzD8xZZua8ymUcxQtWvn196wRqCMgBb8NUoiDB7456ZJje-2B6Twx4jSA3R=
+qeBGSl3cUaGA-3D" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><=
+img src=3D"https://cdn.braze.eu/appboy/communication/assets/image_assets/im=
+ages/64ee112d23e2b90055a68f9d/original.png?1693323564" style=3D"display:blo=
+ck;height:auto;border:0;width:100%" width=3D"176" height=3D"auto"></a></div=
+>
+</div></td></tr></table></td>
+</tr></tbody></table></td></tr></tbody></table>
+<table class=3D"row row-6" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stac=
+k" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#fcfaf2;border-radius:0;color:#000;width:640px;margin:0 auto" width=
+=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"paragraph_block block-1" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"10" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-w=
+ord"><tr><td class=3D"pad"><div style=3D"color:#101b24;direction:ltr;font-f=
+amily:Roboto,Arial,Sans-serif;font-size:14px;font-weight:400;letter-spacing=
+:0;line-height:normal;text-align:left;mso-line-height-alt:NaNpx">
+<p style=3D"margin:0;margin-bottom:0">No longer need our help?&nbsp;<a href=
+=3D"https://ablink.promos.memrise.com/ls/click?upn=3Du001.jQvMFBtBO7NfsMpPL=
+ZulgaQeGnl96fRtON7peC4fyz97qJypW5TZtM3YVfDbZXGv5eI-2FkvBcF73ykeofF0gM75Y8UJ=
+XLl9ok-2BYm7NkmrDy-2FhQcax1Hlpi6yyw7xil2PLSqLFeSibBDRkWNJcQYba9t60sh4H59Uiq=
+G63dkmRJBCo9BSNOx-2Fjwebrl1dZB76PxKTJf39aDh5uh7dSVyjrKwXkYt3B9WFDP29VmeGxNG=
+821tiyMUPDbKYd6vs86g7Awyhc1GDp-2F9TL5C5pQMYSQdIcv59oc5NUMCW-2FssWTgDat1obG0=
+b0m2IPPlZfeZM3sOi4eCu6oLSmYK0Bg28yPDwBSLaX2Kdn9G-2FAWmw8z9Hql5vyTNo6QIjcXpN=
+A2rFOfarA7vTtLZJPf40seGSd1lvE3AFzp3C8cTqvlPbcjhO-2BsVuWXQ9dEOcXFGH-2FILt8de=
+6JnfTTTQLzY-2FUC5lo3ry5C5DTtbCQuE4Qcg4sRsJX2Mj1yfP50uAODSRVOP86GmKBsKWwAVKs=
+7ZsixYgc3vZr6Gz5AiyHxQBlJ-2FFc265f2H0H2bjna0bwI-2BvVnEAdGANNhi3NBA8BxfVw3Xk=
+zqetKJ3mdm-2FxhXuBKlP24ppw5PA7sQELwRTFr2scqCV2ai1e9j-2F-2Ffg3Ch8rrAPXYjj5HJ=
+dAL2UN6Zbpf9jYvSqc9OIglwuzz5wqfJDU9X0O27q59fj7zPwD2oQBWCzTYmhhLHsTkSCL20zE-=
+2BX5kDQRN6z2t9iCF6-2BLUdsN1KhterqhTB0qkfvkf2OWHyqNerfKuAfF3FookCjRkiTG7ydM1=
+oeR-2FRfEbR0pJQEnpTZl0j6P2-2BfYMSmNxtZK6GChtC3R0uU577zVUXNJoL-2BvR5l3LeuR6N=
+3nNNcUYaFpi1QRx9RA3GoJThJDuqiUU23v9-2FpX3lRzNzPLGCRcHNTd8eLqQypdeuzAepRnHac=
+3ePtGX-2BgPsAZmh2iexWAJMQzNy5eZZAs6AlxJrtBLEXLZ7qdjsgd0pJD6soMNdY6lvzIHJAzh=
+s-2FEAzduRNFPh5jTzm2e4sK6ulKAuSxpPHqN-2FwpWx9Me-2F4bQndC-2BbDLkbjOOXeAi5IdR=
+TJKMwHC-2BgJoR3GYBnR7f55jDQ8AUxv111jDmPrX-2BjDPijL9vM13vZejcJ-2Fu83eQ8o-2B4=
+VJCk10A0LyGTpG-2BD8dKuvfrS2KoI4Jb7WAqFXiBSWQToB7nLYKTDyiQUs1sKoNuroXzHb17E-=
+2BDG3I0iNcSuszRPUTXeOOK5iDj-2F2gQH-2FEojI10mtqAA27FuCjnzLYcr-2B-2FT46LPPerX=
+9tZx2WGNGLL1HauuSdMVQfMCv1SVyGssg8ChymsP-2Fs6c9ieG8xvb8rkfgsDwRLqXDXR2LwmQr=
+Czb6Mid7Pz-2BWwHPQ79-2F-2FJBJveJP9CV2lfywwT37vy9nHTlUoQbI1ATm7hGIRmDFUmK5Nq=
+2XR5YRXpF9qAS9O5dX-2F8SrJ9Xaf-2Fb3UGfQfh6KWJgkWyMGDEiDTqf3iaWT6WJoR2SCXQl0E=
+-2F2mXKbZr7OKK028y4Vck4F2mPbaX3uzkmmlL3v6HsPP6VlgCNlTfJ8bCX6SfgW3WgsPMR6t-2=
+B4mOMY2fX6MSTM5Ly2-2F14yTpSVDMbw3bM12XzP6Xp77h2BOoq5csvNYUR7IPZNzWk8oOw9IsY=
+7qLyFoHUnvMVuGS42pMlEhZg-2Bh-2BukVLgMgwYQfLRleOzu85uwUbc-2F7zNhqf7NFZM7qbPK=
+rE7wTyVobA7xUlXSVbLmHtXWbyobpiJD74bdn3ifOlBG1npPJ0gXdVwbmGqRKgjBr-2BRWk4Jw9=
+pCf9h3-2FL0OE-2FyBgFevTndDcfaCevkKGKsBXi4G2Ls-3D20uw_M9pkhGr4qpANuqGVV-2BbI=
+d0slx815qUdBxcfZhNUHtr2jxV2sGSNbyjtDA5Rz3x6bwGDEC7YBRHPMNTR6NsbW6t3DVCM9-2F=
+TSgDHKbgsBtEWqjd7bN5AaYEG0uFNoQBquoDdl77RrQxy5SpdOvuc5ycmdTKM9GDAETXIFHMNCv=
+vufhca5JxVfydoxEBCQD5JG8bdbVVogLzItgm0uGOhBNkYOhXI6W1TxA1FlclXLnVceMKhMNhyz=
+Jzsa59K9d8xD8Mw6AeIe4x-2FumujLw6V57lm1vT-2FbvLcFfxdZVfFqjwAuQxEbNEgF0hdCoAN=
+bVT1E5dY5d2kede9Is3w-2B7VIwOGu6R9nFtPOORuvKxb90wZt-2FSaLoB-2Fb-2Bm430-2F4AW=
+6w8MKxYPrzkeYx9er-2FsZLEjQB9aMf0RNJL7JQ9r6urUVS4rcD-2BxOASxKVo0RbRNofvCZrTW=
+Lt2a9QQ67n-2Fa9eSJKpNLvQcyWxIzUGLe9Jnz-2FsZ9Pc3gedBkJPPwiphX-2BZ3NRws0X4UQv=
+eEK9H9YiuuRIWHOjJx5GuGB1kRNC9X2dE2dTJEWEF5L840KamVQsw29mLf77z7HT0fBiOvYaixy=
+E13JE-2FOwriYJIAwYMUOUUj8n8LYuuU0kawvsub-2FFLYCSJLL8347nIrjqtck6aDTkqbw0YDG=
+SOeZZ298ngLmLdoXTWbItHbqBikB60HGu7qVejULTDqNI1zi75LrDZHrg9VUKvSmVSCzeRNBC66=
+rUWnYlQ-3D" target=3D"_blank" rel=3D"noopener" style=3D"text-decoration: un=
+derline; color: #1871D8;">Unsubscribe here</a></p>
+<p style=3D"margin:0"><br>2023 Memrise<br>3-5 Fashion Street, E1 6PX, Londo=
+n.<br><br>
+This email was sent to<br>You received this email because you are registere=
+d with Memrise.</p>
+</div></td></tr></table></td></tr></tbody></table></td></tr></tbody></table=
+>
+</td></tr></tbody></table>
+<!-- End -->
+</body>
+</html>
+
+--925f5028eb6de7bd08a1e06d974e9d309501987794682457cf9ad474d005--

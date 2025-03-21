@@ -1,0 +1,173 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6520:2354:b0:2ac:6419:e1b with SMTP id c20csp1154168lkc;
+        Wed, 18 Dec 2024 11:48:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEOEgBIL6CbUPbo9qanfzJo1o9/aZS974tsNDSUqJUnFDF4VSm0zcGA3HPVcspe3zEZ7etg
+X-Received: by 2002:a05:6000:18a5:b0:385:f7a3:fed1 with SMTP id ffacd0b85a97d-388e4dae6d6mr4278283f8f.44.1734551338369;
+        Wed, 18 Dec 2024 11:48:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734551338; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XVbmELHG0hw2Y3Q2AznHTB+Y8XByKldrshOroayp8OBFQLw4GaQ1HzLEPObdZ+m8wU
+         bu4H52eCT3xkPxKeKWkagMeQhmfZnWKJ5iwioEFdUQddhgJpQquxY3bq6lRBwCFuUF46
+         Ddr2OIo4lMo5jdZ9/TZSyeTGyLHvNs/87Y///8QZ5mC20BLtelBEIdAEaGWYo7qr+Kf1
+         mvl97ihqPm/Y5436eFXhLmgXj+9nglwejKfiCUkWCjkr+asTM1kfzd3abWLP00UJ9Wa8
+         H32Y5j41gI13NlGqkQEGd4B/nsSjURXS7yrV43qyBDZ6wdsfM5TEVxr3EppiDnfG53wF
+         vmHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature;
+        bh=1lIueiVpqcIjJY8f32qltN85O9nCf7otP4HH7BxpQ9M=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=jK/OkIV8HEZ3vB6rTfmgvH/MvL12jOspOeHbF3kINuuBq/nbxRYGMyZ932FThuiT/O
+         PUMqnY2/o71+F3buYJKj+vcsY5lR2fOqfFhIIPmGM86EEX4kgv2FEmYudHc7IVlL262M
+         RagbaehWiNXqmH7HixQFDkuglJ2hnr2++QLlD5ACgub98QJDbaNjjRwd5s+BXu7MblJr
+         YgP1pY6R6XVekWRpxarf/sMCzdYxmAic+yrMAscS3hNEagIzcr0AzkqoB4C2uyzOcDmj
+         jC8tGYV/z6cYF98v5P6of46aEq6a/fywor0XngNwNvqPF5SR8ktEP3dofIxcKloI5mhp
+         4fAw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=ovLldQ2y;
+       spf=pass (google.com: domain of jobnotification@noreply12.jobs2web.com designates 155.56.128.35 as permitted sender) smtp.mailfrom=jobnotification@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Return-Path: <sender@noreply12.jobs2web.com>
+Received: from mail319.cloudmail.ondemand.com (mail319.cloudmail.ondemand.com. [155.56.128.35])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-388c807443fsi7291086f8f.819.2024.12.18.11.48.58
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Dec 2024 11:48:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of jobnotification@noreply12.jobs2web.com designates 155.56.128.35 as permitted sender) client-ip=155.56.128.35;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=ovLldQ2y;
+       spf=pass (google.com: domain of jobnotification@noreply12.jobs2web.com designates 155.56.128.35 as permitted sender) smtp.mailfrom=jobnotification@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Received: from pc33j2wmail01.dc033.sf.priv (unknown [130.214.228.227]) by mail319.cloudmail.ondemand.com (Postfix) with ESMTPS id 05C4AC44BA for <ham@ham.email>; Wed, 18 Dec 2024 19:48:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=noreply12.jobs2web.com; s=1; t=1734551338; bh=uoHwfqUcJuHLNF4jTYeBz6EaI8/jN6DFM1Rvwtj0k74=; h=Date:From:To:Subject:List-Unsubscribe; b=ovLldQ2y1ockGdcn32WkgU2uNKTcnZAoAxm9JOuRim/QSsjDBu4wrKh63bNV8rTcS
+	 vE0MQ0oa6rrC87AwBmmq9fSycgbdXG37t86Ou9rdc61y3q2WAjsyNYt+tPsyXhe+ua
+	 ZcwK0l4yxqty2cFNWyN3sZfeDvYfEn11jBekG/vQ=
+Received: from pc33j2wmail01 (localhost [127.0.0.1]) by pc33j2wmail01.dc033.sf.priv (Postfix) with ESMTP id E18E71802801 for <ham@ham.email>; Wed, 18 Dec 2024 19:48:57 +0000 (UTC)
+Date: Wed, 18 Dec 2024 19:48:57 +0000
+From: sender@noreply12.jobs2web.com
+To: <ham@ham.email>
+Message-ID: <730817574.223447611734551337922.JavaMail.tomee@pc33j2wmail01>
+Subject: Neue Jobs auf careers.ey.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe: <https://careers.ey.com/unsubscribe/?from=email&refid=25669009601&utm_source=J2WEmail&source=2&eid=40801-202448180748-30175151101&locale=de_DE>
+
+<p>Hey,<br /><br/>
+Du erh=C3=A4ltst diese E-Mail, weil du der Talent-Community von  EY am 14.0=
+8.24 beigetreten bist. Diese Nachricht wird alle 7 Tag(e) verschickt.<br/><=
+br/>
+<b>Dein Job-Agent (Praktikant IT-Consulting - Cyber Security mit Schwerpunk=
+t Banken oder Versicherungen (FSO) (w/m/d), Eschborn / Frankfurt (Main) HE =
+DE, K=C3=B6ln NW DE, Berlin BE DE, Hannover NI DE, D=C3=BCsseldorf NW DE, S=
+tuttgart DE, Hamburg HH DE, M=C3=BCnchen BY DE) hat die folgenden Jobs auf =
+<a class=3D"agentsitelink" href=3D"http://careers.ey.com/?from=3Demail&refi=
+d=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-202448180748-3=
+0175151101&locale=3Dde_DE">careers.ey.com</a> f=C3=BCr dich identifiziert.<=
+/b>  <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu=
+/careers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navB=
+arLevel=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">((Klicken zum &#196;ndern))=
+</a><br /><br />
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Senior-Consu=
+ltant-IT-Beratung-Pr%C3%BCfung-%28Financial-Services%29-%28wmd%29-HE-65760/=
+840366701/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D=
+2&eid=3D40801-202448180748-30175151101&locale=3Dde_DE">Senior Consultant IT=
+-Beratung / Pr&uuml;fung - (Financial Services) (w/m/d) - Eschborn / Frankf=
+urt (Main), HE, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Stuttgart-Duales-Studium-in-der-Wirtschaft=
+spr%C3%BCfung-Financial-Services-%28wmd%29-70629/1110512701/?from=3Demail&r=
+efid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-20244818074=
+8-30175151101&locale=3Dde_DE">Duales Studium in der Wirtschaftspr&uuml;fung=
+ - Financial Services (w/m/d) - Stuttgart, DE, 70629</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Consultant-B=
+anken-pr%C3%BCfungsnahe-Beratung-%28Financial-Services%29-%28wmd%29-HE-6576=
+0/1099256001/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=
+=3D2&eid=3D40801-202448180748-30175151101&locale=3Dde_DE">Consultant Banken=
+ - pr&uuml;fungsnahe Beratung (Financial Services) (w/m/d) - Eschborn / Fra=
+nkfurt (Main), HE, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/K%C3%B6ln-Werkstudent-Softwareentwicklung-=
+Business-Technology-%28wmd%29-NW-50667/1151416201/?from=3Demail&refid=3D256=
+69009601&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-202448180748-30175151=
+101&locale=3Dde_DE">Werkstudent Softwareentwicklung - Business Technology (=
+w/m/d) - K&ouml;ln, NW, DE, 50667</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-%28Senior%29=
+-Consultant-Business-Analyst-Financial-Crime-Compliance-%28Financial-Servic=
+es%29-%28wmd%29-HE-65760/1133468601/?from=3Demail&refid=3D25669009601&utm_s=
+ource=3DJ2WEmail&source=3D2&eid=3D40801-202448180748-30175151101&locale=3Dd=
+e_DE">(Senior) Consultant - Business Analyst Financial Crime Compliance (Fi=
+nancial Services) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE, 65760</a><=
+br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-%28Senior%29=
+-Manager-pr%C3%BCfungsnahe-Beratung-Schwerpunkt-Sustainable-Finance-Financi=
+al-Services-%28wmd%29-HE-65760/840972001/?from=3Demail&refid=3D25669009601&=
+utm_source=3DJ2WEmail&source=3D2&eid=3D40801-202448180748-30175151101&local=
+e=3Dde_DE">(Senior) Manager pr&uuml;fungsnahe Beratung Schwerpunkt Sustaina=
+ble Finance - Financial Services (w/m/d) - Eschborn / Frankfurt (Main), HE,=
+ DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-EY-Parthenon=
+-Praktikant-Transaction-Strategy-and-Execution-%28Financial-Services%29-%28=
+wmd%29-HE-65760/1086856801/?from=3Demail&refid=3D25669009601&utm_source=3DJ=
+2WEmail&source=3D2&eid=3D40801-202448180748-30175151101&locale=3Dde_DE">EY-=
+Parthenon Praktikant Transaction Strategy and Execution (Financial Services=
+) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/M%C3%BCnchen-EY-Parthenon-Consultant-IT-un=
+d-digital-Ecosystems-%28Financial-Services%29-%28wmd%29-BY-80636/1096730001=
+/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D4=
+0801-202448180748-30175151101&locale=3Dde_DE">EY-Parthenon Consultant - IT =
+und digital Ecosystems - (Financial Services) (w/m/d) - M&uuml;nchen, BY, D=
+E, 80636</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/Eschborn-Frankfurt-%28Main%29-Rechtsanwalt=
+-Bankaufsichtsrecht-Kapitalmarktrecht-EY-Law-%28Financial-Services%29-%28wm=
+d%29-HE-65760/1141289801/?from=3Demail&refid=3D25669009601&utm_source=3DJ2W=
+Email&source=3D2&eid=3D40801-202448180748-30175151101&locale=3Dde_DE">Recht=
+sanwalt - Bankaufsichtsrecht / Kapitalmarktrecht - EY Law (Financial Servic=
+es) (w/m/d) - Eschborn / Frankfurt (Main), HE, DE, 65760</a><br/>
+<span class=3D"agentjoblink_bullet"></span> <a class=3D"agentjoblink" href=
+=3D"http://careers.ey.com/ey/job/D%C3%BCsseldorf-Consultant-Risk-Management=
+-Consulting-%28Financial-Services%29-%28wmd%29-NW-40213/1085169901/?from=3D=
+email&refid=3D25669009601&utm_source=3DJ2WEmail&source=3D2&eid=3D40801-2024=
+48180748-30175151101&locale=3Dde_DE">Consultant Risk Management - Consultin=
+g (Financial Services) (w/m/d) - D&uuml;sseldorf, NW, DE, 40213</a><br/>
+<br />
+<b>Hier kannst du deine aktualisieren.</b><br/>
+1) <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu/c=
+areers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navBar=
+Level=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">Einen weiteren Job-Agenten hi=
+nzuf&#252;gen (Schl&#252;sselwort und Standort f&#252;r die Suche nach Jobs=
+).</a><br/>
+2) <a class=3D"agentmodifylink" href=3D"https://career5.successfactors.eu/c=
+areers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lang=3Dde_DE&navBar=
+Level=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">=C3=84ndere die H=C3=A4ufigke=
+it des Job-Agenten-Versands.</a><br/><br/>
+Leite diese Jobs gerne auch an Freund:innen und Bekannte weiter, die Intere=
+sse an einer dieser Stellen haben k=C3=B6nnten.<br/><br/>
+Es wurde systemseitig ein Passwort f=C3=BCr dich erzeugt, das du eventuell =
+bereits ge=C3=A4ndert hast. Solltest du dein Passwort vergessen haben, dann=
+ klicke auf "Passwort vergessen?", um dein Passwort zur=C3=BCckzusetzen. Im=
+ Anschluss kannst du dein Profil anpassen sowie deinen Job-Agenten konfigur=
+ieren.<br/></p>
+Die Datenschutzerkl=C3=A4rung wird regelm=C3=A4=C3=9Fig =C3=BCberpr=C3=BCft=
+ und bei Bedarf angepasst. Melde dich bitte =C3=BCber die <b><a ref=3D=E2=
+=80=9Dnoopener=E2=80=9D href=3D"https://career5.successfactors.eu/career?ca=
+reer_company=3DEYHRISPRD1&lang=3Dde_DE&company=3DEYHRISPRD1&site=3D&loginFl=
+owRequired=3Dtrue&_s.crb=3DLWSPqpHEn6xb4wMFw5HTD0gE2gF%2bIQiKQC8CSWQDEV8%3d=
+">EY Karriereseite an<a/></b>, um die aktuellste Version der Datenschutzerk=
+l=C3=A4rung einzusehen.<br/><br/>
+<hr align=3D"left" >
+<p align=3D"right"><a class=3D"agentmodifylink" href=3D"https://career5.suc=
+cessfactors.eu/careers?site=3D&company=3DEYHRISPRD1&clientId=3Djobs2web&lan=
+g=3Dde_DE&navBarLevel=3DJOB_MGMT&subNavBarLevel=3DJOB_ALERTS">E-Mail-Einste=
+llungen</a> | <a class=3D"agentunsubscribelink" href=3D"https://careers.ey.=
+com/unsubscribe/?from=3Demail&refid=3D25669009601&utm_source=3DJ2WEmail&sou=
+rce=3D2&eid=3D40801-202448180748-30175151101&locale=3Dde_DE">Abonnement sto=
+rnieren</a></p>

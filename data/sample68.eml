@@ -1,0 +1,185 @@
+Received: from SJ0PR19MB6606.namprd19.prod.outlook.com (2603:10b6:a03:44d::7)
+ by MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Thu, 24 Aug 2023
+ 19:41:00 +0000
+Received: from SJ2PR07CA0013.namprd07.prod.outlook.com (2603:10b6:a03:505::15)
+ by SJ0PR19MB6606.namprd19.prod.outlook.com (2603:10b6:a03:44d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.27; Thu, 24 Aug
+ 2023 19:40:58 +0000
+Received: from MW2NAM04FT057.eop-NAM04.prod.protection.outlook.com
+ (2603:10b6:a03:505:cafe::d3) by SJ2PR07CA0013.outlook.office365.com
+ (2603:10b6:a03:505::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.27 via Frontend
+ Transport; Thu, 24 Aug 2023 19:40:58 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.160.45)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.160.45 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.160.45; helo=mail-oa1-f45.google.com; pr=C
+Received: from mail-oa1-f45.google.com (209.85.160.45) by
+ MW2NAM04FT057.mail.protection.outlook.com (10.13.31.66) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6723.17 via Frontend Transport; Thu, 24 Aug 2023 19:40:58 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:43C3C79EB87D69FDCCF44AAFFB39E6C925A92AEAE2CEDFDDD6F32B032FBA217A;UpperCasedChecksum:3849B8EF240DB202AED9CA533D81F53F6370AA939F0F79D5D6FEEDBD527C80B5;SizeAsReceived:2700;Count:15
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-1bbb4bde76dso113800fac.2
+        for <phishing@pot>; Thu, 24 Aug 2023 12:40:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1692906058; x=1693510858;
+        h=mime-version:date:subject:to:from:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=AIKo1RhfJYVSaD2ctCf+c9EE3FoyMuYarmsOoTlGNh8=;
+        b=rdQkLWb+l/ae1uDnLV+zWPrCTqsT9F0JY1wksoOKpl1bZiuSCngoqgFiZ88ofle5sW
+         7zGEyS7uThaD73YDb6S8bsx6cvlb3QoaxsRRbLi6RqtBgD3PIzQgKT+2maxFpbYs8xq7
+         u95KWmtYUlEvfWu5NawhB+hF/oHo+5f7JL+mCfAXCtN1kKF6z2gwCxjAxYsjkkKqX1ZJ
+         OVAAN7TLdw/dDlZtSS4gWhMIM0rWGlDOzzCLQLSup9ohHBv7EAPCzRZgDsbJaYxxZ+cC
+         z2m6TUcbICNA8Sg/6ovWoWruuC05sfL54H2crMJE4b9RHATey80xX6PGN+ZgKak1GwvE
+         kIXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1692906058; x=1693510858;
+        h=mime-version:date:subject:to:from:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AIKo1RhfJYVSaD2ctCf+c9EE3FoyMuYarmsOoTlGNh8=;
+        b=aJZL7HxiNH0yOiHR10sGqwuHiv0adjcAftnXFyvp9WLOaQow5SXHCLVcLjRL8oT6cK
+         eQGwDJsYMpFpazWaMfInv3i6RWZeXZgDQOE6DkecOtCQCAfb8zNso2ER+Hg7QGLDp6zm
+         B9n5Ox0BD4uu0OndteE9R/XiJ7AmyPkpgS+IeWg7pG2g3j4vh6Sky1YgTRJpRDoCOVI2
+         eH+oCPTZzHQ6mCDI6uSYQc/GqGD0h/AF9UQiKECKEltVYFMPDxIo4bc6cWlac8ukbY57
+         gtg+Gz/nXIXUXqWZnxEqCR0SoDizeO5JKUTjpqwmj7BkrrpC6hJwrFJM/x9F/xS9vcMl
+         Ahjg==
+X-Gm-Message-State: AOJu0YykWNOreWnJ5YGeyM3Njd0mLJQXcwPowfmfiTtfSR8On7mlR0Nu
+	jpIZ0yKgrWzXunhqF74SfIA70pWP+sq/2gnkJF6JEQ==
+X-Google-Smtp-Source: AGHT+IHiLmYG+1BFgu8TYKOxv5GcoksKnPMs19W8fseXK2b4nHqd/91SEzZTaY/uB8P5qnIuXW+yNA==
+X-Received: by 2002:a05:6870:3329:b0:1b0:408a:1d05 with SMTP id x41-20020a056870332900b001b0408a1d05mr751330oae.38.1692906057394;
+        Thu, 24 Aug 2023 12:40:57 -0700 (PDT)
+Return-Path: emmettggrissomq743@gmail.com
+Received: from h6.domain ([20.92.110.55])
+        by smtp.gmail.com with ESMTPSA id q33-20020a17090a17a400b0026d54b2abe9sm103407pja.37.2023.08.24.12.40.55
+        for <phishing@pot>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 24 Aug 2023 12:40:56 -0700 (PDT)
+Message-ID: <2f712b297d35c941c3c64efb300247b1@gmail.com>
+From: "Banco do Brasil S.A" <emmettggrissomq743@gmail.com>
+To: <phishing@pot>
+Subject: Dispositivo Bloqueado-WBmmvfJdFtGqOvWw
+Date: Thu, 24 Aug 2023 19:40:53 +0000
+Content-Type: multipart/mixed;
+	boundary="a433876f78e43143870cecbd000dafa1"
+X-IncomingHeaderCount: 15
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Aug 2023 19:40:58.6061
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d55461df-209f-4595-7db2-08dba4da0a52
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ MW2NAM04FT057:EE_|SJ0PR19MB6606:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ MW2NAM04FT057.eop-NAM04.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/24/2023 7:29:22 PM
+X-MS-Office365-Filtering-Correlation-Id: d55461df-209f-4595-7db2-08dba4da0a52
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.160.45
+X-SID-PRA: EMMETTGGRISSOMQ743@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2023 19:40:58.5436
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d55461df-209f-4595-7db2-08dba4da0a52
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ MW2NAM04FT057.eop-NAM04.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR19MB6606
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2685435
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6699.027
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(8820095)(9575002)(10195002)(9320005)(120001);
+X-Message-Info:
+	qZelhIiYnPkg0GuyI5dvOSDJaOSMFnsC7XhFfsMOeuM65jt9YLrcnIWAIkrjD1s0TqxU3SrAsPiDQ5QdPfaIT/CIR9+r7OqdzFXrzA1msZ+4SgOeUnUti36SFiIRF6SL4cXbcEZtObJFIzY2ES8FnNz/STbHvOzBYRJqRveO6Fhh2peRJx9BDvCjnLfYrQz8IzbEQsJHZMc=
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?aDB2YURkSlIyM3RyVTRMQkZ6OGVwNUVzYUY2dm04cVFmeVN3WERJKzhZZHlL?=
+ =?utf-8?B?RnQyWWw1ZVFhUWQ5aENDV2V0VFYvRFlsVFhSdUNjZGllWkxQam5UZ3VILzE0?=
+ =?utf-8?B?bUtybndDNXNObzd3RE8zTklBL2RONVBCRGVMQW5LdEdJS0x3RTVpcXZWbG1D?=
+ =?utf-8?B?S09rR1RUWnpsRWJSbmxWVU84Q2NndXhkaHY4SnBCcWhISmk4WDJPTmIvQlJP?=
+ =?utf-8?B?ZGNEcmErNEt6eExqV01JTm1FblkveGVERWFhcFZ5RXNxcjhkcUQ4NWl4Q3ph?=
+ =?utf-8?B?a2JRMXpqVmZGQXpBS1QrWW9vR1ZpTUhDV2REemtJRTJtVG9xN0hKSi9TZVNB?=
+ =?utf-8?B?TUl3UFhrem94WGpzQ1BiRG5OOU5yZTlMNnZScm80SWZPRCt5YnlyL2lqcGtZ?=
+ =?utf-8?B?WFd2WVFRQzhwajR4b3NXdU5Pa3BocTN6bGRDMGNsTWN4ZVpWOS9ZTXVvRFg3?=
+ =?utf-8?B?alROSGlSTHdHTmZEMHdLT0RwUGsrd3hLa3h2bXM5bkpUTG40NWFhMjJLK2E1?=
+ =?utf-8?B?MXYweWRIQ1lySlBoWGlGVTB6ZmxLQUh5cjlSZWIzQ2hrMy8vRFEwRGpkS3hP?=
+ =?utf-8?B?LzF5Nkpoc3hJM0pjdTA0U0ZHTCs1Y0owcFEyRHNHMXMySHY2U25URElXTGI3?=
+ =?utf-8?B?bzZrU0NCS2xQS0ZHR3F4YTJQdFEvT3hGd2F5R1RFQ0h5SERyb0FjeE9ySTdF?=
+ =?utf-8?B?OTYrUnd2ajdFZkgzVFFXelduZ1dMUVMvQTkwdkJDcWR5czdJWElyUXRjOEMz?=
+ =?utf-8?B?MThYdzh3aUtyUDM2azcvR0k5SDRrYWQvQ2JjSEViNEdYRmRRdE9OalRFZng0?=
+ =?utf-8?B?Q0dmUzh0OHdRbWlDNDNPc0ZrRlZSQTYwOEJLSjltZUdGN0F6RGFBdWwxME1C?=
+ =?utf-8?B?T1ZIZkNVUFN6ZEx6cXdtMU5mWFNvVDROallYRVpJRlNFUDhQa2FVVFZvTjVC?=
+ =?utf-8?B?cy96VHhOR2pxa0ZaU2ttOEJOdndzbm9NNXJqVWpuRFRrZUtVT0hOb0dkMGRQ?=
+ =?utf-8?B?ai9hRWVqU0tTV2xtSjVscWlqdjJxMnZRWFlUc0ttcURwaVNRRTV6MHBvYUZq?=
+ =?utf-8?B?VUMvamVzZkFCK2l2Q1o1MHBUbGJZRisyakRHNS9lb0NiT1BWbWF4V0svL2lU?=
+ =?utf-8?B?UWdneTdJUGIvaXJqRmdkSEpzaEdKZCtEQUMrU1czUGhXZXN2TEpJZldlSlRr?=
+ =?utf-8?B?QWM2N1duZjFmdFZ1elNCNFhQOXJ4OHZMc2lTaldzWGVyTlllRnRjZzR6aExC?=
+ =?utf-8?B?U0p1Y2lGdWxUbHl0WUM2RWEzdTY5RHJyS256Q1VHbkF3dEU2RTVTZ1IrRmNB?=
+ =?utf-8?B?bzE5bmVGejRLTHcwR3FWQUkvSEJKcDhmSnViZzM4aEc5SEtxLzNjRVlobDI1?=
+ =?utf-8?B?aU1OZDF6SUhuQ2xmUnE5YUZUTnZaeHhNZHZXc1d1eTk1VEJBWmxXZlBpRThI?=
+ =?utf-8?B?OCtEZ2ZjNlptUXhkWno1T1duOVpIdzJlaDE2ZmZBdmdzc25pZjF3WHZvalRW?=
+ =?utf-8?B?cHVGSGsrNTI3T3FxTHI1RFZRSk43T0ZYRWNEWTcxOXZtdlpCd3lzV1Z4YkhP?=
+ =?utf-8?B?aVRBYkd2eE9wUFRNVjBUOFZEcUdBKzRFdnpDZHFpQk90ZWZ0VzJmKzEwUTNU?=
+ =?utf-8?B?V01HeTA1M3dDSytyQkNSU0xTb1pTMWtpaUFwRjNOcXQxQm5TcXhYL2xKSGxq?=
+ =?utf-8?B?YjdTenYwSFBPaW5xS2JkeHRFS21qeXVEMHpndjFDVjU1a3JpZlM0ekdDMEtw?=
+ =?utf-8?B?T1ZsTGYyaWhFaUhEeGdkcWJLcXE5TXZxbm82c3krOXRlQURYVXRDRGFsMERN?=
+ =?utf-8?B?bU5XYVp0aE1EazB0RjZwUncxdk5hN05ObnJZZ0F1b3ZDYXh4dTVWTEU2Y2FE?=
+ =?utf-8?B?Yi82UFJMY3UwdnV5VHRpS2xmSis0cEJ3ZGExZWc3d3ZXNSsrZk81Nm52ZlpQ?=
+ =?utf-8?B?YjI3TkZ0VWc5cGNUVGp0L25xaUI5cURKb3RraXVzT2orSGt3WmZyUmlIZ1lZ?=
+ =?utf-8?B?a2VmQmp3MldOVWR6YThpcjRRaml5Wk84NS9iQlhoRHQ2OEI2TjVWbHRST0Z2?=
+ =?utf-8?B?RU02encvWmJZRlZiM21CT0hvVHdvSTQ3T2ZCQT09?=
+MIME-Version: 1.0
+
+--a433876f78e43143870cecbd000dafa1
+Content-Type: multipart/alternative;
+	boundary="a433876f78e43143870cecbd000dafa0"
+
+--a433876f78e43143870cecbd000dafa0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+ =0D=0ABLOQUEIO PREVENTIVO  EFETIVADO para de transa&ccedil;&otilde;es fina=
+nceiras do Dispositivo-34435332537=0D=0ASiga as instru&ccedil;&otilde;es do=
+ arquivo anexo para efetuar o DESBLOQUEIO.=0D=0A 
+--a433876f78e43143870cecbd000dafa0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><p=
+ style=3D"text-align: center;">&nbsp;</p>
+<p style=3D"text-align: center;"><strong>BLOQUEIO PREVENTIVO </strong> <str=
+ong>EFETIVADO&nbsp;</strong>para&nbsp;de transa=C3=A7=C3=B5es financeiras d=
+o Dispositivo-34435332537</p>
+<p style=3D"text-align: center;">Siga as instru=C3=A7=C3=B5es do arquivo an=
+exo para efetuar o DESBLOQUEIO.</p>
+<p style=3D"text-align: center;">&nbsp;</p>=
+
+--a433876f78e43143870cecbd000dafa0--
+
+--a433876f78e43143870cecbd000dafa1
+Content-Type: application/pdf;
+	name="C8uPS44YPe217.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="C8uPS44YPe217.pdf"
+

@@ -1,0 +1,153 @@
+Received: from SA3PR19MB7813.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Tue, 26 Sep 2023 08:04:54
+ +0000
+Received: from MW4P222CA0010.NAMP222.PROD.OUTLOOK.COM (2603:10b6:303:114::15)
+ by SA3PR19MB7813.namprd19.prod.outlook.com (2603:10b6:806:2fd::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.28; Tue, 26 Sep
+ 2023 08:04:52 +0000
+Received: from MW2NAM12FT009.eop-nam12.prod.protection.outlook.com
+ (2603:10b6:303:114:cafe::9f) by MW4P222CA0010.outlook.office365.com
+ (2603:10b6:303:114::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.35 via Frontend
+ Transport; Tue, 26 Sep 2023 08:04:51 +0000
+Authentication-Results: spf=pass (sender IP is 185.98.145.206)
+ smtp.mailfrom=emark4.embluejet.com; dkim=pass (signature was verified)
+ header.d=ucv.edu.pe;dmarc=permerror action=none
+ header.from=ucv.edu.pe;compauth=pass reason=111
+Received-SPF: Pass (protection.outlook.com: domain of emark4.embluejet.com
+ designates 185.98.145.206 as permitted sender)
+ receiver=protection.outlook.com; client-ip=185.98.145.206;
+ helo=emark206.embluebtl.com; pr=C
+Received: from emark206.embluebtl.com (185.98.145.206) by
+ MW2NAM12FT009.mail.protection.outlook.com (10.13.180.76) with Microsoft SMTP
+ Server id 15.20.6838.19 via Frontend Transport; Tue, 26 Sep 2023 08:04:51
+ +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:9992FFBE4695E0846F15CBDDFC4077E3BE3227159B2BB468AC9D9AF15342E7DD;UpperCasedChecksum:6C81D0B3E482491E70DC5C8E55B530905854337E5B65E60972954550663A37A1;SizeAsReceived:1545;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=epexo; d=ucv.edu.pe;
+ h=Content-Type:MIME-Version:From:To:Subject:reply-to:List-Unsubscribe:
+ Message-ID:Date; i=registrotecnico.epgsp@ucv.edu.pe;
+ bh=xIJqYdqDpgDKPQyEi85pGklbTJUplvRC9vvqMjTvRjs=;
+ b=cYVgnDSpLeCyZAmRWs5AGSZCnQw3QTYvtmxObk5ncvdj8V6U2qZ+0ikwuo9N9zoz2qJ1lTSZ32zG
+   Lteaw4QzzeySaGOUTjaATrky1iAhYYyOpxMxUvjh0K2ZseUUnJYy/UB7Bt5lt8KkwJD/GzLwtUxb
+   gx2I8B5hevRVIw7Evos=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=epexo; d=embluejet.com;
+ h=Content-Type:MIME-Version:From:To:Subject:reply-to:List-Unsubscribe:
+ Message-ID:Date;
+ bh=xIJqYdqDpgDKPQyEi85pGklbTJUplvRC9vvqMjTvRjs=;
+ b=V1pCYOM9REKoaED/JAWefKC0Df3/uClyLROpmibd/Fa6gT1yzft3JKQ/iF5w8C5ArRaXVZkJ25zf
+   yMQsuyL00PPAo84WrZK0Vs5V8n9n9YLzyyQgH+S6o5ocgQiHPr87yQf/9ewLDGge2MzjawEmDGuh
+   jt39EFcwJ60EXZTkKl8=
+Content-Type: multipart/alternative;
+ boundary="===============3258688449773509261=="
+From: Trust Wallet <registrotecnico.epgsp@ucv.edu.pe>
+To: phishing@pot
+Subject: =?utf-8?q?=5BImportant=5D_Unlock_your_wallet_to_avoid_suspension=2E?=
+reply-to: registrotecnico.epgsp@ucv.edu.pe
+x-job: UCV-25614
+Feedback-ID: 7i8gm:6:email_id:ENVIOSIMPLE:6f7am
+X-mta: emblue3prd_bm-5
+X-emmkt: E;;7b4ik87;;6f7am;;7i8gm:6;;6a9fl,6
+List-Unsubscribe: <https://app.embluemail.com/Services/Interaccion.svc/DesuscribirContactoEnvio?datos=6f7am-R-ixfxyrxBKuwgpf,
+ q:c-R-6a9fl,6>
+Message-ID: <9dW-3f23854844-q@embluemail.com>
+Date: Tue, 26 Sep 2023 05:04:31 -0300 (-03)
+X-IncomingHeaderCount: 15
+Return-Path: emblue3prd_bm@emark4.embluejet.com
+X-MS-Exchange-Organization-ExpirationStartTime: 26 Sep 2023 08:04:51.7396
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ e80646d3-d97a-45ce-2e48-08dbbe6742f6
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ MW2NAM12FT009:EE_|SA3PR19MB7813:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ MW2NAM12FT009.eop-nam12.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/26/2023 8:02:19 AM
+X-MS-Office365-Filtering-Correlation-Id: e80646d3-d97a-45ce-2e48-08dbbe6742f6
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 185.98.145.206
+X-SID-PRA: REGISTROTECNICO.EPGSP@UCV.EDU.PE
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2023 08:04:51.5208
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e80646d3-d97a-45ce-2e48-08dbbe6742f6
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ MW2NAM12FT009.eop-nam12.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR19MB7813
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5672248
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6813.014
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(9710001)(9555003)(10175021)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow8Id23sWcfwKtIxj3lzGydGH7f5bq8lIByadWNfsOROS7yR1hOoG3vLFt1k86eIWtfq1BTbSd0nAthvdUdSfHnqK6GAyeFrFovdBhGVdODHZzV7k16h4mNUuUrxvbW2eLo0ugvgn8OQfidGCsb+UONCGBUZmFUEb3tWFma9lzhWVHh8aUtoCpwIgnbZbzpQnkxErVaANCMIGA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?S3lLRktUQ0o4cGFnSW9nSHVJRm1vc2dhQzl2VUxFMzVjSDRrMHFIMzlyQVBh?=
+ =?utf-8?B?Q1VzdVNqRkZpd2ZoNjNlQWxwWVBFQWZCN0d4UGRKa3VzbXhSUUVyaTBsRHE2?=
+ =?utf-8?B?MWpQVzhMTTZZejVIV0pFaTJNdTZ4eldvOVl0dVptV3NxUGRxVmwrd3dHNW1a?=
+ =?utf-8?B?S0orTjNvODlnUFM5VkFTU2JjV0luTTl2T25MVkZLZWZ5bVplR1ZDd1NhaEVh?=
+ =?utf-8?B?ZHh1T0ZFcG9BYytxM043TmxyckZOa2R3TlY2cUswbXhMYVRoNTU2eDYrMEdY?=
+ =?utf-8?B?UzdrVEZFNVdUaEJtM2RJZUgzOXI5WnNRTWxnMy9VZURmU1FtOFI5REQvSEp6?=
+ =?utf-8?B?VnNrNERDZEtkU0w0R0RmTDV0cVJMcUxVWlcrMkh0aUd4dkIrVDV5bllFNm1S?=
+ =?utf-8?B?V3BtVUlTOG55aUMzN0YzNGZaY2VoUldLalVsOXg4ZWl4cnlHbFJxVzBWK0hL?=
+ =?utf-8?B?OWt4UldWd3RyMXkrZVlTbFFjc3JLd2ROQkRGR1NtZld5OXB6ZFI3U0liLy9Q?=
+ =?utf-8?B?NEd3a3dPR3dZeFF6TGJUdHByT1FsWXAxcWNsZWM0SDd2ZDhzR3pyUU1sM2VW?=
+ =?utf-8?B?R1BWOE1tY3pFVWhrRVJqRk9BMkxueGczWWpwYnNoQ0NnQkpoSG1ialJMMnNk?=
+ =?utf-8?B?UCtqL0NMVGtUditreDFRNlhTd2tESExCeEJ0ZFhXbEl5RkJFZVpsWjZXME5l?=
+ =?utf-8?B?L1djazBpZmpSeTB1U00xajRYWmZFUWx4cE1FLy8zaUU5OU5Fczl0MjN0bzdh?=
+ =?utf-8?B?SzBGWUVOL1FBVzR6cUxsNUxIWGRPNjBXdHgxV282c1g3N3VpaEYreHV5M0Z4?=
+ =?utf-8?B?dWhQNmNoNzk2c2NsOHpkQ05uMkI1d1JvQncrdGMyb200UTJIdTlNTVpTTW9q?=
+ =?utf-8?B?WExyellweHkvYnhKbVd1clJBUGZGSHNycGZFTTBFV3F6UUhTeE9sN1FoOGxK?=
+ =?utf-8?B?UkhVTU9uVzlJVStxTEQvbytKTUV1YWRhbUkrVW1OcU0yNFVNTnJraFB5dFRl?=
+ =?utf-8?B?elY4dGRYTzEvV1VDeVdPamlaQ1N2ZG9ZOWZoeU1iQXRVcUlFV1FYZFZyUElT?=
+ =?utf-8?B?MXRjbDRKbXF5OWNOclhZWUdFWHZRaUFoSlRQcDRudGE0MlJ0eThRWWk5VTAr?=
+ =?utf-8?B?S1FMVWoveGZFUkFhdHVibmlOTW9HZkpNZkJ1cVU5cE9BTXkzYU0wZmlqU3d3?=
+ =?utf-8?B?Z0t5MHk5U2N5YWVIZG91dFViWXhzdTJQTmwyQ21hd3ZXYS9xa3gvYnUzbUpF?=
+ =?utf-8?B?cVpQY3NNbUlXaDNKUGUrWXkxT05kNVZFKzNuSTVnQnYvc3lYQUhEbXpkS1Ux?=
+ =?utf-8?B?ZzdlZlRXTGQ1cm9xWFo4YSs2bmE2UXJuTXEwQlRiYzQ3aVdWS3ROS0VsdjZs?=
+ =?utf-8?B?dTRFckIwSVpCQ2h3VG5YVmI4Mnh4RTVKSkl5YlRYcTdwbkZCM1NtRUpJdmpH?=
+ =?utf-8?B?NkJXNHJORUdQVWhaWElUWG83WWtUdU5zOXk0N3ZseE02NmdoU05LT3lwVXRQ?=
+ =?utf-8?B?VDRPN3RhOUNEWGhJMFpkb1c1ZitQZDZFcURPNzhQNlgrUkxMRjJSUDFDNTR3?=
+ =?utf-8?B?TStBWmJjSm9KMnU3c3pVdWMzK0ZFc1pPMjN2c1ptNzFWc1p6bGJ4cDM2bWRp?=
+ =?utf-8?B?Vm9vTHFJRmtYcnhjUFU4alZJaldBTjdxdlNvOEoxQXRrMFJQSjltSHhST0Zw?=
+ =?utf-8?B?bThSbzN3T3NyNXNYTzgySlJMSUc4bTM0WHhrZFAzdFF1eThzdm1veTFxVEx0?=
+ =?utf-8?B?bHg5TjFKcUZjSmtmOWVTc2NZSHNsbjcxclBiT3RUS0pEbFhJVXI3RDRlZGRa?=
+ =?utf-8?B?TzFXRFNkQXg1Q0tUc3NOM21yb1Jrbk91UGFrNEk3ZHA2bDlVRzJHTmI4Tkhy?=
+ =?utf-8?B?b0lLem1kNHFFaXBPM3JvdTNUOHN2aVJKT3I4cjd6NnhSWTArZEFhVVkzSnQr?=
+ =?utf-8?B?L3lpOGdBWGV3ZGlPdVNVVzBLNzA0Q2lvNWM0RzU4QU9GV0kxTFVuS1o5WWNR?=
+ =?utf-8?B?ZlZ4enNRUWlsMHA3bUJmbXA2czFpTktSWGZ1RTcvM3ZKdFFpaG5zK1YvRXV0?=
+ =?utf-8?B?bm9PVC81Q3dOaFpWNU9pd3pPakt6eEI4Vi80b25zR3JoWDZsR3lhTHMwZ1k2?=
+ =?utf-8?B?M1RqczRoME5wNzFYWHNUSVBsOFB1UnJ6YUxpSDFUVHVjc21QZStuV3ZWRCth?=
+ =?utf-8?B?OVNCc0pmWGpKMXNUeHB2S3NhbnpidVZ6WHp4QXl5TmU2TlVyeUJFeTkwVXZt?=
+ =?utf-8?B?dFNhWU1TaWM2ZjMxTUVGWFB0TWQwK3lINExJNXRxTnhtaHJmNUIya0FRODM1?=
+ =?utf-8?B?ZEYrTzlFUmNhMGl3dTA3S1V3ZFp1b0M2V21zczNwc2FEMlRRTHdLa0lDeGl0?=
+ =?utf-8?B?R2J6dmg2NXR5VUc4aUtHQ0x5TnAzWnh6RWlHVW5LMnpjc21xSi9uM0VwbFlR?=
+ =?utf-8?B?OXlpenpaeENjbzNPRytyRU4weUdtNW9MelFUbmk2Rk55MTVHeGRwNFFRLzB6?=
+ =?utf-8?B?a2JNNWROU0xmVW9MWHdZRy92VjdkNmp0Wmg2Y2hRRnRPYXMxcVJrb0hMWVBH?=
+ =?utf-8?B?MEo0NkVZVlA1Mmw1dmFtd29vQm1YVmQxOTRjb2xjOHZtVHBCeGlVTXNLbzNS?=
+ =?utf-8?B?Skgxc3lJczI3NGxJblQzMWVJMXJPaTJvcHVFQWg4L0ZKTmVBYithMkJ3MU00?=
+ =?utf-8?B?UDNqZlZNakI2L29mT200N3kydHI5NElUQlE9PQ==?=
+MIME-Version: 1.0
+
+--===============3258688449773509261==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+

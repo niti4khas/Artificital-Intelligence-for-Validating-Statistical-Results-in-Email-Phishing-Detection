@@ -1,0 +1,613 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7108:18f6:b0:381:3f1d:c93e with SMTP id t22csp677860gdi;
+        Wed, 22 May 2024 15:13:01 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHVLWz2xs5dDE3R3hxkHWeECBBFnfNgPOzivQ3tySfJrRXHpd0iZZ5m8/EZ+x4dW2QGOQxy
+X-Received: by 2002:a0d:ca55:0:b0:61a:bdc8:6c90 with SMTP id 00721157ae682-627e46b2c19mr35488307b3.20.1716415981381;
+        Wed, 22 May 2024 15:13:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1716415981; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nlGg/Qfyth2B/C1Vj7xpn5L17m3lgnmkAAMzN3tTbZm3+Xqysi4DfXT+wVvhe1abfw
+         J6RFEFZyEHNLF8hYVQC0v8w57zQI2Zi/AWKyOoRYgiXfkcV1BH9zlLc08ABactRco7tB
+         zMcKwp6wWfMoTLtvKarnPXPrv0U8SJrR5ModMOD9Zj0bMJag0BVNy6UTe8VkZmhwHT+n
+         yuVhzk40NA3pS8glcjyY0KnyyXT5lJ+Ua4vlKw4zYpOzod6d3q89eSjLsCNtwwd2y9z9
+         Kvxl0Y1kc8q3x5SVjkbTtdsBKcAbvGWoD1sHouAfDD84mzt9D3scnYm6dtPU5SeC4h5E
+         Mvjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=1OttaCdb3r5IL5l7hRdBm+LSA8q8ALqW4VYCf/MO0To=;
+        fh=3nXvuC8tWNtm4c2A2rIIeKxBg0kx/E4jYUyBwCB9ZEE=;
+        b=JmG7YGOr3Pp0fgPN7uuzNpjqrIWSCDJmhxBApkAcSH4GiNocUMeQaFPSAFKcun5kx9
+         aDkP/ihx14muTU0/iKSlY9MbGIYlaUVuPc9IQtM+OAK28ws8BrNnmsQJnVrpZYIPfOuH
+         NaKcINy9LML6Rd3H9j8n34Zsx4R9eJi+gZ+81s25fOhMe4T/AuIFETXIvUc6ncYKms+H
+         iZZYnDniGTJ76+pOgrkKj0fJZ6TYxedxmD2z6EfNs+SUQCGE1y6SA41vSpYB5huN4dxS
+         8iDsuFH68Cq79VBItrg8xcBSK3Wd1j7dVTmETwAdoe/XHf6PXWwvi+ko/KXS5X8ORfHe
+         9/QQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=NZtvbF9H;
+       dkim=pass header.i=@kdnuggets.com header.s=k2 header.b=nlcQVTIq;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net designates 198.2.184.75 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+Return-Path: <bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net>
+Received: from mail75.suw91.mcdlv.net (mail75.suw91.mcdlv.net. [198.2.184.75])
+        by mx.google.com with ESMTPS id 00721157ae682-6209e76733bsi145737977b3.364.2024.05.22.15.13.01
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 May 2024 15:13:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net designates 198.2.184.75 as permitted sender) client-ip=198.2.184.75;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=NZtvbF9H;
+       dkim=pass header.i=@kdnuggets.com header.s=k2 header.b=nlcQVTIq;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net designates 198.2.184.75 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.326881-7ba2458a0d@mail75.suw91.mcdlv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1716415858; x=1716502258;
+	bh=1OttaCdb3r5IL5l7hRdBm+LSA8q8ALqW4VYCf/MO0To=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=NZtvbF9H/Z9gsvcn8RW/vkSC/xhGo3z4EYhp+URq8THU8mK9HVDEKA1LuvqEEgjvH
+	 E8ghw4XfeioMRIuu6FROUgY07B2SBtTzQTgFeWOEE0rTwzXoGTEht/aAchFmS0Ucph
+	 jpBSzysKdCOG6UCN4hqMzIUULbkrj/ujVRGfj39tQl4xD8S9CoKLpSp7hq26FQbRnT
+	 letwzvzm+HaNGIlOMLiDI1lxl/e/9ZQ4qWHvMLKBElihYZVNXd1vRP+tYhhO3tTVk0
+	 +Mw8VJv8ARWDTJzB6WHdYBT5hYQ1MqnETcVICrtSytKAzdh8WYVuzc2F8bzVcHYR3s
+	 p0qzd02naKcxA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kdnuggets.com; s=k2;
+	t=1716415858; x=1716676358; i=editor1@kdnuggets.com;
+	bh=1OttaCdb3r5IL5l7hRdBm+LSA8q8ALqW4VYCf/MO0To=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=nlcQVTIqcT/d7y+flW3Ngc33RVFXoiu0Bxpbcd6tzM2OB5bq6z+ukA61rJcftV947
+	 e1lnffGj3v2ZNe6+8zO2qjXH95LtoE1Lp9yuQ7xvBUdGBpoQQ6tL7nZKzPmZFbOi91
+	 jGkCLc5lxwJd37k1CzUZaijeTVBboBYTNZZlA4VqvfwD78Jz+suYCDI2rtRKyVM9Nz
+	 BAzbmbvAuRoUudfxda9hXHyWWRdGhmyTwPOFTs9YeqWQg/e7HedysVc1k+hWd4EXa5
+	 pp70g5fWMCbr8mMxXvzes0X+AMkIEsYD4WM04a3Fe+5IPDbO0bu6qnqvoWZ/WoMJEz
+	 sGSzEUriuZhrg==
+Received: from localhost (localhost [127.0.0.1])
+	by mail75.suw91.mcdlv.net (Mailchimp) with ESMTP id 4Vl59G69yxzPmnd2t
+	for <sminhaz18061997@gmail.com>; Wed, 22 May 2024 22:10:58 +0000 (GMT)
+Subject: =?utf-8?Q?Python=20Data=20Manipulation=20Libraries=20=E2=80=A2=2010=20GitHub=20Repositories=20to=20Master=20Data=20Engineering?=
+From: KDnuggets <sender@kdnuggets.com>
+Reply-To: =?utf-8?Q?KDnuggets?= <sender@kdnuggets.com>
+To: <ham@ham.email>
+Date: Wed, 22 May 2024 22:10:44 +0000
+Message-ID: <4f2891ebb155b23f120ece0bd.7ba2458a0d.20240522221031.630985a747.e8f606f9@mail75.suw91.mcdlv.net>
+X-Mailer: Mailchimp Mailer - **CID630985a7477ba2458a0d**
+X-Campaign: mailchimp4f2891ebb155b23f120ece0bd.630985a747
+X-campaignid: mailchimp4f2891ebb155b23f120ece0bd.630985a747
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=4f2891ebb155b23f120ece0bd&id=630985a747&e=7ba2458a0d
+X-MC-User: 4f2891ebb155b23f120ece0bd
+Feedback-ID: 50554633:50554633.326881:us12:mc
+List-ID: 4f2891ebb155b23f120ece0bdmc list <4f2891ebb155b23f120ece0bd.169725.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://kdnuggets.us12.list-manage.com/unsubscribe?u=4f2891ebb155b23f120ece0bd&id=b2fa8716d2&t=h&e=7ba2458a0d&c=630985a747>, <mailto:unsubscribe-mc.us12_4f2891ebb155b23f120ece0bd.630985a747-7ba2458a0d@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1331659811"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1331659811
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.kdnuggets.com/index.html Weekly Digest
+------------------------------------------------------------
+May 22=2C 2024
+
+Editor's Picks
+------------------------------------------------------------
+Essential Python Libraries for Data Manipulation (https://www.kdnuggets.co=
+m/essential-python-libraries-for-data-manipulation)
+Cornellius Yudha Wijaya
+------------------------------------------------------------
+10 GitHub Repositories to Master Data Engineering (https://www.kdnuggets.c=
+om/10-github-repositories-to-master-data-engineering)
+Abid Ali Awan
+------------------------------------------------------------
+https://imp.i384100.net/q43M5g In this certificate program from Google=2C=
+ you'll learn in-demand skills at your own pace=2C no degree or experience=
+ required.
+
+Get on the fast track to a career in Data Analytics > (https://imp.i384100=
+=2Enet/q43M5g)
+------------------------------------------------------------
+
+This Week's Nuggets
+------------------------------------------------------------
+How to Fine-Tune BERT for Sentiment Analysis with Hugging Face Transformer=
+s (https://www.kdnuggets.com/how-to-fine-tune-bert-sentiment-analysis-hugg=
+ing-face-transformers)
+Matthew Mayo
+------------------------------------------------------------
+The Best Strategies for Fine-Tuning Large Language Models (https://www.kdn=
+uggets.com/the-best-strategies-for-fine-tuning-large-language-models)
+Josep Ferrer
+------------------------------------------------------------
+LLaMA 3: Meta=E2=80=99s Most Powerful Open-Source Model Yet (https://www.k=
+dnuggets.com/llama-3-metas-most-powerful-open-source-model-yet)
+Natassha Selvaraj
+------------------------------------------------------------
+The Easiest Way of Running Llama 3 Locally (https://www.kdnuggets.com/easi=
+est-way-of-running-llama-3-locally)
+Abid Ali Awan
+------------------------------------------------------------
+Exploring Natural Sorting in Python (https://www.kdnuggets.com/exploring-n=
+atural-sorting-in-python)
+Bala Priya C
+------------------------------------------------------------
+Feature Engineering for Beginners (https://www.kdnuggets.com/feature-engin=
+eering-for-beginners)
+Matthew Mayo
+------------------------------------------------------------
+Short and Fun Courses to Get You Up to Speed About Generative AI (https://=
+www.kdnuggets.com/short-and-fun-courses-to-get-you-up-to-speed-about-gener=
+ative-ai)
+Nisha Arya
+------------------------------------------------------------
+Mastering Python: 7 Strategies for Writing Clear=2C Organized=2C and Effic=
+ient Code (https://www.kdnuggets.com/mastering-python-7-strategies-for-wri=
+ting-clear-organized-and-efficient-code)
+Kanwal Mehreen
+------------------------------------------------------------
+3 Courses You Should Consider If You Want to Become a Data Analyst (https:=
+//www.kdnuggets.com/3-courses-you-should-consider-if-you-want-to-become-a-=
+data-analyst)
+Nisha Arya
+------------------------------------------------------------
+An Overview of Hugging Face Diffusers (https://www.kdnuggets.com/an-overvi=
+ew-of-hugging-face-diffusers)
+Kanwal Mehreen
+------------------------------------------------------------
+A Guide to Working with SQLite Databases in Python (https://www.kdnuggets.=
+com/a-guide-to-working-with-sqlite-databases-in-python)
+Bala Priya C
+------------------------------------------------------------
+
+From Our Partners
+------------------------------------------------------------
+Thomas Miller=2C PhD=2C explores Northwestern University=E2=80=99s Online=
+ Graduate Programs in Data Science (https://www.kdnuggets.com/thomas-mille=
+r-phd-explores-northwestern-universitys-online-graduate-programs-in-data-s=
+cience)
+Northwestern University
+------------------------------------------------------------
+Be Part of The AI Con USA 2024 with a Free Virtual Pass (https://www.kdnug=
+gets.com/2024/05/ai-con-usa-navigate-the-future-of-ai-with-a-free-virtual-=
+pass)
+Techwell
+------------------------------------------------------------
+
+From Around The Web
+------------------------------------------------------------
+7 Best YouTube Channels to Learn Statistics for Free (via Statology) (http=
+s://www.statology.org/7-best-youtube-channels-statistics-free/)
+Bala Priya C
+------------------------------------------------------------
+5 Essential Free Tools for Getting Started with LLMs (via Machine Learning=
+ Mastery) (https://machinelearningmastery.com/5-essential-free-tools-getti=
+ng-started-llms/)
+Matthew Mayo
+------------------------------------------------------------
+
+"Most of the world will make decisions by either guessing or using their g=
+ut. They will be either lucky or wrong."
+=E2=80=94 Suhail Doshi
+
+https://twitter.com/kdnuggets   https://facebook.com/kdnuggets   https://w=
+ww.linkedin.com/groups/54257/
+
+About (https://www.kdnuggets.com/about/index.html)   =E2=97=A6  Privacy (h=
+ttps://www.kdnuggets.com/news/privacy-policy.html)   =E2=97=A6  Contact (h=
+ttps://www.kdnuggets.com/contact.html)
+
+=C2=A9 2024 KDnuggets
+
+This email was sent to sminhaz18061997@gmail.com (mailto:sminhaz18061997@gmail.com)
+why did I get this? (https://kdnuggets.us12.list-manage.com/about?u=3D4f28=
+91ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D630985a747)     uns=
+ubscribe from this list (https://kdnuggets.us12.list-manage.com/unsubscrib=
+e?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&t=3Db&e=3D7ba2458a0d&c=3D630=
+985a747)     update subscription preferences (https://kdnuggets.us12.list-=
+manage.com/profile?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D630985a747)
+KDnuggets . 151 Calle de San Francisco . Suite 200 - PMB 5072 . San Juan=
+=2C PR 00901 . USA
+--_----------=_MCPart_1331659811
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www=
+=2Ew3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>KDnuggets Weekly Newsletter</title>
+    </head>
+
+    <body style=3D"background-color:#FFFFFF; font-family:arial=2Cverdana=
+=2Ctahoma; font-size:14px;">
+
+        <table style=3D"border:0px; border-collapse:collapse; width:600px;=
+ margin-left:auto; margin-right:auto;">
+            <td>
+=09=09=09=09<!-- Header -->
+=09=09=09=09<table style=3D"width:100%; border-collapse:collapse;">
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"width:100% border:0px;">
+=09=09=09=09=09=09=09<div style=3D"display:flex; align-items:center; text-=
+align:left; width:100%;">
+=09=09=09=09=09=09=09=09<a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D8b8a99834d&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">
+=09=09=09=09=09=09=09=09    <img src=3D"https://www.kdnuggets.com/em/2023/=
+kdn-logo-2.png" alt=3D"Visit KDnuggets for more Data Science=2C Machine Le=
+arning=2C AI & Analytics =E2=80=A2" width=3D"140">
+=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09<font style=3D"font-size:28px; color:#000000; marg=
+in-left:20px;">Weekly Digest</font>
+=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</table>
+
+=09=09=09=09<!-- Date -->
+  =09=09=09=09<hr style=3D"height:2px; border-width:0; color:gray; backgro=
+und-color:#F0AE36;">
+                <div style=3D"padding-left:10px;">
+=09                <font style=3D"color:#808080; font-size:16px;">May 22=
+=2C 2024</font>
+                </div>
+                <br>
+                <br>
+
+                <!-- Features -->
+=09=09=09=09<font size=3D"+1"><b>Editor's Picks</b></font>
+=09=09=09=09<hr style=3D"height:2px;border-width:0;color:gray;background-c=
+olor:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D1da24dd6b2&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Essential Python Libraries for Data Manipulation</b></=
+a><br><font color=3D"#808080">Cornellius Yudha Wijaya</font></font><br>
+=09=09=09=09</div>=09
+=09=09=09=09<hr style=3D"height:1px;border-width:0;background-color:#D8D8D=
+8">
+
+                <div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D66ab91ccd4&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>10 GitHub Repositories to Master Data Engineering</b><=
+/a><br><font color=3D"#808080">Abid Ali Awan</font></font><br>
+=09=09=09=09</div>
+                <br>
+
+=09=09=09=09<!-- Sponsorship -->
+=09=09=09=09=09<hr style=3D"height:1px;border-width:0;background-color:#D8=
+D8D8">
+=09=09=09=09=09<table style=3D"width: 100%; border-collapse: collapse;">
+=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09<td style=3D"width: 130px; border: 0px;"><a href=3D"h=
+ttps://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23f120e=
+ce0bd&id=3D9189c1a88e&e=3D7ba2458a0d"><img src=3D"https://www.kdnuggets.c=
+om/wp-content/uploads/goog_promotion_240501.webp" alt=3D"In this certifica=
+te program from Google=2C you'll learn in-demand skills at your own pace=
+=2C no degree or experience required." width=3D"120"></a></td>
+=09=09=09=09=09=09=09<td style=3D"border: 0px;"><font style=3D"font-size:1=
+6px; line-height:150%;">In this certificate program from Google=2C you'll=
+ learn in-demand skills at your own pace=2C no degree or experience requir=
+ed.</font>
+=09=09=09=09=09=09=09<br><br>
+=09=09=09=09=09=09=09<a href=3D"https://kdnuggets.us12.list-manage.com/tra=
+ck/click?u=3D4f2891ebb155b23f120ece0bd&id=3Df85d3153ad&e=3D7ba2458a0d" st=
+yle=3D"text-decoration:none"><font style=3D"font-size:16px; line-height:15=
+0%;" color=3D"#F3AC35"><strong>Get on the fast track to a career in Data A=
+nalytics &gt;</strong></font></a></td>
+=09=09=09=09=09=09</tr>
+=09=09=09=09=09</table>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+=09=09=09=09=09<br><br>
+
+                <!-- This Week's Posts -->
+=09=09=09=09<font size=3D"+1"><b>This Week's Nuggets</b></font>
+=09=09=09=09<hr style=3D"height:2px;border-width:0;color:gray;background-c=
+olor:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D43bdff82b9&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>How to Fine-Tune BERT for Sentiment Analysis with Hugg=
+ing Face Transformers</b></a><br><font color=3D"#808080">Matthew Mayo</fon=
+t></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Da6fb078cbc&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>The Best Strategies for Fine-Tuning Large Language Mod=
+els</b></a><br><font color=3D"#808080">Josep Ferrer</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3De7453301d8&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>LLaMA 3: Meta=E2=80=99s Most Powerful Open-Source Mode=
+l Yet</b></a><br><font color=3D"#808080">Natassha Selvaraj</font></font><b=
+r>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D7060d49c69&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>The Easiest Way of Running Llama 3 Locally</b></a><br>=
+<font color=3D"#808080">Abid Ali Awan</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D29e21965b3&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Exploring Natural Sorting in Python</b></a><br><font c=
+olor=3D"#808080">Bala Priya C</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dafe4aa04af&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Feature Engineering for Beginners</b></a><br><font col=
+or=3D"#808080">Matthew Mayo</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dfe984f4a68&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Short and Fun Courses to Get You Up to Speed About Gen=
+erative AI</b></a><br><font color=3D"#808080">Nisha Arya</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D6f85558e39&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Mastering Python: 7 Strategies for Writing Clear=2C Or=
+ganized=2C and Efficient Code</b></a><br><font color=3D"#808080">Kanwal Me=
+hreen</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D2576bfa9e1&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>3 Courses You Should Consider If You Want to Become a=
+ Data Analyst</b></a><br><font color=3D"#808080">Nisha Arya</font></font><=
+br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D1a15105609&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>An Overview of Hugging Face Diffusers</b></a><br><font=
+ color=3D"#808080">Kanwal Mehreen</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3D86ea230dc8&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>A Guide to Working with SQLite Databases in Python</b>=
+</a><br><font color=3D"#808080">Bala Priya C</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<br><br>
+
+                <!-- From Our Partners -->
+=09=09=09=09<font size=3D"+1"><b>From Our Partners</b></font>
+=09=09=09=09<hr style=3D"height:2px; border-width:0; color:gray; backgroun=
+d-color:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Dae53d21cdd&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Thomas Miller=2C PhD=2C explores Northwestern Universi=
+ty=E2=80=99s Online Graduate Programs in Data Science</b></a><br><font col=
+or=3D"#808080">Northwestern University</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a href=
+=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b23=
+f120ece0bd&id=3Db7eb8893c9&e=3D7ba2458a0d" style=3D"color:#000000; text-d=
+ecoration:none;"><b>Be Part of The AI Con USA 2024 with a Free Virtual Pas=
+s</b></a><br><font color=3D"#808080">Techwell</font></font><br>
+=09=09=09=09</div>
+=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#D8D=
+8D8">
+
+=09=09=09=09<br><br>
+
+                <!-- From Around The Web -->
+=09=09=09=09=09<font size=3D"+1"><b>From Around The Web</b></font>
+=09=09=09=09=09<hr style=3D"height:2px; border-width:0; color:gray; backgr=
+ound-color:#F0AE36">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3D7b2610fccd&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>7 Best YouTube Channels to Learn Statistics for Free=
+ (via Statology)</b></a><br><font color=3D"#808080">Bala Priya C</font></f=
+ont><br>
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<div style=3D"padding: 5px 10px;">
+=09=09=09=09=09=09<font style=3D"font-size:16px; line-height: 150%"><a hre=
+f=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891ebb155b2=
+3f120ece0bd&id=3Db7b8c538f3&e=3D7ba2458a0d" style=3D"color:#000000; text-=
+decoration:none;"><b>5 Essential Free Tools for Getting Started with LLMs=
+ (via Machine Learning Mastery)</b></a><br><font color=3D"#808080">Matthew=
+ Mayo</font></font><br>
+=09=09=09=09=09</div>
+=09=09=09=09=09<hr style=3D"height:1px; border-width:0; background-color:#=
+D8D8D8">
+
+=09=09=09=09<br>
+
+=09=09=09=09<!-- So long! -->
+=09=09=09=09<div style=3D"padding:0px;">
+=09                <blockquote style=3D"background: #ffffff; border-left:=
+ 5px solid #ccc; margin: 1.5em 10px; padding: 0.5em 10px;">
+=09                =09<font style=3D"color:#808080; font-size:15px; line-h=
+eight: 150%;">
+=09                =09=09<em>"Most of the world will make decisions by eit=
+her guessing or using their gut. They will be either lucky or wrong."</em>
+=09                =09=09<br>
+=09                =09=09&mdash; Suhail Doshi
+=09                =09</font>
+=09                </blockquote>
+                </div>
+=09=09=09=09<!-- Social media links -->
+=09=09=09=09<div style=3D"text-align:center; width:100%;">
+  =09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/=
+click?u=3D4f2891ebb155b23f120ece0bd&id=3Dc3aa0c4c08&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-twitter-48.png" alt=3D"Twitter" width=3D"30" height=3D"30" bo=
+rder=3D"0" align=3D"bottom">
+                    </a>
+                    &nbsp;
+=09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/cl=
+ick?u=3D4f2891ebb155b23f120ece0bd&id=3D61a8fc3b26&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-facebook-48.png" alt=3D"Facebook" width=3D"30" height=3D"30"=
+ border=3D"0" align=3D"bottom">
+                    </a>
+                    &nbsp;
+=09=09=09=09    <a href=3D"https://kdnuggets.us12.list-manage.com/track/cl=
+ick?u=3D4f2891ebb155b23f120ece0bd&id=3D7775ed957b&e=3D7ba2458a0d" style=
+=3D"color:#000000; text-decoration:none;">
+                        <img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/about-linkedin-48.png" alt=3D"LinkedIn" width=3D"30" height=3D"30"=
+ border=3D"0" align=3D"top">
+                    </a>
+=09=09=09    </div>
+                <br>
+
+=09                =09=09=09=09
+=09=09=09=09<!-- Footer -->
+                <center>
+                    <p style=3D"font-size:14px;">
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D2e0867e891&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">About</a>
+                        &nbsp;&nbsp;&#9702;&nbsp;
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3Df6f87110c5&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">Privacy</a>
+                        &nbsp;&nbsp;&#9702;&nbsp;
+                        <a href=3D"https://kdnuggets.us12.list-manage.com/=
+track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D0a2f01abb8&e=3D7ba2458a0d"=
+ style=3D"color:#000000; text-decoration:none;">Contact</a>
+                    </p>
+                    <p style=3D"color:#808080; font-size:14px;">&copy; 202=
+4 KDnuggets</p>
+                </center>
+            </td>
+        </table>
+                <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" id=3D"canspamBarWrapper" style=3D"background-color:#FFFFFF; b=
+order-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"paddi=
+ng-top:20px; padding-bottom:20px;">
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" id=3D"canspamBar">
+                                <tr>
+                                    <td align=3D"center" valign=3D"top" st=
+yle=3D"color:#606060; font-family:Helvetica=2C Arial=2C sans-serif; font-s=
+ize:11px; line-height:150%; padding-right:20px; padding-bottom:5px; paddin=
+g-left:20px; text-align:center;">
+                                        This email was sent to <a href=3D"=
+mailto:sminhaz18061997@gmail.com" target=3D"_blank" style=3D"color:#404040 !importa=
+nt;">sminhaz18061997@gmail.com</a>
+                                        <br />
+                                        <a href=3D"https://kdnuggets.us12.=
+list-manage.com/about?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D630985a747" target=3D"_blank" style=3D"color:#404040 !important=
+;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"http=
+s://kdnuggets.us12.list-manage.com/unsubscribe?u=3D4f2891ebb155b23f120ece0=
+bd&id=3Db2fa8716d2&t=3Db&e=3D7ba2458a0d&c=3D630985a747" style=3D"color:#4040=
+40 !important;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a h=
+ref=3D"https://kdnuggets.us12.list-manage.com/profile?u=3D4f2891ebb155b23f=
+120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3D630985a747" style=3D"color:#404=
+040 !important;">update subscription preferences</a>
+                                        <br />
+                                        KDnuggets &middot; 151 Calle de Sa=
+n Francisco &middot; Suite 200 - PMB 5072 &middot; San Juan=2C PR 00901 &m=
+iddot; USA
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type=3D"text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; ma=
+rgin-top:10px !important;}
+                    }
+                </style>
+            </center><img src=3D"https://kdnuggets.us12.list-manage.com/tr=
+ack/open.php?u=3D4f2891ebb155b23f120ece0bd&id=3D630985a747&e=3D7ba2458a0d=
+" height=3D"1" width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_1331659811--

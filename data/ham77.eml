@@ -1,0 +1,481 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c2e6:0:b0:2ac:6419:e1b with SMTP id j6csp389139lkp;
+        Fri, 13 Dec 2024 04:26:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHtmARytiywg267hDB/9kjGA28U7NNuVtL82h86/vGcAMdYgujfO215Buc0IfdC9cifC3C6
+X-Received: by 2002:a05:6402:354a:b0:5ce:d028:e11 with SMTP id 4fb4d7f45d1cf-5d63c32e25dmr1744903a12.17.1734092786526;
+        Fri, 13 Dec 2024 04:26:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734092786; cv=none;
+        d=google.com; s=arc-20240605;
+        b=eN1ej6hOQZV8q8DZuqzkiqqV/uLpeGhjxW/Ar8iUOLOdTYN6KYdIrBs5hWs/b/do0Q
+         tUChY1ki1Uvu25ZTxq/MQst8wx7P8H6bnuqZuEXkGa9X1SaLFAJTYagvFt2qPvTu/+R5
+         SYBeUgxK1uNepW3ZMshja9pWbxB0AvtDSZb6HzhG1tYc3/WrY+dwRxHg1wgVoYvcT+Wq
+         qi+OxBXJ4Rt/CXACjtWmsyLM0wxUm3Eu5QNMdDA5Xnvtq0VSBsT+K9JNsTxiysPxqHFN
+         jLPoCAEzaRVqMa6fcI+9omYpa27gT8sKk+dpWyTM63WmlLZgcYuH1VjUSaExIpAqrSUH
+         +KcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:list-unsubscribe:precedence:message-id
+         :mime-version:reply-to:to:date:subject:from:dkim-signature;
+        bh=/Eu4sTh5iK46em1cmFRYgdSDCkjJl3li2gsCngQ8BwI=;
+        fh=WU4XYdYyO9DxFi7ML79Nm5jpiaOBbpWbCUII8ASev5c=;
+        b=borAwOO/VHFdyEltPWyuOqOOR90P0bbFeWaRMth35iBydfyjzTwS7HFL03oW281sn/
+         wd9hVzMOYgRK9EnILDyTHM+6U491lpTABMm1IFmorUBrl+Tl4lTKaKOXqIBP+rzAVKmI
+         gpDYCITZd2bPvvOyu1WH81Fr7Rwv0hOG11MGTzs7fiUJcQfv8ptXrmhWMbDZf/YkjHmn
+         MZ6E/pEmiFrzI+eUG6qMbrzOdi6eOjmYEmo0AwIylTxcL35VsrYpfxg1fuDPyhkf8PrX
+         amhiLLzt3lspbZpSv6sii/3NXfE5ilcC8POKkNB+E1XqVcyqooxxrrn8sbf9nkbB38sk
+         eZHw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.lebara.de header.s=lebara header.b="dBWN8lG/";
+       spf=pass (google.com: domain of bounce@email.lebara.de designates 130.248.198.177 as permitted sender) smtp.mailfrom=bounce@email.lebara.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lebara.de
+Return-Path: <bounce@email.lebara.de>
+Received: from r177.email.lebara.nl (r177.email.lebara.nl. [130.248.198.177])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5d3c406c2f5si11276183a12.83.2024.12.13.04.26.26
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 13 Dec 2024 04:26:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce@email.lebara.de designates 130.248.198.177 as permitted sender) client-ip=130.248.198.177;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.lebara.de header.s=lebara header.b="dBWN8lG/";
+       spf=pass (google.com: domain of bounce@email.lebara.de designates 130.248.198.177 as permitted sender) smtp.mailfrom=bounce@email.lebara.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=lebara.de
+Return-Path: <bounce@email.lebara.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.lebara.de; s=lebara; t=1734092785; bh=/Eu4sTh5iK46em1cmFRYgdSDCkjJl3li2gsCngQ8BwI=; h=From:Subject:Date:To:MIME-Version:Message-ID:List-Unsubscribe:
+	 Content-Type; b=dBWN8lG/jd2o/rrZSKdV6GaRqmRVn38nBrNfRDmdJjooW6rLeuB+rYKyJ1P+nD+k/
+	 EDEc1OeMBgwhV7X+Ix40zP+/GZb7vYAKmUi2VlVcPoPenAus14jn3Qfq1rP+5F00rq
+	 n3wpQWJoddCzv5ReOoJa7vC+6ZEir6BwoElwT9DgQ25ROTf4lG6i86QVhxj3l5kzSk
+	 zsLuFOUjgnJzpoUoK4Kv+SUWbgaihZQM29ZgQO5YzYYVb9YBW5ewGUXebYTxIOMQ0x
+	 A+tC+Q5blR0+FTX+ob8TeFqUmeI3O9sPjeX9RzC9RfVtUP35nDeO6e0TKRGSP7ijpN
+	 Z9sETWEgxFxOg==
+X-MSFBL: iiFxXWf7ywZr/f5re9cZIxlDqkxdNEnQYSBSdvGzDjo=|eyJyIjoiYWlnZXJpbW1 vbGRha2hhbm92YTdAZ21haWwuY29tIiwicmNwdF9tZXRhIjp7ICJtIjogIjEyNzA wMjQxMSIsICJkIjogIjk2OTI3NjgiLCAiaW4iOiAibGViYXJhX21pZF9wcm9kMSI sICJyIjogImFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbSIgfSwiYiI6Imx lYmFyYV8xMzAuMjQ4LjE5OC4xNzdfcHJvZC5kZWZhdWx0XzdlMTRlOGU0LTA2NzU tNDAyOS1hZjYyLTQxNzIwMjE4MjUyZSIsImciOiJwcm9kLmRlZmF1bHRfN2UxNGU 4ZTQtMDY3NS00MDI5LWFmNjItNDE3MjAyMTgyNTJlIn0=
+Received: from [54.217.191.153] ([54.217.191.153:51289] helo=r177.email.lebara.nl) by irl1-prod1-mta-i-0f68260768887617a (envelope-from <bounce@email.lebara.de>) (ecelerity 4.4.1.20033 r(msys-ecelerity:tags/4.4.1.0^0)) with ESMTP id F1/0B-60146-1F72C576; Fri, 13 Dec 2024 12:26:25 +0000
+From: <sender@email.lebara.de>
+Subject: Deine gesetzliche Tarifberatung von LEBARA
+Date: Fri, 13 Dec 2024 12:26:19 GMT
+To: <ham@ham.email>
+Reply-To: <sender@email.lebara.de>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM60791E72B0093E660lebara_mid_prod1-Ym91bmNlQGVtYWlsLmxlYmFyYS5kZQ==@email.lebara.de>
+Precedence: bulk
+List-Unsubscribe: <mailto:bounce@email.lebara.de?subject=unsubscribe%3CNM60791E72B0093E660lebara_mid_prod1-Ym91bmNlQGVtYWlsLmxlYmFyYS5kZQ%3D%3D@email.lebara.de%3E>
+Content-Type: text/html; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html dir=3D"ltr" lang=3D"en"=
+ xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-co=
+m:office:office"><head><meta charset=3D"UTF-8"><meta content=3D"width=3Ddev=
+ice-width, initial-scale=3D1" name=3D"viewport"><meta name=3D"x-apple-disab=
+le-message-reformatting"><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=
+=3Dedge"><meta content=3D"telephone=3Dno" name=3D"format-detection"><title>=
+Du hast den besten Tarif f=FCr dich</title> <!--[if (mso 16)]><style type=
+=3D"text/css"> a {text-decoration: none;}  </style><![endif]--><!--[if gte =
+mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[i=
+f gte mso 9]><noscript> <xml> <o:OfficeDocumentSettings> <o:AllowPNG></o:Al=
+lowPNG> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> <=
+/xml> </noscript>
+<![endif]--><!--[if mso]><xml> <w:WordDocument xmlns:w=3D"urn:schemas-micro=
+soft-com:office:word"> <w:DontUseAdvancedTypographyReadingMail/> </w:WordDo=
+cument> </xml>
+<![endif]--><style type=3D"text/css">.rollover:hover .rollover-first { max-=
+height:0px!important; display:none!important;}.rollover:hover .rollover-sec=
+ond { max-height:none!important; display:block!important;}.rollover span { =
+font-size:0px;}u + .body img ~ div div { display:none;}#outlook a { padding=
+:0;}span.MsoHyperlink,span.MsoHyperlinkFollowed { color:inherit; mso-style-=
+priority:99;}a.es-button { mso-style-priority:100!important; text-decoratio=
+n:none!important;}a[x-apple-data-detectors],#MessageViewBody a { color:inhe=
+rit!important; text-decoration:none!important; font-size:inherit!important;=
+ font-family:inherit!important; font-weight:inherit!important; line-height:=
+inherit!important;}.es-desk-hidden { display:none; float:left; overflow:hid=
+den; width:0; max-height:0; line-height:0; mso-hide:all;}@media only screen=
+ and (max-width:600px) {.es-m-p15t { padding-top:15px!important } .es-m-p10=
+b { padding-bottom:10px!important }
+ .es-m-p0t { padding-top:0px!important } .es-m-p20b { padding-bottom:20px!i=
+mportant } .es-m-p25t { padding-top:25px!important } .es-m-p25r { padding-r=
+ight:25px!important } .es-m-p15b { padding-bottom:15px!important } .es-m-p2=
+5l { padding-left:25px!important } .es-p-default { } *[class=3D"gmail-fix"]=
+ { display:none!important } p, a { line-height:150%!important } h1, h1 a { =
+line-height:120%!important } h2, h2 a { line-height:120%!important } h3, h3=
+ a { line-height:120%!important } h4, h4 a { line-height:120%!important } h=
+5, h5 a { line-height:120%!important } h6, h6 a { line-height:120%!importan=
+t } .es-header-body p { } .es-content-body p { } .es-footer-body p { } .es-=
+infoblock p { } h1 { font-size:30px!important; text-align:left } h2 { font-=
+size:24px!important; text-align:left } h3 { font-size:20px!important; text-=
+align:left } h4 { font-size:24px!important; text-align:left } h5 { font-siz=
+e:20px!important; text-align:left }
+ h6 { font-size:16px!important; text-align:left } .es-header-body h1 a, .es=
+-content-body h1 a, .es-footer-body h1 a { font-size:30px!important } .es-h=
+eader-body h2 a, .es-content-body h2 a, .es-footer-body h2 a { font-size:24=
+px!important } .es-header-body h3 a, .es-content-body h3 a, .es-footer-body=
+ h3 a { font-size:20px!important } .es-header-body h4 a, .es-content-body h=
+4 a, .es-footer-body h4 a { font-size:24px!important } .es-header-body h5 a=
+, .es-content-body h5 a, .es-footer-body h5 a { font-size:20px!important } =
+.es-header-body h6 a, .es-content-body h6 a, .es-footer-body h6 a { font-si=
+ze:16px!important } .es-menu td a { font-size:14px!important } .es-header-b=
+ody p, .es-header-body a { font-size:16px!important } .es-content-body p, .=
+es-content-body a { font-size:14px!important } .es-footer-body p, .es-foote=
+r-body a { font-size:14px!important } .es-infoblock p, .es-infoblock a { fo=
+nt-size:12px!important }
+ .es-m-txt-c, .es-m-txt-c h1, .es-m-txt-c h2, .es-m-txt-c h3, .es-m-txt-c h=
+4, .es-m-txt-c h5, .es-m-txt-c h6 { text-align:center!important } .es-m-txt=
+-r, .es-m-txt-r h1, .es-m-txt-r h2, .es-m-txt-r h3, .es-m-txt-r h4, .es-m-t=
+xt-r h5, .es-m-txt-r h6 { text-align:right!important } .es-m-txt-j, .es-m-t=
+xt-j h1, .es-m-txt-j h2, .es-m-txt-j h3, .es-m-txt-j h4, .es-m-txt-j h5, .e=
+s-m-txt-j h6 { text-align:justify!important } .es-m-txt-l, .es-m-txt-l h1, =
+.es-m-txt-l h2, .es-m-txt-l h3, .es-m-txt-l h4, .es-m-txt-l h5, .es-m-txt-l=
+ h6 { text-align:left!important } .es-m-txt-r img, .es-m-txt-c img, .es-m-t=
+xt-l img { display:inline!important } .es-m-txt-r .rollover:hover .rollover=
+-second, .es-m-txt-c .rollover:hover .rollover-second, .es-m-txt-l .rollove=
+r:hover .rollover-second { display:inline!important }
+ .es-m-txt-r .rollover span, .es-m-txt-c .rollover span, .es-m-txt-l .rollo=
+ver span { line-height:0!important; font-size:0!important; display:block } =
+.es-spacer { display:inline-table } a.es-button, button.es-button { font-si=
+ze:18px!important; padding:10px 20px 10px 20px!important; line-height:120%!=
+important } a.es-button, button.es-button, .es-button-border { display:inli=
+ne-block!important } .es-m-fw, .es-m-fw.es-fw, .es-m-fw .es-button { displa=
+y:block!important } .es-m-il, .es-m-il .es-button, .es-social, .es-social t=
+d, .es-menu { display:inline-block!important } .es-adaptive table, .es-left=
+, .es-right { width:100%!important } .es-content table, .es-header table, .=
+es-footer table, .es-content, .es-footer, .es-header { width:100%!important=
+; max-width:600px!important } .adapt-img { width:100%!important; height:aut=
+o!important } .es-mobile-hidden, .es-hidden { display:none!important }
+ .es-desk-hidden { width:auto!important; overflow:visible!important; float:=
+none!important; max-height:inherit!important; line-height:inherit!important=
+ } tr.es-desk-hidden { display:table-row!important } table.es-desk-hidden {=
+ display:table!important } td.es-desk-menu-hidden { display:table-cell!impo=
+rtant } .es-menu td { width:1%!important } table.es-table-not-adapt, .esd-b=
+lock-html table { width:auto!important } .h-auto { height:auto!important } =
+}@media screen and (max-width:384px) {.mail-message-content { width:414px!i=
+mportant } }</style>
+ </head><body class=3D"body" style=3D"width:100%;height:100%;-webkit-text-s=
+ize-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0"><div style=3D=
+"display:none !important;font-size:0px;line-height:0;color:#ffffff;visibili=
+ty:hidden;opacity:0;height:0;width:0;mso-hide:all"> Du hast den besten Tari=
+f f=FCr dich </div> <div dir=3D"ltr" lang=3D"en" class=3D"es-wrapper-color"=
+ style=3D"background-color:#F6F6F6"><!--[if gte mso 9]><v:background xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" fill=3D"t"> <v:fill type=3D"tile" color=
+=3D"#f6f6f6"></v:fill> </v:background><![endif]--><table width=3D"100%" cel=
+lspacing=3D"0" cellpadding=3D"0" class=3D"es-wrapper" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:=
+repeat;background-position:center top;background-color:#F6F6F6"><tr>
+<td valign=3D"top" style=3D"padding:0;Margin:0"><table cellspacing=3D"0" ce=
+llpadding=3D"0" align=3D"center" class=3D"es-header" role=3D"none" style=3D=
+"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-=
+spacing:0px;width:100%;table-layout:fixed !important;background-color:trans=
+parent;background-repeat:repeat;background-position:center top"><tr><td ali=
+gn=3D"center" style=3D"padding:0;Margin:0"><table align=3D"center" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#00a6eb" class=3D"es-header-body" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px;background-color:#00a6eb;width:600px" role=3D"none"><!--[=
+if !mso]><!-- --><tr class=3D"es-desk-hidden" style=3D"display:none;float:l=
+eft;overflow:hidden;width:0;max-height:0;line-height:0;mso-hide:all">
+<td align=3D"left" data-custom-paddings=3D"true" style=3D"padding:0;Margin:=
+0;padding-top:10px;padding-right:20px;padding-left:20px"><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"none" style=3D"mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">=
+<tr><td align=3D"center" valign=3D"top" style=3D"padding:0;Margin:0;width:5=
+60px"><table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collap=
+se:collapse;border-spacing:0px"><tr><td align=3D"left" style=3D"padding:0;M=
+argin:0"><p style=3D"Margin:0;mso-line-height-rule:exactly;font-family:aria=
+l, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:=
+0;color:#3d4998;font-size:14px"><a target=3D"_blank" href=3D"%@ include vie=
+w=3D'MirrorPageUrl' %" style=3D"mso-line-height-rule:exactly;text-decoratio=
+n:underline;color:#ffffff;font-size:11px !important">Im Browser ansehen</a>=
+</p> </td></tr>
+</table></td></tr></table></td></tr> <!--<![endif]--><tr><td align=3D"left"=
+ class=3D"es-m-p15t" data-custom-paddings=3D"true" style=3D"Margin:0;paddin=
+g-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px"><table=
+ cellpadding=3D"0" width=3D"100%" cellspacing=3D"0" role=3D"none" style=3D"=
+mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-s=
+pacing:0px"><tr><td align=3D"left" style=3D"padding:0;Margin:0;width:580px"=
+><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:co=
+llapse;border-spacing:0px"><tr>
+<td align=3D"center" class=3D"es-m-p10b" style=3D"padding:0;Margin:0;paddin=
+g-bottom:20px;font-size:0px"><a target=3D"_blank" href=3D"http://t.email.le=
+bara.de/r/?id=3Dh291fdfe1,10c01c94,cc2aff" style=3D"mso-line-height-rule:ex=
+actly;text-decoration:underline;color:#2CB543;font-size:14px"><img alt=3D""=
+ width=3D"136" src=3D"https://fahnuu.stripocdn.email/content/guids/CABINET_=
+b2194c8b23a64712359ccceaf7216e895b6b2a4f10b257d5bf0647b18f75a162/images/leb=
+ara20mobile2001_weiss_AJ1.png" style=3D"display:block;font-size:14px;border=
+:0;outline:none;text-decoration:none" height=3D"77"></a> </td></tr></table>=
+</td></tr></table></td></tr></table></td></tr></table> <table cellpadding=
+=3D"0" cellspacing=3D"0" align=3D"center" class=3D"es-content" role=3D"none=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px;width:100%;table-layout:fixed !important"><tr>
+<td align=3D"center" class=3D"es-info-area" style=3D"padding:0;Margin:0"><t=
+able bgcolor=3D"#ffffff" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"es-content-body" role=3D"none" style=3D"mso-table-lspace:0pt;ms=
+o-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-c=
+olor:#FFFFFF;width:600px"><tr><td align=3D"left" style=3D"padding:0;Margin:=
+0;padding-left:20px;padding-top:20px;padding-right:15px"><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"none" style=3D"mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">=
+<tr><td align=3D"center" valign=3D"top" style=3D"padding:0;Margin:0;width:5=
+65px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collap=
+se:collapse;border-spacing:0px"><tr>
+<td align=3D"right" class=3D"es-infoblock" style=3D"padding:0;Margin:0"><p =
+style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetic=
+a neue', helvetica, sans-serif;line-height:18px;letter-spacing:0;color:#CCC=
+CCC;font-size:12px">Deine Rufnummer: +4915510917865</p> </td></tr></table><=
+/td></tr></table></td></tr></table></td></tr></table> <table cellpadding=3D=
+"0" cellspacing=3D"0" align=3D"center" class=3D"es-header" role=3D"none" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px;width:100%;table-layout:fixed !important;background-color=
+:transparent;background-repeat:repeat;background-position:center top"><tr><=
+td align=3D"center" style=3D"padding:0;Margin:0"><table bgcolor=3D"#ffffff"=
+ align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D"es-header-bo=
+dy" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border=
+-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:600px"=
+><tr>
+<td align=3D"left" style=3D"padding:0;Margin:0;padding-left:20px;padding-to=
+p:20px;padding-right:15px"><table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;=
+border-collapse:collapse;border-spacing:0px"><tr><td align=3D"center" valig=
+n=3D"top" style=3D"padding:0;Margin:0;width:565px"><table cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"mso-table-=
+lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px=
+"><tr><td align=3D"center" style=3D"padding:0;Margin:0"><p style=3D"Margin:=
+0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helveti=
+ca, sans-serif;line-height:36px;letter-spacing:0;color:#3d4998;font-size:24=
+px"><b>Gl=FCckwunsch, du hast den f=FCr dich besten Tarif</b></p> </td></tr=
+></table></td></tr></table></td></tr></table></td></tr></table>
+ <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center" class=3D"es-co=
+ntent" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !imp=
+ortant"><tr><td align=3D"center" style=3D"padding:0;Margin:0"><table cellsp=
+acing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff" align=3D"center" class=3D=
+"es-content-body" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFF=
+F;width:600px"><tr><td align=3D"left" data-custom-paddings=3D"true" style=
+=3D"padding:0;Margin:0;padding-right:20px;padding-left:20px;padding-top:20p=
+x"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"none" =
+style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse=
+;border-spacing:0px"><tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:0;Margin:0;width:560px=
+"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"present=
+ation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:c=
+ollapse;border-spacing:0px"><tr><td align=3D"left" style=3D"padding:0;Margi=
+n:0"><p style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, '=
+helvetica neue', helvetica, sans-serif;line-height:27px;letter-spacing:0;co=
+lor:#3d4998;font-size:18px"><strong>Liebe(r) ,</strong></p> </td></t=
+r><tr>
+<td align=3D"left" style=3D"padding:5px;Margin:0"><p style=3D"Margin:0;mso-=
+line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sa=
+ns-serif;line-height:16.8px;letter-spacing:0;color:#1a1f45;font-size:14px">=
+es ist uns wichtig, dass du dich im Rahmen der gesetzlichen Regelungen imme=
+r von uns gut informiert f=FChlst. Gem=E4=DF =A7 57 Absatz 3 des Telekommun=
+ikationsgesetzes (TKG), informieren wir dich einmal j=E4hrlich =FCber den f=
+=FCr dich besten Tarif.&nbsp;</p></td></tr></table></td></tr></table></td><=
+/tr> <tr><td align=3D"left" data-custom-paddings=3D"true" style=3D"padding:=
+0;Margin:0;padding-left:20px;padding-top:20px;padding-right:40px"><!--[if m=
+so]><table style=3D"width:540px" cellpadding=3D"0" cellspacing=3D"0"><tr>
+<td style=3D"width:270px" valign=3D"top"><![endif]--><table cellpadding=3D"=
+0" cellspacing=3D"0" align=3D"left" class=3D"es-left" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;float:left"><tr><td align=3D"left" style=3D"padding:0;Margin=
+:0;width:270px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px"><tr>
+<td align=3D"left" class=3D"es-m-p0t es-m-p20b" style=3D"Margin:0;padding-r=
+ight:10px;padding-bottom:10px;padding-left:10px;padding-top:40px"><p style=
+=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neu=
+e', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;f=
+ont-size:14px">Unsere Pr=FCfung zeigt, dass du dich mit deinem aktuellen Ta=
+rif <strong>HELLO! Prepaid 7 (App)</strong> f=FCr die Rufnummer <strong>+49=
+15510917865</strong> im <strong>besten Tarif</strong> befindest.</p> </td><=
+/tr></table></td></tr></table> <!--[if mso]></td><td style=3D"width:270px" =
+valign=3D"top"><![endif]--><table cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"right" class=3D"es-right" role=3D"none" style=3D"mso-table-lspace:0pt;m=
+so-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right=
+"><tr>
+<td align=3D"left" style=3D"padding:0;Margin:0;width:270px"><table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"m=
+so-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-sp=
+acing:0px"><tr><td align=3D"center" class=3D"es-m-p20b" style=3D"padding:0;=
+Margin:0;font-size:0px"><img src=3D"https://fahnuu.stripocdn.email/content/=
+guids/CABINET_a33dca5fd0c9828cdacc5da22c69dc576d678b0b42b3a6c905cab8f01c955=
+eb4/images/eine_2_chance_800_200_px_500_200_px_500_500_px_1_cq4.png" alt=3D=
+"" width=3D"202" class=3D"adapt-img" style=3D"display:block;font-size:14px;=
+border:0;outline:none;text-decoration:none" height=3D"202"></td></tr></tabl=
+e></td></tr> </table><!--[if mso]></td></tr></table><![endif]--></td></tr> =
+<tr>
+<td align=3D"left" data-custom-paddings=3D"true" style=3D"padding:0;Margin:=
+0;padding-right:20px;padding-left:20px;padding-bottom:20px"><table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"none" style=3D"mso-table=
+-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0p=
+x"><tr><td align=3D"center" valign=3D"top" style=3D"padding:0;Margin:0;widt=
+h:560px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"=
+presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-col=
+lapse:collapse;border-spacing:0px"><tr>
+<td align=3D"left" style=3D"padding:10px;Margin:0;color:#ff3182"><p style=
+=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neu=
+e', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#1a1f45;f=
+ont-size:14px">Du m=F6chtest mehr zum Thema Tarife erfahren?<br><a target=
+=3D"_blank" href=3D"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2=
+b00" style=3D"mso-line-height-rule:exactly;text-decoration:underline;color:=
+#ff3182;font-size:14px">Hier</a> haben wir dir Antworten zu h=E4ufig gestel=
+lten Fragen zusammengestellt.<br><br>Vielen Dank f=FCr deine Treue!<br><br>=
+Liebe Gr=FC=DFe<br><strong>Dein LEBARA-Team</strong></p> </td></tr></table>=
+</td></tr></table></td></tr> <tr><td align=3D"left" bgcolor=3D"#00a6eb" sty=
+le=3D"Margin:0;padding-right:20px;padding-left:20px;padding-top:20px;paddin=
+g-bottom:10px;background-color:#00a6eb" data-custom-paddings=3D"true"><!--[=
+if mso]><table style=3D"width:560px" cellpadding=3D"0" cellspacing=3D"0"><t=
+r>
+<td style=3D"width:140px" valign=3D"top"><![endif]--><table cellpadding=3D"=
+0" cellspacing=3D"0" align=3D"left" class=3D"es-left" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;float:left"><tr><td align=3D"center" valign=3D"top" style=3D=
+"padding:0;Margin:0;width:130px"><table width=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-tab=
+le-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr><td align=3D=
+"center" style=3D"padding:0;Margin:0"><p style=3D"Margin:0;mso-line-height-=
+rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;lin=
+e-height:30px;letter-spacing:0;color:#ffffff;font-size:20px"><strong>Hervor=
+ragend</strong></p> </td></tr></table></td><td class=3D"es-hidden" style=3D=
+"padding:0;Margin:0;width:10px"></td></tr></table> <!--[if mso]></td>
+<td style=3D"width:150px" valign=3D"top"><![endif]--><table cellpadding=3D"=
+0" cellspacing=3D"0" align=3D"left" class=3D"es-left" role=3D"none" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;float:left"><tr><td align=3D"left" style=3D"padding:0;Margin=
+:0;width:150px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bor=
+der-collapse:collapse;border-spacing:0px"><tr>
+<td align=3D"center" style=3D"padding:0;Margin:0;font-size:0px"><a href=3D"=
+http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2b01" target=3D"_blan=
+k" style=3D"mso-line-height-rule:exactly;text-decoration:underline;color:#2=
+CB543;font-size:14px"><img alt=3D"" width=3D"138" src=3D"https://fahnuu.str=
+ipocdn.email/content/guids/CABINET_8e8f4420d1cd6336330986857018980d926005d9=
+a5b540993730e5bd946585a8/images/hervorragend.png" style=3D"display:block;fo=
+nt-size:14px;border:0;outline:none;text-decoration:none" height=3D"26"></a>=
+ </td></tr></table></td><td class=3D"es-hidden" style=3D"padding:0;Margin:0=
+;width:10px"></td></tr></table><!--[if mso]></td><td style=3D"width:156px" =
+valign=3D"top"><![endif]--><table cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"left" class=3D"es-left" role=3D"none" style=3D"mso-table-lspace:0pt;mso=
+-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left"><=
+tr>
+<td align=3D"left" style=3D"padding:0;Margin:0;width:156px"><table width=3D=
+"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-sp=
+acing:0px"><tr class=3D"es-mobile-hidden"><td align=3D"center" style=3D"pad=
+ding:0;Margin:0"><p style=3D"Margin:0;mso-line-height-rule:exactly;font-fam=
+ily:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-=
+spacing:0;color:#ffffff;font-size:14px">Basierend auf <strong>4.486</strong=
+><br>Bewertungen</p></td></tr> </table></td></tr></table> <!--[if mso]></td=
+><td style=3D"width:10px"></td><td style=3D"width:94px" valign=3D"top"><![e=
+ndif]--><table cellpadding=3D"0" cellspacing=3D"0" align=3D"right" class=3D=
+"es-right" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt=
+;border-collapse:collapse;border-spacing:0px;float:right"><tr>
+<td align=3D"left" style=3D"padding:0;Margin:0;width:94px"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"ms=
+o-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spa=
+cing:0px"><tr><td align=3D"center" style=3D"padding:0;Margin:0;font-size:0p=
+x"><a href=3D"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2b02" t=
+arget=3D"_blank" style=3D"mso-line-height-rule:exactly;text-decoration:unde=
+rline;color:#2CB543;font-size:14px"><img width=3D"90" src=3D"https://fahnuu=
+.stripocdn.email/content/guids/CABINET_635a10b2cd35005fc0b1fffec6c8db9acc85=
+41115a3eb7f4fc4762a93ab1eda6/images/trustpilot_logo_white.png" alt=3D"" sty=
+le=3D"display:block;font-size:14px;border:0;outline:none;text-decoration:no=
+ne" height=3D"22"></a> </td></tr></table></td></tr></table><!--[if mso]></t=
+d></tr></table><![endif]--></td></tr></table></td></tr></table>
+ <table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" class=3D"es-fo=
+oter" role=3D"none" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bord=
+er-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !impo=
+rtant;background-color:transparent;background-repeat:repeat;background-posi=
+tion:center top"><tr><td align=3D"center" style=3D"padding:0;Margin:0"><tab=
+le align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#3d4998"=
+ class=3D"es-footer-body" style=3D"mso-table-lspace:0pt;mso-table-rspace:0p=
+t;border-collapse:collapse;border-spacing:0px;background-color:#3d4998;widt=
+h:600px" role=3D"none"><tr><td align=3D"left" class=3D"es-m-p25t es-m-p15b =
+es-m-p25r es-m-p25l" data-custom-paddings=3D"true" style=3D"padding:0;Margi=
+n:0;padding-top:10px;padding-right:30px;padding-left:30px"><table width=3D"=
+100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"none" style=3D"mso-table-=
+lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px=
+"><tr>
+<td align=3D"center" style=3D"padding:0;Margin:0;width:540px"><table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px"><tr>
+<td align=3D"center" style=3D"padding:0;Margin:0"><p class=3D"es-m-txt-c" s=
+tyle=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica=
+ neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#ffff=
+ff;font-size:14px"><a target=3D"_blank" href=3D"http://t.email.lebara.de/r/=
+?id=3Dh291fdfe1,10c01c94,cc2b03" style=3D"mso-line-height-rule:exactly;text=
+-decoration:none;color:#ffffff;font-size:14px">Kontakt&nbsp;</a> &nbsp; &nb=
+sp;|&nbsp; &nbsp; &nbsp;<a target=3D"_blank" href=3D"http://t.email.lebara.=
+de/r/?id=3Dh291fdfe1,10c01c94,cc2b04" style=3D"mso-line-height-rule:exactly=
+;text-decoration:none;color:#ffffff;font-size:14px">AGB&nbsp; </a>&nbsp; &n=
+bsp;|&nbsp; &nbsp; &nbsp;<a target=3D"_blank" href=3D"http://t.email.lebara=
+.de/r/?id=3Dh291fdfe1,10c01c94,cc2b05" style=3D"mso-line-height-rule:exactl=
+y;text-decoration:none;color:#ffffff;font-size:14px">Datenschutz</a> <a tar=
+get=3D"_blank" href=3D"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,=
+cc2b06" style=3D"mso-line-height-rule:exactly;text-decoration:none;color:#f=
+fffff;font-size:14px"> &nbsp;| &nbsp; &nbsp; &nbsp;Abmelden</a></p>
+ </td></tr></table></td></tr></table></td></tr> <tr><td align=3D"left" bgco=
+lor=3D"#3d4998" class=3D"es-m-p15b es-m-p25r es-m-p25l" style=3D"padding:0;=
+Margin:0;padding-right:30px;padding-left:30px;padding-top:5px;background-co=
+lor:#3d4998" data-custom-paddings=3D"true"><table width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"none" style=3D"mso-table-lspace:0pt;mso-t=
+able-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr><td align=
+=3D"center" style=3D"padding:0;Margin:0;width:540px"><table width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0=
+px"><tr><td align=3D"center" class=3D"es-m-txt-c" style=3D"padding:0;Margin=
+:0;font-size:0"><table cellspacing=3D"0" cellpadding=3D"0" class=3D"es-tabl=
+e-not-adapt es-social" role=3D"presentation" style=3D"mso-table-lspace:0pt;=
+mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding:0;Margin:0;padding-rig=
+ht:0px"><a href=3D"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2b=
+07" target=3D"_blank" style=3D"mso-line-height-rule:exactly;text-decoration=
+:underline;color:#FFFFFF;font-size:14px"><img src=3D"https://fahnuu.stripoc=
+dn.email/content/assets/img/social-icons/logo-white/instagram-logo-white.pn=
+g" alt=3D"Ig" height=3D"40" title=3D"Instagram" width=3D"40" style=3D"displ=
+ay:block;font-size:14px;border:0;outline:none;text-decoration:none"></a> </=
+td>
+<td valign=3D"top" align=3D"center" style=3D"padding:0;Margin:0;padding-rig=
+ht:0px"><a href=3D"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2b=
+08" target=3D"_blank" style=3D"mso-line-height-rule:exactly;text-decoration=
+:underline;color:#FFFFFF;font-size:14px"><img title=3D"Facebook" src=3D"htt=
+ps://fahnuu.stripocdn.email/content/assets/img/social-icons/logo-white/face=
+book-logo-white.png" alt=3D"Fb" height=3D"40" width=3D"40" style=3D"display=
+:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>=
+<td valign=3D"top" align=3D"center" style=3D"padding:0;Margin:0"><a href=3D=
+"http://t.email.lebara.de/r/?id=3Dh291fdfe1,10c01c94,cc2b09" target=3D"_bla=
+nk" style=3D"mso-line-height-rule:exactly;text-decoration:underline;color:#=
+FFFFFF;font-size:14px"><img title=3D"TikTok" src=3D"https://fahnuu.stripocd=
+n.email/content/assets/img/social-icons/logo-white/tiktok-logo-white.png" a=
+lt=3D"Tt" height=3D"40" width=3D"40" style=3D"display:block;font-size:14px;=
+border:0;outline:none;text-decoration:none"></a> </td>
+</tr></table></td></tr><tr><td align=3D"center" style=3D"padding:0;Margin:0=
+"><p class=3D"es-m-txt-c" style=3D"Margin:0;mso-line-height-rule:exactly;fo=
+nt-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:15px;l=
+etter-spacing:0;color:#ffffff;font-size:10px"><br></p><p class=3D"es-m-txt-=
+c" style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helve=
+tica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#=
+ffffff;font-size:14px">Copyright =A9 Lebara Mobile Germany Limited</p></td>=
+</tr><tr><td align=3D"left" style=3D"padding:0;Margin:0"><p style=3D"Margin=
+:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvet=
+ica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:1=
+4px"><br></p></td></tr> <tr>
+<td align=3D"center" style=3D"padding:0;Margin:0"><p class=3D"es-m-txt-c" s=
+tyle=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica=
+ neue', helvetica, sans-serif;line-height:13.5px;letter-spacing:0;color:#ff=
+ffff;font-size:9px">Adresse: Lebara Mobile Germany Limited, 2 Clove Crescen=
+t, London E14 2BE, Gro=DFbritannien</p><p class=3D"es-m-txt-c" style=3D"Mar=
+gin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', hel=
+vetica, sans-serif;line-height:13.5px;letter-spacing:0;color:#ffffff;font-s=
+ize:9px">Handelsregister-Nr.: 14106733&nbsp;(Companies House London)<br>Dir=
+ektoren: Brendan Dowd, Richard Darwent und Katja Schumacher<br></p><p class=
+=3D"es-m-txt-c" style=3D"Margin:0;mso-line-height-rule:exactly;font-family:=
+arial, 'helvetica neue', helvetica, sans-serif;line-height:13.5px;letter-sp=
+acing:0;color:#ffffff;font-size:9px">USt.-IDNr.: GB100126296<br></p>
+ <p class=3D"es-m-txt-c" style=3D"Margin:0;mso-line-height-rule:exactly;fon=
+t-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;le=
+tter-spacing:0;color:#ffffff;font-size:14px">&nbsp; &nbsp; &nbsp;</p></td><=
+/tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr=
+></table></div><img height=3D'0' width=3D'0' alt=3D'' src=3D'http://t.email=
+.lebara.de/r/?id=3Dh291fdfe1,10c01c94,1'/></body></html>

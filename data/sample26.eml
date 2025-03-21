@@ -1,0 +1,137 @@
+Received: from DS7PR19MB4629.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Tue, 8 Aug 2023 17:44:18
+ +0000
+Received: from AM6P193CA0049.EURP193.PROD.OUTLOOK.COM (2603:10a6:209:8e::26)
+ by DS7PR19MB4629.namprd19.prod.outlook.com (2603:10b6:5:2c3::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.27; Tue, 8 Aug
+ 2023 17:44:17 +0000
+Received: from AM7EUR06FT047.eop-eur06.prod.protection.outlook.com
+ (2603:10a6:209:8e:cafe::a1) by AM6P193CA0049.outlook.office365.com
+ (2603:10a6:209:8e::26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6652.27 via Frontend
+ Transport; Tue, 8 Aug 2023 17:44:16 +0000
+Authentication-Results: spf=none (sender IP is 192.53.121.84)
+ smtp.mailfrom=mercadolivre.br; dkim=fail (no key for signature)
+ header.d=goodbuild.com;dmarc=none action=none
+ header.from=mercadolivre.br;compauth=fail reason=001
+Received-SPF: None (protection.outlook.com: mercadolivre.br does not designate
+ permitted sender hosts)
+Received: from goodbuild.com (192.53.121.84) by
+ AM7EUR06FT047.mail.protection.outlook.com (10.233.255.248) with Microsoft
+ SMTP Server id 15.20.6678.16 via Frontend Transport; Tue, 8 Aug 2023 17:44:16
+ +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:CA065080ABECE24C364038C677AF369BB04172AE8CEE69D9C0180A1A6A710AD0;UpperCasedChecksum:C54BEB0049A07CED551FEC7FCBD6D53793E57162186185085B448BD01F60B7A8;SizeAsReceived:921;Count:9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodbuild.com;
+ q=dns/txt; s=default; bh=5hlE+rqxNGCgjezAf+TBla8gUd2HufWnGWPGGGJo+9o=;
+ h=from:subject:to:mime-version:content-type:content-transfer-encoding;
+ b=pI2CLVjeWE7Wg66XEp9QVBw2wGTlj2Qv8rUCenXQxSyKG874Rsu2RaKB4jeeSuR7K0Ll3nk1J
+ PHxlT4mUwVXHfooCg5gqV8rf5qQA41Rji1RBx/eWoUjaQ9Gu18wa4I/HwA9Mza4YROx2L8+k5V2
+ O546Z4AnabXgu4jeRCU/zGJwaSgWlZPtnrW4P0LeFf//dtuBZci63Bj8P9fKQRoavEIW9wipGpT
+ SkJkOFIax3HtWB8TeI5Dy1/jt8eyeTOzwFzQow3LtXE0uLkpsMTSr/IxeNnRCTPMxyVIsO4y3a/
+ QeWpkdHJ3TOrFxffNYVungtEc4V1SZ5jRb6SIwGWQS3g==
+Content-Type: text/html
+From: Mercado Livre <notificacoes@mercadolivre.br>
+To: phishing@pot
+Subject: BLOQUEAMOS UM ACESSO SUSPEITO - PROTOCOLO: 262677886
+Message-ID: <04418440-957a-c8df-171f-05ae3fcdec24@mercadolivre.br>
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 08 Aug 2023 17:44:15 +0000
+X-IncomingHeaderCount: 9
+Return-Path: notificacoes@mercadolivre.br
+X-MS-Exchange-Organization-ExpirationStartTime: 08 Aug 2023 17:44:16.3237
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ e3e26309-063e-43a6-fff9-08db98371606
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM7EUR06FT047:EE_|DS7PR19MB4629:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM7EUR06FT047.eop-eur06.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/8/2023 5:41:14 PM
+X-MS-Office365-Filtering-Correlation-Id: e3e26309-063e-43a6-fff9-08db98371606
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 192.53.121.84
+X-SID-PRA: NOTIFICACOES@MERCADOLIVRE.BR
+X-SID-Result: NONE
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 9
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2023 17:44:16.0425
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3e26309-063e-43a6-fff9-08db98371606
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM7EUR06FT047.eop-eur06.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR19MB4629
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6589673
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6652.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(8820095)(9710001)(9610025)(9520007)(10115022)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?iso-8859-1?Q?JhldK5c+7clYxGXHn38NgVTQfifKwP0byuH9d/cl/jcmJc3PdbP5KuCXqN?=
+ =?iso-8859-1?Q?Mp2t0jSqAwpYGs0599FolC4a/Fvsw4LSEZCraSdKDUbhV3BQ/ebgQiYz4u?=
+ =?iso-8859-1?Q?RT5i+/ZshkKCfmMyKo74ndMAMnxqkHW9kJYHGAVff6chC57C2Wq8FZBMp2?=
+ =?iso-8859-1?Q?dbK4VA+B2k91CnK2bySEUHFTe2iXK918Ta9dxGz2j8kyQwvS2uZ8h/dzTN?=
+ =?iso-8859-1?Q?5mKuJLV1sx4MHGbGkdhP5/xTHx6DMU6D2k8kB37Xo7KF30v+68iAyb584M?=
+ =?iso-8859-1?Q?pzS1tWPY5ywCWDY5EfXFMWAD+WaGcqIdbv1sb1ByLlWg0xt7ZAkguWATJv?=
+ =?iso-8859-1?Q?PHZLMfOJN9QP85vBuYtH3rYIZx80p1LhPR/HiPf/fP4+9E5/vF5NVB6kKM?=
+ =?iso-8859-1?Q?V1LLAiTwKqRgv8+gS7SI3c7HPrQfjCFPwl7cbHCApQRtt8of/HsgiYHKIW?=
+ =?iso-8859-1?Q?9q+JD4gXku6xjtJ1Nv9DO9NSgdn7pNccrnhx7fxntbQT5BvxxQBD26kLKe?=
+ =?iso-8859-1?Q?vboZGjvlz/So75EFEf2E0spu+MlDkgTsax+K6ng1dyNSZ0GwoJGYcOsx/r?=
+ =?iso-8859-1?Q?p9upcCNgqKeV9XtxJMn6Wm8B6CimaNNAzbNrbjPYAh25yfygmlPV8mOwmJ?=
+ =?iso-8859-1?Q?3eBNO+FmAhq8B4fEY3ldBmTW1Y3EqyKT9/SBrYWRqhXa7cknc4s6EvlwbL?=
+ =?iso-8859-1?Q?MlVaEmxy1GMbrayL7KTnlc3afg1t90xkusIYLJlD2Uc8vmkqNIP8QBjeQ3?=
+ =?iso-8859-1?Q?R+QaqL6UBZ2Vtt1frHGDIE79OU7sAuDlDIkGv1nQtz0kiSLSIRyVxqu5lI?=
+ =?iso-8859-1?Q?rZtMXdGuAne+Dt/R32F4vp8XQlIIN5/WL1VMaZVf0+epwameYaWpgYCcIZ?=
+ =?iso-8859-1?Q?por4UVWLWRfYUom8oNQD5GIRHbE8DvCTzZ488uqgh2NfnrvvLOOIOL/M64?=
+ =?iso-8859-1?Q?TYH0Vkm2O/EVtcPEc6y1e1XQSG6tqb7wg76NbEs3hWA75kNQFCGeFDCuj3?=
+ =?iso-8859-1?Q?WjmguSYbpCxznkJFYGPGh6MRH5jQ+TqSI9fFM6W84xFvu79646j6t3+M6/?=
+ =?iso-8859-1?Q?e8Olyqi4M0D+IdafMWJmTjR4Rza/s0V3QDzrSonghvKSPSAhLBPNZ8UrJH?=
+ =?iso-8859-1?Q?0jLnKz1NVkRzT+kunWMz7T6wQiC/dBY7ryLzDbMgdm06UPH2FjnVNJA46R?=
+ =?iso-8859-1?Q?tWWputQNasFdJfg1UCb9nRRDSOO0MAGU5YOULDZNIh7y/l7JzE2XjyODnd?=
+ =?iso-8859-1?Q?krzpN0BjlDs3vXXwQ4VzVsWgNsDG2vPzC2z9w7O5V/QVHKpbwn1k4bc7ih?=
+ =?iso-8859-1?Q?ItD8MpqL938kgzKUdddmg6C0H0n63cvq5iaY06iflk7+t72ZPVpK9CBYXC?=
+ =?iso-8859-1?Q?Hus9TOP0zyEBKt7UQ9CSRQ3RLFK/RkP+0Aj4wtPGg50yfoKbg1nHwSAXbM?=
+ =?iso-8859-1?Q?rwhlxcUL6RUlvRhRLWxjZTQNsEokLsJtnEHFVrl8KBjuRT4AC40EXSCEzH?=
+ =?iso-8859-1?Q?KXsuc64OyK8uEsVHGc/flxDhyDRIKfggY5Ye9hZG6B7/JC6NdvC5Yv0QHv?=
+ =?iso-8859-1?Q?j9QKNaP/nDYXw1giztTwrphSIYJxjMPbr0RPsX/4ieAQE5C8C12cPti9pf?=
+ =?iso-8859-1?Q?9SLSTA+ABWRi46J+3zGlmtNwg0k9uQ7LPdhM73uSCTggb5RMS+ozjbwNUq?=
+ =?iso-8859-1?Q?Z9HedHzWcjXr4bEFhn6lNCZkF1Fvx8lHLAZlslIHRX4G0VHX34sqXjjnrG?=
+ =?iso-8859-1?Q?en0XsqT62c2cTqUrwiBYVt/g7VgHBcS/PDZ/6YkL+Th1o9c5cTJLSEe7V/?=
+ =?iso-8859-1?Q?F96o95WFpGoF1e0PvZDZDOSuQU7Vh2qQf9mBEjOPaB2T8wd4XSdXfFOlDM?=
+ =?iso-8859-1?Q?xTS0qlVsjLfeXFB8ZP2iNPezvzTD1dqIK3ex10LkOO4UFqn80YrpDOqjFW?=
+ =?iso-8859-1?Q?hFZa18/+OqLLp5ZebRvAnVPP4e9Cypozk6mywWYGyQSTmMikKNmoWuXxIP?=
+ =?iso-8859-1?Q?xYh33hHP1BjdakxY1ZdoFdKezKkDAn4/lFqUM3xtkhyqRaVxRA/U7ZFmN+?=
+ =?iso-8859-1?Q?0y7U52wozD/AT1w6ULuoLaIhGx/Xvcy+5XX14ZnnMJxXbHpD0UI5ZrSwCh?=
+ =?iso-8859-1?Q?kMjqRaY+1e40BCkoAEhbRBKpmw0Xv5bX5mzNnp+uiVGCnwmwBHdK38P/Q3?=
+ =?iso-8859-1?Q?8rqZoiTdisjHom0vDKbgmsN00r/7YmH0v9XUlCLiShZs7vPyv/1FcfxkCA?=
+ =?iso-8859-1?Q?cKq6HAoWuBKD5EEbV6OEckqIe77JrWyARu25KS7OlZqWzkX/GPrpso4K72?=
+ =?iso-8859-1?Q?TSwClu/sQar+S+D/sES1XHF1xD20IUL44j/ADgkrlyRP72i33x6nrNfvAi?=
+ =?iso-8859-1?Q?W7IXK6sENdtiZ7alrqiI3nIYe/9egqQaWakt5iy9ueq5rvl4q7HZ8SzuKf?=
+ =?iso-8859-1?Q?pP8keLbAvWU/JllaoiEq2PUF1HuSiqCjGsB5Mh9RvBXrBpIA+pYlSyVo4S?=
+ =?iso-8859-1?Q?hy+OsWaMLXInNkMP3wKA7B6GbsOS+1fKvtzq0OyEbLFkvUbnHMxu5zSEBC?=
+ =?iso-8859-1?Q?zCc9xD1Jxw45blISZEwJFLu+dZCmmjJH9IYDKXGUiKrBtHwDWdLh90rFr9?=
+ =?iso-8859-1?Q?xy1M9QBY12HfUgayFLfkFnOa7CJAxRyfJSuoJWiG4O+IEJ1t/YfthWSVQP?=
+ =?iso-8859-1?Q?xpe8V8c8i0RuOH7AVxw56oxSkPu3liEUhCE7Ebl+o+iV2shrsBRUAZm2Cg?=
+ =?iso-8859-1?Q?1qOBhUhx5V3yPECtge5uImue+jScKneM7bNKWblA1RMJ0WvG9MYtxl8rmn?=
+ =?iso-8859-1?Q?QSGDSmYCCwgG7QSh46L0YyfmZi16RPlv9ulB17R2g2MGoaDOrCopNaZ2sg?=
+ =?iso-8859-1?Q?8WnfsxTojkip+/dk3hhYVc6mTU2h6jN3kOiqmI5sBTqIJSi6SSwsak37qV?=
+ =?iso-8859-1?Q?LpuZF9vtnb/tWosslv9s0BDfd4Nt188bR5EyKbGA0Nhoi0hzV6+f5YiB4f?=
+ =?iso-8859-1?Q?4tF2wNGZktUvFEIpcLb4yVFC7DKZJGnvA+qpTff2MY7P3dXxZU6FHmmZ5e?=
+ =?iso-8859-1?Q?VcF0xxEKk+Gq4yjDngBVDeoqayvVH2UK+VvdS+La+mka?=
+MIME-Version: 1.0
+

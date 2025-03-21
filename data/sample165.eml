@@ -1,0 +1,151 @@
+Received: from BL1PR19MB5867.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Sun, 24 Sep 2023 06:23:35
+ +0000
+Received: from GVYP280CA0027.SWEP280.PROD.OUTLOOK.COM (2603:10a6:150:f9::26)
+ by BL1PR19MB5867.namprd19.prod.outlook.com (2603:10b6:208:397::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6813.20; Sun, 24 Sep
+ 2023 06:23:34 +0000
+Received: from HE1EUR04FT003.eop-eur04.prod.protection.outlook.com
+ (2603:10a6:150:f9:cafe::be) by GVYP280CA0027.outlook.office365.com
+ (2603:10a6:150:f9::26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.35 via Frontend
+ Transport; Sun, 24 Sep 2023 06:23:33 +0000
+Authentication-Results: spf=pass (sender IP is 77.91.100.118)
+ smtp.mailfrom=messaggerocappuccino.it; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=stayfriends.de;compauth=pass
+ reason=105
+Received-SPF: Pass (protection.outlook.com: domain of messaggerocappuccino.it
+ designates 77.91.100.118 as permitted sender)
+ receiver=protection.outlook.com; client-ip=77.91.100.118;
+ helo=messaggerocappuccino.it; pr=M
+Received: from messaggerocappuccino.it (77.91.100.118) by
+ HE1EUR04FT003.mail.protection.outlook.com (10.152.27.17) with Microsoft SMTP
+ Server id 15.20.6838.17 via Frontend Transport; Sun, 24 Sep 2023 06:23:32
+ +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:E25192E354407DC26FF5C87630FC1F9186B34F7962178FA23096CDD8FF3164F4;UpperCasedChecksum:DC510D4161B5F943221C8BE37F665C7A285EE15FE2B819A3E703543DD205A0F2;SizeAsReceived:312;Count:8
+From: Your match, jehd <service@stayfriends.de>
+Subject: Are you looking for some fun dates?
+Cc: phishing@pot
+Content-Type: text/html; charset="UTF-8"
+Date: Sun, 24 Sep 2023 05:14:39 +0200
+To: phishing@pot
+X-IncomingHeaderCount: 8
+Message-ID:
+ <95935633-d2d7-4806-a203-81925f6c13bf@HE1EUR04FT003.eop-eur04.prod.protection.outlook.com>
+Return-Path: return@messaggerocappuccino.it
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Sep 2023 06:23:33.0909
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 8a95cfa4-982f-49ce-8296-08dbbcc6c6fa
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ HE1EUR04FT003:EE_|BL1PR19MB5867:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ HE1EUR04FT003.eop-eur04.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/24/2023 5:47:42 AM
+X-MS-Office365-Filtering-Correlation-Id: 8a95cfa4-982f-49ce-8296-08dbbcc6c6fa
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 77.91.100.118
+X-SID-PRA: SERVICE@STAYFRIENDS.DE
+X-SID-Result: NONE
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 9
+X-Microsoft-Antispam: BCL:5;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2023 06:23:32.9816
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a95cfa4-982f-49ce-8296-08dbbcc6c6fa
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ HE1EUR04FT003.eop-eur04.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR19MB5867
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6158206
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6813.014
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90002001)(91000020)(91036095)(91040095)(9050020)(9055020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(9610028)(9525003)(10140023)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow/YRSMpp1Os2rhmC17FxAwsD8iZrH3luvW5AhfMa9rCpgaj+p3poyhIBmuWhtP/5UBZh6jjsVejCM6F4X4XxzssMKqlYmNkwurFC6UVPVKRNALJU1gOiUPOF/khZU3oshblaUVgC4tT7wFr+bwdr82EE6ZJoFXYTetS3Y/G6wKuBi0YabrRsszDA4bMYU+vi7KNWAVD272CbA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0zO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RjRwS2poclhtWTZQbEpVdXNLWFBMc2JlZElvMVhsZGZvYUdIb2pBNDM1eDYy?=
+ =?utf-8?B?ZFFpalF5MkMweW9sdWsrU2h0V3VIOXRSWkJOZDEyQjRZb0JPWnlhbGc1akcr?=
+ =?utf-8?B?RlNld2xva0ZjTFF5NThUbk9MdVpScmQ3N3FNS2d3bW1hdlVNRytOQVNVbXI4?=
+ =?utf-8?B?aWRSazRWOXM5Q3M4ZkNEOC9BS2FmZW1hanRmRHRzdy9kNjVvcVNZZ2pwelhy?=
+ =?utf-8?B?cEpBOC9KTGlMSzJXRk5jNDcvdFFDdkZCSzVvd0Fkczd6UGplbGFGUFVQZDJL?=
+ =?utf-8?B?ZXJTL3FGZkJpdGwydWxBdVB3b3prT0MxWnlPakZtQmRCYXJSVkpzRE9DQk1h?=
+ =?utf-8?B?VWpacHhDR2NoKzRmTm5LVCtEb2lYNlI0TmJQYVVibUoyc0RlaGw3VllCanlu?=
+ =?utf-8?B?WjNaV2dlcHJ1Skg0cWcrbmJxSDRhTnVMVUZJYjhQclVUQWI3UWJKSHRwZTl5?=
+ =?utf-8?B?enlyY1pCYmp1ejQ2STFLcVJLMzlEQ0VzVFdCbXNMMmZScHF0QUlJQUNoTWor?=
+ =?utf-8?B?SE9MOXZoc3B6bTh4dTQzeXlXOWswSnlxVDMzNEs5VGQvVkJNRGdpS25nYnlR?=
+ =?utf-8?B?UGVhWFNBUW9INGFZOVZoeUw4ODV1aHJoVmFMdWE0eG12OFZpNGdiWC9Dc0Zs?=
+ =?utf-8?B?NXlsOWVtS3NrZ012Mlhua0F6MEFSWVY4UHVlUEMrZWpCSVArQVl3Sjg0TjJo?=
+ =?utf-8?B?SkNmNnhTeEVqU3p1NzVpWlZ3T2x6MTU1Mk1NVmxlVlNiMFZwNXRQMzVGM1M3?=
+ =?utf-8?B?bXJSOHhFOEZFUSt5QUZHYlg2eWc2TFI5SmZraEJ0b0R1amkwZmNiN04xeHVV?=
+ =?utf-8?B?UkljOHhuTElCOWpraWJUZTA1MDdsVEJ6cWZlYlRhSzN3elk1L1BKTlJmV0pu?=
+ =?utf-8?B?NnEzTUY1TkMrTldST1FRSjVIaXUwajJNNDUwazJ2VTJoMWcxakZGeis2WXY5?=
+ =?utf-8?B?SmpBSjQ2dDZXV0cwRThZNlc3VHdaU08yM0t4WUxjalZCNE5EckpmekNqOGdk?=
+ =?utf-8?B?eUV4b0UwM00rUjFrYURCUm9Jek55eG5hUUI5VzhKdDVtUTRqWVNBTXBielJh?=
+ =?utf-8?B?UGkyZkgxRFFaOEdFdlNPdGNheXVhaGZpSnpHT3ZGYnc2MkhFZjJndFhmTFUv?=
+ =?utf-8?B?dzR1RXIrd3lUS1Y0RmtST3VwSDVsb1RsdDRnY0VpaW42ekhtdXBzbVdwcHdL?=
+ =?utf-8?B?eFZlRWdab1JLenhXc2o3cDRTY3lDQmpFelhnY3UyZTlqMVBaZk51Y0I0VS85?=
+ =?utf-8?B?S1dNQmJwY0c1eksrL2RPZU5WeTI3S0RGSE8rNWlvbGs3NkhReGhINk5aNERp?=
+ =?utf-8?B?enRsR0ovb3lXeGJkY2Z6NHVkSG1CN3ZXMVhUckNUaTY4Ulg1Q3F6UnluVXBh?=
+ =?utf-8?B?cXBTMXFqZTIvSFVPaXpGS3hnclRBdThhdDhDVHhybWRGbzE5eW10eFI5TGQv?=
+ =?utf-8?B?VzFxN0lqU0pPNU50N05kcjR5cW1qcnpuZXFrVjZ3TWdUc1BvZVhNTk5PYWhG?=
+ =?utf-8?B?WnFJOG9oSDJLUUE5clJGaElFTVY0NUtUb0RnVEY5NVlDaHB2enRiNVgzS3FR?=
+ =?utf-8?B?c00xd0ljRFRIV2djOVVGM0NSZDRTZUVuK0xJeCszV1dvcnFDREx0a2F1elVt?=
+ =?utf-8?B?WW9sNWZabk5JaDZvWU5EeGJxa29YaHk2Z2tNTHJjWVlURnZJSnNYbnRJOWcv?=
+ =?utf-8?B?Y0JYbTBTY0NiYS9BZzZFZkRvdHpSaXk4dloxQmRnQktYQVNiT0JUMVVGS3Bu?=
+ =?utf-8?B?WnpBbmNUWWZIQStSaTF0RnZ2NVBPaytPSWV3SEZhZFZzYUtoMlliYjBVYjRD?=
+ =?utf-8?B?WGNNMWJOcjVwTTBwRHFxUDRQNHVzek1JNENpNE9CQ0lPWEo4OGxkdnp2bkda?=
+ =?utf-8?B?eGJRSUhTMW1oZW0zOTNlelVLTGYrSUd0UFN3MmpnbHg2S0R6QSt2WDRtdmpC?=
+ =?utf-8?B?YWZpbTJqMEZzbFVwbUkzeS8vdnNUbGtObmx6cU5Jd0xVT3Zqc3BpVXBKRUxC?=
+ =?utf-8?B?R1BrM0cvNHRzcklJK0J0SDVwalF1cFNxUU1JWlJIUEJtL3Z4ZUkxRzF2Vndv?=
+ =?utf-8?B?MjRjU2NKdWkvWml4c2RucFhtTjFEMmRodlp6RGpSbHVGcVM2aWlGWjJ0UFFw?=
+ =?utf-8?B?L0UyRVdaTkFRM3poTmhhODcrRjlsdHpLYkVjd0lWVkpLV2hwUWN1TWNSeGQ4?=
+ =?utf-8?B?UjNUa2NCTiswSTRSRFhxeHdKS0lzNkxOajltM2x1M3NuT1k0b0o2THQ1UnJr?=
+ =?utf-8?B?eFF1TW50bzZpVjFRazJwWWowS0x2cTFxWDdQeTZ0elhMRWYwamlpZlQ3cFN6?=
+ =?utf-8?B?MEtXRU8vTEUwZ3BzNy9tSkY0a1cyVW9NWTUvUldsTjdINEJJS3RIclNhNTZm?=
+ =?utf-8?B?TWhEN3g5MVlLeWtXcmZHa25VOVo4cWlRWTU4Y1F0TkR6WmNKWVYzS0xEZHJK?=
+ =?utf-8?B?QWsxYm1EY1huWDVLcGVuTGpQS0FnQ25qQ0FJeHhzWUIwbHdTVUxNa2ZVOXZR?=
+ =?utf-8?B?dnhJSVBlVDhqMlpTR1FVOTRITktSQ0YxSW0xWHpibi9lNUxzOTM4U2RwOWZS?=
+ =?utf-8?B?NWR3clNTMXRrZWtGdFVzTklQSStuSmdzQWlxTVJYM0JHY3BSN25CbmR4T3E1?=
+ =?utf-8?B?STY4Y0pvUktrNW1scWtnajRJK0xwU0IzWVJSVDBGZEEzUzk1R1FKNmlxTVYw?=
+ =?utf-8?B?U04wREVZN3VTTHgwMGY4aUpRQWMwNlhldXVCUC80YzB6WVJyTWdBdXNPTlpz?=
+ =?utf-8?B?MFdnOVhxL3VBck1FdmZEWUw1TFZFMUIvcVdYVWFSQ0trZHhPaU11SFF1TkV3?=
+ =?utf-8?B?ZWZzNU8yZ3NXQk5tUVlVVnJGQ0E3YTRXZlhvOXo4V1c3OHU1MGJYWUtSVElZ?=
+ =?utf-8?B?MFZRay9MTElFUWhFWEIrRElmMGJvaldqTW9vSXNuWW11WndYNE5yeHhzaGp6?=
+ =?utf-8?B?WnNyVnowNTRnK3hpU0JJQk5SS2FPU3p4TmFoR3JkZDM1TkszWjhsNXBYMlUy?=
+ =?utf-8?B?b3lxd1k0WHpRS0R2S0FXNUhXU3BsUk9EMjRrTjBiYnBtTjkvUml6UW9PaDFI?=
+ =?utf-8?B?OFdIcUlEUTZjbDVyaTdNRHM4dytha0E2aXVuWWNUcXpVOWVRazAySVR3c0lU?=
+ =?utf-8?B?THQvSXVXZDBoNWY4WHBmZGpkS0ZvTXVkbTU5cHVVbldjVlVwbnFqVSs4Vjdq?=
+ =?utf-8?B?VHdISWlIdjdVclNVWjJpSndYOG1JRUxNMy9TUllCc2RyUlJKUnp0YTlUWkpD?=
+ =?utf-8?B?ZTlrditINkxRdlhNRlJoSlNzSFFTZWNmamdZRWFNSHZHcE40d3NLb0p0b1VH?=
+ =?utf-8?B?NVA0Y0tLMjRHUncvVkNBZVVMTFpnSTZPbDJjK1NJcDZQaVJ2bzhBamsvRG1L?=
+ =?utf-8?B?ZzVPeTdpaUN1M0ZDSHJ4N0ZTZ08xN2VwVzRTS1BQOTlhb041RjdCNGoyN1o3?=
+ =?utf-8?B?RmRVTlk0b29oNXN2OFAzbXFuUjVUWlpGMjNDQndnbFB2ckM5Z2Z2M21DQng2?=
+ =?utf-8?B?VmlSS01Sc0YrektiYlhCSm5aeEhRd1VzTnljMGlrTHl6dDdxT2FRUFUrZTdM?=
+ =?utf-8?B?aERoNExaUFNQSWF5YjN5UE5NdHhRT1RTdmQvTGpIUW0rUzIyM3kzSGtIVDVM?=
+ =?utf-8?B?cHBhamJJU09iekZOeFVjNURKZy9EeE5xSStUUVYzZmJGWnZpejdqVGZZWkxU?=
+ =?utf-8?B?WlhnZ01kYmFMb2lnZ3RpUHNlS2dmamh4WWpSYkVrSG1LUzdHZ1J0YlB4TXAx?=
+ =?utf-8?B?MW5kTkd2eWY2RFhmdGNXVnFxM2lMcm9nY0Vha3RXcnArVUxldkl1WnNlWlVh?=
+ =?utf-8?B?WEZwN2VOdTluWHRqdUpZRW83Z3I5VnZEU2JsVkJhS3hlYjVLckNIaWYyYTJT?=
+ =?utf-8?B?ZW45dTNJai9aeXp2VjB6VWZkWFlGWmk5aGFzWGpDL2ZUYnkzZXV3QVF0ekZC?=
+ =?utf-8?B?c2ZyYmo3RmoyTlJRQVByaDZjaHJ1WUd4ZVFvdTZEUnZKV3ZiY0RzRGNBM0x3?=
+ =?utf-8?B?YzNQVHUwdEFvSmlxZ0RTK1VpUHJNRW1vUUlsZVF5RnY3S2dYNGhydkFpU0Fk?=
+ =?utf-8?B?NDNKcGh3a21Ca2VTNzJtNXJ0N2VYQTVPdG9UQWVKdnhSd013cGJqQ2xyTzVs?=
+ =?utf-8?B?WGVaNWYyRTcwQWJzcWV3PT0=?=
+MIME-Version: 1.0
+

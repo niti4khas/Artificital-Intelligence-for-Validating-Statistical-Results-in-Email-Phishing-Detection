@@ -1,0 +1,58 @@
+Return-Path: <0102018969854525-eb08255a-17b1-41b8-97cf-c80058cfbc4b-000000@mail.voicemailbox.online>
+Received: from a51-53.smtp-out.eu-west-1.amazonses.com (a51-53.smtp-out.eu-west-1.amazonses.com [54.240.51.53])
+	by fmail.merida.gob.mx with ESMTP id 36IHO8Nv017526-36IHO8Nx017526
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO)
+	for <gabriela.quijano@merida.gob.mx>; Tue, 18 Jul 2023 11:24:10 -0600
+Authentication-Results: fmail.merida.gob.mx;
+	spf=pass (gob.mx: domain of 0102018969854525-eb08255a-17b1-41b8-97cf-c80058cfbc4b-000000@mail.voicemailbox.online designates 54.240.51.53 as permitted sender) smtp.mailfrom=0102018969854525-eb08255a-17b1-41b8-97cf-c80058cfbc4b-000000@mail.voicemailbox.online;
+	dkim=pass header.i=@amazonses.com
+	dkim=pass header.i=@voicemailbox.online;
+	dmarc=pass header.from=shcp-mx.voicemailbox.online
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=b3mmsfcjglqtyefm5zu76jfbjugu5blv; d=voicemailbox.online;
+	t=1689692489; i=@shcp-mx.voicemailbox.online;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=6z6U9A5G/gJ3teXazVlVaOxJFEU33E8z3ZUoeDsZDlw=;
+	b=Fc5zZlhyDWF0OmQpR6IETsSBY/8QDOO0suHSg1UdrUrxJo2iGGIkhI8H3gkAiUmQ
+	RJIMHIA+yuy4QQi6LzZu0VzUd6TPnGz+e4PhPCK1ZWaEidlJc7q9qnlScB6gqqPPtDi
+	m9wTy0s7bySuTwy2ObAFis9ygfWZ9lJ+KQuj2pJ0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1689692489;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=6z6U9A5G/gJ3teXazVlVaOxJFEU33E8z3ZUoeDsZDlw=;
+	b=wHnSPMuxcJy3xG5GhfT+pY7Pogqc9qlvLJRF0lfnDNAX+EUY5poPwfpTHG8keiNU
+	7gxPPrJQEmILYaCOcTaMwoZIiodNRxE760sCh4IKsRGcQq9670yJXymPjur+lOTluKi
+	T6VNPBMklD7BnUHVJm6EwFwGX+RvSg34dZJEDGQg=
+Date: Tue, 18 Jul 2023 15:01:29 +0000
+From: =?UTF-8?Q?Secretar=C3=ADa_de_Hacienda_y_Cr=C3=A9dito_P=C3=BAblico?= <support@shcp-mx.voicemailbox.online>
+Reply-To: 
+	=?UTF-8?Q?Secretar=C3=ADa_de_Hacienda_y_Cr=C3=A9dito_P=C3=BAblico?= <support@shcp-mx.voicemailbox.online>
+To: Quijano Tinal Gabriela Margarita <gabriela.quijano@merida.gob.mx>
+Message-ID: <0102018969854525-eb08255a-17b1-41b8-97cf-c80058cfbc4b-000000@eu-west-1.amazonses.com>
+Subject: =?UTF-8?Q?Buz=C3=B3n_tributario_-_=C3=9Altimo_aviso?=
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_272347_191842753.1689692488609"
+X-PT-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJ0cmFja2luZ190b2tlbiI6Ijk1MjFjZmU2LWI3ZDAtNDE3Yy1hMDdjLTk0NTU5Nzk1ZmRlMCIsImNlbGwiOiJodHRwczovLzIxZzZqZnZoeTYuZXhlY3V0ZS1hcGkudXMtZWFzdC0yLmFtYXpvbmF3cy5jb20vcHJvZC9hcGkvcGhpc2hpbmdjYW1wYWlnbiIsImNhbXBhaWduX3Rva2VuIjoiMzNhNTdiZjgtZmIwYi00NjJiLWE3ZmEtM2UyNTllNTY3M2MyIiwidGVzdF90b2tlbiI6ZmFsc2UsImV4dGVybmFsX3RyYWluaW5nIjpmYWxzZSwiaWF0IjoxNjg5NjkyNDg4LCJpc3MiOiJodHRwczovL2FwcC5waGlzaHRocmVhdC5jb20iLCJleHAiOjE2OTc0Njg0ODh9.f5kKfR30ZimXkJzvBg9qnMTQ3pmT4too-2gHCgIgTSw
+Feedback-ID: 1.eu-west-1.RL7DxeSBWzWWqbkkmrtjipsX4jWXK5UgGhLdZE0qpwo=:AmazonSES
+X-SES-Outgoing: 2023.07.18-54.240.51.53
+X-FEAS-SPF: spf-result=pass, ip=54.240.51.53, helo=a51-53.smtp-out.eu-west-1.amazonses.com, mailFrom=0102018969854525-eb08255a-17b1-41b8-97cf-c80058cfbc4b-000000@mail.voicemailbox.online
+X-FEAS-DKIM: Valid
+X-FE-Macro: MjIgc2VyaWFsaXphdGlvbjo6YXJjaGl2ZSAxOCAxIDAgMzMgMzZJSE84TnYwMTc1MjYtMzZJSE84TngwMTc1MjYwMDAwIDg1IDAxMDIwMTg5Njk4NTQ1MjUtZWIwODI1
+ NWEtMTdiMS00MWI4LTk3Y2YtYzgwMDU4Y2ZiYzRiLTAwMDAwMEBtYWlsLnZvaWNlbWFpbGJveC5vbmxpbmUgMCAwICAwICAxIDE4IGFyY2hpdm9fZGVfY29ycmVvcyAw
+ IDE1IDMge3J9IDUgRVNNVFAgMyB7X30gNTQgYTUxLTUzLnNtdHAtb3V0LmV1LXdlc3QtMS5hbWF6b25zZXMuY29tIFs1NC4yNDAuNTEuNTNdIDMge3N9IDM5IGE1MS01
+ My5zbXRwLW91dC5ldS13ZXN0LTEuYW1hem9uc2VzLmNvbSAxMyB7Y2xpZW50X25hbWV9IDM5IGE1MS01My5zbXRwLW91dC5ldS13ZXN0LTEuYW1hem9uc2VzLmNvbSAz
+ IHtqfSAxOSBmbWFpbC5tZXJpZGEuZ29iLm14IDkge2lmX2FkZHJ9IDE0IDE3Mi4xNi4xMTUuMTM4IDExIHtyY3B0X2FkZHJ9IDMwIGdhYnJpZWxhLnF1aWphbm9AbWVy
+ aWRhLmdvYi5teCAxMSB7ZmVfc2VydmVyfSAxNCAxNzIuMTYuMTE1LjEzOCAxNCB7ZGFlbW9uX2ZsYWdzfSAwICAxMSB7ZmVfY2xpZW50fSAxMiA1NC4yNDAuNTEuNTMg
+ MTAge2ZlX2NoZWxvfSAzOSBhNTEtNTMuc210cC1vdXQuZXUtd2VzdC0xLmFtYXpvbnNlcy5jb20gMTAge21zZ19zaXplfSA2IDIyOTkzNyAxMSB7YXV0aF90eXBlfSAw
+ ICAxMyB7YXV0aF9hdXRoZW59IDAgIDgge2ZlX210YX0gOCBzZW5kbWFpbAo=
+
+------=_Part_272347_191842753.1689692488609
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang=3D"es" dir=3D"ltr">
+ <head>=20
+  <meta charset=3D"utf-8">=20
+  

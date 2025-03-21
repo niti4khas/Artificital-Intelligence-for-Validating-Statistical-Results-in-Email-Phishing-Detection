@@ -1,0 +1,81 @@
+Return-Path: <Paol.Reggiani@moss.it>
+X-Original-To: wpx@protonmail.com
+Delivered-To: wpx@protonmail.com
+Received: from moss.it (unknown [213.227.154.65]) by mailin004.protonmail.ch (Postfix)
+ with ESMTP id 82A1F401008A for <wpx@protonmail.com>; Tue, 14 Jan 2020 08:06:41 +0000
+ (UTC)
+Authentication-Results: mailin004.protonmail.ch; dmarc=none (p=none dis=none)
+ header.from=moss.it
+Authentication-Results: mailin004.protonmail.ch; spf=fail
+ smtp.mailfrom=Paol.Reggiani@moss.it
+Authentication-Results: mailin004.protonmail.ch; dkim=none
+From: Paolo Reggiani <Paol.Reggiani@moss.it>
+To: wpx@protonmail.com
+Subject: FW: Due Invoice Payment - protonmail.com - Wire Transfer Document
+Date: 14 Jan 2020 00:06:05 -0800
+Message-Id: <20200114000605.14F3983143C82AAA@moss.it>
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=---------------------481089ff168d9ab2d8d7d42e37da66da
+X-Pm-Spam: 0yeiAEic27iBOIJCpz91cGctFogIjgSwMINnjlJ3bjIgoIsMjyCJIZBXviQnciOiA
+ 4wNSDFJIVRkff5USlUfB5CUkSCBTQwk6lJFIGb5FluIGOFJIQwksg4GXHa0RM6cHcC9XLN3llRmb
+ ncjNJlb3ym9LZw1vhxmY2YstN0aXvG9baV3wc9CXibbBEzMjyjILN4yxuQTNjNgUlzbGkGVdIlGu
+ sJGInLjNJlb3lnNLbRmljNnc3blJNvLmcV1bbAi1gAjLkUWN9JRFCl9TUJkMBx0X1UFRQgWFMkJU
+ OBiM0NXYGI4VVydGsmFbIlGzpxGI3clRBpZCCiBbYJXy1NWYGZcFBSbigkwQYImuyFmYmcjFRhdW
+ u2VYdJHhv5CbmccdBbbizjEMLIjyx4yNTNuQUgNjzGlbdVGkulGIGIiJJhLmhnJcYV3klNWYnbyR
+ wuYWn3JbXxVuuUDICMSBZEQ1O0lXXl0WJNVTCUSBw6QkpGxIcR3lvBCZibpB1TdmgVASZ9m1gQmb
+ XYgQ52aW1WxYZ1WluQnb2Yt94gXGxzIWM4yyucjMTM0UY1LjpGxIcR3lpBCZibzBAuaX2W5aYxW1
+ l1WZnbuQ9jbGdWxYX4Ggw4yMEIBJVTWUwzQXIJEP6kFREIhJVzeWwHNIY0WgvJHcmYiFxpaWgHkd
+ aMXggAjMGdg8AlNDgG4XWN3jlJ3biOwAM2LjdzJMX4Gg34CMFIQN9TRlU0ZTRFkJTBCTEU6YNlIH
+ lmRbcBikzV2bGIv5BtdCjXRYaBCTgYEUmcjVJkb3zChIbZ20pFmZCbclAwbigjcLUB1GFh0XETf9
+ 9GU0BEZVSwUgGB1UiOIBxPRUvGRIZMXg09mbGIh1NodGQFNIRBiyvNWZmcgQNvKHmnRZYlWsuxVK
+ DIuABIMCME1VX10FBN1U0RgU9EQkgToWSRFNpBCTmbsNRldWpCBZbBitzNXZWYld4gXGxC4MI1EJ
+ fVUTFSNR9PTFZkxTIJEP6kFREIl1Nhc3g2UZb52soBSeXYgMV4dGvFwdaRHtNBCbUSF1BhIHznRc
+ X4Ggw4CMFIfRNPSVU0FXVFEDJBCS0Ug8R0YXoWNYbVWutACdHIvBNpc3lmxYI1GhhdHbmcgUVsZG
+ lXZaclnczAibjLgAROUkO19UT50FlREIGb2lJlZX0CBZbByplRnbmch5BubC3XRZbJ3r5JGIGIgE
+ 9zaG3CBdaRXov5GIHIEJNcTlgiIbfwSgyNnIjIgoAiey0WNYa9WugojImI1R5vbm9iBIIH0=
+X-Attached: quotation.iso
+X-Pm-Origin: external
+X-Pm-Content-Encryption: on-delivery
+X-Pm-Transfer-Encryption: none
+
+-----------------------481089ff168d9ab2d8d7d42e37da66da
+Content-Type: multipart/related;boundary=---------------------aa682279bffb18c1dbea3f1da648ee4e
+
+-----------------------aa682279bffb18c1dbea3f1da648ee4e
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFs
+Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL2h0bWw0L2xvb3NlLmR0ZCI+Cgo8aHRtbD48aGVh
+ZD4KPG1ldGEgbmFtZT0iR0VORVJBVE9SIiBjb250ZW50PSJNU0hUTUwgMTEuMDAuOTYwMC4xNzAz
+NyI+CjxtZXRhIGh0dHAtZXF1aXY9IlgtVUEtQ29tcGF0aWJsZSIgY29udGVudD0iSUU9ZWRnZSI+
+CjwvaGVhZD4KPGJvZHkgc3R5bGU9Im1hcmdpbjogMC41ZW07Ij4KPHA+R29vZCBNb3JuaW5nLDwv
+cD4KPHA+UGxlYXNlIGZpbmQgdGhlIGF0dGFjaGVkIHRyYW5zZmVyIHNsaXAgZnJvbSBvdXIgYmFu
+ayBhbmQgY29uZmlybSByZWNlaXB0IG9mIHRoZSBwYXltZW50IHRvIHlvdXIgYWNjb3VudC48YnI+
+PGJyPkZvbGxvd2luZyB0aGUgdHJhaWwgbWFpbCBiZWxvdywgb3VyIGNsaWVudCByZXF1ZXN0ZWQg
+ZnJvbSB1cyB0byByZW1pdCBwYXltZW50IHRvIHlvdXIgYWNjb3VudCBmb3IgYnVzaW5lc3MgeW91
+IGRpZCB3aXRoIHRoZW0uPC9wPgo8cD5CYXNlZCBvbiBteSB0ZWxlcGhvbmljIGNvbnZlcnNhdGlv
+biB3aXRoIHlvdXIgY29sbGVhZ3VlLCBraW5kbHkgcmVjb25maXJtIHRoYXQgeW91ciBiYW5rIGRl
+dGFpbHMgb24gdGhlIHdpcmUgc2xpcCBpcyBjb3JyZWN0LjwvcD4KPHA+Jm5ic3A7PC9wPgo8cD5J
+IGF3YWl0IHlvdXIga2luZCByZXBseSBhbmQgZmVlZGJhY2suPGJyPjxicj48YnI+UmVjZWl2ZWQg
+d2l0aCB0aGFua3MuPGJyPjxicj48YnI+PGJyPlJlZ2FyZHMsPGJyPjxicj5EZWphaG5lYTxicj48
+YnI+PGJyPjxicj5Gcm9tOiZuYnNwO1B1cmNoYXNlcyA8YnI+U2VudDogMDkgSkFOLCAyMDIwIDA3
+OjIwYW08YnI+VG86IDxhIGhyZWY9Im1haWx0bzpockBmb3NyaWNoLmNvbSIgdGFyZ2V0PSJfYmxh
+bmsiPmhyPC9hPjxicj5DYzogPGEgaHJlZj0ibWFpbHRvOmZhaXJ2aWV3QGZvc3JpY2guY29tIiB0
+YXJnZXQ9Il9ibGFuayI+ZmFpcnZpZXc8L2E+PGJyPlN1YmplY3Q6IFByb2Zvcm1hIEludm9pY2Ug
+LSBwcm90b25tYWlsLmNvbTxicj48YnI+PGJyPjxicj5Hb29kIE1vcm5pbmcsPGJyPjxicj5QbGVh
+c2UgZmluZCB0aGUgRHVlIGludm9pY2VzIGZvciBwcm90b25tYWlsLmNvbS4mbmJzcDtUaGVzZSBp
+bnZvaWNlcyBuZWVkIHRvIGJlIHNldHRsZWQgdXJnZW50bHkuPC9wPgo8cD5UaGVzZSBpbnZvaWNl
+cyBuZWVkIHRvIGJlIHBhaWQgdXJnZW50bHkgdG9kYXkuPC9wPgo8cD5QbGVhc2UgZmluZCB0aGUg
+Y29udGFjdCBwZXJzb24gZW1haWwgd3B4QHByb3Rvbm1haWwuY29tPGJyPjxicj5QbGVhc2UgZm9y
+d2FyZCB0aGUgcGF5bWVudCBkZXRhaWxzIGRpcmVjdGx5IHRvIHRoZSBlbWFpbCBhZnRlciBwYXlt
+ZW50LjwvcD4KPHA+Jm5ic3A7PC9wPgo8cD5LaW5kbHkgbWFrZSB0aGUgd2lyZSB0cmFuc2ZlciB0
+b2RheS48YnI+PGJyPjxicj48YnI+UmVnYXJkczxicj48L3A+CjxkaXYgY2xhc3M9InlqNnFvIj48
+L2Rpdj4KPGRpdiBjbGFzcz0iYWRMIj48YnI+PC9kaXY+PC9ib2R5PjwvaHRtbD4=
+-----------------------aa682279bffb18c1dbea3f1da648ee4e--
+-----------------------481089ff168d9ab2d8d7d42e37da66da
+Content-Type: application/octet-stream; filename="quotation.iso"; name="quotation.iso"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="quotation.iso"; name="quotation.iso"
+
+-

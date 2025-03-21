@@ -1,0 +1,381 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7301:31c6:b0:137:3158:9850 with SMTP id iw6csp523884dyb;
+        Thu, 15 Aug 2024 22:30:18 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGleKdERvsFESfph9nEfKbSXCVhmfK4qABry56A3AumgzSCkm0u+Fk2VQUcxxQmm6vdQNWO
+X-Received: by 2002:a05:6512:3d8a:b0:52e:9ebe:7325 with SMTP id 2adb3069b0e04-5331c6b44damr1130056e87.31.1723786218057;
+        Thu, 15 Aug 2024 22:30:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723786218; cv=none;
+        d=google.com; s=arc-20160816;
+        b=URQj0qiXU6cMaecBhTmCio8RhwUpX6l3z7ySlqBrGsKOTZGxqCUNkWPwbMjdpMSvdu
+         8vhgHdQLh5TnxXZnM2A4ykWy9T4ycRFltBLzQoXqRA43GTz2aBtBZUVsQMuuqHd3NWX8
+         +x/AZbEzDdZ2EiQvCZdzfLgaGs44Z1dyjWhsBsKudIPJ277QYmf6Lt/tyze+zWoInLAx
+         lTfQEn1+UfOEpsVuy1lvXK8YmwBcwsqFWntLGudRHiAcFOQ4d7gL68MugqvIxS7ALnMH
+         FqqmGKjA0Kh0P79c3Bo72vFVC6EB/5gjiPcafKxSoNedUizdtcjsRxuGyr7TKR2rmXBz
+         mclw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:mime-version:message-id:reply-to:from:to:list-unsubscribe
+         :subject:sender:dkim-signature:dkim-signature;
+        bh=wUAuOwHowbt3dNg8mURvUA4qvtmXxPiqMnQ5QZhe1cg=;
+        fh=P64XxtFax2USW7WeDQOHMsch6Z6e/qlD3oZihD0PUUo=;
+        b=f/NqorXN8adg/g+VnWFRW3emPiZuj8jlNz2BE1paaFfdRqgCvRkrPmz7BylJ3rPOXP
+         l/db0OiLm/5zMyvznwf6CA2fjecmi2paK3jOYDJibsq4jE1SwutnCSnrK5iXh/JtfY5U
+         TFFVjnf4Zkbm6pWYbxJJ2CiGQKsBBOaYY2evsjX45NDcIl4NmsTWvEyGjzYpGJna62XG
+         3Gi/SVfE0mJUVN6Z4PpGsf63MuXfmhy87o2ErHHZ2DbPoNlrV9yrHePvQTq0C3ylXJ46
+         3t4u8Hysn8zAKKFWw+56kzI9Pf2kbdfbqnan8KICSOv9Hr9LQD0rFjoeatIOmmdxZSjq
+         W70w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail-eu.dreamapply.com header.s=app header.b=0Fyx5sv1;
+       dkim=pass header.i=@eu.mailgun.org header.s=krs2 header.b=LgoqlMt6;
+       spf=pass (google.com: domain of bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com designates 141.193.33.197 as permitted sender) smtp.mailfrom="bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com";
+       dmarc=pass (p=REJECT sp=QUARANTINE dis=NONE) header.from=dreamapply.com
+Return-Path: <bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com>
+Received: from m33-197.eu.mailgun.net (m33-197.eu.mailgun.net. [141.193.33.197])
+        by mx.google.com with UTF8SMTPS id 2adb3069b0e04-5330d3fd35fsi743768e87.258.2024.08.15.22.30.17
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Aug 2024 22:30:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com designates 141.193.33.197 as permitted sender) client-ip=141.193.33.197;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail-eu.dreamapply.com header.s=app header.b=0Fyx5sv1;
+       dkim=pass header.i=@eu.mailgun.org header.s=krs2 header.b=LgoqlMt6;
+       spf=pass (google.com: domain of bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com designates 141.193.33.197 as permitted sender) smtp.mailfrom="bounce+501a46.1c4e-receiver.professional=gmail.com@mail-eu.dreamapply.com";
+       dmarc=pass (p=REJECT sp=QUARANTINE dis=NONE) header.from=dreamapply.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mail-eu.dreamapply.com; q=dns/txt; s=app; t=1723786217; x=1723793417; h=Content-Type: Date: MIME-Version: Message-ID: Reply-To: From: From: To: To: List-Unsubscribe: Subject: Subject: Sender: Sender: X-Feedback-Id; bh=wUAuOwHowbt3dNg8mURvUA4qvtmXxPiqMnQ5QZhe1cg=; b=0Fyx5sv1fQuH4FIOLtA0YVIoeuWIgFF4qNI2rF8iiYHYX0/BescBD1mqmefVLefItJRVn+CRtvRUQ+5m2V+FMPdBowEgsKpDqPGW11uY3XO4+wgY/Vxk2AdpdYudZW0HmMZkqZ8d5TVpo93AvVeMmDHZ07yeB8phPhG4MT+HwUE=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=eu.mailgun.org; q=dns/txt; s=krs2; t=1723786217; x=1723793417; h=Content-Type: Date: MIME-Version: Message-ID: Reply-To: From: From: To: To: List-Unsubscribe: Subject: Subject: Sender: Sender: X-Feedback-Id; bh=wUAuOwHowbt3dNg8mURvUA4qvtmXxPiqMnQ5QZhe1cg=; b=LgoqlMt6og6w3iT0P9IvLsZGXGSrmWStOQJj57NgHI9dTsalhtPikZd8ECX6QvUsTgt+YStJADoInDIoiOziA/IF+9LRudndZe+B/yM+dQp8cWnpNBLVRzRjq4brhb7A8darvC4Gmp3CrCKuGTZZWx4ndMwvsIaiyfV3DG9x5QY=
+X-Feedback-Id: no-reply@mail-eu.dreamapply.com::5bfbe9334f41fe000148918c:mailgun
+X-Mailgun-Sending-Ip: 141.193.33.197
+X-Mailgun-Sid: WyJmMjhiNyIsIm5pdGlrYS5wcm9mZXNzaW9uYWxAZ21haWwuY29tIiwiMWM0ZSJd
+Received: from [127.0.0.1] (ec2-35-181-153-119.eu-west-3.compute.amazonaws.com [35.181.153.119]) by df36dd692358 with SMTP id 66bee3e9e0d0f996afd0a5e1; Fri, 16 Aug 2024 05:30:17 GMT
+Sender: no-reply@mail-eu.dreamapply.com
+Subject: SRH Universities Germany-Student Meet-up 2024
+List-Unsubscribe: <https://apply.srh.de/email/unsubscribe/ref/1472359-83981-94aa-a30829d48a9cfd0a68211b5d07e1b45380157bcf196acfc12a57d112b6d6e288>
+To:  receiver <ham@ham.email>
+From: Ajith Mohan <no-reply@mail-eu.dreamapply.com>
+Reply-To: Ajith Mohan <ajith.mohan@srh.de>
+Message-ID: <43f02ec4d09a388dddead0b434b4822a@mail-eu.dreamapply.com>
+MIME-Version: 1.0
+Date: Fri, 16 Aug 2024 07:30:17 +0200
+Content-Type: multipart/related; boundary=oj6xNgmW
+
+--oj6xNgmW
+Content-Type: multipart/alternative; boundary=ekBNN9Bz
+
+--ekBNN9Bz
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear Student,
+
+I hope this message finds you well!
+
+We are excited to invite you to our upcoming SRH Universities Student Meet-=
+Up 2024 in Mumbai and Bengaluru! This is a fantastic opportunity to connect=
+ with fellow students, share experiences, and expand your network within ou=
+r community.
+
+Event Details:
+
+Mumbai: 24.08.2024
+Bengaluru: 01.09.204
+Time: 3.00 PM-6.00 PM
+Venue: To be informed
+
+Due to limited space, registration for this event will be on a first-come, =
+first-served basis.=20
+
+Once we reach our capacity, we will have to close registrations, so be sure=
+ to sign up as soon as possible to secure your spot!
+
+To confirm your attendance, please register via the following link.
+https://forms.office.com/e/HktgDHkRZr
+
+We look forward to seeing you there and making this meet-up a memorable eve=
+nt for all!
+
+Best regards,
+
+Ajith Mohan
+Head of Operations-South Asia and Middle East
+
+
+--=20
+
+SRH Universities in Germany & Haarlem Campus in the Netherlands | SRH Headq=
+uarter: Bonhoefferstra=C3=9Fe 1, 69123 Heidelberg
+https://apply.srh.de | https://www.srh-hochschulen.de; www.haarlem-campus.c=
+om
+
+--=20
+
+Unsubscribe: https://apply.srh.de/email/unsubscribe/ref/1472359-83981-94aa-=
+a30829d48a9cfd0a68211b5d07e1b45380157bcf196acfc12a57d112b6d6e288
+--ekBNN9Bz
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+
+   =20
+    <style type=3D"text/css">
+        body {width: 100%!important;margin:0;padding:0;color:#404040;font-f=
+amily: Arial,Helvetica;font-size:14px;line-height:130%;text-align:left}
+        table {border-collapse:collapse;}
+        td {border-collapse:collapse;}
+        a {color: #0D7CAD;font-weight: normal;text-decoration: underline;}
+        table#container {margin:0;padding:0;min-height:100%;width:100%;}
+        table#header {background-color: #929099; border-bottom: solid 3px w=
+hite;}
+        table#header td#logo {color:#505050;font-family:Arial,Helvetica;fon=
+t-size:20px;font-weight:bold;line-height:100%;padding-top:10px;padding-righ=
+t:0;padding-bottom:10px;padding-left:0;text-align:left;vertical-align:middl=
+e; }
+        table#header td#logo img#logo {border:0;min-height:auto;line-height=
+:100%;outline:none;text-decoration:none;max-width:600px;display:block;}
+        table#content td#content-message table td, table#content td#content=
+-message table th {color:#404040;font-family: Arial,Helvetica;font-size:14p=
+x;line-height:130%;text-align:left;padding: 5px 10px; border-bottom: dotted=
+ 1px #afafaf;}
+        h1 {color: #404040;display: block;font-family: Calibri,Arial,Helvet=
+ica;font-size: 30px;font-style: normal;font-weight: bold;line-height: 100%;=
+letter-spacing: normal;padding:0;margin-top: 35px;margin-right: 0;margin-bo=
+ttom: 15px;margin-left: 0;text-align: left;}
+        h2 {color: #404040;display: block;font-family: Calibri,Arial,Helvet=
+ica;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;=
+letter-spacing: normal;padding:0;margin-top: 35px;margin-right: 0;margin-bo=
+ttom: 15px;margin-left: 0;text-align: left;}
+        p {color:#404040;font-family: Arial,Helvetica;font-size:14px;line-h=
+eight:130%;text-align:left}
+        table#footer table {border-top:1px solid #bbbbbb;}
+        table#footer p {padding-bottom:10px;color:#808184;font-family:Arial=
+,Helvetica;font-size:11px;line-height:150%;text-align:left;padding-top:10px=
+;}
+        table#footer div {padding-bottom:10px;color:#808184;font-family:Ari=
+al,Helvetica;font-size:11px;line-height:100%;text-align:left;padding-top:10=
+px;}
+        table#footer a {color:#808184;}
+    </style>
+
+</head>
+<body style=3D"margin:0;padding:0;width:100%!important;">
+<center>
+<table id=3D"container" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" he=
+ight=3D"100%" width=3D"100%" style=3D"border-collapse: collapse;margin:0;pa=
+dding:0;min-height: 100%;width: 100%;">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse: c=
+ollapse;">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%" style=3D"border-collapse: collapse;">
+                    <tbody>
+
+                        <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"bo=
+rder-collapse: collapse;">
+                                <table id=3D"header" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse: collaps=
+e; background-color: #929099; border-bottom: solid 3px white;">
+                                    <tbody>
+                                        <tr>
+                                            <td align=3D"center" valign=3D"=
+top" style=3D"border-collapse: collapse;">
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"border-collapse: collap=
+se;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id=3D"logo"=
+ style=3D"border-collapse: collapse;color: #505050;font-family: Arial,Helve=
+tica;font-size: 20px;font-weight: bold;line-height: 100%;padding-top: 10px;=
+padding-right: 0;padding-bottom: 10px;padding-left: 0;text-align: left;vert=
+ical-align: middle; ">
+                                                                <a href=3D"=
+https://apply.srh.de" target=3D"_blank" style=3D"color: #0D7CAD;font-weight=
+: normal;text-decoration: underline;">
+                                                                    <img id=
+=3D"logo"
+                                                                         sr=
+c=3D"cid:739767aed48eed983b062c56b43aad26@symfony"
+                                                                         al=
+t=3D"SRH Universities in Germany &amp; Haarlem Campus in the Netherlands"
+                                                                         ti=
+tle=3D"SRH Universities in Germany &amp; Haarlem Campus in the Netherlands"
+                                                                         st=
+yle=3D"border:0;min-height:auto;line-height: 100%;outline: none;text-decora=
+tion: none;max-width: 210px;display: block;"
+                                                                    >
+                                                                </a>
+                                                            </td>
+                                                            <td width=3D"10=
+0%" style=3D"border-collapse: collapse;"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"bo=
+rder-collapse: collapse;">
+                                <table id=3D"content" border=3D"0" cellpadd=
+ing=3D"20" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collap=
+se;">
+                                    <tbody>
+                                        <tr>
+                                            <td align=3D"center" valign=3D"=
+top" style=3D"border-collapse: collapse;">
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"border-collapse: collap=
+se;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id=3D"conte=
+nt-message" valign=3D"top" style=3D"border-collapse: collapse;"><p style=3D=
+"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-height:130%=
+;text-align:left">Dear Student,</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">I hope this message finds you well!</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">We are excited to invite you to our upcoming <=
+span class=3D"caps">SRH</span> Universities Student Meet-Up 2024 in Mumbai =
+and Bengaluru! This is a fantastic opportunity to connect with fellow stude=
+nts, share experiences, and expand your network within our community.</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Event Details:</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Mumbai: 24.08.2024<br />
+Bengaluru: 01.09.204<br />
+Time: 3.00 PM-6.00 PM<br />
+Venue: To be informed</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Due to limited space, registration for this ev=
+ent will be on a first-come, first-served basis. </p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Once we reach our capacity, we will have to cl=
+ose registrations, so be sure to sign up as soon as possible to secure your=
+ spot!</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">To confirm your attendance, please register vi=
+a the following link.</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left"><a href=3D"https://forms.office.com/e/HktgDHkR=
+Zr">forms.office.com/e/HktgDHkRZr</a></p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">We look forward to seeing you there and making=
+ this meet-up a memorable event for all!</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Best regards,</p>
+
+<p style=3D"color:#404040;font-family: Arial,Helvetica;font-size:14px;line-=
+height:130%;text-align:left">Ajith Mohan<br />
+Head of Operations-South Asia and Middle East</p></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"bo=
+rder-collapse: collapse;">
+                                <table id=3D"footer" border=3D"0" cellpaddi=
+ng=3D"20" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse: collap=
+se;">
+                                    <tbody>
+                                        <tr>
+                                            <td align=3D"center" valign=3D"=
+top" style=3D"border-collapse: collapse;">
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"border-collapse: collap=
+se;border-top: 1px solid #bbbbbb;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td valign=3D"t=
+op" style=3D"border-collapse: collapse;">
+                                                                <p style=3D=
+"color: #808184;font-family: Arial,Helvetica;font-size: 11px;line-height: 1=
+50%;text-align: left;padding-bottom: 10px;padding-top: 10px;">
+                                                                    <strong=
+>SRH Universities in Germany &amp; Haarlem Campus in the Netherlands</stron=
+g>
+                                                                    <br>SRH=
+ Headquarter: Bonhoefferstra=C3=9Fe 1, 69123 Heidelberg                    =
+                                                                           =
+                                         <br>
+                                                                    <a href=
+=3D"https://apply.srh.de" target=3D"_blank" style=3D"color: #808184;font-we=
+ight: normal;text-decoration: underline;"><strong>Apply online</strong></a>
+                                                                           =
+                                                             &nbsp;|&nbsp;&=
+nbsp;<a href=3D"https://www.srh-hochschulen.de; www.haarlem-campus.com" tar=
+get=3D"_blank" style=3D"color: #808184;font-weight: normal;text-decoration:=
+ underline;">https://www.srh-hochschulen.de; www.haarlem-campus.com</a>    =
+                                                            </p>
+                                                                           =
+                                                                           =
+                                              <div style=3D"color: #808184;=
+font-family: Arial,Helvetica;font-size: 11px;line-height: 100%;text-align: =
+left;padding-bottom: 10px;padding-top: 10px;">
+                                                                        <a =
+href=3D"https://apply.srh.de/email/unsubscribe/ref/1472359-83981-94aa-a3082=
+9d48a9cfd0a68211b5d07e1b45380157bcf196acfc12a57d112b6d6e288" target=3D"_bla=
+nk" style=3D"color: #808184;font-weight: normal;text-decoration: underline;=
+">Unsubscribe</a>
+                                                                    </div>
+                                                                           =
+                                                 </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</center>
+<img alt=3D"" style=3D"border:0;height:1px;width:1px"
+     src=3D"https://apply.srh.de/email/pixel/id/1472359.png">
+</body>
+</html>
+
+--ekBNN9Bz--
+--oj6xNgmW
+Content-ID: <739767aed48eed983b062c56b43aad26@symfony>
+Content-Type: image/png; name="739767aed48eed983b062c56b43aad26@symfony"
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; name="739767aed48eed983b062c56b43aad26@symfony"; filename=logo
+
+
+--oj6xNgmW--

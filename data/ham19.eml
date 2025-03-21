@@ -1,0 +1,251 @@
+Delivered-To: nham@ham.email
+Received: by 2002:a05:693c:3001:b0:113:e643:f960 with SMTP id sb1csp2516398dyc;
+        Fri, 19 Apr 2024 23:26:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCUBNpJYB1pznh+6MKGS7cZ/pmAiD+4CzEq0tAdhDbybiAgvMYV2o5xO2OA/9MBN4IE1z4Y9tetNIhPghXkUM0hPG2L9esbwTWu8vpPvkQ==
+X-Google-Smtp-Source: AGHT+IEttZK1/fxpMpZ7iuuRNYfA1tEuydgPZOhfQoe8osMLxI4ESc1Lq/fjShKY3fMwEyJ4g1xS
+X-Received: by 2002:ac8:5ad3:0:b0:436:63ae:294c with SMTP id d19-20020ac85ad3000000b0043663ae294cmr4374925qtd.23.1713594406833;
+        Fri, 19 Apr 2024 23:26:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1713594406; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=nscydeYyFsY3xKIvtcdNCvp0GIG6pF3D86PgMK7hKQ20Td9uoRG4oGVWK/qIclAgDN
+         HDISbHlT0R6R41MJondYuK2xeD1WNYWKaKw3gRngAoYkr4t/Cdl3fneY7N3LZVgRcpsb
+         Bccw2d5LYXVeartAsGUMEv032KhMKMhDulyTm1Ft3oht1oZQggT+uVc81yxLRalYPz0o
+         E1693LKt/MdGmGsbjBKv9ZkfDpAiKU4bI9xzA4zZjHT72iY9LfQne9J5mLD+2C3v82jz
+         mcW/ZSBEU+V3Pjxi7R/6/MryU7my0S1KMyqocgBarGgViYHI+udTofxwTf67IRkK9BpL
+         IROA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:msip_labels:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:to:from
+         :dkim-signature;
+        bh=QTsKnlMl8twL61/qiMQ2XVWsiaKD8bVT55M5t4CVubE=;
+        fh=y4gSaGSF8XwS2oponPD9hKIvY/5ZGYfFTdUc6po6Flc=;
+        b=GzGwqy26/2y8ZZIrTorDQVjw8w25BkGcXV/cC2bO7+QHzY1hMCkuHj1caFz9Nz+AGl
+         lc2WsnSk2JQ9JBL5Qa8u6KbsnT4B292UokTKkN3qmYF2HEg9DHggbK8JfmNVSqjxtBD+
+         /Y3UBiKX4SOKbzxHb80sEHtDvzDN/+zYJEHuxNDqJAxyYNU/D1CdrwnF8XVNMR3V3dI4
+         jTt/VJMU0CpOqezzOW9Cfd3ktZJXl+UmXdEGx6s6mZZIpmq0t9BNf2Qmv13Yk+Bdqsu+
+         +tuHncL6iVpAL88NBQL42QkzO4KMxqHgrGWqhcRJVLkqfi9rgD9BPC8mMwH/mdjGQTKb
+         eoVA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@finkiukim.onmicrosoft.com header.s=selector2-finkiukim-onmicrosoft-com header.b=KA1jXqBS;
+       arc=pass (i=1 spf=pass spfdomain=finki.ukim.mk dkim=pass dkdomain=finki.ukim.mk dmarc=pass fromdomain=finki.ukim.mk);
+       spf=pass (google.com: domain of sender@finki.ukim.mk designates 2a01:111:f403:260d::701 as permitted sender) smtp.mailfrom=sender@finki.ukim.mk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ukim.mk
+Return-Path: <sender@finki.ukim.mk>
+Received: from EUR03-DBA-obe.outbound.protection.outlook.com (mail-dbaeur03on20701.outbound.protection.outlook.com. [2a01:111:f403:260d::701])
+        by mx.google.com with ESMTPS id b15-20020a05622a020f00b004378f285b4asi5823493qtx.100.2024.04.19.23.26.45
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 19 Apr 2024 23:26:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sender@finki.ukim.mk designates 2a01:111:f403:260d::701 as permitted sender) client-ip=2a01:111:f403:260d::701;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@finkiukim.onmicrosoft.com header.s=selector2-finkiukim-onmicrosoft-com header.b=KA1jXqBS;
+       arc=pass (i=1 spf=pass spfdomain=finki.ukim.mk dkim=pass dkdomain=finki.ukim.mk dmarc=pass fromdomain=finki.ukim.mk);
+       spf=pass (google.com: domain of sender@finki.ukim.mk designates 2a01:111:f403:260d::701 as permitted sender) smtp.mailfrom=sender@finki.ukim.mk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ukim.mk
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none; b=kafEf3HAa6XxT9eRdxE4RgVooaOatU2IOURIUkTdfFJMFwyKwAVp9t0EOacODaS3z1Lr90OSz/+d1VkVesn2KeGLra5mDwo/7wPHXFC0hxc4zhhBdBLvR7MNVTYjww3cbyMxFs5Oq2fBLYN6TaUZbGs4XuBHNs13Wg8/5Ga3fWW6s+g3ntSS++iZ2yV5iFthzMK15I5cmOHm+WBFhI+6i8mTsC9RUU9fD2W8P8vOg+GyopUywKW5Um4EF6Yad181WjFjY6cwvkRBRiFu6JDzVxR7gfqj5zJqOoZmSv9naeFfRx9x91uDPC7NS+73E2TxLiShdBROILv/ywa/VhotHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1; bh=QTsKnlMl8twL61/qiMQ2XVWsiaKD8bVT55M5t4CVubE=; b=QxwYVrCIcu0PIPo1vC5Lw/Qn13JEAm9BYgC1fQuWbV9wpG/E/snf+DW5R3cbnY8I3z4iAUPFLZNYUXTAPkyikO9tce/T2dvao5S+v/NkAkm+ooAy4HeFang//67rVIK7p6CLtejsM81bGLkNlcNrnIl+E2mj31wMsIfd0N9fNQKfsdrE+yNU6OTBNE/W04v/Groydw3NobbZ8QGIKVLjr9b26+gLXNK6eX8i1fV4bUHIi16ZT2OcaoNB0ZKPCXMmkfzW34h9vsD5yICz4op1ENNoXLVHEHeCMH+TnYMNaj9HcofuTPy4gMF3Ou/1cZUiuw4SpS24rctckdngscULhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass smtp.mailfrom=finki.ukim.mk; dmarc=pass action=none header.from=finki.ukim.mk; dkim=pass header.d=finki.ukim.mk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=finkiukim.onmicrosoft.com; s=selector2-finkiukim-onmicrosoft-com; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck; bh=QTsKnlMl8twL61/qiMQ2XVWsiaKD8bVT55M5t4CVubE=; b=KA1jXqBSXRXd4HP93DdzFoCXteGpoJ9uTXEvE+14oUL/erxAoxIXlOj/i08nGTlYfYnh/dusW7I1n67NRtjsJimXazTrHCAcW4lsjwJy/Xcj+0taxM6+qC1A6+MDGGs2pS50N3ukjSRSEeqgAxpQfBUSUzXbNeAPlmueJcHdJx0=
+Received: from PR3PR04MB7436.eurprd04.prod.outlook.com (2603:10a6:102:87::10) by GV1PR04MB10193.eurprd04.prod.outlook.com (2603:10a6:150:1a4::9) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7409.56; Sat, 20 Apr 2024 06:26:43 +0000
+Received: from PR3PR04MB7436.eurprd04.prod.outlook.com ([fe80::8e61:a0e5:3c2e:1ed4]) by PR3PR04MB7436.eurprd04.prod.outlook.com ([fe80::8e61:a0e5:3c2e:1ed4%6]) with mapi id 15.20.7472.037; Sat, 20 Apr 2024 06:26:43 +0000
+From: Vesna Dimitrova <sender@finki.ukim.mk>
+To: Vesna Dimitrova <sender@finki.ukim.mk>
+CC: "Danko Nakić" <danko.nakic@gmail.com>, "abdalkhattak111@gmail.com" <abdalkhattak111@gmail.com>, "adeopatoye@gmail.com" <adeopatoye@gmail.com>, "aigerimmoldakhanova7@gmail.com" <aigerimmoldakhanova7@gmail.com>, "aldiyar.ismailov@gmail.com" <aldiyar.ismailov@gmail.com>, "asem2000m@gmail.com" <asem2000m@gmail.com>, "baverly7@gmail.com" <baverly7@gmail.com>, "José Luis Cano" <cano.jl1995@gmail.com>, Chukwu Ikechukwu John <cikechukwujohn@gmail.com>, "eb.atabey@gmail.com" <eb.atabey@gmail.com>, "edratabaku@gmail.com" <edratabaku@gmail.com>, "hamroz.gavharov@gmail.com" <hamroz.gavharov@gmail.com>, "helmihibatullah393@gmail.com" <helmihibatullah393@gmail.com>, "houssememrbt@gmail.com" <houssememrbt@gmail.com>, Ibrahim Isiaq Bolaji <ibrahimbolaji50.ib@gmail.com>, "kebalbhandari123@gmail.com" <kebalbhandari123@gmail.com>, "klesidagjana@gmail.com" <klesidagjana@gmail.com>, "lydiahmuigua@gmail.com" <lydiahmuigua@gmail.com>, "mahnoorj91@gmail.com" <mahnoorj91@gmail.com>, "minhaz18061997@gmail.com" <minhaz18061997@gmail.com>, "nham@ham.email" <nham@ham.email>, Izuchukwu Patrick Udechukwu <pi.udechukwu.max@gmail.com>, "r.bedii.gumus@gmail.com" <r.bedii.gumus@gmail.com>, "rhussein202@gmail.com" <rhussein202@gmail.com>, "samsoonnaharshampa@gmail.com" <samsoonnaharshampa@gmail.com>
+Subject: CyberMACS Workshop: Applying Cryptography for Advanced Cybersecurity Solutions
+Thread-Topic: CyberMACS Workshop: Applying Cryptography for Advanced Cybersecurity Solutions
+Thread-Index: AQHakudX1/Kg/r8a70iyHfsn9jHUXg==
+Date: Sat, 20 Apr 2024 06:26:43 +0000
+Message-ID: <PR3PR04MB7436A142EC0FCBD48E1AB99EB30C2@PR3PR04MB7436.eurprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed) header.d=none;dmarc=none action=none header.from=finki.ukim.mk;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PR3PR04MB7436:EE_|GV1PR04MB10193:EE_
+x-ms-office365-filtering-correlation-id: ca5e9246-43df-4502-c601-08dc6102d893
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: vWGcYhNi+zc1ojhj+j0DzAriP6sfkbcMv1J4JMkXTVeYnI8h+615IXMFqhKOCBGmi+Bnf6zMIr0poxNa6sQN7HXlzPLoOhePplxyw5tquc9XKgExdfzOQCtXh5jQo8hADEq9NrOSzhA2/kLeZBi3kWo1QcBkQy1ljONEPe4Qyj9rtX66TLYhvO53zMb5rBS0PAXZPeHfq6SWNxFn6SviNkwN8HVijtn2Tc78mq6eQ6UYZEuOa05ohxo8bRFsdNZFBLrx1ZPZKG/sEp3akCQDIg/XPmdeQetPrIlbkwCnoDrQfpsEY1apSkepQSj5XIdz/MROgR/g7/3Xkm9OuyXdt9GDIHcKAvZIGTDBlTh6vrJv/oAkU+rFobPxgDR3MpkWwlrSmYlp7saWyv5XNnb9S9t76bWt3g2275Hjc3+aLtaCRT7MkT6iZT81Vu6hTP3HrZdwb6mPVvjZk4e1rQgqEg2h5Z3ODxDiI5Ejiw4lXAB0gZxUtxsLdbKpp+H9VT10RvMYpT/hZH1DzLW2zqTyAcFfj++hpDr7V7FFhbtbFECv9T4rocp+4VUaavho6HeJjGebttd72++WzK9EP2aDPaSfL0gjkx9WfBlSr370oYsJ8uXhQT+kZJX4kmyKVfcHKxCZ8ZwfTbc+69Y1j48JRSkkvLYxUf8DkcDzit5uER8ECfju9DCFNHG1CpxyVst0SEs0EG7DoRXzhRxgcaZzJHpR6SmQoFEqwfWrRBSi/oHfX08MTdbEIZuzDw3f/opHO7Vt5g06DlxbibyxBBtjVI6Yy5isyTsX0QtEPvi2M3OeQzXCIZgOK9ks6V1T4MFfClAWFl0yQcNtobDldwgtGVPMM5rHOJNn4QVufaQLLUsrVHfKx0jYd1VH8URGPfAD+L2IrFs7kMnFs6+hdz82vkQ6V2B7K+sk8y/ur4sLow3jpOQUSVN4s7MIrh+YEPeKtLeAe1B0yPtjUS0es3HftZcTDymPJz4b2rNNmrkDHH8Rlq9YydjVbyxF8hoTnvDzmqxh7cPFB1iikyNFykseoDMFHZd/hEvZayK3i5s5cCyrNVvsRSjx179YX8sCf7sju+rDWlXG9PwZpE23nMkbPx776Lu6UPXUEgURIq7Nm96Ql7T8AiwGxG7ArF3Ra83DS8MB04SUfT6rYAN3tKXD13SYMhf/BdvOnKktGaoSL0cqcPRZFoA6wU+HuUlWzki3WZUfmQg0cqV7Zbx2MoTkperUbzNWMRkADcxLM+bIYbV3saXq/dK+CQz6jFkNnv53CIru+ZaZnS/KSCEjMR1KGou8RySHZlfK+XBaR2kCj4QGb5W/UpHZ+8eHCsp9FnRJ3k8ATnDAtJsop2YifcbR3w==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR3PR04MB7436.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(41320700004)(7416005)(376005)(1800799015)(366007)(38070700009);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: QRlFqHKApsOedqEddgnwgqyofJcfYwtr2wD9foxOaOWZeQAFEWaE6eLIPczxvQMCOIRog1mjbJBCFIsnEfcAGO/+Xxu6W5U/HcFM+QiB/SG59Tucmq3INY3dwOfXWVuexzUBz+5q5fQqBNs+GiHOJRQ9qlMh4F9b0nTt5gNhpihVDNyvLpM/b6uJIz7ss30DSaI/c1ow03KhtAXNhJv23pSQjwFK5nIaEXsc0QGm330nhw8FztrDWjQETWAV5/Lgaxl6zXxv19ul9KY3zPQTEAtt+Gy4lQxzIGRgOVeaPxadETeoofmmIG6Lx18+D4QC+t1SKYr4Sgw/KNiL/mPuUCNKsWySC1vWQ/Rp5P74fQxbJXknTzFybunONiLJgx+xgNAZB6xluAXkOtU/lUrvmsKV4RiK+2tA0k9RGa123AC8+6zQDtwSQQANKTUngmp17cRQHtPgQxoCM+/OeMAOkdq8v2ciETfc2T/iLtEsgrjHbmdOVSshXGr9r2wiXabbHW/0RJL2RCU7Tqv+xfoxe3ccX4b4ul0g0AGvipiCo6E8IoROEs9QS4rU7jDSFln+eFW0AxD0ZMrQJETNkfMP8QhzE7fCGh8Pj0FxKrx1GegEV9itVtlVQq+fj7Q0C0/1jeVyfsC7oKBKj1XFZV0Dy5jeDNvi/SlUP4okdJiYqjDhPEI1UB+vyJot7IqP/RDx8ggjBW2Q42sAqGCgB1ZggvS6ZeAAsCoclA1j2T8hSM2QyAWFTYHT/nhRr4RoC2WD8yEXl83UEZ6eNjLobI6cdGwVQD/BvhyUgq8CHNVSJjEpi8RgoqLTmuXTlbNfZ84zXlYWzwznaoXxp2ME82riTbj/2aOEuiBLVuZchxQPhbhE6wLT+9cEW2S8oYITg6O0M1/wP3oXdC9na+ilgctIXmnYEgc26YPxwyxK9pC260SnwE6AN3t/v41I5ShWNtzMApMA5UeMxVM0hKAbFjlhrAF6WaTwAvK51D9WsItsOYmHGsLPYKXFbFbmq4q6lyhe3Tg/vFTCYXzFRnNhzCp1ctla9iil9tVPOJTG81Y1Tt41PLwH/JTHgf+dWnRX82vjJOuPTvCCfd7RqIwc7xvLVR+3TLJLB6X6XXWOfWeHus2dPoINdmh8abINoIWPP1Pm0E9pu2vuhGSVr5K8YloZixkHJIsS8Zc1yWw5BHyLPdgIWMBZKKtxMlNP50dduy7pSi0QxQFPYefvixrYUsP96Hyxj4oXq9xEfA8nJUaMQkzcAbPszA060ysiNbtp/9YNMX33YzUbGyUzjhFZcC0yO6kdcohEPrdkJS/jfrDZRdPXPK2ZbQ0a4I68IFf0ssTj9BMC+l4aLMAd909w+6kuEdRJn/hmeRH7WRWCewNA3LR52MVrwcSjUVIS12xFVr+imacmqxagtVX1L96A/+me84qc8gHZNv3XxfA4JbqaNRdsH1/r8NlLylG+FLTGaTM797By5hDaEHFo2Sxizll5ozPxz6tiP6d9IfdnSkZjAt77GRZSLskusqa64GVFS7lbgg8fRbEz8T2Glu7+XUep9BpBVoJPLiPA5AQrBu2uhKdsW/NOQ0x1ATn7RJakeBFjR4YmFYJStmUINBlH1N2ubA==
+Content-Type: multipart/alternative; boundary="_000_PR3PR04MB7436A142EC0FCBD48E1AB99EB30C2PR3PR04MB7436eurp_"
+MIME-Version: 1.0
+X-OriginatorOrg: finki.ukim.mk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PR3PR04MB7436.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca5e9246-43df-4502-c601-08dc6102d893
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Apr 2024 06:26:43.0915 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f0cac47b-e2b3-4e1b-a52f-487d2d996288
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DNefDqLKAtGncG9k2QL+nc8Xj9vLU7loZ94UHz0rZnHzIIrtUKwJ1OU6PZ6WrJEU/yVQoq+5RSSjnrFz56rFFrmoIn3jGkUZYQKkbElFsKY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10193
+
+--_000_PR3PR04MB7436A142EC0FCBD48E1AB99EB30C2PR3PR04MB7436eurp_
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+
+Dear students,
+
+The presentations of the projects in the workshop "CyberMACS Workshop: Appl=
+ying Cryptography for Advanced Cybersecurity Solutions" will start today at=
+ 15:00 PM CET, at the following link<https://teams.microsoft.com/l/meetup-j=
+oin/19%3ameeting_MzAyZWFmMjEtZTg0MS00NmRiLThlM2YtMTE1Y2U3NjQ5ZTdl%40thread.=
+v2/0?context=3D%7b%22Tid%22%3a%22f0cac47b-e2b3-4e1b-a52f-487d2d996288%22%2c=
+%22Oid%22%3a%226c03b549-4812-43fd-88a5-bab7721c315e%22%7d> <https://teams.m=
+icrosoft.com/l/meetup-join/19%3ameeting_MzAyZWFmMjEtZTg0MS00NmRiLThlM2YtMTE=
+1Y2U3NjQ5ZTdl%40thread.v2/0?context=3D%7b%22Tid%22%3a%22f0cac47b-e2b3-4e1b-=
+a52f-487d2d996288%22%2c%22Oid%22%3a%226c03b549-4812-43fd-88a5-bab7721c315e%=
+22%7d> . Please join the link at 14:45.
+ The duration of one presentation is 15 minutes (for presentations with two=
+ students) and 7 minutes (for presentations with one student), so each stud=
+ent has 5 minutes for the presentation and 2 minutes for questions.
+The first slide of the presentation would be good to have the following inf=
+ormation:
+title of presentation,
+name/names of student/students,
+name of the Workshop - "CyberMACS Workshop: Applying Cryptography for Advan=
+ced Cybersecurity Solutions"
+name of the Conference - "21th International Conference on Informatics and =
+Information Technologies", 19-21.04.2024, Strumica, N.Macedonia,
+You can find more information about the conference at the following link.
+
+Best regards,
+
+Vesna DIMITROVA, PhD
+
+Professor, Head of Department for Theoretical Foundations of Informatics an=
+d Computational Engineering
+Faculty of Computer Science and Engineering
+Ss. Cyril and Methodius University in Skopje
+
+
+
+--_000_PR3PR04MB7436A142EC0FCBD48E1AB99EB30C2PR3PR04MB7436eurp_
+Content-Type: text/html; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+2">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+Dear students,</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; color: rgb(0, 0, 0=
+);">
+<span style=3D"font-size: 12pt;">The presentations of the projects in the w=
+orkshop &quot;CyberMACS Workshop: Applying Cryptography for Advanced Cybers=
+ecurity Solutions&quot; will start today at 15:00 PM CET, at the following
+</span><span style=3D"font-size: 16px; background-color: rgb(255, 255, 255)=
+;"><a href=3D"https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzAyZW=
+FmMjEtZTg0MS00NmRiLThlM2YtMTE1Y2U3NjQ5ZTdl%40thread.v2/0?context=3D%7b%22Ti=
+d%22%3a%22f0cac47b-e2b3-4e1b-a52f-487d2d996288%22%2c%22Oid%22%3a%226c03b549=
+-4812-43fd-88a5-bab7721c315e%22%7d" id=3D"OWA7b3e66f6-7b31-8e3d-d3e7-e2ba30=
+e0dedc" class=3D"OWAAutoLink" title=3D"https://teams.microsoft.com/l/meetup=
+-join/19%3ameeting_MzAyZWFmMjEtZTg0MS00NmRiLThlM2YtMTE1Y2U3NjQ5ZTdl%40threa=
+d.v2/0?context=3D%7b%22Tid%22%3a%22f0cac47b-e2b3-4e1b-a52f-487d2d996288%22%=
+2c%22Oid%22%3a%226c03b549-4812-43fd-88a5-bab7721c315e%22%7d" data-loopstyle=
+=3D"linkonly" style=3D"margin: 0px; background-color: rgb(255, 255, 255); t=
+ext-align: left;">link</a><a href=3D"https://teams.microsoft.com/l/meetup-j=
+oin/19%3ameeting_MzAyZWFmMjEtZTg0MS00NmRiLThlM2YtMTE1Y2U3NjQ5ZTdl%40thread.=
+v2/0?context=3D%7b%22Tid%22%3a%22f0cac47b-e2b3-4e1b-a52f-487d2d996288%22%2c=
+%22Oid%22%3a%226c03b549-4812-43fd-88a5-bab7721c315e%22%7d" id=3D"OWA5441e12=
+3-c15d-e40e-5ebf-13159aa8c1bd" class=3D"OWAAutoLink" title=3D"https://teams=
+.microsoft.com/l/meetup-join/19%3ameeting_MzAyZWFmMjEtZTg0MS00NmRiLThlM2YtM=
+TE1Y2U3NjQ5ZTdl%40thread.v2/0?context=3D%7b%22Tid%22%3a%22f0cac47b-e2b3-4e1=
+b-a52f-487d2d996288%22%2c%22Oid%22%3a%226c03b549-4812-43fd-88a5-bab7721c315=
+e%22%7d" style=3D"text-decoration: none; margin: 0px; background-color: rgb=
+(255, 255, 255); text-align: left;">&nbsp;</a></span><span style=3D"font-si=
+ze: 12pt;">.
+ Please join the link at 14:45.</span></div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+&nbsp;The duration of one presentation is 15 minutes (for presentations wit=
+h two students) and 7 minutes (for presentations with one student), so each=
+ student has 5 minutes for the presentation and 2 minutes for questions.&nb=
+sp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+The first slide of the presentation would be good to have the following inf=
+ormation:&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+title of presentation,&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+name/names of student/students,&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+name of the Workshop - &quot;CyberMACS Workshop: Applying Cryptography for =
+Advanced Cybersecurity Solutions&quot;&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+name of the Conference - &quot;21th International Conference on Informatics=
+ and Information Technologies&quot;, 19-21.04.2024, Strumica, N.Macedonia,<=
+/div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+You can find more information about the conference at the following link.</=
+div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"Signature">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+Best regards,</div>
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"color:rgb(0,0,0);font-family:Calibri,Arial,Helvetica,sans-ser=
+if;font-size:12pt;background-color:rgb(255,255,255)" id=3D"divtagdefaultwra=
+pper">
+<div style=3D"margin: 0px; font-family: Calibri, sans-serif; font-size: 11p=
+t; color: rgb(68, 114, 196);">
+<b>Vesna DIMITROVA, PhD </b></div>
+<div style=3D"margin: 0px;">&nbsp;</div>
+<div style=3D"margin: 0px; font-family: Verdana, sans-serif; font-size: 8pt=
+; color: rgb(89, 89, 89);">
+Professor, Head of Department for Theoretical Foundations of Informatics an=
+d Computational Engineering</div>
+<div style=3D"margin: 0px; font-family: Verdana, sans-serif; font-size: 8pt=
+; color: rgb(89, 89, 89);">
+Faculty of Computer Science and Engineering</div>
+<div style=3D"margin: 0px; font-family: Verdana, sans-serif; font-size: 8pt=
+; color: rgb(89, 89, 89);">
+Ss. Cyril and Methodius University in Skopje</div>
+<div style=3D"margin: 0px;"><br>
+</div>
+<div style=3D"margin: 0px;">&nbsp;</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_PR3PR04MB7436A142EC0FCBD48E1AB99EB30C2PR3PR04MB7436eurp_--

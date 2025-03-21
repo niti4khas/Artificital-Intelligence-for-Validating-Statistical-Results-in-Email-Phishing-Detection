@@ -1,0 +1,73 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6520:2354:b0:2ac:6419:e1b with SMTP id c20csp469139lkc;
+        Tue, 17 Dec 2024 11:33:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE+VKezpqM8Q6jOebS/U78ZgxJ3HDYT1xfyIHmX4OZo3vazl6MTIVIaqKNboe5eagv1t0SV
+X-Received: by 2002:a05:6000:1fa9:b0:385:fd31:ca23 with SMTP id ffacd0b85a97d-388e4db30ddmr51612f8f.40.1734464006513;
+        Tue, 17 Dec 2024 11:33:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734464006; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ly6SdmqxTFdgokkJlsuZOcyEgxqogSDcKFR1c55DYSJ9L32aYyeh4C4TPfJ3Fcfoew
+         cJmZgrB4gcmn6xqVK4ikPPXuNoj830KtP9qYZjOtFsc4wMfTc/YZq6CIt9H1obA/J/MB
+         BqK0VR+pmVQIS9RoF/A4AihsCppyY+19g1z3QDlRqumT0b93m5UDnHsHuukVndNVeZaG
+         f+8bRw0hWLNciz4klbjvUSHIO+C+Lr2g+s8CUS7i5Oc03plVClpeXWN00q0LjMvKuxQx
+         A6P2QozvpzLbjWpSHWvKOGEsh/QCApBSniJVZfyA4C3Cd+rtE5DI4kGRwPpO4EatM9yF
+         5i/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature;
+        bh=yaxEmJ68M+rm6J+5MtKFJtuNeEkhnszevb37ZgB88kE=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=JKanzP6eKolmo4uQEKk1OZY1wZ80cDOqDixFR5XXRR2Fl2p93vBdq7pv+4Lfpe2WTd
+         aOODiMredqcRZwgVgWZnJoXUQRbwqw05e58d9wbtxHoOulOklZa57DkRFTA1rTli+d+n
+         Yu5BuLLAgDUUm6FCV+A7YgFDT74sHm15CmQG2PmQTbgQdNie21nUmTir8TUBbJpCmsdn
+         alItJ4a9hgBOaVciL2/Tc+7JYSLgybU9DRE6OMVM25vYSzUdASqjcQdhWdBTSzZePPEM
+         5YYO86oXmUN/EKTGUFOqEpmFpUnfHrz4RZ+igjaIpJpg2iuq04JlLqZ7o4osBQvqYs1u
+         63zw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=sXGntdo4;
+       spf=pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.44 as permitted sender) smtp.mailfrom=sender@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Return-Path: <sender@noreply12.jobs2web.com>
+Received: from mail302.cloudmail.ondemand.com (mail302.cloudmail.ondemand.com. [155.56.128.44])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-388c806106csi5687812f8f.618.2024.12.17.11.33.26
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 11:33:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.44 as permitted sender) client-ip=155.56.128.44;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@noreply12.jobs2web.com header.s=1 header.b=sXGntdo4;
+       spf=pass (google.com: domain of sender@noreply12.jobs2web.com designates 155.56.128.44 as permitted sender) smtp.mailfrom=sender@noreply12.jobs2web.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=noreply12.jobs2web.com
+Received: from pc33j2wmail01.dc033.sf.priv (unknown [130.214.228.227]) by mail302.cloudmail.ondemand.com (Postfix) with ESMTPS id 3E29E1012ADA for <ham@ham.email>; Tue, 17 Dec 2024 19:33:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=noreply12.jobs2web.com; s=1; t=1734464006; bh=ZrB1jWr+j/JEKCgDxHdKcmkCScZH/lLrlJ0mqgQqy6I=; h=Date:From:To:Subject:List-Unsubscribe; b=sXGntdo4VR80KP05FZz5Dn17R4NvfboKYc4SRJ785n9W4yia9m1eKcQNf083pS7t9
+	 8Eqj680PlN4VrXHt9Rzys6l5rTf2GVv5HxdO7QNAh13UyBiJa5FfuZPUzeqQ2qdm7W
+	 lyKoXerCqcYnvdPwNjm8NDAD5z8bmWbQK4Jm1y70=
+Received: from pc33j2wmail01 (localhost [127.0.0.1]) by pc33j2wmail01.dc033.sf.priv (Postfix) with ESMTP id 22EB71802808 for <ham@ham.email>; Tue, 17 Dec 2024 19:33:26 +0000 (UTC)
+Date: Tue, 17 Dec 2024 19:33:26 +0000
+From: sender@noreply12.jobs2web.com
+To: <ham@ham.email>
+Message-ID: <2131290529.197564241734464006141.JavaMail.tomee@pc33j2wmail01>
+Subject: New jobs posted from jobs.atos.net
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+List-Unsubscribe: <https://jobs.atos.net/unsubscribe/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US>
+
+You are receiving this email because you joined the Atos Talent Community on 8/6/24. You will receive these messages every 7 day(s).<br/><br/>
+	<b>Your Job Agent (SOC Analyst TDR(m/w/d), DE) matched the following jobs at <a class="agentsitelink" href="http://jobs.atos.net/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">jobs.atos.net</a>.</b>  <a class="agentmodifylink" href="https://career5.successfactors.eu/careers?site=&company=Atos&clientId=jobs2web&lang=en_US&navBarLevel=JOB_MGMT&subNavBarLevel=JOB_ALERTS">((Click to modify))</a><br/><br/>
+	<span class="agentjoblink_bullet"></span> <a class="agentjoblink" href="http://jobs.atos.net/job/Senior-Security-Consultant-SOC-%28mwd%29/1008472501/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">Senior Security Consultant SOC (m/w/d) - DE</a><br/>
+<span class="agentjoblink_bullet"></span> <a class="agentjoblink" href="http://jobs.atos.net/job/Security-Consultant-SIEM-%28mwd%29/1120815601/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">Security Consultant SIEM (m/w/d) - DE</a><br/>
+<span class="agentjoblink_bullet"></span> <a class="agentjoblink" href="http://jobs.atos.net/job/TRAFOSecurity-Consultant-SIEM-%28mwd%29/1120827901/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">***TRAFO***Security Consultant SIEM (m/w/d) - DE</a><br/>
+<span class="agentjoblink_bullet"></span> <a class="agentjoblink" href="http://jobs.atos.net/job/Business-Operations-Analyst-%28mwd%29/1053188501/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">Business Operations Analyst (m/w/d) - DE</a><br/>
+
+	<br/><br/>
+	<b>Update your preferences.</b><br/>
+	<a class="agentmodifylink" href="https://career5.successfactors.eu/careers?site=&company=Atos&clientId=jobs2web&lang=en_US&navBarLevel=JOB_MGMT&subNavBarLevel=JOB_ALERTS">Add another job agent (keyword and location used to search for jobs).</a><br/>
+	<a class="agentmodifylink" href="https://career5.successfactors.eu/careers?site=&company=Atos&clientId=jobs2web&lang=en_US&navBarLevel=JOB_MGMT&subNavBarLevel=JOB_ALERTS">Change the job agent frequency.</a><br/>
+	<br/><br/>
+	Remember to forward these jobs to any of your friends who might have interest in any of these positions.<br/><br/>
+	A password has been system-generated for you unless you opted to change it. Please note, if you are prompted to log in or forgot your password, you can click "Forgot Password?" to reset your password and access your profile and agents.<br/><br/><br/>
+	<hr align="left" >
+	<p align="right"><a class="agentmodifylink" href="https://career5.successfactors.eu/careers?site=&company=Atos&clientId=jobs2web&lang=en_US&navBarLevel=JOB_MGMT&subNavBarLevel=JOB_ALERTS">Email Settings</a> | <a class="agentunsubscribelink" href="https://jobs.atos.net/unsubscribe/?from=email&refid=25575249401&utm_source=J2WEmail&source=2&eid=21801-202433170733-30094885401&locale=en_US">Unsubscribe </a></p>
+	

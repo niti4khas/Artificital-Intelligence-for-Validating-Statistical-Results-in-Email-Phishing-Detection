@@ -1,0 +1,152 @@
+Received: from PH8PR19MB6999.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Thu, 31 Aug 2023 02:10:09
+ +0000
+Received: from DS7PR03CA0041.namprd03.prod.outlook.com (2603:10b6:5:3b5::16)
+ by PH8PR19MB6999.namprd19.prod.outlook.com (2603:10b6:510:228::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6745.20; Thu, 31 Aug
+ 2023 02:10:07 +0000
+Received: from DM6NAM10FT020.eop-nam10.prod.protection.outlook.com
+ (2603:10b6:5:3b5:cafe::14) by DS7PR03CA0041.outlook.office365.com
+ (2603:10b6:5:3b5::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6745.21 via Frontend
+ Transport; Thu, 31 Aug 2023 02:10:07 +0000
+Authentication-Results: spf=softfail (sender IP is 104.237.145.146)
+ smtp.mailfrom=bradesco.com.br; dkim=fail (no key for signature)
+ header.d=ancientalone.com;dmarc=fail action=none
+ header.from=bradesco.com.br;compauth=fail reason=001
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ bradesco.com.br discourages use of 104.237.145.146 as permitted sender)
+Received: from ancientalone.com (104.237.145.146) by
+ DM6NAM10FT020.mail.protection.outlook.com (10.13.152.115) with Microsoft SMTP
+ Server id 15.20.6745.21 via Frontend Transport; Thu, 31 Aug 2023 02:10:07
+ +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:67FC8E0FFAD3743C746471D0D4914C5FDA7BE3C4F9D9B98753E5FBF6CB4DC411;UpperCasedChecksum:24DD072D72F6CDABF836EAA45457FE1139CD8AFBA0FD3FB83CAD38CADA126C53;SizeAsReceived:1080;Count:9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ancientalone.com;
+ q=dns/txt; s=default; bh=hvlu2WJ2juBABejjKAOmXLoGgV7WRmNmPEI+2XeNEF8=;
+ h=from:subject:to:mime-version:content-type:content-transfer-encoding;
+ b=Ce0zolUHSXp4+WABhkj+A35Z8JDGaFFTsMfiLnTdMamSrzvL4TyppfcaTcThBCbcNOuKxM0ZH
+ z9WI//zSHNxjyignpYvRv+hKJaPxYU/F/cVgavqs7jd9t6gjFRTj1PgphqGo4YvcUP6YQzCmtEz
+ pjmeOgIoTeY/IkoaD5SP2u6z9I/uk1j23CaDbQ95fpVLnIC67wPOQd0Qry3u83JKQVoynmz98Oo
+ Vuhbt5NlWlLJj5FZeIvp4hN4cpMn6YhLPSaHukknpl1wEruN27l/xYK/8hXaGQzAJqwvGQwhILH
+ eCx4FaXMJRRWWB+4GVNhTbCl58Krbtr9Di1XqOz2MwJw==
+Content-Type: text/html; charset=utf-8
+From: Bradesco Prime <contato@bradesco.com.br>
+To: phishing@pot
+Subject: phishing@pot,
+ =?UTF-8?Q?voc=C3=AA_alcan=C3=A7ou_o_cart=C3=A3o_Bl?=
+ =?UTF-8?Q?ack=2C_mas_h=C3=A1_algo_que_voc=C3=AA_n?= =?UTF-8?Q?=C3=A3o?=
+ pode perder! Bem-vindo ao Bradesco Prime
+Message-ID: <0320d714-789f-3b54-34c8-8dc7821a2dde@bradesco.com.br>
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 31 Aug 2023 02:10:07 +0000
+X-IncomingHeaderCount: 9
+Return-Path: contato@bradesco.com.br
+X-MS-Exchange-Organization-ExpirationStartTime: 31 Aug 2023 02:10:07.5893
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 6dd58f0e-4c49-4f5d-176b-08dba9c765e1
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DM6NAM10FT020:EE_|PH8PR19MB6999:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DM6NAM10FT020.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/31/2023 1:53:02 AM
+X-MS-Office365-Filtering-Correlation-Id: 6dd58f0e-4c49-4f5d-176b-08dba9c765e1
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 104.237.145.146
+X-SID-PRA: CONTATO@BRADESCO.COM.BR
+X-SID-Result: FAIL
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 9
+X-Microsoft-Antispam: BCL:9;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2023 02:10:07.4643
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6dd58f0e-4c49-4f5d-176b-08dba9c765e1
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ DM6NAM10FT020.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR19MB6999
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8019699
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6745.021
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(91040095)(9050020)(9075021)(9100341)(944500132)(2008001134)(4810010)(4910033)(9710001)(9610028)(9520007)(10115022)(9432268)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow8tCacANDFIPxVFK5IWbneQPktA3UJ1JLJwnUydPoANjGq3Z/hUDxRFtF99BsOABUqBNkN5rcs/se2iod8Gh0Zfi88kkJAzLK8Q9U5i80QRug39j2yRGdPOmCY4Z1XiOQINdbFRWiPrx0ouzcN2ji4Q6hnh34Uj1V8+txBtoqk701r9mVxp30Xhk1NFpllnEMsX1vCnh/fNmA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?dWFPNHJRRGFmSG83dnU2U3VFTUEzbklKc2RicnZ4aXVKM0M2TEpTNTRzejVt?=
+ =?utf-8?B?dE9KT0xkNlRMZFA5M25Xc2ZxdFhkNm8wVFh3WE9MdWZ3bk0xOTE2d3RoWUVE?=
+ =?utf-8?B?NUt4RmJTY3JTNnhKckcyWEVFb2lIM01xSXcvU0kzM0JiMUplS3cwYkJiOUtw?=
+ =?utf-8?B?LzNhSlA3U3BUZkNxK2Ixd3B6d29uTWVSWnhla1lDOEpEdVQyc2NwZ1BiM29h?=
+ =?utf-8?B?UnpOa3k0OEppdjA1U2pzM254dHZHZUZ3cjlzellPa1I5cklwU09SS2Jlb3A3?=
+ =?utf-8?B?dm02andiaG4vT3FyNm5NYnlLc3ZodGJRMGwxT3RmSGV3QlB3ckN3RzB0blQ0?=
+ =?utf-8?B?RVVYNSs2NSt2a2wxb3FIN3VGTFNINU5FRUJCazdlNmRpTUFNM0gyQUpuYVdS?=
+ =?utf-8?B?WW9sYmJodVRiVmFBTFphdXljL3FscitpMlQ0cTNwbE05eGFyQnBWK1pVeHow?=
+ =?utf-8?B?OVVsd2NCZkwyZWxjcGcxWUhpT3JNWCtIbk05L3RIbEJJNjJlVTdTc21CdFR4?=
+ =?utf-8?B?djF1eUpWenFUTkFEbCt6ZUZRT3hIS25XZVVaZ0RUMXNPTnV5TVQzNWIxV1Nz?=
+ =?utf-8?B?V21URFRHbERqb01nOWdSOFB4UE05Tk52RmtiUlI0MzNHNGo5ZmY0MHdZbXZw?=
+ =?utf-8?B?U0FWMnJYczdFeS9BSEQrY3E5TFY1WUNVM2kzTlQ2WmZUamZlTGdiNTZUWnBU?=
+ =?utf-8?B?WE4vMERRaEpXOXBkTlZ0cnJUdEMva0FHbW5LM3dlQmFjVDNSbWpQODJRSUpu?=
+ =?utf-8?B?L1hOTThTUUlCRUNlbmM1ZDAxMzUrcEZsSUVXU2toZXJsaUFPTkRZOTdhTzVw?=
+ =?utf-8?B?cEF3ekFFNzJuaFV4MzU0cENkRlhRZFNPeXZIOGZKZ3h4T2VRNW0xNlhSbVBX?=
+ =?utf-8?B?SXBJUThVdnpBQ1hLa3FrT0s5SzRnRSs0RUNuVW1HdGVwZ2IwQ2FFVHRIUCtP?=
+ =?utf-8?B?NHp1b2lPekk0VVFZaHNpTVh3VE5IREYxNi9aNXNOU3I1RG1aTVQzRWZneEFs?=
+ =?utf-8?B?d29uckMvQzY5VFpEZG5MSlVWbzVacDVsRU11RHFJd25IcmxESDh5L01UWDVp?=
+ =?utf-8?B?VXBjT1Jqc2ZSa3RhaFNEVkk5ZUwyMmxYWUxvMXVKeXVSNlZ1akk4NGh6MEtm?=
+ =?utf-8?B?Sk1FelFLMnhVVndMUmRXRW8yN0IydEhoYVlTOEIyM0I2VGwvNHFwRFBtRzlt?=
+ =?utf-8?B?NlVKb2dVZlpmZWU1eDJDSFk2eEZ1THNDVjdEYzlHbnU0NGlSekx6cmtaNnBN?=
+ =?utf-8?B?MXB2dUUyb2hkVWQ5VXhidGVVSHkyV2U3RXZ1dm0zQi81R1dpVE1hKzFHYlp0?=
+ =?utf-8?B?ZDliQ283Zm52eVVXMDBhM3FhbEs4elpVMnhCeC8yZGdrMTFIamc4VkZZdHBm?=
+ =?utf-8?B?bDUrbXBKVFdEdFFIWjJTTERnNHNEMUp6T3cxTmVMNTduUXMxV1JDOHlJZmxM?=
+ =?utf-8?B?cXVFVTQyZmhSSjJuNjZpSFdGYUVvZklOdndvWlpSMThmTmdoaFMrNzdQNDdZ?=
+ =?utf-8?B?eGU4UzZ2YmtlZUpsa1BGNk1aZVZ6eGJVQTNmdWdIaDRkdnJyUEMrYkt2aDlt?=
+ =?utf-8?B?R1V6ZFlISTlJUDA2TERSck5TcW5kYVgwdnlIeEdnS2d2UGEzVUV1c2dRdjRM?=
+ =?utf-8?B?NE50Q0c5WHdpRUZxSlJ2bmE4RmtWckNZS2R2T0lXTDFRaGpIcjFFZTdLOVZU?=
+ =?utf-8?B?VzMzeVloZmdNVUlva2RSN0tGLzA3aUhlMmdaN2dUbWw0TzRzVlV0Q3FUYVQy?=
+ =?utf-8?B?elg0R0xTQXdtYjRYcnl5WHkwbUN3OEFtMHFoZjhXVEFnRkFPUW9HQ1dBQmRm?=
+ =?utf-8?B?NGxyR01OZk5xZnpBaERMMGplTXhpbHJrNDZaQWNLUWY0QXRTaWgrQjVxTkU5?=
+ =?utf-8?B?YUVabElZSTBQQWpwMzkrUmxCZmZFWm90YzdzMGVrakRHNjBPbCszb2VYcEtt?=
+ =?utf-8?B?ODdhS3o1NzY4QUJsU0FjTm8vRzFjeDRMSUh1RnI2a3RxWGF3dkRPRGxDcDk1?=
+ =?utf-8?B?TTlEK2FnM0tvUkV3UXNscDRGbVJDT0w0Q2xUTGd3YUxlNHUyK0xPYWxFS0g3?=
+ =?utf-8?B?aUUvd2FkRkJpK1BVQVZ3eTl5WHh3RUdBOFk3b0FmTHdEWGQzMkFNdW1Kb2Qy?=
+ =?utf-8?B?OXdmOS9VWWdISUlkaU5TVVk2TEw5U2lkcHlrYWFjKysvU29sL3JJNEd4UkM3?=
+ =?utf-8?B?a2pOUHdhNFV4cFpQMGhlQk8xbU84cjVxR3BpaGVPaTI2blhnS0VIbkRrdCtB?=
+ =?utf-8?B?RFovVzVpem8vWWU4bUMxTlQwY2JsbkFIMEVqdGc1K09HSXlaRVl1QVhDZXJL?=
+ =?utf-8?B?eC9aUzVpT3pKK3E0Zlp4YjZhTStOQjVjMmcrcTlsREhwMkFPRDVlVEZMQy9i?=
+ =?utf-8?B?VnZVOWtSQjZCbloydDUvbTI4R1RmZnpCckJOYVJOZjBXNlRwVXgvS285M3ZD?=
+ =?utf-8?B?Vmo3Qi9JVms1M3Q1MWpNaEFsZFdkZDUxZDJNWDk5bXBoeGNLQmhiSGZPOGhT?=
+ =?utf-8?B?NzJSbGdCb1pXQ3oyNzVhTUJSWmxRaXo3K2RBcHY2MGZ2WEtQSmZ3SzNJVUFo?=
+ =?utf-8?B?Vy9zYURBeFBDZ2FSLzhSaDgzcDhQaUtSaUdKQTdkOWVDbHRDcEJwOFgyWmxt?=
+ =?utf-8?B?Vk5qb2FtZzZ5V242cS9JWmNZT0x1aU1SVE5UMFpKczdPRnoxZzRzWExXODNV?=
+ =?utf-8?B?Z05TNmswU0o0ZklNNU9ySWJiVG4xNUhTU1g2dGkvTE9KczZKeE51cGQvWFJl?=
+ =?utf-8?B?Nkdhckh0Q3QzcVhmc2J4dnluOUhDTEtqVFU4ZmpyQWRJcmRhTm1vSUw5b2Fr?=
+ =?utf-8?B?SGFBU2Q2dGkwTTlTMmpSalNHUk1TYTRSaHVYTDFBOUpoY3pkcnJSejR6dE9I?=
+ =?utf-8?B?bkNHZ3pLQnNFZnduaWNZQ1Q0YW5uNlYzZVNGdkNsYWllRnkyYkVYSVRFdnF6?=
+ =?utf-8?B?cWdwVjk4T1BoQncwUkRFYVpUUk9jRmo1SlJveC9mMEtmdnJRenRLbU5UNzRH?=
+ =?utf-8?B?emp3TGI2SHJoMm8velp4eXBmaFJlZTh2c2tPTGgyVE9Oem00UjFZcEdOb2JF?=
+ =?utf-8?B?dy8xektvUlJkZTRkVHZGeDBPNWp4ZHh0ek5iNmQ2bUt1NTcrYy9MRGc0RW03?=
+ =?utf-8?B?a1p0SVFEY1ByLzV6MWhEdUFpS203YmNqQlk4dEhYQTBYMXJzZlpKWHVyMXFM?=
+ =?utf-8?B?RmJ3VnpiMHR0L29lODN5ME1abHF4aitPaUFmVkk3MlVWOW1QenBEb3MvaXdh?=
+ =?utf-8?B?Tld3MVU4Tk1icDAveVZkMkhEaFpGRW5tZjdZSHBzbjVOMDN4K1pJSUErM01M?=
+ =?utf-8?B?MmpTSTdrM3Jlc3FvVitWTHVVNlFUOWZHNVhxc3Q4ZVNhbUNkMzZVUk93Zlhu?=
+ =?utf-8?B?WTFqc3RxS2NzZ3VGc3RKdWVSZWdMYllUcXRXc1dtTE16dkFvd1g2L0RGQUlX?=
+ =?utf-8?B?RVJaRU16MzRYc3hCcFp3b3ZCSU9CWThMTTdPQXJVblFHcVBvcGxmNC94Wksr?=
+ =?utf-8?B?TllXaTBhTEpkTEcwb2kzRC9OOGZnYXEzVEkyZ1RVeWFrQXNQS1JkdTROMHRZ?=
+ =?utf-8?B?OVNPZHp3bm5wV1h5TDVFajFvVW5xVUI5VFp3R2ExVktuUzNrRzV5NG90RGVw?=
+ =?utf-8?B?MGZyWXp5djg2TERKVFk0SlpzV0NDd3g3bmVtSTF6cHArTVJjR2tlVG5BSXln?=
+ =?utf-8?Q?V8lZmHw6ZsrgoaO/FA4bQ+giLnm1ch4=3D?=
+MIME-Version: 1.0
+

@@ -1,0 +1,152 @@
+Received: from BL1PR19MB5985.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Thu, 24 Nov 2022 01:28:22
+ +0000
+Received: from DB6PR0202CA0014.eurprd02.prod.outlook.com (2603:10a6:4:29::24)
+ by BL1PR19MB5985.namprd19.prod.outlook.com (2603:10b6:208:39c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5834.15; Thu, 24 Nov
+ 2022 01:28:21 +0000
+Received: from DB8EUR05FT017.eop-eur05.prod.protection.outlook.com
+ (2603:10a6:4:29:cafe::5a) by DB6PR0202CA0014.outlook.office365.com
+ (2603:10a6:4:29::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5834.11 via Frontend
+ Transport; Thu, 24 Nov 2022 01:28:21 +0000
+Authentication-Results: spf=none (sender IP is 177.85.160.166)
+ smtp.mailfrom=email1.wwow.com.br; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none
+ header.from=giovanabaldissera.com.br;compauth=fail reason=001
+Received-SPF: None (protection.outlook.com: email1.wwow.com.br does not
+ designate permitted sender hosts)
+Received: from email1.wwow.com.br (177.85.160.166) by
+ DB8EUR05FT017.mail.protection.outlook.com (10.233.239.55) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5834.8 via Frontend Transport; Thu, 24 Nov 2022 01:28:20 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:3FAC18F1A4086195A3F18C4D2982C0FD5F8A4FEC6168977F81DC5B3888C4F530;UpperCasedChecksum:D1F098EA33B5B8B5E401675C1E5E6789AEF2148209C1A97F437B94EC92CBCAF6;SizeAsReceived:1554;Count:17
+Received: from localhost (localhost [127.0.0.1])
+	by email1.wwow.com.br (Postfix) with ESMTP id C9FC6206155
+	for <phishing@pot>; Wed, 23 Nov 2022 23:28:18 -0200 (BRST)
+Received: from email1.wwow.com.br ([127.0.0.1])
+	by localhost (email1.wwow.com.br [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id l0fi9quz4j4y for <phishing@pot>;
+	Wed, 23 Nov 2022 23:28:18 -0200 (BRST)
+Received: from localhost (localhost [127.0.0.1])
+	by email1.wwow.com.br (Postfix) with ESMTP id 37E0F20615F
+	for <phishing@pot>; Wed, 23 Nov 2022 23:28:18 -0200 (BRST)
+X-Virus-Scanned: amavisd-new at email1.wwow.com.br
+Received: from email1.wwow.com.br ([127.0.0.1])
+	by localhost (email1.wwow.com.br [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id SSm-aH6e8cj8 for <phishing@pot>;
+	Wed, 23 Nov 2022 23:28:11 -0200 (BRST)
+Received: from email1.wwow.com.br (email1.wwow.com.br [177.85.160.166])
+	by email1.wwow.com.br (Postfix) with ESMTP id 1963D20615E
+	for <phishing@pot>; Wed, 23 Nov 2022 23:28:11 -0200 (BRST)
+Date: Wed, 23 Nov 2022 23:28:11 -0200 (BRST)
+From: "Stellar.org Team" <noreply@giovanabaldissera.com.br>
+To: phishing@pot
+Message-ID: <97684353.1142.1669253291024.JavaMail.zimbra@email1.wwow.com.br>
+Subject: Stake your XLM for 25% yields
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Zimbra 8.7.0_GA_1659
+Thread-Index: 0tnlqYo/UYPeQj0eVB2FH/hcHbch8Q==
+Thread-Topic: Stake your XLM for 25% yields
+X-IncomingHeaderCount: 17
+Return-Path: office930@email1.wwow.com.br
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Nov 2022 01:28:20.8047
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ aa14d37e-a5d5-4d31-1e01-08dacdbb2c0e
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB8EUR05FT017:EE_|BL1PR19MB5985:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DB8EUR05FT017.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/24/2022 1:24:37 AM
+X-MS-Office365-Filtering-Correlation-Id: aa14d37e-a5d5-4d31-1e01-08dacdbb2c0e
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 177.85.160.166
+X-SID-PRA: NOREPLY@GIOVANABALDISSERA.COM.BR
+X-SID-Result: NONE
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2022 01:28:20.6172
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa14d37e-a5d5-4d31-1e01-08dacdbb2c0e
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ DB8EUR05FT017.eop-eur05.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR19MB5985
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8812745
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5834.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(90000117)(90005022)(91005020)(91035115)(5061607266)(5061608174)(9050020)(9100338)(2008001134)(2008121020)(4810004)(4910033)(8820095)(10005027)(9610025)(9540006)(10160021)(9320005)(9245025);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow8pbXoUvnEv1C+vvlAUp/lXvzH1n3YgXLSFzJRnkDgKLv+c69zFLqpIWveXKAYxtrmIuUz30N1lKbASCRPNW4juQmVMcYl4fhgGHo8B+M2wPvvrun9arsT6gLXMD4LagBM1ozJ639Dubg2E8lmUSuf0UYNkaK9E94hmOFrI1yzJUfsADUAjGfaESHPhIFFVaQWSYnF1rOSBhw==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?NXBwa0pwUHhQMkxTN1UzU2RnaFpHQ3JHTmR6Mlp5OGhld3V2dmtXekVLcElF?=
+ =?utf-8?B?Y1RWNGJDVGx2UlVZREtYSU8rWU1NOGdCMmx5QVo5WnN4K0htbjJvd2Nqblpu?=
+ =?utf-8?B?ZkFSbnhsbFF6d2ZCdU9SejBLVmNBakIrUVI5N1I0ek5pMTJ3M1RwaUdMMFRY?=
+ =?utf-8?B?RVBWaTEyeDlKd1dXRVlZU0hIYm5HVWFKME4zQzdjbDhXZDNmWTdBTU1FYzRB?=
+ =?utf-8?B?cWFaZkZWNDcxOXgzVDBzQ2NZNzFFNmoyREh0UUt5UnhZVWw2d3dQRWNJVXJR?=
+ =?utf-8?B?Nk52cE9zdlg3cm5SQU01ZURza3hkRzBDN3laTmh0NTkyOWg4NFhOcGJ6ZlVO?=
+ =?utf-8?B?NnFWUXphcDlsMk83S04vWGg2TWNzTnNVR0Y0emJkUy95VFdRcFU3NHJTdFho?=
+ =?utf-8?B?ZGJUM1dOeVlFUlpoYjBsdHlhMnpCM2xZS3B3dGQ0SktVYVpVRzJDdnBDMjd1?=
+ =?utf-8?B?a05mNlQwWUlQNWczN3I4VWRLWHl3Ni80Tkt4UFlaY2k2Wk0xYkYxOWJSZE1r?=
+ =?utf-8?B?Qkx3VmdBZW03OHhSeVhPWTJESSt4Mk5ZeWJXQXJrdmtTMElLMjgvZk4wNjNw?=
+ =?utf-8?B?aGl5cElvSlJQYXdnLzRhZ00rSUJpTDdGc1FXRzR4QzQzTngxQ0F3TWJpaEIx?=
+ =?utf-8?B?WTRNSUR0RnEzUWtqeXRIa0FnYzZTN0FCaWlrZTFCNlhSbUlESHowUDlURkd3?=
+ =?utf-8?B?K21GZFZqaURTeFZtcExCSGdiSkd4ZUVFbFltZkY4c0RkNXB2eWg1MzVRM2E5?=
+ =?utf-8?B?S01pZ040Zy9sM2dGaCtObzNzREtUcFdzM1BZYjlTRzd5NWZTS0Z2MW91OVFz?=
+ =?utf-8?B?a3BmR0RJMVltZW1EaWY2UkF5dzBRUGNHdW9mZ01zUnNGNDRDSEFOcWh2NEVH?=
+ =?utf-8?B?ZmxrTDhpdTQ2eFBKRE5zS2dLMWR5S1ovU3d1N25OTzRXY3FDbnF5RTRMcDRG?=
+ =?utf-8?B?b0dNcCtvTjQ3SmRwVWxycGhmWXVDUDJOUmZ0OFRKWnlaQnM0cldWZWt1WFNU?=
+ =?utf-8?B?Q3ZyaWtvWjJOQTlYVnFtSE9PUHcwMVMyRzJOYXMxdDRNalFNMzdCTmpETE9K?=
+ =?utf-8?B?am03TnVreWZOU21PUkg4c3dNallvM2JGUGMzQW9Zc25lNGFyQkhPOHdGNjg4?=
+ =?utf-8?B?OFBrMUcvTlpIQ0toMWtacCsrSk5qbEhKN2Q4MUhHQlk3VGVHUWhmOEFRMWRZ?=
+ =?utf-8?B?YWFtaVlqcGV3SjdWcnR5RjJ2eE1LS1ZYd3ZIUi9xcm9sZ0hMOTFBUGtzc0x5?=
+ =?utf-8?B?MW9Nc05YTTN6ZkxzZ0ZHT3Z1NDRxdHFmN0wzRG5FaXp5WG5wRVMrUlUrMncr?=
+ =?utf-8?B?TEJxampMVWhmZWJZd0ljaEVuVjJ6RWIvWC9ESHJjNllGd2h3YzhJZzFqYlVX?=
+ =?utf-8?B?YUk3dGtwb1FLbFoyRWJwM2taYmFkYjV4TUxwaW9hdFZobDVTNW1TM3I0ckVz?=
+ =?utf-8?B?V2xadnEzTExtVjB1cHVKQU5pM3ZqbVIyRkRJTHBYdGpzUlg2dXgyQU4vcVZm?=
+ =?utf-8?B?Z3E1M0M5d1I5dEM4Z3Z6Y0dKZlhXbVc5N2dWQlBpSlVSRVpsTXNYUzNLVHZz?=
+ =?utf-8?B?LzlmeDd4N0Zycit1MHlPVTRnSjlHeTRCSzFNN014cXc5cmoySTR0RjJXK3dP?=
+ =?utf-8?B?NUNLcVBScGVsbk1yL2FYVTBvWmVOdVBRcGcyYmIzazh4NlpHVXVoRGdWTkdC?=
+ =?utf-8?B?NWtVbUdRVWVyVU9yaGJrb3hweHNKKzkvREdVaWtxbHpuVDBnczM4MlNyZmpt?=
+ =?utf-8?B?b3E3MTh5TnV2M2ZTU0Q5L0NZSWcxL04vV1RoZFJoWVlJT3oybWVwZDdoK3VR?=
+ =?utf-8?B?OFFlMnZaQ1RsSXhoUlQ2d0Z4OHhUcmFpV21wZnhVOUJ6MWJjeVRvOXFZVDBk?=
+ =?utf-8?B?UFRSSkl6a29teG9CWDJ6QmVjajlnQzJ5dHFtNlhDOTJwNTMwcHltQWdJZ3Vt?=
+ =?utf-8?B?WlVEcEJmSGgrb204QWxIdFZVUTZWbWFxUzFQNm02UGhxZ0tKN1hFTTc5ak5Z?=
+ =?utf-8?B?RERvaUdrOUszeWoyL0NTUkpId2E0U2JQTDlTS05DMFpmQnNRS3pDVXZFUWNT?=
+ =?utf-8?B?SWV0eEdUWmFHZ3RwTklnSmVTMDBiSVlaaHpsUENuWUpLOG5PNjE0eXcxZXNH?=
+ =?utf-8?B?NkVlamJwVHlRNEJjL25nQ0JYR3pEc2JhRWpjVFJ0bHI2Q3VCWmY2dHRWSU5F?=
+ =?utf-8?B?K0ltZVlmSzZzand0aHJBUVNRbkJhakxTalgrdUd1VHg3dEp5ZGFDcWpsWitQ?=
+ =?utf-8?B?WVliTDNZWHRHZTNmMkV3S0l2SVhINW9vaXFUVGwwREJGMkJMSUM0Y2NEV014?=
+ =?utf-8?B?V09WUVVJbjJOTE93UnhRK1VGb0NteUxYVHMyeG5kaU1xdlJkQ29FQ0dodmdz?=
+ =?utf-8?B?REVLNVpXTGlCZzVjelZwZitDL0RVZ3ZKOHJuTFBCdDdBbGduVHUvbVQxTUQ0?=
+ =?utf-8?B?L1FYeloybU9QVXRETmJxNVJvRHNHSit2RnJJSUJMVkQxT0tFRnc4K1BFWmZQ?=
+ =?utf-8?B?WlBQcVA0Q3lXb2NyWUtGMlZaWGlrMXJyL2VKM0dmN1V2c25uczlST29ncDh6?=
+ =?utf-8?B?d2hkeEFtM0VGbURQRFBLQ0FqZzVNSDk3Mk1ISVJqcTRJbVZVN3B0NUNick1D?=
+ =?utf-8?B?SnEyN1g0d0dlUkJGK2swVGwxT25KSEtDWVlRVjNlUWlpUDFmV2JwSFplcUM2?=
+ =?utf-8?B?NDN3QzNVOHRzam4vdEF4SVlydFYxeVVtKzA3RFZyb21QS2xrZ0xjOGQweFVp?=
+ =?utf-8?B?RWRyWEVYQVpZdGVqMFJMQXd4T2w4OHhCQXlqOTI2SGcxV1pqMlNuZ2JIc28y?=
+ =?utf-8?B?czMzQ0FRWDRUU2NRVXAzZVRLWjB4ZytWMnh0TEFZUkJPV09DSjBMbkRMaUI2?=
+ =?utf-8?B?NzZSTG04QjI5REZTbTR6d0ZuMUJGYVlSTHdGVFNrR050bjVPUk1nYzdiMGR4?=
+ =?utf-8?B?a2FwK0VCbWRzc2tMTzlOOHcwOEpvMFg5NkthY1g4aUV5eXlUNDdyQ2pycjF1?=
+ =?utf-8?B?S2ZtNDZ6aEZpb01EdkpSZThZdGJteU5sTDN2Mkt0S0o0QnNBNzB2Nm5TSDFz?=
+ =?utf-8?B?REdFN25JellDbzlpbEdBcjJYMlB4Wkg5ZnMvcldCdHoyVms0UStteHIxSU81?=
+ =?utf-8?B?Q3UrSjhKNy9SL1R5MmVNekZjakZQbmpzem5GL205Zz09?=
+MIME-Version: 1.0
+

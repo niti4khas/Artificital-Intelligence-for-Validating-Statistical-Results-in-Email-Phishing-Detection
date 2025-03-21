@@ -1,0 +1,1638 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a5d:6410:0:b0:35a:9a7a:f772 with SMTP id z16csp1459721wru;
+        Mon, 3 Jun 2024 03:56:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH9lVOLMNWb7XRG+rplyFizsxXl8n+WEz31kUkLb9Bq6O399poUehZKbLu4IzpTNJjFRk3y
+X-Received: by 2002:ac2:4246:0:b0:52b:8610:a7e9 with SMTP id 2adb3069b0e04-52b896e3c6fmr6104022e87.62.1717412172293;
+        Mon, 03 Jun 2024 03:56:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1717412172; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0H31llGSJ9WTTHGFEmalmrAmIpb7/lTgitGHmuczz7GoLlYWZ0YdlhBTpCLeIacsr+
+         H0GRzM+MSFuE9D0y7PmliRXOaK+DkL6DdAI8NO1yJlY9W/xBm7scVudQGuLbj9MHcJi5
+         hrGipnnaCdkhGgX1wSanDAQDEUhysSpugkUYM3H24UfZvlENP60AA6e3HzWjPTg2w+C3
+         yyZboWwFa+7L/QxNlT8ofpTiYxb9D7sLsUSyahIemk+gydnFURoAIb9GZO/p5SG2S8XA
+         lAU9Wl6A/iDa5FXDBAOciWic/8NrE70FpiqdlYqg/bDS8FbwTsmuohCJwM4wHtp7OLHZ
+         qDNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:reply-to:precedence:list-unsubscribe
+         :list-unsubscribe-post:feedback-id:message-id:date:to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=CacXTjMc68Xm2of1cCvB+jNCQ2r+qjvDH8codUgF5OU=;
+        fh=UO+8zkL5arLMEKEfMlhQPSdFGnl9FeueH899m26O7Rs=;
+        b=MLk3H+zl6AZw5ZEXs7LcKNZl2/pzID80kZ/qcUIgXu6nhNTct2PKHUsoFlk7bdd5G1
+         F+nAQpiwB2idKULwGK4x8DE70svIzLGzaQiKv4eEpy6y/+PthZh3k73LsI4xJjYBs2rE
+         v2Z2vu3cK5sk7PnKucQ+CxN9gPttAWnRJ+vYGygYmvWZpdd1wPi/+Uv6PTQGS9NqW2HD
+         rKB9bpohCjfo70K+3pMZBWMUkb++ZHCiaaBrgtBLVis/sRIpcVaabN6SC0B68Z9EpBsW
+         QWcG1erW+Z8blpDTglTLSGM17TOKxvhtiU/MXdCjTYWCukpj+Ch5bD+uaA1LwldSYAHk
+         iWhQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gravitywrite.com header.s=litesrv header.b=tMpjc4Nt;
+       dkim=pass header.i=@mlsend.com header.s=litesrv header.b=tW2WvCEJ;
+       spf=pass (google.com: domain of bounce-123115577623446620a525659@mail.gravitywrite.com designates 185.225.161.44 as permitted sender) smtp.mailfrom=bounce-123115577623446620a525659@mail.gravitywrite.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gravitywrite.com
+Return-Path: <bounce-123115577623446620a525659@mail.gravitywrite.com>
+Received: from mail044.mlsend.com (mail044.mlsend.com. [185.225.161.44])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-57a3173117fsi3906523a12.0.2024.06.03.03.56.12
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Jun 2024 03:56:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-123115577623446620a525659@mail.gravitywrite.com designates 185.225.161.44 as permitted sender) client-ip=185.225.161.44;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gravitywrite.com header.s=litesrv header.b=tMpjc4Nt;
+       dkim=pass header.i=@mlsend.com header.s=litesrv header.b=tW2WvCEJ;
+       spf=pass (google.com: domain of bounce-123115577623446620a525659@mail.gravitywrite.com designates 185.225.161.44 as permitted sender) smtp.mailfrom=bounce-123115577623446620a525659@mail.gravitywrite.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gravitywrite.com
+DKIM-Signature: a=rsa-sha256; bh=MyIjxrEC2HNVAmU03F9eOPJMYToE7/chatgxhYIGmJ0=;
+ c=simple/simple; d=gravitywrite.com;
+ h=DKIM-Signature:X-Mailer-Info:Subject:From:To:Date:Message-ID:x-mailer-recipientid:Feedback-ID:List-Unsubscribe-Post:List-Unsubscribe:Precedence:X-Mailru-Msgtype:X-CampaignID:reply-to:MIME-Version:Content-Type;
+ s=litesrv; t=1717412166; v=1;
+ b=tMpjc4NtmwOCRoQkUsT3JwtsTcs06JIrnMA2n/VA4vsYAh1Wdl14kqeTR0qFCQOMnd4k7KLn
+ cQ+krIzLHthcATKMyEskXp6z36iHxQUhqhnCkV/deCKY20n5pC0A+tKQ16eby9mwicZePFVjGi6
+ 3d1qlF4Qqndq9Ly23ghp6Jw8=
+DKIM-Signature: a=rsa-sha256; bh=MyIjxrEC2HNVAmU03F9eOPJMYToE7/chatgxhYIGmJ0=;
+ c=simple/simple; d=mlsend.com;
+ h=X-Mailer-Info:Subject:From:To:Date:Message-ID:x-mailer-recipientid:Feedback-ID:List-Unsubscribe-Post:List-Unsubscribe:Precedence:X-Mailru-Msgtype:X-CampaignID:reply-to:MIME-Version:Content-Type;
+ s=litesrv; t=1717412166; v=1;
+ b=tW2WvCEJIAwNUVvpsB14alfnpuaoScm74HQx5DXpVJKPKBzefeHLxg2Tx3Q55iJCuJgkVE6o
+ rpyLReLE9S6F7iswDZUN/ntDmNGdUDzsAkyA9y1L8F4w07QISiDzDmIIMkRoEJWyNm3VHGFXaxe
+ Pa+DtxJSE2zZy/UhD8hOsV4I=
+X-Mailer-Info: 10.QY1R3btFGdp9mb.hVHdv1WY0l2bulTNykzM4QjN1cDOwATN1UzN.wctlmbo
+ FmexgDM2ETO5cDQn1WYpxmLj9Wb.QMyMTMxUTN3cjNyMDN0YjNyATY1ITN2UTO....
+Subject: =?UTF-8?Q?=F0=9F=91=8B_Welcome_to_GravityWrite_-_Exclusive_Offer_Inside!?=
+From: GravityWrite <sender@gravitywrite.com>
+To: "ham@ham.email" <ham@ham.email>
+Date: 03 Jun 2024 10:56:06 -0000
+Message-ID: <123115577623446620a525659@mlsend.com>
+x-mailer-recipientid: 123115577623446620a525659
+Feedback-ID: 123115577623446620:525659:MailerLite
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://mail.gravitywrite.com/ty/cl/eyJ2Ijoie1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzODEwMTY5MDkzMjYsXCJyXCI6MTIzMTE1NTc3NjIzNDQ2NjIwfSIsInMiOiI5YzU3N2RlYWNhN2E1YTE5In0>
+Precedence: bulk
+X-Mailru-Msgtype: 123115577623446620
+X-CampaignID: 95293846578005557
+reply-to: GravityWrite <hello@gravitywrite.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="==a991b6b912b0ec3be6354b92cb7b671f"
+
+This is a multi-part message in MIME format.
+
+--==a991b6b912b0ec3be6354b92cb7b671f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+You have received a newsletter from GravityWrite.
+
+However, your email software can't display HTML emails. You can view the=
+ newsletter by clicking here:
+
+https://mail.gravitywrite.com/emails/webview/525659/123115577623446620{l=
+ink-id:113942381091358225}{link-id:113587630561560298}{link-id:113587434=
+512451310}{link-id:109426562057635352}{link-id:103087294333846555}{link-=
+id:102988673064109210}{link-id:96103995383219287}{link-id:95370968966366=
+974}{link-id:95297671916422496}{link-id:95297323754587550}{link-id:95296=
+717480527300}{link-id:95296417957938972}{link-id:95296310196831661}{link=
+-id:95295827592873118}{link-id:95295762025415729}{link-id:95289231764621=
+147}
+
+
+
+You're receiving this newsletter because you have shown interest in Grav=
+ityWrite.
+Not interested anymore? Click here to unsubscribe:
+https://mail.gravitywrite.com/unsubscribe/525659/123115577623446620?sign=
+ature=3D419d71a5d253b67ce85af122a601567e06489d4d36517b739525d1dcd1f55102=
+{link-id:113942381088212496}{link-id:113587630558414569}{link-id:1135874=
+34510354157}{link-id:109426562053441045}{link-id:103087294329652249}{lin=
+k-id:102988673060963481}{link-id:96103995380073558}{link-id:953709689621=
+72669}{link-id:95297671909082463}{link-id:95297323747247517}{link-id:952=
+96717476332995}{link-id:95296417951647514}{link-id:95296310191588780}{li=
+nk-id:95295827569804443}{link-id:95295762020172848}{link-id:952892317604=
+26842}
+
+--==a991b6b912b0ec3be6354b92cb7b671f
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang dir=3D"ltr" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=
+=3D"urn:schemas-microsoft-com:office:office"><head>
+    <meta charset=3D"utf-8">
+   =20
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1, user-scalable=3Dyes">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno=
+, address=3Dno, email=3Dno, url=3Dno">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <!--[if !mso]>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <![endif]-->
+    <!--[if mso]>
+    <style>
+        * { font-family: sans-serif !important; }
+    </style>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type=3D"text/css">
+        /* Outlines the grids, remove when sending */
+        /*table td { border: 1px solid cyan; }*/
+        /* RESET STYLES */
+        html, body, .document { margin: 0 !important; padding: 0 !import=
+ant; width: 100% !important; height: 100% !important; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smooth=
+ing: grayscale; text-rendering: optimizeLegibility;}
+        img { border: 0; outline: none; text-decoration: none;  -ms-inte=
+rpolation-mode: bicubic; }
+        table { border-collapse: collapse; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; }
+        h1, h2, h3, h4, h5, p { margin:0;}
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+        /* ANDROID CENTER FIX */
+        div[style*=3D"margin: 16px 0;"] { margin: 0 !important; }
+        /* MEDIA QUERIES */
+        @media all and (max-width:639px){
+            .wrapper{ width:100%!important; }
+            .container{ width:100%!important; min-width:100%!important; =
+padding: 0 !important; }
+            .row{padding-left: 20px!important; padding-right: 20px!impor=
+tant;}
+            .col-mobile {width: 20px!important;}
+            .col{display: block!important; width: 100%!important;}
+            .mobile-center{text-align: center!important; float: none!imp=
+ortant;}
+            .mobile-mx-auto {margin: 0 auto!important; float: none!impor=
+tant;}
+            .mobile-left{text-align: center!important; float: left!impor=
+tant;}
+            .img{ width:100% !important; height:auto !important; }
+            .ml-btn { width: 100% !important; max-width: 100%!important;=
+}
+            .ml-btn-container { width: 100% !important; max-width: 100%!=
+important;}
+            *[class=3D"mobileOff"] { width: 0px !important; display: non=
+e !important; }
+            *[class*=3D"mobileOn"] { display: block !important; max-heig=
+ht:none !important; }
+            .mlContentTable{ width: 100%!important; min-width: 10%!impor=
+tant; margin: 0!important; float: none!important; }
+            .mlContentButton a { display: block!important; width: auto!i=
+mportant; }
+            .mlContentOuter { padding-bottom: 0px!important; padding-lef=
+t: 15px!important; padding-right: 15px!important; padding-top: 0px!impor=
+tant; }
+            .mlContentSurvey { float: none!important; margin-bottom: 10p=
+x!important; width:100%!important; }
+            .multiple-choice-item-table { width: 100% !important; margin=
+-bottom: 20px !important; min-width: 10% !important; float: none !import=
+ant; }
+            .ml-default, .ml-card, .ml-fullwidth { width: 100%; min-widt=
+h: 100%; }
+        }
+
+        /* Carousel style */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .webkit {
+                display: block !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .non-webkit {
+                display: none !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            /* TARGET OUTLOOK.COM */
+            [class=3D"x_non-webkit"] {
+                display: block !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            [class=3D"x_webkit"] {
+                display: none !important;
+            }
+        }
+    </style>
+   =20
+    <style type=3D"text/css">@import url("https://assets.mlcdn.com/fonts=
+-v2.css?version=3D1707735");</style>
+<style type=3D"text/css">
+            @media screen {
+                body {
+                    font-family: 'Inter', sans-serif;
+                }
+            }
+        </style><meta name=3D"robots" content=3D"noindex, nofollow">
+<title>=F0=9F=91=8B Welcome to GravityWrite - Exclusive Offer Inside!</t=
+itle>
+</head>
+<body style=3D"margin: 0 !important; padding: 0 !important; background-c=
+olor:#F4F7FA;"><span style=3D"display:none"><img src=3D"https://mail.gra=
+vitywrite.com/ty/o/eyJpdiI6IjN4ZjdXRU1nNVYyeTdvT0NHQkl1TlE9PSIsInZhbHVlI=
+joiZHlaTXgyZ2lkcHpCcXF2NVFqQjlsV2QrMWxBdXpQWVhFV1VFWGRkeERTRFJubUJXY2s0S=
+DRNZmUwZkRrSmd4QXd0NjRHRE9HSHQvSTJKOTlhUms3MHRialpjNzJXSVdtTVQwL0RBQi85c=
+Ek9IiwibWFjIjoiYThlYmJkMDhlZjNiNGVhNmQ4YTk0ZDVhZTk5OGMxMTAxZmI1NWU2YWJkY=
+zk3NzY4YjQzYjU1NjU2NGUzOGM4MyIsInRhZyI6IiJ9?signature=3D628b28b82e753368=
+4e7b00c3ed684ca5fdb6d192d1ec1196dfc44ba60d21e029" width=3D"1" height=3D"=
+1" alt style=3D"display:block;height:0px;width:0px;max-width:0px;max-hei=
+ght:0px;overflow:hidden;" border=3D"0"></span>
+
+   =20
+       =20
+       =20
+   =20
+
+   =20
+
+       =20
+           =20
+
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+
+           =20
+       =20
+
+       =20
+           =20
+
+           =20
+       =20
+
+   =20
+
+   =20
+
+       =20
+
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+           =20
+
+       =20
+   =20
+
+    <div class=3D"document" role=3D"article" aria-roledescription=3D"ema=
+il" aria-label lang dir=3D"ltr" style=3D"background-color:#F4F7FA; line-=
+height: 100%; font-size:medium; font-size:max(16px, 1rem);">
+
+        <!--[if gte mso 9]>
+        <v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"=
+t" if=3D"variable.bodyBackgroundImage.value">
+            <v:fill type=3D"tile" src=3D"" color=3D"#F4F7FA"/>
+        </v:background>
+        <![endif]-->
+
+        <div style=3D"display: none; max-height: 0px; overflow: hidden;"=
+>
+           =20
+        </div>
+
+       =20
+
+        <table width=3D"100%" align=3D"center" cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0">
+            <tr>
+                <td class background align=3D"center" valign=3D"top">
+
+                    <table class=3D"container" align=3D"center" width=3D=
+"640" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"max-widt=
+h: 640px;">
+    <tr>
+        <td align=3D"center">
+           =20
+
+               =20
+
+                <table align=3D"center" width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0">
+                    <tr>
+                        <td colspan=3D"2" height=3D"20" style=3D"line-he=
+ight: 20px"></td>
+                    </tr>
+                    <tr>
+                       =20
+                        <td align=3D"left" style=3D"font-family: 'Inter'=
+, sans-serif; color: #111111; font-size: 12px; line-height: 18px;">
+                           =20
+                           =20
+                        </td>
+                        <td align=3D"right" style=3D"font-family: 'Inter=
+', sans-serif; color: #111111; font-size: 12px; line-height: 18px;">
+                            <a style=3D"color: #111111; font-weight: nor=
+mal; font-style: normal; text-decoration: underline;" href=3D"https://ma=
+il.gravitywrite.com/ty/cl/eyJ2Ijoie1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzOD=
+EwMDAxMzIxMDYsXCJyXCI6MTIzMTE1NTc3NjIzNDQ2NjIwfSIsInMiOiIyNjJhMWJjN2VjYT=
+IwMmUyIn0" data-link-id=3D"113942381000132106" data-link-type=3D"webview=
+">View in browser</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=3D"2" height=3D"20" style=3D"line-he=
+ight: 20px;"></td>
+                    </tr>
+                </table>
+
+               =20
+
+               =20
+                   =20
+                   =20
+                   =20
+               =20
+
+               =20
+                   =20
+                   =20
+               =20
+
+           =20
+        </td>
+    </tr>
+</table>
+
+
+                    <table width=3D"640" class=3D"wrapper" align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"
+                        max-width: 640px;
+                        border:1px solid #EAECED;
+                        border-radius:8px; border-collapse: separate!imp=
+ortant; overflow: hidden;
+                        ">
+                        <tr>
+                            <td align=3D"center">
+
+                               =20
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-4 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                   =20
+                    <tr>
+                        <td>
+
+   =20
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+    <tr>
+        <td class style=3D"padding: 0 0px;" align=3D"center">
+            <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td height=3D"1" style=3D"border-top: 1px solid #EAE=
+CED; line-height: 1px;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                   =20
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-6 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                   =20
+                    <tr>
+                        <td>
+
+   =20
+   =20
+
+   =20
+   =20
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%">
+            <tr>
+                <td style=3D"line-height: 0;">
+                   =20
+                        <a href=3D"https://mail.gravitywrite.com/ty/cl/e=
+yJ2Ijoie1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzODEwMDY0MjM1NjMsXCJyXCI6MTIzM=
+TE1NTc3NjIzNDQ2NjIwfSIsInMiOiJmZDRlNGQ0ZDczYTE3YzQ0In0" target=3D"_self"=
+ style=3D"text-decoration: none;" data-link-id=3D"113942381006423563">
+                                <img src=3D"https://storage.mlcdn.com/ac=
+count_image/525659/LYSDxVVdaPntYhwowY5fo4h7f5J7kj0nTTsC9WSB.png" border=3D=
+"0" alt=3D"product demo gravitywrite" width=3D"640" class=3D"img" style=3D=
+"display: block;">
+                            </a>
+                   =20
+                </td>
+            </tr>
+        </table>
+   =20
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"10" style=3D"line-height: 10px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-8 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"color: #000000; width: 640px; min-width: 64=
+0px;">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"20" style=3D"line-height: 20px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+   =20
+    <p style=3D"font-family: 'Inter', sans-serif; color: #000000; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 0;"><strong>=
+Dear&nbsp;<span class=3D"redactor-component" data-redactor-type=3D"varia=
+ble-ml">MINHAZ MAHMUD</span>,</strong><strong><br><br></strong>Welcome t=
+o GravityWrite community.&nbsp;We're thrilled to have you on board, and =
+we wanted to extend a special welcome offer exclusively for new members =
+like you.<br><br>Upgrade to our&nbsp;<strong>Starter Plan</strong> which=
+ is normally priced at $228&nbsp;is available at an incredible price of =
+just <strong>$97 </strong>for 1 Year. <br><br>But act fast, this offer i=
+s only valid for next 72 hours.<br><br><strong>With the Starter Plan, yo=
+u'll enjoy the following advantages:</strong><strong></strong><br></p>
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                   =20
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-10 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"color: #000000; width: 640px; min-width: =
+640px;">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+   =20
+    <ol style=3D"font-family: 'Inter', sans-serif; color: #000000; font-=
+size: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;"><li>=
+Boost productivity instantly with 50,000 words per month</li><li>Access =
+to the latest AI model outputs</li><li>Unleash All the&nbsp;Pro tools an=
+d insights</li><li>Get priority support from our experts</li></ol>
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                   =20
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-12 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"color: #000000; width: 640px; min-width: =
+640px;">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+   =20
+    <p style=3D"font-family: 'Inter', sans-serif; color: #000000; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 0;">Don't mi=
+ss this exclusive opportunity =E2=80=93 click below to upgrade now!<br><=
+/p>
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"20" style=3D"line-height: 20px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-14 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row mobile-center" align=3D"center"=
+ style=3D"padding: 0 50px;">
+
+   =20
+   =20
+   =20
+
+   =20
+   =20
+   =20
+   =20
+
+    <table class=3D"ml-btn-container" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" width=3D"auto">
+    <tr>
+        <td align=3D"center" valign=3D"middle">
+           =20
+           =20
+           =20
+           =20
+           =20
+            <!-- Primary button start -->
+            <div xp-if>
+                <!--[if mso]>
+                <v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" x=
+mlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://app.gra=
+vitywrite.com/home?limited_time=3D&utm_source=3DMail&utm_medium=3DOnboar=
+d" target=3D"_blank"
+                         style=3D"width: 120px;
+                         v-text-anchor:middle;" arcsize=3D"12%" stroke=3D=
+"f" fillcolor=3D"#2E42FF" strokecolor=3D"#000000" strokeweight=3D"2px">
+                    <w:anchorlock/>
+                    <v:shadow on=3D"f" color=3D"#000000" offset=3D"0px 2=
+px 0px 0px"></v:shadow>
+                    <v:textbox inset=3D"25px,14px,25px,14px" style=3D"ms=
+o-fit-shape-to-text:true;">
+                        <center style=3D"font-family:sans-serif;color:#f=
+fffff;font-size:14px;line-height:14px;mso-line-height-rule:exactly;font-=
+weight: normal; font-style: normal; text-decoration: none;">
+                            Upgrade<div></div>
+                        </center>
+                    </v:textbox>
+                </v:roundrect>
+                <![endif]-->
+            </div>
+            <!-- Primary button end -->
+           =20
+           =20
+           =20
+           =20
+            <!-- Secondary button start -->
+           =20
+            <!-- Secondary button end -->
+
+            <!-- Desktop button start -->
+           =20
+                        <!--[if !mso]>-->
+                            <table class=3D"ml-btn ml-btn-primary ml-btn=
+-filled" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"border-collapse: separate; width: auto;">
+                    <tr>
+                        <th align=3D"center" valign=3D"middle" style=3D"=
+background-color: #2E42FF; border-radius: 6px; mso-padding-top-alt: 14px=
+; mso-padding-bottom-alt: 14px; mso-padding-left-alt: 25px; mso-padding-=
+right-alt: 25px; -webkit-font-smoothing: auto; word-break: break-all;">
+                            <!-- Firefox fix -->
+                           =20
+                            <!-- /Firefox fix -->
+
+                            <a href=3D"https://mail.gravitywrite.com/ty/=
+cl/eyJ2Ijoie1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzODEwMDk1NjkyOTIsXCJyXCI6M=
+TIzMTE1NTc3NjIzNDQ2NjIwfSIsInMiOiI0NDE4MjU2MjY2YjI5ODA5In0" target=3D"_b=
+lank" style=3D"display: inline-block; padding: 14px 25px; font-family: '=
+Inter', sans-serif; color: #ffffff; font-size: 14px; letter-spacing: 0.0=
+25em; text-decoration: none; border-radius: 6px; line-height: 16px; mso-=
+line-height-rule: at-least; word-break: break-all; min-width: 70px; font=
+-weight: normal; font-style: normal;" data-link-id=3D"113942381009569292=
+">
+                                Upgrade<div></div>
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+                        <!--<![endif]-->
+                        <!-- Desktop button end -->
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+   =20
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+
+
+
+   =20
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"20" style=3D"line-height: 20px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-16 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"color: #000000; width: 640px; min-width: =
+640px;">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+   =20
+    <p style=3D"font-family: 'Inter', sans-serif; color: #000000; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 0;">P.S. For=
+ more than 50000 words per month, we suggest you to upgrade to <span cla=
+ss=3D"ml-rte-link-wrapper"><a href=3D"https://mail.gravitywrite.com/ty/c=
+l/eyJ2Ijoie1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzODEwMTM3NjM1OTcsXCJyXCI6MT=
+IzMTE1NTc3NjIzNDQ2NjIwfSIsInMiOiIyZTNlYmZiZGMyOTI5MjUxIn0" target=3D"_bl=
+ank" style=3D"color: #2E42FF; font-weight: normal; font-style: normal; t=
+ext-decoration: underline;" data-link-id=3D"113942381013763597">PRO Plan=
+</a></span>.</p>
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"10" style=3D"line-height: 10px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-18 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+
+   =20
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+    <tr>
+        <td class=3D"row" style=3D"padding: 0 50px;" align=3D"center">
+            <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td height=3D"1" style=3D"border-top: 1px solid #EAE=
+CED; line-height: 1px;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"10" style=3D"line-height: 10px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-20 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"color: #000000; width: 640px; min-width: =
+640px;">
+                   =20
+                    <tr>
+                        <td class=3D"row mobile-center" align=3D"left" s=
+tyle=3D"padding: 0 50px;">
+
+   =20
+   =20
+
+
+    <table class=3D"ml-20 wrapper" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" style=3D"color: #000000; text-align: left;">
+        <tr>
+           =20
+           =20
+            <td class=3D"col mobile-center" align=3D"center" width=3D"80=
+">
+                <img src=3D"https://storage.mlcdn.com/account_image/5256=
+59/Wh9PUa3qUUfmzr67vFbKkHkmucP9S66Rf9VLR3Tv.jpg" border=3D"0" alt width=3D=
+"80" class=3D"avatar" style=3D"display: inline-block; max-width: 80px; b=
+order-radius: 80px;">
+            </td>
+            <td class=3D"col" if=3D"variable.itemAlign.value !=3D 'right=
+'" width=3D"30" height=3D"30" style=3D"line-height: 30px;"></td>
+            <td class=3D"col center mobile-center" align>
+                <p style=3D"font-family: 'Inter', sans-serif; color: #00=
+0000; font-size: 16px; line-height: 150%; margin-top: 0; margin-bottom: =
+0;"><br>Best regards,<br><strong></strong><strong>Shyam Sundar</strong><=
+strong><br>Founder</strong>, GravityWrite<br><br>
+                    </p>
+            </td>
+        </tr>
+    </table>
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+
+
+
+                            </td>
+                    </tr>
+                   =20
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-22 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"10" style=3D"line-height: 10px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+
+   =20
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+    <tr>
+        <td class=3D"row" style=3D"padding: 0 50px;" align=3D"center">
+            <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td height=3D"1" style=3D"border-top: 1px solid #EAE=
+CED; line-height: 1px;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                   =20
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-24 ml-default-border" width=
+=3D"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                   =20
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+
+   =20
+   =20
+
+
+<table align=3D"center" width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0">
+   =20
+   =20
+    <tr>
+        <td align=3D"center" style=3D"text-align: left!important;">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #515458=
+; font-size: 14px; line-height: 165%; display: inline-block; margin-bott=
+om: 0;"></p>
+        </td>
+    </tr>
+    <tr>
+        <td align=3D"center" style=3D"text-align: left!important;">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #515458=
+; font-size: 14px; line-height: 165%; display: inline-block; margin-bott=
+om: 0;"></p>
+        </td>
+    </tr>
+    <tr>
+        <td height=3D"8" style=3D"line-height: 8px;"></td>
+    </tr>
+    <tr>
+        <td align=3D"left" style=3D"text-align: left!important;">
+           =20
+                <p style=3D"font-family: 'Inter', sans-serif; color: #51=
+5458; font-size: 14px; line-height: 165%; display: inline-block; margin-=
+bottom: 0;">You received this email because you signed up on our website=
+ or made a purchase from us.</p>
+           =20
+        </td>
+    </tr>
+    <tr>
+        <td height=3D"1" style=3D"line-height: 12px;"></td>
+    </tr>
+    <tr>
+        <td align=3D"left">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #515458=
+; font-size: 14px; line-height: 165%; display: inline-block; margin-bott=
+om: 0;">
+                <a href=3D"https://mail.gravitywrite.com/ty/cl/eyJ2Ijoie=
+1wiYVwiOjUyNTY1OSxcImxcIjoxMTM5NDIzODEwMTY5MDkzMjYsXCJyXCI6MTIzMTE1NTc3N=
+jIzNDQ2NjIwfSIsInMiOiI5YzU3N2RlYWNhN2E1YTE5In0" style=3D"color: #515458;=
+ font-weight: normal; font-style: normal; text-decoration: underline;" d=
+ata-link-id=3D"113942381016909326" data-link-type=3D"unsubscribe">Unsubs=
+cribe</a>
+               =20
+               =20
+               =20
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+
+   =20
+   =20
+   =20
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"20" style=3D"line-height: 20px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0" align=3D"center" width=3D"640" style=3D"max-width: 640px; width: 100=
+%;">
+   =20
+   =20
+   =20
+</table>
+
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+   =20
+
+   =20
+
+</body>
+</html>
+
+--==a991b6b912b0ec3be6354b92cb7b671f--

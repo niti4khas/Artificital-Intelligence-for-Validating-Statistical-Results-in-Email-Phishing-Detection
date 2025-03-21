@@ -1,0 +1,542 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp1990091lke;
+        Sun, 8 Dec 2024 08:04:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGJ6r2uv9squCC6JOppxraUfHDlVARdangfiMc/k0P5NORl4x7dW6eTI1gjMvNyYl/ogdbj
+X-Received: by 2002:ad4:5ca4:0:b0:6d8:b733:47c with SMTP id 6a1803df08f44-6d8e676d8e6mr154287736d6.22.1733673889284;
+        Sun, 08 Dec 2024 08:04:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733673889; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RnEu3JMTnlV4lv5oEqj9ndRvz6+IJlk6NoUZf9QLkQrZaRYgce+2TAldQnL3UlgtMn
+         7BTBZUs20rARhK7vNlYsQmDpUbfOHax6/1X82dPd0cVrM3Tw1fV7+gdGb8qYN+8zZg3O
+         2ZZVFx08yzlFCaz72/FR6rkx3+n0gryKPnofFdRcUtUKI2V5uOcJakp1anQgpOwxQSPR
+         Bof26hQ6Nys61wfOK2HtvGU9JY1hpr+N4sJax1CRKUfmKdsw3Hc/Gf3QjXHqIhjuJusz
+         M8UABuSh62HVfje9mpgVrWQjUSHlCZp656V4QeUi5fT6twKQM6aqnNnoKvjI2O1xUaZK
+         IY0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:to:from:subject:mime-version:date:sender:dkim-signature
+         :dkim-signature;
+        bh=qYxOPB4lBMHA7z14X7CoAUfRbKzbHA7LQostcRqWZV0=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=AC6vLtXvEY4NQnChCjnjz62OYI+7IvAVFhmTfnatmL6iuO8EUShQn5a8eyDsOTnSMA
+         HIWb/mOHc6Nl0eQzyCD2lcVSHBlrPAAUSDu7iz6CVyJ62q4FcZOE+WbJIWGLiEt1arY4
+         GJVg0paMr4FXkk9nNoLBvH2khoX4Ooh1L5GegSsG1a3dIQDTagxRSNRWIuKbrO+7N3J/
+         JkoKXUZGud7JX8l2b2LnK1tKF5JQ7ATbn1FEDJamFqEJ73DwihHzjidiHsV3HLIajjpm
+         Ah6TiLgw/I6Z/N1rNjAv9onhva5hbPTJtP/jGTtCqy7dSndlFwuQsCJLfLx2mQSsw/tL
+         O9gQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=BJx4ViY0;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=djHd4Yj5;
+       spf=pass (google.com: domain of bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com designates 143.55.226.69 as permitted sender) smtp.mailfrom="bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+Return-Path: <bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com>
+Received: from a226-69.mailgun.net (a226-69.mailgun.net. [143.55.226.69])
+        by mx.google.com with UTF8SMTPS id 6a1803df08f44-6d900da0443si34922776d6.470.2024.12.08.08.04.49
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 08 Dec 2024 08:04:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com designates 143.55.226.69 as permitted sender) client-ip=143.55.226.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=BJx4ViY0;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=djHd4Yj5;
+       spf=pass (google.com: domain of bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com designates 143.55.226.69 as permitted sender) smtp.mailfrom="bounce+0ea79c.5e6ef-ham=ham.email@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=notify.docker.com; q=dns/txt; s=krs; t=1733673888; x=1733681088; h=Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id; bh=qYxOPB4lBMHA7z14X7CoAUfRbKzbHA7LQostcRqWZV0=; b=BJx4ViY0EDAeABI7M+fE1ysn6pYeDmQ1m7F8Ie67d88GoRi+O2G2J0s7RBeqZG8FmNTufQxnq1k13TxmLdt3828ik3dF++nyJGeEBQSFhM7OIGPQ6clY6x6b46gfSDzVIhdGWK64uaaI9f102+cnhk9hy/luA1UF/swngmjaFSY=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1733673888; x=1733681088; h=Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id; bh=qYxOPB4lBMHA7z14X7CoAUfRbKzbHA7LQostcRqWZV0=; b=djHd4Yj52Pbs2rO7lBUXspS5PZWE1PAm0ydhGGl60QysOPZ1HxV7QWe3DThWMbw8Qo95fqNSBQw0dVdqabsfp3MQYxAE/A1VYPC0dRspwNpQnCCWXdRn0i58r3oZsorW0rXgjNFPuY5RnjvkTMTcdXr8Cvt0j0At0LQ9G96PEHE=
+X-Feedback-Id: sender@notify.docker.com:hub:571545cff3b9c42fa782f659:mailgun
+X-Mailgun-Sending-Ip: 143.55.226.69
+X-Mailgun-Sending-Ip-Pool-Name: 
+X-Mailgun-Sending-Ip-Pool: 
+X-Mailgun-Sid: WyJjMzdlMCIsImFpZ2VyaW1tb2xkYWtoYW5vdmE3QGdtYWlsLmNvbSIsIjVlNmVmIl0=
+Received: by 7f2fd423cd71 with HTTP id 6755c3a09817f5db95731013; Sun, 08 Dec 2024 16:04:48 GMT
+Sender: sender@notify.docker.com
+Date: Sun, 08 Dec 2024 16:04:48 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="36c0423c8f6e155801e3a46d71cec18f9f969958633b07763fe765a457e7"
+Subject: [Docker] You + Docker = Ready for Action
+From: Docker <sender@notify.docker.com>
+To: ham@ham.email
+X-Mailgun-Tag: hub
+Message-Id: <20241208160448.20b10082ceb1a4f8@notify.docker.com>
+
+--36c0423c8f6e155801e3a46d71cec18f9f969958633b07763fe765a457e7
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi and welcome to Docker, ham!
+
+Congratulations, your account has been verified! Sign in to your Docker acc=
+ount at https://email.notify.docker.com/c/eJxMyrFuwyAQANCvgdE6zhd8DDd0yX8cB=
+gKKCZZLI_XvK3XK_F6SW_a52CxuW1e_rcxsqwSPwUFkKsB0A928hlRKcMkz-Ky2CQKSQ2DngYgX=
+hOgAGPccnVJhQ_Aas5XfJY39ma9lH90eUuc8v836ZfBu8K7n-cmXaHvkq_U-jqTPqq_x1s0QPLq=
+2479MqT_RvgX_AgAA__-p0TfF to download Docker Desktop, create repositories, =
+and invite others to collaborate with you.
+
+To help you get started, check out the Docker documentation or launch the o=
+nline tutorial to learn:
+
+Key Docker Concepts
+Learn Docker basics and the benefits of containerizing your applications.
+
+How to set up your Docker environment
+Download Docker Desktop, set up your Docker environment and start container=
+izing your applications in a few easy steps.
+
+Build an image, and run it as a container
+Create a Docker image by writing a Dockerfile, and follow the instructions =
+to run your first container.
+
+Share your image on Docker Hub
+Share your image on Docker Hub so it can be easily downloaded and run on an=
+y destination machine.
+
+View Documentation at https://email.notify.docker.com/c/eJxMjsGq8yAQRp_G7FJ=
+0NGoXLn4oeY2fUcdEWmMxJnDf_pLSxd0Nc86BL7qJNKWBnDBSaiOttcPqtEe4i4mkQJKTCdprMA=
+J1SsrA5GnIDjgoAdwKzZWyN-BecG4hkBeokmWKb7Xn9HOLNTyp3UItw8utvb93Jv8xmBnMsYb9D=
+2cwL9THvWPrFC9Fzkcv_wOWN-ZlY_IBHMTI76PQY8H8Wo5tpOsYT2o55avSV1Io5qMw-fjQ73Ov=
+RwvE5OObDs1hXqjlUuor4nPFrZ5omOLLZXwmd7cefjgd_AYAAP__t2pexQ
+
+Thank you,
+The Docker Team
+
+This email was sent to ham@ham.email to notify you of an u=
+pdate that was made to your Docker Account.
+
+=C2=A9 2024 Docker Inc.
+3790 El Camino Real #1052, Palo Alto, CA 94306
+
+--36c0423c8f6e155801e3a46d71cec18f9f969958633b07763fe765a457e7
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<!doctype html>
+<html xmlns=3D=E2=80=9Chttp://www.w3.org/1999/xhtml=E2=80=9D
+      xmlns:o=3D=E2=80=9Curn:schemas-microsoft-com:office:office=E2=80=9D
+      xmlns:v=3D=E2=80=9Curn:schemas-microsoft-com:vml=E2=80=9D
+      lang=3D"en-US">
+<head>
+  <meta charset=3D"utf-8">
+  <meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible"/>
+ =20
+
+ =20
+  <title>Docker</title>
+  <style>
+      =20
+      img {
+          -ms-interpolation-mode: bicubic;
+      }
+      =20
+      #outlook a {
+          padding: 0;
+      }
+      =20
+      table {
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+      }
+      =20
+      .ReadMsgBody {
+          width: 100%;
+      }
+      .ExternalClass {
+          width: 100%;
+      }
+      =20
+      p, a, li, td, blockquote {
+          mso-line-height-rule: exactly;
+      }
+      =20
+      a[href^=3D"tel"], a[href^=3D"sms"] {
+          color: inherit;
+          cursor: default;
+          text-decoration: none;
+      }
+      =20
+      p, a, li, td, body, table, blockquote {
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: 100%;
+      }
+      =20
+      .ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass d=
+iv, .ExternalClass span, .ExternalClass font {
+          line-height: 100%;
+      }
+      =20
+      table {
+          border-collapse: collapse;
+      }
+      html {
+          -webkit-text-size-adjust: none;
+      }
+      #gmailModule,
+      .mobileOnly {
+          display: none !important;
+      }
+      =20
+      a, a:hover {
+          color: #086DD7;
+          text-decoration: underline;
+      }
+      .button a,
+      .button a:hover {
+          color: #ffffff;
+      }
+      span.calendar a {
+          color: #FFFFFF;
+          text-decoration: none;
+      }
+      a[x-apple-data-detectors] {
+          color: inherit !important;
+          text-decoration: none !important;
+          font-size: inherit !important;
+          font-family: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+      }
+      @media only screen and (max-width: 600px) {
+          #bodyTable {
+              width: 100% !important;
+          }
+          img {
+              width: auto !important;
+              max-width: 100% !important;
+              height: auto !important;
+          }
+          .snippet-logo img{
+            width:120px !important;
+            height: auto !important;
+          }
+          .logoContain img {
+              max-width: 215px !important;
+          }
+          img.arrow{
+            width: 14px !important;
+          }
+          img.social-icon{
+            width: 32px !important;
+          }
+          .tableStack {
+              width: 100% !important;
+          }
+          table.buttonStack {
+              margin-top: 10px !important;
+          }
+          td.buttonStack {
+              padding-top: 16px !important;
+          }
+          .stack {
+              padding-top: 15px !important;
+              padding-right: 5% !important;
+              padding-bottom: 15px !important;
+              padding-left: 5% !important;
+              width: 90% !important;
+          }
+          td.mobileTopPad {
+              padding-top: 30px !important;
+          }
+          table.mobileTopPad {
+              margin-top: 30px !important;
+          }
+          td.insideTopPad {
+              padding-top: 15px !important;
+          }
+          table.insideTopPad {
+              margin-top: 15px !important;
+          }
+          table.button {
+              width: 100% !important;
+              display: table !important;
+          }
+          .desktopPad,
+          #gmailModule {
+              display: none !important;
+          }
+          .center img {
+              margin-left: auto !important;
+              margin-right: auto !important;
+          }
+          .center table {
+              margin-right: auto;
+              margin-left: auto;
+          }
+          .center {
+              text-align: center !important;
+          }
+          .noPad {
+              padding-top: 0px !important;
+              padding-right: 0px !important;
+              padding-bottom: 0px !important;
+              padding-left: 0px !important;
+          }
+          .noSidePad {
+              padding-right: 0px !important;
+              padding-left: 0px !important;
+          }
+          hr {
+              margin-right: auto !important;
+              margin-left: auto !important;
+          }
+          .mobileOnly {
+              display: block !important;
+          }
+          .soc-img img {
+            width: 25px !important;
+          }
+      }
+  </style>
+ =20
+</head>
+
+<body bgcolor=3D"#ffffff" style=3D"background:#ffffff;mso-padding-alt: 0px =
+0px 0px 0px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n"
+       style=3D"background:#ffffff;mso-padding-alt: 0px 0px 0px 0px;" width=
+=3D"100%">
+ =20
+  <tr>
+    <td>
+     =20
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" id=3D"bodyTable" role=3D"presentation"
+             style=3D"margin-left:auto;margin-right:auto;" width=3D"600">
+
+       =20
+        <tr>
+          <td>
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse;" width=3D"100%">
+
+
+             =20
+              <tr>
+                <td>
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"min-width:100%;" width=3D"100%">
+                   =20
+                    <tr style=3D"white-space:nowrap; background-color:#ffff=
+ff;">
+                      <td class=3D"stack center"
+                          style=3D"white-space:normal; background-color:#ff=
+ffff;padding-top:15px;padding-right: 0px;padding-bottom:15px;padding-left: =
+0px;">
+                          <table role=3D"presentation" width=3D"100%" cells=
+pacing=3D"0" cellpadding=3D"0" border=3D"0">
+                            <tbody>
+                            <tr>
+                            <td class=3D"snippet-logo" align=3D"left"><a hr=
+ef=3D"https://email.notify.docker.com/c/eJxMyjFuwzAMAMDXSKNBkYrMhUOX_IO0qFi=
+IHRWuG6O_L9Cp812Vmxdv0SXNRGUmZo6ruDqYVWpUyPyWmldNCYyQi3HD2AUBc0LgVCBnnhAsAT=
+Aubklz45DhNc7efqY6lqcf0zL2uMl6np9fgT4C3gPer-v6z4dof_jR931sVZ-rvsZb55DhsWvf_=
+sop67fFt-BvAAAA__9TgDjn" target=3D"_blank"><img src=3D"https://web.docker.c=
+om/rs/790-SSB-375/images/Docker-logo-520x136.png" width=3D"130" constrain=
+=3D"true" imagepreview=3D"false" border=3D"0" /></a></td>
+                            </tr>
+                            </tbody>
+                            </table>
+                      </td>
+                    </tr>
+                   =20
+                  </table>
+                </td>
+              </tr>
+             =20
+
+             =20
+              <tr>
+                <td>
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"min-width:100%;" width=3D"100%">
+                   =20
+                    <tr style=3D"white-space:nowrap; background-color:#ffff=
+ff;">
+                        <td class=3D"stack"
+                            style=3D"color:#253138; text-align:left; font-f=
+amily: Helvetica, Arial, sans-serif; font-size:16px; line-height: 1.7;white=
+-space:normal; background-color:#ffffff;padding-top:15px;padding-right: 0px=
+;padding-bottom:15px;padding-left: 0px;">
+                           =20
+<div>
+  Hi and welcome to Docker, <strong>ham</strong>!<br /><br />
+  Congratulations, your account has been verified! <a href=3D"https://email=
+.notify.docker.com/c/eJxMyrFuwyAQANCvgdE6zhd8DDd0yX8cBgKKCZZLI_XvK3XK_F6SW_=
+a52CxuW1e_rcxsqwSPwUFkKsB0A928hlRKcMkz-Ky2CQKSQ2DngYgXhOgAGPccnVJhQ_Aas5XfJ=
+Y39ma9lH90eUuc8v836ZfBu8K7n-cmXaHvkq_U-jqTPqq_x1s0QPLq2479MqT_RvgX_AgAA__-p=
+0TfF">Sign in</a> to your Docker account to download Docker Desktop, create=
+ repositories, and invite others to collaborate with you.<br /><br />
+  To help you get started, check out the Docker documentation or launch the=
+ online tutorial to learn:<br /><br />
+  <strong>Key Docker Concepts</strong><br />
+  Learn Docker basics and the benefits of containerizing your applications.=
+<br /><br />
+  <strong>How to set up your Docker environment</strong><br />
+  Download Docker Desktop, set up your Docker environment and start contain=
+erizing your applications in a few easy steps.<br /><br />
+  <strong>Build an image, and run it as a container</strong><br />
+  Create a Docker image by writing a Dockerfile, and follow the instruction=
+s to run your first container.<br /><br />
+  <strong>Share your image on Docker Hub</strong><br />
+  Share your image on Docker Hub so it can be easily downloaded and run on =
+any destination machine.<br /><br />
+  <a rel=3D"noopener noreferrer" style=3D"color: #ffffff; background: #007b=
+ff; font-size: 15px; padding: 9px 0; width: 250px; text-decoration: none !i=
+mportant; display: inline-block; font-weight: 600; text-align: center; curs=
+or: pointer; letter-spacing: 0.5px; border-radius: 4px; margin-bottom: 20px=
+; margin-left: 0px;" target=3D"_blank" href=3D"https://email.notify.docker.=
+com/c/eJxMjsGq8yAQRp_G7FJ0NGoXLn4oeY2fUcdEWmMxJnDf_pLSxd0Nc86BL7qJNKWBnDBSa=
+iOttcPqtEe4i4mkQJKTCdprMAJ1SsrA5GnIDjgoAdwKzZWyN-BecG4hkBeokmWKb7Xn9HOLNTyp=
+3UItw8utvb93Jv8xmBnMsYb9D2cwL9THvWPrFC9Fzkcv_wOWN-ZlY_IBHMTI76PQY8H8Wo5tpOs=
+YT2o55avSV1Io5qMw-fjQ73OvRwvE5OObDs1hXqjlUuor4nPFrZ5omOLLZXwmd7cefjgd_AYAAP=
+__t2pexQ">View Documentation</a><br />
+  Thank you,<br />
+  The Docker Team
+</div>
+
+                        </td>
+                      </tr>
+                   =20
+                  </table>
+                </td>
+              </tr>
+             =20
+
+               =20
+                <tr>
+                    <td>
+                     =20
+                      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"min-width:100%;border-collapse:collapse;"=
+ width=3D"100%">
+                       =20
+                        <tr style=3D"white-space:nowrap; background-color:#=
+ffffff;">
+                          <td class=3D"stack" style=3D"white-space: normal;=
+ padding-right:0px;padding-left:0px;padding-top:25px;padding-bottom:25px;">
+                            <table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation"
+                                   style=3D"margin-right:auto;margin-left:a=
+uto;border-collapse:separate;" width=3D"100%">
+                              <tr>
+                                <td height=3D"0" style=3D"font-size:0px; li=
+ne-height:0px; border-bottom-width:1; border-bottom-color:#E7E8E9; border-b=
+ottom-style:solid; font-family: Arial, Helvetica, sans-serif;">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                       =20
+                      </table>
+                     =20
+                    </td>
+                  </tr>
+                 =20
+             =20
+              <tr>
+                <td>
+                 =20
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"min-width:100%;" width=3D"100%">
+                   =20
+                    <tr style=3D"white-space:nowrap; background-color:#ffff=
+ff">
+                      <td class=3D"stack" style=3D"padding-top:5px;padding-=
+right:0px;padding-bottom:5px;padding-left:0px;background-color:#ffffff;">
+                        <table role=3D"presentation" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width: 100%;">
+                            <tr>
+                                <td align=3D"left" style=3D"padding-top: 10=
+px; color: #253138; text-align: left; font-family: Arial, Helvetica, sans-s=
+erf; font-size: 12px; line-height: 18px;">
+                                    <div style=3D"margin-bottom:15px;">
+                                        <span style=3D"color:#253138;">This=
+ email was sent to ham@ham.email to notify you of an updat=
+e that was made to your Docker Account.</span>
+                                    </div>
+                                    <div style=3D"margin-bottom: 5px;"><spa=
+n style=3D"color: #253138;"><a href=3D"https://email.notify.docker.com/c/eJ=
+xMzLFuxCAMANCvgTEyjhPM4KFL_oMQc6ALR5XSi_r3lTp1ftI7ZNFVs1Vxfp5XPzOzLQI-HJ4S5=
+aCc12UJGFLggOoXDsmhrYKA5BDYrUDEE8LuABiT7i5SZkPw6qPmn-no6anXlHqzp5QxPr_M_GFw=
+M7jd9_2PDW72klgfetXW-nnEZ4mv_o7eEDxarOdfMqR87_Yt-BsAAP__LTM4SQ" style=3D"co=
+lor: #253138; text-decoration: none;">&copy; 2024 Docker Inc.</a></span></d=
+iv>
+                                    <div style=3D"margin-bottom: 5px;"><spa=
+n style=3D"color: #253138;">3790 El Camino Real #1052, Palo Alto, CA 94306&=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style=3D"display: none; font-=
+size: 4px; color: #ffffff;"><a href=3D"https://email.notify.docker.com/c/eJ=
+xMzDFuxCAQQNHTQBdrZsAwW1Ck8T0wHha0sEQOcZTbR0m19f96R1jFSdYS0BvjvGFmXcJtNSxiH=
+KwGMloPCTOKY4zx5n2yugYCskjA6MBaXgh2BGBKsmO0mZWF55g1_yzHSA85lzS6bqHM-fGpzLui=
+TdH2LftLVrRJj7W95dqmnEuZvekzxHqXs_Y-2hEfJT7HFb2ycP9b_9UZyteur0C_AQAA__8umD7=
+C" target=3D"_blank" style=3D"color: #ffffff;">X</a></span></div>
+                                    <div><span style=3D"color: #253138;"><a=
+ href=3D"https://email.notify.docker.com/c/eJxMjTFygzAQAF8jdfboTmd0LlSk4R-H=
+dIDGwmIIgeH3mSRNup3dYnN8aKej1QjB-y54ZrZz9J0Pqm58YIb8FM5PAg8c-AeByJaIDgnQMXS=
+OiO_oBnCOMekAQiMbcu-2l_G655Zeut1TW2yN876vn8Z_GOwN9ud5_ssG-6qTVIP9n7ytWzkkXb=
+e11ZIuu0Upk25lWVrN8prl3Q4Jhty0SKm_hz3OX4M9In4HAAD__1fCQ1k" style=3D"color: =
+#253138; text-decoration: underline;" target=3D"_blank">Privacy Policy</a><=
+/span></div>
+                                </td>
+                            </tr>
+                            </table>
+                      </td>
+                    </tr>
+                   =20
+                  </table>
+                 =20
+                </td>
+              </tr>
+             =20
+
+            </table>
+          </td>
+        </tr>
+       =20
+
+       =20
+        <tr>
+          <td>
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"hide" id=3D"gmailModule" role=3D"presentation" style=3D"min-width:100%;=
+" width=3D"100%">
+              <tr style=3D"white-space:nowrap; background-color:#ffffff">
+                <td class=3D"hide" height=3D"1" style=3D"min-width:600px;op=
+acity:0; font-size:0px;line-height:0px;">
+                  <img height=3D"1" src=3D"#" style=3D"min-width: 600px;max=
+-height:0px; text-decoration: none; border: none; -ms-interpolation-mode: b=
+icubic;"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+       =20
+      </table>
+     =20
+    </td>
+  </tr>
+  <tr>
+    <td style=3D"padding-top:100px;">
+        <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" width=3D"100%">
+            <tr>
+                <td background=3D"https://web.docker.com/rs/790-SSB-375/ima=
+ges/docker-footer-whale2.png" style=3D"background-repeat:no-repeat;backgrou=
+nd-position:center top;background-size:cover;height:90px;">
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+ =20
+</table>
+<img width=3D"1px" height=3D"1px" alt=3D"" src=3D"https://email.notify.dock=
+er.com/o/eJwcylEOgyAMANDTyKdpS0V-OEyhVIkiiXEmu_2S_T9NSw3VXE24eh9WH2N0ewolZ1=
+avikbGi4QCVTMZqhiGYK4lAmIkiBiAOc4EGQEilZpR2OLEcI2n2XfWUY56z2V0dydpW71b7-NUO=
+Xa5xivrxLB1aeefPGn_ZPcm-gUAAP__WJgvAA"></body>
+</html>
+
+--36c0423c8f6e155801e3a46d71cec18f9f969958633b07763fe765a457e7--

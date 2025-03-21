@@ -1,0 +1,1634 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c3c4:0:b0:2ac:6419:e1b with SMTP id b4csp2237413lkq;
+        Thu, 12 Dec 2024 04:30:36 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHLwGVtutExuIDF/CQbfy/usFazcMnD0ORpP4uTPOdTBMIo55Rsd8Z6FTr9ZajjNanF6QQ8
+X-Received: by 2002:a05:600c:3151:b0:434:f8a0:9dc5 with SMTP id 5b1f17b1804b1-4361c36ae0bmr52576305e9.13.1734006635661;
+        Thu, 12 Dec 2024 04:30:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734006635; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Y3fNm2bn9aQwUUtf4IIRypSBoiBlkaA4sg4p0Jl3oFHe/1m7d6nJrPXhix6KAYNlm3
+         uGKR4rvRLy1aUKtxGYs8uWbX5c4LXHv6VxCUMrAindJM8X1T7RSQWEJyDEsWYN3oJAPX
+         pL9SUk6v/gJcWXHKBPe5zaHScpxq732i6rPbwU+ovw1ifupDv/Vv8AllLtYBMEfoxUZV
+         SLc8/oRf/AZ+kvB6I/XT5G+yUg4SEraQXiRl6HSfZW1GMykHjm5ppW632we8adCJA25+
+         CcpycOfUC+Rn7pnAXAOKAqEVk7Jw2vGa9s3HjVGVW3EPeKbOozvZiA4XFJylLureL2y/
+         n+cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:list-unsubscribe:list-unsubscribe-post:feedback-id
+         :precedence:message-id:subject:reply-to:from:to:date:dkim-signature
+         :dkim-signature;
+        bh=HTE6j7J2uNHWMBE2n2l1VSdSTyZIap+GqqhsB8vTnys=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=Hq97QtsiuawHGqto6cg0N50FYRoocivIoCeaq63qiG0IHWSHNmyUHto7vDMWDA06Tg
+         bgE9EIE/OoQXGwryv7RMjprJ6orUX78rZ3Y1/NmPxONAdRaK+FgxhrUydj3hwwQMJBop
+         0YB1LAJnzFfDbcDBTk1kDdLl62fq1XrM+mJRIrgu99IIhYapptMi8QH1np6IsTUiIuJh
+         8Q+u/PYH/X82gbgRg+oK473UvSMkF9JGYjZxg2Kamapyq+IK6018h+jd6X+SjJZLymQX
+         TAhUcnBvWE5TzXXQDTYIOqyQn3LCj8aD7WOUgr3TU3NHsyqlraPbddT4vG7hfuRRoOKf
+         +TMg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@randstad.gr header.s=ml header.b=K4UANeJX;
+       dkim=pass header.i=@mlsend.com header.s=ml header.b=lJ05wH6N;
+       spf=pass (google.com: domain of bounce-l4z9-2633514473301738978@mailerlite.randstad.gr designates 185.249.220.176 as permitted sender) smtp.mailfrom=bounce-l4z9-2633514473301738978@mailerlite.randstad.gr;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=randstad.gr
+Return-Path: <bounce-l4z9-2633514473301738978@mailerlite.randstad.gr>
+Received: from mail176.on.mlsend.com (mail176.on.mlsend.com. [185.249.220.176])
+        by mx.google.com with ESMTPS id 5b1f17b1804b1-4362580fb77si5810455e9.212.2024.12.12.04.30.35
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Dec 2024 04:30:35 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-l4z9-2633514473301738978@mailerlite.randstad.gr designates 185.249.220.176 as permitted sender) client-ip=185.249.220.176;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@randstad.gr header.s=ml header.b=K4UANeJX;
+       dkim=pass header.i=@mlsend.com header.s=ml header.b=lJ05wH6N;
+       spf=pass (google.com: domain of bounce-l4z9-2633514473301738978@mailerlite.randstad.gr designates 185.249.220.176 as permitted sender) smtp.mailfrom=bounce-l4z9-2633514473301738978@mailerlite.randstad.gr;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=randstad.gr
+Received: from (127.0.0.1) (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits)) (Client CN "on.mlsend.com", Issuer "on.mlsend.com" (verified OK)) by mail176.on.mlsend.com (Postfix) with ESMTPS id 706FC562CA5 for <ham@ham.email>; Thu, 12 Dec 2024 12:25:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=randstad.gr; s=ml; t=1734006347; bh=HTE6j7J2uNHWMBE2n2l1VSdSTyZIap+GqqhsB8vTnys=; h=Date:To:From:Subject; b=K4UANeJX9e+dWEwAlOfwgmv60hzdlhWKONYk9633M4vgyXHtT3MVn4NZ9Pn87FjHw
+	 pu4kFKJJBmVh3DGSbrG5Yx/cCDQcXbzoaYY7ySkbxWohurmCw7NNp0SJy0LlxhakGi
+	 HQSpjrbvzH+0cOUWU3bZOllxdj7VaIHBV5K1lLAg=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mlsend.com; s=ml; t=1734006347; bh=HTE6j7J2uNHWMBE2n2l1VSdSTyZIap+GqqhsB8vTnys=; h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe:
+	 MIME-Version:Content-Type; b=lJ05wH6NnAC9lXr3ka19fnXCMmTzI/iRI9GxDRPC8ip4cLZmBaaAnWi7g/Gz7S3Nc
+	 uf8HmsQ83+3pqqpqmHR2NzIA2wIwwK0lTPCBb05fn8dhzZTjRLpCqJYeOcQTvVRJz1
+	 eomTvYNrsm7+OZg3tvWqN54iVQ15Rv5piC4TPoNI=
+Received: from (127.0.0.1) by mail176.on.mlsend.com (Postfix) with ESMTP id 5F5FD40EAA7 for <ham@ham.email>; Thu, 12 Dec 2024 12:23:09 +0000 (UTC)
+Date: Thu, 12 Dec 2024 14:23:09 +0200
+To: ham@ham.email
+From: <sender@randstad.gr>
+Reply-To: Randstad Hellas <sender@randstad.gr>
+Subject: 🎅 καλά χριστούγεννα με χρήσιμα career tips & νέο podcast.
+Message-ID: <11af3849c48e5599ffbbde36a8709908@mailerlite.randstad.gr>
+X-Mailer-SubscriberID: 2633514473301738978;l4z9;VDslK9krMRmjsDRlLj6xk2uP2LYbmiVy
+X-Mailru-Msgtype: VDslK9krMRmjsDRlLj6xk2uP2LYbmiVy
+Precedence: bulk
+Feedback-ID: e8e9c9g7m9:VDslK9krMRmjsDRlLj6xk2uP2LYbmiVy:1950758427395464591:MailerLite
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <mailto:unsubscribe-2633514473301738978-l4z9-VDslK9krMRmjsDRlLj6xk2uP2LYbmiVy@mailerlite.randstad.gr?body=unsubscribe>, <https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkxMzQ2JmQ9cDVzOGkzaQ==.Behk0LXWvpMYLijjOLDzDuo5-vYzhDj5_xwsyEHGEGQ>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="b1_11af3849c48e5599ffbbde36a8709908"
+
+--b1_11af3849c48e5599ffbbde36a8709908
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+You have received a newsletter from Randstad Hellas.
+
+However, your email software can't display HTML emails. You can view the ne=
+wsletter by clicking here:
+
+https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6O=
+SZlPTE5MjgmYj0xMzk1NjkxMzQ0JmQ9cDd3MHg3ZQ=3D=3D._Y-mYj24rZ8fTmswsAuw-L_z0xz=
+FBDP80GTA7yAhGwc
+
+
+
+You're receiving this newsletter because you have shown interest in Randsta=
+d Hellas.
+Not interested anymore? Click here to unsubscribe:
+https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6O=
+SZlPTE5MjgmYj0xMzk1NjkxMzQ3JmQ9aDVjNGI5dQ=3D=3D.HYPIXHsdRnE0keV0APsH5a_LwrQ=
+2TQkl8yEU3O-QZh4
+
+
+--b1_11af3849c48e5599ffbbde36a8709908
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+ =20
+  <head>
+    <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"format-detection" content=3D"address=3Dno">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno">
+    <meta name=3D"format-detection" content=3D"email=3Dno">
+    <!--[if !mso]>
+      <!-->
+      <style type=3D"text/css">
+        @import url("https://assets.mlcdn.com/fonts.css?version=3D1734002")=
+;
+      </style>
+    <!--<![endif]-->
+    <style type=3D"text/css">
+      .ReadMsgBody{
+      width: 100%;
+      }
+      .ExternalClass{
+      width: 100%;
+      }
+      .ExternalClass *{
+      line-height: 100%;
+      }
+      .ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass d=
+iv, .ExternalClass span, .ExternalClass font{
+      line-height:100%;
+      }
+      body{
+      margin: 0; padding: 0;
+      }
+      body,table,td,p,a,li{
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      }
+      table td{
+      border-collapse: collapse;
+      }
+      table{
+      border-spacing: 0;
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      }
+      table,td{
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      }
+      p,a,li,td,blockquote{
+      mso-line-height-rule: exactly;
+      }
+      p,a,li,td,body,table,blockquote{
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      }
+      img,a img{
+      border: 0;
+      outline: none;
+      text-decoration: none;
+      }
+      img{
+      -ms-interpolation-mode: bicubic;
+      }
+      a[href^=3Dtel],a[href^=3Dsms]{
+      color: inherit;
+      cursor: default;
+      text-decoration: none;
+      }
+      a[x-apple-data-detectors]{
+      color: inherit!important;
+      text-decoration: none!important;
+      font-size: inherit!important;
+      font-family: inherit!important;
+      font-weight: inherit!important;
+      line-height: inherit!important;
+      }
+      @media screen {
+      body {
+      font-family: !important;
+      }
+      }
+      @media only screen and (max-width: 640px){
+      .mlTemplateContainer{
+      padding: 0;
+      }
+      /* -- */
+      .mlContentTable{
+      width: 100%!important;
+      min-width: 10%!important;
+      margin: 0!important;
+      float: none!important;
+      }
+      /* -- */
+      .mlContentBlock{
+      display: block !important;
+      width: 100%!important;
+      min-width: 10%!important;
+      margin: 0!important;
+      float: none!important;
+      }
+      /* -- */
+      .mlContentOuter{
+      padding-bottom: 0px!important;
+      padding-left: 15px!important;
+      padding-right: 15px!important;
+      padding-top: 0px!important;
+      }
+      /* -- */
+      .mlContentImage img {
+      height: auto!important;
+      width: 100%!important;
+      }
+      /* -- */
+      .mlContentImage{
+      height: 100%!important;
+      width: auto!important;
+      }
+      /* -- */
+      .mlContentButton a{
+      display: block!important;
+      width: auto!important;
+      }
+      /* -- */
+      .spacingHeight-20{
+      height: 10px!important;
+      }
+      /* -- */
+      .spacingHeight-30{
+      height: 15px!important;
+      }
+      /* -- */
+      .spacingHeight-40{
+      height: 20px!important;
+      }
+      /* -- */
+      .spacingHeight-50{
+      height: 25px!important;
+      }
+      /* -- */
+      .spacingHeight-60{
+      height: 30px!important;
+      }
+      /* -- */
+      .spacingHeight-70{
+      height: 35px!important;
+      }
+      /* -- */
+      .spacingHeight-80{
+      height: 40px!important;
+      }
+      /* -- */
+      .spacingHeight-90{
+      height: 45px!important;
+      }
+      /* -- */
+      .spacingHeight-100{
+      height: 50px!important;
+      }
+      /* -- */
+      .mobileHide{
+      display: none!important;
+      }
+      /* -- */
+      .alignCenter{
+      height: auto!important;
+      text-align: center!important;
+      }
+      .alignLeft{
+      height: auto!important;
+      text-align: left!important;
+      }
+      /* -- */
+      .alignCenter img{
+      display: inline !important;
+      text-align: center!important;
+      }
+      /* -- */
+      .marginBottom{
+      margin-bottom: 15px!important;
+      }
+      /* -- */
+      .mlContentHeight{
+      height: auto!important;
+      }
+      /* -- */
+      .mlDisplayInline {
+      display: inline-block!important;
+      float: none!important;
+      }
+      /* -- */
+      .noPadding {
+      padding-right: 0 !important;
+      }
+      .noPaddingText {
+      padding: 0 !important;
+      }
+      body{
+      margin: 0px!important;
+      padding: 0px!important;
+      }
+      body, table, td, p, a, li, blockquote{
+      -webkit-text-size-adjust: none!important;
+      }
+      }
+      @media only screen and (max-width: 480px){
+      .social-LinksTable{
+      width: 100%!important;
+      }
+      /* -- */
+      .social-LinksTable td:first-child{
+      padding-left: 0px!important;
+      }
+      /* -- */
+      .social-LinksTable td:last-child{
+      padding-right: 0px!important;
+      }
+      /* -- */
+      .social-LinksTable td{
+      padding: 0 10px!important;
+      }
+      /* -- */
+      .social-LinksTable td img{
+      height: auto!important;
+      max-width: 48px;
+      width: 100%!important;
+      }
+      /* -- */
+      }
+    </style>
+    <!--[if mso]>
+      <style type=3D"text/css">
+        .bodyText { font-family: Arial, Helvetica, sans-serif!important ; }
+        .bodyText * { font-family: Arial, Helvetica, sans-serif!important; =
+}
+        .bodyText a { font-family: Arial, Helvetica, sans-serif!important; =
+}
+        .bodyText a span { font-family: Arial, Helvetica, sans-serif!import=
+ant; }
+        .bodyText span { font-family: Arial, Helvetica, sans-serif!importan=
+t; }
+        .bodyText p { font-family: Arial, Helvetica, sans-serif!important; =
+}
+        .bodyText ul li { font-family: Arial, Helvetica, sans-serif!importa=
+nt; }
+        .bodyTitle { font-family: Arial, Helvetica, sans-serif!important ; =
+}
+        .bodyTitle * { font-family: Arial, Helvetica, sans-serif!important;=
+ }
+        .bodyTitle a { font-family: Arial, Helvetica, sans-serif!important;=
+ }
+        .bodyTitle a span { font-family: Arial, Helvetica, sans-serif!impor=
+tant; }
+        .bodyTitle span { font-family: Arial, Helvetica, sans-serif!importa=
+nt; }
+        .bodyTitle p { font-family: Arial, Helvetica, sans-serif!important;=
+ }
+        .mlContentButton { font-family: Arial, Helvetica, sans-serif!import=
+ant; }
+      </style>
+    <![endif]-->
+    <style type=3D"text/css">
+      @media only screen and (max-width: 640px){
+      #bodyImage-8 img {
+      max-width: 1400px!important;
+      width: 100%!important;
+      }
+      }
+    </style>
+    <title>=F0=9F=8E=85 =CE=BA=CE=B1=CE=BB=CE=AC =CF=87=CF=81=CE=B9=CF=83=
+=CF=84=CE=BF=CF=8D=CE=B3=CE=B5=CE=BD=CE=BD=CE=B1 =CE=BC=CE=B5 =CF=87=CF=81=
+=CE=AE=CF=83=CE=B9=CE=BC=CE=B1 career tips & =CE=BD=CE=AD=CE=BF podcast.</t=
+itle>
+    <meta name=3D"robots" content=3D"noindex, nofollow">
+  </head>
+ =20
+  <body style=3D"padding: 0; margin: 0; -webkit-font-smoothing:antialiased;=
+ background-color:#ffffff; -webkit-text-size-adjust:none;">
+    <div style=3D"background: url(); background-color:#ffffff;">
+      <!--[if gte mso 9]>
+        <v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+          <v:fill type=3D"tile" src=3D"" color=3D"#ffffff" /></v:background=
+>
+      <![endif]-->
+      <table height=3D"100%" width=3D"700" align=3D"center" class=3D"mlCont=
+entTable" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+        <tr>
+          <td valign=3D"top" align=3D"left">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+              <tr>
+                <td align=3D"center" class=3D"mlTemplateContainer">
+                  <table align=3D"center" border=3D"0" class=3D"mobileHide"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"700">
+                    <tr>
+                      <td height=3D"50" align=3D"center" class=3D"spacingHe=
+ight-50">
+                        <table width=3D"100%" cellpadding=3D"0" border=3D"0=
+" cellspacing=3D"0" align=3D"center" class=3D"mobileHide">
+                          <tr>                            <td align=3D"righ=
+t" class=3D"bodyText" valign=3D"middle" style=3D"font-family: Tahoma, Genev=
+a, sans-serif; line-height: 18px; font-size: 12px; color: #666666; font-wei=
+ght: 200; padding: 16px 0;">
+                              <a style=3D"color:#666666; text-decoration: u=
+nderline;" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMz=
+AxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTY3JmQ9bzd2MHI3eQ=3D=3D.CgOulCEu=
+PutBei197Z4amcaS_j2WoowvMNuqbyDhXOw" data-link-id=3D"1395690567" target=3D"=
+_blank">
+View in browser
+</a>
+                            </td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Header -->
+                  <table width=3D"700" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" align=3D"center" style=3D"width:700px;" class=3D"mlContentTabl=
+e" bgcolor=3D"#2175d9">
+                    <tbody>
+                      <tr>
+                        <td valign=3D"top" align=3D"center" style=3D"paddin=
+g-bottom:14px; padding:15px 20px 15px;" class=3D"em_padA">
+                          <table width=3D"600" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"center" style=3D"width:600px;" class=3D"mlCon=
+tentTable">
+                            <tbody>
+                              <tr>
+                                <td valign=3D"top" align=3D"left" class=3D"=
+alignLeft">
+                                  <a href=3D"https://mailerlite.randstad.gr=
+/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTY4JmQ=
+9dDhxMmIzaQ=3D=3D.fFeaXQbZgkfV1CyB96sk-YQnwU5jEmMCb1G8f_dyrFw" data-link-id=
+=3D"1395690568" target=3D"_self" id=3D"hs-link-randstad" style=3D"border-wi=
+dth:0px;border:0px;">
+<img src=3D"https://bucket.mlcdn.com/a/172/172945/images/1e18f8a3b0d46fc07e=
+e1a149bfb123fa1f4a1696.png/f8e06fed8af5103fc939345f92cd10191bde5f2f.png" st=
+yle=3D"border-width: 0px; border: 0px; width: 181px; max-width: 181px; disp=
+lay: block; color: #f7f5f0; font-weight: bold;" width=3D"181" alt=3D"randst=
+ad" title=3D"randstad" border=3D"0"></a>
+                                </td>
+                                <td width=3D"120" class=3D"mobileHide" vali=
+gn=3D"bottom" align=3D"right" style=3D"color:#f7f5f0; font-family:Tahoma, G=
+eneva, sans-serif; font-size:14px; line-height:17px; font-weight:normal;">
+                                  <a style=3D"color: #f7f5f0; text-decorati=
+on: none" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzA=
+xNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTY5JmQ9YjBtNHc4aQ=3D=3D.-HsVM8zJy=
+yCB56VMHEWTYTlVXC5QT2oiZ3xDFBQQiHQ" data-link-id=3D"1395690569" target=3D"_=
+self">find a job</a>
+                                </td>
+                                <td width=3D"120" class=3D"mobileHide" vali=
+gn=3D"bottom" align=3D"right" style=3D"color:#f7f5f0; font-family:Tahoma, G=
+eneva, sans-serif; font-size:14px; line-height:17px; font-weight:normal">
+                                  <a style=3D"color: #f7f5f0; text-decorati=
+on: none" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzA=
+xNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTcwJmQ9aTF0NHE4ag=3D=3D.wSO72pEX2=
+679fRmgeXqWI_0I4G-J9_tldIWjrMfVLPw" data-link-id=3D"1395690570" target=3D"_=
+self">for employers</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign=3D"top" align=3D"center" style=3D"line-h=
+eight:0px;font-size:0px;">
+                          <table width=3D"650" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" style=3D"width:650px;" class=3D"mlContentTable">
+                            <tbody>
+                              <tr>
+                                <td valign=3D"top" height=3D"1" bgcolor=3D"=
+#F9F7F3" style=3D"font-size:0px; line-height:0px;"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- /Header -->
+                  <table align=3D"center" class=3D"mlContentTable" width=3D=
+"700" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"table-layou=
+t:fixed;width:700px; background-color:#2175d9;" bgcolor=3D"#2175d9">
+                    <tbody>
+                      <tr>
+                        <td class=3D"spacingHeight-40"></td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" valign=3D"top" class=3D"mlCont=
+entOuter" style=3D"padding: 30px 50px 0 40px;">
+                          <table width=3D"290" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"left" class=3D"mlContentTable" style=3D"width=
+:290px;">
+                            <tbody>
+                              <tr>
+                                <td align=3D"left" class=3D"bodyTitle align=
+Left" style=3D"font-family: Tahoma, Geneva, sans-serif; color: #ffffff; fon=
+t-size: 27px; font-weight: normal; line-height: 33px; text-align: left;">=
+=CE=B4=CE=B5=CE=BA=CE=AD=CE=BC=CE=B2=CF=81=CE=B9=CE=BF=CF=82 2024</td>
+                              </tr>
+                              <tr>
+                                <td height=3D"10"></td>
+                              </tr>
+                              <tr>
+                                <td align=3D"left" class=3D"bodyTitle align=
+Left" style=3D"font-family: Tahoma, Geneva, sans-serif; color: #0f1941; fon=
+t-size: 24px; font-weight: normal; line-height: 30px; text-align: left;">=
+=CE=BA=CE=B1=CF=81=CE=B9=CE=AD=CF=81=CE=B1 =CF=83=CF=84=CE=B7=CE=BD =CF=85=
+=CE=B3=CE=B5=CE=AF=CE=B1, =CF=83=CF=85=CE=BD=CE=AD=CE=BD=CF=84=CE=B5=CF=85=
+=CE=BE=CE=B7 =CE=B5=CF=81=CE=B3=CE=B1=CF=83=CE=AF=CE=B1=CF=82 & =CE=B1=CE=
+=BE=CE=B9=CE=BF=CE=BB=CF=8C=CE=B3=CE=B7=CF=83=CE=B7 =CE=B1=CF=80=CF=8C=CE=
+=B4=CE=BF=CF=83=CE=B7=CF=82.</td>
+                              </tr>
+                              <tr>
+                                <td valign=3D"top" align=3D"center">
+                                  <table border=3D"0" cellpadding=3D"0" ali=
+gn=3D"left" cellspacing=3D"0" width=3D"100%">
+                                    <tr>
+                                      <td align=3D"left" class=3D"bodyText =
+alignLeft noPaddingText" id=3D"bodyText-3" style=3D"font-family: Tahoma, Ge=
+neva, sans-serif; padding-top: 10px; color: #f6f5f0; font-size: 16px; line-=
+height: 22px; text-align: left;">
+                                        <p style=3D"margin-top: 0px; margin=
+-bottom: 10px;"><span style=3D"font-size: 12px;"><span style=3D"color: rgb(=
+246, 245, 240);"><span style=3D"color: rgb(255, 255, 255);"><br></span></sp=
+an></span><br></p>
+                                        <p style=3D"margin-top: 0px; margin=
+-bottom: 0px;">=CE=8C=CF=83=CE=B1 =CE=B8=CE=AD=CE=BB=CE=B5=CE=B9=CF=82 =CE=
+=BD=CE=B1 =CE=B3=CE=BD=CF=89=CF=81=CE=AF=CE=B6=CE=B5=CE=B9=CF=82 =CF=80=CF=
+=81=CE=B9=CE=BD =CF=84=CE=BF =CF=84=CE=AD=CE=BB=CE=BF=CF=82 =CF=84=CE=B7=CF=
+=82 =CF=87=CF=81=CE=BF=CE=BD=CE=B9=CE=AC=CF=82.</p>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!--[if mso]>
+                        </td>
+                        <td>
+                        <![endif]-->
+                        <table width=3D"310" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"right" class=3D"mlContentTable" style=3D"width:=
+310px;">
+                          <tbody>
+                            <tr>
+                              <td valign=3D"top" class=3D"mlContentImage" a=
+lign=3D"center">
+                                <img src=3D"https://bucket.mlcdn.com/a/172/=
+172945/images/59c7ef21dc79d98147e31e3db4dd469fd25ba04e.png/60cd31c81d3be734=
+405fd7cb0f4feb87be796a3c.png" class=3D"hs-image-widget" style=3D"border-wid=
+th: 0px; border: 0px; display: block;" width=3D"310" alt=3D"" title=3D"" bo=
+rder=3D"0">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height=3D"30"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table align=3D"center" border=3D"0" class=3D"mlContentTa=
+ble" cellpadding=3D"0" cellspacing=3D"0" width=3D"700">
+                    <tr>
+                      <td align=3D"center">
+                        <table bgcolor=3D"#f6f5f0" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #f6f5f0; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"30" class=3D"spacingHeight-=
+30" style=3D"height: 30px;"></td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px;">
+                                <tr>
+                                  <td class=3D"mlContentOuter">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+                                      <tr>
+                                        <td align=3D"left" class=3D"bodyTex=
+t" id=3D"bodyText-6" style=3D"font-family: Tahoma, Geneva, sans-serif; colo=
+r: #222222; font-size: 15px; line-height: 21px; text-align: left;">
+                                          <p style=3D"margin-top: 0px; marg=
+in-bottom: 10px;">=CE=9A=CE=B1=CE=B8=CF=8E=CF=82 =CF=80=CE=BB=CE=B7=CF=83=
+=CE=B9=CE=AC=CE=B6=CE=BF=CF=85=CE=BC=CE=B5 =CF=83=CF=84=CE=BF =CF=84=CE=AD=
+=CE=BB=CE=BF=CF=82 =CF=84=CE=BF=CF=85 =CF=87=CF=81=CF=8C=CE=BD=CE=BF=CF=85,=
+ =CF=83=CE=B5 =CF=80=CF=81=CE=BF=CF=83=CE=BA=CE=B1=CE=BB=CE=BF=CF=8D=CE=BC=
+=CE=B5 =CE=BD=CE=B1 =CF=87=CE=B1=CE=BB=CE=B1=CF=81=CF=8E=CF=83=CE=B5=CE=B9=
+=CF=82 =CE=BA=CE=B1=CE=B9 =CE=BD=CE=B1 =CE=B5=CE=BC=CF=80=CE=BD=CE=B5=CF=85=
+=CF=83=CF=84=CE=B5=CE=AF=CF=82 =CE=BC=CE=B5 =CF=84=CE=BF =CE=B5=CE=BF=CF=81=
+=CF=84=CE=B1=CF=83=CF=84=CE=B9=CE=BA=CF=8C =CE=BC=CE=B1=CF=82 newsletter.&n=
+bsp;</p>
+                                          <p style=3D"margin-top: 0px; marg=
+in-bottom: 10px;">=CE=91=CE=BD=CE=B1=CE=BA=CE=AC=CE=BB=CF=85=CF=88=CE=B5 =
+=CE=AD=CE=BD=CE=B1 =CE=B5=CE=BD=CE=B4=CE=B9=CE=B1=CF=86=CE=AD=CF=81=CE=BF=
+=CE=BD podcast =CE=B3=CE=B9=CE=B1 =CF=84=CE=B7=CE=BD =CE=BA=CE=B1=CF=81=CE=
+=B9=CE=AD=CF=81=CE=B1 =CF=83=CF=84=CE=BF=CE=BD =CE=BA=CE=BB=CE=AC=CE=B4=CE=
+=BF =CF=84=CE=B7=CF=82 =CF=85=CE=B3=CE=B5=CE=AF=CE=B1=CF=82, =CF=80=CF=81=
+=CE=B1=CE=BA=CF=84=CE=B9=CE=BA=CE=AD=CF=82 =CF=83=CF=85=CE=BC=CE=B2=CE=BF=
+=CF=85=CE=BB=CE=AD=CF=82 =CE=B3=CE=B9=CE=B1 =CF=84=CE=B7=CE=BD =CE=B5=CF=84=
+=CE=AE=CF=83=CE=B9=CE=B1 =CE=B1=CE=BE=CE=B9=CE=BF=CE=BB=CF=8C=CE=B3=CE=B7=
+=CF=83=CE=B7 =CE=B1=CF=80=CF=8C=CE=B4=CE=BF=CF=83=CE=B7=CF=82, =CE=B5=CF=81=
+=CF=89=CF=84=CE=AE=CF=83=CE=B5=CE=B9=CF=82 =CF=80=CE=BF=CF=85 =CE=BC=CF=80=
+=CE=BF=CF=81=CE=B5=CE=AF=CF=82 =CE=BD=CE=B1 =CE=BA=CE=AC=CE=BD=CE=B5=CE=B9=
+=CF=82 =CF=83=CF=84=CE=B7=CE=BD =CE=B5=CF=80=CF=8C=CE=BC=CE=B5=CE=BD=CE=B7&=
+nbsp;=CF=83=CF=85=CE=BD=CE=AD=CE=BD=CF=84=CE=B5=CF=85=CE=BE=CE=AE =CF=83=CE=
+=BF=CF=85, =CE=BA=CE=B1=CE=B9 =CF=8C=CF=87=CE=B9&nbsp;=CE=BC=CE=AF=CE=B1 =
+=CE=B1=CE=BB=CE=BB=CE=AC =CE=B4=CF=8D=CE=BF&nbsp;=CF=87=CF=81=CE=B9=CF=83=
+=CF=84=CE=BF=CF=85=CE=B3=CE=B5=CE=BD=CE=BD=CE=B9=CE=AC=CF=84=CE=B9=CE=BA=CE=
+=B5=CF=82 playlists =CE=B3=CE=B9=CE=B1 =CE=BD=CE=B1 =CE=BC=CF=80=CE=B5=CE=
+=B9=CF=82 =CF=83=CF=84=CE=BF =CF=80=CE=BD=CE=B5=CF=8D=CE=BC=CE=B1 =CF=84=CF=
+=89=CE=BD =CE=B7=CE=BC=CE=B5=CF=81=CF=8E=CE=BD.&nbsp;</p>
+                                          <p style=3D"margin-top: 0px; marg=
+in-bottom: 0px;">=CE=A3=CE=BF=CF=85 =CF=83=CF=84=CE=AD=CE=BB=CE=BD=CE=BF=CF=
+=85=CE=BC=CE=B5 =CE=B8=CE=B5=CF=81=CE=BC=CE=AD=CF=82 =CE=B5=CF=85=CF=87=CE=
+=AD=CF=82 =CE=B3=CE=B9=CE=B1 =CF=85=CE=B3=CE=B5=CE=AF=CE=B1, =CE=B5=CF=85=
+=CF=84=CF=85=CF=87=CE=AF=CE=B1 =CE=BA=CE=B1=CE=B9 =CE=B5=CF=80=CE=B1=CE=B3=
+=CE=B3=CE=B5=CE=BB=CE=BC=CE=B1=CF=84=CE=B9=CE=BA=CE=AE =CE=B5=CF=80=CE=B9=
+=CF=84=CF=85=CF=87=CE=AF=CE=B1!</p>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"30" class=3D"spacingHeight-=
+30" style=3D"height: 30px;"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#2175d9" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #2175d9; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px;">
+                                <tr>
+                                  <td>
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+                                      <tr>
+                                        <td align=3D"center" id=3D"bodyImag=
+e-8">
+                                          <a href=3D"https://mailerlite.ran=
+dstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1Njk=
+wNTcxJmQ9ZzBwNWoyZw=3D=3D.R36hWk7UjEIIESL7b5Qc-n2BgH_Lnu4mxfYgRjMraHc" data=
+-link-id=3D"1395690571" target=3D"_self">
+<img src=3D"https://bucket.mlcdn.com/a/172/172945/images/3c848c7f9cdc87d107=
+70ae93f727ecaec4ee7d6f.png/326b157e7411288774c7179d66c700419f6d2567.png" cl=
+ass=3D"bodyImage" width=3D"700" border=3D"0" style=3D"border-radius: 0px; d=
+isplay: block;">
+</a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#f6f5f0" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #f6f5f0; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px;">
+                                <tr>
+                                  <td class=3D"mlContentOuter">
+                                    <table width=3D"100%" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" align=3D"right" style=3D"width:600px;" clas=
+s=3D"mlContentTable">
+                                      <tbody>
+                                        <tr>
+                                          <td align=3D"left" class=3D"bodyT=
+itle noPadding" style=3D"font-family: Tahoma, Geneva, sans-serif; padding-r=
+ight: 195px; padding-bottom: 28px; color: #278BE1; font-size: 24px; font-we=
+ight: normal; line-height: 30px; text-align: left;"></td>
+                                        </tr>
+                                        <tr>
+                                          <td align=3D"center" valign=3D"to=
+p" style=3D"padding-bottom:42px;">
+                                            <table width=3D"100%" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" style=3D"width:600=
+px;" class=3D"mlContentTable">
+                                              <tbody>
+                                                <tr>
+                                                  <td valign=3D"top">
+                                                    <table width=3D"100%" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"left" class=3D"mlC=
+ontentTable">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td align=3D"left=
+" class=3D"bodyText" id=3D"bodyText-10" style=3D"font-family: Tahoma, Genev=
+a, sans-serif; color: #222222; font-size: 15px; line-height: 21px; text-ali=
+gn: left;">
+                                                            <p style=3D"mar=
+gin-top: 0px; margin-bottom: 10px;">=CE=A3=CF=84=CE=BF =CE=BD=CE=AD=CE=BF =
+=CE=B5=CF=80=CE=B5=CE=B9=CF=83=CF=8C=CE=B4=CE=B9=CE=BF careertalks, =CE=B7 =
+<a href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OT=
+c4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTcyJmQ9YjZ4OHgwZA=3D=3D.axgB_YxfkSkBfDP0=
+u_-kUhGh2jhmR3WGB0AtJQRuhUE" data-link-id=3D"1395690572" target=3D"_blank" =
+style=3D"color: #222222; text-decoration: underline;">=CE=95=CE=BB=CE=AD=CE=
+=BD=CE=B7 =CE=93=CE=B1=CE=BB=CE=BF=CF=80=CE=BF=CF=8D=CE=BB=CE=BF=CF=85</a> =
+=CE=BA=CE=B1=CE=B9 =CE=B7 <a href=3D"https://mailerlite.randstad.gr/link/c/=
+YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTczJmQ9ajloM3o=
+5cg=3D=3D.cIxqbOCQeu6HR6YmwOdEIY1rXDGMJ15t7lL2teN8lCs" data-link-id=3D"1395=
+690573" target=3D"_blank" style=3D"color: #222222; text-decoration: underli=
+ne;">=CE=92=CE=AC=CF=83=CE=B9=CE=B1 =CE=A7=CF=81=CE=B9=CF=83=CF=84=CE=BF=CE=
+=B4=CE=BF=CF=8D=CE=BB=CE=BF=CF=85</a>, Team Leader, Life Sciences Specialty=
+ =CE=B5=CE=BE=CE=B5=CF=84=CE=AC=CE=B6=CE=BF=CF=85=CE=BD =CF=84=CE=B9=CF=82 =
+=CE=BC=CE=B5=CE=B3=CE=B1=CE=BB=CF=8D=CF=84=CE=B5=CF=81=CE=B5=CF=82 =CF=80=
+=CF=81=CE=BF=CE=BA=CE=BB=CE=AE=CF=83=CE=B5=CE=B9=CF=82 =CE=B3=CE=B9=CE=B1 =
+=CF=84=CE=BF =CE=B1=CE=BD=CE=B8=CF=81=CF=8E=CF=80=CE=B9=CE=BD=CE=BF =CE=B4=
+=CF=85=CE=BD=CE=B1=CE=BC=CE=B9=CE=BA=CF=8C =CF=83=CF=84=CE=BF=CE=BD =CE=BA=
+=CE=BB=CE=AC=CE=B4=CE=BF =CF=84=CE=B7=CF=82 =CF=85=CE=B3=CE=B5=CE=AF=CE=B1=
+=CF=82, =CE=B1=CF=80=CF=8C =CF=84=CE=BF brain
+drain =CE=BA=CE=B1=CE=B9 =CF=84=CE=B7=CE=BD =CF=80=CF=81=CF=8C=CE=B8=CE=B5=
+=CF=83=CE=B7 =CE=B5=CF=80=CE=B1=CE=BD=CE=B1=CF=80=CE=B1=CF=84=CF=81=CE=B9=
+=CF=83=CE=BC=CE=BF=CF=8D =CE=BA=CE=B1=CE=B8=CF=8E=CF=82 =CE=BA=CE=B1=CE=B9 =
+=CF=84=CE=B7=CE=BD =CE=AD=CE=BD=CF=84=CE=BF=CE=BD=CE=B7 =CE=BA=CE=B9=CE=BD=
+=CE=B7=CF=84=CE=B9=CE=BA=CF=8C=CF=84=CE=B7=CF=84=CE=B1 =CF=80=CF=81=CE=BF=
+=CF=82 =CF=84=CE=BF=CE=BD =CE=B9=CE=B4=CE=B9=CF=89=CF=84=CE=B9=CE=BA=CF=8C =
+=CF=84=CE=BF=CE=BC=CE=AD=CE=B1.</p>
+                                                            <p style=3D"mar=
+gin-top: 0px; margin-bottom: 0px;">=CE=95=CF=80=CE=AF=CF=83=CE=B7=CF=82, =
+=CE=B4=CE=AF=CE=BD=CE=BF=CF=85=CE=BD =CF=83=CF=85=CE=BC=CE=B2=CE=BF=CF=85=
+=CE=BB=CE=AD=CF=82 =CE=B3=CE=B9=CE=B1 =CF=84=CE=BF=CF=85=CF=82 =CE=BD=CE=AD=
+=CE=BF=CF=85=CF=82 =CE=B1=CF=80=CF=8C=CF=86=CE=BF=CE=B9=CF=84=CE=BF=CF=85=
+=CF=82: =CE=A0=CE=BF=CE=B9=CE=BF =CE=B5=CE=AF=CE=BD=CE=B1=CE=B9 =CF=84=CE=
+=BF =CF=80=CE=B9=CE=BF =CE=B1=CF=83=CF=86=CE=B1=CE=BB=CE=AD=CF=82 career pa=
+th =CF=80=CE=BF=CF=85 =CE=BC=CF=80=CE=BF=CF=81=CE=B5=CE=AF =CE=BA=CE=AC=CF=
+=80=CE=BF=CE=B9=CE=BF=CF=82 =CE=BD=CE=B1 =CE=B1=CE=BA=CE=BF=CE=BB=CE=BF=CF=
+=85=CE=B8=CE=AE=CF=83=CE=B5=CE=B9; =CE=95=CE=AF=CE=BD=CE=B1=CE=B9 =CE=B7 =
+=CE=BD=CE=BF=CF=83=CE=B7=CE=BB=CE=B5=CF=85=CF=84=CE=B9=CE=BA=CE=AE =CE=BA=
+=CE=B1=CE=BB=CE=AE =CE=B5=CF=80=CE=B9=CE=BB=CE=BF=CE=B3=CE=AE;</p>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                    <table width=3D"142" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"right" style=3D"wid=
+th:142px;" class=3D"mlContentTable">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td height=3D"20"=
+ class=3D"spacingHeight-40"></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td align=3D"righ=
+t" class=3D"mlContentButton" style=3D"font-family: Tahoma, Geneva, sans-ser=
+if;">
+                                                            <!--[if mso]>
+                                                              <v:roundrect =
+xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-=
+com:office:word" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0=
+NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc0JmQ9cDVjOXQ3bw=3D=3D.k-=
+3WCVudepQNm30IedMe-3NRCvcSgLRDtHjpfL1xOOs" data-link-id=3D"1395690574" styl=
+e=3D"height:62px;v-text-anchor:middle;width:226px;" arcsize=3D"6%" strokeco=
+lor=3D"#2175d9" strokeweight=3D"2px" fillcolor=3D"#2175d9">
+                                                                <w:anchorlo=
+ck/>
+                                                                <center sty=
+le=3D"color:#f6f5f0;font-family:sans-serif;font-size:16px;font-weight:400;"=
+>=CE=AC=CE=BA=CE=BF=CF=85=CF=83=CE=B5 =CF=84=CE=BF podcast</center>
+                                                              </v:roundrect=
+>
+                                                            <![endif]-->
+                                                            <a class=3D"mlC=
+ontentButton" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDc=
+zMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc1JmQ9ZTNpM2Y2dg=3D=3D.5OSRT=
+Klnbsz_7_CWFkYr7ALkAb4mCNWzSXjpqZjj-sI" data-link-id=3D"1395690575" style=
+=3D"font-family: Tahoma, Geneva, sans-serif; background-color: #2175d9; bor=
+der: 2px solid #2175d9; border-radius: 3px; color: #f6f5f0; display: inline=
+-block; font-size: 16px; font-weight: 400; line-height: 22px; padding: 18px=
+ 0 18px 0; text-align: center; text-decoration: none; width: 200px; mso-hid=
+e: all;" target=3D"_self">=CE=AC=CE=BA=CE=BF=CF=85=CF=83=CE=B5 =CF=84=CE=BF=
+ podcast</a>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#2175d9" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #2175d9; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"700">
+                                <tr>
+                                  <td height=3D"20" class=3D"spacingHeight-=
+20" style=3D"height: 20px;"></td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px">
+                                <tr>
+                                  <td align=3D"center">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+lass=3D"mlContentTable" cellspacing=3D"0" width=3D"100%" style=3D"width: 60=
+0px; min-width: 600px">
+                                      <tr>
+                                        <td valign=3D"top" class=3D"mlConte=
+ntOuter">
+                                          <table style=3D"width: 140px; min=
+-width: 140px" align=3D"right" border=3D"0" class=3D"mlContentTable" cellpa=
+dding=3D"0" cellspacing=3D"0">
+                                            <tr>
+                                              <td align=3D"center">
+                                                <table border=3D"0" class=
+=3D"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td align=3D"center" cl=
+ass=3D"mlContentImage">
+                                                      <img src=3D"https://b=
+ucket.mlcdn.com/a/172/172945/images/40fd208c3138655f3ea7d04cdac3db4c8a6d270=
+e.png" class=3D"bodyImage" width=3D"140" border=3D"0" style=3D"display: blo=
+ck;">
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                          <table align=3D"left" border=3D"0=
+" class=3D"mlContentBlock" cellpadding=3D"0" cellspacing=3D"0" style=3D"wid=
+th: 440px; min-width: 440px" width=3D"440">
+                                            <tr>
+                                              <td>
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td class=3D"spacingHei=
+ght-40"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyTitle" style=3D"font-family: Tahoma, Geneva, sans-serif; color: #0=
+f1941; font-size: 24px; font-weight: normal; line-height: 30px; text-align:=
+ left;">
+                                                      <a style=3D"color:#0f=
+1941; text-decoration:none;" href=3D"https://mailerlite.randstad.gr/link/c/=
+YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc2JmQ9ZTBsN2o=
+1cw=3D=3D.6ryHmzNZOYq20ywosXkU7ssB5D6cmcoCHkPLK3h7nq0" data-link-id=3D"1395=
+690576" target=3D"_self">=CF=84=CE=B9 =CE=BD=CE=B1 =CF=81=CF=89=CF=84=CE=AE=
+=CF=83=CE=B5=CE=B9=CF=82 =CF=83=CE=B5 =CE=BC=CE=B9=CE=B1 =CF=83=CF=85=CE=BD=
+=CE=AD=CE=BD=CF=84=CE=B5=CF=85=CE=BE=CE=B7: 8 =CE=B5=CF=81=CF=89=CF=84=CE=
+=AE=CF=83=CE=B5=CE=B9=CF=82 =CE=BC=CE=B5 =CF=84=CE=B9=CF=82 =CE=BF=CF=80=CE=
+=BF=CE=AF=CE=B5=CF=82 =CE=B8=CE=B1 =CE=BE=CE=B5=CF=87=CF=89=CF=81=CE=AF=CF=
+=83=CE=B5=CE=B9=CF=82.</a>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyText" id=3D"bodyText-12" style=3D"font-family: Tahoma, Geneva, san=
+s-serif; color: #f6f5f0; font-size: 15px; line-height: 21px; text-align: le=
+ft;">
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 10px;">=CE=97 =CE=B1=CF=80=CE=BF=CF=84=CE=B5=CE=BB=
+=CE=B5=CF=83=CE=BC=CE=B1=CF=84=CE=B9=CE=BA=CE=AE =CE=B4=CE=B9=CE=B1=CF=87=
+=CE=B5=CE=AF=CF=81=CE=B9=CF=83=CE=B7 =CF=84=CE=B7=CF=82 =CF=83=CF=85=CE=B6=
+=CE=AE=CF=84=CE=B7=CF=83=CE=B7=CF=82 =CF=83=CF=84=CE=BF =CF=84=CE=AD=CE=BB=
+=CE=BF=CF=82 =CE=BC=CE=B9=CE=B1=CF=82 =CF=83=CF=85=CE=BD=CE=AD=CE=BD=CF=84=
+=CE=B5=CF=85=CE=BE=CE=B7=CF=82 =CE=B5=CF=81=CE=B3=CE=B1=CF=83=CE=AF=CE=B1=
+=CF=82 =CE=B4=CE=B9=CE=B1=CE=B4=CF=81=CE=B1=CE=BC=CE=B1=CF=84=CE=AF=CE=B6=
+=CE=B5=CE=B9 =CE=BA=CE=B1=CE=B8=CE=BF=CF=81=CE=B9=CF=83=CF=84=CE=B9=CE=BA=
+=CF=8C =CF=81=CF=8C=CE=BB=CE=BF, =CE=B5=CE=B9=CE=B4=CE=B9=CE=BA=CE=AC =CF=
+=8C=CF=84=CE=B1=CE=BD =CE=BF/=CE=B7 hiring manager =CF=83=CE=BF=CF=85 =CE=
+=B4=CE=AF=CE=BD=CE=B5=CE=B9 =CF=84=CE=B7=CE=BD =CE=B5=CF=85=CE=BA=CE=B1=CE=
+=B9=CF=81=CE=AF=CE=B1 =CE=BD=CE=B1 =CE=BA=CE=AC=CE=BD=CE=B5=CE=B9=CF=82 =CE=
+=B5=CF=81=CF=89=CF=84=CE=AE=CF=83=CE=B5=CE=B9=CF=82.&nbsp;</p>
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 10px;">=CE=93=CE=B9=CE=B1 =CE=BD=CE=B1 =CE=B1=CE=BE=
+=CE=B9=CE=BF=CF=80=CE=BF=CE=B9=CE=AE=CF=83=CE=B5=CE=B9=CF=82 =CF=83=CF=84=
+=CE=BF =CE=BC=CE=AD=CE=B3=CE=B9=CF=83=CF=84=CE=BF =CE=B1=CF=85=CF=84=CE=AE =
+=CF=84=CE=B7=CE=BD =CE=B5=CF=85=CE=BA=CE=B1=CE=B9=CF=81=CE=AF=CE=B1 =CE=BA=
+=CE=B1=CE=B9 =CE=BD=CE=B1 =CE=B4=CE=B7=CE=BC=CE=B9=CE=BF=CF=85=CF=81=CE=B3=
+=CE=AE=CF=83=CE=B5=CE=B9=CF=82 =CE=BC=CE=AF=CE=B1 =CE=BA=CE=B1=CE=BB=CE=AE =
+=CE=B5=CE=BD=CF=84=CF=8D=CF=80=CF=89=CF=83=CE=B7 =CE=B5=CE=AF=CE=BD=CE=B1=
+=CE=B9 =CF=83=CE=B7=CE=BC=CE=B1=CE=BD=CF=84=CE=B9=CE=BA=CF=8C =CE=BD=CE=B1 =
+=CE=AD=CF=87=CE=B5=CE=B9=CF=82 =CF=80=CF=81=CE=BF=CE=B5=CF=84=CE=BF=CE=B9=
+=CE=BC=CE=B1=CF=83=CF=84=CE=B5=CE=AF =CE=B1=CF=80=CF=8C =CF=80=CF=81=CE=B9=
+=CE=BD.</p>
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 0px;">=CE=95=CE=BC=CE=B5=CE=AF=CF=82 =CF=83=CE=BF=CF=
+=85 =CE=AD=CF=87=CE=BF=CF=85=CE=BC=CE=B5&nbsp;8 =CF=83=CF=84=CE=BF=CF=87=CE=
+=B5=CF=85=CE=BC=CE=AD=CE=BD=CE=B5=CF=82 =CE=B5=CF=81=CF=89=CF=84=CE=AE=CF=
+=83=CE=B5=CE=B9=CF=82 =CF=80=CE=BF=CF=85 =CE=BC=CF=80=CE=BF=CF=81=CE=B5=CE=
+=AF=CF=82 =CE=BD=CE=B1 =CE=BA=CE=AC=CE=BD=CE=B5=CE=B9=CF=82 =CF=83=CF=84=CE=
+=BF =CF=84=CE=AD=CE=BB=CE=BF=CF=82 =CE=BC=CE=B9=CE=B1=CF=82 =CF=83=CF=85=CE=
+=BD=CE=AD=CE=BD=CF=84=CE=B5=CF=85=CE=BE=CE=B7=CF=82 =CE=B5=CF=81=CE=B3=CE=
+=B1=CF=83=CE=AF=CE=B1=CF=82, =CE=B3=CE=B9=CE=B1 =CE=BD=CE=B1 =CE=BC=CE=AC=
+=CE=B8=CE=B5=CE=B9=CF=82 =CF=80=CE=B5=CF=81=CE=B9=CF=83=CF=83=CF=8C=CF=84=
+=CE=B5=CF=81=CE=B1 =CF=84=CF=8C=CF=83=CE=BF =CE=B3=CE=B9=CE=B1 =CF=84=CE=BF=
+=CE=BD =CF=81=CF=8C=CE=BB=CE=BF =CF=8C=CF=83=CE=BF =CE=BA=CE=B1=CE=B9 =CE=
+=B3=CE=B9=CE=B1 =CF=84=CE=B7=CE=BD =CE=B5=CF=84=CE=B1=CE=B9=CF=81=CE=B5=CE=
+=AF=CE=B1.</p>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"20"></td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height=3D"20" class=3D"spacingH=
+eight-20"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align=3D"center">
+                                          <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+                                            <tr>
+                                              <td align=3D"right" class=3D"=
+mlContentButton" style=3D"font-family: Tahoma, Geneva, sans-serif;">
+                                                <!--[if mso]>
+                                                  <v:roundrect xmlns:v=3D"u=
+rn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:w=
+ord" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4=
+OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc3JmQ9ZzZ4M3cyaA=3D=3D.O3aoFHs3x4Exof=
+AQuDSsCrDdDvJLxsaNxSsCfAng1Gc" data-link-id=3D"1395690577" style=3D"height:=
+62px;v-text-anchor:middle;width:226px;" arcsize=3D"6%" strokecolor=3D"#00d7=
+ff" strokeweight=3D"2px" fillcolor=3D"#00d7ff">
+                                                    <w:anchorlock/>
+                                                    <center style=3D"color:=
+#0f1941;font-family:sans-serif;font-size:16px;font-weight:400;">=CE=BC=CE=
+=AC=CE=B8=CE=B5 =CF=80=CE=B5=CF=81=CE=B9=CF=83=CF=83=CF=8C=CF=84=CE=B5=CF=
+=81=CE=B1</center>
+                                                  </v:roundrect>
+                                                <![endif]-->
+                                                <a class=3D"mlContentButton=
+" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc=
+4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc4JmQ9dDNkNnc2cA=3D=3D.ALTwwhzewYVIO6yIL=
+tvG_M1ju5odyYcJ4S68Ts409Jo" data-link-id=3D"1395690578" style=3D"font-famil=
+y: Tahoma, Geneva, sans-serif; background-color: #00d7ff; border: 2px solid=
+ #00d7ff; border-radius: 3px; color: #0f1941; display: inline-block; font-s=
+ize: 16px; font-weight: 400; line-height: 22px; padding: 18px 0 18px 0; tex=
+t-align: center; text-decoration: none; width: 196px; mso-hide: all;" targe=
+t=3D"_self">=CE=BC=CE=AC=CE=B8=CE=B5 =CF=80=CE=B5=CF=81=CE=B9=CF=83=CF=83=
+=CF=8C=CF=84=CE=B5=CF=81=CE=B1</a>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"20" class=3D"spacingHeight-=
+20" style=3D"height: 20px;"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#f6f5f0" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #f6f5f0; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"700">
+                                <tr>
+                                  <td height=3D"20" class=3D"spacingHeight-=
+20" style=3D"height: 20px;"></td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px">
+                                <tr>
+                                  <td align=3D"center">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+lass=3D"mlContentTable" cellspacing=3D"0" width=3D"100%" style=3D"width: 60=
+0px; min-width: 600px">
+                                      <tr>
+                                        <td valign=3D"top" class=3D"mlConte=
+ntOuter">
+                                          <table style=3D"width: 140px; min=
+-width: 140px" align=3D"left" border=3D"0" class=3D"mlContentTable" cellpad=
+ding=3D"0" cellspacing=3D"0">
+                                            <tr>
+                                              <td align=3D"center">
+                                                <table border=3D"0" class=
+=3D"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td align=3D"center" cl=
+ass=3D"mlContentImage">
+                                                      <img src=3D"https://b=
+ucket.mlcdn.com/a/172/172945/images/2e7d3797898872e392ac7f800a8c0c1dc2f3dd2=
+2.png" class=3D"bodyImage" width=3D"140" border=3D"0" style=3D"display: blo=
+ck;">
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                          <table align=3D"right" border=3D"=
+0" class=3D"mlContentBlock" cellpadding=3D"0" cellspacing=3D"0" style=3D"wi=
+dth: 440px; min-width: 440px" width=3D"440">
+                                            <tr>
+                                              <td>
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td class=3D"spacingHei=
+ght-40"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyTitle" style=3D"font-family: Tahoma, Geneva, sans-serif; color: #2=
+175d9; font-size: 24px; font-weight: normal; line-height: 30px; text-align:=
+ left;">
+                                                      <a style=3D"color:#21=
+75d9; text-decoration:none;" href=3D"https://mailerlite.randstad.gr/link/c/=
+YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTc5JmQ9YzJ5Mm8=
+weQ=3D=3D.QOxzFu2ScMqnv4YrJu_rWr4L9rbuyd6nqYYhBB8Eli0" data-link-id=3D"1395=
+690579" target=3D"_self">=CE=B1=CE=BE=CE=B9=CE=BF=CE=BB=CF=8C=CE=B3=CE=B7=
+=CF=83=CE=B7 =CE=B1=CF=80=CF=8C=CE=B4=CE=BF=CF=83=CE=B7=CF=82: 7 =CF=83=CF=
+=85=CE=BC=CE=B2=CE=BF=CF=85=CE=BB=CE=AD=CF=82 =CE=B3=CE=B9=CE=B1 =CE=BD=CE=
+=B1 =CF=80=CF=81=CE=BF=CE=B5=CF=84=CE=BF=CE=B9=CE=BC=CE=B1=CF=83=CF=84=CE=
+=B5=CE=AF=CF=82 =CE=BA=CE=B1=CF=84=CE=AC=CE=BB=CE=BB=CE=B7=CE=BB=CE=B1.</a>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyText" id=3D"bodyText-14" style=3D"font-family: Tahoma, Geneva, san=
+s-serif; color: #222222; font-size: 15px; line-height: 21px; text-align: le=
+ft;">
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 10px;">=CE=97 =CE=B5=CF=84=CE=AE=CF=83=CE=B9=CE=B1 =
+=CE=B1=CE=BE=CE=B9=CE=BF=CE=BB=CF=8C=CE=B3=CE=B7=CF=83=CE=B7 =CE=B1=CF=80=
+=CF=8C=CE=B4=CE=BF=CF=83=CE=B7=CF=82, =CE=B5=CE=BD=CE=B4=CE=B5=CF=87=CE=BF=
+=CE=BC=CE=AD=CE=BD=CF=89=CF=82 =CE=B5=CE=AF=CE=BD=CE=B1=CE=B9 =CE=BC=CE=AF=
+=CE=B1 =CE=B4=CE=B9=CE=B1=CE=B4=CE=B9=CE=BA=CE=B1=CF=83=CE=AF=CE=B1 =CF=80=
+=CE=BF=CF=85 =CE=B1=CE=B3=CF=87=CF=8E=CE=BD=CE=B5=CE=B9 =CE=AD=CE=BD=CE=B1 =
+=CF=83=CE=B7=CE=BC=CE=B1=CE=BD=CF=84=CE=B9=CE=BA=CF=8C =CF=80=CE=BF=CF=83=
+=CE=BF=CF=83=CF=84=CF=8C =CE=B5=CF=81=CE=B3=CE=B1=CE=B6=CE=BF=CE=BC=CE=AD=
+=CE=BD=CF=89=CE=BD. =CE=88=CF=87=CE=B5=CE=B9=CF=82 =CF=83=CE=BA=CE=B5=CF=86=
+=CF=84=CE=B5=CE=AF, =CF=8C=CE=BC=CF=89=CF=82, =CF=8C=CF=84=CE=B9 =CE=B1=CF=
+=85=CF=84=CE=AD=CF=82 =CE=BF=CE=B9 =CF=83=CF=85=CE=B6=CE=B7=CF=84=CE=AE=CF=
+=83=CE=B5=CE=B9=CF=82 =CE=BC=CF=80=CE=BF=CF=81=CE=BF=CF=8D=CE=BD =CE=BD=CE=
+=B1 =CE=B1=CF=80=CE=BF=CF=84=CE=B5=CE=BB=CE=AD=CF=83=CE=BF=CF=85=CE=BD =CF=
+=84=CE=BF =CE=BA=CE=BB=CE=B5=CE=B9=CE=B4=CE=AF =CE=B3=CE=B9=CE=B1 =CF=84=CE=
+=B7=CE=BD =CE=B5=CE=BE=CE=AD=CE=BB=CE=B9=CE=BE=CE=B7 =CF=84=CE=B7=CF=82 =CE=
+=BA=CE=B1=CF=81=CE=B9=CE=AD=CF=81=CE=B1=CF=82 =CF=83=CE=BF=CF=85 =CE=BA=CE=
+=B1=CE=B9 =CF=84=CE=B7=CE=BD =CE=B5=CF=81=CE=B3=CE=B1=CF=83=CE=B9=CE=B1=CE=
+=BA=CE=AE =CF=83=CE=BF=CF=85 =CE=B9=CE=BA=CE=B1=CE=BD=CE=BF=CF=80=CE=BF=CE=
+=AF=CE=B7=CF=83=CE=B7;&nbsp;</p>
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 0px;">=CE=95=CE=AF=CF=84=CE=B5 =CE=AD=CF=87=CE=B5=CE=
+=B9=CF=82 =CF=80=CE=BF=CE=BB=CE=BB=CE=AC =CF=87=CF=81=CF=8C=CE=BD=CE=B9=CE=
+=B1 =CE=B5=CE=BC=CF=80=CE=B5=CE=B9=CF=81=CE=AF=CE=B1=CF=82 =CE=B5=CE=AF=CF=
+=84=CE=B5 =CE=B5=CE=AF=CF=83=CE=B1=CE=B9 =CE=BD=CE=AD=CE=BF=CF=82/=CE=B1 =
+=CF=83=CF=84=CE=BF=CE=BD =CF=87=CF=8E=CF=81=CE=BF =CE=B5=CF=81=CE=B3=CE=B1=
+=CF=83=CE=AF=CE=B1=CF=82, =CF=84=CE=BF =CE=BD=CE=B1 =CE=B3=CE=BD=CF=89=CF=
+=81=CE=AF=CE=B6=CE=B5=CE=B9=CF=82 =CF=80=CF=8E=CF=82 =CE=BD=CE=B1 =CE=B4=CE=
+=B9=CE=B1=CF=87=CE=B5=CE=B9=CF=81=CE=B9=CF=83=CF=84=CE=B5=CE=AF=CF=82 =CF=
+=84=CE=B7=CE=BD =CE=B5=CF=84=CE=AE=CF=83=CE=B9=CE=B1 =CE=B1=CE=BE=CE=B9=CE=
+=BF=CE=BB=CF=8C=CE=B3=CE=B7=CF=83=CE=B7 =CF=84=CE=B7=CF=82 =CE=B1=CF=80=CF=
+=8C=CE=B4=CE=BF=CF=83=CE=AE=CF=82 =CF=83=CE=BF=CF=85 =CE=B5=CE=AF=CE=BD=CE=
+=B1=CE=B9 =CE=B5=CE=BE=CE=B1=CE=B9=CF=81=CE=B5=CF=84=CE=B9=CE=BA=CE=AC =CF=
+=83=CE=B7=CE=BC=CE=B1=CE=BD=CF=84=CE=B9=CE=BA=CF=8C =CE=B3=CE=B9=CE=B1 =CE=
+=BD=CE=B1 =CE=B1=CE=BE=CE=B9=CE=BF=CF=80=CE=BF=CE=B9=CE=AE=CF=83=CE=B5=CE=
+=B9=CF=82 =CF=83=CF=84=CE=BF =CE=BC=CE=AD=CE=B3=CE=B9=CF=83=CF=84=CE=BF =CE=
+=B1=CF=85=CF=84=CE=AE =CF=84=CE=B7=CE=BD =CE=B5=CF=85=CE=BA=CE=B1=CE=B9=CF=
+=81=CE=AF=CE=B1.</p>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"20"></td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height=3D"20" class=3D"spacingH=
+eight-20"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align=3D"center">
+                                          <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+                                            <tr>
+                                              <td align=3D"right" class=3D"=
+mlContentButton" style=3D"font-family: Tahoma, Geneva, sans-serif;">
+                                                <!--[if mso]>
+                                                  <v:roundrect xmlns:v=3D"u=
+rn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:w=
+ord" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4=
+OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTgwJmQ9ZzJkNnIwYw=3D=3D.sEzQbpSz8kBKPm=
+UMtnitd86k8V-YGtkwh8OsGmXYvZY" data-link-id=3D"1395690580" style=3D"height:=
+62px;v-text-anchor:middle;width:226px;" arcsize=3D"6%" strokecolor=3D"#2175=
+d9" strokeweight=3D"2px" fillcolor=3D"#2175d9">
+                                                    <w:anchorlock/>
+                                                    <center style=3D"color:=
+#f6f5f0;font-family:sans-serif;font-size:16px;font-weight:400;">=CE=B4=CE=
+=B9=CE=AC=CE=B2=CE=B1=CF=83=CE=B5 =CF=84=CE=BF =CE=AC=CF=81=CE=B8=CF=81=CE=
+=BF</center>
+                                                  </v:roundrect>
+                                                <![endif]-->
+                                                <a class=3D"mlContentButton=
+" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc=
+4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTgxJmQ9eDJvNnM0ZA=3D=3D.5f00aHvUg3OEoZ3-K=
+gh3m-WXv-gA4csEUlhW48cuvfE" data-link-id=3D"1395690581" style=3D"font-famil=
+y: Tahoma, Geneva, sans-serif; background-color: #2175d9; border: 2px solid=
+ #2175d9; border-radius: 3px; color: #f6f5f0; display: inline-block; font-s=
+ize: 16px; font-weight: 400; line-height: 22px; padding: 18px 0 18px 0; tex=
+t-align: center; text-decoration: none; width: 196px; mso-hide: all;" targe=
+t=3D"_self">=CE=B4=CE=B9=CE=AC=CE=B2=CE=B1=CF=83=CE=B5 =CF=84=CE=BF =CE=AC=
+=CF=81=CE=B8=CF=81=CE=BF</a>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"30" class=3D"spacingHeight-=
+30" style=3D"height: 30px;"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#2175d9" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #2175d9; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"700">
+                                <tr>
+                                  <td height=3D"20" class=3D"spacingHeight-=
+20" style=3D"height: 20px;"></td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px">
+                                <tr>
+                                  <td align=3D"center">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+lass=3D"mlContentTable" cellspacing=3D"0" width=3D"100%" style=3D"width: 60=
+0px; min-width: 600px">
+                                      <tr>
+                                        <td valign=3D"top" class=3D"mlConte=
+ntOuter">
+                                          <table style=3D"width: 140px; min=
+-width: 140px" align=3D"right" border=3D"0" class=3D"mlContentTable" cellpa=
+dding=3D"0" cellspacing=3D"0">
+                                            <tr>
+                                              <td align=3D"center">
+                                                <table border=3D"0" class=
+=3D"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td align=3D"center" cl=
+ass=3D"mlContentImage">
+                                                      <img src=3D"https://b=
+ucket.mlcdn.com/a/172/172945/images/61bbfa8ab76d02f39124e456d1b3d941d4e1936=
+c.png" class=3D"bodyImage" width=3D"140" border=3D"0" style=3D"display: blo=
+ck;">
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                          <table align=3D"left" border=3D"0=
+" class=3D"mlContentBlock" cellpadding=3D"0" cellspacing=3D"0" style=3D"wid=
+th: 440px; min-width: 440px" width=3D"440">
+                                            <tr>
+                                              <td>
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                                  <tr>
+                                                    <td class=3D"spacingHei=
+ght-40"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyTitle" style=3D"font-family: Tahoma, Geneva, sans-serif; color: #0=
+f1941; font-size: 24px; font-weight: normal; line-height: 30px; text-align:=
+ left;">
+                                                      <a style=3D"color:#0f=
+1941; text-decoration:none;" href=3D"#" target=3D"_self">randstad christmas=
+ playlist 2024.</a>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"10"></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td align=3D"left" clas=
+s=3D"bodyText" id=3D"bodyText-16" style=3D"font-family: Tahoma, Geneva, san=
+s-serif; color: #f6f5f0; font-size: 15px; line-height: 21px; text-align: le=
+ft;">
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 10px;">=CE=97 =CE=B5=CE=BF=CF=81=CF=84=CE=B1=CF=83=
+=CF=84=CE=B9=CE=BA=CE=AE =CE=BC=CE=B1=CF=82 playlist =CE=B5=CE=AF=CE=BD=CE=
+=B1=CE=B9 =CE=B5=CE=B4=CF=8E, =CE=B3=CE=B5=CE=BC=CE=AC=CF=84=CE=B7 =CE=BC=
+=CE=B5 <span><a href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0N=
+DczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTgzJmQ9cDh5NnY4eQ=3D=3D.RKQ=
+ys5XyFk0EdhGE6rDu2z0Lhv8JuncMDUVWiCXFhBk" data-link-id=3D"1395690583" targe=
+t=3D"_blank" style=3D"color: #222222; text-decoration: underline;">=CE=BA=
+=CE=BB=CE=B1=CF=83=CE=B9=CE=BA=CE=AD=CF=82</a></span> =CE=BA=CE=B1=CE=B9 =
+=CF=83=CF=8D=CE=B3=CF=87=CF=81=CE=BF=CE=BD=CE=B5=CF=82 <span><a href=3D"htt=
+ps://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZl=
+PTE5MjgmYj0xMzk1NjkwNTg0JmQ9azFpNHI3dg=3D=3D.tL7dxifpCuJ4M61O6wfo-HAp6FL41b=
+jtBmlL-kAEgwE" data-link-id=3D"1395690584" target=3D"_blank" style=3D"color=
+: #222222; text-decoration: underline;">pop</a></span> =CE=BC=CE=B5=CE=BB=
+=CF=89=CE=B4=CE=AF=CE=B5=CF=82 =CE=B3=CE=B9=CE=B1 =CE=BD=CE=B1 =CF=83=CF=85=
+=CE=BD=CE=BF=CE=B4=CE=B5=CF=8D=CF=83=CE=BF=CF=85=CE=BD =CF=84=CE=B7=CE=BD =
+=CF=80=CE=B9=CE=BF =CE=BC=CE=B1=CE=B3=CE=B9=CE=BA=CE=AE =CE=B5=CF=80=CE=BF=
+=CF=87=CE=AE =CF=84=CE=BF=CF=85 =CF=87=CF=81=CF=8C=CE=BD=CE=BF=CF=85. </p>
+                                                      <p style=3D"margin-to=
+p: 0px; margin-bottom: 0px;">=CE=91=CE=BD =CE=B5=CF=84=CE=BF=CE=B9=CE=BC=CE=
+=AC=CE=B6=CE=B5=CF=83=CE=B1=CE=B9 =CE=B3=CE=B9=CE=B1 =CF=84=CE=B9=CF=82 =CF=
+=87=CF=81=CE=B9=CF=83=CF=84=CE=BF=CF=85=CE=B3=CE=B5=CE=BD=CE=BD=CE=B9=CE=AC=
+=CF=84=CE=B9=CE=BA=CE=B5=CF=82 =CE=B4=CE=B9=CE=B1=CE=BA=CE=BF=CF=80=CE=AD=
+=CF=82, =CF=80=CE=AC=CF=84=CE=B1 play, =CE=B3=CE=AD=CE=BC=CE=B9=CF=83=CE=B5=
+ =CF=84=CE=BF=CE=BD =CF=87=CF=8E=CF=81=CE=BF =CE=BC=CE=B5 =CE=B3=CE=B9=CE=
+=BF=CF=81=CF=84=CE=B9=CE=BD=CE=AE =CE=B4=CE=B9=CE=AC=CE=B8=CE=B5=CF=83=CE=
+=B7 =CE=BA=CE=B1=CE=B9 =CE=B1=CF=80=CF=8C=CE=BB=CE=B1=CF=85=CF=83=CE=B5 =CF=
+=84=CE=B7 =CE=BC=CE=B1=CE=B3=CE=B5=CE=AF=CE=B1 =CF=84=CF=89=CE=BD =CE=A7=CF=
+=81=CE=B9=CF=83=CF=84=CE=BF=CF=85=CE=B3=CE=AD=CE=BD=CE=BD=CF=89=CE=BD =CF=
+=83=CF=84=CE=BF =CE=AD=CF=80=CE=B1=CE=BA=CF=81=CE=BF!</p>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height=3D"20"></td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height=3D"20" class=3D"spacingH=
+eight-20"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align=3D"center">
+                                          <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%">
+                                            <tr>
+                                              <td align=3D"right" class=3D"=
+mlContentButton" style=3D"font-family: Tahoma, Geneva, sans-serif;">
+                                                <!--[if mso]>
+                                                  <v:roundrect xmlns:v=3D"u=
+rn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:w=
+ord" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4=
+OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTg1JmQ9YzdtMXM3dA=3D=3D._t25xL9JBxlyQw=
+mLdOGY4kEDREiow3ICA4wBPCahLvg" data-link-id=3D"1395690585" style=3D"height:=
+62px;v-text-anchor:middle;width:308px;" arcsize=3D"6%" strokecolor=3D"#00d7=
+ff" strokeweight=3D"2px" fillcolor=3D"#00d7ff">
+                                                    <w:anchorlock/>
+                                                    <center style=3D"color:=
+#0f1941;font-family:sans-serif;font-size:16px;font-weight:400;">=CE=B1=CE=
+=BA=CE=BF=CE=BB=CE=BF=CF=8D=CE=B8=CE=B7=CF=83=CE=AD =CE=BC=CE=B1=CF=82 =CF=
+=83=CF=84=CE=BF spotify</center>
+                                                  </v:roundrect>
+                                                <![endif]-->
+                                                <a class=3D"mlContentButton=
+" href=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc=
+4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTg2JmQ9ZTZwMHQ5Yw=3D=3D.R2HsZKV4wKvb-wdjb=
+l6rxIq9fvsIaZfyDMLYUBAkF8o" data-link-id=3D"1395690586" style=3D"font-famil=
+y: Tahoma, Geneva, sans-serif; background-color: #00d7ff; border: 2px solid=
+ #00d7ff; border-radius: 3px; color: #0f1941; display: inline-block; font-s=
+ize: 16px; font-weight: 400; line-height: 22px; padding: 18px 0 18px 0; tex=
+t-align: center; text-decoration: none; width: 308px; mso-hide: all;" targe=
+t=3D"_self">=CE=B1=CE=BA=CE=BF=CE=BB=CE=BF=CF=8D=CE=B8=CE=B7=CF=83=CE=AD =
+=CE=BC=CE=B1=CF=82 =CF=83=CF=84=CE=BF spotify</a>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"20" class=3D"spacingHeight-=
+20" style=3D"height: 20px;"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px;">
+                                <tr>
+                                  <td class=3D"mlContentOuter"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <table bgcolor=3D"#f6f5f0" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"background: #f6f5f0; width: 700px; min-wi=
+dth: 700px;" width=3D"700" class=3D"mlContentTable">
+                          <tr>
+                            <td align=3D"center">
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"30" class=3D"spacingHeight-=
+30" style=3D"height: 30px;"></td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"width: 600px; min-width: 600px;">
+                                <tr>
+                                  <td class=3D"mlContentOuter">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%">
+                                      <tr>
+                                        <td align=3D"center" class=3D"mlCon=
+tentButton" style=3D"font-family: Tahoma, Geneva, sans-serif;">
+                                          <!--[if mso]>
+                                            <v:roundrect xmlns:v=3D"urn:sch=
+emas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" h=
+ref=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4Jm=
+M9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTg3JmQ9ZjdiN202bg=3D=3D.4p1aEg4rAHBnAUCadWfW=
+JNzlV0-Eof9URDAL-6gMk40" data-link-id=3D"1395690587" style=3D"height:63px;v=
+-text-anchor:middle;width:596px;" arcsize=3D"6%" strokecolor=3D"#2175d9" st=
+rokeweight=3D"2px" fillcolor=3D"#2175d9">
+                                              <w:anchorlock/>
+                                              <center style=3D"color:#f6f5f=
+0;font-family:sans-serif;font-size:17px;font-weight:400;">=CE=B1=CE=BD=CE=
+=B1=CE=BA=CE=AC=CE=BB=CF=85=CF=88=CE=B5 =CF=80=CE=B5=CF=81=CE=B9=CF=83=CF=
+=83=CF=8C=CF=84=CE=B5=CF=81=CE=B5=CF=82 =CE=B1=CF=80=CF=8C 650 =CE=B8=CE=AD=
+=CF=83=CE=B5=CE=B9=CF=82 =CE=B5=CF=81=CE=B3=CE=B1=CF=83=CE=AF=CE=B1=CF=82 =
+=F0=9F=8E=84</center>
+                                            </v:roundrect>
+                                          <![endif]-->
+                                          <a class=3D"mlContentButton" href=
+=3D"https://mailerlite.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9b=
+DR6OSZlPTE5MjgmYj0xMzk1NjkwNTg4JmQ9YTF2MGk4eQ=3D=3D.pda0uKWbWepEkQVZUDhe2MA=
+IyuV2jkrINNeVRVoZT6w" data-link-id=3D"1395690588" style=3D"font-family: Tah=
+oma, Geneva, sans-serif; background-color: #2175d9; border: 2px solid #2175=
+d9; border-radius: 3px; color: #f6f5f0; display: inline-block; font-size: 1=
+7px; font-weight: 400; line-height: 23px; padding: 18px 0 18px 0; text-alig=
+n: center; text-decoration: none; width: 596px; mso-hide: all;" target=3D"_=
+self">=CE=B1=CE=BD=CE=B1=CE=BA=CE=AC=CE=BB=CF=85=CF=88=CE=B5 =CF=80=CE=B5=
+=CF=81=CE=B9=CF=83=CF=83=CF=8C=CF=84=CE=B5=CF=81=CE=B5=CF=82 =CE=B1=CF=80=
+=CF=8C 650 =CE=B8=CE=AD=CF=83=CE=B5=CE=B9=CF=82 =CE=B5=CF=81=CE=B3=CE=B1=CF=
+=83=CE=AF=CE=B1=CF=82 =F0=9F=8E=84</a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <table align=3D"center" border=3D"0" class=3D=
+"mlContentTable" cellpadding=3D"0" cellspacing=3D"0" width=3D"600">
+                                <tr>
+                                  <td height=3D"30" class=3D"spacingHeight-=
+30" style=3D"height: 30px;"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <table width=3D"700" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" align=3D"center" style=3D"width:700px;" class=3D"mlContentTabl=
+e" bgcolor=3D"#2175d9">
+                    <tbody>
+                      <tr>
+                        <td align=3D"center" valign=3D"top" class=3D"em_pad=
+tb1" style=3D"padding:60px 20px 30px;">
+                          <table width=3D"600" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"center" class=3D"mlContentTable" style=3D"wid=
+th:600px;">
+                            <tbody>
+                              <tr>
+                                <td valign=3D"top" align=3D"left" style=3D"=
+color:#ffffff; font-family:Tahoma, Geneva, sans-serif; font-size:16px; line=
+-height:19px; padding-bottom:29px;" class=3D"em_white">follow us</td>
+                              </tr>
+                              <tr>
+                                <td valign=3D"top" align=3D"center" style=
+=3D"padding-bottom:30px;">
+                                  <table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"150" align=3D"left">
+                                    <tr>
+                                      <td align=3D"left">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0" align=3D"left" class=3D"social-LinksTable">
+                                          <tr>
+                                            <td align=3D"center" width=3D"2=
+8" style=3D"padding-right: 20px;">
+                                              <a href=3D"https://mailerlite=
+.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk=
+1NjkwNTg5JmQ9ZDF1NHk5bQ=3D=3D.VTjlCqO1Q_joOBbOpFoIZu2yEJaJHJv1GLwVBFlTwgc" =
+data-link-id=3D"1395690589" target=3D"_blank">
+<img width=3D"28" alt=3D"linkedin" src=3D"https://assets.mlcdn.com/ml/image=
+s/icons/default/round/white/linkedin.png" style=3D"display: block;" border=
+=3D"0">
+</a>
+                                            </td>
+                                            <td align=3D"center" width=3D"2=
+8" style=3D"padding-right: 20px;">
+                                              <a href=3D"https://mailerlite=
+.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk=
+1NjkwNTkwJmQ9djV0OW8xdA=3D=3D.5gRx40D9CikZRk6sQApHhUCHRlIJzzjeos_MqGfYsdE" =
+data-link-id=3D"1395690590" target=3D"_blank">
+<img width=3D"28" alt=3D"facebook" src=3D"https://assets.mlcdn.com/ml/image=
+s/icons/default/round/white/facebook.png" style=3D"display: block;" border=
+=3D"0">
+</a>
+                                            </td>
+                                            <td align=3D"center" width=3D"2=
+8" style=3D"padding-right: 20px;">
+                                              <a href=3D"https://mailerlite=
+.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk=
+1NjkwNTkxJmQ9aDRiNHUybw=3D=3D.O0LXcThkudRabz2HA2MR81nSHP36Ye665PHsCyJnpHA" =
+data-link-id=3D"1395690591" target=3D"_blank">
+<img width=3D"28" alt=3D"instagram" src=3D"https://assets.mlcdn.com/ml/imag=
+es/icons/default/round/white/instagram.png" style=3D"display: block;" borde=
+r=3D"0">
+</a>
+                                            </td>
+                                            <td align=3D"center" width=3D"2=
+8" style=3D"padding-right: 20px;">
+                                              <a href=3D"https://mailerlite=
+.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk=
+1NjkwNTkyJmQ9czhyNWw5aw=3D=3D.olAP8U3Mzydv6kfBssaSrB9PRUyY7n3VHF1WeQ1qgtY" =
+data-link-id=3D"1395690592" target=3D"_blank">
+<img width=3D"28" alt=3D"tiktok" src=3D"https://assets.mlcdn.com/ml/images/=
+icons/default/round/white/tiktok.png" style=3D"display: block;" border=3D"0=
+">
+</a>
+                                            </td>
+                                            <td align=3D"center" width=3D"2=
+8" style=3D"padding-right: 0px;">
+                                              <a href=3D"https://mailerlite=
+.randstad.gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk=
+1NjkwNTkzJmQ9eTVtM3IyYw=3D=3D.tj0Z_JKMICqa1ngsiuXhprXRyzZvHuB0sMgLUxXegbs" =
+data-link-id=3D"1395690593" target=3D"_blank">
+<img width=3D"28" alt=3D"youtube" src=3D"https://assets.mlcdn.com/ml/images=
+/icons/default/round/white/youtube.png" style=3D"display: block;" border=3D=
+"0">
+</a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align=3D"left" class=3D"bodyText" id=3D=
+"bodyText-21" style=3D"font-family: Tahoma, Geneva, sans-serif; padding-bot=
+tom: 30px; padding-right: 110px; color: #ffffff; font-size: 16px; line-heig=
+ht: 22px; text-align: left;">
+                                  <p style=3D"margin-top: 0px; margin-botto=
+m: 10px;"><span style=3D"font-size: 11px;"><span style=3D"color: rgb(255, 2=
+55, 255);">=CE=95=CE=AC=CE=BD =CE=B4=CE=B5=CE=BD =CE=B5=CF=80=CE=B9=CE=B8=
+=CF=85=CE=BC=CE=B5=CE=AF=CF=84=CE=B5 =CE=BD=CE=B1 =CE=BB=CE=B1=CE=BC=CE=B2=
+=CE=AC=CE=BD=CE=B5=CF=84=CE=B5 =CF=80=CE=BB=CE=AD=CE=BF=CE=BD =CE=BC=CE=B7=
+=CE=BD=CF=8D=CE=BC=CE=B1=CF=84=CE=B1 =CE=B7=CE=BB=CE=B5=CE=BA=CF=84=CF=81=
+=CE=BF=CE=BD=CE=B9=CE=BA=CE=BF=CF=8D =CF=84=CE=B1=CF=87=CF=85=CE=B4=CF=81=
+=CE=BF=CE=BC=CE=B5=CE=AF=CE=BF=CF=85 =CE=B1=CF=80=CF=8C =CE=B5=CE=BC=CE=AC=
+=CF=82, =CF=80=CE=B1=CF=81=CE=B1=CE=BA=CE=B1=CE=BB=CF=8E =CF=80=CE=B1=CF=84=
+=CE=AE=CF=83=CF=84=CE=B5 <a href=3D"https://mailerlite.randstad.gr/link/c/Y=
+T0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTk0JmQ9ZjJtOGE5=
+bA=3D=3D.sjdsBjCp0-dI2FDLzitGMR56kk9EsuxqcdoqY_6ChS8" data-link-id=3D"13956=
+90594" target=3D"_blank" style=3D"color: #f7f5f0; text-decoration: underlin=
+e;">unsubscribe.</a></span></span></p>
+                                  <p style=3D"margin-top: 0px; margin-botto=
+m: 0px;"><span style=3D"font-size: 11px;"><br>=C2=A9 2024<span style=3D"col=
+or: rgb(246, 245, 240);">&nbsp;Randstad - Contact - Disclaimer</span></span=
+></p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign=3D"top" align=3D"center" style=3D"line-h=
+eight:0px;font-size:0px;" class=3D"em_padlr">
+                          <table width=3D"650" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" style=3D"width:650px;" class=3D"mlContentTable">
+                            <tbody>
+                              <tr>
+                                <td valign=3D"top" height=3D"1" bgcolor=3D"=
+#d8d7d6" style=3D"font-size:0px; line-height:0px;"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign=3D"top" align=3D"center" style=3D"paddin=
+g:25px 50px 30px;" class=3D"em_padB">
+                          <table width=3D"600" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"center" class=3D"mlContentTable" style=3D"wid=
+th:600px;">
+                            <tbody>
+                              <tr>
+                                <td valign=3D"top" align=3D"left">
+                                  <div id=3D"hs_cos_wrapper_he_img" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_linked_image" =
+style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs=
+-cos-general-type=3D"widget" data-hs-cos-type=3D"linked_image">
+                                    <a href=3D"https://mailerlite.randstad.=
+gr/link/c/YT0yNjMzNTE0NDczMzAxNzM4OTc4JmM9bDR6OSZlPTE5MjgmYj0xMzk1NjkwNTk1J=
+mQ9dTF1OXkwcQ=3D=3D.WMWwz2p10VJJ3bMSHq7sN041akfxcFjC3egnZNGtjlA" data-link-=
+id=3D"1395690595" target=3D"_self" id=3D"hs-link-he_img" style=3D"border-wi=
+dth:0px;border:0px;"><img src=3D"https://bucket.mlcdn.com/a/514/514411/temp=
+lates/1/1276/729c74135c1447d7541870d50e1c52749d65838e.png" class=3D"hs-imag=
+e-widget" style=3D"border-width: 0px; border: 0px; width: 184px; max-width:=
+ 184px; display: block; font-family: Arial, sans-serif; font-size: 17px; li=
+ne-height: 20px; color: #ffffff; font-weight: bold;" width=3D"184" alt=3D"r=
+andstad" title=3D"randstad" border=3D"0"></a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+
+</html>
+
+
+
+--b1_11af3849c48e5599ffbbde36a8709908--

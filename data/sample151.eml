@@ -1,0 +1,165 @@
+Received: from BLAPR19MB4372.namprd19.prod.outlook.com (2603:10b6:208:279::18)
+ by MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Thu, 14 Sep 2023
+ 22:59:23 +0000
+Received: from MW4PR03CA0246.namprd03.prod.outlook.com (2603:10b6:303:b4::11)
+ by BLAPR19MB4372.namprd19.prod.outlook.com (2603:10b6:208:279::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.19; Thu, 14 Sep
+ 2023 22:59:22 +0000
+Received: from CO1NAM11FT032.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:303:b4:cafe::ce) by MW4PR03CA0246.outlook.office365.com
+ (2603:10b6:303:b4::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.20 via Frontend
+ Transport; Thu, 14 Sep 2023 22:59:21 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.215.169)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.215.169 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.215.169; helo=mail-pg1-f169.google.com; pr=C
+Received: from mail-pg1-f169.google.com (209.85.215.169) by
+ CO1NAM11FT032.mail.protection.outlook.com (10.13.174.218) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6792.21 via Frontend Transport; Thu, 14 Sep 2023 22:59:21 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:FA3CD1EEE2CC2C64C671A55DECF84F7E008C4786D50CF4585ABCF47F139015D3;UpperCasedChecksum:0DE502694FFCBD521134D07D58BA7AEEE8450E2833ADE299A339A055E7EDE026;SizeAsReceived:2783;Count:17
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-573d52030fbso1264945a12.0
+        for <phishing@pot>; Thu, 14 Sep 2023 15:59:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1694732361; x=1695337161; darn=hotmail.com;
+        h=subject:to:from:mime-version:date:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dW9ZEqy2toQRAVDfogqs0TbDh2KlX5Ke5aUCspW6tqk=;
+        b=ac4wrKrrf/cw03fj100J3yZ/yICio0BVhHeMCf7rHc1hYg24JAn/M6vRaSmLDdtLs1
+         4IFmsEl21Xo9m81p/jtMRXVn/na+x33twAJWSeQxWi3FgtgS3W9q5vY3xcV40eL/Hr4X
+         knWXNZzSfLyl5+1S95uJwktYJ4HopEiZ2RZ4bpQQnH05oU2xySZyiRFzvyxEYa6kT3My
+         M1ZxvphNRbZcc9X6ovONMZ8WrX1t7Xnzowvt2uiFkd29H8kte+CyaeB96qeBZENzgh10
+         52e/wiLuzwLyw3J74Rcanrm2e+CPwma6tTsDD/Mb6Q6YbCQl8QdgkVewU9H3lHuaV6JG
+         ZaJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1694732361; x=1695337161;
+        h=subject:to:from:mime-version:date:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dW9ZEqy2toQRAVDfogqs0TbDh2KlX5Ke5aUCspW6tqk=;
+        b=Yz2WogUAaCmlN2f+XyHHcgyIO6IiZjJRgXgf0OtOoq0zSrQNZIkAZhPYd5KapdjDHm
+         Bo11wZgK5DXdg4mGXsfA2fHW4sg7mvdHxl9qWDYvH8XctdvD3ICu146M6/hRzx2Zbc0g
+         nLtG+n46/KMjYS3yHgnQ9DjF1E7P3D3gg86HqdIoRfioTSz0MXc333JVbjTv9paARE8i
+         bIFQug34z/V2Suoh3quP75+3+2PUgcZ+MdJlPgltVIAf2bSIBss4SIPhFsrzBnPGbFqm
+         ie5krw1PP4k3ws5CUF63XjoAG/bnxWpOH9or8oTqjPdZUneureN0JAVyfbEtJW6ZAvsf
+         LpOg==
+X-Gm-Message-State: AOJu0YyXkQZN7aYTZ2GKKsSYgdXjngN3HchjVhLFdjwVMVAYKWaq0yus
+	FktW84Ffbmp728ArdHKwPEcy20Rq3aBInQ==
+X-Google-Smtp-Source: AGHT+IFTQpZ240KjgOjTIdUSxmJ4P/YDoF1Zckv/hJwN8cMX4DxvwkIzH9kN89XxsFnuYscZGZ315w==
+X-Received: by 2002:a05:6a20:12c4:b0:159:b45e:1c7d with SMTP id v4-20020a056a2012c400b00159b45e1c7dmr179575pzg.15.1694732360843;
+        Thu, 14 Sep 2023 15:59:20 -0700 (PDT)
+Return-Path: lindalhb686@gmail.com
+Received: from a5 ([20.92.13.237])
+        by smtp.gmail.com with ESMTPSA id x13-20020aa784cd000000b006884844dfcdsm1799328pfn.55.2023.09.14.15.59.19
+        for <phishing@pot>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 14 Sep 2023 15:59:20 -0700 (PDT)
+Message-ID: <65039048.a70a0220.ab2d4.7440@mx.google.com>
+Date: Thu, 14 Sep 2023 15:59:20 -0700 (PDT)
+X-Google-Original-Date: 14 Sep 2023 22:59:19 +0000
+From: "Banco do Brasil " <lindalhb686@gmail.com>
+To: phishing@pot
+Subject: Extrato Mensal - Fatura Ref. JlxIIM67eCcFfLk
+Content-Type: multipart/mixed;
+ boundary=--boundary_1109_7c56ccaa-f1a6-46a5-a842-b9ac3b93e0ca
+X-IncomingHeaderCount: 17
+X-MS-Exchange-Organization-ExpirationStartTime: 14 Sep 2023 22:59:21.4913
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 068fe4f0-54ea-4319-6524-08dbb5763bab
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CO1NAM11FT032:EE_|BLAPR19MB4372:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CO1NAM11FT032.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/14/2023 10:53:46 PM
+X-MS-Office365-Filtering-Correlation-Id: 068fe4f0-54ea-4319-6524-08dbb5763bab
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.215.169
+X-SID-PRA: LINDALHB686@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Sep 2023 22:59:21.4445
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 068fe4f0-54ea-4319-6524-08dbb5763bab
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CO1NAM11FT032.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR19MB4372
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.9265927
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6768.024
+Importance: high
+X-Priority: 1
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(4810010)(4910033)(9575002)(10195002)(9320005)(120001);
+X-Message-Info:
+	qZelhIiYnPlS14Zf4MkYM9/hIr17TmA5Ten65vwVXdjKHx4VqSBMqNiiJrIZvfmSrOkEtlUvd3B69rzkSYQtGhLhR3LBPKBJX15cK0XIKQgUTzipyrp6NWi9E+OQDB1+2ENm3AwJXp0QbDb571Gq4P/gagw6XhFlTvuqszmvzLvz67VniPo4VlKRGVyj3DKEnGklCXnhtxE=
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?vJ8UAgOUFDS5LZnIFervba4DLSzRkRxcWVQY75rZ2G1cC+P/TwxzcLPUN4kh?=
+ =?us-ascii?Q?OD3lgxOt/akyXe9A7L64koahMwSBQVK4UGuvkCehcLJ/ayOeOt/+8PkC0HKU?=
+ =?us-ascii?Q?WZN40JeChRqKuNJVjGOqtEK46P3dP8kK+Ob05FDwe5lzHQgub9pD9DGVPxqf?=
+ =?us-ascii?Q?dTGg1sqY1/WCfESLaqKRSDKQcVMwBHCos+5OBMO7feLkuhfxjiYOpwWKm+aI?=
+ =?us-ascii?Q?5NY9/n/r/JnIU7kRI/SHBZhAUaxoiTaROCbNwgWmQRVP8AvmyvHTQU5jPZBP?=
+ =?us-ascii?Q?lt8ZLxthM8fdaN0ti5O5/0JVfmbplEpxIzoCFulME+sn3MGpMxGW4MYNEeAM?=
+ =?us-ascii?Q?ti+AlM85nx8bgLho5e8sYmBQoAnxeGjQhg9VrmwNrhFWY/f6hRYtbSWOAFFe?=
+ =?us-ascii?Q?cZOfDKbwVsvcBhEfDZ1Xs0V9vfaVaBU76QzpsvWxVlAaBP/gZaYO6681WnVC?=
+ =?us-ascii?Q?QETvU0CoUL4ZNIEAmL7eIQ1o4vh2vPYj9Edkt4bSSYHxgYbFnZr0+cFUqrld?=
+ =?us-ascii?Q?geiOboh7wWY6cbkFWAs0hNr0CsuelSMJK3xP1pw5PwkCk4JO+1gii6Z8X9DY?=
+ =?us-ascii?Q?BDHd4KdKZHUs+REFkrfrsJtUO+3mBh6sBQXde0JN41Jox/4hSQV05Kh8WqNE?=
+ =?us-ascii?Q?Vhi8+Di8TNLOM5PJgjt4krs0PFC4/VW/gAHFtpbYzOU7Aj0jQCWUejr11BHz?=
+ =?us-ascii?Q?koiwAkhA+4L7P/KPwjCHmEbQ4OzrliyVdaz//rzoOIkHYyw0s/u4IyGQrC0z?=
+ =?us-ascii?Q?gK87u8k6DRT1b2dmZBfU3WszRPEL1Q2gBm2xVpTgPq6hrkYuWldHX2SM5mQf?=
+ =?us-ascii?Q?d1S/U7IpLwg+2+EaGdxuh5i37KCelfSuTA9/HC+MJc5YGjqW3Xa7Vvedwfp9?=
+ =?us-ascii?Q?M7egKFqhdUyCSSn1TwW3Gz0O53HyvKluw5HJx1/3oLmYCxsccsk0UxxSvuxe?=
+ =?us-ascii?Q?afwRYCkQbMl1bZkg/rbHTWutGC86r38eDRgT74eodXJeN3lnlZMxC8RCxCGT?=
+ =?us-ascii?Q?J8J4ug/wfFMCBIylsVW679gHJsZJoVNoyE0Kk6O3mb2z3Dzrh6emrT797FSW?=
+ =?us-ascii?Q?5sYOwrTchWeHn8miyOB3qejUbqc/POj1wGDUKDetJZTYm7+R3gxmEX5E2Pr2?=
+ =?us-ascii?Q?xmw+K9v4cwJwsgjpOMLDu4vJp/EJiJ20yskn+VmsBMK8g8U+VNQ4fLRJb8Hq?=
+ =?us-ascii?Q?gApL4I6hbYq/MYToVQ99qrmOb+wLJljvKWXnTVcuTKeRdkrvlVVGo0xailxj?=
+ =?us-ascii?Q?8rRl27mw4ozcwZsrwD/GyK1OxRZvZ4PLAGK4CsGN7w808fBLOCSM6DluvFhx?=
+ =?us-ascii?Q?B5djOs337iFn/7+7LXVYXuDOREkvctICaFUNN63GYMVLMekiJg7zBT7Ef5o2?=
+ =?us-ascii?Q?9ajaemN3prX5qmX8thTVirYW5XFlWFQfu32Xx5T9Vqk2aAsUZGM4GWsxx3NS?=
+ =?us-ascii?Q?11SX4XvAlxpI1Zx/kUcuYinwfB0DograDFOQ9HDmAJ2K9xLZIee6+fNTNyQY?=
+ =?us-ascii?Q?x9r3kt59rCJXaJVlT+m6B/HS6hVodkoOVKZwii0KrbrfZUJWAPioalzUzOht?=
+ =?us-ascii?Q?cZT99iA53AIeQI2KsOOPGlKApAMBt+rxVzyjHJWsbYBLhfp4IQvOKIunuWak?=
+ =?us-ascii?Q?kktzZcwKgTCp6qz7nXnx48w=3D?=
+MIME-Version: 1.0
+
+----boundary_1109_7c56ccaa-f1a6-46a5-a842-b9ac3b93e0ca
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+BB INFORMA: Seus pontos expiram em 24 horas.
+
+Veja como e facil resgatar seus pontos no arquivo em anexo.
+
+Senha do PDF: 123
+
+Codigo de liberacao: 880859744919738
+
+14/09/2023 - 19:59=
+
+----boundary_1109_7c56ccaa-f1a6-46a5-a842-b9ac3b93e0ca
+Content-Type: application/octet-stream; name=JlxIIM67eC.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment
+

@@ -1,0 +1,453 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7108:471c:b0:356:3f77:6cc2 with SMTP id bw28csp1200233gdb;
+        Mon, 13 Nov 2023 03:11:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE6INmJuQ3DADXfdhr+QD82mrHQZ/NX8nuRH3VuewLlQH01jYddjYngSWVfRqribQPhF4lM
+X-Received: by 2002:a05:6102:4719:b0:45f:bab9:442f with SMTP id ei25-20020a056102471900b0045fbab9442fmr2406061vsb.3.1699873902331;
+        Mon, 13 Nov 2023 03:11:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699873902; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yQyreCTZc2WklCU/cyboj+mUVkHfYWBOUa7UT5uS5LtRybmssJVZgYSCFBbYRjApzL
+         z1grdOlqdM1afY9ROCVjJ4U+zdnpI/SdSJR0lY8PFpzvH7ergsp6Y/bxAHCwaKavhh3s
+         XsAkjx/32TTMD0jfzQ5LVwc6XwnSjkVBI+r30317PaA9tFIotdt3TP/VMtu+r5HGu7pY
+         ymlwYncCnJ/qOB6s1bvjY4HCd3n0QyvNcl6EQdtH0sShjFskfha8uTGO6QZcvRrlBBL0
+         eK8Ll3Oq7QtMrRVrpW4+v8/zSzu2bKwimWnWLo+f08ctoXZJyYva00VO55IZN1Lk1l7J
+         +OMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=destinations:list-unsubscribe:list-post:list-archive:list-id
+         :precedence:content-transfer-encoding:mime-version:subject
+         :message-id:cc:to:reply-to:from:date:dkim-signature;
+        bh=8stYAyAXSu+U3MBELcpZu3Okk0ziltCWFSAvmGudIiU=;
+        fh=4WlqmK8pXS4xWUViNME/Fkbq1WjSktFTgl6WZX5fJao=;
+        b=nGxaVXj6JAz88jCUe3+fEnsWTG20FDlEiVbosy1gUunsffq8cF/Ss3lT5MXzEe90af
+         fWAQbiWusg/K/y4Z+suy0hRanSUw9UIc41ktjUhIsS8wKSjXmvbmSHAPJ3fq26GhGLTc
+         r4yKu4fdJa1gO4YCEmlyNSgnTiSraP9iE2O652Muxq3IeiWKoiMOe6CFjAgXffd190DR
+         ZmR1Cqtc9ClzKgfP4L93vArrSjrbFic3EzjwDWxzy+TU6FZkB9FTQAnV1ohfU98DAVS7
+         Do6UQX22cnZBv4hukKKFWtjXfDa61fcmMp//pE3cyjHaK5LRb55LdI6jRN5QJGbSNnUs
+         GZLA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=Ped2CkCu;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.200 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-17.smtp.github.com (out-17.smtp.github.com. [192.30.252.200])
+        by mx.google.com with ESMTPS id pj23-20020a05620a1d9700b00775c0be5457si3992188qkn.553.2023.11.13.03.11.42
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Nov 2023 03:11:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.200 as permitted sender) client-ip=192.30.252.200;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=Ped2CkCu;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.200 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-1958de2.va3-iad.github.net [10.48.219.54])
+	by smtp.github.com (Postfix) with ESMTPA id D71F540C01
+	for <sminhaz18061997@gmail.com>; Mon, 13 Nov 2023 03:11:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1699873901;
+	bh=8stYAyAXSu+U3MBELcpZu3Okk0ziltCWFSAvmGudIiU=;
+	h=Date:From:Reply-To:To:Cc:Subject:List-ID:List-Archive:List-Post:
+	 List-Unsubscribe:From;
+	b=Ped2CkCuHhrLSNhz/z4WNLo1lhanSNjXhmOpVVsHZb8H0/OcSAi6YGM/Cm57a2ifx
+	 w3c1q1rhBLKAGY/SPtqGvrcC/q9UEjIHCKML9iioszNP9kPNehaGw3OFlnznk95I2F
+	 rU5SoRI+TJeY3S0e4ufy4RPwJnoqUUT98rVulK2U=
+Date: Mon, 13 Nov 2023 03:11:41 -0800
+From: "dependabot[bot]" <sender@github.com>
+Reply-To: ipfs/ipfs-docs <reply+AQRTH3ID2K6NU37RQFTMJQGDL43O3EVBNHHHNI4LKU@reply.github.com>
+To: ipfs/ipfs-docs <ham@ham.email>
+Cc: Subscribed <subscribed@noreply.github.com>
+Message-ID: <ipfs/ipfs-docs/pull/1758@github.com>
+Subject: [ipfs/ipfs-docs] chore(deps-dev): bump prettier from 3.0.3 to 3.1.0
+ (PR #1758)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6552046dd42fd_8ad8041248ca";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: dependabot[bot]
+X-GitHub-Recipient: minhaz1205013
+X-GitHub-Reason: subscribed
+List-ID: ipfs/ipfs-docs <ipfs-docs.ipfs.github.com>
+List-Archive: https://github.com/ipfs/ipfs-docs
+List-Post: <mailto:reply+AQRTH3ID2K6NU37RQFTMJQGDL43O3EVBNHHHNI4LKU@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AQRTH3ID2K6NU37RQFTMJQGDL43O3EVBNHHHNI4LKU@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/AQRTH3NLQ3TNUSOFUKJ4S2DYEH563ANCNFSM6AAAAAA7I7FAWA>
+X-Auto-Response-Suppress: All
+destinations: sminhaz18061997@gmail.com
+X-GitHub-Recipient-Address: sminhaz18061997@gmail.com
+
+
+----==_mimepart_6552046dd42fd_8ad8041248ca
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bumps [prettier](https://github.com/prettier/prettier) from 3.0.3 to 3.1.=
+0.
+&lt;details&gt;
+&lt;summary&gt;Release notes&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a href=3D&quot;https://github.com/pre=
+ttier/prettier/releases&quot;&gt;prettier&#39;s releases&lt;/a&gt;.&lt;/e=
+m&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;3.1.0&lt;/h2&gt;
+&lt;p&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/compare/=
+3.0.3...3.1.0&quot;&gt;diff&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;=F0=9F=94=97 &lt;a href=3D&quot;https://prettier.io/blog/2023/11=
+/13/3.1.0.html&quot;&gt;Release note&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Changelog&lt;/summary&gt;
+&lt;p&gt;&lt;em&gt;Sourced from &lt;a href=3D&quot;https://github.com/pre=
+ttier/prettier/blob/main/CHANGELOG.md&quot;&gt;prettier&#39;s changelog&l=
+t;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1&gt;3.1.0&lt;/h1&gt;
+&lt;p&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/compare/=
+3.0.3...3.1.0&quot;&gt;diff&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;=F0=9F=94=97 &lt;a href=3D&quot;https://prettier.io/blog/2023/11=
+/13/3.1.0.html&quot;&gt;Release Notes&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+e8ac9f8d2a1c7083ac4f8a9b960521b62d60c94f&quot;&gt;&lt;code&gt;e8ac9f8&lt;=
+/code&gt;&lt;/a&gt; Release 3.1.0&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+6a1d4096b9fdc60c93fbcbc90465293906fcd2d0&quot;&gt;&lt;code&gt;6a1d409&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency eslint-plugin-regexp t=
+o v2 (&lt;a href=3D&quot;https://redirect.github.com/prettier/prettier/is=
+sues/15521&quot;&gt;#15521&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+f4d93d3d226c67e3b01dbea39ee92d869786953d&quot;&gt;&lt;code&gt;f4d93d3&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency esbuild to v0.19.5 (&l=
+t;a href=3D&quot;https://redirect.github.com/prettier/prettier/issues/156=
+30&quot;&gt;#15630&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+4fc71a5ce895e8a022970cf4072432a60efb5a10&quot;&gt;&lt;code&gt;4fc71a5&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency flow-parser to v0.221.=
+0 (&lt;a href=3D&quot;https://redirect.github.com/prettier/prettier/issue=
+s/15637&quot;&gt;#15637&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+d452f45c19a8b19087868509fa426f6bd562dfdc&quot;&gt;&lt;code&gt;d452f45&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency eslint-plugin-jest to =
+v27.6.0 (&lt;a href=3D&quot;https://redirect.github.com/prettier/prettier=
+/issues/15635&quot;&gt;#15635&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+eb84a60ef8f2c5a8ccf909d34560c3ba7beaf5c9&quot;&gt;&lt;code&gt;eb84a60&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency &lt;code&gt;@=E2=80=8B=
+types/estree&lt;/code&gt; to v1.0.5 (&lt;a href=3D&quot;https://redirect.=
+github.com/prettier/prettier/issues/15625&quot;&gt;#15625&lt;/a&gt;)&lt;/=
+li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+2af23eefd07a75dc15782b00435f8caadc00c3ad&quot;&gt;&lt;code&gt;2af23ee&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency webpack to v5.89.0 (&l=
+t;a href=3D&quot;https://redirect.github.com/prettier/prettier/issues/156=
+40&quot;&gt;#15640&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+8f27c736b3bfbb44583f33f43fb99425cae69783&quot;&gt;&lt;code&gt;8f27c73&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency eslint-plugin-unicorn =
+to v49 (&lt;a href=3D&quot;https://redirect.github.com/prettier/prettier/=
+issues/15642&quot;&gt;#15642&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+cdc5f5a60b8667284779b963d770861af9c7ee63&quot;&gt;&lt;code&gt;cdc5f5a&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency webpack to v5.89.0 (&l=
+t;a href=3D&quot;https://redirect.github.com/prettier/prettier/issues/156=
+39&quot;&gt;#15639&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=3D&quot;https://github.com/prettier/prettier/commit/=
+14607efc39f91adbe6914cb80844643c6dfa3033&quot;&gt;&lt;code&gt;14607ef&lt;=
+/code&gt;&lt;/a&gt; chore(deps): update dependency eslint-plugin-n to v16=
+.3.1 (&lt;a href=3D&quot;https://redirect.github.com/prettier/prettier/is=
+sues/15636&quot;&gt;#15636&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Additional commits viewable in &lt;a href=3D&quot;https://githu=
+b.com/prettier/prettier/compare/3.0.3...3.1.0&quot;&gt;compare view&lt;/a=
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;br /&gt;
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.co=
+m/badges/compatibility_score?dependency-name=3Dprettier&amp;package-manag=
+er=3Dnpm_and_yarn&amp;previous-version=3D3.0.3&amp;new-version=3D3.1.0)](=
+https://docs.github.com/en/github/managing-security-vulnerabilities/about=
+-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don&#39=
+;t alter it yourself. You can also trigger a rebase manually by commentin=
+g `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+&lt;details&gt;
+&lt;summary&gt;Dependabot commands and options&lt;/summary&gt;
+&lt;br /&gt;
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits tha=
+t have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your=
+ CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and=
+ block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating i=
+t. You can achieve the same result by closing it manually
+- `@dependabot show &lt;dependency name&gt; ignore conditions` will show =
+all of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop Dep=
+endabot creating any more for this major version (unless you reopen the P=
+R or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dep=
+endabot creating any more for this minor version (unless you reopen the P=
+R or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Depend=
+abot creating any more for this dependency (unless you reopen the PR or u=
+pgrade to it yourself)
+
+
+&lt;/details&gt;
+You can view, comment on, or merge this pull request online at:
+
+  https://github.com/ipfs/ipfs-docs/pull/1758
+
+-- Commit Summary --
+
+  * chore(deps-dev): bump prettier from 3.0.3 to 3.1.0
+
+-- File Changes --
+
+    M package-lock.json (14)
+    M package.json (2)
+
+-- Patch Links --
+
+https://github.com/ipfs/ipfs-docs/pull/1758.patch
+https://github.com/ipfs/ipfs-docs/pull/1758.diff
+
+-- =
+
+Reply to this email directly or view it on GitHub:
+https://github.com/ipfs/ipfs-docs/pull/1758
+You are receiving this because you are subscribed to this thread.
+
+Message ID: &lt;ipfs/ipfs-docs/pull/1758@github.com&gt;
+
+----==_mimepart_6552046dd42fd_8ad8041248ca
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"auto">Bumps <a href=3D"https://github.com/prettier/prettier">pr=
+ettier</a> from 3.0.3 to 3.1.0.</p>
+<details>
+<summary>Release notes</summary>
+<p dir=3D"auto"><em>Sourced from <a href=3D"https://github.com/prettier/p=
+rettier/releases">prettier's releases</a>.</em></p>
+<blockquote>
+<h2 dir=3D"auto">3.1.0</h2>
+<p dir=3D"auto"><a href=3D"https://github.com/prettier/prettier/compare/3=
+.0.3...3.1.0">diff</a></p>
+<p dir=3D"auto">=F0=9F=94=97 <a href=3D"https://prettier.io/blog/2023/11/=
+13/3.1.0.html" rel=3D"nofollow">Release note</a></p>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p dir=3D"auto"><em>Sourced from <a href=3D"https://github.com/prettier/p=
+rettier/blob/main/CHANGELOG.md">prettier's changelog</a>.</em></p>
+<blockquote>
+<h1 dir=3D"auto">3.1.0</h1>
+<p dir=3D"auto"><a href=3D"https://github.com/prettier/prettier/compare/3=
+.0.3...3.1.0">diff</a></p>
+<p dir=3D"auto">=F0=9F=94=97 <a href=3D"https://prettier.io/blog/2023/11/=
+13/3.1.0.html" rel=3D"nofollow">Release Notes</a></p>
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul dir=3D"auto">
+<li><a href=3D"https://github.com/prettier/prettier/commit/e8ac9f8d2a1c70=
+83ac4f8a9b960521b62d60c94f"><code class=3D"notranslate">e8ac9f8</code></a=
+> Release 3.1.0</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/6a1d4096b9fdc6=
+0c93fbcbc90465293906fcd2d0"><code class=3D"notranslate">6a1d409</code></a=
+> chore(deps): update dependency eslint-plugin-regexp to v2 (<a href=3D"h=
+ttps://redirect.github.com/prettier/prettier/issues/15521">#15521</a>)</l=
+i>
+<li><a href=3D"https://github.com/prettier/prettier/commit/f4d93d3d226c67=
+e3b01dbea39ee92d869786953d"><code class=3D"notranslate">f4d93d3</code></a=
+> chore(deps): update dependency esbuild to v0.19.5 (<a href=3D"https://r=
+edirect.github.com/prettier/prettier/issues/15630">#15630</a>)</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/4fc71a5ce895e8=
+a022970cf4072432a60efb5a10"><code class=3D"notranslate">4fc71a5</code></a=
+> chore(deps): update dependency flow-parser to v0.221.0 (<a href=3D"http=
+s://redirect.github.com/prettier/prettier/issues/15637">#15637</a>)</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/d452f45c19a8b1=
+9087868509fa426f6bd562dfdc"><code class=3D"notranslate">d452f45</code></a=
+> chore(deps): update dependency eslint-plugin-jest to v27.6.0 (<a href=3D=
+"https://redirect.github.com/prettier/prettier/issues/15635">#15635</a>)<=
+/li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/eb84a60ef8f2c5=
+a8ccf909d34560c3ba7beaf5c9"><code class=3D"notranslate">eb84a60</code></a=
+> chore(deps): update dependency <code class=3D"notranslate">@=E2=80=8Bty=
+pes/estree</code> to v1.0.5 (<a href=3D"https://redirect.github.com/prett=
+ier/prettier/issues/15625">#15625</a>)</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/2af23eefd07a75=
+dc15782b00435f8caadc00c3ad"><code class=3D"notranslate">2af23ee</code></a=
+> chore(deps): update dependency webpack to v5.89.0 (<a href=3D"https://r=
+edirect.github.com/prettier/prettier/issues/15640">#15640</a>)</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/8f27c736b3bfbb=
+44583f33f43fb99425cae69783"><code class=3D"notranslate">8f27c73</code></a=
+> chore(deps): update dependency eslint-plugin-unicorn to v49 (<a href=3D=
+"https://redirect.github.com/prettier/prettier/issues/15642">#15642</a>)<=
+/li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/cdc5f5a60b8667=
+284779b963d770861af9c7ee63"><code class=3D"notranslate">cdc5f5a</code></a=
+> chore(deps): update dependency webpack to v5.89.0 (<a href=3D"https://r=
+edirect.github.com/prettier/prettier/issues/15639">#15639</a>)</li>
+<li><a href=3D"https://github.com/prettier/prettier/commit/14607efc39f91a=
+dbe6914cb80844643c6dfa3033"><code class=3D"notranslate">14607ef</code></a=
+> chore(deps): update dependency eslint-plugin-n to v16.3.1 (<a href=3D"h=
+ttps://redirect.github.com/prettier/prettier/issues/15636">#15636</a>)</l=
+i>
+<li>Additional commits viewable in <a href=3D"https://github.com/prettier=
+/prettier/compare/3.0.3...3.1.0">compare view</a></li>
+</ul>
+</details>
+<br>
+<p dir=3D"auto"><a href=3D"https://docs.github.com/en/github/managing-sec=
+urity-vulnerabilities/about-dependabot-security-updates#about-compatibili=
+ty-scores"><img src=3D"https://camo.githubusercontent.com/c6e2995f26d4816=
+e1b515fe58e6025dd42403231953e94268d2c8f6cabc4b650/68747470733a2f2f6465706=
+56e6461626f742d6261646765732e6769746875626170702e636f6d2f6261646765732f63=
+6f6d7061746962696c6974795f73636f72653f646570656e64656e63792d6e616d653d707=
+2657474696572267061636b6167652d6d616e616765723d6e706d5f616e645f7961726e26=
+70726576696f75732d76657273696f6e3d332e302e33266e65772d76657273696f6e3d332=
+e312e30" alt=3D"Dependabot compatibility score" data-canonical-src=3D"htt=
+ps://dependabot-badges.githubapp.com/badges/compatibility_score?dependenc=
+y-name=3Dprettier&amp;package-manager=3Dnpm_and_yarn&amp;previous-version=
+=3D3.0.3&amp;new-version=3D3.1.0" style=3D"max-width: 100%;"></a></p>
+<p dir=3D"auto">Dependabot will resolve any conflicts with this PR as lon=
+g as you don't alter it yourself. You can also trigger a rebase manually =
+by commenting <code class=3D"notranslate">@dependabot rebase</code>.</p>
+<hr>
+<details>
+<summary>Dependabot commands and options</summary>
+<br>
+<p dir=3D"auto">You can trigger Dependabot actions by commenting on this =
+PR:</p>
+<ul dir=3D"auto">
+<li><code class=3D"notranslate">@dependabot rebase</code> will rebase thi=
+s PR</li>
+<li><code class=3D"notranslate">@dependabot recreate</code> will recreate=
+ this PR, overwriting any edits that have been made to it</li>
+<li><code class=3D"notranslate">@dependabot merge</code> will merge this =
+PR after your CI passes on it</li>
+<li><code class=3D"notranslate">@dependabot squash and merge</code> will =
+squash and merge this PR after your CI passes on it</li>
+<li><code class=3D"notranslate">@dependabot cancel merge</code> will canc=
+el a previously requested merge and block automerging</li>
+<li><code class=3D"notranslate">@dependabot reopen</code> will reopen thi=
+s PR if it is closed</li>
+<li><code class=3D"notranslate">@dependabot close</code> will close this =
+PR and stop Dependabot recreating it. You can achieve the same result by =
+closing it manually</li>
+<li><code class=3D"notranslate">@dependabot show &lt;dependency name&gt; =
+ignore conditions</code> will show all of the ignore conditions of the sp=
+ecified dependency</li>
+<li><code class=3D"notranslate">@dependabot ignore this major version</co=
+de> will close this PR and stop Dependabot creating any more for this maj=
+or version (unless you reopen the PR or upgrade to it yourself)</li>
+<li><code class=3D"notranslate">@dependabot ignore this minor version</co=
+de> will close this PR and stop Dependabot creating any more for this min=
+or version (unless you reopen the PR or upgrade to it yourself)</li>
+<li><code class=3D"notranslate">@dependabot ignore this dependency</code>=
+ will close this PR and stop Dependabot creating any more for this depend=
+ency (unless you reopen the PR or upgrade to it yourself)</li>
+</ul>
+</details>
+
+<hr>
+
+<h4>You can view, comment on, or merge this pull request online at:</h4>
+<p>&nbsp;&nbsp;<a href=3D'https://github.com/ipfs/ipfs-docs/pull/1758'>ht=
+tps://github.com/ipfs/ipfs-docs/pull/1758</a></p>
+
+<h4>Commit Summary</h4>
+<ul>
+  <li><a href=3D"https://github.com/ipfs/ipfs-docs/pull/1758/commits/49bc=
+0d9da250542820aa189b377681487b5332e8" class=3D"commit-link">49bc0d9</a>  =
+chore(deps-dev): bump prettier from 3.0.3 to 3.1.0</li>
+</ul>
+
+<h4 style=3D"display: inline-block">File Changes </h4> <p style=3D"displa=
+y: inline-block">(<a href=3D"https://github.com/ipfs/ipfs-docs/pull/1758/=
+files">2&nbsp;files</a>)</p>
+<ul>
+  <li>
+    <strong>M</strong>
+    <a href=3D"https://github.com/ipfs/ipfs-docs/pull/1758/files#diff-053=
+150b640a7ce75eff69d1a22cae7f0f94ad64ce9a855db544dda0929316519">package-lo=
+ck.json</a>
+    (14)
+  </li>
+  <li>
+    <strong>M</strong>
+    <a href=3D"https://github.com/ipfs/ipfs-docs/pull/1758/files#diff-7ae=
+45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519">package.js=
+on</a>
+    (2)
+  </li>
+</ul>
+
+<h4>Patch Links:</h4>
+<ul>
+  <li><a href=3D'https://github.com/ipfs/ipfs-docs/pull/1758.patch'>https=
+://github.com/ipfs/ipfs-docs/pull/1758.patch</a></li>
+  <li><a href=3D'https://github.com/ipfs/ipfs-docs/pull/1758.diff'>https:=
+//github.com/ipfs/ipfs-docs/pull/1758.diff</a></li>
+</ul>
+
+<p style=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">&m=
+dash;<br />Reply to this email directly, <a href=3D"https://github.com/ip=
+fs/ipfs-docs/pull/1758">view it on GitHub</a>, or <a href=3D"https://gith=
+ub.com/notifications/unsubscribe-auth/AQRTH3NG43DCAZKWEGR7CGLYEH563AVCNFS=
+M6AAAAAA7I7FAWCVHI2DSMVQWIX3LMV43ASLTON2WKOZRHE4TANBSHE2TENI">unsubscribe=
+</a>.<br />You are receiving this because you are subscribed to this thre=
+ad.<img src=3D"https://github.com/notifications/beacon/AQRTH3IHDOLGBYOGXA=
+ERPZTYEH563A5CNFSM6AAAAAA7I7FAWCWGG33NNVSW45C7OR4XAZNFJFZXG5LFVJRW63LNMVX=
+HIX3JMTHHNI4LKU.gif" height=3D"1" width=3D"1" alt=3D"" /><span style=3D"c=
+olor: transparent; font-size: 0; display: none; visibility: hidden; overf=
+low: hidden; opacity: 0; width: 0; height: 0; max-width: 0; max-height: 0=
+; mso-hide: all">Message ID: <span>&lt;ipfs/ipfs-docs/pull/1758</span><sp=
+an>@</span><span>github</span><span>.</span><span>com&gt;</span></span></=
+p>
+<script type=3D"application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/ipfs/ipfs-docs/pull/1758",
+"url": "https://github.com/ipfs/ipfs-docs/pull/1758",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>
+
+----==_mimepart_6552046dd42fd_8ad8041248ca--

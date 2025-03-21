@@ -1,0 +1,2544 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6520:2354:b0:2ac:6419:e1b with SMTP id c20csp2136001lkc;
+        Thu, 19 Dec 2024 23:52:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFJE/MlvKW2ZW8vZPrUGeBKrv/JdP+WjhLm6ziC1iKTOjsqXzboWsubnl/zVrMqrR0rX/TW
+X-Received: by 2002:a17:907:6e8c:b0:aa9:1b4b:489e with SMTP id a640c23a62f3a-aac2ad8ea23mr137068966b.24.1734681170517;
+        Thu, 19 Dec 2024 23:52:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734681170; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GO8CE95T4K4oLCitckJhMfOp1Xf79mAjoDbtmqlNfRpkBQmg0QxFocuc0NBf84ojl1
+         kMXc2vxcO3ddSx/ZI3xN1v8pNqCnlSZqM06oV2yzlpCE0gDr4Qi5lTLmgatD4yEaNeQE
+         wkHeBkBH3YjRFRSyZkVMsvLa2OAE2gLGr+lIJ9i0Br9e+VkfTFMKikokDXBc4GsYPXfm
+         gqFzG2GSmN2n37JnblKqJxXArm3AwnQ9CwZKwCtKPenH/mLNOLfjluGg4mtcy3Iq7OOl
+         3gf/P6v9KWL3h380HW/9f6uQErC9gXSVkQlWh37oV+VP0mLcE0zv9gL9wh4s2kxFwwDW
+         dlAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-id:list-help:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature;
+        bh=W0EvRahehJq/17EDpMOTtaLFM8Ml+FZKZx99bAUNLDU=;
+        fh=xXFapb6DMY3tY55eBzmUvjm6r7Z8DQJELkOJLegtBS4=;
+        b=RqOuq4TbEKx05R6Lpx5PN1+MwkmfPLF+GYg4wXDrMoVcnHFA7ulpbDIF5nU7bH5yv/
+         4sbWwIOVq/qVdk4/rbyBlXFg3YnBF7Wx6j/s8w+H0OT5w4jUVaMCU8aKm5cSePJ6V/EC
+         uwMZw1j20pAL+tS1UwanGQAorRe8PtzImxGlCt/G4TV+SooPPxjfndORIjIuikn3duqj
+         4YiimczATgRtodhVkBME0FG92VIeGAByeogo8NU7dA48+nKPsl95tdKT2st1f2h5ScnR
+         P9w1DuBKylUYx0ITgR5bPhV91LZg3MxiFmAVWeNsBmbRa9fbTXSvfCrWnxPyV1BEnln9
+         gPJA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.xing.com header.s=2023 header.b=aiWw952E;
+       spf=pass (google.com: domain of sender@mail.xing.com designates 109.233.158.90 as permitted sender) smtp.mailfrom=sender@mail.xing.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail.xing.com
+Return-Path: <sender@mail.xing.com>
+Received: from mailout1-90.xing.com (mailout1-90.xing.com. [109.233.158.90])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5d8067550e8si1858622a12.92.2024.12.19.23.52.50
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 23:52:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of sender@mail.xing.com designates 109.233.158.90 as permitted sender) client-ip=109.233.158.90;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.xing.com header.s=2023 header.b=aiWw952E;
+       spf=pass (google.com: domain of sender@mail.xing.com designates 109.233.158.90 as permitted sender) smtp.mailfrom=sender@mail.xing.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail.xing.com
+Return-Path: <sender@mail.xing.com>
+DKIM-Signature: v=1; a=rsa-sha256; d=mail.xing.com; s=2023; c=relaxed/simple; q=dns/txt; i=@mail.xing.com; t=1734681169; h=From:Subject:Date:To:Mime-Version:Content-Type:X-CSA-Complaints:List-Help; bh=D5ObtPe4yuxPGWDNkH2UqT6LBn4H4vm9xnMXKen8Y3A=; b=aiWw952EqrdPN3/qyrcbgO5tsOKUse9TPHqaq90Szmc+Y8YHxyT5G4nu7uVv+MaC GktUj2jYf2+YqYAQayt/alotnwEsbSQlCp0XBMup3ygINXppAR8DcVVKWpbFVueA 4Nxyr4yvC9SPjNiss3OEO/w3Gx3Zo/oXka7ZaY8pmqZZqvFoR4jlqKyfQY48lc80 i38IQICiQmiseyAPRtAqKzmg4MkrMiSVvTSnAy3rW8yzbTvJILSJYc0xzUvo9nnO pFN4HkS2OS+i6vGRZBFbE3Wj7le1DY0pChkAx2daPj239Ladm8xqUGE8c7svrRCi Ftx0/JrfXQ3x7CFRRLFKoQ==;
+X-MSFBL: kRcK7tnFsZPFuIBD2XoQoec8gFSTZZoGVREQR+q59Fs=|eyJyIjoiYWlnZXJpbW1 vbGRha2hhbm92YTdAZ21haWwuY29tIiwidSI6ImpvYnMvc2VhcmNoLWFsZXJ0czt HZTF3U1E1a3dpZllzenpXX0pyNCIsImciOiJtYWlsb3V0MSIsImIiOiJtYWlsb3V 0MS05MCJ9
+Received: from [10.12.16.101] ([10.12.16.101:32788]) by mta-2.mail.ams1.xing.com (envelope-from <sender@mail.xing.com>) (ecelerity 4.6.0.20098 r(msys-ecelerity:tags/4.6.0-ga^0)) with REST id A7/49-36158-15225676; Fri, 20 Dec 2024 08:52:49 +0100
+Date: Fri, 20 Dec 2024 08:52:48 +0100
+From: <sender@mail.xing.com>
+Reply-To: sender@mail.xing.com
+To: <ham@ham.email>
+Message-ID: <67652250e9584_2c215541533c@hermes-worker-5d886cd5cb-s4kb7.mail>
+Subject: 11 new job ads for your search alert: cybersecurity in Berlin
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="--==_mimepart_67652250e82d0_2c21554153217"; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+List-Help: <https://www.xing.com/settings/notifications>, <mailto:fbl@xing.com>
+List-Id: <3c065c419b452665a4fd4fc1ab964fc6.xing.com>
+X-CSA-Complaints: csa-complaints@eco.de
+
+----==_mimepart_67652250e82d0_2c21554153217
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+View message in browser: https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gA
+
+
+XING
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hi =D0=90=D0=B9=D0=B3=D0=B5=D1=80=D0=B8=D0=BC,
+11 new jobs matching your search criteria.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----------------------------------------
+
+Be an early applicant
+Werkstudent Teaching Assistant im Bereich Cyber Security &amp; Systemadmini=
+stration (m/w/d)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gK
+
+CloudCommand GmbH
+Berlin
+
+
+For students
+
+----------------------------------------
+
+----------------------------------------
+
+Be an early applicant
+(Junior) PR-Manager:in / Communications Manager (all genders) mit Fokus Dee=
+ptech
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gL
+
+PIABO Communications
+Berlin
+
+
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Be an early applicant
+Senior Product Security Engineer - Interior, Infotainment &amp; Digital Exp=
+erience (m/f/d)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gM
+
+CARIAD SE
+Berlin
+
+
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Earn up to 222% more
+Vertriebsleiter:in Cyber Security Kommunikationsnetze (m/w/d) Managed Servi=
+ces
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gN
+
+SalesPotentials
+Berlin
+
+59,000 =E2=82=AC - 96,500 =E2=82=AC
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Be an early applicant
+Teamkoordinator (m/w/d) Vertragsmanagement
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gO
+
+Rohde & Schwarz Cybersecurity GmbH
+Berlin
+
+
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Earn up to 200% more
+IT Security Engineer - Web Application Firewalls (m/w/d)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gP
+
+Franklin Fitch Limited
+Berlin
+
+70,000 =E2=82=AC - 90,000 =E2=82=AC
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Earn up to 207% more
+Senior Product Security Engineer (m/f/d)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gQ
+
+Karl Storz GmbH & Co. KG
+Berlin
+
+77,000 =E2=82=AC - 92,000 =E2=82=AC
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Be an early applicant
+C++ Developer (m/w/d) Embedded Systems
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gR
+
+Rohde & Schwarz Cybersecurity GmbH
+Berlin
+
+
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Earn up to 107% more
+Software Engineer (Security) (m/f/x)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gS
+
+CLARK
+Berlin
+
+47,500 =E2=82=AC - 62,000 =E2=82=AC
+Full-time
+
+----------------------------------------
+
+----------------------------------------
+
+Earn up to 152% more
+Lead Information Security Manager (w/m/d)
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gT
+
+everphone GmbH
+Berlin
+
+59,000 =E2=82=AC - 75,500 =E2=82=AC
+Full-time
+
+----------------------------------------
+
+
+----------------------------------------
+
+Show all search results:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gB
+
+----------------------------------------
+
+
+ =20
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+What's your current jobseeker status?
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+Your reply will be saved in your job preferences in your XING profile and o=
+nly shown to recruiters.
+
+----------------------------------------
+Actively looking for a job:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gk
+----------------------------------------
+
+----------------------------------------
+Open to offers:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gl
+----------------------------------------
+
+----------------------------------------
+Not looking right now:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4gm
+----------------------------------------
+
+
+
+
+--
+Follow us for tips on your job search:
+
+XING:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4z
+
+YouTube:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr40
+
+TikTok:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr41
+
+Instagram:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr42
+
+Facebook:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr43
+
+Twitter:
+=3D> https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4k
+
+
+New Work SE
+Am Strandkai 1
+20457 Hamburg
+Deutschland
+
+Tel.: +49 40 419 131-0
+E-Mail: info@xing.com
+
+Local Court HRB 148078
+Executive Board: Petra von Strombeck (CEO), Ingo Chu
+Chair of the Supervisory Board: Tom Bureau
+
+Recruiters can see when you visit job ads recommended in this e-mail.
+
+Please don't reply to this e-mail. If you have any questions or feedback, s=
+imply use our contact form. Thanks!
+https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4t
+Contact
+Privacy Policy:
+https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4p
+
+About this site:
+https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4q
+
+Contact:
+https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4r
+
+Unsubscribe:
+https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4s
+
+----==_mimepart_67652250e82d0_2c21554153217
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang=3D"en"  xml:lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" x=
+mlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-c=
+om:office:office">
+  <head></head>
+  <head>
+    <title>11 new job ads for your search alert: cybersecurity in Berlin</t=
+itle>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+" />
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+    <meta name=3D"format-detection" content=3D"telephone=3Dno,date=3Dno,add=
+ress=3Dno">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0, maximum-scale=3D1.0, user-scalable=3Dyes" />
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+    <style type=3D"text/css"></style>
+    <style type=3D"text/css"></style>
+    <style type=3D"text/css"></style>
+    <style type=3D"text/css">
+    body {width: 100% !important; -moz-text-size-adjust: none; -webkit-text=
+-size-adjust: none; -ms-text-size-adjust: none; padding: 0; margin:0;}
+    div {margin:0 !important; padding:0 !important;}
+    table tr {border-collapse: collapse; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; margin: 0; margin-left: 0; margin-right: 0;}
+    table td {border-collapse: collapse; mso-table-lspace: 0pt; mso-table-r=
+space: 0pt; margin: 0; margin-left: 0; margin-right: 0;}
+    table {border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; margin: 0; margin-left: 0; margin-right: 0;}
+    img {-ms-interpolation-mode:bicubic;}
+   =20
+    a:link, span.MsoHyperlink {mso-style-priority: 100 !important;}
+    .appleLinksBlack a {color: #1d2124 !important; text-decoration: none;}
+    .appleLinksGrey a {color: #808080 !important; text-decoration: none;}
+     .btnLime:hover a:hover {outline:none;text-decoration:none;border-radiu=
+s:50px;-moz-border-radius:50px;-webkit-border-radius:50px;cursor:pointer;}
+ .btnGrey:hover a:hover {outline:none;text-decoration:none;border-radius:50=
+px;-moz-border-radius:50px;-webkit-border-radius:50px;cursor:pointer;}
+ .btnOnlyfy:hover {background:#3B3BA0 !important;}
+ input:hover {outline:none;text-decoration:none;border-radius:50px;-moz-bor=
+der-radius:50px;-webkit-border-radius:50px;cursor:pointer;}
+ a:hover {outline:none;text-decoration:none;border-radius:50px;-moz-border-=
+radius:50px;-webkit-border-radius:50px;cursor:pointer;}
+ .btnLime:hover {background:#A7ED4B !important;}
+ .btnGrey:hover {background:#BCC9D1 !important;}
+
+      a[x-apple-data-detectors] {=20
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+    #MessageViewBody a {=20
+      color: inherit;
+      text-decoration: none;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+    u + #body a {=20
+      color: inherit !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+    a:hover {text-decoration: underline !important;}
+    :root {color-scheme: light dark; supported-color-schemes: light dark;}
+
+  @media (prefers-color-scheme: light) {
+    .DarkImage  {display: inline-block !important;}
+    .LightImage {display: none; display: none !important;}
+  }
+  @media (prefers-color-scheme: dark) {
+     .DarkmodeBG {background-color: #161C24 !important;}
+     .DarkmodeLightBG {background-color: #293545 !important;}
+     .DarkmodeGreyText {color: #BCC9D1 !important;}
+     .DarkmodeWhiteText {color: #F9FAFA !important;}
+     .LightImage, .LightImageWrapper {display: inline-block !important; wid=
+th: auto !important; overflow: visible !important; float: none !important; =
+max-height: inherit !important; max-width: inherit !important; line-height:=
+ auto !important; margin-top: 0px !important; visibility: inherit !importan=
+t;}
+     .DarkmodeBorder {border: 1px solid #F9FAFA !important; border-radius: =
+5px;}=20
+     .DarkImage {display: none; display: none !important;}
+     .btnPrimaryLime {background-color: #C6F16D !important; color: #1D2124;=
+}
+     .btnOutline {border: 2px solid #F9FAFA !important; color: #F9FAFA;}
+     .darkBtnOutline {border-color: #F9FAFA !important;}
+     .stayDarkBtnOutline {border-color: #161C24 !important;}=20
+     .stayGreyBtnOutline {border-color: #293545 !important;}=20
+      .DarkmodePetrolPill {color:#BBE7E8 !important;background-color:#00656=
+7 !important;}
+ .DarkmodeVioletPill {color:#D7B6FB !important;background-color:#702DB3 !im=
+portant;}
+ .DarkmodeGreyPill {color:#FFFFFF !important;background-color:#293545 !impo=
+rtant;}
+
+  }
+  @media (prefers-color-scheme: dark) {
+     [data-ogsb] .DarkmodeBG {background-color: #161C24 !important;}
+     [data-ogsb] .DarkmodeLightBG {background-color: #293545 !important;}
+     [data-ogsc] .DarkmodeGreyText {color: #BCC9D1 !important;}
+     [data-ogsc] .DarkmodeWhiteText {color: #F9FAFA !important;}
+     [data-ogsc] .LightImage, .LightImageWrapper {display: inline-block !im=
+portant; width: auto !important; overflow: visible !important; float: none =
+!important; max-height: inherit !important; max-width: inherit !important; =
+line-height: auto !important; margin-top: 0px !important; visibility: inher=
+it !important;}
+     [data-ogsc] .DarkmodeBorder {border: 1px solid #F9FAFA !important; bor=
+der-radius: 5px;}
+     [data-ogsc] .DarkImage {display: none; display: none !important;}
+     [data-ogsc] .btnPrimaryLime {background-color:#C6F16D !important; colo=
+r: #1D2124;}
+     [data-ogsc] .btnOutline {border: 2px solid #F9FAFA !important; color :=
+#F9FAFA;}
+      [data-ogsc] .DarkmodePetrolPill {color:#BBE7E8 !important;background-=
+color:#006567 !important;}
+ [data-ogsc] .DarkmodeVioletPill {color:#D7B6FB !important;background-color=
+:#702DB3 !important;}
+ [data-ogsc].DarkmodeGreyPill {color:#FFFFFF !important;background-color:#2=
+93545 !important;}
+
+  }
+  @font-face {
+    font-family: "XING-Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: local("XING-Sans"), url(https://static.xingcdn.com/xemail/fonts/XI=
+NG-Sans-Regular.woff) format("woff");
+    mso-generic-font-family:swiss;
+  }
+  @font-face {
+    font-family: "XING-Sans";
+    font-style: normal;
+    font-weight: bold;
+    src: local("XING-Sans"), url(https://static.xingcdn.com/xemail/fonts/XI=
+NG-Sans-Bold.woff) format("woff");
+    mso-generic-font-family:swiss;
+  }
+  h1, h2, h2.smallH2, h3, h4, label {
+    font-family: XING-Sans,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    color: #1D2124;
+    display: inline;
+  }
+  h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h2 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  h2.smallH2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  h3,label {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  h4 {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  label {
+    font-weight: normal !important;
+  }
+</style>
+<style type=3D"text/css">
+  @media only screen and (max-width: 592px) {
+    .inlineOnMobile {
+      display: inline-block !important;
+      width: auto !important;
+    }
+    .twoColumn {
+      text-align: left;
+    }
+    .twoColumn .columnLeft {
+      width: 100%;
+      min-width: 374px !important;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .twoColumn .columnRight {
+      width: 100%;
+      max-width: 412px !important;
+      display: inline-block;
+      vertical-align: top;
+    }
+     .paddingTopMobile24px {padding-top:24px !important;}
+
+  }
+  @media only screen and (max-width: 500px) {
+     .paddingTopMobile24px {padding-top:24px !important;}
+ .mobilePaddingRL {padding-right:16px !important;padding-left:0px !importan=
+t;width:80px !important;}
+ .mobileRightColumn {width:265px !important;display:inline-block;vertical-a=
+lign:top;}
+
+  }
+</style>
+<style type=3D"text/css">
+  @media only screen and (max-width: 430px) {
+     .paddingTopMobile24px {padding-top:24px !important;}
+
+  }
+  @media only screen and (max-width: 414px) {
+    .widthMobile100pc {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .paddingBottomMobile0px {
+      padding-bottom: 0px !important;
+    }
+    .hideOnSmall {
+      display: none !important;
+      width: 0 !important;
+      max-height: 0;
+      overflow: hidden;
+      mso-hide: all !important;
+    }
+    .showOnSmall {
+      display: block !important;
+      width: auto !important;
+      max-height: inherit !important;
+      visibility: visible !important;
+      overflow: visible !important;
+      float: none !important;
+      line-height: 1.5 !important;
+    }
+    .twoColumn .columnLeft, .twoColumn .columnRight {
+      width: 100%;
+      min-width: 358px !important;
+      display: inline-block;
+      vertical-align: top;
+    }
+     .paddingTopMobile24px {padding-top:24px !important;}
+
+  }
+  @media only screen and (max-width: 375px) {
+    .twoColumn .columnLeft, .twoColumn .columnRight {
+      width: 100%;
+      min-width: 330px !important;
+      display: inline-block;
+      vertical-align: top;
+    }
+     .mobilePaddingRL {padding-right:16px !important;padding-left:0px !impo=
+rtant;width:64px !important;}
+ .mobileRightColumn {max-width:236px !important;display:inline-block;vertic=
+al-align:top;}
+
+  }
+</style>
+<style type=3D"text/css">
+  @media only screen and (max-width: 320px) {
+    .twoColumn .columnLeft, .twoColumn .columnRight {
+      width: 100%;
+      min-width: 275px !important;
+      display: inline-block;
+      vertical-align: top;
+    }
+     .paddingTopMobile24px {padding-top:24px !important;}
+ .mobilePaddingRL {padding-right:16px !important;padding-left:0px !importan=
+t;width:48px !important;max-width:80px !important;}
+ .mobileRightColumn {max-width:212px !important;display:inline-block;vertic=
+al-align:top;}
+
+  }
+   =20
+    @media only screen and (min-width: 501px) { .mobileLeftColumn {width:11=
+5px !important;max-width:115px !important;min-width:112px !important;}
+}
+</style>
+<!--[if gte mso 12|IE]>
+  <style type=3D"text/css">
+    <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </style>
+<![endif]-->
+<!--[if mso|IE ]>
+  <style>
+    h1, h2, h3, h4, span, a, th, td, ul, li, img {font-family: Helvetica, A=
+rial, sans-serif !important;}
+    span {padding-left: 4px !important;padding-right: 4px !important;}
+    #outlookholder {width:600px;}
+   .mobileLeftColumn {width:180px !important;}
+
+  </style>
+<![endif]-->
+  </head>
+<body class=3D"DarkmodeBG" lang=3D"en" bgcolor=3D"#ffffff" id=3D"body">
+  <div style=3D"display:none !important;max-height:0;overflow:hidden;mso-hi=
+de:all;" aria-hidden=3D"true">
+  New job ads based on your search alert
+  </div>
+  <table class=3D"DarkmodeBG" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" bgcolor=3D"#ffffff" role=3D"presentation">
+    <tr>
+      <td align=3D"center">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"600" align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"width:600px;">
+          <tr>
+            <td align=3D"center">
+        <![endif]-->
+        <table class=3D"DarkmodeBG" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" style=3D"width:100%;max-width:600px;" role=3D"presentation">
+          <tr>
+            <td width=3D"7%">&nbsp;</td>
+            <td width=3D"86%" style=3D"padding-top:32px;">
+               <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" role=3D"presentation">
+                <tr>
+  <td>
+    <table width=3D"100%" align=3D"left" valign=3D"top" border=3D"0" role=
+=3D"presentation">
+      <tr>
+        <td class=3D"twoColumn" align=3D"left">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+              <div class=3D"columnLeft" style=3D"width:100%;max-width:180px=
+;display:inline-block;vertical-align:top;">
+               =20
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+            <td width=3D"330" align=3D"left" valign=3D"top" style=3D"width:=
+330px;">
+        <![endif]-->
+              <div class=3D"columnRight" style=3D"width:100%;max-width:325p=
+x;display:inline-block;vertical-align:top;">
+                <table width=3D"100%" align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" role=3D"presentation">
+  <tr>
+    <td align=3D"left" valign=3D"top" style=3D"padding:0px 0 0 0;">
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">
+       =20
+          <tr>
+  <td colspan=3D"3" align=3D"left" valign=3D"top">
+    <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D"present=
+ation">
+      <tr>
+  <td colspan=3D"3" class=3D"DarkmodeWhiteText" valign=3D"top" align=3D"lef=
+t" style=3D"vertical-align:top; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; color:#1D2124; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AA" target=3D"_blank" style=3D"text-decoration:underline; cursor=
+:pointer; font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:12px;=
+ font-weight:normal; color:#1D2124; line-height:20px;"><u>view in browser</=
+u>
+    </a>
+  </td>
+</tr>
+
+    </table>
+  </td>
+</tr>
+
+       =20
+      </table>
+    </td>
+  </tr>
+</table>
+
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+              </table>
+              <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+                <tr>
+                  <td width=3D"81" align=3D"left" style=3D"padding-top:16px=
+;"><a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4B" target=3D"_blan=
+k" style=3D"border:0px; color:#00d296; text-decoration:none;">
+                    <img src=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4=
+A" width=3D"81" height=3D"23" alt=3D"XING Logo" border=3D"0" style=3D"width=
+:81px;height:23px;display:block; font-family:XING-Sans,Helvetica,Arial,sans=
+-serif; color:#1D2124; font-size:20px;" /></a>
+                  </td>
+                    <td class=3D"widthMobile100pc" align=3D"right" valign=
+=3D"bottom">
+                      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" role=3D"presentation">
+                        <tr>
+                          <td class=3D"DarkmodeWhiteText hideOnSmall" width=
+=3D"278" style=3D"padding-right:4px;font-family:XING-Sans,Helvetica,Arial,s=
+ans-serif;line-height:17px;color:#1D2124;font-size:14px;text-align:right;">=
+=D0=90=D0=B9=D0=B3=D0=B5=D1=80=D0=B8=D0=BC
+                          </td>
+                          <td width=3D"32" style=3D"padding-left:8px;"><img=
+ src=3D"https://profile-images.xing.com/static/nobody_m.64x64.jpg" border=
+=3D"0" width=3D"32" alt=3D"" style=3D"display:block; width:32px;" />
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                </tr>
+              </table>
+            </td>
+          <td width=3D"7%">&nbsp;</td>
+          </tr>
+        </table>
+        <table class=3D"DarkmodeBG" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" style=3D"width:100%;max-width:600px;" role=3D"presentation">
+          <tr>
+            <td width=3D"7%">&nbsp;</td>
+            <td width=3D"86%" style=3D"padding-top:32px;">
+              <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+                    <tr>
+  <td>
+    <table width=3D"100%" align=3D"left" valign=3D"top" border=3D"0" role=
+=3D"presentation">
+      <tr>
+        <td class=3D"twoColumn" align=3D"left">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+              <div class=3D"columnLeft" style=3D"width:100%;max-width:180px=
+;display:inline-block;vertical-align:top;">
+               =20
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+            <td width=3D"330" align=3D"left" valign=3D"top" style=3D"width:=
+330px;">
+        <![endif]-->
+              <div class=3D"columnRight" style=3D"width:100%;max-width:325p=
+x;display:inline-block;vertical-align:top;">
+                <table width=3D"100%" align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" role=3D"presentation">
+  <tr>
+    <td align=3D"left" valign=3D"top" style=3D"padding:0px 0 0 0;">
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">
+       =20
+            <tr>
+    <td colspan=3D"3" class=3D"DarkmodeWhiteText widthMobile100pc  paddingB=
+ottomMobile0px" align=3D"left" valign=3D"top"  style=3D"padding-top:0px;fon=
+t-family:XING-Sans,Helvetica,Arial,sans-serif;font-size:24px;font-weight:bo=
+ld;color:#1D2124;line-height:30px;"><h1 class=3D"DarkmodeWhiteText" style=
+=3D"color:#1D2124;font-size:24px;line-height:30px;"><span class=3D"Darkmode=
+WhiteText" style=3D"font-family:XING-Sans,Helvetica,Arial,sans-serif;font-s=
+ize:16px;font-weight:normal;color:#1D2124;line-height:32px;">Hi =D0=90=D0=
+=B9=D0=B3=D0=B5=D1=80=D0=B8=D0=BC,</span><br /><b>11</b> new jobs matching =
+your search criteria.</h1></td>
+  </tr>
+
+
+       =20
+      </table>
+    </td>
+  </tr>
+</table>
+
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+                    <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:32px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AK" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiZjYzYTFjOTEtYmIzYi00YzJiLTg2ODgtYWI4NjBjODRlN2E1IiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3De680653007e46bc00fac17e233fb1e6d1cb23116d27e7f41860d7b9a29024f7c=
+" width=3D"92" border=3D"0" alt=3D"CloudCommand GmbH" style=3D"display:bloc=
+k;width:100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,Ari=
+al,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:32px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Be an early applicant
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AK" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Werkstudent Teaching Assis=
+tant im Bereich Cyber Security &amp; Systemadministration (m/w/d)</u></b></=
+span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    CloudCommand GmbH
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;For students&nbsp;</spa=
+n>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AL" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiMGVkN2M1NmMtNDY2Yi00YjI3LWExYmMtNzUxMTllZGMzMDY0IiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3D3e05af57119d748e95d03b301ac5bafc14d478e4fe33e737ef63c2ea455a58a3=
+" width=3D"92" border=3D"0" alt=3D"PIABO Communications" style=3D"display:b=
+lock;width:100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,=
+Arial,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Be an early applicant
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AL" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">(Junior) PR-Manager:in / C=
+ommunications Manager (all genders) mit Fokus Deeptech</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    PIABO Communications
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AM" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiN2QyMjNjZmQtMjcxMy00MjFiLWIxODEtNDMwYWJiYjA0ODYyIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3D2e349596b79ef56a066099338502737ffe1a4abce5ddd5fff10c717f59dab25d=
+" width=3D"92" border=3D"0" alt=3D"CARIAD SE" style=3D"display:block;width:=
+100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,Arial,sans-=
+serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Be an early applicant
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AM" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Senior Product Security En=
+gineer - Interior, Infotainment &amp; Digital Experience (m/f/d)</u></b></s=
+pan></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    CARIAD SE
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AN" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiY2RiMzJhYzgtNzliZS00ZDFlLWIyODMtYjA1NWE3NDBjZTIzIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3De754ba150c8134cd909d8031487ffcf0a42ff6cab70b88df3710208e62bb6afd=
+" width=3D"92" border=3D"0" alt=3D"SalesPotentials" style=3D"display:block;=
+width:100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,Arial=
+,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Earn up to 222% more
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AN" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Vertriebsleiter:in Cyber S=
+ecurity Kommunikationsnetze (m/w/d) Managed Services</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    SalesPotentials
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+        <span class=3D"DarkmodePetrolPill" style=3D"mso-padding-alt:3px 6px=
+ 2px 4px;padding:3px 6px 2px 4px; font-family:XING-Sans,Helvetica,Arial,san=
+s-serif; font-size:14px; font-weight:normal; color: #007B80;background-colo=
+r: #E1F3F3;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-ra=
+dius: 50px;white-space: nowrap;display:inline;">
+       =20
+        &nbsp;<img src=3D"https://www.xing.com/assets/mail/v2/arrow_up.png"=
+ witdh=3D"9" height=3D"13" alt=3D"" style=3D"width:8px;height:13px;border:0=
+px;display:inline;font-family:XING-Sans,Helvetica,Arial,sans-serif;color:#0=
+07B80;font-size:13px;">&nbsp;
+       =20
+        59,000 =E2=82=AC - 96,500 =E2=82=AC&nbsp;</span>
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AO" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiNDBjZjc2YmUtZTE0Mi00ZGRkLWFkYzUtNjJjMDJmNTdjNTNhIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3Def1955616839f904dbd70039f55c0dd4af88bd62b2a161779cc3110d2272055c=
+" width=3D"92" border=3D"0" alt=3D"Rohde &amp; Schwarz Cybersecurity GmbH" =
+style=3D"display:block;width:100%;max-width:92px;height:auto;font-family:XI=
+NG-Sans,Helvetica,Arial,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Be an early applicant
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AO" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Teamkoordinator (m/w/d) Ve=
+rtragsmanagement</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    Rohde &amp; Schwarz Cybersecurity GmbH
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AP" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiNTg4OWI2NTgtMTkxOC00YmYyLTkwZTAtMjRjZTRiZDAxY2FlIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3Db29290fcbddf3609c5efe6a729c656b2fd5a459e4a8d4086cb8bfc249fe9a718=
+" width=3D"92" border=3D"0" alt=3D"Franklin Fitch Limited" style=3D"display=
+:block;width:100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetic=
+a,Arial,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Earn up to 200% more
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AP" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">IT Security Engineer - Web=
+ Application Firewalls (m/w/d)</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    Franklin Fitch Limited
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+        <span class=3D"DarkmodePetrolPill" style=3D"mso-padding-alt:3px 6px=
+ 2px 4px;padding:3px 6px 2px 4px; font-family:XING-Sans,Helvetica,Arial,san=
+s-serif; font-size:14px; font-weight:normal; color: #007B80;background-colo=
+r: #E1F3F3;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-ra=
+dius: 50px;white-space: nowrap;display:inline;">
+       =20
+        &nbsp;<img src=3D"https://www.xing.com/assets/mail/v2/arrow_up.png"=
+ witdh=3D"9" height=3D"13" alt=3D"" style=3D"width:8px;height:13px;border:0=
+px;display:inline;font-family:XING-Sans,Helvetica,Arial,sans-serif;color:#0=
+07B80;font-size:13px;">&nbsp;
+       =20
+        70,000 =E2=82=AC - 90,000 =E2=82=AC&nbsp;</span>
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AQ" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiYzU3Y2Y3NGItMGUyNi00NjYwLThmMDctNGZmM2Q3NDdhYmFhIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3D991f0709ff7664259b7ede9f72df65e2a9e0b67917be91e99d5dd76183c59371=
+" width=3D"92" border=3D"0" alt=3D"Karl Storz GmbH &amp; Co. KG" style=3D"d=
+isplay:block;width:100%;max-width:92px;height:auto;font-family:XING-Sans,He=
+lvetica,Arial,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Earn up to 207% more
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AQ" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Senior Product Security En=
+gineer (m/f/d)</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    Karl Storz GmbH &amp; Co. KG
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+        <span class=3D"DarkmodePetrolPill" style=3D"mso-padding-alt:3px 6px=
+ 2px 4px;padding:3px 6px 2px 4px; font-family:XING-Sans,Helvetica,Arial,san=
+s-serif; font-size:14px; font-weight:normal; color: #007B80;background-colo=
+r: #E1F3F3;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-ra=
+dius: 50px;white-space: nowrap;display:inline;">
+       =20
+        &nbsp;<img src=3D"https://www.xing.com/assets/mail/v2/arrow_up.png"=
+ witdh=3D"9" height=3D"13" alt=3D"" style=3D"width:8px;height:13px;border:0=
+px;display:inline;font-family:XING-Sans,Helvetica,Arial,sans-serif;color:#0=
+07B80;font-size:13px;">&nbsp;
+       =20
+        77,000 =E2=82=AC - 92,000 =E2=82=AC&nbsp;</span>
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AR" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiNDBjZjc2YmUtZTE0Mi00ZGRkLWFkYzUtNjJjMDJmNTdjNTNhIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3Def1955616839f904dbd70039f55c0dd4af88bd62b2a161779cc3110d2272055c=
+" width=3D"92" border=3D"0" alt=3D"Rohde &amp; Schwarz Cybersecurity GmbH" =
+style=3D"display:block;width:100%;max-width:92px;height:auto;font-family:XI=
+NG-Sans,Helvetica,Arial,sans-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Be an early applicant
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AR" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">C++ Developer (m/w/d) Embe=
+dded Systems</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    Rohde &amp; Schwarz Cybersecurity GmbH
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AS" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/imagecache/public/scaled_original_imag=
+e/eyJ1dWlkIjoiZDBjMWJhYTMtMGFiZC00NjBhLTg1ZjQtZjAzODUzOTRiMDgzIiwiYXBwX2Nvb=
+nRleHQiOiJlbnRpdHktcGFnZXMiLCJtYXhfd2lkdGgiOjEyOCwibWF4X2hlaWdodCI6MTI4fQ?s=
+ignature=3Dd292ffe2859c88e22b5dd0dd68753cc05051a42a50ccad4e9b6ead909ec4ee81=
+" width=3D"92" border=3D"0" alt=3D"CLARK" style=3D"display:block;width:100%=
+;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Earn up to 107% more
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AS" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Software Engineer (Securit=
+y) (m/f/x)</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    CLARK
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+        <span class=3D"DarkmodePetrolPill" style=3D"mso-padding-alt:3px 6px=
+ 2px 4px;padding:3px 6px 2px 4px; font-family:XING-Sans,Helvetica,Arial,san=
+s-serif; font-size:14px; font-weight:normal; color: #007B80;background-colo=
+r: #E1F3F3;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-ra=
+dius: 50px;white-space: nowrap;display:inline;">
+       =20
+        &nbsp;<img src=3D"https://www.xing.com/assets/mail/v2/arrow_up.png"=
+ witdh=3D"9" height=3D"13" alt=3D"" style=3D"width:8px;height:13px;border:0=
+px;display:inline;font-family:XING-Sans,Helvetica,Arial,sans-serif;color:#0=
+07B80;font-size:13px;">&nbsp;
+       =20
+        47,500 =E2=82=AC - 62,000 =E2=82=AC&nbsp;</span>
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation">
+      <tr>
+        <td class=3D"mobileLeftColumn paddingTopMobile24px mobilePaddingRL"=
+ align=3D"right" valign=3D"top" style=3D"padding:40px 54px 0 16px;width:180=
+px;">
+          <!--[if mso]><div style=3D"width:115px;"><![endif]-->
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation">
+  <tr>
+   =20
+        <td valign=3D"top" width=3D"92" style=3D"width:92px;max-width:92px;=
+min-width:48px;">
+  <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AT" target=3D"_blan=
+k" style=3D"border:0px;color: #1D2124;text-decoration:none;">
+    <img src=3D"https://www.xing.com/assets/mail/v2/companyDefault_x3.png" =
+width=3D"92" border=3D"0" alt=3D"everphone GmbH" style=3D"display:block;wid=
+th:100%;max-width:92px;height:auto;font-family:XING-Sans,Helvetica,Arial,sa=
+ns-serif;font-size:10px;color: #1D2124;">
+  </a>
+</td>
+
+   =20
+  </tr>
+</table>
+
+          <!--[if mso]></div><![endif]-->
+        </td>
+        <td class=3D"paddingTopMobile24px " valign=3D"top" style=3D"padding=
+:40px 0 0 0;">
+          <table class=3D"mobileRightColumn" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" role=3D"presentation" style=3D"width:330px;min-width:18=
+5px;">
+   =20
+      <tr>
+  <td style=3D"padding-bottom:8px;">
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation">
+      <tr>
+        <td class=3D"DarkmodeVioletPill" style=3D"padding:3px 8px 2px 8px; =
+font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:14px; font-weig=
+ht:normal; color: #882AE7; line-height:17px;background-color: #F3E8FF;borde=
+r-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;">
+          Earn up to 152% more
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" align=3D"left" style=3D"font-family:XING-=
+Sans,Helvetica,Arial,sans-serif;font-size:16px; font-weight:bold; color: #0=
+09090; line-height:20px;">
+    <a class=3D"DarkmodeWhiteText" href=3D"https://www.xing.com/m/Ge1wSQ5kw=
+ifYszzW_Jr4AT" target=3D"_blank" style=3D"word-break:normal;text-decoration=
+:underline; cursor:pointer; font-family:XING-Sans,Helvetica,Arial,sans-seri=
+f; font-size:16px; font-weight:bold; color:#009090 !important; line-height:=
+22px;"><span  class=3D"DarkmodeWhiteText" style=3D"color:#009090"><b><u cla=
+ss=3D"DarkmodeWhiteText" style=3D"color:#009090">Lead Information Security =
+Manager (w/m/d)</u></b></span></a>
+<br />
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"padding-top:2px;font-family:XING=
+-Sans,Helvetica,Arial,sans-serif; font-size:16px; color: #1D2124; line-heig=
+ht:22px;">
+    everphone GmbH
+  </td>
+</tr>
+<tr>
+  <td class=3D"DarkmodeWhiteText" style=3D"font-family:XING-Sans,Helvetica,=
+Arial,sans-serif; font-size:16px; color: #1D2124; line-height:22px;">
+    Berlin
+  </td>
+</tr>
+  <tr>
+    <td style=3D"padding-top:8px;">
+      <div style=3D"line-height:30px;">
+     =20
+        <span class=3D"DarkmodePetrolPill" style=3D"mso-padding-alt:3px 6px=
+ 2px 4px;padding:3px 6px 2px 4px; font-family:XING-Sans,Helvetica,Arial,san=
+s-serif; font-size:14px; font-weight:normal; color: #007B80;background-colo=
+r: #E1F3F3;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-ra=
+dius: 50px;white-space: nowrap;display:inline;">
+       =20
+        &nbsp;<img src=3D"https://www.xing.com/assets/mail/v2/arrow_up.png"=
+ witdh=3D"9" height=3D"13" alt=3D"" style=3D"width:8px;height:13px;border:0=
+px;display:inline;font-family:XING-Sans,Helvetica,Arial,sans-serif;color:#0=
+07B80;font-size:13px;">&nbsp;
+       =20
+        59,000 =E2=82=AC - 75,500 =E2=82=AC&nbsp;</span>
+     =20
+     =20
+        <span class=3D"DarkmodeGreyPill" style=3D"mso-padding-alt:3px 6px 2=
+px 6px;padding:3px 6px 2px 6px; font-family:XING-Sans,Helvetica,Arial,sans-=
+serif; font-size:14px; font-weight:normal; color: #1D2124;background-color:=
+ #F4F4F5;border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radi=
+us: 50px;white-space: nowrap;display:inline;">&nbsp;Full-time&nbsp;</span>
+     =20
+      </div>
+    </td>
+  </tr>
+
+
+   =20
+</table>
+
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+  </td>
+</tr>
+
+
+<tr>
+  <td>
+    <table width=3D"100%" align=3D"left" valign=3D"top" border=3D"0" role=
+=3D"presentation">
+      <tr>
+        <td class=3D"twoColumn" align=3D"left">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+              <div class=3D"columnLeft" style=3D"width:100%;max-width:180px=
+;display:inline-block;vertical-align:top;">
+               =20
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+            <td width=3D"330" align=3D"left" valign=3D"top" style=3D"width:=
+330px;">
+        <![endif]-->
+              <div class=3D"columnRight" style=3D"width:100%;max-width:325p=
+x;display:inline-block;vertical-align:top;">
+                <table width=3D"100%" align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" role=3D"presentation">
+  <tr>
+    <td class=3D"paddingTopMobile24px" align=3D"left" valign=3D"top" style=
+=3D"padding:40px 0 0 0;">
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">
+       =20
+          <tr>
+  <td colspan=3D"3" style=3D"font-weight:bold;color:#1D2124;">
+    <a class=3D"btnLime btnPrimaryLime stayDarkBtnOutline" href=3D"https://=
+www.xing.com/m/Ge1wSQ5kwifYszzW_Jr4AB" style=3D"margin-left: -2px;margin-to=
+p: 0px;background: #C6F16D;border: 2px solid #FFFFFF;text-decoration: none;=
+padding: 10px 14px;-moz-border-radius: 50px; -webkit-border-radius: 50px; b=
+order-radius: 50px;display:inline-block;mso-padding-alt: 0;text-underline-c=
+olor: #1D2124;font-family:XING-Sans,Helvetica,Arial,sans-serif;font-size: 1=
+6px;color: #1D2124;line-height: 22px;">
+  <!--[if mso]><i style=3D"letter-spacing:14px;mso-font-width:-100%;mso-tex=
+t-raise:16pt;">&nbsp;</i><![endif]-->
+  <span style=3D"mso-text-raise: 9pt;color:#1D2124;font-size:16px;font-weig=
+ht: bold;white-space:nowrap;">
+  &nbsp;&nbsp;Show all search results&nbsp;&nbsp;
+  </span>
+  <!--[if mso]><i style=3D"letter-spacing: 14px;mso-font-width:-100%;">&nbs=
+p;</i><![endif]-->
+</a>
+
+  </td>
+</tr>
+
+       =20
+      </table>
+    </td>
+  </tr>
+</table>
+
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+  <tr>
+  <td>
+    <table width=3D"100%" align=3D"left" valign=3D"top" border=3D"0" role=
+=3D"presentation">
+      <tr>
+        <td class=3D"twoColumn" align=3D"left">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+              <div class=3D"columnLeft" style=3D"width:100%;max-width:180px=
+;display:inline-block;vertical-align:top;">
+               =20
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+            <td width=3D"330" align=3D"left" valign=3D"top" style=3D"width:=
+330px;">
+        <![endif]-->
+              <div class=3D"columnRight" style=3D"width:100%;max-width:325p=
+x;display:inline-block;vertical-align:top;">
+                <table width=3D"100%" align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" role=3D"presentation">
+  <tr>
+    <td align=3D"left" valign=3D"top" style=3D"padding:64px 0 0 0;">
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">
+       =20
+            <tr>
+    <td colspan=3D"3" class=3D"DarkmodeWhiteText widthMobile100pc  paddingB=
+ottomMobile0px" align=3D"left"  style=3D"padding-top:0px;font-family:XING-S=
+ans,Helvetica,Arial,sans-serif;font-size:20px;font-weight:bold;color:#1D212=
+4;line-height:25px;"><h2 class=3D"DarkmodeWhiteText" style=3D"color:#1D2124=
+;font-size:20px;line-height:25px;">What's your current jobseeker status?</h=
+2></td>
+  </tr>
+
+
+       =20
+          <tr>
+  <td colspan=3D"3" class=3D"DarkmodeWhiteText" valign=3D"top" style=3D"pad=
+ding-top:8px;font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:16=
+px; font-weight:normal; color:#1D2124; line-height:24px;">
+    Your reply will be saved in your job preferences in your XING profile a=
+nd only shown to recruiters.
+  </td>
+</tr>
+
+       =20
+      </table>
+    </td>
+  </tr>
+</table>
+
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <table width=3D"100%" align=3D"left" valign=3D"top" border=3D"0" role=
+=3D"presentation">
+      <tr>
+        <td class=3D"twoColumn" align=3D"left">
+        <!--[if gte mso 12|IE]>
+        <table width=3D"516" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"width:516px;">
+          <tr>
+            <td width=3D"180" align=3D"left" valign=3D"top" style=3D"width:=
+180px;">
+        <![endif]-->
+              <div class=3D"columnLeft" style=3D"width:100%;max-width:180px=
+;display:inline-block;vertical-align:top;">
+               =20
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+            <td width=3D"330" align=3D"left" valign=3D"top" style=3D"width:=
+330px;">
+        <![endif]-->
+              <div class=3D"columnRight" style=3D"width:100%;max-width:325p=
+x;display:inline-block;vertical-align:top;">
+                <table width=3D"100%" align=3D"left" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" role=3D"presentation">
+  <tr>
+    <td align=3D"left" valign=3D"top" style=3D"padding:24px 0 0 0;">
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation">
+       =20
+          <a class=3D"btnGrey stayGreyBtnOutline " href=3D"https://www.xing=
+.com/m/Ge1wSQ5kwifYszzW_Jr4Ak" style=3D"margin-left: -2px;margin-top: 0px;b=
+ackground: #DBE2E6;border: 2px solid #FFFFFF;text-decoration: none;padding:=
+ 10px 14px;-moz-border-radius: 50px; -webkit-border-radius: 50px; border-ra=
+dius: 50px;display:inline-block;mso-padding-alt: 0;text-underline-color: #1=
+D2124;font-family:XING-Sans,Helvetica,Arial,sans-serif;font-size: 16px;colo=
+r: #1D2124;line-height: 22px;">
+  <!--[if mso]><i style=3D"letter-spacing:14px;mso-font-width:-100%;mso-tex=
+t-raise:16pt;">&nbsp;</i><![endif]-->
+  <span style=3D"mso-text-raise: 9pt;color:#1D2124;font-size:16px;font-weig=
+ht: bold;white-space:nowrap;">
+  &nbsp;&nbsp;Actively looking for a job&nbsp;&nbsp;
+  </span>
+  <!--[if mso]><i style=3D"letter-spacing: 14px;mso-font-width:-100%;">&nbs=
+p;</i><![endif]-->
+</a><br>
+
+       =20
+          <a class=3D"btnGrey stayGreyBtnOutline " href=3D"https://www.xing=
+.com/m/Ge1wSQ5kwifYszzW_Jr4Al" style=3D"margin-left: -2px;margin-top: 16px;=
+background: #DBE2E6;border: 2px solid #FFFFFF;text-decoration: none;padding=
+: 10px 14px;-moz-border-radius: 50px; -webkit-border-radius: 50px; border-r=
+adius: 50px;display:inline-block;mso-padding-alt: 0;text-underline-color: #=
+1D2124;font-family:XING-Sans,Helvetica,Arial,sans-serif;font-size: 16px;col=
+or: #1D2124;line-height: 22px;">
+  <!--[if mso]><i style=3D"letter-spacing:14px;mso-font-width:-100%;mso-tex=
+t-raise:16pt;">&nbsp;</i><![endif]-->
+  <span style=3D"mso-text-raise: 9pt;color:#1D2124;font-size:16px;font-weig=
+ht: bold;white-space:nowrap;">
+  &nbsp;&nbsp;Open to offers&nbsp;&nbsp;
+  </span>
+  <!--[if mso]><i style=3D"letter-spacing: 14px;mso-font-width:-100%;">&nbs=
+p;</i><![endif]-->
+</a><br>
+
+       =20
+          <a class=3D"btnGrey stayGreyBtnOutline " href=3D"https://www.xing=
+.com/m/Ge1wSQ5kwifYszzW_Jr4Am" style=3D"margin-left: -2px;margin-top: 16px;=
+background: #DBE2E6;border: 2px solid #FFFFFF;text-decoration: none;padding=
+: 10px 14px;-moz-border-radius: 50px; -webkit-border-radius: 50px; border-r=
+adius: 50px;display:inline-block;mso-padding-alt: 0;text-underline-color: #=
+1D2124;font-family:XING-Sans,Helvetica,Arial,sans-serif;font-size: 16px;col=
+or: #1D2124;line-height: 22px;">
+  <!--[if mso]><i style=3D"letter-spacing:14px;mso-font-width:-100%;mso-tex=
+t-raise:16pt;">&nbsp;</i><![endif]-->
+  <span style=3D"mso-text-raise: 9pt;color:#1D2124;font-size:16px;font-weig=
+ht: bold;white-space:nowrap;">
+  &nbsp;&nbsp;Not looking right now&nbsp;&nbsp;
+  </span>
+  <!--[if mso]><i style=3D"letter-spacing: 14px;mso-font-width:-100%;">&nbs=
+p;</i><![endif]-->
+</a>
+
+       =20
+      </table>
+    </td>
+  </tr>
+</table>
+
+              </div>
+        <!--[if gte mso 12|IE]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+
+              </table>
+                            <table width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" role=3D"presentation">
+                <tr>
+                  <td height=3D"40" style=3D"height:40px;line-height:0px;">=
+&nbsp;</td>
+                </tr>
+                <tr>
+                  <td class=3D"twoColumn">
+                    <!--[if gte mso 12|IE]>
+                    <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"=
+0" >
+                      <tr>
+                        <td width=3D"180" valign=3D"top" style=3D"width:180=
+px;">
+                    <![endif]-->
+                    <div class=3D"columnLeft" style=3D"width:100%;max-width=
+:180px;display:inline-block;vertical-align:top;">
+                      <table border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" role=3D"presentation">
+                        <tr>
+                          <td width=3D"81" align=3D"left" valign=3D"top" st=
+yle=3D"padding-top:24px;">
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4G" target=3D"_blank" style=3D"border:0px; color:#00d296; text-decora=
+tion:none;">
+                              <img class=3D"DarkImage" width=3D"81" height=
+=3D"23" alt=3D"XING" style=3D"display:block;width:81px;height:23px; font-fa=
+mily:XING-Sans,Helvetica,Arial,sans-serif; color:#1d2124; font-size:16px; l=
+ine-height:12px; text-decoration: none; margin: 0 auto; padding: 0;" border=
+=3D"0" src=3D"https://www.xing.com/assets/mail/v2/XING_logo_lay5.png"/>
+                              <!--[if !mso]><! --><div class=3D"LightImageW=
+rapper" style=3D"display:none; overflow:hidden; float:left; width:0px; max-=
+height:0px; max-width:0px; line-height:0px; visibility:hidden;"><img src=3D=
+"https://www.xing.com/assets/mail/v2/XING_logo_invert_lay5.png" class=3D"Li=
+ghtImage" width=3D"81" border=3D"0" alt=3D"" style=3D"width:81px;height:23p=
+x;text-decoration: none; margin: 0 auto; padding: 0;s" />
+                              </div><!--<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!--[if gte mso 12|IE]>
+                    </td>
+                    <td width=3D"358" valign=3D"top" style=3D"width:358px;"=
+>
+                    <![endif]-->
+                    <div class=3D"columnRight" style=3D"width:100%;max-widt=
+h:324px;display:inline-block;vertical-align:top;">
+                      <table align=3D"left" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" role=3D"presentation">
+                        <tr>
+                          <td colspan=3D"2" class=3D"DarkmodeWhiteText" sty=
+le=3D"padding-top:24px; font-family:XING-Sans,Helvetica,Arial,sans-serif; l=
+ine-height:18px; color:#1D2124; font-size:12px; text-align:left;">Download =
+the free XING app now:
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align=3D"left" valign=3D"top" style=3D"paddin=
+g-top:12px;">
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4R" target=3D"_blank" style=3D"color: #1D2124;text-decoration: none;"=
+>
+                              <img src=3D"https://www.xing.com/assets/mail/=
+v2/google_play_EN@2x.jpg" class=3D"DarkmodeBorder" width=3D"134" height=3D"=
+40" alt=3D"Google Play Store" border=3D"0"  style=3D"width:134px; font-fami=
+ly:XING-Sans,Helvetica,Arial,sans-serif; font-size: 14px; color:#1D2124;"/>=
+&nbsp;</a>
+                          </td>
+                          <td align=3D"left" valign=3D"top" width=3D"178" s=
+tyle=3D"padding-top: 12px;width:178px;">
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4Q" target=3D"_blank" style=3D"color: #1D2124;text-decoration: none;"=
+>
+                              <img src=3D"https://www.xing.com/assets/mail/=
+v2/app_store_EN@2x.jpg" class=3D"DarkmodeBorder" width=3D"120" height=3D"40=
+" alt=3D"Apple App Store" border=3D"0" style=3D"width:120px; font-family:XI=
+NG-Sans,Helvetica,Arial,sans-serif; font-size: 14px; color:#1D2124;"/></a>
+                          </td>
+                        </tr>
+                        <tr>
+  <td colspan=3D"3" class=3D"DarkmodeWhiteText" valign=3D"top" style=3D"pad=
+ding-top:16px;font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size:1=
+2px; font-weight:normal; color:#1D2124; line-height:24px;">
+    Follow us for tips on your job search:
+  </td>
+</tr>
+
+                          <tr>
+                            <td colspan=3D"2" style=3D"padding-top: 8px;">
+                              <table align=3D"left" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0" role=3D"presentation">
+                                <tr>
+                                  <td style=3D"padding-right: 10px;">
+                                    <a href=3D"https://www.xing.com/m/Ge1wS=
+Q5kwifYszzW_Jr4T" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bo=
+rder: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-XING.png" width=3D"2=
+2" height=3D"24" alt=3D"Follow us on XING" border=3D"0" style=3D"width:22px=
+;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,sans-serif=
+;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                                <td style=3D"padding-right: 10px;">
+                                  <a href=3D"https://www.xing.com/m/Ge1wSQ5=
+kwifYszzW_Jr4U" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bord=
+er: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-YouTube.png" width=
+=3D"25" height=3D"24" alt=3D"Follow us on YouTube" border=3D"0" style=3D"wi=
+dth:25px;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,sa=
+ns-serif;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                                <td style=3D"padding-right: 10px;">
+                                  <a href=3D"https://www.xing.com/m/Ge1wSQ5=
+kwifYszzW_Jr4V" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bord=
+er: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-TikTok.png" width=3D=
+"24" height=3D"24" alt=3D"Follow us on TikTok" border=3D"0" style=3D"width:=
+24px;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,sans-s=
+erif;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                                <td style=3D"padding-right: 10px;">
+                                  <a href=3D"https://www.xing.com/m/Ge1wSQ5=
+kwifYszzW_Jr4W" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bord=
+er: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-Instagram.png" width=
+=3D"25" height=3D"24" alt=3D"Follow us on Instagram" border=3D"0" style=3D"=
+width:25px;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,=
+sans-serif;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                                <td style=3D"padding-right: 10px;">
+                                  <a href=3D"https://www.xing.com/m/Ge1wSQ5=
+kwifYszzW_Jr4X" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bord=
+er: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-Facebook.png" width=
+=3D"21" height=3D"24" alt=3D"Follow us on Facebook" border=3D"0" style=3D"w=
+idth:21px;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,s=
+ans-serif;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                                <td>
+                                  <a href=3D"https://www.xing.com/m/Ge1wSQ5=
+kwifYszzW_Jr4E" class=3D"DarkmodeWhiteText" target=3D"_blank" style=3D"bord=
+er: 0px; color: #1D2124; text-decoration: none;">
+  <img src=3D"https://www.xing.com/assets/mail/v2/Icon-Twitter.png" width=
+=3D"30" height=3D"24" alt=3D"Follow us on Twitter" border=3D"0" style=3D"wi=
+dth:30px;height:24px;display:block;font-family:XING-Sans,Helvetica,Arial,sa=
+ns-serif;color:#1D2124;font-size:14px;" />
+</a>
+
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=3D"2" class=3D"DarkmodeGreyText" styl=
+e=3D"padding-top:24px; font-family:XING-Sans,Helvetica,Arial,sans-serif; fo=
+nt-size: 12px; color: #5E737D; text-align: left; font-weight:normal; line-h=
+eight: 18px;">New Work SE, Am Strandkai 1, 20&#65279;45&#65279;7 Hamburg, D=
+eutschland, Tel.: &zwj;+&zwj;49&nbsp;40&nbsp;419&nbsp;131-0, Email:&nbsp;<a=
+ class=3D"DarkmodeGreyText" href=3D"mailto:info@xing.com" style=3D"text-dec=
+oration: underline; font-family:XING-Sans,Helvetica,Arial,sans-serif; font-=
+size: 12px;color: #5E737D; ">info@xing.com</a>&ensp;|&ensp;Local Court&nbsp=
+;HRB&nbsp;14=EF=BB=BF80=EF=BB=BF78&ensp;|&ensp;Executive Board:&nbsp;Petra&=
+nbsp;von&nbsp;Strombeck&nbsp;(CEO), Ingo&nbsp;Chu&ensp;|&ensp;Chair of the =
+Supervisory Board:&nbsp;Tom&nbsp;Bureau
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=3D"2" class=3D"DarkmodeGreyText" styl=
+e=3D"padding-top:8px; font-family:XING-Sans,Helvetica,Arial,sans-serif; fon=
+t-size: 12px; color: #5E737D; text-align: left; font-weight:bold; line-heig=
+ht: 18px;">Recruiters can see when you visit job ads recommended in this e-=
+mail.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=3D"2" class=3D"DarkmodeGreyText" styl=
+e=3D"padding-top:8px; font-family:XING-Sans,Helvetica,Arial,sans-serif; fon=
+t-size: 12px; color: #5E737D; text-align: left; font-weight:normal; line-he=
+ight: 18px;">
+                              <b>Please don't reply to this e-mail.</b> If =
+you have any questions or feedback, simply use our <a href=3D'https://www.x=
+ing.com/m/Ge1wSQ5kwifYszzW_Jr4N' target=3D'_blank' class=3D'DarkmodeGreyTex=
+t' style=3D'text-decoration:underline; font-family:XING-Sans,Helvetica,Aria=
+l,sans-serif; font-size:12px; color:#5E737D;'>contact form</a>. Thanks!
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=3D"2" class=3D"DarkmodeGreyText" styl=
+e=3D"padding-top:24px; text-align:left; font-family:XING-Sans,Helvetica,Ari=
+al,sans-serif; font-size:12px; color:#5E737D; line-height:18px;">
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4J" target=3D"_blank" class=3D"DarkmodeGreyText" style=3D" text-decor=
+ation: underline; font-family:XING-Sans,Helvetica,Arial,sans-serif; font-si=
+ze: 12px; color: #5E737D;">Privacy Policy</a>&ensp;|&ensp;
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4M" target=3D"_blank" class=3D"DarkmodeGreyText" style=3D"text-decora=
+tion:underline; font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size=
+:12px; color:#5E737D; line-height:18px;"
+                            >Unsubscribe</a>&ensp;|&ensp;
+                            <a href=3D"https://www.xing.com/m/Ge1wSQ5kwifYs=
+zzW_Jr4L" target=3D"_blank" class=3D"DarkmodeGreyText" style=3D"text-decora=
+tion:underline; font-family:XING-Sans,Helvetica,Arial,sans-serif; font-size=
+:12px; color:#5E737D;">Contact</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=3D"2" height=3D"64" style=3D"height:6=
+4px;line-height:0px;">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+            <td width=3D"7%">&nbsp;</td>
+          </tr>
+        </table>
+       <!--[if gte mso 12|IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+----==_mimepart_67652250e82d0_2c21554153217--

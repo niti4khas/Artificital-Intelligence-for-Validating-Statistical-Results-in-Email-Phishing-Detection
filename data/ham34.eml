@@ -1,0 +1,544 @@
+Delivered-To: ham@ham.email
+Received: by 2002:adf:fb88:0:b0:381:b67e:83f8 with SMTP id a8csp30960wrr;
+        Thu, 31 Oct 2024 17:31:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHPc4yioyjII/MIS5/yI0247m7pmrGd7JBXjk6BHGTbOa1ePolwy8t3Wq+79hpJSNnmL4/G
+X-Received: by 2002:a2e:bc21:0:b0:2fa:d354:1435 with SMTP id 38308e7fff4ca-2fdebd4588bmr28613001fa.0.1730421073520;
+        Thu, 31 Oct 2024 17:31:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1730421073; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VzVljyHFEJcJntr1Bz6xww/03P6kuEmcJZcEZnV9qI+Dw4LNhOLJliX7HzHgoxqcom
+         IMexYfphiMqisLMAtVohql8YrlFHYYhMpe3KrvrVeN71v48vVy5Znq8rycJHOV9Tjtb2
+         tTy2924tCo4zJoFzFPVCOE2btG0V3KADdsOZ88J+ozG3Qgu6Wxv/q3ffLRrjoAfo4njL
+         xrgJ8o1OmHY7/1FMHa3snWAME8IPCn+wZ9FxuOn5sFj3bffrZvrBzqPdeeubQghH/uwR
+         3kJL7ej6D8nD5WH3Du8BICvx+iSrgu847WzjCHV3IDQaaSgFRxhW9KJvVFClMTY5Y/0D
+         QSaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=from:subject:mime-version:date:message-id:to:dkim-signature;
+        bh=l5U+WahatTzfiePU/0R1A+ckWMXDOadenBlehCw/QIA=;
+        fh=0kXyVBQFLqDLD7nIsTXJ5X3X1RzebGREaH8Omcbyh3A=;
+        b=MYX8+yuMsOvLhONuXgDfrQP9lTfg9E14J1W0hjZNmHN785ekQb8w+sszulaAyo8Pd3
+         AzokPusnEtrEd/ikcGm5qxK7pGP6oNtTrsKMqmrQVRXamQ/yxgUhveb0BNbLXV0Qtxha
+         XXV9u6Ba3Kk3GVQNmPVo7r09CCrYCcpAxnoNQAsA21sKVu/2D4N3OYyUmatUIN7bt/R5
+         D/eruMP63YAcKKnYqjiwk7EU2ls70BK0+NqHixfqGgVhAD2vWD196Wr5LScgwjwKHMZa
+         v7o2S1Xn9d87mO+CHkCrb9Rht0S3KP3Fl44vqfcXUDtpnL7fazk7EZi/8J/5/sAaVkO6
+         Fqmw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@info.sw.siemens.com header.s=scph0921 header.b="Qx/g8X+M";
+       spf=pass (google.com: domain of msprvs1=20035gpp-zp-r=bounces-1898-386@info.sw.siemens.com designates 223.165.125.109 as permitted sender) smtp.mailfrom="msprvs1=20035gPP-zP-R=bounces-1898-386@info.sw.siemens.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=info.sw.siemens.com
+Return-Path: <msprvs1=20035gPP-zP-R=bounces-1898-386@info.sw.siemens.com>
+Received: from 223.165.125.109.jfk.braze.com (223.165.125.109.jfk.braze.com. [223.165.125.109])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-2fdef39504dsi7949591fa.100.2024.10.31.17.31.12
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 31 Oct 2024 17:31:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of msprvs1=20035gpp-zp-r=bounces-1898-386@info.sw.siemens.com designates 223.165.125.109 as permitted sender) client-ip=223.165.125.109;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@info.sw.siemens.com header.s=scph0921 header.b="Qx/g8X+M";
+       spf=pass (google.com: domain of msprvs1=20035gpp-zp-r=bounces-1898-386@info.sw.siemens.com designates 223.165.125.109 as permitted sender) smtp.mailfrom="msprvs1=20035gPP-zP-R=bounces-1898-386@info.sw.siemens.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=info.sw.siemens.com
+X-MSFBL: 936YI6BQBHgp9Gzoe0XMA1uuKF/hXc+JxjeuwLT8Eko=|eyJ0ZW5hbnRfaWQiOiJ
+	zcGNldSIsInN1YmFjY291bnRfaWQiOiIzODYiLCJjdXN0b21lcl9pZCI6IjE4OTg
+	iLCJyIjoic21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbSIsIm1lc3NhZ2VfaWQiOiI
+	2NzBlNTAyMTI0NjdiOTRiMTg2OCJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=info.sw.siemens.com;
+	s=scph0921; t=1730421072; i=@info.sw.siemens.com;
+	bh=l5U+WahatTzfiePU/0R1A+ckWMXDOadenBlehCw/QIA=;
+	h=To:Message-ID:Date:Content-Type:Subject:From:From:To:Cc:Subject;
+	b=Qx/g8X+MB/41cYQFzQfLR8NIgsM5D8aqUNQo2TpSuB4BvWr9teaGfs/UgyvHf3/7T
+	 WqH4/KM8Qo2m7c9mHby1bA3bk1ujNmZE1YshM86esmsFf2n5wUwXMaT1wgSmet4lIJ
+	 E+Ua5wz1ulnZOvXETVd+Ifj3KDJS0Lxedum/4/kA=
+To: ham@ham.email
+Message-ID: <86.81.12170.05124276@ga.mta3vrest.cc.prd.sparkpost>
+Date: Fri, 01 Nov 2024 00:31:12 +0000
+Content-Type: multipart/alternative; boundary="_----vKtNU4E0xjjVk9BTjc42jQ===_66/81-12170-05124276"
+MIME-Version: 1.0
+Subject: Welcome to your NX CAD/CAM Student Edition
+From: "Trials" <sender@info.sw.siemens.com>
+
+--_----vKtNU4E0xjjVk9BTjc42jQ===_66/81-12170-05124276
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+body, table, td {font-family:-apple-system,=0ABlinkMacSystemFont, 'Segoe UI=
+', Roboto, Oxygen, Ubuntu,=0ACantarell, 'Open Sans', 'Helvetica Neue', sans=
+-serif !important;}=0ASiemens Logo ( https://clicks.info.sw.siemens.com/f/a=
+/NtZHEkjTxN0gGwJq1ptaLA~~/AAAHagA~/RgRpBqZQP0QTaHR0cHM6Ly9zaWVtZW5zLmNvbVcF=
+c3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~ )=0A=
+=0A**************************************************=0AWelcome to your NX =
+CAD/CAM Student Edition=0A*************************************************=
+*=0A=0AYou have completed registration for=0Ayour NX CAD/CAM Student Editio=
+n. NX Student Edition=0Afeatures:=0A=0A* Comprehensive 3D design tools incl=
+uding solid, surface,=0Awire-frame and synchronous modeling=0A* * Sophistic=
+ated freeform shape modeling, surface continuity,=0Aanalysis and visualizat=
+ion tools=0A* Supports output to 3D printing formats=0A* Model-driven proce=
+ss using integrated software for design, NC=0Aprogramming and additive manu=
+facturing=0A=0AYour download includes: * A desktop version of NX Student Ed=
+ition=0Afor Windows loaded with a complete suite of software, fully=0Alicen=
+sed and configured, ready for your use=0AHave questions=3F Check out the Si=
+emens Community =0A( https://clicks.info.sw.siemens.com/f/a/5Qji2rNIHadMaYw=
+zNR4e4A~~/AAAHagA~/RgRpBqZQP0RFaHR0cHM6Ly9jb21tdW5pdHkuc3cuc2llbWVucy5jb20v=
+cy90b3BpYy8wVE80TzAwMDAwME1paFRXQVMvbngtZGVzaWduVwVzcGNldUIKZw5QISRnuUsYaFI=
+Zc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAABgg~~ )=0A or contact us here ( htt=
+ps://clicks.info.sw.siemens.com/f/a/TLUF0uPpQKoBjcisqFE83w~~/AAAHagA~/RgRpB=
+qZQP0QfaHR0cHM6Ly9zdXBwb3J0LnN3LnNpZW1lbnMuY29tL1cFc3BjZXVCCmcOUCEkZ7lLGGhS=
+GXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~ ) for=0Afurther assistance and=
+ information.=0A=0AYou can find more free learning resources for NX here =
+=0A( https://clicks.info.sw.siemens.com/f/a/5Mp08ECW1IWIK_9I1CuHdg~~/AAAHag=
+A~/RgRpBqZQP0Q1aHR0cHM6Ly9wbG0uc3cuc2llbWVucy5jb20vZW4tVVMvbngvc3R1ZGVudC1z=
+b2Z0d2FyZS9XBXNwY2V1QgpnDlAhJGe5SxhoUhlzbWluaGF6MTgwNjE5OTdAZ21haWwuY29tWAQ=
+AAAGC ).=0A=0AStart trial ( https://clicks.info.sw.siemens.com/f/a/63BCTYNr=
+3h_5Uc0m6hNL0Q~~/AAAHagA~/RgRpBqZQP0RMaHR0cHM6Ly90cmlhbHMuc3cuc2llbWVucy5jb=
+20vZW4tVVMvdHJpYWxzL254LWNhZC1jYW0tc3R1ZGVudC1lZGl0aW9uL2xhdW5jaFcFc3BjZXVC=
+CmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~ )=0AFacebook =
+=0A( https://clicks.info.sw.siemens.com/f/a/QSnIxVptHBgDHguHT_1Jbw~~/AAAHag=
+A~/RgRpBqZQP0QraHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1NpZW1lbnNESVNvZnR3YXJlL1cF=
+c3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~ ) Twit=
+ter =0A( https://clicks.info.sw.siemens.com/f/a/28_MiDyPzqNe7e5h140JPw~~/AA=
+AHagA~/RgRpBqZQP0QjaHR0cHM6Ly90d2l0dGVyLmNvbS9zaWVtZW5zc29mdHdhcmVXBXNwY2V1=
+QgpnDlAhJGe5SxhoUhlzbWluaGF6MTgwNjE5OTdAZ21haWwuY29tWAQAAAGC ) LinkedIn =0A=
+( https://clicks.info.sw.siemens.com/f/a/LhX9VNfMv8FNmxSroa_MBQ~~/AAAHagA~/=
+RgRpBqZQP0QxaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2NvbXBhbnkvc2llbWVuc3NvZnR3YXJ=
+lL1cFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~ )=
+ Instagram =0A( https://clicks.info.sw.siemens.com/f/a/o8mixxi3g5gJ7ix5y3l0=
+0Q~~/AAAHagA~/RgRpBqZQP0QqaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zaWVtZW5zc29md=
+HdhcmUvVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAAB=
+gg~~ ) Youtube =0A( https://clicks.info.sw.siemens.com/f/a/8upHJxNymXpL3dEX=
+fxDQ_w~~/AAAHagA~/RgRpBqZQP0QnaHR0cHM6Ly93d3cueW91dHViZS5jb20vdXNlci9TaWVtZ=
+W5zUExNVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAAB=
+gg~~ ) =C2=A9=0A2024 Siemens Digital Industry=0ASoftware Inc. 5800 Granite =
+Parkway, Suite 600, Plano, TX 75024=0AUSA | +1 800 498 5351 Contact us =0A(=
+ https://clicks.info.sw.siemens.com/f/a/AZg6GmRp4R9W_MxWNuF8AQ~~/AAAHagA~/R=
+gRpBqZQP0QtaHR0cHM6Ly9wbG0uc3cuc2llbWVucy5jb20vZW4tVVMvY29udGFjdC1wbG0vVwVz=
+cGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAABgg~~ ) | Pr=
+ivacy policy=0A( https://clicks.info.sw.siemens.com/f/a/Ba1JeBGKm1j9snN3GSE=
+vig~~/AAAHagA~/RgRpBqZQP0QwaHR0cHM6Ly93d3cuc3cuc2llbWVucy5jb20vZW4tVVMvcHJp=
+dmFjeS1wb2xpY3kvVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmN=
+vbVgEAAABgg~~ )=0AThis email was sent to sminhaz18061997@gmail.com
+--_----vKtNU4E0xjjVk9BTjc42jQ===_66/81-12170-05124276
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">=0A<html lang=3D"en">=0A<head>=0A  <meta http-eq=
+uiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=0A  <meta name=
+=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1">=0A  <met=
+a http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">=0A=0A  <title>Sieme=
+ns Title Here</title>=0A=0A      =0A<style>body {=0A-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSy=
+stemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helv=
+etica Neue', sans-serif;=0A}=0Aimg {=0A-ms-interpolation-mode: bicubic;=0A}=
+=0Aa:hover {=0Atext-decoration: none;=0A}=0A.btn-primary:hover {=0Aborder-c=
+olor: var(--color-green-lighter); border-image-source: none;=0A}=0Aimg {=0A=
+border: 0; outline: none; text-decoration: none;=0A}=0Abody {=0Amargin: 0 !=
+important; padding: 0 !important; width: 100% !important;=0A}=0A@media all =
+and (max-width:639px) {=0A  .wrapper {=0A    width: 100% !important; paddin=
+g: 0 !important;=0A  }=0A  .container {=0A    width: 90% !important; paddin=
+g: 0 !important;=0A  }=0A  .mobile {=0A    width: 90% !important; display: =
+block !important; padding: 0 !important;=0A  }=0A  .img {=0A    width: 100%=
+ !important; max-width: 100% !important; height: auto !important;=0A  }=0A =
+ *[class=3D"mobileOff"] {=0A    width: 0px !important; display: none !impor=
+tant;=0A  }=0A  *[class*=3D"mobileOn"] {=0A    display: block !important; m=
+ax-height: none !important;=0A  }=0A}=0A</style>=0A</head>=0A<body style=3D=
+"font-family: 'Siemen Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',=
+ Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-ser=
+if; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; width: 100%=
+ !important; margin: 0; padding: 0;" bgcolor=3D"#ffffff">=0A  <!--[if mso]>=
+=0A  <style type=3D"text/css">=0A  body, table, td {font-family:-apple-syst=
+em, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Ope=
+n Sans', 'Helvetica Neue', sans-serif !important;}=0A  </style>=0A  <![endi=
+f]-->=0A  <center>=0A    <table role=3D"presentation" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" style=3D"fon=
+t-family: 'Siemen Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Rob=
+oto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; =
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important;">=0A  =
+      <tr>=0A            <td align=3D"center" valign=3D"top" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-=
+system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, =
+'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table=
+-rspace: 0pt; line-height: 1.5;">=0A              <!-- hero/banner -->=0A  =
+            <table role=3D"presentation" width=3D"640" cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" class=3D"wrapper" bgcolor=3D"#000026" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -=
+apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Canta=
+rell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt; border-collapse: collapse !important;">=0A             =
+   <tr>=0A                  <td height=3D"20" style=3D"font-size: 30px; lin=
+e-height: 30px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen=
+, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A                </tr>=0A =
+               <tr>=0A                  <td align=3D"center" valign=3D"top"=
+ style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-=
+family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun=
+tu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A              =0A       =
+             <table role=3D"presentation" width=3D"580" cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" class=3D"container" style=3D"-webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, Bli=
+nkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans'=
+, 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-collapse: collapse !important;">=0A                      <tr>=0A =
+                       <td valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMac=
+SystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'He=
+lvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; li=
+ne-height: 1.5;">=0A                            <a href=3D"https://clicks.i=
+nfo.sw.siemens.com/f/a/NtZHEkjTxN0gGwJq1ptaLA~~/AAAHagA~/RgRpBqZQP0QTaHR0cH=
+M6Ly9zaWVtZW5zLmNvbVcFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpb=
+C5jb21YBAAAAYI~" target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont=
+, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Ne=
+ue', sans-serif; color: #006ebe; text-decoration: underline;"><img loading=
+=3D"lazy" src=3D"https://images.sw.cdn.siemens.com/logo/logo-white.png" alt=
+=3D"Siemens Logo" width=3D"130" style=3D"-ms-interpolation-mode: bicubic; o=
+utline: none; text-decoration: none; border-width: 0;"></a>=0A             =
+           </td>=0A                        <td valign=3D"middle" align=3D"r=
+ight" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; =
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,=
+ Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-ls=
+pace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A                   =
+     </td>=0A                      </tr>=0A                    </table>=0A=
+=0A                  </td>=0A                </tr>=0A                <tr>=
+=0A                  <td height=3D"20" style=3D"font-size: 20px; line-heigh=
+t: 20px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-f=
+amily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubunt=
+u, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: =
+0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A                </tr>=0A        =
+      </table>=0A=0A<table role=3D"presentation" width=3D"640" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" class=3D"wrapper" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-syste=
+m, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open=
+ Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; border-collapse: collapse !important;" bgcolor=3D"#000026">=0A  <t=
+r>=0A    <td height=3D"30" style=3D"font-size: 30px; line-height: 30px; -we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -appl=
+e-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell=
+, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt;">&nbsp;</td>=0A  </tr>=0A  <tr>=0A    <td align=3D"center" =
+valign=3D"top" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjus=
+t: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto=
+, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso=
+-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A=0A      <=
+table role=3D"presentation" width=3D"580" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" class=3D"container" style=3D"-webkit-text-size-adjust: 100%=
+; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFon=
+t, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica N=
+eue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-coll=
+apse: collapse !important;">=0A        <tr>=0A          <td valign=3D"middl=
+e" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; fon=
+t-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ub=
+untu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A            <!-- headl=
+ine -->=0A            <table role=3D"presentation" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe U=
+I', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-=
+serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: colla=
+pse !important; margin: 0;">=0A              <tr>=0A                <td wid=
+th=3D"4" style=3D"width: 4px; background-image: linear-gradient(180deg,#00f=
+fb9,#00e6dc); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; f=
+ont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, =
+Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;"></td>=0A               =
+ <td width=3D"15" style=3D"width: 15x; -webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Se=
+goe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', =
+sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;=
+"></td>=0A                <td valign=3D"top" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMac=
+SystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'He=
+lvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; li=
+ne-height: 1.5;">=0A                  <h1 style=3D"color: #ffffff; font-siz=
+e: 28px; font-weight: 600; line-height: 35px; margin: 0;">Welcome to your N=
+X CAD/CAM Student Edition</h1>=0A                </td>=0A              </tr=
+>=0A            </table>=0A            <!-- /headline -->=0A          </td>=
+=0A        </tr>=0A      </table>=0A=0A    </td>=0A  </tr>=0A  <tr>=0A    <=
+td height=3D"30" style=3D"font-size: 30px; line-height: 30px; -webkit-text-=
+size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, =
+BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sa=
+ns', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace:=
+ 0pt;">&nbsp;</td>=0A  </tr>=0A</table>=0A=0A<table role=3D"presentation" w=
+idth=3D"640" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"wrap=
+per" bgcolor=3D"#ffffff" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe U=
+I', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-=
+serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: colla=
+pse !important;">=0A  <tr>=0A    <td height=3D"40" style=3D"font-size: 40px=
+; line-height: 40px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O=
+xygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A  </tr>=0A  <tr>=0A =
+   <td align=3D"center" valign=3D"top" mc:edit=3D"body" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-syste=
+m, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open=
+ Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; line-height: 1.5;">=0A=0A      <!-- content -->=0A      <table rol=
+e=3D"presentation" width=3D"580" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" class=3D"container" style=3D"-webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', san=
+s-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: col=
+lapse !important;">=0A        <tr>=0A          <td style=3D"-webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, Bl=
+inkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans=
+', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0=
+pt; line-height: 1.5;">=0A            <!-- body -->=0A=0A            <p sty=
+le=3D"line-height: 1.5; margin: 0 0 1rem;">You have completed registration =
+for your NX CAD/CAM Student Edition. NX Student Edition features:=0A       =
+     </p>=0A<ul>=0A            <li>Comprehensive 3D design tools including =
+solid, surface, wire-frame and synchronous modeling</li>=0A            <lif=
+ull suite of cam programming tools to program and multifunction cnc machine=
+>=0A            <li>Sophisticated freeform shape modeling, surface continui=
+ty, analysis and visualization tools</li>=0A            <li>Supports output=
+ to 3D printing formats</li>=0A            <li>Model-driven process using i=
+ntegrated software for design, NC programming and additive manufacturing</l=
+i>=0A            </lifull>=0A</ul>=0A<strong>Your download includes:</stron=
+g>=0A            <ul>=0A              <li>A desktop version of NX Student E=
+dition for Windows loaded with a complete suite of software, fully licensed=
+ and configured, ready for your use</li>=0A            =0A            </ul>=
+=0A=0A            <!-- /body -->=0A            =0A            <!-- Informat=
+ion about network requirements -->=0A<div style=3D"background-color: #EBEBE=
+E; font-size: 16px; padding: 20px;">=0A              <p style=3D"line-heigh=
+t: 1.5; margin: 0 0 1rem;">Have questions=3F Check out the <strong><a href=
+=3D"https://clicks.info.sw.siemens.com/f/a/5Qji2rNIHadMaYwzNR4e4A~~/AAAHagA=
+~/RgRpBqZQP0RFaHR0cHM6Ly9jb21tdW5pdHkuc3cuc2llbWVucy5jb20vcy90b3BpYy8wVE80T=
+zAwMDAwME1paFRXQVMvbngtZGVzaWduVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYx=
+OTk3QGdtYWlsLmNvbVgEAAABgg~~" style=3D"-webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Se=
+goe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', =
+sans-serif; color: #006ebe; text-decoration: underline;">Siemens Community<=
+/a></strong> or contact us <strong><a href=3D"https://clicks.info.sw.siemen=
+s.com/f/a/TLUF0uPpQKoBjcisqFE83w~~/AAAHagA~/RgRpBqZQP0QfaHR0cHM6Ly9zdXBwb3J=
+0LnN3LnNpZW1lbnMuY29tL1cFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbW=
+FpbC5jb21YBAAAAYI~" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', R=
+oboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif=
+; color: #006ebe; text-decoration: underline;">here</a></strong> for furthe=
+r assistance and information.</p>=0A              <p style=3D"line-height: =
+1.5; margin: 0 0 1rem;">You can find more free learning resources for NX <s=
+trong><a href=3D"https://clicks.info.sw.siemens.com/f/a/5Mp08ECW1IWIK_9I1Cu=
+Hdg~~/AAAHagA~/RgRpBqZQP0Q1aHR0cHM6Ly9wbG0uc3cuc2llbWVucy5jb20vZW4tVVMvbngv=
+c3R1ZGVudC1zb2Z0d2FyZS9XBXNwY2V1QgpnDlAhJGe5SxhoUhlzbWluaGF6MTgwNjE5OTdAZ21=
+haWwuY29tWAQAAAGC" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;=
+ color: #006ebe; text-decoration: underline;">here</a></strong>.</p>=0A    =
+        </div>=0A            <!-- Call to action -->            =0A        =
+    <table role=3D"presentation" style=3D"border-radius: 3px; min-width: 10=
+0px; margin-top: 18px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,=
+ Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !import=
+ant;" height=3D"48" width=3D"100%" cellspacing=3D"5" cellpadding=3D"5" bord=
+er=3D"0">=0A              <tbody>=0A                <tr>=0A                =
+  <td style=3D"font-size: 16px; -webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI'=
+, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-se=
+rif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 1.5; backgr=
+ound-image: linear-gradient(90deg, #00ffb9, #00e6dc); padding: 0 24px;" val=
+ign=3D"middle" height=3D"48" align=3D"center" bgcolor=3D"#00ffb9">=0A      =
+              <a style=3D"font-weight: bold; color: #000; display: inline-b=
+lock; text-decoration: none; line-height: 30px; width: 100%; -webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system, B=
+linkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open San=
+s', 'Helvetica Neue', sans-serif;" href=3D"https://clicks.info.sw.siemens.c=
+om/f/a/63BCTYNr3h_5Uc0m6hNL0Q~~/AAAHagA~/RgRpBqZQP0RMaHR0cHM6Ly90cmlhbHMuc3=
+cuc2llbWVucy5jb20vZW4tVVMvdHJpYWxzL254LWNhZC1jYW0tc3R1ZGVudC1lZGl0aW9uL2xhd=
+W5jaFcFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~=
+">Start trial</a>=0A                  </td>=0A                </tr>=0A     =
+         </tbody>=0A            </table>=0A          </td>=0A        </tr>=
+=0A      </table>=0A      <!-- /content -->=0A=0A    </td>=0A  </tr>=0A  <t=
+r>=0A    <td height=3D"40" style=3D"font-size: 40px; line-height: 40px; -we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -appl=
+e-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell=
+, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt;">&nbsp;</td>=0A  </tr>=0A</table>=0A=0A<!-- footer -->=0A  =
+            <table role=3D"presentation" width=3D"640" cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" class=3D"wrapper" bgcolor=3D"#EBEBEE" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -=
+apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Canta=
+rell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt; border-collapse: collapse !important;">=0A             =
+   <tr>=0A                  <td height=3D"30" style=3D"font-size: 30px; lin=
+e-height: 30px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen=
+, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A                </tr>=0A =
+               <tr>=0A                  <td align=3D"center" valign=3D"top"=
+ style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-=
+family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun=
+tu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A                    <tab=
+le role=3D"presentation" width=3D"580" cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0" class=3D"container" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, =
+'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue=
+', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collaps=
+e: collapse !important;">=0A                      <tr>=0A                  =
+      <td valign=3D"middle" style=3D"font-size: 14px; color: #000026; line-=
+height: 1.5; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; fo=
+nt-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, U=
+buntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt;">=0A                            <a style=3D=
+"display: inline-block; margin-right: 10px; -webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont=
+, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Ne=
+ue', sans-serif; color: #006ebe; text-decoration: underline;" href=3D"https=
+://clicks.info.sw.siemens.com/f/a/QSnIxVptHBgDHguHT_1Jbw~~/AAAHagA~/RgRpBqZ=
+QP0QraHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1NpZW1lbnNESVNvZnR3YXJlL1cFc3BjZXVCCm=
+cOUCEkZ7lLGGhSGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~">=0A            =
+                  <img loading=3D"lazy" src=3D"https://images.sw.cdn.siemen=
+s.com/vision/footer-facebook.png" alt=3D"Facebook" width=3D"40" height=3D"4=
+0" style=3D"-ms-interpolation-mode: bicubic; outline: none; text-decoration=
+: none; border-width: 0;">=0A                            </a>=0A           =
+                 <a style=3D"display: inline-block; margin-right: 10px; -we=
+bkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -appl=
+e-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell=
+, 'Open Sans', 'Helvetica Neue', sans-serif; color: #006ebe; text-decoratio=
+n: underline;" href=3D"https://clicks.info.sw.siemens.com/f/a/28_MiDyPzqNe7=
+e5h140JPw~~/AAAHagA~/RgRpBqZQP0QjaHR0cHM6Ly90d2l0dGVyLmNvbS9zaWVtZW5zc29mdH=
+dhcmVXBXNwY2V1QgpnDlAhJGe5SxhoUhlzbWluaGF6MTgwNjE5OTdAZ21haWwuY29tWAQAAAGC"=
+>=0A                              <img loading=3D"lazy" src=3D"https://imag=
+es.sw.cdn.siemens.com/vision/footer-twitter.png" alt=3D"Twitter" width=3D"4=
+0" height=3D"40" style=3D"-ms-interpolation-mode: bicubic; outline: none; t=
+ext-decoration: none; border-width: 0;">=0A                            </a>=
+=0A                            <a style=3D"display: inline-block; margin-ri=
+ght: 10px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubu=
+ntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #006ebe; =
+text-decoration: underline;" href=3D"https://clicks.info.sw.siemens.com/f/a=
+/LhX9VNfMv8FNmxSroa_MBQ~~/AAAHagA~/RgRpBqZQP0QxaHR0cHM6Ly93d3cubGlua2VkaW4u=
+Y29tL2NvbXBhbnkvc2llbWVuc3NvZnR3YXJlL1cFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXo=
+xODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~">=0A                              <img lo=
+ading=3D"lazy" src=3D"https://images.sw.cdn.siemens.com/vision/footer-linke=
+din.png" alt=3D"LinkedIn" width=3D"40" height=3D"40" style=3D"-ms-interpola=
+tion-mode: bicubic; outline: none; text-decoration: none; border-width: 0;"=
+>=0A                            </a>=0A                            <a style=
+=3D"display: inline-block; margin-right: 10px; -webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemF=
+ont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica=
+ Neue', sans-serif; color: #006ebe; text-decoration: underline;" href=3D"ht=
+tps://clicks.info.sw.siemens.com/f/a/o8mixxi3g5gJ7ix5y3l00Q~~/AAAHagA~/RgRp=
+BqZQP0QqaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zaWVtZW5zc29mdHdhcmUvVwVzcGNldUI=
+KZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAABgg~~">=0A         =
+                     <img loading=3D"lazy" src=3D"https://images.sw.cdn.sie=
+mens.com/vision/footer-instagram.png" alt=3D"Instagram" width=3D"40" height=
+=3D"40" style=3D"-ms-interpolation-mode: bicubic; outline: none; text-decor=
+ation: none; border-width: 0;">=0A                            </a>=0A      =
+                      <a style=3D"display: inline-block; margin-right: 10px=
+; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: =
+-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cant=
+arell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #006ebe; text-deco=
+ration: underline;" href=3D"https://clicks.info.sw.siemens.com/f/a/8upHJxNy=
+mXpL3dEXfxDQ_w~~/AAAHagA~/RgRpBqZQP0QnaHR0cHM6Ly93d3cueW91dHViZS5jb20vdXNlc=
+i9TaWVtZW5zUExNVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNv=
+bVgEAAABgg~~">=0A                              <img loading=3D"lazy" src=3D=
+"https://images.sw.cdn.siemens.com/vision/footer-youtube.png" alt=3D"Youtub=
+e" width=3D"40" height=3D"40" style=3D"-ms-interpolation-mode: bicubic; out=
+line: none; text-decoration: none; border-width: 0;">=0A                   =
+         </a>=0A                        </td>=0A                      </tr>=
+=0A                    </table>=0A                  </td>=0A               =
+ </tr>=0A                <tr>=0A                  <td height=3D"20" style=
+=3D"font-size: 20px; line-height: 20px; -webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'S=
+egoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',=
+ sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A =
+               </tr>=0A                <tr>=0A                  <td align=
+=3D"center" valign=3D"top" style=3D"-webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', san=
+s-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=
+=0A                    <table role=3D"presentation" width=3D"580" cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" class=3D"container" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-s=
+ystem, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, '=
+Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; border-collapse: collapse !important;">=0A                    =
+  <tr>=0A                        <td valign=3D"middle" style=3D"font-size: =
+14px; color: #000026; line-height: 1.5; -webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'S=
+egoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',=
+ sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">=0A            =
+              =C2=A9 2024 Siemens Digital Industry Software Inc. 5800 Grani=
+te Parkway, Suite 600, Plano, TX 75024 USA | +1 800 498 5351=0A            =
+            </td>=0A                      </tr>=0A                    </tab=
+le>=0A                  </td>=0A                </tr>=0A                <tr=
+>=0A                  <td height=3D"20" style=3D"font-size: 20px; line-heig=
+ht: 20px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-=
+family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun=
+tu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A                </tr>=0A       =
+         <tr>=0A                  <td align=3D"center" valign=3D"top" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family=
+: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Ca=
+ntarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt; line-height: 1.5;">=0A                    <table rol=
+e=3D"presentation" width=3D"580" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" class=3D"container" style=3D"-webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', san=
+s-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: col=
+lapse !important;">=0A                      <tr>=0A                        =
+<td valign=3D"middle" style=3D"font-size: 14px; color: #000026; line-height=
+: 1.5; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-fam=
+ily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,=
+ Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt;">=0A                          <a href=3D"https://=
+clicks.info.sw.siemens.com/f/a/AZg6GmRp4R9W_MxWNuF8AQ~~/AAAHagA~/RgRpBqZQP0=
+QtaHR0cHM6Ly9wbG0uc3cuc2llbWVucy5jb20vZW4tVVMvY29udGFjdC1wbG0vVwVzcGNldUIKZ=
+w5QISRnuUsYaFIZc21pbmhhejE4MDYxOTk3QGdtYWlsLmNvbVgEAAABgg~~" style=3D"color=
+: #000026; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubu=
+ntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; text-decoration:=
+ underline;">Contact us</a> | <a href=3D"https://clicks.info.sw.siemens.com=
+/f/a/Ba1JeBGKm1j9snN3GSEvig~~/AAAHagA~/RgRpBqZQP0QwaHR0cHM6Ly93d3cuc3cuc2ll=
+bWVucy5jb20vZW4tVVMvcHJpdmFjeS1wb2xpY3kvVwVzcGNldUIKZw5QISRnuUsYaFIZc21pbmh=
+hejE4MDYxOTk3QGdtYWlsLmNvbVgEAAABgg~~" style=3D"color: #000026; -webkit-tex=
+t-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -apple-system=
+, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open =
+Sans', 'Helvetica Neue', sans-serif; text-decoration: underline;">Privacy p=
+olicy</a>=0A                        </td>=0A                      </tr>=0A =
+                   </table>=0A                  </td>=0A                </t=
+r>=0A                <tr>=0A                  <td height=3D"30" style=3D"fo=
+nt-size: 30px; line-height: 20px; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe U=
+I', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-=
+serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=0A       =
+         </tr>=0A                <tr>=0A                  <td valign=3D"top=
+" align=3D"center" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt; line-height: 1.5;">=0A      =
+              <table class=3D"container" width=3D"580" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Seg=
+oe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', s=
+ans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: c=
+ollapse !important;">=0A                      <tbody>=0A<tr>=0A            =
+            <td style=3D"font-size: 11px; color: #000026; line-height: 1.5;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: -=
+apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Canta=
+rell, 'Open Sans', 'Helvetica Neue', sans-serif; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt;" valign=3D"middle">=0A                          This em=
+ail was sent to <a href=3D"mailto:sminhaz18061997@gmail.com" target=3D"_bla=
+nk" style=3D"font-size: 11px; color: #000026; -webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFo=
+nt, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica =
+Neue', sans-serif; text-decoration: underline;">sminhaz18061997@gmail.com</=
+a>=0A                        </td>=0A                        </tr>=0A      =
+                </tbody>=0A</table>=0A                  </td>=0A           =
+     </tr>=0A                <tr>=0A                  <td height=3D"30" sty=
+le=3D"font-size: 30px; line-height: 30px; -webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; font-family: -apple-system, BlinkMacSystemFont, =
+'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue=
+', sans-serif; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">&nbsp;</td>=
+=0A                </tr>=0A              </table>=0A            </td>=0A   =
+     </tr>=0A    </table>=0A  </center>=0A=0D=0A<img border=3D"0" width=3D"=
+1" height=3D"1" alt=3D"" src=3D"https://clicks.info.sw.siemens.com/q/08vJlu=
+RoBSG52t_f6l9TUw~~/AAAHagA~/RgRpBqZQPlcFc3BjZXVCCmcOUCEkZ7lLGGhSGXNtaW5oYXo=
+xODA2MTk5N0BnbWFpbC5jb21YBAAAAYI~">=0D=0A</body>=0A</html>
+--_----vKtNU4E0xjjVk9BTjc42jQ===_66/81-12170-05124276--
+

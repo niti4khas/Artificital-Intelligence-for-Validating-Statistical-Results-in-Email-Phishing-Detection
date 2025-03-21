@@ -1,0 +1,131 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:e82b:b0:12f:8a6:e703 with SMTP id ny43csp2501462dyb;
+        Tue, 23 Jul 2024 13:04:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHj0o7OZ5+G0Echfw/4a2XKfcJa1+yT2jD5x5YctS6Dvd9186JTulqcAA8/K8X/p4m17Yzz
+X-Received: by 2002:a62:e411:0:b0:70d:2e89:de2b with SMTP id d2e1a72fcca58-70e80778d6emr4240969b3a.4.1721765083535;
+        Tue, 23 Jul 2024 13:04:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1721765083; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PS7QkOp9feJ3uaazfJ0/noqoLzqQHA9VfPzc3Ok/t3pVLL2I3MHtejN4TXIlyJBkZx
+         tJ/GMRmk+HYOTLx68yCRhy/EFBkEaZhcLNb+dv1FAl6FskB2tjJy0LHpHH36oV3Xssdz
+         gujDhpCc24rw0OXxM3LkZlz5BKMJIltxrld0BMZ9keybQy2BuD0X/GCMJ10m2JFT4Fcz
+         GZFqJshgDcsyGAbnk3vINIWVx51MUK2mJ14kPlgiuUSP5Aw+36lKWEr7o6Rud3n8xI9z
+         LDsOm8y/rTBPl05jWC9NnBRN+3tPZDDSp5PkBwBuHgfsoMyNKL/yLLUBr/trreFT8mZt
+         yxMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:feedback-id:seqid
+         :list-unsubscribe:subject:from:to:date:domainkey-signature
+         :dkim-signature:message-id;
+        bh=ysqJwMdkbxR1iwPT4R7bLhbGYBWUDOTlbEXCQC/sVSI=;
+        fh=Na2Q/1N5HQefPfxgQF3jRWBNS2XnKDJsnnVokiorPlc=;
+        b=Mv/YT9kX4nZb+zKp2YL3RV5ejOZZCWNtO18MtymSwBx/oggs50fyJFyT5aDDv0cisS
+         rrD+DJZy2xnoTJGa111wIswtaFkitX2bCpf/WZRvpGXfOEzUvGF4RQ4npJAr7uokrV4i
+         KoW9J4TxOPMfQeaLxppBlLdN0Nto2M7xUXRiQQ+vAU5pSkyzxexzvu6o+XLvLk1QqZfk
+         /F/J2T5q2ud3twklpMRDQ/vNe/cP6sHCEMQMtpB7MOjmoLPkgeB1FJWjl5pHX9916xDZ
+         Tf6G3RgRD6YffWlIOpDdJECzO0WZS5DqT5ze+DoywlmRGwW/38K6UqdzxhHhlacDUdaF
+         8WzA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@goindigo.in header.s=oct header.b=uAsMf8CI;
+       spf=pass (google.com: domain of 2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in designates 199.166.36.204 as permitted sender) smtp.mailfrom="2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=goindigo.in
+Return-Path: <2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in>
+Received: from go204.ocvf.in (go204.ocvf.in. [199.166.36.204])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-7a0dfa75dc2si8266645a12.263.2024.07.23.13.04.42
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 23 Jul 2024 13:04:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in designates 199.166.36.204 as permitted sender) client-ip=199.166.36.204;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@goindigo.in header.s=oct header.b=uAsMf8CI;
+       spf=pass (google.com: domain of 2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in designates 199.166.36.204 as permitted sender) smtp.mailfrom="2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=goindigo.in
+Message-ID: <66a00cdb.050a0220.28928c.4efaSMTPIN_ADDED_BROKEN@mx.google.com>
+X-Google-Original-Message-ID: PDIwMDQ0NTYuMC5wcm9kLjI4OTc2LjE3MjE3NTk2MTIuYTY4NC4wQHJwdHJrLmdvaW5maW5pdG8uY29tPg==
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=oct; d=goindigo.in; h=Date:To:From:Subject:Message-ID:List-Unsubscribe:MIME-Version:Content-Transfer-Encoding:Content-Type; i=IndiGoCustomerFeedback@goindigo.in; bh=wGBZU1cy0aiJdaJJAvK19I+RNRM=; b=uAsMf8CIDW9R7Bm8yhH0k4UfXF7LbAHhNdnT9zhtrSjHD0YXfdlVnm+vzCq+4x9BEMfXCcjne8/R
+   RjqdMi/LgOJRG5hLvDl29icXIXSRoeGuVmMdKTss7NGI4SdzDayXSqx44a4pEaIdOvtwZIjkq7fn
+   te2D9Z8SWFgJYeCXFWb72X3+fV6w0pz0QTlQ0HCGH/d0ukL6qYn4GzyuJDW8t9bXPyDkCjAoEe8G
+   2X+SkNyQjDZJQJQtlzEZn+a8lEBFYjIQ6vybn9kA+4KoA8QpjFfUGRRtgJ4zs+WDgZOdB9xBSrCi
+   lRJgoCw9pVeFcn9Dav74BNLrTfQLTlA/v74sVA==
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=oct; d=goindigo.in; b=BjQvJJd51Mg4mUSVRaf+tTvxjekMFMTboi+pJO5VX7GEJkW1RPiiai0yskNS+I+UXabgG1FH7fRx
+   IFLQfZ5kOQ8BfQ86SCB2yyDdN/7VZPmo+1bj0H02okTuzZoLieGHE6Ej9+egLYieoYvjB2WxiUzu
+   MQ5b7TfPXtAXTh3YxRElu0mAQ5GmPorBBLGv4eutfKhT3CgLQfZDG7ATiwFD+ZkAmzAb6V7x9pYU
+   y1bdg9CVSZ6ZIppHFCZcmRqhKxUieA+OAq5/QMkB3804fXVRJl6Pdo7LpSI8FdDGPvseLIaB/kOR
+   AKC5NkE79TZNpj8y8U8SGJgD0gkvwSDNb/sL7w==;
+Received: from (13.126.29.139) by go204.ocvf.in id hk06dm214oov for <ham@ham.email>; Wed, 24 Jul 2024 00:03:32 +0530 (envelope-from <2004456.0.prod.28976.1721759612.a684.0.12-0-receiver.receiver=gmail.com@rptrk.goindigo.in>)
+Date: Wed, 24 Jul 2024 12:03:32 +0530
+To: NITIKA POUDEL <ham@ham.email>
+From: IndiGo <IndiGoCustomerFeedback@goindigo.in>
+Subject: IndiGo Survey
+List-Unsubscribe: <mailto:unsubscribe@rptrk.goindigo.in?subject=2004456.0.prod.28976.1721759612.a684.0.12-0-emailapio7o00331445l6s715v3kje01-20240723-receiver.receiver=gmail.com@rptrk.goindigo.inunsub>
+X-OCT-RB: 2004456.0.prod.28976.1721759612.a684.0.12-0-emailapio7o00331445l6s715v3kje01-20240723-receiver.receiver=gmail.com@rptrk.goindigo.in
+X-OCT-CHANNEL: api
+X-Complaints-To: abuse@rptrk.goindigo.in
+X-OCT-MAILTYPE: TRANS
+Seqid: emailapio7o00331445l6s715v3kje01-20240723
+Feedback-Id: 2004456.0.prod.28976.1721759612.a684.0:bml0aWthLnByb2Zlc3Npb25hbEBnbWFpbC5jb20=:api:oct
+X-OCT-APIHEADER: eyJjbGllbnRfdXJsX3BheWxvYWRfZW5jcnlwdGlvbiI6ZmFsc2UsInVzZWRfYmFsYW5jZSI6MC4wMSwidXNlcl9pZCI6NDQ1Niwic2VuZGVyIjoiSW5kaUdvQ3VzdG9tZXJGZWVkYmFja0Bnb2luZGlnby5pbiIsImNhbGxfc3VwcHJlc3Npb25fd2ViaG9vayI6dHJ1ZSwibXNnX3JlcV9zb3VyY2UiOiJhcGkiLCJjbGllbnRfZGxyX29uIjo4LCJndWlkIjoia283bzAwMzMxMzk3NzFmMTYwYzAwYThudDlJTkRURUNITUFUIiwiY2FsbGluZ191cmwiOiJbXSIsInZmX3JlY2VpdmVkX2RhdGUiOiIyMDI0LTA3LTI0IDAwOjAzOjMxIiwiY2xpZW50X2lkIjoiSW5kX3RlY2htYXRyaXhpbmZmNjB6cHZhIiwic2VuZF9jdXN0b21fZGxyX3BheWxvYWQiOmZhbHNlLCJjdXN0b21faGVhZGVycyI6e30sImNsaWVudF9zZXEiOiI2NjlmZjc3YjUyYTk0LTIwMjQwNzI0IiwiYmlsbGFibGVfY291bnQiOjEsInNlcXVlbmNlX2lkIjoiZW1haWxhcGlvN28wMDMzMTQ0NWw2czcxNXYza2plMDEtMjAyNDA3MjMifQ==
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<html><head></head><body><p></p><hr style=3D"border: 3px solid #001b94;"><i=
+mg width=3D"200px" src=3D"https://interglobe.my.site.com/resource/168259538=
+9000/Indigo_Vector"><br><div style=3D"color: white;background: #001b94;padd=
+ing: 20px;font-size: medium;">Dear 6E Customer, <br><br>Thank you for choos=
+ing to fly IndiGo from Istanbul to Kathmandu.<br>Based on your travel exper=
+ience, how likely are you to recommend IndiGo to your family and friends?<b=
+r><br>=E0=A4=87=E0=A4=B8=E0=A5=8D=E0=A4=A4=E0=A4=BE=E0=A4=82=E0=A4=AC=E0=A5=
+=81=E0=A4=B2 =E0=A4=B8=E0=A5=87 =E0=A4=95=E0=A4=BE=E0=A4=A0=E0=A4=AE=E0=A4=
+=BE=E0=A4=82=E0=A4=A1=E0=A5=82 =E0=A4=A4=E0=A4=95&nbsp;=E0=A4=87=E0=A4=82=
+=E0=A4=A1=E0=A4=BF=E0=A4=97=E0=A5=8B&nbsp;=E0=A4=B8=E0=A5=87 =E0=A4=89=E0=
+=A4=A1=E0=A4=BC=E0=A4=BE=E0=A4=A8&nbsp;=E0=A4=AD=E0=A4=B0=E0=A4=A8=E0=A5=87=
+&nbsp;=E0=A4=95=E0=A5=87&nbsp;=E0=A4=B2=E0=A4=BF=E0=A4=8F&nbsp;=E0=A4=A7=E0=
+=A4=A8=E0=A5=8D=E0=A4=AF=E0=A4=B5=E0=A4=BE=E0=A4=A6=E0=A5=A4<br>=E0=A4=85=
+=E0=A4=AA=E0=A4=A8=E0=A5=80&nbsp;=E0=A4=AF=E0=A4=BE=E0=A4=A4=E0=A5=8D=E0=A4=
+=B0=E0=A4=BE&nbsp;=E0=A4=85=E0=A4=A8=E0=A5=81=E0=A4=AD=E0=A4=B5&nbsp;=E0=A4=
+=95=E0=A5=87&nbsp;=E0=A4=86=E0=A4=A7=E0=A4=BE=E0=A4=B0&nbsp;=E0=A4=AA=E0=A4=
+=B0,&nbsp;=E0=A4=86=E0=A4=AA&nbsp;=E0=A4=85=E0=A4=AA=E0=A4=A8=E0=A5=87&nbsp=
+;=E0=A4=AA=E0=A4=B0=E0=A4=BF=E0=A4=B5=E0=A4=BE=E0=A4=B0&nbsp;=E0=A4=94=E0=
+=A4=B0&nbsp;=E0=A4=A6=E0=A5=8B=E0=A4=B8=E0=A5=8D=E0=A4=A4=E0=A5=8B=E0=A4=82=
+&nbsp;=E0=A4=95=E0=A5=8B&nbsp;=E0=A4=87=E0=A4=82=E0=A4=A1=E0=A4=BF=E0=A4=97=
+=E0=A5=8B&nbsp;=E0=A4=B8=E0=A5=87&nbsp;=E0=A4=89=E0=A4=A1=E0=A4=BC=E0=A4=BE=
+=E0=A4=A8&nbsp;=E0=A4=AD=E0=A4=B0=E0=A4=A8=E0=A5=87&nbsp;=E0=A4=95=E0=A5=80=
+&nbsp;=E0=A4=B8=E0=A4=BF=E0=A4=AB=E0=A4=BE=E0=A4=B0=E0=A4=BF=E0=A4=B6 =E0=
+=A4=95=E0=A4=B0=E0=A4=A8=E0=A5=87&nbsp;=E0=A4=95=E0=A5=80&nbsp;=E0=A4=95=E0=
+=A4=BF=E0=A4=A4=E0=A4=A8=E0=A5=80&nbsp;=E0=A4=B8=E0=A4=82=E0=A4=AD=E0=A4=BE=
+=E0=A4=B5=E0=A4=A8=E0=A4=BE&nbsp;=E0=A4=B0=E0=A4=96=E0=A4=A4=E0=A5=87&nbsp;=
+=E0=A4=B9=E0=A5=88=E0=A4=82?<br><br><a style=3D"background: #fff; color: #0=
+01b94; text-align: center; padding: 16px; display: inline-block; border-rad=
+ius: 10px; margin-bottom: 20px;text-decoration: none; padding: 12px 40px;" =
+href=3D"https://track.infinitomail.com/sapi/r/2/MjAwNDQ1Ni4wLnByb2QuMjg5NzY=
+uMTcyMTc1OTYxMi5hNjg0LjAuMTI=3D/0/bml0aWthLnByb2Zlc3Npb25hbEBnbWFpbC5jb20=
+=3D/eyJjbGllbnRfdXJsX3BheWxvYWRfZW5jcnlwdGlvbiI6ZmFsc2UsInVzZWRfYmFsYW5jZSI=
+6MC4wMSwidXNlcl9pZCI6NDQ1Niwic2VuZGVyIjoiSW5kaUdvQ3VzdG9tZXJGZWVkYmFja0Bnb2=
+luZGlnby5pbiIsImNhbGxfc3VwcHJlc3Npb25fd2ViaG9vayI6dHJ1ZSwibXNnX3JlcV9zb3VyY=
+2UiOiJhcGkiLCJjbGllbnRfZGxyX29uIjo4LCJndWlkIjoia283bzAwMzMxMzk3NzFmMTYwYzAw=
+YThudDlJTkRURUNITUFUIiwiY2FsbGluZ191cmwiOiJbXSIsInZmX3JlY2VpdmVkX2RhdGUiOiI=
+yMDI0LTA3LTI0IDAwOjAzOjMxIiwiY2xpZW50X2lkIjoiSW5kX3RlY2htYXRyaXhpbmZmNjB6cH=
+ZhIiwic2VuZF9jdXN0b21fZGxyX3BheWxvYWQiOmZhbHNlLCJjdXN0b21faGVhZGVycyI6e30sI=
+mNsaWVudF9zZXEiOiI2NjlmZjc3YjUyYTk0LTIwMjQwNzI0IiwiYmlsbGFibGVfY291bnQiOjEs=
+InNlcXVlbmNlX2lkIjoiZW1haWxhcGlvN28wMDMzMTQ0NWw2czcxNXYza2plMDEtMjAyNDA3MjM=
+ifQ=3D=3D/0/aHR0cHM6Ly9pbnRlcmdsb2JlLm15LnNpdGUuY29tL3Mvc3VydmV5P2xhbmd1YWd=
+lPWVuX1VTJmlkPWEwTERuMDAwMDBBWndjZCZzb3VyY2U9RW1haWw=3D/emailapio7o00331445=
+l6s715v3kje01-20240723">Start Survey</a> <br><br>Warm Regards,<br>IndiGo</d=
+iv><p></p></body></html><img width=3D'1' height=3D'1' src=3D'https://track.=
+infinitomail.com/sapi/w/2/MjAwNDQ1Ni4wLnByb2QuMjg5NzYuMTcyMTc1OTYxMi5hNjg0L=
+jAuMTI=3D/0/bml0aWthLnByb2Zlc3Npb25hbEBnbWFpbC5jb20=3D/eyJjbGllbnRfdXJsX3Bh=
+eWxvYWRfZW5jcnlwdGlvbiI6ZmFsc2UsInVzZWRfYmFsYW5jZSI6MC4wMSwidXNlcl9pZCI6NDQ=
+1Niwic2VuZGVyIjoiSW5kaUdvQ3VzdG9tZXJGZWVkYmFja0Bnb2luZGlnby5pbiIsImNhbGxfc3=
+VwcHJlc3Npb25fd2ViaG9vayI6dHJ1ZSwibXNnX3JlcV9zb3VyY2UiOiJhcGkiLCJjbGllbnRfZ=
+GxyX29uIjo4LCJndWlkIjoia283bzAwMzMxMzk3NzFmMTYwYzAwYThudDlJTkRURUNITUFUIiwi=
+Y2FsbGluZ191cmwiOiJbXSIsInZmX3JlY2VpdmVkX2RhdGUiOiIyMDI0LTA3LTI0IDAwOjAzOjM=
+xIiwiY2xpZW50X2lkIjoiSW5kX3RlY2htYXRyaXhpbmZmNjB6cHZhIiwic2VuZF9jdXN0b21fZG=
+xyX3BheWxvYWQiOmZhbHNlLCJjdXN0b21faGVhZGVycyI6e30sImNsaWVudF9zZXEiOiI2NjlmZ=
+jc3YjUyYTk0LTIwMjQwNzI0IiwiYmlsbGFibGVfY291bnQiOjEsInNlcXVlbmNlX2lkIjoiZW1h=
+aWxhcGlvN28wMDMzMTQ0NWw2czcxNXYza2plMDEtMjAyNDA3MjMifQ=3D=3D/emailapio7o003=
+31445l6s715v3kje01-20240723/oct.gif' border=3D'0' style=3D'height:1px !impo=
+rtant;width:1px !important;border-width:0 !important;margin-top:0 !importan=
+t;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !impor=
+tant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !=
+important;padding-left:0 !important;' />

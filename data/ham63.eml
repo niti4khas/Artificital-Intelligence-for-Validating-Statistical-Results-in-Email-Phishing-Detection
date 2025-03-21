@@ -1,0 +1,1379 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c2e6:0:b0:2ac:6419:e1b with SMTP id j6csp544857lkp;
+        Fri, 13 Dec 2024 08:07:20 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG8Py+0e5AcumjCK1vFJGX1lDDsSm/LTc1rNg0bqa61LEJXEcRdHsYo2vLcl6ZulvCG9yAb
+X-Received: by 2002:a05:6000:178b:b0:37d:4833:38f5 with SMTP id ffacd0b85a97d-38880ae14a8mr2668824f8f.30.1734106039682;
+        Fri, 13 Dec 2024 08:07:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734106039; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jAzLviAS+t3zVrTo3OVD0CSs1SY6RlV8/sQk7F1h0pMsIMNIIKQCLjRrr77SRYZo4m
+         gfPmhoXI2jiTdpWMXLFm0LHdgjTHv9zugwyZZqsNq4GuY82Oyl6qYIioZedlSnOH7+eQ
+         hAE96aC2dBmSvLu3he0R76Yq3Rc5iKFdP/nBvwTUOHLFiGmWB3diKQzANQcLQosCowiW
+         0/94eaPLV9WgEgIhq1Y2f8zCpIfyhgCZzd1uzdTgYxL5M4hN+IrJuLB1Yf8eS/roM4K1
+         U/JxIEGHvAJfsb2fdsn8GxPRWWaxNXfExH5Uc0dfwGvCWVCkzCRw/B7nHjLluL6bGT/b
+         9sCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:list-unsubscribe-post:list-unsubscribe:to:from:subject
+         :mime-version:date:dkim-signature:dkim-signature;
+        bh=TFM+Z2lV7IqTxTPZHy/x8M7owapvRgdjsu2M9sXqw/o=;
+        fh=I+JQVJSOldcC+7VyS7DHmkLcnxsPlmQRiIaLksCeCk0=;
+        b=lEzShIXz+gpvgzdxcJMcQ6KP2+zeF1Av9VlmZ23RSv1KCNmwY/rYJBKKfHEI++Gpfi
+         PC5nEq8ro+Lekx9/jb3wx1QJrjhZPISHSa1cj4TSCcrcZe0q5idzjdN53fsK2w0Gv8mJ
+         WGO+56OmtMyxZZIsE/9gdqLCiFnzx54kwufvZWLNBpdXRchQXen1L8GXiDdnKHpAFqiD
+         scMOlrxuAoMAbKA45wDC53DHTj6HA9qUUcGYkGGLwRbzLCsXniJGrV/A7fewaS4zbEZC
+         ETTq2OvJBONpDiO43hnmRTUnGK87QYqF2Nmm65TwUfC8I30fh9zBZ+WlQMruHZAEBlga
+         fPTw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cio56239.tryhackme.com header.s=smtp header.b=Ne9e7u8l;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=VJQNY+SL;
+       spf=pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.138 as permitted sender) smtp.mailfrom=postmaster@cio56239.tryhackme.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=tryhackme.com
+Return-Path: <postmaster@cio56239.tryhackme.com>
+Received: from m241-138.mailgun.net (m241-138.mailgun.net. [159.112.241.138])
+        by mx.google.com with UTF8SMTPS id ffacd0b85a97d-38782490cdbsi3200720f8f.15.2024.12.13.08.07.18
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Dec 2024 08:07:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.138 as permitted sender) client-ip=159.112.241.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cio56239.tryhackme.com header.s=smtp header.b=Ne9e7u8l;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=VJQNY+SL;
+       spf=pass (google.com: domain of postmaster@cio56239.tryhackme.com designates 159.112.241.138 as permitted sender) smtp.mailfrom=postmaster@cio56239.tryhackme.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=tryhackme.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=cio56239.tryhackme.com; q=dns/txt; s=smtp; t=1734106038; x=1734113238; h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender; bh=TFM+Z2lV7IqTxTPZHy/x8M7owapvRgdjsu2M9sXqw/o=; b=Ne9e7u8lf2zP9wDCF+IoOIqWDiVoXH9OVKXgqTcyb51FOTQB5C1J35kUu6VcP24lEHy1K/ZuWnWCmUc4fh4VwV93ci8UlnelO5nbiZUkgjNiuEWSE/ph2nNMNRkKC89iu29wUs+WcdEJDuBm3ppesuCCFI850B5yAgSsw+zsvaU=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1734106038; x=1734113238; h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender; bh=TFM+Z2lV7IqTxTPZHy/x8M7owapvRgdjsu2M9sXqw/o=; b=VJQNY+SLjiP580VSk4PufAepS2rGUbMbaybGFIOSjVTvjZ4N7sBRH3DtZ1Ocn+oXhZKejcoMzFdZp7oUxW1pS3VYFaG1htoL22W9hVGXQ0j0Z5tMgkx/B2jd2PglWWjbpGijMadt080A2qfqVg+xTObcExQBctB2wrRIgIlWlho=
+X-Feedback-Id: postmaster@cio56239.tryhackme.com::5eb3f9f45e348a34cf90b8e5:mailgun
+X-Mailgun-Sending-Ip: 159.112.241.138
+X-Mailgun-Sending-Ip-Pool-Name: 
+X-Mailgun-Sending-Ip-Pool: 
+X-Mailgun-Sid: WyJkMzdmYyIsImFpZ2VyaW1tb2xkYWtoYW5vdmEuN0BnbWFpbC5jb20iLCIyODZkNWEiXQ==
+Received: by 82899965b6e6 with HTTP id 675c5bb4bed72c5f419a3525; Fri, 13 Dec 2024 16:07:16 GMT
+Date: Fri, 13 Dec 2024 16:07:16 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="e35c90b3d3963bc4a5ca3a9acad38ca89ca1eafae65e1fb5f92ad781b1a5"
+Subject: This Week on the Frost-Byte: Advent of Cyber Recap #2 🎄🎁
+From:  <sender@sender.com>
+To: ham@ham.email
+X-Mailgun-Track-Opens: false
+X-Mailgun-Dkim: true
+X-Mailgun-Native-Send: true
+X-Mailgun-Track-Clicks: false
+X-Report-Abuse-To: badactor@customer.io
+List-Unsubscribe: <mailto:32.MRTVISZRKFKUIQKJNFTUMSLFM5DECR2UO5GUCMSDMMYDC2SPPFEHESZYIZZU6NB5@unsubscribe2.customer.io>, <https://e.customeriomail.com/unsubscribe/dgTK1QUDAIigFIegFAGTwMA2Cc01jOyHrK8FsO4=>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailer: Customer.io (dgTK1QUDAIigFIegFAGTwMA2Cc01jOyHrK8FsO4=; +https://whatis.customeriomail.com)
+X-Mailgun-Variables: {"email_id": "dgTK1QUDAIigFIegFAGTwMA2Cc01jOyHrK8FsO4="}
+Message-Id: <20241213160716.86e7b82fb9acf426@cio56239.tryhackme.com>
+
+--e35c90b3d3963bc4a5ca3a9acad38ca89ca1eafae65e1fb5f92ad781b1a5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+TryHackMe ( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=
+=3Demail&utm_campaign=3Dbyte_13dec )
+
+Byte ( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demai=
+l&utm_campaign=3Dbyte_13dec )
+Weekly recap
+
+Your weekly recap of the challenges released so far, top highlights, and wh=
+at=E2=80=99s coming up next during Advent of Cyber!
+
+Continue Advent of Cyber! ( https://tryhackme.com/r/christmas?utm_source=3D=
+cio&utm_medium=3Demail&utm_campaign=3Dbyte13dec )
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )=E2=80=8A( https://tryhackme.com/r/christmas?utm_so=
+urce=3Dcio&utm_medium=3Demail&utm_campaign=3Dbyte_13dec )We're now in week =
+two of Advent of Cyber! Let's recap the story so far.
+
+=C2=A0
+
+=F0=9F=8E=A7 Study song of the week: December by Lo-Fi Indie
+
+=F0=9F=8E=84 It=E2=80=99s a great day to check out your ReCapMe ( https://t=
+ryhackme.com?utm_source=3Dcio&utm_medium=3Demail&utm_campaign=3Dbyte_13dec =
+)!
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )=E2=80=8A
+
+*****************
+The story so far!
+*****************
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )DAY 7
+
+McSkidy and the SOC team investigate the disappearance of funds from a loca=
+l charity.
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )
+DAY 8
+
+Glitch=E2=80=99s secrets are at risk of being exploited. Can you help Glitc=
+h fix the tampered shellcode to regain control?
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )
+DAY 9
+
+McSkidy and Glitch perform a risk assessment of forensic companies they cou=
+ld collaborate with.
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )
+DAY 10
+
+Mayor Malware tries to phish one of the SOC-mas organisers via a malicious =
+macro.
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )DAY 11
+
+Glitch reports a problem with the city=E2=80=99s Wi-Fi network, only to be =
+publicly blamed by the Mayor for slowing it down.
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )DAY 12
+
+Mayor Malware exploits a race condition vulnerability to steal more money f=
+rom the town=E2=80=99s SOC-mas fund.
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte13dec )
+DAY 13
+
+Glitch discovers illegal spying on cars in Wareville via a vulnerable car t=
+racking application. Help McSkidy and Glitch investigate!
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )
+Launch Advent of Cyber! ( https://tryhackme.com/r/christmas?utm_source=3Dci=
+o&utm_medium=3Demail&utm_campaign=3Dbyte_13dec )
+=E2=80=8A
+=E2=80=9CLet's be one step ahead of the Mayor."
+
+- Glitch
+
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )=E2=80=8A
+( https://tryhackme.com/r/christmas?utm_source=3Dcio&utm_medium=3Demail&utm=
+_campaign=3Dbyte_13dec )
+This newsletter was brought to you by the TryHackMe Marketing team,
+
+more specifically, Cami & Ellie.
+
+Cami, Ellie, and the rest of the marketing team have spent the week in Phil=
+adelphia for a cyber security marketing conference, where Cami was even awa=
+rded 'best Head of Marketing'! =F0=9F=91=8F=F0=9F=8F=86
+
+=C2=A0
+
+The marketing team are also very excited to check out our Advent of Cyber b=
+illboard in Times Square at the weekend! Visiting New York this month? Be s=
+ure to snap a pic =F0=9F=91=80=F0=9F=93=B8=F0=9F=97=BD
+
+=C2=A0
+
+That's all from us =E2=80=94 thank you for reading!
+
+=C2=A0
+
+Cami Ragano
+
+Head of Marketing
+
+Ellie Gillard
+
+Content Marketing Manager
+
+Cami Ragano
+
+Head of Marketing
+
+Ellie Gillard
+
+Content Marketing Manager
+
+Facebook ( https://www.facebook.com/Try-Hack-Me-101040432182368 )Twitter ( =
+https://twitter.com/RealTryHackMe )Instagram ( https://www.instagram.com/re=
+altryhackme/ )LinkedIn ( https://www.linkedin.com/company/tryhackme/ )
+Pinterest ( https://www.pinterest.co.uk/RealTryHackMe/ )TikTok ( https://ww=
+w.tiktok.com/@tryhackmeofficial )
+
+Terms ( https://tryhackme.com/r/legal/terms-of-use ) | Unsubscribe ( http:/=
+/track.customer.io/unsubscribe/dgTK1QUDAIigFIegFAGTwMA2Cc01jOyHrK8FsO4=3D )
+
+Copyright =C2=A9 TryHackMe. All rights reserved.
+--e35c90b3d3963bc4a5ca3a9acad38ca89ca1eafae65e1fb5f92ad781b1a5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/><me=
+ta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"/><!=
+--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerI=
+nch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:700px){.row-14 .column-2 .block-1.button_block .alignment a,.row=
+-14 .column-2 .block-1.button_block .alignment div,.social_block.desktop_hi=
+de .social-table{display:inline-block!important}.image_block div.fullWidth{=
+max-width:100%!important}.mobile_hide{display:none}.row-content{width:100%!=
+important}.stack .column{width:100%;display:block}.mobile_hide{min-height:0=
+;max-height:0;max-width:0;overflow:hidden;font-size:0}.desktop_hide,.deskto=
+p_hide table{display:table!important;max-height:none!important}.row-2 .colu=
+mn-1 .block-1.image_block td.pad{padding:0 0 0 15px!important}.row-2 .colum=
+n-1
+.block-1.image_block .alignment div{margin:0 auto 0 0!important}.row-2 .col=
+umn-1 .block-2.button_block td.pad{padding:10px 0 0 15px!important}.row-2 .=
+column-1 .block-2.button_block a,.row-2 .column-1 .block-2.button_block div=
+,.row-2 .column-1 .block-2.button_block span{line-height:30px!important}.ro=
+w-2 .column-1 .block-3.text_block td.pad{padding:21px 15px 29px!important}.=
+row-14 .column-2 .block-1.button_block td.pad,.row-2 .column-1 .block-4.but=
+ton_block td.pad{padding:10px 1px 10px 15px!important}.row-14 .column-2 .bl=
+ock-1.button_block a,.row-14 .column-2 .block-1.button_block div,.row-14 .c=
+olumn-2 .block-1.button_block span,.row-2 .column-1 .block-4.button_block a=
+,.row-2 .column-1 .block-4.button_block div,.row-2 .column-1 .block-4.butto=
+n_block span{line-height:25.5px!important}.row-2 .column-2 .block-1.image_b=
+lock td.pad{padding:10px 0 0!important}.row-14 .column-2 .block-2.divider_b=
+lock td.pad,.row-3 .column-1 .block-1.divider_block td.pad{padding:20px 3px=
+ 20px
+12px!important}.row-14 .column-2 .block-2.divider_block .alignment table,.r=
+ow-15 .column-1 .block-1.divider_block .alignment table,.row-3 .column-1 .b=
+lock-1.divider_block .alignment table,.row-6 .column-1 .block-1.divider_blo=
+ck .alignment table{display:inline-table}.row-10 .column-2 .block-2.text_bl=
+ock td.pad,.row-11 .column-2 .block-2.text_block td.pad,.row-12 .column-2 .=
+block-2.text_block td.pad,.row-13 .column-2 .block-2.text_block td.pad,.row=
+-7 .column-2 .block-2.text_block td.pad,.row-8 .column-2 .block-2.text_bloc=
+k td.pad,.row-9 .column-2 .block-2.text_block td.pad{padding:5px 15px 10px!=
+important}.row-10 .column-2 .block-1.text_block td.pad,.row-11 .column-2 .b=
+lock-1.text_block td.pad,.row-12 .column-2 .block-1.text_block td.pad,.row-=
+13 .column-2 .block-1.text_block td.pad,.row-7 .column-2 .block-1.text_bloc=
+k td.pad,.row-8 .column-2 .block-1.text_block td.pad,.row-9 .column-2 .bloc=
+k-1.text_block td.pad{padding:0 40px 10px!important}.row-6 .column-1
+.block-1.divider_block td.pad{padding:10px 3px 15px 12px!important}.row-15 =
+.column-1 .block-1.divider_block td.pad{padding:5px 15px 20px!important}.ro=
+w-14 .column-2 .block-1.button_block .alignment{text-align:center!important=
+}.row-17 .column-1 .block-1.text_block td.pad{padding:15px 44px 0!important=
+}.row-18 .column-1 .block-1.text_block td.pad{padding:0 25px 10px!important=
+}.row-16 .column-1 .block-1.text_block td.pad{padding:10px 24px!important}.=
+row-21 .column-2 .block-1.text_block td.pad,.row-22 .column-2 .block-1.text=
+_block td.pad{padding:0 0 10px!important}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"background-color:#f5f5f5;margin:0;padding:0=
+;-webkit-text-size-adjust:none;text-size-adjust:none"><table class=3D"nl-co=
+ntainer" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backgrou=
+nd-color:#f5f5f5"><tbody><tr><td><table class=3D"row row-1" align=3D"center=
+" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-colo=
+r:#eee"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#141c2b;color:#=
+000;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column=
+ column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;fo=
+nt-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-a=
+lign:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><table =
+class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tbody><tr><td class=3D"pad" style=3D"padding-top:5px;width:1=
+00%;padding-right:0;padding-left:0"><div class=3D"alignment" align=3D"cente=
+r" style=3D"line-height:10px"><div style=3D"max-width:136px"><a href=3D"htt=
+ps://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd=
+01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hy=
+aXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1=
+wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2=
+lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b1d3c5368530241f495081269e54a80a65fa865=
+799" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img src=3D"h=
+ttps://userimg-assets.customeriomail.com/images/client-env-92874/1731327229=
+375_THM%20AoC%202024%20Logo%20White%20-%20900x600px_01JCDJ9ZH8BYM6E9WYP0SE4=
+SG0.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D"1=
+36" alt=3D"TryHackMe" title=3D"TryHackMe" height=3D"auto"/></a></div></div>=
+</td></tr></tbody></table></td></tr></tbody></table></td></tr>
+</tbody></table><table class=3D"row row-2" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><t=
+r><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#0=
+00;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column =
+column-1" width=3D"66.66666666666667%" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;vertical-alig=
+n:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><table cla=
+ss=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0"><tbody><tr><td class=3D"pad" style=3D"padding-left:33px;width:10=
+0%"><div class=3D"alignment" align=3D"left" style=3D"line-height:10px">
+<div style=3D"max-width:420.3333333333333px"><a href=3D"https://e.customeri=
+omail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIc=
+ks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9z=
+b3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzE=
+zZGVjIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5a=
+d70aa1cebeaaa9bcca53b1d3c5368530241f495081269e54a80a65fa865799" target=3D"_=
+blank" style=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-a=
+ssets.customeriomail.com/images/client-env-92874/1730802086211_frostbyte-ti=
+tle_01JBXXFWQ591H9PXZAA4HZ3W1H.png" style=3D"display:block;height:auto;bord=
+er:0;width:100%" width=3D"420.3333333333333" alt=3D"Byte" title=3D"Byte" he=
+ight=3D"auto"/></a></div></div></td></tr></tbody></table><table class=3D"bu=
+tton_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0"><tbody><tr><td class=3D"pad" style=3D"padding-left:35px;padding-top:10p=
+x;text-align:left"><div class=3D"alignment" align=3D"left"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" style=3D"height:50px;width:177px;v-text-ancho=
+r:middle;" arcsize=3D"57%" strokeweight=3D"3.75pt" strokecolor=3D"#719cf9" =
+fillcolor=3D"#141c2b">
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Arial, sans-serif;=
+font-size:20px">
+<![endif]--><div class=3D"button" style=3D"background-color:#141c2b;border-=
+bottom:5px solid #719cf9;border-left:5px solid #719cf9;border-radius:28px;b=
+order-right:5px solid #719cf9;border-top:5px solid #719cf9;color:#fff;displ=
+ay:inline-block;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-s=
+erif;font-size:20px;font-weight:700;mso-border-alt:none;padding-bottom:5px;=
+padding-top:5px;text-align:center;text-decoration:none;width:auto;word-brea=
+k:keep-all">
+<span style=3D"word-break: break-word; padding-left: 20px; padding-right: 2=
+0px; font-size: 20px; display: inline-block; letter-spacing: normal;"><span=
+ style=3D"word-break: break-word; line-height: 30px;">Weekly recap</span></=
+span></div><!--[if mso]></center></v:textbox></v:roundrect><![endif]--></di=
+v></td></tr></tbody></table><table class=3D"text_block block-3" width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbod=
+y><tr>
+<td class=3D"pad" style=3D"padding-bottom:21px;padding-left:53px;padding-ri=
+ght:34px;padding-top:21px"><div style=3D"font-family:sans-serif"><div class=
+=3D"" style=3D"font-size:12px;font-family:Arial,&#39;Helvetica Neue&#39;,He=
+lvetica,sans-serif;mso-line-height-alt:14.399999999999999px;color:#d4d8df;l=
+ine-height:1.2"><p style=3D"margin:0;font-size:12px;text-align:center;mso-l=
+ine-height-alt:14.399999999999999px">
+<span style=3D"word-break: break-word; font-size: 15px;">Your weekly recap =
+of the challenges released so far, top highlights, and what=E2=80=99s comin=
+g up next during <strong>Advent of Cyber</strong>!</span></p></div></div></=
+td></tr></tbody></table><table class=3D"button_block block-4" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" =
+style=3D"padding-left:53px;padding-right:1px;text-align:left"><div class=3D=
+"alignment" align=3D"left"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" href=3D"https://e.customeriomail.com/e/c/eyJl=
+bWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmV=
+mIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMD=
+I2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWMiLCJpbnRlcm5hb=
+CI6ImNhZDUwNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c9296729813b26e56347d=
+04cff78598111fff5dc9733a918b8f51507125e00f1" style=3D"height:35px;width:288=
+px;v-text-anchor:middle;" arcsize=3D"15%" stroke=3D"false" fillcolor=3D"#71=
+9cf9">
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#000000;font-family:Arial, sans-serif;=
+font-size:17px">
+<![endif]-->
+<a class=3D"button" href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZC=
+I6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0c=
+HM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21l=
+ZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWMiLCJpbnRlcm5hbCI6ImNhZDU=
+wNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c9296729813b26e56347d04cff78598=
+111fff5dc9733a918b8f51507125e00f1" target=3D"_blank" style=3D"background-co=
+lor:#719cf9;border-bottom:0px solid transparent;border-left:0px solid trans=
+parent;border-radius:5px;border-right:0px solid transparent;border-top:0px =
+solid transparent;color:#000000;display:inline-block;font-family:Arial, &#3=
+9;Helvetica Neue&#39;, Helvetica, sans-serif;font-size:17px;font-weight:700=
+;mso-border-alt:none;padding-bottom:5px;padding-top:5px;text-align:center;t=
+ext-decoration:none;width:auto;word-break:keep-all;"><span style=3D"word-br=
+eak: break-word; padding-left: 37px; padding-right: 37px; font-size: 17px; =
+display: inline-block; letter-spacing: normal;"><span style=3D"word-break: =
+break-word; line-height: 25.5px;">Continue Advent of Cyber!</span></span></=
+a>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div></td></tr=
+></tbody></table></td><td class=3D"column column-2" width=3D"33.33333333333=
+3336%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-=
+align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top=
+:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"image_bloc=
+k block-1 mobile_hide" width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rsp=
+ace:0"><tbody><tr><td class=3D"pad" style=3D"padding-top:34px;width:100%"><=
+div class=3D"alignment" align=3D"right" style=3D"line-height:10px"><div sty=
+le=3D"max-width:226.66666666666666px"><a href=3D"https://e.customeriomail.c=
+om/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNP=
+ND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U=
+9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIi=
+wiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1c=
+ebeaaa9bcca53b1d3c5368530241f495081269e54a80a65fa865799" target=3D"_blank" =
+style=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-assets.c=
+ustomeriomail.com/images/client-env-92874/1730802652628_Frost-Side_01JBXY15=
+W3AQK840YRWAHYY285.png" style=3D"display:block;height:auto;border:0;width:1=
+00%" width=3D"226.66666666666666" alt=3D"" title=3D"" height=3D"auto"/></a>=
+</div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr><=
+/tbody></table><table class=3D"row row-3" align=3D"center" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><tr=
+><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#00=
+0;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column c=
+olumn-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font=
+-weight:400;text-align:left;vertical-align:top;border-top:0;border-right:0;=
+border-bottom:0;border-left:0"><table class=3D"divider_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=
+=3D"pad" style=3D"padding-left:23px;padding-right:23px;padding-top:20px"><d=
+iv class=3D"alignment" align=3D"center"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"divider_inner" style=
+=3D"font-size:1px;line-height:1px;border-top:2px solid #719cf9"><span style=
+=3D"word-break: break-word;">=E2=80=8A</span></td></tr></tbody></table></di=
+v></td></tr></tbody></table><table class=3D"image_block block-2" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pa=
+d" style=3D"padding-bottom:5px;padding-top:15px;width:100%"><div class=3D"a=
+lignment" align=3D"center" style=3D"line-height:10px"><div style=3D"max-wid=
+th:680px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnV=
+EsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90=
+cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1=
+lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYm=
+Y3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b1d3c5368530241=
+f495081269e54a80a65fa865799" target=3D"_blank" style=3D"outline:none" tabin=
+dex=3D"-1"><img src=3D"https://userimg-assets.customeriomail.com/images/cli=
+ent-env-92874/1733264983632_Recap%20Week%202%20Lights_01JE7A9HWPZQ5WH99GQ3C=
+F03EY.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D=
+"680" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"row row-4" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0;background-color:#eee"><tbody><tr><td><table class=3D"row-co=
+ntent stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;ba=
+ckground-color:#141c2b;border-radius:0;color:#000;width:680px;margin:0 auto=
+" width=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"75%" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;=
+padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-r=
+ight:0;border-bottom:0;border-left:0"><table class=3D"text_block block-1" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-w=
+ord"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left=
+:53px;padding-right:19px;padding-top:10px"><div style=3D"font-family:sans-s=
+erif"><div class=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvet=
+ica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;li=
+ne-height:1.2"><p style=3D"margin:0;font-size:15px;text-align:left;mso-line=
+-height-alt:18px"><span style=3D"word-break: break-word; font-size: 15px; c=
+olor: #ffffff;">We&#39;re now in week two of <strong>Advent of Cyber</stron=
+g>! Let&#39;s recap the story so far.</span></p><p style=3D"margin:0;font-s=
+ize:15px;text-align:left;mso-line-height-alt:16.8px">
+=C2=A0</p><p style=3D"margin:0;font-size:15px;text-align:left;mso-line-heig=
+ht-alt:18px"><span style=3D"word-break: break-word; font-size: 15px; color:=
+ #ffffff;">=F0=9F=8E=A7 <strong>Study song of the week</strong>: December b=
+y Lo-Fi Indie<br/><br/>
+<strong>=F0=9F=8E=84 It=E2=80=99s a great day to</strong> check out your <s=
+pan style=3D"word-break: break-word; color: #a3ea2a;"><a href=3D"https://e.=
+customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNj=
+MDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tP3V0bV9zb3VyY2U=
+9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIi=
+wiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNn0/743d80121=
+e10e94b572e7a314070933ee90d1f744225ff98c3960abea7d282fb" target=3D"_blank" =
+class=3D"" style=3D"text-decoration:underline;color:#a3ea2a;" rel=3D"noopen=
+er">ReCapMe</a></span>!</span></p></div></div></td></tr></tbody></table></t=
+d><td class=3D"column column-2" width=3D"25%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;paddin=
+g-top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;bo=
+rder-left:0"><table class=3D"image_block block-1 mobile_hide" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" =
+style=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignment=
+" align=3D"center" style=3D"line-height:10px"><div style=3D"max-width:136px=
+"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQ=
+UlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNr=
+bWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx=
+1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OG=
+EwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b1d3c5368530241f4950812=
+69e54a80a65fa865799" target=3D"_blank" style=3D"outline:none" tabindex=3D"-=
+1"><img src=3D"https://userimg-assets.customeriomail.com/images/client-env-=
+92874/1730803041111_Frost-Byte-Tile_Snowflake_01JBXYD18FVYEES4GN2WPEQRHM.pn=
+g" style=3D"display:block;height:auto;border:0;width:100%" width=3D"136" al=
+t=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr></tbody></tabl=
+e></td></tr></tbody></table></td></tr></tbody></table><table class=3D"row r=
+ow-5" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rsp=
+ace:0;background-color:#eee"><tbody><tr><td><table class=3D"row-content sta=
+ck" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#141c2b;border-radius:0;color:#000;width:680px;margin:0 auto" width=
+=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"image_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=
+=3D"pad" style=3D"padding-bottom:15px;padding-top:10px;width:100%;padding-r=
+ight:0;padding-left:0"><div class=3D"alignment" align=3D"center" style=3D"l=
+ine-height:10px"><div class=3D"fullWidth" style=3D"max-width:544px"><img sr=
+c=3D"https://userimg-assets.customeriomail.com/images/client-env-92874/1733=
+182691302_Advent%20of%20Cyber%20GIF%20(1)_01JE4VT6EYZWD1A1JSD2HPZBXR.gif" s=
+tyle=3D"display:block;height:auto;border:0;width:100%" width=3D"544" alt=3D=
+"" title=3D"" height=3D"auto"/></div></div></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr></tbody></table><table class=3D"row row-6" al=
+ign=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;ba=
+ckground-color:#eee"><tbody><tr><td><table class=3D"row-content stack" alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#1=
+41c2b;border-radius:0;color:#000;width:680px;margin:0 auto" width=3D"680"><=
+tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5=
+px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;border-bo=
+ttom:0;border-left:0"><table class=3D"divider_block block-1" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" s=
+tyle=3D"padding-bottom:14px;padding-left:23px;padding-right:23px;padding-to=
+p:10px"><div class=3D"alignment" align=3D"center"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"divider_=
+inner" style=3D"font-size:1px;line-height:1px;border-top:2px solid #719cf9"=
+><span style=3D"word-break: break-word;">=E2=80=8A</span></td></tr></tbody>=
+</table></div></td></tr></tbody></table><table class=3D"heading_block block=
+-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><=
+td class=3D"pad" style=3D"padding-bottom:10px;padding-top:15px;text-align:c=
+enter;width:100%"><h1 style=3D"margin:0;color:#fff;direction:ltr;font-famil=
+y:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;font-size:23px;font-w=
+eight:700;letter-spacing:normal;line-height:120%;text-align:center;margin-t=
+op:0;margin-bottom:0;mso-line-height-alt:27.599999999999998px"><span class=
+=3D"tinyMce-placeholder" style=3D"word-break: break-word;">The story so far=
+!</span></h1></td></tr></tbody></table></td></tr></tbody></table></td></tr>=
+</tbody></table>
+<table class=3D"row row-7" align=3D"center" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;background-color:#eee"><tbody><tr><td><table cla=
+ss=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0;background-color:#141c2b;border-radius:0;color:#000;width:680px;m=
+argin:0 auto" width=3D"680"><tbody><tr><td class=3D"column column-1" width=
+=3D"33.333333333333336%" style=3D"mso-table-lspace:0;mso-table-rspace:0;fon=
+t-weight:400;text-align:left;padding-top:5px;vertical-align:top;border-top:=
+0;border-right:0;border-bottom:0;border-left:0"><table class=3D"image_block=
+ block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody=
+><tr><td class=3D"pad" style=3D"padding-top:25px;width:100%;padding-right:0=
+;padding-left:0"><div class=3D"alignment" align=3D"center" style=3D"line-he=
+ight:10px"><div style=3D"max-width:102px"><a href=3D"https://e.customerioma=
+il.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4=
+RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3V=
+yY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZW=
+MiLCJpbnRlcm5hbCI6ImNhZDUwNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c92967=
+29813b26e56347d04cff78598111fff5dc9733a918b8f51507125e00f1" target=3D"_blan=
+k" style=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-asset=
+s.customeriomail.com/images/client-env-92874/1733259372276_day-7_01JE74Y9YY=
+AJSP22NFK13Y67TF.png" style=3D"display:block;height:auto;border:0;width:100=
+%" width=3D"102" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td>=
+</tr></tbody></table></td><td class=3D"column column-2" width=3D"66.6666666=
+6666667%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-=
+top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"text_bl=
+ock block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word=
+-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:10p=
+x;padding-left:40px;padding-right:40px;padding-top:15px"><div style=3D"font=
+-family:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Ari=
+al,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px=
+;color:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-align=
+:center;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; =
+color: #a3ea2a; font-size: 15px;"><strong>DAY 7</strong></span></p></div></=
+div></td></tr></tbody></table><table class=3D"text_block block-2" width=3D"=
+100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tb=
+ody><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:25px;pa=
+dding-right:25px;padding-top:5px"><div style=3D"font-family:sans-serif"><di=
+v class=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Neue&=
+#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-height=
+:1.2"><p style=3D"margin:0;font-size:14px;text-align:center;mso-line-height=
+-alt:16.8px">
+<span style=3D"word-break: break-word; color: #ffffff;">McSkidy and the SOC=
+ team investigate the disappearance of funds from a local charity.</span></=
+p></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr=
+></tbody></table><table class=3D"row row-8" align=3D"center" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><=
+tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#=
+000;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column=
+ column-1" width=3D"33.333333333333336%" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;font-weight:400;text-align:left;padding-top:5px;vertical-align=
+:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><table clas=
+s=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0"><tbody><tr><td class=3D"pad" style=3D"padding-top:15px;width:100%=
+;padding-right:0;padding-left:0"><div class=3D"alignment" align=3D"center" =
+style=3D"line-height:10px"><div style=3D"max-width:102px"><a href=3D"https:=
+//e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01B=
+MkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN=
+0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYW=
+lnbj1ieXRlMTNkZWMiLCJpbnRlcm5hbCI6ImNhZDUwNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiO=
+jE2MjE1fQ/c9296729813b26e56347d04cff78598111fff5dc9733a918b8f51507125e00f1"=
+ target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img src=3D"https=
+://userimg-assets.customeriomail.com/images/client-env-92874/1733260838300_=
+Glitch_01JE76B1ZEWHPVEAGR1HDZM770.png" style=3D"display:block;height:auto;b=
+order:0;width:100%" width=3D"102" alt=3D"" title=3D"" height=3D"auto"/></a>=
+</div></div></td></tr></tbody></table></td><td class=3D"column column-2" wi=
+dth=3D"66.66666666666667%" style=3D"mso-table-lspace:0;mso-table-rspace:0;f=
+ont-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-=
+align:top;border-top:0;border-right:0;border-bottom:0;border-left:0">
+<table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" styl=
+e=3D"padding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:2=
+0px"><div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-si=
+ze:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso=
+-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;fo=
+nt-size:14px;text-align:center;mso-line-height-alt:16.8px"><span style=3D"w=
+ord-break: break-word; color: #a3ea2a; font-size: 15px;"><strong>DAY 8</str=
+ong></span></p></div></div></td></tr></tbody></table><table class=3D"text_b=
+lock block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;wor=
+d-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:10=
+px;padding-left:25px;padding-right:25px;padding-top:5px"><div style=3D"font=
+-family:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Ari=
+al,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px=
+;color:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-align=
+:center;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; =
+color: #ffffff;">Glitch=E2=80=99s secrets are at risk of being exploited. C=
+an you help Glitch fix the tampered shellcode to regain control?</span></p>=
+</div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr>
+</tbody></table><table class=3D"row row-9" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><t=
+r><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#0=
+00;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column =
+column-1" width=3D"33.333333333333336%" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;padding-top:=
+5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;border-l=
+eft:0"><table class=3D"image_block block-1" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=3D"padding-t=
+op:25px;width:100%;padding-right:0;padding-left:0"><div class=3D"alignment"=
+ align=3D"center" style=3D"line-height:10px"><div style=3D"max-width:102px"=
+><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQU=
+lpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrb=
+WUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1=
+MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWMiLCJpbnRlcm5hbCI6ImNhZDUwNTBiZjcwZDg4YTA=
+xNCIsImxpbmtfaWQiOjE2MjE1fQ/c9296729813b26e56347d04cff78598111fff5dc9733a91=
+8b8f51507125e00f1" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"=
+><img src=3D"https://userimg-assets.customeriomail.com/images/client-env-92=
+874/1731326608909_AoC%20Assets%20(1)_01JCDHQ1ZD4D5TJWEM8RR71V6X.png" style=
+=3D"display:block;height:auto;border:0;width:100%" width=3D"102" alt=3D"" t=
+itle=3D"" height=3D"auto"/></a></div></div></td></tr></tbody></table></td><=
+td class=3D"column column-2" width=3D"66.66666666666667%" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-botto=
+m:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;border=
+-bottom:0;border-left:0"><table class=3D"text_block block-1" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody><=
+tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:40px;padding=
+-right:40px;padding-top:15px">
+<div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:14=
+px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line=
+-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;font-si=
+ze:14px;text-align:center;mso-line-height-alt:16.8px"><span style=3D"word-b=
+reak: break-word; color: #a3ea2a; font-size: 15px;"><strong>DAY 9</strong><=
+/span></p></div></div></td></tr></tbody></table><table class=3D"text_block =
+block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-bre=
+ak:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:10px;pa=
+dding-left:25px;padding-right:25px;padding-top:5px"><div style=3D"font-fami=
+ly:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Arial,&#=
+39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;colo=
+r:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-align:cent=
+er;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #ffffff;">McSkidy and Glitch =
+perform a risk assessment of forensic companies they could collaborate with=
+.</span></p></div></div></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr></tbody></table><table class=3D"row row-10" align=3D"center" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#ee=
+e"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0;background-color:#141c2b;border-radiu=
+s:0;color:#000;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td clas=
+s=3D"column column-1" width=3D"33.333333333333336%" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;=
+padding-top:5px;vertical-align:top;border-top:0;border-right:0;border-botto=
+m:0;border-left:0"><table class=3D"image_block block-1" width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=
+=3D"padding-top:25px;width:100%;padding-right:0;padding-left:0"><div class=
+=3D"alignment" align=3D"center" style=3D"line-height:10px"><div style=3D"ma=
+x-width:102px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6=
+ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM=
+6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZG=
+l1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWMiLCJpbnRlcm5hbCI6ImNhZDUwN=
+TBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c9296729813b26e56347d04cff7859811=
+1fff5dc9733a918b8f51507125e00f1" target=3D"_blank" style=3D"outline:none" t=
+abindex=3D"-1"><img src=3D"https://userimg-assets.customeriomail.com/images=
+/client-env-92874/1733259519884_day%2010_01JE752T80D00PBKAMGWE9RQAN.png" st=
+yle=3D"display:block;height:auto;border:0;width:100%" width=3D"102" alt=3D"=
+" title=3D"" height=3D"auto"/></a></div></div></td></tr></tbody></table></t=
+d><td class=3D"column column-2" width=3D"66.66666666666667%" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bo=
+ttom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;bor=
+der-bottom:0;border-left:0">
+<table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" styl=
+e=3D"padding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:1=
+5px"><div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-si=
+ze:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso=
+-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;fo=
+nt-size:14px;text-align:center;mso-line-height-alt:16.8px"><span style=3D"w=
+ord-break: break-word; color: #a3ea2a; font-size: 15px;"><strong>DAY 10</st=
+rong></span></p></div></div></td></tr></tbody></table><table class=3D"text_=
+block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;wo=
+rd-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:1=
+0px;padding-left:25px;padding-right:25px;padding-top:5px"><div style=3D"fon=
+t-family:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Ar=
+ial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8p=
+x;color:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-alig=
+n:center;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word;=
+ color: #ffffff;">Mayor Malware tries to phish one of the SOC-mas organiser=
+s via a malicious macro.</span></p></div></div></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr></tbody></table><table class=3D"row row-1=
+1" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;background-color:#eee"><tbody><tr><td><table class=3D"row-content stack"=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-col=
+or:#141c2b;border-radius:0;color:#000;width:680px;margin:0 auto" width=3D"6=
+80"><tbody><tr><td class=3D"column column-1" width=3D"33.333333333333336%" =
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;bord=
+er-right:0;border-bottom:0;border-left:0"><table class=3D"image_block block=
+-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><=
+td class=3D"pad" style=3D"padding-top:20px;width:100%;padding-right:0;paddi=
+ng-left:0"><div class=3D"alignment" align=3D"center" style=3D"line-height:1=
+0px"><div style=3D"max-width:68px"><a href=3D"https://e.customeriomail.com/=
+e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0=
+iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2=
+lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwia=
+W50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebe=
+aaa9bcca53b1d3c5368530241f495081269e54a80a65fa865799" target=3D"_blank" sty=
+le=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-assets.cust=
+omeriomail.com/images/client-env-92874/1733259634753_day%2011_01JE756ACX8ZS=
+HH6DCCBPATHE7.png" style=3D"display:block;height:auto;border:0;width:100%" =
+width=3D"68" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr=
+></tbody></table></td><td class=3D"column column-2" width=3D"66.66666666666=
+667%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-a=
+lign:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:=
+0;border-right:0;border-bottom:0;border-left:0"><table class=3D"text_block =
+block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-bre=
+ak:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:10px;pa=
+dding-left:40px;padding-right:40px;padding-top:15px"><div style=3D"font-fam=
+ily:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Arial,&=
+#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;col=
+or:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-align:cen=
+ter;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; colo=
+r: #a3ea2a; font-size: 15px;"><strong>DAY 11</strong></span></p></div></div=
+></td></tr></tbody></table><table class=3D"text_block block-2" width=3D"100=
+%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody=
+><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:25px;paddi=
+ng-right:25px;padding-top:5px"><div style=3D"font-family:sans-serif"><div c=
+lass=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Neue&#39=
+;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.=
+2"><p style=3D"margin:0;font-size:14px;text-align:center;mso-line-height-al=
+t:16.8px">
+<span style=3D"word-break: break-word; color: #ffffff;">Glitch reports a pr=
+oblem with the city=E2=80=99s Wi-Fi network, only to be publicly blamed by =
+the Mayor for slowing it down.</span></p></div></div></td></tr></tbody></ta=
+ble></td></tr></tbody></table></td></tr></tbody></table><table class=3D"row=
+ row-12" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0;background-color:#eee"><tbody><tr><td><table class=3D"row-content =
+stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backgrou=
+nd-color:#141c2b;border-radius:0;color:#000;width:680px;margin:0 auto" widt=
+h=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"33.333333333333=
+336%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-a=
+lign:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:=
+0;border-right:0;border-bottom:0;border-left:0"><table class=3D"image_block=
+ block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody=
+><tr><td class=3D"pad" style=3D"padding-top:25px;width:100%;padding-right:0=
+;padding-left:0"><div class=3D"alignment" align=3D"center" style=3D"line-he=
+ight:10px"><div style=3D"max-width:91px"><a href=3D"https://e.customeriomai=
+l.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4R=
+nNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3Vy=
+Y2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWM=
+iLCJpbnRlcm5hbCI6ImNhZDUwNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c929672=
+9813b26e56347d04cff78598111fff5dc9733a918b8f51507125e00f1" target=3D"_blank=
+" style=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-assets=
+.customeriomail.com/images/client-env-92874/1733263930209_Bandit%20Yeti%20M=
+ayor%20Character%20(2)-min_01JE799D1B3W2AFHCC9KGA5S41.png" style=3D"display=
+:block;height:auto;border:0;width:100%" width=3D"91" alt=3D"" title=3D"" he=
+ight=3D"auto"/></a></div></div></td></tr></tbody></table></td><td class=3D"=
+column column-2" width=3D"66.66666666666667%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0;font-weight:400;text-align:left;padding-bottom:5px;paddin=
+g-top:5px;vertical-align:top;border-top:0;border-right:0;border-bottom:0;bo=
+rder-left:0"><table class=3D"text_block block-1" width=3D"100%" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-ta=
+ble-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=
+=3D"pad" style=3D"padding-bottom:10px;padding-left:40px;padding-right:40px;=
+padding-top:15px"><div style=3D"font-family:sans-serif"><div class=3D"" sty=
+le=3D"font-size:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,s=
+ans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=
+=3D"margin:0;font-size:14px;text-align:center;mso-line-height-alt:16.8px"><=
+span style=3D"word-break: break-word; color: #a3ea2a; font-size: 15px;"><st=
+rong>DAY 12</strong></span></p></div></div></td></tr></tbody></table><table=
+ class=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" style=3D"p=
+adding-bottom:10px;padding-left:25px;padding-right:25px;padding-top:5px"><d=
+iv style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:14px=
+;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-h=
+eight-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;font-size=
+:14px;text-align:center;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #ffffff;">Mayor Malware explo=
+its a race condition vulnerability to steal more money from the town=E2=80=
+=99s SOC-mas fund.</span></p></div></div></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table><table class=3D"row row-13" ali=
+gn=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;bac=
+kground-color:#eee"><tbody><tr><td><table class=3D"row-content stack" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#14=
+1c2b;border-radius:0;color:#000;width:680px;margin:0 auto" width=3D"680"><t=
+body><tr><td class=3D"column column-1" width=3D"33.333333333333336%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;p=
+adding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-ri=
+ght:0;border-bottom:0;border-left:0"><table class=3D"image_block block-1" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td cl=
+ass=3D"pad" style=3D"padding-top:25px;width:100%;padding-right:0;padding-le=
+ft:0"><div class=3D"alignment" align=3D"center" style=3D"line-height:10px">=
+<div style=3D"max-width:125px"><a href=3D"https://e.customeriomail.com/e/c/=
+eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJ=
+ocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXH=
+UwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlMTNkZWMiLCJpbnRlc=
+m5hbCI6ImNhZDUwNTBiZjcwZDg4YTAxNCIsImxpbmtfaWQiOjE2MjE1fQ/c9296729813b26e56=
+347d04cff78598111fff5dc9733a918b8f51507125e00f1" target=3D"_blank" style=3D=
+"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-assets.customeri=
+omail.com/images/client-env-92874/1733261194435_day%2013_01JE76NX9JXG8S39N7=
+4MA4D4KS.png" style=3D"display:block;height:auto;border:0;width:100%" width=
+=3D"125" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr></t=
+body></table></td><td class=3D"column column-2" width=3D"66.66666666666667%=
+" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align=
+:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;bo=
+rder-right:0;border-bottom:0;border-left:0">
+<table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" styl=
+e=3D"padding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:1=
+5px"><div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-si=
+ze:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso=
+-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;fo=
+nt-size:14px;text-align:center;mso-line-height-alt:16.8px"><span style=3D"w=
+ord-break: break-word; color: #a3ea2a; font-size: 15px;"><strong>DAY 13</st=
+rong></span></p></div></div></td></tr></tbody></table><table class=3D"text_=
+block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;wo=
+rd-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-bottom:1=
+0px;padding-left:25px;padding-right:25px;padding-top:5px"><div style=3D"fon=
+t-family:sans-serif"><div class=3D"" style=3D"font-size:14px;font-family:Ar=
+ial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8p=
+x;color:#555;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-alig=
+n:center;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word;=
+ color: #ffffff;">Glitch discovers illegal spying on cars in Wareville via =
+a vulnerable car tracking application. Help McSkidy and Glitch investigate!=
+</span></p></div></div></td></tr></tbody></table></td></tr></tbody>
+</table></td></tr></tbody></table><table class=3D"row row-14" align=3D"cent=
+er" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-co=
+lor:#eee"><tbody><tr><td><table class=3D"row-content stack" align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#141c2b;borde=
+r-radius:0;color:#000;width:680px;margin:0 auto" width=3D"680"><tbody><tr><=
+td class=3D"column column-1" width=3D"25%" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0;font-weight:400;text-align:left;padding-top:5px;vertical-ali=
+gn:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><table cl=
+ass=3D"image_block block-1 mobile_hide" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspac=
+e:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=3D"padding-top:6=
+0px;width:100%"><div class=3D"alignment" align=3D"center" style=3D"line-hei=
+ght:10px"><div style=3D"max-width:170px"><a href=3D"https://e.customeriomai=
+l.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4R=
+nNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3Vy=
+Y2U9Y2lvXHUwMDI2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGV=
+jIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70a=
+a1cebeaaa9bcca53b1d3c5368530241f495081269e54a80a65fa865799" target=3D"_blan=
+k" style=3D"outline:none" tabindex=3D"-1"><img src=3D"https://userimg-asset=
+s.customeriomail.com/images/client-env-92874/1730742156732_frost-16_01JBW4A=
+ZKKS3KB118FKVQ5YCJY.png" style=3D"display:block;height:auto;border:0;width:=
+100%" width=3D"170" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></=
+td></tr></tbody></table></td><td class=3D"column column-2" width=3D"50%" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:lef=
+t;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border=
+-right:0;border-bottom:0;border-left:0"><table class=3D"button_block block-=
+1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><t=
+d class=3D"pad" style=3D"padding-top:20px;text-align:center"><div class=3D"=
+alignment" align=3D"center"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" href=3D"https://e.customeriomail.com/e/c/eyJl=
+bWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmV=
+mIjoiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMD=
+I2dXRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuY=
+WwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca=
+53b1d3c5368530241f495081269e54a80a65fa865799" style=3D"height:35px;width:27=
+5px;v-text-anchor:middle;" arcsize=3D"15%" stroke=3D"false" fillcolor=3D"#7=
+19cf9">
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#000000;font-family:Arial, sans-serif;=
+font-size:17px">
+<![endif]-->
+<a class=3D"button" href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZC=
+I6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0c=
+HM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21l=
+ZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwiOiJjYWQ=
+1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b1d3c536=
+8530241f495081269e54a80a65fa865799" target=3D"_blank" style=3D"background-c=
+olor:#719cf9;border-bottom:0px solid transparent;border-left:0px solid tran=
+sparent;border-radius:5px;border-right:0px solid transparent;border-top:0px=
+ solid transparent;color:#000000;display:inline-block;font-family:Arial, &#=
+39;Helvetica Neue&#39;, Helvetica, sans-serif;font-size:17px;font-weight:70=
+0;mso-border-alt:none;padding-bottom:5px;padding-top:5px;text-align:center;=
+text-decoration:none;width:auto;word-break:keep-all;"><span style=3D"word-b=
+reak: break-word; padding-left: 37px; padding-right: 37px; font-size: 17px;=
+ display: inline-block; letter-spacing: normal;"><span style=3D"word-break:=
+ break-word; line-height: 25.5px;">Launch Advent of Cyber!</span></span></a=
+>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></div></td></tr=
+></tbody></table><table class=3D"divider_block block-2" width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=
+=3D"padding-bottom:39px;padding-left:12px;padding-right:3px;padding-top:60p=
+x"><div class=3D"alignment" align=3D"center"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso=
+-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"divider_inner" =
+style=3D"font-size:1px;line-height:1px;border-top:2px solid #719cf9"><span =
+style=3D"word-break: break-word;">=E2=80=8A</span></td></tr></tbody></table=
+></div></td></tr></tbody></table><table class=3D"text_block block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"=
+><tbody><tr><td class=3D"pad" style=3D"padding-left:10px;padding-right:10px=
+;padding-top:15px">
+<div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:12=
+px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line=
+-height-alt:14.399999999999999px;color:#fff;line-height:1.2"><p style=3D"ma=
+rgin:0;font-size:12px;text-align:center;mso-line-height-alt:14.399999999999=
+999px"><span style=3D"word-break: break-word; font-size: 26px;">=E2=80=9CLe=
+t&#39;s be one step ahead of the Mayor.&#34;</span></p><p style=3D"margin:0=
+;font-size:12px;text-align:center;mso-line-height-alt:14.399999999999999px"=
+>
+<span style=3D"word-break: break-word; font-size: 22px;">- Glitch</span></p=
+></div></div></td></tr></tbody></table></td><td class=3D"column column-3" w=
+idth=3D"25%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400=
+;text-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;bord=
+er-top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"imag=
+e_block block-1 mobile_hide" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tbody><tr><td class=3D"pad" style=3D"width:100%"><div class=
+=3D"alignment" align=3D"center" style=3D"line-height:10px"><div style=3D"ma=
+x-width:170px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6=
+ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM=
+6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2dXRtX21lZG=
+l1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwiOiJjYWQ1M=
+DUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b1d3c53685=
+30241f495081269e54a80a65fa865799" target=3D"_blank" style=3D"outline:none" =
+tabindex=3D"-1"><img src=3D"https://userimg-assets.customeriomail.com/image=
+s/client-env-92874/1730803041111_Frost-Byte-Tile_Snowflake_01JBXYD18FVYEES4=
+GN2WPEQRHM.png" style=3D"display:block;height:auto;border:0;width:100%" wid=
+th=3D"170" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table><table c=
+lass=3D"row row-15" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;background-color:#eee"><tbody><tr><td><table class=3D"r=
+ow-content stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;background-color:#141c2b;border-radius:0;color:#000;width:680px;margin:0=
+ auto" width=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"75%"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:=
+left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;bor=
+der-right:0;border-bottom:0;border-left:0"><table class=3D"divider_block bl=
+ock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><t=
+r><td class=3D"pad" style=3D"padding-bottom:39px;padding-left:20px;padding-=
+right:20px;padding-top:45px"><div class=3D"alignment" align=3D"center"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" w=
+idth=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><t=
+d class=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top=
+:2px solid #719cf9"><span style=3D"word-break: break-word;">=E2=80=8A</span=
+></td></tr></tbody></table></div></td></tr>
+</tbody></table></td><td class=3D"column column-2" width=3D"25%" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;paddin=
+g-bottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0=
+;border-bottom:0;border-left:0"><table class=3D"image_block block-1 mobile_=
+hide" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><t=
+r><td class=3D"pad" style=3D"width:100%;padding-right:0;padding-left:0"><di=
+v class=3D"alignment" align=3D"center" style=3D"line-height:10px"><div styl=
+e=3D"max-width:127.5px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWF=
+pbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIj=
+oiaHR0cHM6Ly90cnloYWNrbWUuY29tL3IvY2hyaXN0bWFzP3V0bV9zb3VyY2U9Y2lvXHUwMDI2d=
+XRtX21lZGl1bT1lbWFpbFx1MDAyNnV0bV9jYW1wYWlnbj1ieXRlXzEzZGVjIiwiaW50ZXJuYWwi=
+OiJjYWQ1MDUwYmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjoxNjIxNH0/5ad70aa1cebeaaa9bcca53b=
+1d3c5368530241f495081269e54a80a65fa865799" target=3D"_blank" style=3D"outli=
+ne:none" tabindex=3D"-1"><img src=3D"https://userimg-assets.customeriomail.=
+com/images/client-env-92874/1730742156732_frost-16_01JBW4AZKKS3KB118FKVQ5YC=
+JY.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D"12=
+7.5" alt=3D"" title=3D"" height=3D"auto"/></a></div></div></td></tr></tbody=
+></table></td></tr></tbody></table></td></tr>
+</tbody></table><table class=3D"row row-16" align=3D"center" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><=
+tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#=
+000;width:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column=
+ column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;fo=
+nt-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;vertical-a=
+lign:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><table =
+class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" style=3D"pa=
+dding-bottom:10px;padding-left:53px;padding-right:34px;padding-top:10px"><d=
+iv style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:14px=
+;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso-line-h=
+eight-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;font-size=
+:16px;text-align:center;mso-line-height-alt:19.2px"><span style=3D"word-bre=
+ak: break-word; font-size: 16px; color: #ffffff;"><em>This newsletter was b=
+rought to you by the TryHackMe Marketing team, </em></span>
+</p><p style=3D"margin:0;font-size:16px;text-align:center;mso-line-height-a=
+lt:19.2px"><span style=3D"word-break: break-word; font-size: 16px; color: #=
+ffffff;"><em>more specifically, Cami &amp; Ellie.</em></span></p></div></di=
+v></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able><table class=3D"row row-17" align=3D"center" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><tr><td><tab=
+le class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0;background-color:#141c2b;border-radius:0;color:#000;width:6=
+80px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column column-1" =
+width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:4=
+00;text-align:left;padding-bottom:10px;padding-top:5px;vertical-align:top;b=
+order-top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"t=
+ext_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:=
+0;word-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padding-left=
+:44px;padding-right:44px;padding-top:10px"><div style=3D"font-family:sans-s=
+erif"><div class=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvet=
+ica Neue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;li=
+ne-height:1.2"><p style=3D"margin:0;font-size:16px;text-align:center;mso-li=
+ne-height-alt:19.2px"><span style=3D"word-break: break-word; font-size: 16p=
+x; color: #ffffff;">Cami, Ellie, and the rest of the marketing team have sp=
+ent the week in Philadelphia for a cyber security marketing conference, whe=
+re Cami was even awarded &#39;<em>best Head of Marketing</em>&#39;! =F0=9F=
+=91=8F=F0=9F=8F=86</span></p><p style=3D"margin:0;font-size:16px;text-align=
+:center;mso-line-height-alt:16.8px">=C2=A0</p><p style=3D"margin:0;font-siz=
+e:16px;text-align:center;mso-line-height-alt:19.2px"><span style=3D"word-br=
+eak: break-word; font-size: 16px; color: #ffffff;">The marketing team are a=
+lso very excited to check out our Advent of Cyber billboard in Times Square=
+ at the weekend! </span><span style=3D"word-break: break-word; font-size: 1=
+6px; color: #ffffff;">Visiting New York this month? Be sure to snap a pic =
+=F0=9F=91=80=F0=9F=93=B8=F0=9F=97=BD</span></p></div></div></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table><table class=
+=3D"row row-18" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0;background-color:#eee"><tbody><tr><td><table class=3D"row-c=
+ontent stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+;background-color:#141c2b;border-radius:0;color:#000;width:680px;margin:0 a=
+uto" width=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"100%" =
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-top:5px;vertical-align:top;border-top:0;border-right:0;border-b=
+ottom:0;border-left:0"><table class=3D"text_block block-1" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody><tr=
+><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:25px;padding-r=
+ight:25px;padding-top:10px"><div style=3D"font-family:sans-serif"><div clas=
+s=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Neue&#39;,H=
+elvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.2">=
+<p style=3D"margin:0;font-size:16px;mso-line-height-alt:16.8px">=C2=A0</p><=
+p style=3D"margin:0;font-size:16px;text-align:center;mso-line-height-alt:19=
+.2px"><strong><span style=3D"word-break: break-word; color: #ffffff;">That&=
+#39;s all from us =E2=80=94 thank you for reading!</span></strong></p><p st=
+yle=3D"margin:0;font-size:16px;mso-line-height-alt:16.8px">=C2=A0</p></div>=
+</div></td>
+</tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><t=
+able class=3D"row row-19 mobile_hide" align=3D"center" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><tr><td=
+><table class=3D"row-content stack" align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:=
+0;mso-table-rspace:0;background-color:#141c2b;border-radius:0;color:#000;wi=
+dth:680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column colum=
+n-1" width=3D"41.666666666666664%" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;font-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;v=
+ertical-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0=
+"><table class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=3D"width:100%;pad=
+ding-right:0;padding-left:0"><div class=3D"alignment" align=3D"right" style=
+=3D"line-height:10px"><div style=3D"max-width:70.833px"><img src=3D"https:/=
+/userimg-assets.customeriomail.com/images/client-env-92874/1733174233993_Fe=
+stive-Cami_01JE4KR2ZNHX7CKT25VWR1QQ9E.png" style=3D"display:block;height:au=
+to;border:0;width:100%" width=3D"70.833" alt=3D"" title=3D"" height=3D"auto=
+"/></div></div></td></tr></tbody></table></td><td class=3D"column column-2"=
+ width=3D"58.333333333333336%" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;font-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;verti=
+cal-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><t=
+able class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" styl=
+e=3D"padding-bottom:10px;padding-left:30px;padding-right:10px;padding-top:1=
+5px"><div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-si=
+ze:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;mso=
+-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:16.8px"><span style=3D"word-break: break-w=
+ord; color: #ffffff;"><strong>Cami Ragano</strong></span></p><p style=3D"ma=
+rgin:0;font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #ffffff;">Head of Marketing</=
+span></p></div></div></td></tr></tbody></table></td></tr></tbody></table></=
+td></tr></tbody></table><table class=3D"row row-20 mobile_hide" align=3D"ce=
+nter" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#eee"><tbody><tr><td><table class=3D"row-content stack" align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#141c2b;bo=
+rder-radius:0;color:#000;width:680px;margin:0 auto" width=3D"680"><tbody><t=
+r><td class=3D"column column-1" width=3D"41.666666666666664%" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-b=
+ottom:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;bo=
+rder-bottom:0;border-left:0"><table class=3D"image_block block-1" width=3D"=
+100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"p=
+ad" style=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"align=
+ment" align=3D"right" style=3D"line-height:10px"><div style=3D"max-width:70=
+.833px"><img src=3D"https://userimg-assets.customeriomail.com/images/client=
+-env-92874/1733174242239_Festive-Ellie_01JE4KRB15VJPH229YE4JMKA35.png" styl=
+e=3D"display:block;height:auto;border:0;width:100%" width=3D"70.833" alt=3D=
+"" title=3D"" height=3D"auto"/></div></div></td></tr></tbody></table></td><=
+td class=3D"column column-2" width=3D"58.333333333333336%" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bott=
+om:5px;padding-top:5px;vertical-align:top;border-top:0;border-right:0;borde=
+r-bottom:0;border-left:0"><table class=3D"text_block block-1" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody>=
+<tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:30px;paddin=
+g-right:10px;padding-top:15px"><div style=3D"font-family:sans-serif"><div c=
+lass=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Neue&#39=
+;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.=
+2"><p style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><span st=
+yle=3D"word-break: break-word; color: #ffffff;"><strong>Ellie Gillard</stro=
+ng></span></p><p style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8p=
+x">
+<span style=3D"word-break: break-word; color: #ffffff;">Content Marketing M=
+anager</span></p></div></div></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table><table class=3D"row row-21 desktop_hide" al=
+ign=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;ms=
+o-hide:all;display:none;max-height:0;overflow:hidden;background-color:#eee"=
+><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0=
+;overflow:hidden;background-color:#141c2b;border-radius:0;color:#000;width:=
+680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column column-1"=
+ width=3D"41.666666666666664%" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;font-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;verti=
+cal-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0">
+<table class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;mso-hide:all;display:none;max-height:0;overflow:hidden"=
+><tbody><tr><td class=3D"pad" style=3D"width:100%;padding-right:0;padding-l=
+eft:0"><div class=3D"alignment" align=3D"center" style=3D"line-height:10px"=
+><div style=3D"max-width:70.833px"><img src=3D"https://userimg-assets.custo=
+meriomail.com/images/client-env-92874/1733174233993_Festive-Cami_01JE4KR2ZN=
+HX7CKT25VWR1QQ9E.png" style=3D"display:block;height:auto;border:0;width:100=
+%" width=3D"70.833" alt=3D"" title=3D"" height=3D"auto"/></div></div></td><=
+/tr></tbody></table></td><td class=3D"column column-2" width=3D"58.33333333=
+3333336%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-=
+top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"text_bl=
+ock block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word=
+-break:break-word;mso-hide:all;display:none;max-height:0;overflow:hidden"><=
+tbody><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:10px;=
+padding-right:10px;padding-top:15px"><div style=3D"font-family:sans-serif">=
+<div class=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Ne=
+ue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-hei=
+ght:1.2"><p style=3D"margin:0;font-size:14px;text-align:center;mso-line-hei=
+ght-alt:16.8px"><span style=3D"word-break: break-word; color: #ffffff;"><st=
+rong>Cami Ragano</strong></span></p><p style=3D"margin:0;font-size:14px;tex=
+t-align:center;mso-line-height-alt:16.8px"><span style=3D"word-break: break=
+-word; color: #ffffff;">Head of Marketing</span></p></div></div></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table><table c=
+lass=3D"row row-22 desktop_hide" align=3D"center" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0;ove=
+rflow:hidden;background-color:#eee">
+<tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0=
+;overflow:hidden;background-color:#141c2b;border-radius:0;color:#000;width:=
+680px;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column column-1"=
+ width=3D"41.666666666666664%" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;font-weight:400;text-align:left;padding-bottom:5px;padding-top:5px;verti=
+cal-align:top;border-top:0;border-right:0;border-bottom:0;border-left:0"><t=
+able class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;mso-hide:all;display:none;max-height:0;overflow:hidden">=
+<tbody><tr><td class=3D"pad" style=3D"width:100%;padding-right:0;padding-le=
+ft:0"><div class=3D"alignment" align=3D"center" style=3D"line-height:10px">=
+<div style=3D"max-width:70.833px"><img src=3D"https://userimg-assets.custom=
+eriomail.com/images/client-env-92874/1733174242239_Festive-Ellie_01JE4KRB15=
+VJPH229YE4JMKA35.png" style=3D"display:block;height:auto;border:0;width:100=
+%" width=3D"70.833" alt=3D"" title=3D"" height=3D"auto"/></div></div></td><=
+/tr></tbody></table></td><td class=3D"column column-2" width=3D"58.33333333=
+3333336%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border-=
+top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"text_bl=
+ock block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word=
+-break:break-word;mso-hide:all;display:none;max-height:0;overflow:hidden"><=
+tbody><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:10px;=
+padding-right:10px;padding-top:15px"><div style=3D"font-family:sans-serif">=
+<div class=3D"" style=3D"font-size:14px;font-family:Arial,&#39;Helvetica Ne=
+ue&#39;,Helvetica,sans-serif;mso-line-height-alt:16.8px;color:#555;line-hei=
+ght:1.2"><p style=3D"margin:0;font-size:14px;text-align:center;mso-line-hei=
+ght-alt:16.8px"><span style=3D"word-break: break-word; color: #ffffff;"><st=
+rong>Ellie Gillard</strong></span></p><p style=3D"margin:0;font-size:14px;t=
+ext-align:center;mso-line-height-alt:16.8px"><span style=3D"word-break: bre=
+ak-word; color: #ffffff;">Content Marketing Manager</span></p></div></div><=
+/td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></tabl=
+e><table class=3D"row row-23" align=3D"center" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody><tr><td><table =
+class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#151c2b;color:#000;width:680px;margin:0 auto"=
+ width=3D"680"><tbody><tr><td class=3D"column column-1" width=3D"100%" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;=
+border-top:6px solid transparent;vertical-align:top;border-right:0;border-b=
+ottom:0;border-left:0"><table class=3D"social_block block-1" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" s=
+tyle=3D"padding-bottom:10px;padding-left:15px;padding-right:15px;padding-to=
+p:15px;text-align:center"><div class=3D"alignment" align=3D"center"><table =
+class=3D"social-table" width=3D"216px" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;display:inline-block"><tbody><tr><td style=3D"padding:0 2px 0 2px">
+<a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUl=
+pZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly93d3cuZmFjZW=
+Jvb2suY29tL1RyeS1IYWNrLU1lLTEwMTA0MDQzMjE4MjM2OCIsImludGVybmFsIjoiY2FkNTA1M=
+GJmNzBkODhhMDE0IiwibGlua19pZCI6ODY3fQ/17c79ef68f98b633eaa145b261112a8add876=
+8297274e243fea5dd247a198e46" target=3D"_blank"><img src=3D"https://app-rsrc=
+.getbee.io/public/resources/social-networks-icon-sets/t-outline-circle-whit=
+e/facebook@2x.png" width=3D"32" height=3D"auto" alt=3D"Facebook" title=3D"F=
+acebook" style=3D"display:block;height:auto;border:0"/></a></td><td style=
+=3D"padding:0 2px 0 2px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbW=
+FpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmI=
+joiaHR0cHM6Ly90d2l0dGVyLmNvbS9SZWFsVHJ5SGFja01lIiwiaW50ZXJuYWwiOiJjYWQ1MDUw=
+YmY3MGQ4OGEwMTQiLCJsaW5rX2lkIjo4ODB9/6d5e8d2f9c388f95de561eef589ccd97e5f3ae=
+d6bf834f440e0e8108e4a700c8" target=3D"_blank"><img src=3D"https://app-rsrc.=
+getbee.io/public/resources/social-networks-icon-sets/t-outline-circle-white=
+/twitter@2x.png" width=3D"32" height=3D"auto" alt=3D"Twitter" title=3D"Twit=
+ter" style=3D"display:block;height:auto;border:0"/></a></td><td style=3D"pa=
+dding:0 2px 0 2px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9p=
+ZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR=
+0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yZWFsdHJ5aGFja21lLyIsImludGVybmFsIjoiY2FkNT=
+A1MGJmNzBkODhhMDE0IiwibGlua19pZCI6ODY2fQ/d112cc03acf36110a0d51eaf26e5627c19=
+4a3824b959cf56c3a745399dfbd62d" target=3D"_blank"><img src=3D"https://app-r=
+src.getbee.io/public/resources/social-networks-icon-sets/t-outline-circle-w=
+hite/instagram@2x.png" width=3D"32" height=3D"auto" alt=3D"Instagram" title=
+=3D"Instagram" style=3D"display:block;height:auto;border:0"/></a></td><td s=
+tyle=3D"padding:0 2px 0 2px"><a href=3D"https://e.customeriomail.com/e/c/ey=
+JlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJoc=
+mVmIjoiaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2NvbXBhbnkvdHJ5aGFja21lLyIsImludGVy=
+bmFsIjoiY2FkNTA1MGJmNzBkODhhMDE0IiwibGlua19pZCI6NH0/62c1087ff088aed37824296=
+92eb53cd0c807f80d4609835bb69a8e52c7276d4d" target=3D"_blank"><img src=3D"ht=
+tps://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-outli=
+ne-circle-white/linkedin@2x.png" width=3D"32" height=3D"auto" alt=3D"Linked=
+In" title=3D"LinkedIn" style=3D"display:block;height:auto;border:0"/></a></=
+td><td style=3D"padding:0 2px 0 2px">
+<a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUl=
+pZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly93d3cucGludG=
+VyZXN0LmNvLnVrL1JlYWxUcnlIYWNrTWUvIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwM=
+TQiLCJsaW5rX2lkIjo4ODF9/dcb36d3e33e639e54f2306da915a820a96f2445049e6ee150df=
+9a4cb90801aa4" target=3D"_blank"><img src=3D"https://app-rsrc.getbee.io/pub=
+lic/resources/social-networks-icon-sets/t-outline-circle-white/pinterest@2x=
+.png" width=3D"32" height=3D"auto" alt=3D"Pinterest" title=3D"Pinterest" st=
+yle=3D"display:block;height:auto;border:0"/></a></td><td style=3D"padding:0=
+ 2px 0 2px"><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImR=
+nVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly=
+93d3cudGlrdG9rLmNvbS9AdHJ5aGFja21lb2ZmaWNpYWwiLCJpbnRlcm5hbCI6ImNhZDUwNTBiZ=
+jcwZDg4YTAxNCIsImxpbmtfaWQiOjE0MjZ9/5d05f2e1c8dc25cc99040e3a3477004eb7eabb8=
+9f6fc7f6386a3d79e89cb8fcd" target=3D"_blank"><img src=3D"https://app-rsrc.g=
+etbee.io/public/resources/social-networks-icon-sets/t-outline-circle-white/=
+tiktok@2x.png" width=3D"32" height=3D"auto" alt=3D"TikTok" title=3D"TikTok"=
+ style=3D"display:block;height:auto;border:0"/></a></td></tr></tbody></tabl=
+e></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbo=
+dy></table><table class=3D"row row-24" align=3D"center" width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0;background-color:#eee"><tbody>
+<tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;background-color:#1c2538;color:#000;width:680px=
+;margin:0 auto" width=3D"680"><tbody><tr><td class=3D"column column-1" widt=
+h=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;t=
+ext-align:left;padding-bottom:5px;padding-top:5px;vertical-align:top;border=
+-top:0;border-right:0;border-bottom:0;border-left:0"><table class=3D"html_b=
+lock block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><t=
+body><tr><td class=3D"pad"><div style=3D"font-family:Arial,&#39;Helvetica N=
+eue&#39;,Helvetica,sans-serif;text-align:center" align=3D"center"></div></t=
+d></tr></tbody></table><table class=3D"text_block block-2" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tbody><tr=
+><td class=3D"pad" style=3D"padding-left:15px;padding-right:15px;padding-to=
+p:5px"><div style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-=
+size:14px;font-family:Arial,&#39;Helvetica Neue&#39;,Helvetica,sans-serif;m=
+so-line-height-alt:16.8px;color:#fff;line-height:1.2"><p style=3D"margin:0;=
+font-size:14px;text-align:center;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 12px; color: #ffffff;"><a=
+ href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ=
+0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnNPND0iLCJocmVmIjoiaHR0cHM6Ly90cnloYWNrbWUu=
+Y29tL3IvbGVnYWwvdGVybXMtb2YtdXNlIiwiaW50ZXJuYWwiOiJjYWQ1MDUwYmY3MGQ4OGEwMTQ=
+iLCJsaW5rX2lkIjozOTE4fQ/ff646906c07615f4efaac7fe790e3f67b06f5f212a600395a7e=
+2d59d82551595" target=3D"_blank" style=3D"text-decoration: underline; color=
+: #ffffff;" rel=3D"noopener">Terms</a> | <a href=3D"https://e.customeriomai=
+l.com/unsubscribe/dgTK1QUDAIigFIegFAGTwMA2Cc01jOyHrK8FsO4=3D" target=3D"_bl=
+ank" rel=3D"noopener" style=3D"color:#ffffff;">Unsubscribe</a></span></p></=
+div></div></td></tr></tbody></table><table class=3D"text_block block-3" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"10" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-wo=
+rd"><tbody><tr><td class=3D"pad"><div style=3D"font-family:sans-serif"><div=
+ class=3D"" style=3D"font-size:12px;font-family:Arial,&#39;Helvetica Neue&#=
+39;,Helvetica,sans-serif;mso-line-height-alt:14.399999999999999px;color:#b6=
+3838;line-height:1.2"><p style=3D"margin:0;font-size:14px;text-align:center=
+;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; font-si=
+ze: 12px; color: #ffffff;">Copyright =C2=A9 TryHackMe. All rights reserved.=
+</span></p></div></div></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table>
+</td></tr></tbody></table><!-- End --><img src=3D"https://e.customeriomail.=
+com/e/o/eyJlbWFpbF9pZCI6ImRnVEsxUVVEQUlpZ0ZJZWdGQUdUd01BMkNjMDFqT3lIcks4RnN=
+PND0ifQ=3D=3D" style=3D"height: 1px !important; max-height: 1px !important;=
+ max-width: 1px !important; width: 1px !important; display: none !important=
+;" alt=3D""/></body></html>
+--e35c90b3d3963bc4a5ca3a9acad38ca89ca1eafae65e1fb5f92ad781b1a5--

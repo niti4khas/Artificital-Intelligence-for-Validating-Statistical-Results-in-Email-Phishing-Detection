@@ -1,0 +1,156 @@
+Received: from BY1PR19MB7824.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Thu, 24 Aug 2023 15:45:22
+ +0000
+Received: from FR3P281CA0110.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:a3::7) by
+ BY1PR19MB7824.namprd19.prod.outlook.com (2603:10b6:a03:526::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.24; Thu, 24 Aug
+ 2023 15:45:10 +0000
+Received: from VE1EUR01FT079.eop-EUR01.prod.protection.outlook.com
+ (2603:10a6:d10:a3:cafe::f2) by FR3P281CA0110.outlook.office365.com
+ (2603:10a6:d10:a3::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.15 via Frontend
+ Transport; Thu, 24 Aug 2023 15:45:06 +0000
+Authentication-Results: spf=pass (sender IP is 177.153.3.58)
+ smtp.mailfrom=amfestopasepanos.enviodemkt.com.br; dkim=pass (signature was
+ verified) header.d=enviodemkt.com.br;dmarc=none action=none
+ header.from=amfestopas.com.br;compauth=fail reason=001
+Received-SPF: Pass (protection.outlook.com: domain of
+ amfestopasepanos.enviodemkt.com.br designates 177.153.3.58 as permitted
+ sender) receiver=protection.outlook.com; client-ip=177.153.3.58;
+ helo=mail358.hm8307.lwdlv.com.br; pr=C
+Received: from mail358.hm8307.lwdlv.com.br (177.153.3.58) by
+ VE1EUR01FT079.mail.protection.outlook.com (10.152.3.128) with Microsoft SMTP
+ Server id 15.20.6723.19 via Frontend Transport; Thu, 24 Aug 2023 15:45:06
+ +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:B10A77DE743669936F2C2D02BE80D1FF557BE018B4CCB7D8406743B820A32725;UpperCasedChecksum:4DBC2D2A636B3F8C02012D5792A2C851BBCC95A966FB9844F4397F1FEF790852;SizeAsReceived:1819;Count:20
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=lw20140124; d=enviodemkt.com.br;
+ h=Date:From:Reply-To:To:Subject:Mime-Version:Content-Type:List-Unsubscribe:Message-ID;
+ bh=6kVoapBrRBvFGuT/wV1RsSv0dGE=;
+ b=4vZlP3LMHUBSWNHtv82alODHdi3qSd4PlLWZTS4FXZ/ny85zbZMFnSBNJHz+BpPcmAQj0JmEfGLQ
+   We329yyrdWLE9uA8ruxz1XnrW3dXjw7l/BlQWExHN87SOKl+q2dB6vyNMdyEoNkOziGn4CAaPKR8
+   7orgVLoCahL5wSffKpE=
+Received: from localhost (191.252.190.7) by mail358.hm8307.lwdlv.com.br id hsttfs16ad4q for <phishing@pot>; Thu, 24 Aug 2023 12:43:36 -0300 (envelope-from <130541@amfestopasepanos.enviodemkt.com.br>)
+Date: Thu, 24 Aug 2023 12:43:36 -0300
+From: =?UTF-8?B?QW5kcsOpIE1hcnRpbnM=?= <vendedorandre@amfestopas.com.br>
+Reply-To: vendedorandre@amfestopas.com.br
+To: phishing@pot
+Subject: Produtos da AMF Estopas
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_64e77a6355d7_1a8903f8d69ccd66c9716a3";
+ charset=UTF-8
+List-Unsubscribe: <mailto:3vfd-29je9-6e-61-9e553f1c6b33ca5d546a578f8d37434284f0fec4@unsubscribes.mktnaweb.com>,
+ <http://emailmarketing.locaweb.com.br/accounts/130541/unsubscribes/206/2411977?emkt_c=1660150474&emkt_v=cm9kcmlnby1mLXBAaG90bWFpbC5jb20&envelope_id=193>
+Precedence: bulk
+x-account-id: 130541
+x-contact-id: 2411977
+x-envelope-id: 193
+x-message-id: 206
+x-locaweb-id: ozOMi4OUlZ9o9FBPnquEjeS-xnecwf4vw9mz1bICkI1h6gwyqWCnzVBs6VQE3vzfN8ZGPkrPRxOjOb9MpFp2FuswzTT1LQsSPCI8rwFwH0dGiWWiS5_AzkzOZ_1UkSnZUcaPhKGAnhiU7RM_pFu6oOKRfNT-IEfKV2B_8X9XpIZ_DWR6T6aZa6WE6WzLt4PW
+x-locaweb-id2: NDE2ZTY0NzJjM2E5MjA0ZDYxNzI3NDY5NmU3MzIwM2M3NjY1NmU2NDY1NjQ2ZjcyNjE2ZTY0NzI2NTQwNjE2ZDY2NjU3Mzc0NmY3MDYxNzMyZTYzNmY2ZDJlNjI3MjNl
+Feedback-ID: 130541:206:d:emktlw
+x-lw-prio: high
+Message-ID: <0.0.0.107.1D9D6A1BEF8471C.3F840@mail358.hm8307.lwdlv.com.br>
+X-IncomingHeaderCount: 20
+Return-Path: 130541@amfestopasepanos.enviodemkt.com.br
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Aug 2023 15:45:06.8470
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d37d949b-a8d1-484d-6ebb-08dba4b91737
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ VE1EUR01FT079:EE_|BY1PR19MB7824:EE_|MN0PR19MB6312:EE_
+X-MS-Exchange-Organization-AuthSource:
+ VE1EUR01FT079.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/24/2023 3:40:58 PM
+X-MS-Office365-Filtering-Correlation-Id: d37d949b-a8d1-484d-6ebb-08dba4b91737
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 177.153.3.58
+X-SID-PRA: VENDEDORANDRE@AMFESTOPAS.COM.BR
+X-SID-Result: NONE
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2023 15:45:06.6070
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d37d949b-a8d1-484d-6ebb-08dba4b91737
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ VE1EUR01FT079.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR19MB7824
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:15.9256074
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6699.027
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(8820095)(9610025)(9560006)(10180021)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow9dNtvD985jwMIrM+jrKJEeH8F3Jp+TNwl1Uo5RqTl6uPUW4DpwxLJ60MpT9EJ8S5FnBe2ah6tWhKrpDv1IivE5lPNcpB0eUZu56y6qTFcW2G8jDjIa/WJg8Dle3mhskeRdc/W7qv08QqGVOPJheVUAiOWWN8KF57OSOGN83NsuUwHAnKl8fGR2JR4e1Mr60WXrpYT/nOvMjA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?eW40WkJDUWdWN0hyNkJ2MklCbHdlT3Rvbi8yY1UxZ2JsUHc2NmtRd1N4dE90?=
+ =?utf-8?B?NmpHelRTU3V4WngvZjc2bGxEUkR4RENXcDNRZmxDVmRGRGxpMXROTUF1Qisw?=
+ =?utf-8?B?SzkwTmN6WlRsTkkxOVFoaG1RZ1FrNVdsSmN1SEdmNE5vSG1jeElkcmNuWmcv?=
+ =?utf-8?B?Y3k0WXpxN1hsVEljZkRGUXpES3lpNGdHeVRJbk9oZTNpYUduOHBmT2EvZDBi?=
+ =?utf-8?B?MEdVWDhCOGVzMkpnak1lOGhWUGZ5YmdyTDdsVFcwMm1VRVU0ZlovdlUxV3ZV?=
+ =?utf-8?B?dExpbmxWWUE4TGNVMDBFTXJhd1g3UEt6Z0E1N0w2WklqS3ZiM2dzRWdKMkdz?=
+ =?utf-8?B?TE9ITGJQbU01SXVjWVRaV3FVdGx1aXlDZEtSSjJpNGpDNUEwOXVqZ0Y3L1F1?=
+ =?utf-8?B?N3pQUnRxL2d4UXFHV0hSSks5bFNkVm5YR0l1SFZDVVNodVIrVG1hWTlqR3V2?=
+ =?utf-8?B?WE94S2dIRFljRHl2NmwzTnowbDlRRHhTWHJVZjJEamFPaE8vd2cwUVNieUxk?=
+ =?utf-8?B?UmZWMHhWbHhXeGJucmc2MWdtYy9JZFcwa29GdFF2d0twS3ZZTkd2QS9vTTZ5?=
+ =?utf-8?B?cCs3Qnd0VnNBa1hzZ3lqb0x5NXJhVlNqSnRKdFpUSGsvMkR6bkxSUWlOekxM?=
+ =?utf-8?B?d0ZmenpvU3Z4TDIycmxnbEJ2bUJQSVhaWUczbHdVMDFwQXkxTTYrTmM0cDEv?=
+ =?utf-8?B?VmRQQVFZcTBoTG1QODdhV0RJOE9jZVlEZDI1MFZadzNWVlcyZGEzazNyN0JW?=
+ =?utf-8?B?elRWdnovU25WZWNKcnF2TGlPQ1M1MWJYNy93Y1FRWEtjSTVreHZCckdPaXFX?=
+ =?utf-8?B?ZHdyQVVqck5SK1B1R25zU0lldDVVdFl6UE1hTjBQL25XMHE0SU5hS1RXMkU5?=
+ =?utf-8?B?bjI1aGtVczdwSlVPTEt3RXdxZjVEQUxLYVhkaUVlVzRYTDJ6a2wyaFBSSDJG?=
+ =?utf-8?B?ak1YUUhBU1BzdXl4Y3loaGlDSVBtR2dmWHZmMUFPMXg2TEZEQ3ZiVHQ0N1pK?=
+ =?utf-8?B?YjJrSWdhVlVxQ05QbUY5ZExUMTVSZ244MXdWc1psNmNwSi9mYUJSdXdOcGta?=
+ =?utf-8?B?SEkrS0FKNytRRzFIUk9vbmkwa3VFK2VGMGlCNmE5aDNLb05La2xXUFp2OHlI?=
+ =?utf-8?B?T2svYXNYY2VXR0RGRjR6czBGZTF3SXBENWRxOU1raEpxTXhXNnVjMUVCbjhi?=
+ =?utf-8?B?WEduZ003SjY3azY2THdUUDgrZ2VUQ0dDWEFuQ1Y4dEFFc1ZWbXVJeGZEdk9R?=
+ =?utf-8?B?NDdkeUREYXhVbUU0WkF1V3pBRFVYUlBpSWpoRTBCN1U2OFdkV2YzdnhZZGp4?=
+ =?utf-8?B?T1JNWjhhSUM0NzhTWTFIY3hhQ0hBcmt3U210eDZhaDFITnNtcjI1MGo0QTZN?=
+ =?utf-8?B?ZXQwZmt4ZjZXRWZRY2lsRzZ0WDVBWXNORnkvYXV5Zm5nK1BBaGZIeU9aVkZ5?=
+ =?utf-8?B?LzBZT3hIemlOZGd2b2ZoSGtzYUxESnhzUlpHODA4UGVDT2NqT1BNUjhmb0Q5?=
+ =?utf-8?B?R0hnUTB5cmcycEUwaTJENGFQajk3NUhIOHgxQjNrU29pbGJrOWE2MlVKY3A4?=
+ =?utf-8?B?UzREV2FpbDRaZkhFRjR6bkphYVp6Y0IyMmxVL0s2LzZYQ1owS1pQd1Y1dDZT?=
+ =?utf-8?B?dW1nYzNkeVkzbExkS1lkL2JXYlBXMDladCtRaEt6YldXVUsxY1g5dkExL0cx?=
+ =?utf-8?B?YVdaMWZ6Zm1xOXJ3Z2dPOUVCeEN4aTNRVHVKTVFtNnA5Z1dreXo5NUk3UlV6?=
+ =?utf-8?B?dDI0V2RoVWpwajQ0cDgrN3cvanFrcWJFZW00MFFZYkZvK2l3SGRnZlZlYm84?=
+ =?utf-8?B?OVMzeFB1U1FlZ201N1BBNVpSalJGMXM5c0w5djhKYW1oWDZLT05YU1lUT3Va?=
+ =?utf-8?B?M0RMektZWHcvU1JBbVJmRHZIZzlVS1FyWnEwVkhieExxMk9vUVVWU285MStj?=
+ =?utf-8?B?ZS9wZjdFYkpjMXcrSjQzb25xZGdHaHBrdXVleHBsVmYvSXFqak9CRXo5Rk9V?=
+ =?utf-8?B?dDZYMERtY1VsRlNyRC9vRFhZOHRpVTl0WDJpKzN2WURseXovZnNOak1aV2E5?=
+ =?utf-8?B?YzkwZDkyZkJaZUdaNHdkWDNrUVQ1VDZJNEswTVo1MUlqbUtpY3V1Q0QwNUp3?=
+ =?utf-8?B?UngvU0JHbmZ5UEwyQi9ETkcvN0JkWTRkbG1KVXdONU5veGV1OFc4RVdOS3lw?=
+ =?utf-8?B?bzB3TXROeGUySFA4eU9FbDJCdkhwWnpJbml4R3hnV045UHBOTUdUeEVQeW5o?=
+ =?utf-8?B?bTB4QVI0TE5LWjU5V3lIa2pRN1Z5ODdNOGZHQXRwdGFMc1p3eGtwWjNMWm1a?=
+ =?utf-8?B?Y3RVa1pFUHFMSHdKOWN3U3pSb1k2SmFLcnlQanU5T25FTk5uSCtNU05VZkhk?=
+ =?utf-8?B?UWxvL0NMTEdHZ0QxcC8yT1FqYjJ6eHM4Q0FjTk02MlkvV2c2ZTdCN3JiZm04?=
+ =?utf-8?B?UUo0aHRmMUpCbXBPZ1piWFl4ZFNrL09DTWJlTXdJMXAwVkFPS28wQ0dFWnU4?=
+ =?utf-8?B?dGJHVGZFUmFoNWVMRzhPT25BekhxcWIvbVF4SzNvMHE4R2dvUDRmeE1qdFNm?=
+ =?utf-8?B?Zk9wWVNPazM4bmFzcVgyemJkWEx4ZTlHcHBiSWpTbnJWdXQxNDNqb1RUdmJM?=
+ =?utf-8?B?N2w5bFJDeTdQTkFwUXRsUE9NdTBxSngrcVUwb0R1dE5oRjlBQzJ6bzZWYUo3?=
+ =?utf-8?B?ZVdFWkVQeFU5aVZEN3l6bFF6UFhkekpob0FiYWR2NURjdEFTY1pIaHFPYXk1?=
+ =?utf-8?B?bGpjb05TSUpqcWJzc2pWQWpwRWhyQTlyQzJvSlpqaEhYM3dwUWxUNit0Yi90?=
+ =?utf-8?B?ZVkvUlArUzBuTUtKb1NwK3Z5VE9JTWtYZ0RRY3NSSUpRaWJyV1VoK2RtbzEw?=
+ =?utf-8?B?SUJFODNnUkNNTFBvTCtrOHlPTFdQWE9mRVltRUZLTXlYaFcreklxd0MvNUFO?=
+ =?utf-8?B?VllQTUpoN042WDJ1eG1sTHNmaVpJV2pYVU5mQzJ0VFNjakp1UFE9PQ==?=
+MIME-Version: 1.0
+
+----==_mimepart_64e77a6355d7_1a8903f8d69ccd66c9716a3
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+

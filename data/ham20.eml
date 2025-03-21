@@ -1,0 +1,358 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:e207:b0:106:75b0:a7a9 with SMTP id hp7csp1890722dyb;
+        Tue, 6 Feb 2024 03:15:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH9bcR+y5WhrhwEUY8pMZzm2pHFdR3ogYrsQKHzL/18DzvRXVntCYeO9thr7KNYsw1r13/f
+X-Received: by 2002:a5d:4a45:0:b0:33b:3a62:b0f2 with SMTP id v5-20020a5d4a45000000b0033b3a62b0f2mr1052897wrs.12.1707218129243;
+        Tue, 06 Feb 2024 03:15:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1707218129; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=ozDqK0PrHogaqRsd59YNLBkJMJqcEWvBumgrQfodZJLk6rIBInvrFdBL/SwEJxnIaH
+         QBVdcFtw/7AvxcJHwi3fHskia73QFOTP19lYJ8dQij4P37cTtsXonUBCTr5pB5yIx9Uj
+         V7GcxD1keE3aQWV5tsktyd42bAO5oVHzxBQ7rlznmPULznc+62bhupQjOAvdp/DrwJxa
+         bnBe0fs6JEgyBZYjn4yZGt1Ygb/F38QNu4W1u7pb2Y77AYgelPCiPf7UK9V9M/ZKcZQs
+         kU6p1pDGG5IX0NAf/cHXFBtrVtXrBRErtvQUnW9l94OPQ3MiuK6u20BomyJ2hDrUxG6J
+         AGDQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:msip_labels:content-language:accept-language
+         :message-id:date:thread-index:thread-topic:subject:cc:from
+         :dkim-signature;
+        bh=kDeyY/cs8mZeGmj0BG0jV9apSYKxruDbBTs16jcGGpo=;
+        fh=+wp7/UgYC74Nfiya+CDcdwCxAjzYuE7bYpA+bTOxQok=;
+        b=qOWomT6qZkoT5EAwKOWxYDdEX8H6HAsQniNZ3iaDhasNKqAqqtpHpI7ds71YU/jL/R
+         hILbnO4Q07RL5qUTYnWFznoj4gXKdtEeoX5xUJ5/sHkiOEHw7GpqyT+lIhyZMDvpoeRV
+         /ELwn+Mg5BwwfvcOcsMQm/VD3qO0ppkUaLhLwVchmqAb0mDySSbJf3P1sZgCWoyT7Qnl
+         eInEc9fLPd/Gbr2+czHhi92kiurCsO8sqYXKCgFWpztVNFDnDZhQ6q71o9hRyLSkxSTx
+         dSvMpJ9vpPDX1mCV8POyG/Stw9A8oHMW+NyUUmhvExIFqg6Q5vr6MkIEdBzzp9S22Imw
+         I5Og==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=temperror (no key for signature) header.i=@khas.edu.tr header.s=selector1 header.b=ud0qe08L;
+       arc=pass (i=1 spf=pass spfdomain=khas.edu.tr dkim=pass dkdomain=khas.edu.tr dmarc=pass fromdomain=khas.edu.tr);
+       spf=pass (google.com: domain of sender@khas.edu.tr designates 2a01:111:f403:2606::701 as permitted sender) smtp.mailfrom=sender@khas.edu.tr;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=khas.edu.tr
+X-Forwarded-Encrypted: i=1; AJvYcCUa9F93sx3IB+0yoa+cQxvSwXl7absijeVJytPxTfZ8CySnl3yY4CMYkpycC79oeTBibMAGgf6QIPzuos3rEZOiNDTsRn4yWOZkzQGWF62E7c0En/NPblmD3nMz3AJNvGXw/Bt1FJHClU4x1a4hlw3jxyZDALal+KVfAekZJ4LA+2QkY25BTMNzk7MVaDVbMzIWGwj9+3iCFT4Byx184C9b/ORbtLbszGhA9e2UvFJZgKOt7JKRoCVINPDmeuP/Hsgie2cOLwZKr4Wj1ZBLQx11j6y9rU3Ppwd4rBcq7hCFcC07FKQk1/7ppscppd3uk53nQTfl9q0WmCSseomx94jxat4My89SCCeKHnfF95gFCWiJ8aOTOgrYfMP3R3HXOS7UyNgNHaHxmDLf6424ZDcsOI8ghuFdgHxovfRYD+frjp//O4Ym6xoXUyCaQPeUeC5kC/wqymAFwzwTrUAylux6wSJyQTMwWNq2kqAxgrEBJIXKCIlQDngNklOQZeENTlXA8xwr3nxygTecrd2oxOBjN8tJob7ZvO+aVGlDOPRH/c9QKKOAzQ41ddk7QgF8PC7XKoe+n9He7MyfIzM0l6fzjG5oyoZLVbtlD7pTAHYgh2bEhOF0EWr3taYbtbXrdG8tImM4NNHYA4m8wtVzVhbBJLoM3jJzLFTPIHH7GiMmm7vtnYYad5p2qxxMbzRkLASFVXO6Ey+kMKYVPPRGbW0M0kLXIEKd/kOnEDcXtrp2hr+d+jqXvw1PEWu+U7FOnw+o26oDckaIKREDf4I81KpZr1BMImgQW3hnJPKsjJObWv6l5apBikGdxXb+KjFj6eGYTcjuHKXd5nrE73xq2cF9+yLDiD3eMiMBHgtrqeUUSunV95qxVGyXC2aPcJ4xxeogyeqM5MgIeRx+yg==
+Return-Path: <sender@khas.edu.tr>
+Received: from EUR02-AM0-obe.outbound.protection.outlook.com (mail-am0eur02on20701.outbound.protection.outlook.com. [2a01:111:f403:2606::701])
+        by mx.google.com with ESMTPS id w4-20020adfcd04000000b0033af85fdf7dsi802962wrm.347.2024.02.06.03.15.27
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 06 Feb 2024 03:15:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of sender@khas.edu.tr designates 2a01:111:f403:2606::701 as permitted sender) client-ip=2a01:111:f403:2606::701;
+Authentication-Results: mx.google.com;
+       dkim=temperror (no key for signature) header.i=@khas.edu.tr header.s=selector1 header.b=ud0qe08L;
+       arc=pass (i=1 spf=pass spfdomain=khas.edu.tr dkim=pass dkdomain=khas.edu.tr dmarc=pass fromdomain=khas.edu.tr);
+       spf=pass (google.com: domain of sender@khas.edu.tr designates 2a01:111:f403:2606::701 as permitted sender) smtp.mailfrom=sender@khas.edu.tr;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=khas.edu.tr
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none; b=M8ljW6DovJwnbHcwJhlFCDVXqqitSbN17ZsSGKBQbolLCDFazah02pZ/ZMT+gV8722XSZDvSzdRlUWB39Y3QUJpG33BO9Pa1SfHVZYaXLBbjETYByQLM8nKFkoNCopdh2m4VgdGKnuyIbmcd4GoAu8xY33lkKiaxG0FhO5SUBG9FaPGyYQyk7iqiP6/yTEC3v3T+dwT+9hvpXNZUPB7N+LBBufDetzledw+7V+UfmRjmFBwg0CR2318CFm+3GKZEMngc/b/Kns5jIbiWffkIy5b05uf9wsBNX1WXO7Supn0b07IKUG60v/+yhnbL54TODibWHyJl5pgdwPPE6BLYew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1; bh=kDeyY/cs8mZeGmj0BG0jV9apSYKxruDbBTs16jcGGpo=; b=EduD6jQfea3uegbcozUBc2VPY52+T/9NQoVlETkqRV4lHLBYZ9BOuIdyGqMF1PKgVUFr2AZzO3J5F0s6ZXYdvqOtkCu409VbgibqIM1Zh3N+wHOovdyPo2tZi0++r4mPg7xK48e34JN2vQVNCrYbQrNJtTd58YaoKDuwS75EbPDN6uILhucaUj4fcsp5+9NRpV8X5FnWHV2RfO6mCOWNc2fLWUZsUARfi0imdGjd8RZxaB/lAj5j4AmSVLwE2OmUSANgxvpxbDRFwc6qPZDqF/Tvp8AbinROUwiD3rK7UFTu/ExCX5MDQb75EBDMmB+MFtCnPr3wXw2wjKAO0yy2kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass smtp.mailfrom=khas.edu.tr; dmarc=pass action=none header.from=khas.edu.tr; dkim=pass header.d=khas.edu.tr; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=khas.edu.tr; s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck; bh=kDeyY/cs8mZeGmj0BG0jV9apSYKxruDbBTs16jcGGpo=; b=ud0qe08LYUxmgDNW07qpsfrigw6LqlienIaGBG36Be2v7QF6/F3n/MXpebbUsMeQsczpMAyKWLM6/3Zqi6IKXv6UZczCizHIF+Tb6xfLrI8rzK/ZXf7ZhMCdpjgjHoCRWheqnQ2MWsq/8zRf/a9AY5r+UNecsoae5tKMHgZjM4nbmXU6vJJkX+mfVzrbBS4YEwS7v23kIlG/qHep/P76hkNe2uZkxDafQ/C0m8ovL69MRJ9yPOY9PIbLlSJ+jFn/D5MMr9xp/OfZ6KWPUsze3sXWVfQ7f+21LlRE6QVR/vGn92Ich0uGGGjxmkvIB9h0bSFcYyRyPJfPotHiRsufZg==
+Received: from AM6PR04MB5543.eurprd04.prod.outlook.com (2603:10a6:20b:99::28) by AM8PR04MB7314.eurprd04.prod.outlook.com (2603:10a6:20b:1df::13) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.36; Tue, 6 Feb 2024 11:15:14 +0000
+Received: from AM6PR04MB5543.eurprd04.prod.outlook.com ([fe80::f1c1:29bd:8405:4cbb]) by AM6PR04MB5543.eurprd04.prod.outlook.com ([fe80::f1c1:29bd:8405:4cbb%4]) with mapi id 15.20.7249.035; Tue, 6 Feb 2024 11:15:14 +0000
+From: "Filiz Kocaboğa" <sender@khas.edu.tr>
+CC: Hasan Dag <hasan.dag@khas.edu.tr>, "r.bedii.gumus@gmail.com" <r.bedii.gumus@gmail.com>, "eb.atabey@gmail.com" <eb.atabey@gmail.com>, "danko.nakic@gmail.com" <danko.nakic@gmail.com>, "edratabaku@gmail.com" <edratabaku@gmail.com>, "klesidagjana@gmail.com" <klesidagjana@gmail.com>, "cano.jl1995@gmail.com" <cano.jl1995@gmail.com>, "asem2000m@gmail.com" <asem2000m@gmail.com>, "samsoonnaharshampa@gmail.com" <samsoonnaharshampa@gmail.com>, "minhaz18061997@gmail.com" <minhaz18061997@gmail.com>, "helmihibatullah393@gmail.com" <helmihibatullah393@gmail.com>, "kebalbhandari123@gmail.com" <kebalbhandari123@gmail.com>, "ham@ham.email" <ham@ham.email>, "aigerimmoldakhanova7@gmail.com" <aigerimmoldakhanova7@gmail.com>, "aldiyar.ismailov@gmail.com" <aldiyar.ismailov@gmail.com>, "hamroz.gavharov@gmail.com" <hamroz.gavharov@gmail.com>, "baverly7@gmail.com" <baverly7@gmail.com>, "adeopatoye@gmail.com" <adeopatoye@gmail.com>, "cikechukwujohn@gmail.com" <cikechukwujohn@gmail.com>, "pi.udechukwu.max@gmail.com" <pi.udechukwu.max@gmail.com>, "rhussein202@gmail.com" <rhussein202@gmail.com>, "abdalkhattak111@gmail.com" <abdalkhattak111@gmail.com>, "lydiahmuigua@gmail.com" <lydiahmuigua@gmail.com>, "mahnoorj91@gmail.com" <mahnoorj91@gmail.com>, "houssememrbt@gmail.com" <houssememrbt@gmail.com>, "Mert İlhan Ecevit" <mertilhan.ecevit@khas.edu.tr>, "ibrahimbolaji50.ib@gmail.com" <ibrahimbolaji50.ib@gmail.com>, Ebru Dilan <ebru.dilan@khas.edu.tr>, "Filiz Kocaboğa" <sender@khas.edu.tr>, "Ayhan Gücüyener" <ayhan.gucuyener@khas.edu.tr>, Emine Balta <emine.balta@khas.edu.tr>
+Subject: ICANN Seminar - Presentation Attachment
+Thread-Topic: ICANN Seminar - Presentation Attachment
+Thread-Index: AQHaWNebK1SNaaCek0GrbNMHNMTn2Q==
+Date: Tue, 6 Feb 2024 11:15:14 +0000
+Message-ID: <AM6PR04MB5543E814E00ED00698C0E79DCA462@AM6PR04MB5543.eurprd04.prod.outlook.com>
+Accept-Language: tr-TR, en-US
+Content-Language: tr-TR
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed) header.d=none;dmarc=none action=none header.from=khas.edu.tr;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM6PR04MB5543:EE_|AM8PR04MB7314:EE_
+x-ms-office365-filtering-correlation-id: 81deed11-0014-41b4-43dd-08dc2704e453
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: OHFVkcegIHnoQ/0BeeMvfHCWUFn60QWwfSbJn1cH/BMtbxUwof0U7cppsnq1Yl6o9s5ZeezkvDUmpm0uEJn7jzsRWTNW4Sz0RdJTRc4lMO5M+xkPOCtM4JPZOi+RjsfbvCjc+fUpZ3jIuec7tpk3eMWtrF/DPIwdEz0dG8snSOVGAE1oKb0rPEX8RttGF2JUqMJ+gOmIz8NWNAZ45QBvV7Lp3eChRp2RP20AhAuTbvdCYf2LwRsk3lJ3yJe/FgtOa0i7wRRcAowPa5bfiZVsp2CFMKYqHw22V7S1AxqD7+LleASc0IuuNEjkFIiryuH+rbSt2X7cF3E/YgDIHTbZZIKrCheM0aoh9buak0iKj4dAP3iccgZQGlwsPrxJr1JjgWbqpgbnQ84cs5PAIya8qZjHbH8QdJnRuRt7xPYadZuTvjAtMgCc4URgET7uJMceGL1PrAy6lAD2Qy0F1Ynwx+s17qf2L9pa3GQuFHtTbFL8n0iL7+PPqFK+Z0NqhNCWJIkaIVGDSYtQjhLadDVOZVNb5nTU1RK5rMEAyLjjqWo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB5543.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230031)(136003)(396003)(376002)(346002)(366004)(39850400004)(230922051799003)(1800799012)(451199024)(109986022)(1690799017)(186009)(64100799003)(41300700001)(38070700009)(64756008)(66946007)(66476007)(66446008)(54906003)(66556008)(91956017)(316002)(66899024)(786003)(76116006)(52536014)(7416002)(2906002)(5660300002)(4326008)(450100002)(8676002)(8936002)(83380400001)(122000001)(38100700002)(166002)(19627405001)(99936003)(55016003)(33656002)(71200400001)(7696005)(6506007)(9686003)(45426003)(478600001)(40140700001)(107886003)(26005)(86362001)(66574015);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 0hHnDszl7BeXHTT1mutUyfquHOxSDyV8fZkmxerk0KTCG78cthc/xK7ip+IOGV6wrU324K6nVGYivonkRtabBijVJZJo6101NkBtj8aFG+MT6qnOa9BXcrRRQVKBCMEbbmGQyjEgK+5vUl05r3K1BOtG5Qg8d6lePSdoUd8RLgXYeQ6SzvRltsrhUMhPx0rlnlS/2J9tZj57+AqgVaSmtTtugmW+9tzfVnyZ7PJHIS6WlbrDX8jvTubD9Ludsiw8ZLZEPDKM/gaE8Hm53ISb18YB4fSEbgZ1FhwqgVC8HHweQphPTfhl4mXLKy+0VhLx/Jcb6AeIQZU0qirMsk6JQ9aBpTxqi0nC4AKIUX8TBMtTrTH80b2SiPqIKnS+PTpLHLiV6xKh4Up9dA1hTlKxKj+BWXXEvRTvTkYiCJZqPzMWrlcTSUwJNNA5aNlAAGiSHLqPnibEVWLwqbwZrm8dufhsv8NW7VfEEsCW3KP+yHeLAjMlatfu0oRma23DC2nNb4WoApOgvfm7XZUBGRMk/jZZvSRiWhQLddDSqTI29oJlpyKAdO4HPZMw4ejJZK0QZrGq660h0BWthzeXXUodYaJI7sVmV2C4tSQ5ycYX5l2i+Qn/WdViZia6+FF1aUfU6BDfbJ2qsw0VYxI7fduF362JRNrWIcdgiXUdtRNaalaBaJS7EFCm4I3d+qKXMrfMVvRB/jubpREXll3cRBhGFUmKZhK1to8XtWb3P0o4mcYrw9JyfVi6q1LDwkaonQtfa0s6xbndpmpzOPnRsdTCWJ9c3XvHwqEKRsjT+4bKGoKGt5IPQsTkGpjAo2HKxQjNmrx7+y4yBCMHS2iLNiHsoZvanW4QpnrkHoRIzHOHOeD02RDLkjtX13z9LmQ9D2fngyn+DwsxfjWE3ZlglwMIyj5FnYZdGMtZVXvb4H79CNN9eNZ6MtEAek7c2Z27WgSoflda9BGNTkA2mEMz/3dB5cujKNfX8Es5BKE6tW/5XjVUrDi7q0wzWjGo6cgCAY6qEiWFs2L5o5fJ2Ur29Ppqg6VKP6HYGI2Ac/K7BsJQ/+/dlBtIkWkrt1tp+GmUfHpJnkxqxxUy1QN2X1bpTkvq3ohOn31Hnny53GeCdHr7/aVrnIs7Ivv8+mKWnEP31hMXs+UIM60A1kXayFHr6sJIMpgxZlPm2fIjn9/bkj16qAjPZBR3hyjZL+hy5qQ6C9s/NmxpUGCteSFw18R9D/p4q19RF2VY5JHGM6ql2DnTKUS6yFxlJle9xSZd/1FvscJ3g7+BQ2IM5WxQyrvckPHu05ArNiG19g3GaRKToYf/rC28rTJQivjAgWkoRhYo3IDFa9NxKc2EgYRyN87QyvDVwPmKQ39rFJK9AyXaZOH+IdmBKts59oLu+4ZL3QzrbOSfDENFtcglpEL4Y8xv3EnJYzsm1C+CCaAdUWSiPdJ/PlvyK36M7lSYmNLZv11b5sF/u0jQlAOAIlUf6IpjD22nUAav7mlIcE8B3lSiITCdkoFiiqC256WWKTH0HY2Nb5T8fAaJlqnbYt0UCVwF3Qg1gklr1TwS80yf7/prbtbpAM2kPzv4wqIItJfEzAQqnoXz
+Content-Type: multipart/mixed; boundary="_004_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_"
+MIME-Version: 1.0
+X-OriginatorOrg: khas.edu.tr
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB5543.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81deed11-0014-41b4-43dd-08dc2704e453
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Feb 2024 11:15:14.3681 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f2ea0fb2-7d34-4ebf-9e53-64ec41288dbb
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LVp8P1NcMuzZDHq0btpkq9JOftm4ca+APiAFhOjutUVSJg4lpLBMze7RdpFbGpcmJtsLT0Ds9z7hg8jkvj/JsoFxXptYHelASs/Ck64nrmU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7314
+
+--_004_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_
+Content-Type: multipart/alternative; boundary="_000_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_"
+
+--_000_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_
+Content-Type: text/plain; charset="iso-8859-9"
+Content-Transfer-Encoding: quoted-printable
+
+Dear All,
+
+On January 15, 2024, we hosted a two-hour seminar featuring ICANN, offering=
+ CyberMACS students and CCIP researchers insights into DNS Ecosystem Securi=
+ty.
+
+You can find the presentation attached.
+
+Kindly note that ICANN requests that the presentation not be publicly share=
+d online.
+
+Best regards,
+CyberMACS Team
+[photograph]
+Filiz Kocabo=F0a
+Uluslararas=FD =DDleti=FEim Uzman=FD
+[phone icon]   AR GE Kaynaklar=FD Direkt=F6rl=FC=F0=FC
+[phone icon]   sender@khas.edu.tr
+[phone icon]  (212) 533-6532 |
+[facebook icon]<https://www.facebook.com/Khasedutr> [twitter icon] <https:/=
+/twitter.com/khasedutr>  [youtube icon] <https://www.youtube.com/user/Kadir=
+HasUniversitesi>  [linkedin icon] <https://www.linkedin.com/school/kadir-ha=
+s-university/>  [instagram icon] <https://www.instagram.com/khasedutr/>    =
+    www.khas.edu.tr<https://www.khas.edu.tr>
+
+
+
+Bu e-posta mesaj=FD ve ekleri, g=F6nderildi=F0i ger=E7ek ki=FEi ve/veya t=
+=FCzel ki=FEiye =F6zeldir ve gizlidir. Hi=E7bir =FEekilde =FC=E7=FCnc=FC ki=
+=FEilere a=E7=FDklanamaz, iletilemez ve kopyalanarak da=F0=FDt=FDlamaz. Bu =
+e-postan=FDn al=FDc=FDs=FD veya yetkili al=FDc=FDs=FDna iletmekten sorumlu =
+ki=FEi de=F0ilseniz, l=FCtfen e-postay=FD ve i=E7eri=F0ini t=FCm sistemleri=
+nizden kal=FDc=FD olarak siliniz ve e-postay=FD g=F6ndereni uyar=FDn=FDz. B=
+u e-posta'n=FDn adresinde, konusunda ve i=E7eri=F0inde yer alan, t=FCm ki=
+=FEisel verileriniz, 6698 say=FDl=FD Ki=FEisel Verilerin Korunmas=FD Kanunu=
+'na uygun olarak i=FElenmektedir. Bu kapsamda, www.khas.edu.tr adresli web =
+sitemizdeki "Ayd=FDnlatma Metni"ni okuyarak ve ba=FEvuru formunu doldurup t=
+araf=FDm=FDza ileterek detayl=FD bilgi edinebilir ve ba=FEvuru formundaki s=
+e=E7eneklerde bahsedilen haklar=FDn=FDz=FD kullanabilirsiniz. Kadir Has =DC=
+niversitesi, bu e-posta'n=FDn i=E7eri=F0inden, do=F0rulu=F0undan, b=FCt=FCn=
+l=FC=F0=FCnden, g=FCncelli=F0inden, iletilmesinden, al=FDnmas=FDndan, sakla=
+nmas=FDndan, gizlili=F0inin korunmamas=FDndan, vir=FCs i=E7ermesinden, sist=
+eminizde yaratabilece=F0i zararlardan ve =FEahsi ama=E7larla g=F6nderilmi=
+=FE olmas=FDndan sorumlu tutulamaz.
+
+This e-mail message and its attachments are confidential and secret. They c=
+annot be disclosed, communicated or distributed to third parties in any man=
+ner. If you are not the recipient or the person responsible for forwarding =
+it to its authorized recipient, please permanently delete the e-mail and it=
+s content, and notify the sender. All personal data contained in the addres=
+s, field and content of this e-mail are processed in accordance with the Pe=
+rsonal Data Protection Law No. 6698. In this context, you can obtain detail=
+ed information and use your rights in the application form by reading the "=
+Notification Text" on our website www.khas.edu.tr and filling out the appli=
+cation form. Kadir Has =DCniversitesi, cannot be hold responsible for the c=
+ontent, accuracy, integrity, transfer, receival, storage, privacy violation=
+, virus containment or damages it may create in your system and its persona=
+l purposes.
+
+--_000_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_
+Content-Type: text/html; charset="iso-8859-9"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+9">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<span style=3D"font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe =
+UI&quot;, system-ui, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&qu=
+ot;, &quot;Segoe UI Web&quot;, sans-serif; font-size: 14px;">Dear All,</spa=
+n></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);">On January 15, 2024, we hosted a tw=
+o-hour
+ seminar featuring ICANN, offering CyberMACS students and CCIP researchers =
+insights into DNS Ecosystem Security.</span></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);">You can find the presentation attac=
+hed.</span></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);"><br>
+Kindly note that ICANN requests that the presentation not be publicly share=
+d online.</span></div>
+<div style=3D"text-align: left;"><span style=3D"font-family: -apple-system,=
+ BlinkMacSystemFont, &quot;Segoe UI&quot;, system-ui, &quot;Apple Color Emo=
+ji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Web&quot;, sans-serif;=
+ font-size: 14px; color: rgb(0, 0, 0);"><br>
+</span></div>
+<div class=3D"elementToProof" style=3D"text-align: left;"><span style=3D"fo=
+nt-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, system-=
+ui, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe =
+UI Web&quot;, sans-serif; font-size: 14px; color: rgb(0, 0, 0);">Best regar=
+ds,</span></div>
+<div class=3D"elementToProof" style=3D"text-align: left;"><span style=3D"fo=
+nt-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helveti=
+ca, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);">CyberMACS Team&nbsp;=
+</span></div>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<title>Email Signature</title>
+<table style=3D"font-family:Calibri, sans-serif; padding-top:30px;" cellpad=
+ding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:120px; padding:0; text-align:center; vertical-align:midd=
+le;" valign=3D"middle" width=3D"120">
+<img alt=3D"photograph" width=3D"100" height=3D"100" style=3D"width:125px; =
+height:125px;" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inlin=
+e-files/khaslogo-png.png">
+</td>
+<td style=3D"border-bottom:2px solid; border-bottom-color:#003983; padding:=
+0; vertical-align:top;" valign=3D"top">
+<table style=3D"font-family:Calibri, sans-serif;" cellpadding=3D"0" cellspa=
+cing=3D"0">
+<tbody>
+<tr>
+<td style=3D"font-family:Calibri, sans-serif; color:#003983; padding-bottom=
+:6px; padding-top:20px; padding-left:0; padding-right:0; vertical-align:top=
+;" valign=3D"top">
+<strong><span style=3D"font-family:Calibri, sans-serif; color:#003983; font=
+-size:11pt; font-style:italic;">Filiz Kocabo=F0a</span></strong><br>
+<span style=3D"font-family:Calibri, sans-serif; color:#003983; font-size:10=
+pt;">Uluslararas=FD =DDleti=FEim Uzman=FD</span>
+</td>
+</tr>
+<tr>
+<td style=3D"font-family:Calibri, sans-serif; color:#444444; padding-bottom=
+:6px; padding-top:0; padding-left:0; padding-right:0; line-height:18px; ver=
+tical-align:top;" valign=3D"top">
+<span style=3D"font-family:Calibri, sans-serif; color:#444444; font-size:10=
+pt;"><img border=3D"0" width=3D"11" alt=3D"phone icon" style=3D"height:11px=
+; width:11px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inline=
+-images/building.png">
+<span style=3D"font-family:Calibri, sans-serif; color:#444444; font-size:10=
+pt;">&nbsp; AR GE Kaynaklar=FD Direkt=F6rl=FC=F0=FC
+<br>
+</span><span style=3D"font-family:Calibri, sans-serif; color:#444444; font-=
+size:10pt;"><img border=3D"0" width=3D"11" alt=3D"phone icon" style=3D"heig=
+ht:11px; width:11px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files=
+/inline-images/mail.png">
+<span style=3D"font-family:Calibri, sans-serif; color:#444444; font-size:10=
+pt;">&nbsp; sender@khas.edu.tr
+<br>
+</span><span style=3D"font-family:Calibri, sans-serif; color:#444444; font-=
+size:10pt;"><img border=3D"0" width=3D"11" alt=3D"phone icon" style=3D"heig=
+ht:11px; width:11px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files=
+/inline-images/phone.png">&nbsp; (212) 533-6532
+</span><span style=3D"font-family:Calibri, sans-serif; font-size:10pt;">| <=
+/span><span style=3D"font-family:Calibri, sans-serif; color:#444444; font-s=
+ize:10pt;"></span></span></span></td>
+</tr>
+<tr>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"font-family:Calibri, sans-serif; width:140px; padding-top:6px;=
+ padding-left:0; padding-right:0; text-align:center; vertical-align:middle;=
+" valign=3D"middle" width=3D"140">
+<span><a href=3D"https://www.facebook.com/Khasedutr" target=3D"_blank" rel=
+=3D"noopener"><img border=3D"0" width=3D"16" alt=3D"facebook icon" style=3D=
+"border:0; height:16px; width:16px" src=3D"https://www.khas.edu.tr/sites/kh=
+as.edu.tr/files/inline-images/facebook.png"></a>&nbsp;</span><span><a href=
+=3D"https://twitter.com/khasedutr" target=3D"_blank" rel=3D"noopener"><img =
+border=3D"0" width=3D"16" alt=3D"twitter icon" style=3D"border:0; height:16=
+px; width:16px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inli=
+ne-images/twitter.png"></a>&nbsp;</span><span><a href=3D"https://www.youtub=
+e.com/user/KadirHasUniversitesi" target=3D"_blank" rel=3D"noopener"><img bo=
+rder=3D"0" width=3D"16" alt=3D"youtube icon" style=3D"border:0; height:16px=
+; width:16px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inline=
+-images/youtube.png"></a>&nbsp;</span><span><a href=3D"https://www.linkedin=
+.com/school/kadir-has-university/" target=3D"_blank" rel=3D"noopener"><img =
+border=3D"0" width=3D"16" alt=3D"linkedin icon" style=3D"border:0; height:1=
+6px; width:16px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inl=
+ine-images/linkedin.png"></a>&nbsp;</span><span><a href=3D"https://www.inst=
+agram.com/khasedutr/" target=3D"_blank" rel=3D"noopener"><img border=3D"0" =
+width=3D"16" alt=3D"instagram icon" style=3D"border:0; height:16px; width:1=
+6px" src=3D"https://www.khas.edu.tr/sites/khas.edu.tr/files/inline-images/i=
+nstagram.png"></a>&nbsp;</span>
+</td>
+<td style=3D"padding-top:6px; padding-bottom:0; padding-left:0; padding-rig=
+ht:0; vertical-align:middle;" valign=3D"middle">
+<a href=3D"https://www.khas.edu.tr" target=3D"_blank" rel=3D"noopener" styl=
+e=3D" text-decoration:none;"><span style=3D"color:#003983; font-family:Cali=
+bri, sans-serif; font-size:10pt"><span style=3D"color:#003983; font-family:=
+Calibri, sans-serif; font-size:10pt">www.khas.edu.tr</span></span></a>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<p style=3D"font-size:9px">Bu e-posta mesaj=FD ve ekleri, g=F6nderildi=F0i =
+ger=E7ek ki=FEi ve/veya t=FCzel ki=FEiye =F6zeldir ve gizlidir. Hi=E7bir =
+=FEekilde =FC=E7=FCnc=FC ki=FEilere a=E7=FDklanamaz, iletilemez ve kopyalan=
+arak da=F0=FDt=FDlamaz. Bu e-postan=FDn al=FDc=FDs=FD veya yetkili al=FDc=
+=FDs=FDna iletmekten
+ sorumlu ki=FEi de=F0ilseniz, l=FCtfen e-postay=FD ve i=E7eri=F0ini t=FCm s=
+istemlerinizden kal=FDc=FD olarak siliniz ve e-postay=FD g=F6ndereni uyar=
+=FDn=FDz. Bu e-posta&#8217;n=FDn adresinde, konusunda ve i=E7eri=F0inde yer=
+ alan, t=FCm ki=FEisel verileriniz, 6698 say=FDl=FD Ki=FEisel Verilerin Kor=
+unmas=FD
+ Kanunu&#8217;na uygun olarak i=FElenmektedir. Bu kapsamda, <b>www.khas.edu=
+.tr</b> adresli web sitemizdeki
+<b>&#8220;Ayd=FDnlatma Metni&#8221;</b>ni okuyarak ve ba=FEvuru formunu dol=
+durup taraf=FDm=FDza ileterek detayl=FD bilgi edinebilir ve ba=FEvuru formu=
+ndaki se=E7eneklerde bahsedilen haklar=FDn=FDz=FD kullanabilirsiniz.
+<b>Kadir Has =DCniversitesi</b>, bu e-posta&#8217;n=FDn i=E7eri=F0inden, do=
+=F0rulu=F0undan, b=FCt=FCnl=FC=F0=FCnden, g=FCncelli=F0inden, iletilmesinde=
+n, al=FDnmas=FDndan, saklanmas=FDndan, gizlili=F0inin korunmamas=FDndan, vi=
+r=FCs i=E7ermesinden, sisteminizde yaratabilece=F0i zararlardan ve =FEahsi =
+ama=E7larla
+ g=F6nderilmi=FE olmas=FDndan sorumlu tutulamaz. </p>
+<p style=3D"font-size:9px">This e-mail message and its attachments are conf=
+idential and secret. They cannot be disclosed, communicated or distributed =
+to third parties in any manner. If you are not the recipient or the person =
+responsible for forwarding it to its
+ authorized recipient, please permanently delete the e-mail and its content=
+, and notify the sender. All personal data contained in the address, field =
+and content of this e-mail are processed in accordance with the Personal Da=
+ta Protection Law No. 6698. In this
+ context, you can obtain detailed information and use your rights in the ap=
+plication form by reading the
+<b>&#8220;Notification Text&#8221;</b> on our website <b>www.khas.edu.tr</b=
+> and filling out the application form.
+<b>Kadir Has =DCniversitesi</b>, cannot be hold responsible for the content=
+, accuracy, integrity, transfer, receival, storage, privacy violation, viru=
+s containment or damages it may create in your system and its personal purp=
+oses.</p>
+</body>
+</html>
+
+--_000_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_--
+--_004_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_
+Content-Type: application/pdf; name="DNS Ecosystem Security_ KadirHas_CCIP.pdf"
+Content-Description: DNS Ecosystem Security_ KadirHas_CCIP.pdf
+Content-Disposition: attachment; filename="DNS Ecosystem Security_ KadirHas_CCIP.pdf"; size=11018762; creation-date="Tue, 06 Feb 2024 11:14:38 GMT"; modification-date="Tue, 06 Feb 2024 11:14:53 GMT"
+Content-Transfer-Encoding: base64
+
+
+--_004_AM6PR04MB5543E814E00ED00698C0E79DCA462AM6PR04MB5543eurp_--

@@ -1,0 +1,370 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7301:31c6:b0:137:3158:9850 with SMTP id iw6csp2060692dyb;
+        Mon, 19 Aug 2024 05:57:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFdf0k0S2xwGGmZe899OROrmf6xodTk7Lxy8V+6cQB7EIr/dsupTdXxKzBKgi2yb54lb8iq
+X-Received: by 2002:a05:6000:ad2:b0:367:8c65:3c9 with SMTP id ffacd0b85a97d-3719431ece7mr7580936f8f.2.1724072232208;
+        Mon, 19 Aug 2024 05:57:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1724072232; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dnYQ24mWJFJIAiV+DG6HJF3xPDhvX7VXIkeoBiq++kggD0cZpHTfp6/+xwdZ0aSujV
+         FLZ/H/5vVvIGTnBkt0R3y9inNW0mb0pdXcSPB3Rh/JJQdripb0BoG7KsU7rK1t/XsnBp
+         92nrXNzXsgiD/8Wqq3mNHory+1jsKRMimoX18nF6d7f/pu1RgpzbV3PA+nBhbDhhQwX3
+         qJ8+WnyUOZfpCQOHQWkmemi+Dxnrv4SP1FoPmnEXc+aJCT9VXbq2lxfTvoaXbJ/1GH4u
+         4XjYrhUqSh/5VIT2vhalpUAGZqh6xxdfD4e2caFZMSTbgxGBr28b4ri77uBNhyNbXQ/4
+         d7WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:auto-submitted:mime-version:to:from:subject:date
+         :message-id:dkim-signature:dkim-signature;
+        bh=0WJndSVWms5KEt8hb/we2RTXDPkc9QJzyqUer/UjzNw=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=qHi3DW5t26SKoVkOCRArI3vjF9/Er3BtZjxMqL2xqDzh5Ru13s3FT3JRP6dLaZKzgV
+         98cX4ZH//ZIdjma5D4xryq52WFOSwuPbfLsw3aA9owN9rNwpuJEB3EYL0O5d2kTLnoJx
+         firm7x5uxd56cyM/GRU3DGz9/44dGBNFVn1TIo/2tikt10Q7cTkHRCQClffr0GlBEuqf
+         dhartz5d0KeITmsrJRwdQIKFtH4VB3YiK/pVO0Q3ExglZrMIR/Z9ih48thQmcyp6i5Mk
+         7AR5li2+V5MM0zDwc8xTaNksK+b0fA8mkguL3auE/0V7CtoAyy+v8m3XD6Iy//VqYYmA
+         FbxA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@talyo.de header.s=mzc6lkqvyen2lpnrqk25hlyqm4a567sx header.b=k+5jalW4;
+       dkim=pass header.i=@amazonses.com header.s=qftdzk2dqsatjnlrq4r5brjbihpfcrsh header.b=X7AKzKm5;
+       spf=pass (google.com: domain of 010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com designates 69.169.224.8 as permitted sender) smtp.mailfrom=010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com
+Return-Path: <010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com>
+Received: from b224-8.smtp-out.eu-central-1.amazonses.com (b224-8.smtp-out.eu-central-1.amazonses.com. [69.169.224.8])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-37189850119si4325670f8f.226.2024.08.19.05.57.11
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Aug 2024 05:57:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com designates 69.169.224.8 as permitted sender) client-ip=69.169.224.8;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@talyo.de header.s=mzc6lkqvyen2lpnrqk25hlyqm4a567sx header.b=k+5jalW4;
+       dkim=pass header.i=@amazonses.com header.s=qftdzk2dqsatjnlrq4r5brjbihpfcrsh header.b=X7AKzKm5;
+       spf=pass (google.com: domain of 010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com designates 69.169.224.8 as permitted sender) smtp.mailfrom=010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=mzc6lkqvyen2lpnrqk25hlyqm4a567sx; d=talyo.de; t=1724072231; h=Message-ID:Date:Subject:From:To:MIME-Version:Content-Type; bh=ZzxB7XDTj0BpqB5J41C7hQfzdwSwDRgCJXiCKxITX9M=; b=k+5jalW4G3eMwhvuxWjvAY8Hf7Uhrw7VpgY37h0TYScA6hUNEN0Pwp4tVraprjMs D3S0kqyC5BoSvUQieyQUOcI4npLf1MLpc6lf1wt4gSzCI38+xVZ0NXVwmoztstP2RgH 1fHg+lQIOKMuifKi2+6V7yFcTtxRYztSztGfLKG5+rUA1prU1zDbs6N3H5GqHxoXKPL QBzscHo4DB9nNMpvyLzfKoKS4bW7qAiDIySOnScD9tpmtSUHHAWBDeFm3z2LxpIK+fn gC4Zf6Q9hF2nJ3/B6Q3lPlQtoNAhopcipsb/pKleL2yUptHMZUOvMcm2Vy/id8AlCyS U0N32ssOlw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=qftdzk2dqsatjnlrq4r5brjbihpfcrsh; d=amazonses.com; t=1724072231; h=Message-ID:Date:Subject:From:To:MIME-Version:Content-Type:Feedback-ID; bh=ZzxB7XDTj0BpqB5J41C7hQfzdwSwDRgCJXiCKxITX9M=; b=X7AKzKm5HUAU6LXTn1zrgDHUgMDIO5JsjDPrpIjEAtTuY5/Lf8XEgr1JJSTqBjEa 7vLKbCfKvj4LvvKprYCcVVnlangXWhndPhD9HbCJaj6E4qi210/Xis6YFcuej84sp36 gZ0upxJXJYLA90Xu0R+yKmh2QNAp+Dk+hju+m4fA=
+Message-ID: <010701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000@eu-central-1.amazonses.com>
+Date: Mon, 19 Aug 2024 12:57:11 +0000
+Subject: Urban Base - additional document request
+From: svc_uire-ticket <svc_uire-ticket@talyo.de>
+To: ham@ham.email
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_=_swift_1724072231_adf6d72c407aa628aa8e58517fbdcac0_=_"
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.eu-central-1.2eNfLRnte3faZkXODNWSK8ZWrrNp4OEmSpg37xw13sA=:AmazonSES
+X-SES-Outgoing: 2024.08.19-69.169.224.8
+
+--_=_swift_1724072231_adf6d72c407aa628aa8e58517fbdcac0_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+[REOS backoffice](https://backoffice.reos.software)
+
+Dear  guest,
+
+We have reviewed all submitted documents. However, we require additional do=
+cuments and information:
+
+Hello guest,=20
+
+I can offer you room 3.9.4 instead of 5.5.2 because the other room is alrea=
+dy rented. Please let me know if you would like to rent room 3.9.4 in a wom=
+en's shared apartment. The rent is 568.00 =E2=82=AC.=20
+
+I can then send you the contract.=20
+
+I will be happy to answer any questions you may have.
+
+Please click the attached link to add additional documents and further info=
+rmation:
+
+https://clh.onboarding.reos.software/
+
+For your convenience you may also copy the URL to the address bar of your i=
+nternet browser. Then press ENTER. Please make sure you copy the entire URL=
+ since certain browsers may use line breaks.
+
+=C2=A9 2024 REOS backoffice. All rights reserved.
+
+
+--_=_swift_1724072231_adf6d72c407aa628aa8e58517fbdcac0_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sc=
+ale=3D1.0">
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DU=
+TF-8">
+    </head>
+    <body style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: =
+border-box; background-color: #f5f8fa; color: #74787E; height: 100%; hyphen=
+s: auto; line-height: 1.4; margin: 0; -moz-hyphens: auto; -ms-word-break: b=
+reak-all; width: 100% !important; -webkit-hyphens: auto; -webkit-text-size-=
+adjust: none; word-break: break-word;">
+        <style>
+            @media  only screen and (max-width: 600px) {
+                .inner-body {
+                    width: 100% !important;
+                }
+
+                .footer {
+                    width: 100% !important;
+                }
+            }
+
+            @media  only screen and (max-width: 500px) {
+                .button {
+                    width: 100% !important;
+                }
+            }
+        </style>
+
+        <table class=3D"wrapper" width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: b=
+order-box; background-color: #f5f8fa; margin: 0; padding: 0; width: 100%; -=
+premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%=
+;">
+            <tr>
+                <td align=3D"center" style=3D"font-family: Avenir, Helvetic=
+a, sans-serif; box-sizing: border-box;">
+                    <table class=3D"content" width=3D"100%" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"font-family: Avenir, Helvetica, sans-serif; b=
+ox-sizing: border-box; margin: 0; padding: 0; width: 100%; -premailer-cellp=
+adding: 0; -premailer-cellspacing: 0; -premailer-width: 100%;">
+                        <tr>
+    <td class=3D"header" style=3D"font-family: Avenir, Helvetica, sans-seri=
+f; box-sizing: border-box; padding: 25px 0; text-align: center;">
+                    <img src=3D"https://backoffice.reos.software/asset/view=
+/2d4da6158445485bb06a530feb67eb34/file-200xN.jpg" style=3D"font-family: Ave=
+nir, Helvetica, sans-serif; box-sizing: border-box; max-width: 100%;">
+            </td>
+</tr>
+
+                        <!-- Email Body -->
+                        <tr>
+                            <td class=3D"body" width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"font-family: Avenir, Helvetica, sans-seri=
+f; box-sizing: border-box; background-color: #FFFFFF; border-bottom: 1px so=
+lid #EDEFF2; border-top: 1px solid #EDEFF2; margin: 0; padding: 0; width: 1=
+00%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width=
+: 100%;">
+                                <table class=3D"inner-body" align=3D"center=
+" width=3D"570" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family: A=
+venir, Helvetica, sans-serif; box-sizing: border-box; background-color: #FF=
+FFFF; margin: 0 auto; padding: 0; width: 570px; -premailer-cellpadding: 0; =
+-premailer-cellspacing: 0; -premailer-width: 570px;">
+                                    <!-- Body content -->
+                                    <tr>
+                                        <td class=3D"content-cell" style=3D=
+"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; paddin=
+g: 35px;">
+                                            <p style=3D"font-family: Avenir=
+, Helvetica, sans-serif; box-sizing: border-box; color: #74787E; font-size:=
+ 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Dear =
+udel,</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">We have reviewed all submitted documents. However, we requ=
+ire additional documents and information:</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">Hello,</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">I can offer you room 3.9.4 instead of 5.5.2 because the ot=
+her room is already rented. Please let me know if you would like to rent ro=
+om 3.9.4 in a women's shared apartment. The rent is 568.00 =E2=82=AC.</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">I can then send you the contract.</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">I will be happy to answer any questions you may have.</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">Please click the attached link to add additional documents=
+ and further information:</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">https://clh.onboarding.reos.software/</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">For your convenience you may also copy the URL to the addr=
+ess bar of your internet browser. Then press ENTER. Please make sure you co=
+py the entire URL since certain browsers may use line breaks.</p>
+<p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box; color: #74787E; font-size: 16px; line-height: 1.5em; margin-top: 0; te=
+xt-align: left;">Kind regards,<br>
+<br>
+Your Urban Base team</p>
+
+
+                                            <table class=3D"subcopy" width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; bor=
+der-top: 1px solid #EDEFF2; margin-top: 25px; padding-top: 25px;">
+    <tr>
+        <td style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing=
+: border-box;">
+            <p style=3D"box-sizing: border-box; color: #74787E; margin-top:=
+ 0; text-align: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-fami=
+ly: Calibri; text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><stro=
+ng style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-=
+box;"><span style=3D"box-sizing: border-box; font-size: 10.5pt; font-family=
+: Calibri, sans-serif; color: rgb(0, 53, 142);" lang=3D"EN-US">Legal Notice=
+</span></strong><span lang=3D"EN-US" style=3D"font-family: Avenir, Helvetic=
+a, sans-serif; box-sizing: border-box;"></span></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;" lang=3D"EN-US">Union Investment Real Estate GmbH</span><span lang=
+=3D"EN-US" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing:=
+ border-box;"><p style=3D"font-family: Avenir, Helvetica, sans-serif; box-s=
+izing: border-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-=
+align: left; font-size: 12px;"></p></span></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;" lang=3D"EN-US">Valentinskamp 70 / EMPORIO</span><span lang=3D"EN-=
+US" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border=
+-box;"><p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: =
+border-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-align: =
+left; font-size: 12px;"></p></span></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;" lang=3D"EN-US">20355 Hamburg, Germany</span><span lang=3D"EN-US" =
+style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box=
+;"><p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: bord=
+er-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-align: left=
+; font-size: 12px;"></p></span></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span lang=3D"EN-=
+US" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border=
+-box;"><br></span><span style=3D"font-family: Avenir, Helvetica, sans-serif=
+; box-sizing: border-box; font-size: 8.5pt;" lang=3D"EN-US">Management Boar=
+d: Dr. Michael B=C3=BCtter (Chairman), Gerald Kremer, Martin J. Br=C3=BChl,=
+ Henrike Waldburg, Volker Noack<br>Chairman of the Supervisory Board: Andr=
+=C3=A9 Haagmann</span><span lang=3D"EN-US" style=3D"font-family: Avenir, He=
+lvetica, sans-serif; box-sizing: border-box;"><p style=3D"font-family: Aven=
+ir, Helvetica, sans-serif; box-sizing: border-box; color: #74787E; line-hei=
+ght: 1.5em; margin-top: 0; text-align: left; font-size: 12px;"></p></span><=
+/p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span lang=3D"EN-=
+US" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border=
+-box;"><br></span><span style=3D"font-family: Avenir, Helvetica, sans-serif=
+; box-sizing: border-box; font-size: 8.5pt;">Regulated by:</span><p style=
+=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; col=
+or: #74787E; line-height: 1.5em; margin-top: 0; text-align: left; font-size=
+: 12px;"></p></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;">Bundesanstalt f=C3=BCr Finanzdienstleistungsaufsicht (BaFin)</spa=
+n><p style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: borde=
+r-box; color: #74787E; line-height: 1.5em; margin-top: 0; text-align: left;=
+ font-size: 12px;"></p></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;">Marie-Curie-Str. 24-28, 60439 Frankfurt am Main</span><p style=3D=
+"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color:=
+ #74787E; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 1=
+2px;"></p></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;">Telephone: +49 228 4108-0 / Telefax: +49 228 4108-123</span><p st=
+yle=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; =
+color: #74787E; line-height: 1.5em; margin-top: 0; text-align: left; font-s=
+ize: 12px;"></p></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;">Frankfurt/Main HRB 9073</span><p style=3D"font-family: Avenir, He=
+lvetica, sans-serif; box-sizing: border-box; color: #74787E; line-height: 1=
+.5em; margin-top: 0; text-align: left; font-size: 12px;"></p></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span style=3D"fo=
+nt-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; font-size=
+: 8.5pt;" lang=3D"EN-US">Internet:<span class=3D"Apple-converted-space" sty=
+le=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box;">=
+=C2=A0</span></span><span style=3D"font-family: Avenir, Helvetica, sans-ser=
+if; box-sizing: border-box; font-size: 8.5pt;"><a href=3D"http://vq8hjgqf.r=
+.eu-central-1.awstrack.me/L0/http:%2F%2Fwww.bafin.de/1/010701916ab68196-db0=
+0ab32-e670-4332-8e23-c2f4fbba2277-000000/8WsnORZSxN5xJhtxgbPRvYybNTE=3D168"=
+ title=3D"http://www.bafin.de/" style=3D"font-family: Avenir, Helvetica, sa=
+ns-serif; box-sizing: border-box; color: blue; text-decoration-line: underl=
+ine;" contenteditable=3D"false"><span lang=3D"EN-US" style=3D"font-family: =
+Avenir, Helvetica, sans-serif; box-sizing: border-box;">www.bafin.de</span>=
+</a></span><span lang=3D"EN-US" style=3D"font-family: Avenir, Helvetica, sa=
+ns-serif; box-sizing: border-box;"><p style=3D"font-family: Avenir, Helveti=
+ca, sans-serif; box-sizing: border-box; color: #74787E; line-height: 1.5em;=
+ margin-top: 0; text-align: left; font-size: 12px;"></p></span></p>
+<p style=3D"box-sizing: border-box; color: #74787E; margin-top: 0; text-ali=
+gn: left; font-size: 12px; caret-color: rgb(0, 0, 0); font-family: Calibri;=
+ text-size-adjust: auto; margin: 0cm; line-height: 15pt;"><span lang=3D"EN-=
+US" style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: border=
+-box;"><br></span><span style=3D"font-family: Avenir, Helvetica, sans-serif=
+; box-sizing: border-box; font-size: 8.5pt;" lang=3D"EN-US">Register Court:=
+ Local Court Hamburg, HRB 110793<br>VAT number: DE 118 513 697</span></p>
+
+        </td>
+    </tr>
+</table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+    <td style=3D"font-family: Avenir, Helvetica, sans-serif; box-sizing: bo=
+rder-box;">
+        <table class=3D"footer" align=3D"center" width=3D"570" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"font-family: Avenir=
+, Helvetica, sans-serif; box-sizing: border-box; margin: 0 auto; padding: 0=
+; text-align: center; width: 570px; -premailer-cellpadding: 0; -premailer-c=
+ellspacing: 0; -premailer-width: 570px;">
+            <tr>
+                <td class=3D"content-cell" align=3D"center" style=3D"font-f=
+amily: Avenir, Helvetica, sans-serif; box-sizing: border-box; padding: 35px=
+;">
+                    <p style=3D"font-family: Avenir, Helvetica, sans-serif;=
+ box-sizing: border-box; line-height: 1.5em; margin-top: 0; color: #AEAEAE;=
+ font-size: 12px; text-align: center;">
+                                                    =C2=A9 2024 Urban Base.=
+ All rights reserved.
+                            <br>
+                                               =20
+                       =20
+                                            </p>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    <img alt=3D"" src=3D"https://vq8hjgqf.r.eu-central-1.awstrack.me/I0/010=
+701916ab68196-db00ab32-e670-4332-8e23-c2f4fbba2277-000000/6zdT4oE2KnePL0P2G=
+S0H2gy54tc=3D168" style=3D"display: none; width: 1px; height: 1px;">
+</body>
+</html>
+
+--_=_swift_1724072231_adf6d72c407aa628aa8e58517fbdcac0_=_--

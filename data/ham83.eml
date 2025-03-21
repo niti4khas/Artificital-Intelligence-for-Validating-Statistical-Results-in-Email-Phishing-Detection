@@ -1,0 +1,220 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp995936lke;
+        Fri, 6 Dec 2024 10:05:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFu7C+5UCJKi/29DqQk/MGiPXkF/+TdbtdFfK0vnO8kWqgBVbngDYtQJIFxE8FjkId8mqBw
+X-Received: by 2002:a05:622a:1a9a:b0:464:c8d3:30c0 with SMTP id d75a77b69052e-46734f76d97mr57209811cf.35.1733508342061;
+        Fri, 06 Dec 2024 10:05:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733508342; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Jxd5EkcsPrqrLkiGNeGlC9EEEcx12Kueqm0JsDhADPzcSFYBfKV9HdYthqNsXcOE20
+         llQzCVOn5O3pougQBrHV6d562QTEtuxkmpjYeZPZ81AqY5/MOT1Pbfk29NXEwIs6hzpf
+         3PmcSNeSVKXWe1UgLMd0Ukg73HgAK/j20TgKuLdBznFKdi1gPrPJx269bULXwvhZcekv
+         aVOf+M2hC2ZG6O51aJ388kB+TGeba9MsLsu3JXjIRhjEAZ/1DJ1k5Pt3m18fKZ01rKNE
+         aSdRSYi2RdyIHLQBn3qRPsGEQ3Lz1fYpJik8tCgmOA0rpGTEhni2CzokpEHNKbKonWob
+         RfjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=jjNYq41JMUxugVcK2eJxuI4CL2J7J/zX2odVPXwmyPE=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=LTadWgHljnMlkFU+LRfvgpF5ph3TZSf2n3K4Qf2n2EW7ZZn0Fcymq/IoYwDPyA2fNA
+         2IYgWigJIqZR0NVpTd0f43uzPuSU3PmLiajj5mYjzn+0Yz+4rfjph+/06hC0M82qVS6r
+         B2LSV3K34+goawVuPUeYF9qKEkkHHPQF5Yqhv30LoN8PBmDx3qkWrUVPgz0k071Qftxi
+         J4JqfVT3TbXSXk8U2WiE03U2e4ACuIOS7tQ5wpusGNVxjcKOuaTGON0ZMwkiHEdPfdH3
+         JFxnDninb4wyaJpwHQCQ1NFXSi2CoGux5MYTYX2AmBKDsGvliM4GkQv66YM0EGlxIk0c
+         GwCw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@beehiiv.com header.s=s1 header.b=mhbprhc2;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=gCytYi6E;
+       spf=pass (google.com: domain of bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com designates 159.183.141.176 as permitted sender) smtp.mailfrom="bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+Return-Path: <bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com>
+Received: from o13.ptr6032.mail.beehiiv.com (o13.ptr6032.mail.beehiiv.com. [159.183.141.176])
+        by mx.google.com with ESMTPS id d75a77b69052e-467296b7088si54968571cf.80.2024.12.06.10.05.41
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Dec 2024 10:05:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com designates 159.183.141.176 as permitted sender) client-ip=159.183.141.176;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@beehiiv.com header.s=s1 header.b=mhbprhc2;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=gCytYi6E;
+       spf=pass (google.com: domain of bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com designates 159.183.141.176 as permitted sender) smtp.mailfrom="bounces+20340470-e0b8-ham=ham@email@em9811.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=beehiiv.com; h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc: content-type:from:subject:to; s=s1; bh=jjNYq41JMUxugVcK2eJxuI4CL2J7J/zX2odVPXwmyPE=; b=mhbprhc2oAHvsSRP65gl5qjV2KyogqF+8UEULUO5lxQXlOn2EueifMOo+56VgbyWCthg eVfXeIBNGnchFv8IB0f+Y3AcdaO6Hyfz6SLXHUxdxaxjIbFRDcHvIwt23POCCmnJN3P9WU V+MKZE1/YESJPbpl1AMXAs9VieTCApMtbkp8CwgYh4ubj3qyYaPSpLvlOYUz3DifwUEbNV ypFB3AAPVT/d4rcY5U+VWYnhGoW3o/nmrzoxF+nEY9sKan72HKOedZ17fHHX7VHwpGrksh 3wl6ANxUP8d3y6lMFOX8AhnMitkG7Ps0tpEJRCMHPNsdYDqZxUTQBUJ3NGuTKO6Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc: content-type:from:subject:to; s=smtpapi; bh=jjNYq41JMUxugVcK2eJxuI4CL2J7J/zX2odVPXwmyPE=; b=gCytYi6ESFHqHLo6fEWimMNV36TsR8NA13XrqrByy+vAg7T8GSp0BYj6gbsLJfn7bDly hKAADp3pdL5qg3UMDzShnGmaYPfWOFOxisV/tuU7O/D/dA/bTskGJIHCUxw7hwK5D3tr8o xrD57vBC6tWgVYR/YhB/+FSwKospLcLcQ=
+Received: by recvd-canary-5985c8ff48-w6sst with SMTP id recvd-canary-5985c8ff48-w6sst-1-67533CF4-24 2024-12-06 18:05:40.647035538 +0000 UTC m=+1897059.224231039
+Received: from MjAzNDA0NzA (unknown) by geopod-ismtpd-8 (SG) with HTTP id hSVTnfeRS328p9v_4MZwMw Fri, 06 Dec 2024 18:05:40.586 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=013236a4a736d476858075a5cd9d4e544439bb9e0a22afad068fa4deedae
+Date: Fri, 06 Dec 2024 18:05:40 +0000 (UTC)
+From: <sender@cx.beehiiv.com>
+Mime-Version: 1.0
+Message-ID: <hSVTnfeRS328p9v_4MZwMw@geopod-ismtpd-8>
+Subject: Here’s to your success
+Reply-To: beehiiv Team <hiiv-team@beehiiv.com>
+X-Mailer: Customer.io (dgTf-wYDAKC9Op-9OgGTnSJ4zPTuLl36RrokIyU=; +https://whatis.customeriomail.com)
+X-Report-Abuse-To: badactor@customer.io
+X-Feedback-ID: 20340470:SG
+X-SG-EID: u001.79cftgSSkESWiS3wdRbOMniIoVMsVaFnhaEeLSEeDD4ZIO+c+L4bawF1MxS0dNpD+dg3XFNK11RLlzD9QAvyikrM+XtrGkN1hNuNAY8b12CZXShoZRTuWpJRTknpLZ+7v4CU+AJAinRb/YG2J6tv5uYm/gYeXBMoU3AYGt7ud/+BQ2JeWVpX014enzemZQEhBko5BGL8SuffqqykbVhrvIcXSQElnZuUcO9iXTstSESVGXzzJrRz8cCpWF3E7CNPsFv9NInSs9FC9Sy8BHrGiA==
+X-SG-ID: u001.SdBcvi+Evd/bQef8eZF3BpTL9BgbK5wfSJMJGMsmprBhrCiPUZ830uaWoPv5c4qvX1Q2lskpGtHIi4UCtL5Qt6BF3B9/EZn5WPfeA7LyzeTTJK9HPaWxojc2VagVwFDg
+To: ham@ham.email
+X-Entity-ID: u001.89q+O2F5C9VLoUWc2I7KrA==
+
+--013236a4a736d476858075a5cd9d4e544439bb9e0a22afad068fa4deedae
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey!
+
+As we wrap up our Black Friday promo and head into the final stretch of the=
+ year, I wanted to take a moment to say thank you for being part of the bee=
+hiiv community. We=E2=80=99re constantly inspired by the creativity and ded=
+ication our customers pour into their work, and it=E2=80=99s an honor to su=
+pport their journeys.
+
+This year has been an exciting one for beehiiv. From raising our Series B (=
+ https://u20340470.ct.sendgrid.net/ss/c/u001.mcSNEFUTDAUkjLWxW-cV3AdThjPCsE=
+MnV9uF9S2IRigDm7hhq6nEtt4QhRdQqaGNVgDW2__L-0PGjXwNF5dsVKpwxTZ7X5PVMGvJaEFQ1=
+k_rl28o7Bd9qgw2wdZchSne-eYG5JBz0WnzzSXeneudTKs2kirPC2IZj5I9QLGVNS7SL6uRFkYA=
+cRRSe45y3t6a-o_txBvRzyI1y-MDj_zXA5vjIxvAxbfsiBIe7viqxKjo4PrY4OLPnjLcpATRTsA=
+A_q1qAUefksuXQATWGSPD9w/4c2/EUol2klhSFKwSR8cqya_AA/t0/h001.MawmwENAPUCJjtbI=
+y3PoAZ85QXzuZuwfsZj8mIA3QFo ) and acquiring AI-powered website builder Type=
+dream ( https://u20340470.ct.sendgrid.net/ss/c/u001.icHkG9-9qPP3o19eBC_V49_=
+GZelxVndAYJdY1y58I2rU7HAjfNO1FSBL2z9K3UxBdcqDYdN0Nb5HwleN4SJtBmDJNrpCA6Eo8H=
+tn7n4xHDf8oXYc5yB6QUoKgBDHv75luof-qQKnVN6r8alNcb1EyKELwvC3NKnllTi_BJ7gVA9sn=
+ZTrXFP-Fl_aV2ObVo_T9ITtPF_DPAnZjkZowRzkvnIEruMUthRJYXNZ0c7ZWQQdpZSYKRHIMxbC=
+jmBqiC2HmiBXYdNHenAcneD0jcfXwC10kuApAUVBoG8FPOQWZ1Y/4c2/EUol2klhSFKwSR8cqya=
+_AA/t1/h001.5lPKsyPeblRTkFxWuedi52hf6W3TsnQAtXBbV4VzA_o ) to shipping 50+ n=
+ew features, ( https://u20340470.ct.sendgrid.net/ss/c/u001.huAlnCwl1cX2-Sar=
+MljcXFEHUsGgvB7HPr76rK_YS3vDNhPyLP4bUgjaiqfg4fw3olWIXasBSK9x-cqwXvoV-PZ098p=
+BQnuYfNjE2XuabpCCPPc02TKPJh2RS_fLXaEEnsVsOMLzxDq_Xc1S466MJ38mWyZbRxB16LPciQ=
+DCXmFSEcijXZwBdQId-mSM-zuwBmKdxPeQonNIjB8eFuAQ_QrHaFDLVFvijuIv4xVp3-OXhq-zQ=
+J_WzFB_PzPxi9NR/4c2/EUol2klhSFKwSR8cqya_AA/t2/h001.6YvPr38tVzfpTRmWMG7kin0v=
+BZWDSIP0nXnLM1efRmU ) the momentum feels palpable=E2=80=A6and we=E2=80=99re=
+ just getting started.=C2=A0
+
+While our Black Friday deal ( https://u20340470.ct.sendgrid.net/ss/c/u001.h=
+uAlnCwl1cX2-SarMljcXBdZZf4KtcMk3AtURZX0ToD71qJp_77PijPffTBgmf02CX-W95PylkM4=
+oNwGBy4Se-WatSnWugx8zbXyFfyzpRQyY8ZqFAL0FbWYNA7hu8hdA4i43fNge0K1Nh2wjOIiFsf=
+cRjprTK9p6T3ccpn7ZzRDMfPO92mD1v-_NOVKSupl8fGBfRFGzgzRgkpLlYElcMenPjQ4OPAhtP=
+4NG0Lj2ShcWE4Qg0tzJKZCvYtU3Pv9/4c2/EUol2klhSFKwSR8cqya_AA/t3/h001.-dc2VxWr4=
+wPJrJis8pRk8Cv7v1Ym2VqW3NhyeQnfvog ) ends tonight at midnight, our commitme=
+nt to your success doesn=E2=80=99t. Here=E2=80=99s to making 2025 your bigg=
+est year yet!
+
+Cheers,
+
+sender
+
+Co-founder & CEO, beehiiv
+--013236a4a736d476858075a5cd9d4e544439bb9e0a22afad068fa4deedae
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd"><html><head></head><body>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">Hey!</span>=
+</p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;"><br/></span=
+></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">As we wrap =
+up our Black Friday promo and head into the final stretch of the year, I wa=
+nted to take a moment to say thank you for being part of the beehiiv commun=
+ity. We=E2=80=99re constantly inspired by the creativity and dedication our=
+ customers pour into their work, and it=E2=80=99s an honor to support their=
+ journeys.
+</span></p>
+<div><br/></div>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">This year h=
+as been an exciting one for beehiiv. From raising our <a target=3D"_blank" =
+href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.puihR7ggMGFkNSVkv_92GK5=
+TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnVKKo7YkyGOOUWVSI3mm4WT_y2GFUBLyJx=
+UaR0G79xij0bKG4R1UvXd9ZUyyD2hBZzb6QLWOrHa5eM_vnV-klrAP4G7U_ZNiwj7hfyNTuhiS9=
+puvNkkrn6sQaUzDIrbRUSx7Kf8e5skNJjHcKaKHbFVs3ATCVTGQN13T74Z4OLQn8QUuy5VgJpjm=
+bx8s_KzfWp4VV5ml-6RK8mqEunRfYaSmLH5FXPKc3BduTYIovjcht5ywmodI7WKRhXQYduVULiu=
+5kjkP0k0kaEwp3ltQwhlTRw7kAXoDxqNlvqPBc30j02Fropp-BqYWqogds81qxoTV-gbGYB9z9y=
+xynoBTPaBjA0oXVgecpCkXuRp1bQPUhyA2xHAyj6yFtYCG2qP-_k_yGYxTwp_W-G3N2pKkMETGV=
+5YFl6bFiIJodYzmxjK4WvP4lnO_FifVJKsy6N628fq9crXEjXaNkHBNGjdcyFhn5pz3uclyfs0n=
+K6O0Flt-f1WszWT8Z2wtUOOSiwL0ilsmIrapM4wcUEHb-zbG2-MqIhL7GcRVxVYnAjWrPnlm8eA=
+2tvyJOBi1T4AF6oybJQsCpBXQlJ0aGP0TLKZrDdal74V-g-My7UHQBqCCXvLMj8NOAWJxhkV1zk=
+JduK1rfNl76wb9mjt0ETFrauw4Cw/4c2/EUol2klhSFKwSR8cqya_AA/h4/h001._hUQeyZAU73=
+_NBI3zHN-GsUWTlT1K9MZmdVKsTs8qTg">Series B</a> and acquiring AI-powered web=
+site builder <a target=3D"_blank" href=3D"https://u20340470.ct.sendgrid.net=
+/ss/c/u001.puihR7ggMGFkNSVkv_92GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYp=
+nVKKo7YkyGOOUWVSI3mm4WT_y2GFUBLyJxUaR0G79xij0bKG4R1UvXd9ZUyyD2hBZzb6QLWOrHa=
+5eM_vnV-klrAP4G7U_ZNiwj7hfyNTuhhVLcDw7BVAJ6aReWNTNG-8BapGDCpnJU2WFH1G79p5hr=
+VFRNrb3mPU1MqIFSHd60mXxSjJGdDf2qZ2mQSkCBU-FZsnXkyIaGlbQIxIbuSA2TyW4hFrDF_n2=
+ct5ETdBBM0hyrxedfMvma4SnkdfTqnu2SBOsyRNDZDlNZzUA7mvJkR8fKflDo5ABXEKm1IBKBBW=
+uW170qHmFEmfNWKc9phCmTZ9-ux3Zh9uxF0pkWFCnE3t9oINwK-4t1Tp4lHoiGPO9uxEYZ7sZzt=
+IYRXVik7vc1FipqwHsEao3sb_IKwStKoIDu56sEToVE8TdBeI8YP2vA1aS8tJ_w5FkSHs-INA_t=
+g-8_h_K97ITiyrZvWpGCr-eW5YKnV5PwjCjfsJ-gb-Vtd-3CMgyfizxfYcPElOCBG7StaBqqYHl=
+pffjLhsRinbIPVsaSVzoE71QVlXhAU_63AOHLUJRMlH9XD_SWbidWcyDKu7RZwmc0tC1XxggY-G=
+zayy3IgadeIscihjUB57ipDZPUubBrisL9OKjNsXx_obEm4rQLVaWUzD-7Rov0qwShOFBxmNFs0=
+Nhm8M33CWOiXmNu-_gpd1Flu69Ojv/4c2/EUol2klhSFKwSR8cqya_AA/h5/h001.ocOFsvpZ6X=
+-4XB6K14Q81wAZUSIruxRm4dsSOKmmZEE">Typedream</a> to shipping <a target=3D"_=
+blank" href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.puihR7ggMGFkNSVk=
+v_92GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnVKKo7YkyGOOUWVSI3mm4WT_y2G=
+FUBLyJxUaR0G79xij0bKG4R1UvXd9ZUyyD2hBZzb6QLWOrHa5eM_vnV-klrAP4G7U_ZNiwj7hfy=
+NTuhjxm71wG5RKy1aY3IZci-QI41ih91bvlHdrqX96SSTDZK3FdmjfBZEvWQZp6Q8L1Ptm2b_Do=
+a-HzuGfD74gBVabQrKBAvtoynnR5aEWqy-wy4Nxnj21RunX8EiE-nXYClvPkUdQ4TtACa4OoNiJ=
+WOU6UcAQJw8GRRVOlgv5IJEfe8-SdBS0uUmEd8o6Nf6jLqrpcy0wDjeDvEx_1xsarXRIiy14YV8=
+hxk-X3ViozuwIMHQVOEW7h4KugD6B2BFItXXq7RK_snuO-7Z5fGqrZsfB4U3OJpHXuwDrUsKWvu=
+qvTsQOJSTrsSqUgs762TrKPaJGVBB9XSYbzQSDMdWSjT6dpK7Jk6L_YIBDtOhqvRd4mjeYIN_kD=
+o6vyywRDQAlUvZzGKy3XiCzXKF56kcWzfr4ES1yyz3TWeM_kWaPjd6F4wmjiCI-gW2djIVoMOox=
+w4x6ZIo-R7dkh2Nuggx_9oQe3YMbvkevj5IP3Hm1LgGXP3WSd7g_Su0lTm1M9PiKUl4/4c2/EUo=
+l2klhSFKwSR8cqya_AA/h6/h001.IVqAli1F-CuLvYtJYXKjiIAhjzM9fAXQkWzHd6NgEMs">50=
++ new features,</a> the momentum feels palpable=E2=80=A6and we=E2=80=99re j=
+ust getting started.</span>=C2=A0</p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><br/><=
+/p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">While our <=
+a target=3D"_blank" href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.pui=
+hR7ggMGFkNSVkv_92GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnVKKo7YkyGOOUW=
+VSI3mm4WT_y2GFUBLyJxUaR0G79xij0bKG4R1UvXd9ZUyyD2hBZzb6QLWOrHa5eM_vnV-klrAP4=
+G7U_ZNiwj7hfyNTuhjxm71wG5RKy1aY3IZci-QILVK5PfsL2ylH-jav-ncNZfu2s0lPg67X-jsr=
+WXJQtRDV2B4DSRb9zQH3EGv3j_B8TzuW_RSpPMHvnNjKFA-jTL4r6yAr6Q6TQ-qXGEq9fk1FeLM=
+XD6BkgnJEVZRm-B2-GEPvdjtWJKDXcgfTuIghzAgF-CiKAuWJR_ogOjqSb4OS_78hUoYI_RfeCm=
+mShBOuCGHzrGpJ_j_zhcdB9w_2PTsZgDk5f4DgF57XoJ8SX6_J2a3GQkhWAZveeydv12JAOkQa3=
+CPNNO9qPg9dMcPRuVP9v0QAOym014PfOWTVDAy26FAgcRhEvkk7mSB4YRyQE8a1BGu-cbRpMM80=
+lwlqtAc3hmcawe6-gD1nMCUGu2lG4OEznmJUI_b-0s_B_xbs5sQo7WMA9tE8pyoZbIAlfmSrFBK=
+NgielbIffdf4WYOqE5iEcybGfq-bSqRq4kzILsECMJqgUFlhwrMuKBoh8aRQyJ7VCJyQ-iJGWQq=
+nxMu6Sr5OwVc13PjZ6fIdIivbd/4c2/EUol2klhSFKwSR8cqya_AA/h7/h001.y79IGB81AsNFq=
+gi9chSZPulx0Q9r3QL4DqjTxdJ1UrM">Black Friday deal</a> ends tonight at midni=
+ght, our commitment to your success doesn=E2=80=99t. Here=E2=80=99s to maki=
+ng 2025 your biggest year yet!</span></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;"><br/></span=
+></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><font>=
+<span style=3D"font-size: 14.6667px; white-space-collapse: preserve;">Cheer=
+s,</span></font></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">sender<=
+/span></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><span =
+style=3D"font-size: 14.6667px; white-space-collapse: preserve;">Co-founder =
+&amp; CEO, beehiiv</span></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: 0pt;"><br/><=
+/p>
+
+
+<img src=3D"https://email.cx.beehiiv.com/e/o/eyJlbWFpbF9pZCI6ImRnVGYtd1lEQU=
+tDOU9wLTlPZ0dUblNKNHpQVHVMbDM2UnJva0l5VT0ifQ=3D=3D" style=3D"height: 1px !i=
+mportant; max-height: 1px !important; max-width: 1px !important; width: 1px=
+ !important; display: none !important;" alt=3D""/><img src=3D"https://u2034=
+0470.ct.sendgrid.net/ss/o/u001.rbNhsljbSs5hd8qQg2UWkw/4c2/EUol2klhSFKwSR8cq=
+ya_AA/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"heigh=
+t:1px !important;width:1px !important;border-width:0 !important;margin-top:=
+0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-le=
+ft:0 !important;padding-top:0 !important;padding-bottom:0 !important;paddin=
+g-right:0 !important;padding-left:0 !important;"/></body></html>
+--013236a4a736d476858075a5cd9d4e544439bb9e0a22afad068fa4deedae--

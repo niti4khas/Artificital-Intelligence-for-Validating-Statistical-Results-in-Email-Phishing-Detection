@@ -1,0 +1,448 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7108:9112:b0:2f2:1024:9ddc with SMTP id p18csp515300gdu;
+        Wed, 26 Apr 2023 12:55:49 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ7aGckFuZ+L0EGgH7np+D2IMf2T6tPni8hlFWE3KvBL7sNezSeQPS94xyU0wLWZY5jpJxvU
+X-Received: by 2002:a81:69d6:0:b0:556:dd0b:c7ff with SMTP id e205-20020a8169d6000000b00556dd0bc7ffmr2012973ywc.5.1682538948759;
+        Wed, 26 Apr 2023 12:55:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1682538948; cv=none;
+        d=google.com; s=arc-20160816;
+        b=iDfuOp2R8YFSuD/6D/ANL0tIs0RPkV4B0MXiDRdHNz1Ae8AEh+6E8TlQgmQzv05AXa
+         aDp3UppADLF5cLlu9NPCz2zokWZcpC3BtHz0i41jQJJQKN/3iFLtib9lQPA6SE4nMlFr
+         lsaTxWbZlHK0c2ZchJUH5WhajAG7wzhoYp1PUjgjHtcYlwHLtIxLoxfcSdaaa0XT06Kh
+         MTfMPjS5OgL1HBb01XUIQFEn4vXPPNws+QRx12LLxEgl4PY7QtY0ChbB31qh3QNLhLQs
+         4ffm32i+EIqL9+98Oj9/9cCobPHSrPD+WQ5Zh5k7gdW5iw1+aae7Zhz/I0pLHILEYC2P
+         AZHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=6QwVwMIfIxjOZZSua3gvfZXkVNt77dS8FDEvnTS2sAo=;
+        b=oaLjOrvL3GuvUusCh1sBCxvPWk/Nf8rxzRVOq3VAPIW4btWgupE0CbRCN4VFe1V1mD
+         Oou+cKzwjPYgjvVKfhHrC+rRSPA9u+qdwy8FFFktNYq4VN8EF2Qo5d4nf82oubBi4ig9
+         yKcW8sblwNklGJ1FaLxWdtiLHTaXzJQ4eWO8Jz2eQlYr3orPiXbjDpONZT7ZwBy01gra
+         l+t0kyFq1cD3nPURBDXkralSg2Iyu8j9Sqf72I7V4OBMp+hWJ1bSkFilYaNWxsHh7qj2
+         5utCgKbrtixJuMA7FmOIXfGtDUZFhWY9QMEFWZoQ5i9gxKrxNl16QrOXP8Axyr4tZPY2
+         R84g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=KdAph3Cv;
+       dkim=pass header.i=@kdnuggets.com header.s=k2 header.b=CHlXsG7R;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net designates 198.2.141.73 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+Return-Path: <bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net>
+Received: from mail73.atl231.mcsv.net (mail73.atl231.mcsv.net. [198.2.141.73])
+        by mx.google.com with ESMTPS id x66-20020a817c45000000b0054fbb6edd8bsi11154455ywc.465.2023.04.26.12.55.48
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Apr 2023 12:55:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net designates 198.2.141.73 as permitted sender) client-ip=198.2.141.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=KdAph3Cv;
+       dkim=pass header.i=@kdnuggets.com header.s=k2 header.b=CHlXsG7R;
+       spf=pass (google.com: domain of bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net designates 198.2.141.73 as permitted sender) smtp.mailfrom=bounce-mc.us12_50554633.325769-7ba2458a0d@mail73.atl231.mcsv.net;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kdnuggets.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1682538844; x=1682625244;
+	bh=6QwVwMIfIxjOZZSua3gvfZXkVNt77dS8FDEvnTS2sAo=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=KdAph3Cv95FnX0yvIRoTesU/zhnUDZ6A1ZErildphRBPn/pVOZ1ElmN+drWuJGMji
+	 Oz5hdrKW9+P0vbsZAAJ97I5FP+gOEPldblYGkFTPCQU0HPKDXe4DZgG+1H5ngnURE5
+	 3I84WzJIGh38SMsEJSIozcbZQ/RyRKYg4SdQfvlrgNpaShOqeyb3r1yv9FintnkC2+
+	 shvDovsjJiIO+mNcv7HBGqCeWsCaDST8EwabTkY2nvv65TDxfGjlzCn/RoRV8IPG94
+	 mFba2OOxCaNV/Zl7oA1WCEX8+/Bv7w4yAltmR/hnvzekqa3yF+x1g4N22ZklT2Dv9j
+	 TzTjrr2BmKPvA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kdnuggets.com; s=k2;
+	t=1682538844; x=1682799344; i=editor1@kdnuggets.com;
+	bh=6QwVwMIfIxjOZZSua3gvfZXkVNt77dS8FDEvnTS2sAo=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=CHlXsG7RLO5o11fjoTGTLduvBRvPQG0BtaFdYBm/WHPs95XGkPjP+RqWCc7MRGA7j
+	 9ITBoF799BM/PJUlZCxchkNSPmaLD20aeOvVvbvfxlPnTzfBnmqK8i234a8lH9BHkB
+	 YxzV3MzZIy9Dwzo+EQpaL4X3wQe1PM0u1RAwwzsX8kSpeiypRDb4JnKwwNZp5vNsgQ
+	 bvmVfYuY7Jem7Kq0z8XCzB8Px7pI/USQIfAMLyIq+DgHS65aRXoT7fdp/iGTirB1kw
+	 o69QlOZpM6sX0FClFPlwHzBHzw+PJ8FLyy7SEPKzx/4Z5YwXXtUDV2EdJVwIP4iolw
+	 nASFxJGBMzAyg==
+Received: from localhost (localhost [127.0.0.1])
+	by mail73.atl231.mcsv.net (Mailchimp) with ESMTP id 4Q68hD3xXKz36TCWy
+	for <ham@ham.email>; Wed, 26 Apr 2023 19:54:04 +0000 (GMT)
+Subject: =?utf-8?Q?The=20Four=20Effective=20Approaches=20to=20Analyzing=20Data=20=E2=80=A2=20Data=20Scientist=20Job=20Salaries=20Analysis?=
+From: =?utf-8?Q?KDnuggets?= <sender@kdnuggets.com>
+Reply-To: =?utf-8?Q?KDnuggets?= <sender@kdnuggets.com>
+To: <ham@ham.email>
+Date: Wed, 26 Apr 2023 19:53:48 +0000
+Message-ID: <4f2891ebb155b23f120ece0bd.7ba2458a0d.20230426195330.ff8f8f5d42.263334b7@mail73.atl231.mcsv.net>
+X-Mailer: Mailchimp Mailer - **CIDff8f8f5d427ba2458a0d**
+X-Campaign: mailchimp4f2891ebb155b23f120ece0bd.ff8f8f5d42
+X-campaignid: mailchimp4f2891ebb155b23f120ece0bd.ff8f8f5d42
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=4f2891ebb155b23f120ece0bd&id=ff8f8f5d42&e=7ba2458a0d
+X-MC-User: 4f2891ebb155b23f120ece0bd
+Feedback-ID: 50554633:50554633.325769:us12:mc
+List-ID: 4f2891ebb155b23f120ece0bdmc list <4f2891ebb155b23f120ece0bd.169725.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://kdnuggets.us12.list-manage.com/unsubscribe?u=4f2891ebb155b23f120ece0bd&id=b2fa8716d2&e=7ba2458a0d&c=ff8f8f5d42>, <mailto:unsubscribe-mc.us12_4f2891ebb155b23f120ece0bd.ff8f8f5d42-7ba2458a0d@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1793036126"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1793036126
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+Read this newsletter online (https://www.kdnuggets.com/2023/n15.html)
+
+https://www.kdnuggets.com/index.html
+
+KDnuggets News =E2=80=A2 April 26=2C 2023 (https://www.kdnuggets.com/2023/=
+n15.html)
+
+Cheat Sheets (https://www.kdnuggets.com/cheat-sheets/index.html)  |  Datas=
+ets (https://www.kdnuggets.com/datasets/index.html)  |  Education (https:/=
+/www.kdnuggets.com/education/index.html)  |  Events (https://www.kdnuggets=
+=2Ecom/meetings/index.html)  |  Jobs (https://www.kdnuggets.com/jobs/index.h=
+tml)  |  Projects (https://www.kdnuggets.com/projects/index.html)  |  Publ=
+ications (https://www.kdnuggets.com/publication/index.html)  |  Webinars (=
+https://www.kdnuggets.com/webcasts/index.html)
+
+Features
+------------------------------------------------------------
+* Data Analytics: The Four Approaches to Analyzing Data and How To Use The=
+m Effectively (https://www.kdnuggets.com/2023/04/data-analytics-four-appro=
+aches-analyzing-data-effectively.html) by Nate Rosidi
+* Data Scientist Job Salaries Analysis (https://www.kdnuggets.com/2023/04/=
+data-scientist-job-salaries-analysis.html) by Nikhil Purao
+* Dolly 2.0: ChatGPT Open Source Alternative for Commercial Use (https://w=
+ww.kdnuggets.com/2023/04/dolly-20-chatgpt-open-source-alternative-commerci=
+al.html) by Abid Ali Awan
+
+This Week's Posts
+------------------------------------------------------------
+* How to Get Hired as Data Scientist in the GPT-4 Era (https://www.kdnugge=
+ts.com/2023/04/get-hired-data-scientist-gpt4-era.html) by Abid Ali Awan
+* Explore LLMs Easily on Your Laptop with openplayground (https://www.kdnu=
+ggets.com/2023/04/explore-llms-easily-laptop-openplayground.html) by Corne=
+llius Yudha Wijaya
+* MiniGPT-4: A Lightweight Alternative to GPT-4 for Enhanced Vision-langua=
+ge Understanding (https://www.kdnuggets.com/2023/04/minigpt4-lightweight-a=
+lternative-gpt4-enhanced-visionlanguage-understanding.html) by Abid Ali Aw=
+an
+* Using ChatGPT to learn SQL (https://www.kdnuggets.com/2023/04/chatgpt-le=
+arn-sql.html) by Josep Ferrer
+* Unveiling the Potential of CTGAN: Harnessing Generative AI for Synthetic=
+ Data (https://www.kdnuggets.com/2023/04/unveiling-potential-ctgan-harness=
+ing-generative-ai-synthetic-data.html) by Ray Islam
+* Dealing With Noisy Labels in Text Data (https://www.kdnuggets.com/2023/0=
+4/dealing-noisy-labels-text-data.html) by Nikola Greb
+* MLOps Best Practices You Should Know (https://www.kdnuggets.com/2023/04/=
+mlops-best-practices-know.html) by Cornellius Yudha Wijaya
+* The Ethics of AI: Navigating the Future of Intelligent Machines (https:/=
+/www.kdnuggets.com/2023/04/ethics-ai-navigating-future-intelligent-machine=
+s.html) by Nisha Arya
+* The Base Rate Fallacy and its Impact on Data Science (https://www.kdnugg=
+ets.com/2023/04/base-rate-fallacy-impact-data-science.html) by Nisha Arya
+* Overview of the AI Index Report: Measuring Trends in Artificial Intellig=
+ence (https://www.kdnuggets.com/2023/04/overview-ai-index-report-measuring=
+-trends-artificial-intelligence.html) by Nisha Arya
+
+KDnuggets News
+------------------------------------------------------------
+* Top Posts April 17-23: AutoGPT: Everything You Need To Know (https://www=
+=2Ekdnuggets.com/2023/04/top-posts-week-0417-0423.html)
+
+Copyright =C2=A9 2023 KDnuggets
+
+About (https://www.kdnuggets.com/about/index.html)  |  Privacy (https://ww=
+w.kdnuggets.com/news/privacy-policy.html)  |  Contact (https://www.kdnugge=
+ts.com/contact.html)
+https://twitter.com/kdnuggets   https://facebook.com/kdnuggets   https://w=
+ww.linkedin.com/groups/54257/   https://www.instagram.com/officialkdnugget=
+s/
+
+This email was sent to sminhaz18061997@gmail.com (mailto:sminhaz18061997@gmail.com)
+why did I get this? (https://kdnuggets.us12.list-manage.com/about?u=3D4f28=
+91ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3Dff8f8f5d42)     uns=
+ubscribe from this list (https://kdnuggets.us12.list-manage.com/unsubscrib=
+e?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3Dff8f8f5d4=
+2)     update subscription preferences (https://kdnuggets.us12.list-manage=
+=2Ecom/profile?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=
+=3Dff8f8f5d42)
+KDnuggets . 151 Calle de San Francisco . Suite 200 - PMB 5072 . San Juan=
+=2C PR 00901 . USA
+--_----------=_MCPart_1793036126
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www=
+=2Ew3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>KDnuggets News =E2=80=A2 April 26 2023</title>
+<style type=3D"text/css">
+body=2Ctd=2Cp=2Cli { font-family: arial=2C verdana=2C tahoma; font-size:16=
+px; }
+ul=2Cli { margin-bottom: 10px; }
+table { border-collapse: collapse; }
+a:link { color: #000000; text-decoration: underline; }
+a:visited { color: #000000; text-decoration: underline; }
+a:hover { text-decoration: underline; }
+</style>
+<base href=3D"https://www.kdnuggets.com/em/2023/n15-mc.html"></head>
+<body style=3D"background-color:#FFFFFF; font-family:arial=2C verdana=2C t=
+ahoma; font-size: 14px;">
+<table width=3D"600" cellspacing=3D"2" cellpadding=3D"0" align=3D"center"=
+ bgcolor=3D"#FFFFFF" style=3D"border:0px solid #999999; border-collapse:co=
+llapse;">
+<tr>
+<td align=3D"right" style=3D"font-size: 11px;font-family: arial=2C verdana=
+=2C tahoma;">
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D7d9fe5ed67&e=3D7ba2458a0d" style=3D"color:#000000;=
+text-decoration:underline;"><b>Read this newsletter online</b></a>
+</td>
+</tr>
+</table>
+<br>
+<table width=3D"600" cellspacing=3D"2" cellpadding=3D"4" align=3D"center"=
+ bgcolor=3D"#FFFFFF" style=3D"border:0px solid #999999; border-collapse:co=
+llapse;">
+<tr>
+<td valign=3D"middle" style=3D"font-family: arial=2C verdana=2C tahoma;fon=
+t-size: 16px;">
+<center>
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3Dbb74719282&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:none;">
+<img src=3D"https://www.kdnuggets.com/wp-content/uploads/about-kdn-header.=
+jpeg" alt=3D"Visit KDnuggets for more AI=2C Analytics=2C Big Data=2C Data=
+ Mining=2C Data Science=2C and Machine Learning. " width=3D"600">
+</a>
+<br><br><br>
+<b><font size=3D"+1"><a href=3D"https://kdnuggets.us12.list-manage.com/tra=
+ck/click?u=3D4f2891ebb155b23f120ece0bd&id=3D4164f58fe7&e=3D7ba2458a0d" st=
+yle=3D"color:#000000; text-decoration:none;">KDnuggets News =E2=80=A2 Apri=
+l 26=2C 2023</a></font></b>
+</center>
+<br>
+<p style=3D"font-size: 13px;text-align: center;font-family: arial=2C verda=
+na=2C tahoma;">
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D2885044e4b&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Cheat Sheets</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D49e9006a53&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Datasets</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D3dcbc735b8&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Education</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D2dc3e4e6a2&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Events</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3Df01c909322&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Jobs</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D1cd7d9d589&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Projects</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D5ffc782815&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Publications</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D7214b4a896&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Webinars</a>
+</p>
+<br><br><font size=3D"+1"><b>Features</b></font>
+<hr style=3D"height:2px;border-width:0;color:gray;background-color:#F0AE36=
+">
+<ul style=3D"margin-bottom: 10px;"><li style=3D"margin-bottom: 15px;font-f=
+amily: arial=2C verdana=2C tahoma;font-size: 16px;"> <font style=3D"font-s=
+ize:16px; line-height: 140%"><a href=3D"https://kdnuggets.us12.list-manage=
+=2Ecom/track/click?u=3D4f2891ebb155b23f120ece0bd&id=3De1c6251cf4&e=3D7ba2458a0d" style=3D"color:#000000; text-decoration:underline;"><b>Data Analytic=
+s: The Four Approaches to Analyzing Data and How To Use Them Effectively</=
+b></a> by Nate Rosidi
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D62ffdac157&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Data Scientist Job Salaries Analysi=
+s</b></a> by Nikhil Purao
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Da42a209591&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Dolly 2.0: ChatGPT Open Source Alte=
+rnative for Commercial Use</b></a> by Abid Ali Awan
+</font></li></ul>
+<br>
+<font size=3D"+1"><b>This Week's Posts</b></font>
+<hr style=3D"height:2px;border-width:0;color:gray;background-color:#F0AE36=
+">
+<ul style=3D"margin-bottom: 10px;"><li style=3D"margin-bottom: 15px;font-f=
+amily: arial=2C verdana=2C tahoma;font-size: 16px;"> <font style=3D"font-s=
+ize:16px; line-height: 140%"><a href=3D"https://kdnuggets.us12.list-manage=
+=2Ecom/track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D1fecf00a43&e=3D7ba2458a0d" style=3D"color:#000000; text-decoration:underline;"><b>How to Get Hi=
+red as Data Scientist in the GPT-4 Era</b></a> by Abid Ali Awan
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Db072995009&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Explore LLMs Easily on Your Laptop=
+ with openplayground</b></a> by Cornellius Yudha Wijaya
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D2953ef7a60&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>MiniGPT-4: A Lightweight Alternativ=
+e to GPT-4 for Enhanced Vision-language Understanding</b></a> by Abid Ali=
+ Awan
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Da47f7851d1&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Using ChatGPT to learn SQL</b></a>=
+ by Josep Ferrer
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D79008f20b4&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Unveiling the Potential of CTGAN: H=
+arnessing Generative AI for Synthetic Data</b></a> by Ray Islam
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Dbfa71aae4e&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Dealing With Noisy Labels in Text D=
+ata</b></a> by Nikola Greb
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D61fd151766&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>MLOps Best Practices You Should Kno=
+w</b></a> by Cornellius Yudha Wijaya
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D7d76d6aa2d&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>The Ethics of AI: Navigating the Fu=
+ture of Intelligent Machines</b></a> by Nisha Arya
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Df2fbf1fe10&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>The Base Rate Fallacy and its Impac=
+t on Data Science</b></a> by Nisha Arya
+</font></li><li style=3D"margin-bottom: 15px;font-family: arial=2C verdana=
+=2C tahoma;font-size: 16px;"> <font style=3D"font-size:16px; line-height:=
+ 140%"><a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Dd609a3d903&e=3D7ba2458a0d" style=3D"color:#=
+000000; text-decoration:underline;"><b>Overview of the AI Index Report: Me=
+asuring Trends in Artificial Intelligence</b></a> by Nisha Arya
+</font></li></ul>
+<br>
+<font size=3D"+1"><b>KDnuggets News</b></font>
+<hr style=3D"height:2px;border-width:0;color:gray;background-color:#F0AE36=
+">
+<ul style=3D"margin-bottom: 10px;"><li style=3D"margin-bottom: 15px;font-f=
+amily: arial=2C verdana=2C tahoma;font-size: 16px;"> <font style=3D"font-s=
+ize:16px; line-height: 140%"><a href=3D"https://kdnuggets.us12.list-manage=
+=2Ecom/track/click?u=3D4f2891ebb155b23f120ece0bd&id=3D0927a4cd77&e=3D7ba2458a0d" style=3D"color:#000000; text-decoration:underline;"><b>Top Posts Apr=
+il 17-23: AutoGPT: Everything You Need To Know</b></a>
+</font></li></ul>
+<br>
+</td>
+</tr>
+</table>
+<center>
+<p style=3D"font-size: 12px;font-family: arial=2C verdana=2C tahoma;">Copy=
+right &copy; 2023 KDnuggets<br><br>
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D26ef032cc9&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">About</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3Da56694fba8&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Privacy</a>&nbsp;|&nbsp;
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D42c09bcf49&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:underline;">Contact</a></p>
+<br>
+<a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4f2891eb=
+b155b23f120ece0bd&id=3D510acafb04&e=3D7ba2458a0d" style=3D"color:#000000;=
+ text-decoration:none;"><img src=3D"https://www.kdnuggets.com/wp-content/u=
+ploads/kdn-email-social-logos-tw.jpg" width=3D"28" height=3D"28" alt=3D"Tw=
+eet" align=3D"top" border=3D"0"></a>
+&nbsp; <a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D0d37ab9c90&e=3D7ba2458a0d" style=3D"color:=
+ #000000;text-decoration: underline;"><img src=3D"https://www.kdnuggets.co=
+m/wp-content/uploads/kdn-email-social-logos-fb.jpg" width=3D"28" height=3D=
+"28" alt=3D"Facebook" align=3D"top" border=3D"0"></a>
+&nbsp; <a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3Dfad8fe07df&e=3D7ba2458a0d" target=3D"_blank=
+" style=3D"color: #000000;text-decoration: underline;"><img src=3D"https:/=
+/www.kdnuggets.com/wp-content/uploads/kdn-email-social-logos-in.jpg" width=
+=3D"28" height=3D"28" alt=3D"LinkedIn" align=3D"top" border=3D"0"></a>
+&nbsp; <a href=3D"https://kdnuggets.us12.list-manage.com/track/click?u=3D4=
+f2891ebb155b23f120ece0bd&id=3D670498130c&e=3D7ba2458a0d" style=3D"color:=
+ #000000;text-decoration: underline;"><img src=3D"https://www.kdnuggets.co=
+m/wp-content/uploads/kdn-email-social-logos-insta.jpg" width=3D"28" height=
+=3D"28" alt=3D"Instagram" align=3D"top" border=3D"0"></a> </center><br><br=
+>
+            <center>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" id=3D"canspamBarWrapper" style=3D"background-color:#FFFFFF; b=
+order-top:1px solid #E5E5E5;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"paddi=
+ng-top:20px; padding-bottom:20px;">
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" id=3D"canspamBar">
+                                <tr>
+                                    <td align=3D"center" valign=3D"top" st=
+yle=3D"color:#606060; font-family:Helvetica=2C Arial=2C sans-serif; font-s=
+ize:11px; line-height:150%; padding-right:20px; padding-bottom:5px; paddin=
+g-left:20px; text-align:center;">
+                                        This email was sent to <a href=3D"=
+mailto:sminhaz18061997@gmail.com" target=3D"_blank" style=3D"color:#404040 !importa=
+nt;">sminhaz18061997@gmail.com</a>
+                                        <br />
+                                        <a href=3D"https://kdnuggets.us12.=
+list-manage.com/about?u=3D4f2891ebb155b23f120ece0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3Dff8f8f5d42" target=3D"_blank" style=3D"color:#404040 !important=
+;"><em>why did I get this?</em></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D"http=
+s://kdnuggets.us12.list-manage.com/unsubscribe?u=3D4f2891ebb155b23f120ece0=
+bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3Dff8f8f5d42" style=3D"color:#404040 !im=
+portant;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=3D=
+"https://kdnuggets.us12.list-manage.com/profile?u=3D4f2891ebb155b23f120ece=
+0bd&id=3Db2fa8716d2&e=3D7ba2458a0d&c=3Dff8f8f5d42" style=3D"color:#404040 !i=
+mportant;">update subscription preferences</a>
+                                        <br />
+                                        KDnuggets &middot; 151 Calle de Sa=
+n Francisco &middot; Suite 200 - PMB 5072 &middot; San Juan=2C PR 00901 &m=
+iddot; USA
+                                        <br />
+                                        <br />
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <style type=3D"text/css">
+                    @media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; ma=
+rgin-top:10px !important;}
+                    }
+                </style>
+            </center><img src=3D"https://kdnuggets.us12.list-manage.com/tr=
+ack/open.php?u=3D4f2891ebb155b23f120ece0bd&id=3Dff8f8f5d42&e=3D7ba2458a0d=
+" height=3D"1" width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_1793036126--

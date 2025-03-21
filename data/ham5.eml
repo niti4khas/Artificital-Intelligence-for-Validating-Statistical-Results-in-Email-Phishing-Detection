@@ -1,0 +1,171 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7301:608f:b0:13b:4378:c279 with SMTP id qr15csp777648dyb;
+        Mon, 2 Sep 2024 10:14:02 -0700 (PDT)
+X-Received: by 2002:a05:600c:3c9b:b0:426:5b21:97fa with SMTP id 5b1f17b1804b1-42c7b5d8ffamr47665655e9.29.1725297241993;
+        Mon, 02 Sep 2024 10:14:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1725297241; cv=none;
+        d=google.com; s=arc-20160816;
+        b=bVNv+U1K/2A/dl0FTHA+p2iicZuTbGzl1hLjE4kLT9a4kQ2VTR/pkQ+ZLzbNZlAP2r
+         BKQixhQkmP76wFwJ8U/Pw74FIQNkd8I+0qLojCb7Sxg0V+vP/C4Lx1KD8WXMjoFse4Mf
+         LINohgCP8hTdahK2nl8VZuufeaX5ityLwI3n1oK6eSbX7uQMwY3Yo5lfQUJPiVCNtrDr
+         St1nt4adPVb9/uZvF7GX/I04/EjXU75b24DDIf1xDdRGtcvYCFryEFBT+nVRA8mpy/YT
+         PYwHoBwJAzXrJ2Na74oAI5eLGfTeLmceDvhyCLa0Dpolp1u+uQwQCeUt+hhhqrvPQjSW
+         Zrgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=DGQlE4aRgueptJzsrql3i2bqe+AQ/wIr+KuVl+amN64=;
+        fh=Adf+mpDEXkLsu8G+Gkm0R0rzkDgEDKTid4bYCqlBOcg=;
+        b=KUXT8uZ2qYwLSPGkxAJTCCMZWHdfRIFR6sEkB12KHF5LRzY6QwxXDyIOmvBhjsqO31
+         1EabYPOjLUneCbladQgAfip2q/el5Cb7BLCncMegAm2ShJ8qSfWS1uTzRiGfMxkdFHj8
+         h1dy9U4byTUgPdU6wZkKNNdFg34jZ7s9qNuJmlHUDDkjpW8juMg2J5V27FTs+l/ZtLYy
+         /gStb3oosArX/W1ZYtvVvP0KaRUVPOB7SP2x0BQ76gypoKhqlinAGS3aMQii+8bJlimj
+         eJU768oPAekD3LAz/s7dhi2KfFCyYKvqmtZZ1oQJZCGGmWs8YA74nouUX9rygsLR3BtZ
+         BoPw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=JqOlDv5b;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <sender@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5b1f17b1804b1-42bb7093c87sor12502435e9.2.2024.09.02.10.14.01
+        for <ham@ham.email>
+        (Google Transport Security);
+        Mon, 02 Sep 2024 10:14:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=JqOlDv5b;
+       spf=pass (google.com: domain of sender@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sender@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1725297241; x=1725902041; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DGQlE4aRgueptJzsrql3i2bqe+AQ/wIr+KuVl+amN64=;
+        b=JqOlDv5b9TWf+3yvnIs4m+o2Be2k7rO6JI2RQazq9aK7gmX1Pvk1HdYbV4HcS7/Em4
+         nbrs8qbj3rYzvj3h+KGszSCFEBoV+jXyv7zsXma6HvqXzHdTxZG9p0kqj2T9PSxsWDiR
+         L6ZgYSfJJf5h7bOD6klzXUz962tS8f8SWD+BOr/ODrx7ov2x1m+cEQ4iZ8yzIf00B1Ap
+         11vDIuuBw9rophuzaVP3kjnn2WVvQjKogdWva8kxj3Y+05N1gNXm52qsSCLbPciFsxS7
+         4ou5tFISqiySdLO32I611g/Gd8Kqk4TgGh5J45BnDKMOBN9Cpz71EERm4w2PTylD7enK
+         vL7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725297241; x=1725902041;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DGQlE4aRgueptJzsrql3i2bqe+AQ/wIr+KuVl+amN64=;
+        b=b9SPzS1GDnyR0Bc8qaq06OpchQGACx8meTPqBmG3R/AKjWkQJzWfdo3V7tB3MWcIhK
+         SpB0ReVWFXwvYwmEJPqiMSTMPbmj/mpOXfr/HPIQgo5UiRpfobWZFRrVU3lMf+Tm1hP8
+         /QHkTarpr1bkRatLfaqAcPzNcAYHvntRsDvwANXHzKwmdcqSH3ABKHbpqOLzktjzK5s8
+         +YXkFkm0vnFfZb2O3SOGSMnPacZn77j3OusvQI1cB87wrqaBr0P+tmabgfbAXtOhjYjc
+         cRmCz66bMsZPBoCheRM/PunnxdeDZljlON9Jub0pBCRcwiRPh4aHS6k0PZ+eegtjYRAW
+         Pv3Q==
+X-Gm-Message-State: AOJu0YzFZIXEYW9HQliFT+HxLd6ZAiF6+XGnqY1C++3ygizGikCqMn0g 044ao0VUk7sHcGzLYShFKgXqCRP2ufLdsi/iDrHQ9CS2pnVkkh9gXRrd8EdBz0mhEoyfL8mStOy ElgyrZBuzds45yUqF6vVbyhek6LYSdw==
+X-Google-Smtp-Source: AGHT+IGJGCal25N/6IvTzAjbNZwd1ELpwzrBRzB39kQfwWPDIlY5VUF7iYfwy7OD5Ud+J8Oh/kNoIzGax2kpDbrs71c=
+X-Received: by 2002:a05:600c:3b0c:b0:426:5dd5:f245 with SMTP id 5b1f17b1804b1-42bbb206523mr45677805e9.2.1725297240004; Mon, 02 Sep 2024 10:14:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAOYVRwXu=2T0h5zVvwGzh24zF6UHLxk0GRD7u6-v-rGMEisdgg@mail.gmail.com>
+In-Reply-To: <CAOYVRwXu=2T0h5zVvwGzh24zF6UHLxk0GRD7u6-v-rGMEisdgg@mail.gmail.com>
+From: Reiner Creutzburg <sender@gmail.com>
+Date: Mon, 2 Sep 2024 19:13:48 +0200
+Message-ID: <CA+Er=2Em9Ny6vJfFK9830GJ2tm0+-m6Kmhe8k1tS_gM3O=0hqA@mail.gmail.com>
+Subject: Re: Request for Letter of Recommendation
+To: receiver receiver <ham@ham.email>, " (SRH Hochschulen Berlin GmbH)" <receiver2@srh.de>
+Content-Type: multipart/mixed; boundary="0000000000001f81350621261134"
+
+--0000000000001f81350621261134
+Content-Type: multipart/alternative; boundary="0000000000001f81320621261132"
+
+--0000000000001f81320621261132
+Content-Type: text/plain; charset="UTF-8"
+
+Dear receiver,
+enclosed please find the requested letter of recommendation.
+Best regards
+Reiner Creutzburg
+
+On Tue, 27 Aug 2024 at 14:00, receiver receiver <ham@ham.email>
+wrote:
+
+> Dear professor,
+> I have edited and customized the letter of recommendation sent by you a
+> few days ago. I have attached it to this email. Could you please sign it
+> and send it back to me as soon as possible as I will be needing it to apply
+> for an internship whose deadline is on 3o august,2024.
+>
+> Regards,
+> receiver receiver
+>
+
+
+-- 
+*Prof. Dr. Reiner Creutzburg*
+*Academic Head Cyber Security*
+*SRH Berlin University of Applied Sciences*
+*Berlin School of Technology*
+*Ernst-Reuter-Platz 10 *
+*D-10587 Berlin, **Germany*
+*Email: sender@srh.de <sender@srh.de>*
+*sender@gmail.com <sender@gmail.com>*
+*mobile: +49 177 3046561*
+
+--0000000000001f81320621261132
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Dear receiver,<div>enclosed please find the requested letter=
+ of recommendation.</div><div>Best regards</div><div>Reiner Creutzburg</div=
+></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr"=
+>On Tue, 27 Aug 2024 at 14:00, receiver receiver &lt;<a href=3D"mailto:receiver.p=
+rofessional@gmail.com">ham@ham.email</a>&gt; wrote:<br></di=
+v><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;borde=
+r-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Dear p=
+rofessor,<div>I have edited and customized the letter of recommendation sen=
+t by you a few days ago. I have attached it=C2=A0to this email. Could you p=
+lease sign it and send it back to me as soon as possible as=C2=A0I=C2=A0wil=
+l be needing it to=C2=A0apply for an internship whose deadline is on 3o aug=
+ust,2024.=C2=A0</div><div><br></div><div>Regards,</div><div>receiver receiver</=
+div></div>
+</blockquote></div><br clear=3D"all"><div><br></div><span class=3D"gmail_si=
+gnature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><d=
+iv dir=3D"ltr"><div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif=
+;font-size:12pt;color:rgb(0,0,0)"><b><i><span style=3D"font-size:12pt;color=
+:rgb(0,36,81)">Prof. Dr. Reiner Creutzburg</span></i></b></div><div style=
+=3D"font-family:Calibri,Arial,Helvetica,sans-serif;font-size:12pt;color:rgb=
+(0,0,0)"><i><span style=3D"font-size:12pt;color:rgb(0,36,81)">Academic Head=
+ Cyber Security</span></i></div><div style=3D"font-family:Calibri,Arial,Hel=
+vetica,sans-serif;font-size:12pt;color:rgb(0,0,0)"><i><span style=3D"font-s=
+ize:12pt;color:rgb(0,36,81)">SRH Berlin University of Applied Sciences</spa=
+n></i></div><div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif;fo=
+nt-size:12pt;color:rgb(0,0,0)"><i><span style=3D"font-size:12pt;color:rgb(0=
+,36,81)">Berlin School of Technology</span></i></div><div style=3D"font-fam=
+ily:Calibri,Arial,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)"><i>=
+<span style=3D"font-size:12pt;color:rgb(0,36,81)">Ernst-Reuter-Platz 10=C2=
+=A0</span></i></div><div style=3D"font-family:Calibri,Arial,Helvetica,sans-=
+serif;font-size:12pt;color:rgb(0,0,0)"><i><span style=3D"font-size:12pt;col=
+or:rgb(0,36,81)">D-10587 Berlin,=C2=A0</span></i><i style=3D"font-size:12pt=
+"><span style=3D"font-size:12pt;color:rgb(0,36,81)">Germany</span></i></div=
+><div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif;font-size:12p=
+t;color:rgb(0,0,0)"><i style=3D"font-size:12pt"><span style=3D"font-size:12=
+pt;color:rgb(0,36,81)">Email: <a href=3D"mailto:sender@srh.de" t=
+arget=3D"_blank">sender@srh.de</a></span></i></div><div style=3D=
+"font-family:Calibri,Arial,Helvetica,sans-serif;font-size:12pt;color:rgb(0,=
+0,0)"><i style=3D"font-size:12pt"><span style=3D"font-size:12pt;color:rgb(0=
+,36,81)"><a href=3D"mailto:sender@gmail.com" target=3D"_blank">r=
+einer.creutzburg@gmail.com</a></span></i></div><div style=3D"font-family:Ca=
+libri,Arial,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)"><i style=
+=3D"font-size:12pt"><span style=3D"font-size:12pt;color:rgb(0,36,81)">mobil=
+e: +49 177 3046561</span></i></div></div></div>
+
+--0000000000001f81320621261132--
+--0000000000001f81350621261134
+Content-Type: application/pdf; name="SRH Brief Creutzburg Recommendation receiver 2024.pdf"
+Content-Disposition: attachment; filename="SRH Brief Creutzburg Recommendation receiver 2024.pdf"
+Content-Transfer-Encoding: base64
+Content-ID: <f_m0l9dz7b0>
+X-Attachment-Id: f_m0l9dz7b0
+
+
+--0000000000001f81350621261134--

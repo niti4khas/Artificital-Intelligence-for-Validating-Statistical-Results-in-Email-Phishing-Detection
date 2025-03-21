@@ -1,0 +1,82 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp1884189lke;
+        Sun, 8 Dec 2024 04:18:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHZ5bXOPQWU6Rut6oD9wY6/U5U/q5PRiGbLk2y+WJRm7MUWakTwKNJ6OutrPPe/MMRLSFGE
+X-Received: by 2002:a05:651c:994:b0:300:42ad:f284 with SMTP id 38308e7fff4ca-30042adf4bbmr14068061fa.7.1733660290617;
+        Sun, 08 Dec 2024 04:18:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733660290; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BUH4j/2ALcn1ijpOrO6juOzM4HS7hd8AJ2410g5Ub2foOtJrnKxwrqiZl66KemLtmb
+         AqaC5q1y1EkbYYdxVrkhSbJXg/MdQQxTx1ypE2hXCv9JqbUFmnS2g3hAWhjPhCU+Y9AK
+         S16zcwkSB2y/iBSjvnhKVg3pQvrJ9jF2SdWjsQyUIhp80ZxRDEBilbLzRvxMRHtqwPH+
+         OzWBVt8MbFbkIPjRHi+FoqLkidnUYtrYe1JIzkGx+Fe5oZqu5Bqk83LvrbnyNmsuPqXg
+         eN7QqKPjx88PP4DT6US2GZWOOJVOOdMwSrJmC7iS4971OeYdM6+k0hKDRV67TOIKt/Qw
+         F1BA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:mime-version:message-id:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=HJj8UEZWiWYBHIjTtZv67qWg+oQnmzZ6ByQ+dH1yUOo=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=bxl85vnQ594hyUl1JqpezxZkzm+9/y40OFftjnxKDBwqouIhX4Gy5soslGCgmtvfPM
+         W0AmbuUAU6zkS6gNPdOFZXxmOQAE7p1pDuyXevauyylCTPnp18hOItlLnALRnnRrUpDD
+         p9taobbQ1HrAsaKPl8m7+mwFo4Yk3fKadG3feRalm8xuxjuDhJZa9lvZMLYLtDpOWHW3
+         5rBKmoB0pMTnf6pL33+YAZWD3szr+kegThgBEH32JwBLygONuj6fwizT/T2r3Nt1Pgmy
+         7arUGkjZrmXm79SK3V+c1b4iFovRcP/nxBbpdTVGQkc/RtfsYUvIyEoLFxqZ2BzI2IAv
+         mD1A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@smtpcorp.com header.s=a1-4 header.b=zeJxIu7l;
+       dkim=pass header.i=@we-wash.com header.s=s245126 header.b=CYrZAeHc;
+       spf=pass (google.com: domain of bt.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com designates 103.2.140.182 as permitted sender) smtp.mailfrom="bT.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=we-wash.com
+Return-Path: <bT.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com>
+Received: from e2i182.smtp2go.com (e2i182.smtp2go.com. [103.2.140.182])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-30020e3b576si25114201fa.379.2024.12.08.04.18.10
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 08 Dec 2024 04:18:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of bt.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com designates 103.2.140.182 as permitted sender) client-ip=103.2.140.182;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@smtpcorp.com header.s=a1-4 header.b=zeJxIu7l;
+       dkim=pass header.i=@we-wash.com header.s=s245126 header.b=CYrZAeHc;
+       spf=pass (google.com: domain of bt.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com designates 103.2.140.182 as permitted sender) smtp.mailfrom="bT.ucrq3enzatudk29=0hr64dmli18t=xrgytau68ns0l7@em245126.we-wash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=we-wash.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=smtpcorp.com; s=a1-4; h=Feedback-ID:X-Smtpcorp-Track:Date:Message-ID: Subject:To:From:Reply-To:Sender:List-Unsubscribe:List-Unsubscribe-Post; bh=HJj8UEZWiWYBHIjTtZv67qWg+oQnmzZ6ByQ+dH1yUOo=; b=zeJxIu7lcc6demEusymS3ddbQS vOjapzEuRLUpBjmTSnz0ujlA207SBosyua8Y3OsAZiH6OJgSnFFZ0L2DNiDGG1W2P08W3IOl4aFHF yKdN2aqxHcMklesK4efuqQ6+5CEk+X+M7DEaZ0dPh8jynj1aONNmiS9V/PvckfiqjUfEyMomiVMAi 8lPlTLdGZu+4wkH9CPY95GRmR+6tZAeJFVX/cPe4lJ8UbHWn1sBtRCfSc0KkI8zELtzFw96+LcAxg SO7qVtwrotQ2jAw5znj6hy3+eiRb0yuFucGeB35iTmy945w9R7jGb7dzjOnlV6HlLQ5m8w32aW8Du 3w2/6r+A==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=we-wash.com; i=@we-wash.com; q=dns/txt; s=s245126; t=1733660290; h=from : subject : to : message-id : date; bh=HJj8UEZWiWYBHIjTtZv67qWg+oQnmzZ6ByQ+dH1yUOo=; b=CYrZAeHcNJ6BuJ0+fuxXHlD1h4hoTSgzVSvSFYjuWxf690///5YRbtRCUfs2IlL7oB+bT 99HDWSfJMsc+4+ptsX3E5mKVscEuepf7WPpvWSOfyBYRmfMQlsrPmEe1wIsPXeiLFTgA1JQ m6b1PqQ7eNorQvljfBt4ajsklZ63Z4cYrrvhW3QSJ0mAVQDLEfWjpWHmmRsI4MFwmD7ZlmC KAOrMjBtbgukMTRlon3JqNdZRO4FaI/4UzNFOuEQC/X5oQP2BkO6Vk3z/zXSElqHc4/0/0t Oml9Birri7rsB4oLg/aAmYtd4EwfU/40ZQHVySd+jzKnGaxCKSOL/ZRM9eNw==
+Received: from [10.176.58.103] (helo=SmtpCorp) by smtpcorp.com with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim 4.94.2-S2G) (envelope-from <sender@we-wash.com>) id 1tKGEj-cp4XH9-5K for ham@ham.email; Sun, 08 Dec 2024 12:18:09 +0000
+Received: from [10.237.234.136] (helo=app13.easybill.io) by smtpcorp.com with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim 4.97.1-S2G) (envelope-from <sender@we-wash.com>) id 1tKGEi-4o5NDgrtz1r-ruBq for ham@ham.email; Sun, 08 Dec 2024 12:18:08 +0000
+From:  <sender@we-wash.com>
+To: ham@ham.email
+Subject: WeWash Invoice 20243733776
+X-Mailer: easybill Mailer v4.0.0
+Message-ID: <0b7cc1a079d9159ca6ebca2d17dd7237@we-wash.com>
+MIME-Version: 1.0
+Date: Sun, 08 Dec 2024 13:18:08 +0100
+Content-Type: multipart/mixed; boundary=pDjE3I_c
+X-Smtpcorp-Track: _2tmkVJ92btC.6EEMKtizRcLQ.nSS5RQKryxc
+Feedback-ID: 245126m:245126a69NrNz:245126s3hxfH3RYO
+X-Report-Abuse: Please forward a copy of this message, including all headers, to <abuse-report@smtp2go.com>
+
+--pDjE3I_c
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Dear ham,
+
+please find attached your invoice no. 20243733776 from 08.12.2024 as a PDF =
+file. If you don=E2=80=99t have a PDF reader installed you can view the inv=
+oice at this URL:
+
+https://docs.easybill.de/6fa8d7cc09c190bbc52e59d7a5335ae96e1f92a3
+
+Best regards,
+The WeWash Team
+
+_______
+--pDjE3I_c
+Content-Type: application/pdf; name=Invoice-20243733776-194148315.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; name=Invoice-20243733776-194148315.pdf; filename=Invoice-20243733776-194148315.pdf
+
+
+--pDjE3I_c--

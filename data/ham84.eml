@@ -1,0 +1,549 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp648882lke;
+        Thu, 5 Dec 2024 23:53:47 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFXbfayAx6pQ0Fx5y2M5WBXc5RKo8gciMnwXwg1mRQ4PLSyrAM4/CHUKnB05kigSLIeEb+1
+X-Received: by 2002:a05:6512:158a:b0:53e:210d:7c5 with SMTP id 2adb3069b0e04-53e2b6d5bd0mr785720e87.11.1733471626914;
+        Thu, 05 Dec 2024 23:53:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733471626; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cShORV9SkAO8CPCA6EXgZIGKNKtuHdHsGf44xRkpCthILnX/m2af1OXRI6EhJZuch5
+         /3tMl7McB1D+gYW6rExm2HBZLpjgH+dMw8F7rsWg5jovYIATQrQmhS/37ldJD8W3H5VC
+         cYJWn0URrCyVoPtoihHAQKA7L5BXZG2eK5qRLR8BBh9SVV72mTrvUrI+LMCvU/DRaMXF
+         3+yeaxVWKNYBOfntasrKjg295jwwqaY1K3ltpP7VuzjGxaKSTpnag4YOrabNk11iqMzC
+         atbedw411cFDZodRsgxM598jztgKYWxmmidivrDsudAorjJ1VPZOLJntJkVrkJsEdDxT
+         ahmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=date:precedence:list-unsubscribe:list-id:list-help:mime-version
+         :subject:message-id:to:from:dkim-signature:dkim-signature;
+        bh=AaPD5Ee53+QRugedxGsoDaGUDYI+F50515jySCXZisM=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=LmnxJTiP6tOJXpfCdBdzfAb/nduoTJ136y7WyAOvWUntcdhAWbP7AShPMyAhyqBch4
+         5PAppF/AP/oOnLISQ+XNWWQVq5RxWNZRnN813KEXriV2HO+Tgagbl8p/Dlf+Qze4GEiY
+         PbKJlioA2z/hg92gHJrPQMOZl0675qdo8CklJjh2SyRDiHqBRpOs/hFP0d8IOkVXzInx
+         QSmkk2LnJgQg+Vf0pcIsAKdGkRbLpOhe7N4Pn0u/biXtJYO/MZzDXt5KYSU41k5AIx1i
+         pepwLjBBr+oNCJoZ1RZTrrvLiP9CNkrABvfyWlAGge+1HKkLqqtpJ9RaKnrAdDiIbbRD
+         dwTA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@antimalware.ru header.s=us header.b=EwLwMncU;
+       dkim=pass header.i=@topeml.com header.s=jul2015 header.b=meDoDXwI;
+       spf=pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) smtp.mailfrom=postman4815985@uni.antimalware.ru;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=antimalware.ru
+Return-Path: <postman4815985@uni.antimalware.ru>
+Received: from smtp1.antimalware.ru (smtp1.antimalware.ru. [31.184.203.109])
+        by mx.google.com with ESMTPS id 2adb3069b0e04-53e229bb985si1150996e87.232.2024.12.05.23.53.45
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 05 Dec 2024 23:53:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) client-ip=31.184.203.109;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@antimalware.ru header.s=us header.b=EwLwMncU;
+       dkim=pass header.i=@topeml.com header.s=jul2015 header.b=meDoDXwI;
+       spf=pass (google.com: domain of postman4815985@uni.antimalware.ru designates 31.184.203.109 as permitted sender) smtp.mailfrom=postman4815985@uni.antimalware.ru;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=antimalware.ru
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=us; d=antimalware.ru; h=From:To:Message-Id:Subject:MIME-Version:Content-Type:List-Help:List-Id: List-Unsubscribe:Date:no; i=mail@antimalware.ru; bh=AaPD5Ee53+QRugedxGsoDaGUDYI+F50515jySCXZisM=; b=EwLwMncUrHpTrcRK00sjJCj2KggYdKZWrNd4fpz7GSU4QnTOWVlO3eDH6lfiP9aimahmSnqoHFvs
+   MA9ZB6ASxHoEAicN7oWEkHse8PjQOqOXIEZ4wF455eMMN0gUBSJqSWSFEvb1rGg+nHQkH29GEdWg
+   QzYE1g+n96wS755K8g8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=jul2015; d=topeml.com; h=From:To:Message-Id:Subject:MIME-Version:Content-Type:List-Help:List-Id: List-Unsubscribe:Date; bh=AaPD5Ee53+QRugedxGsoDaGUDYI+F50515jySCXZisM=; b=meDoDXwIZ6SiHyML3z5sFg1o04Pndu8y5n/HN0y9WWPxho+eG2nUXO1VxP91bxKAUExjJer5/yXE
+   iq6xGuCR0LLt6IsTl2nc5Lej15GjOXHuLLwBnqExcvBRtZyOAWglp1vBhBbInVnBR/XFazUneS/Z
+   J9FgnNLC8wR43/te9Uc=
+Received: by smtp1.antimalware.ru id haamok2erpkh for <ham@ham.email>; Fri, 6 Dec 2024 07:53:40 +0000 (envelope-from <postman4815985@uni.antimalware.ru>)
+Return-Path: postman4815985@uni.antimalware.ru
+From:  <sender@antimalware.ru>
+To: ham@ham.email
+Message-Id: <E1tJTEs-FSFcYp-OF@ucs731-ucs-12.msgpanel.com>
+Subject: 📺
+  Ссылка на трансляцию "Как построить безопасную инфраструктуру виртуальных рабочих столов (VDI)"
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="MXRKVEVzLUZTRmNZcC1PRg=="
+List-Help: <https://uni.antimalware.ru/ru/help/forsubscribers>
+List-Id: 3
+List-Unsubscribe: <https://uni.antimalware.ru/ru/v5/unsubscribe/immediately?hash=67purwhsqd66b73ig7if8bzndn3mdgyxs8xja7u4pqbcbo5zbpcqe45jc1mjdbgg5ty64cqobmewoc>
+Precedence: bulk
+X-Complaints-To: abuse@uni.antimalware.ru
+X-EnvId: usproduction.b_4815985_336853402_29978758389_20290
+X-Feedback-ID: 336853402:4815985:campaign:US
+Date: Fri, 6 Dec 2024 07:53:40 +0000
+
+--MXRKVEVzLUZTRmNZcC1PRg==
+Content-Type: multipart/alternative; boundary="----=_Part_2150265_175988817.1733471942888"
+
+------=_Part_2150265_175988817.1733471942888
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+RExQCgrCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoAoK0J3QtSDQv9GA
+0L7Qv9GD0YHRgtC40YLQtSDQv9GA0Y/QvNC+0Lkg0Y3RhNC40YAhCgrQpdC+0YLQuNC8INC90LDQ
+v9C+0LzQvdC40YLRjCDQktCw0LwsINGH0YLQviDRgdC10LPQvtC00L3RjyDRgdC+0YHRgtC+0LjR
+gtGB0Y8g0LrQvtC90YTQtdGA0LXQvdGG0LjRjyDQkNCcIExpdmUsINC90LAg0LrQvtGC0L7RgNC+
+0Lkg0LzRiyDQvtCx0YHRg9C00LjQvCwg0LrQsNC60LjQtSDQv9GA0LXQuNC80YPRidC10YHRgtCy
+0LAg0YEg0YLQvtGH0LrQuCDQt9GA0LXQvdC40Y8g0YPQtNC+0LHRgdGC0LLQsCDQsdC10LfQvtC/
+0LDRgdC90L7RgdGC0Lgg0LTQsNC10YIgVkRJLiDQmtCw0LrQuNC1INGA0L7RgdGB0LjQudGB0LrQ
+uNC1INCy0LXQvdC00L7RgNGLINC4INC/0YDQvtCy0LDQudC00LXRgNGLINC/0YDQtdC00LvQsNCz
+0LDRjtGCINC90LAg0YDRi9C90LrQtSDRgdCy0L7QuCDRgNC10YjQtdC90LjRjy4g0JrQvtC80YMg
+0L/QvtC00L7QudC00LXRgiBWREksINC60L7QvNGDINC+0L0g0L/RgNC+0YLQuNCy0L7Qv9C+0LrQ
+sNC30LDQvSDQuCDQutCw0LrQuNC1INCw0LvRjNGC0LXRgNC90LDRgtC40LLRiyDQtNC70Y8gVkRJ
+INGB0YPRidC10YHRgtCy0YPRjtGCLgrCoArQodGB0YvQu9C60LAg0L3QsCDRgtGA0LDQvdGB0LvR
+j9GG0LjRjjrCoGh0dHBzOi8vbGl2ZS5hbnRpLW1hbHdhcmUucnUvdHJhbnNsaWF0c2lpL2F2ZnJn
+dGg1LyAoaHR0cHM6Ly9saXZlLmFudGktbWFsd2FyZS5ydS90cmFuc2xpYXRzaWkvYXZmcmd0aDUv
+KQrQmNC90YTQvtGA0LzQsNGG0LjRjyDQviDRgdC+0LHRi9GC0LjQuArQndCw0LfQstCw0L3QuNC1
+OiDQmtCw0Log0L/QvtGB0YLRgNC+0LjRgtGMINCx0LXQt9C+0L/QsNGB0L3Rg9GOINC40L3RhNGA
+0LDRgdGC0YDRg9C60YLRg9GA0YMg0LLQuNGA0YLRg9Cw0LvRjNC90YvRhSDRgNCw0LHQvtGH0LjR
+hSDRgdGC0L7Qu9C+0LIgKFZESSkK0JTQsNGC0LAg0Lgg0LLRgNC10LzRjzogMDYg0LTQtdC60LDQ
+sdGA0Y8gMjAyNCBjIDExOjAwINC00L4gMTM6MDAK0JzQtdGB0YLQviDQv9GA0L7QstC10LTQtdC9
+0LjRjzogb25saW5lCgrQn9C+0LTQutC70Y7Rh9C40YLRjNGB0Y8gKGh0dHBzOi8vbGl2ZS5hbnRp
+LW1hbHdhcmUucnUvdHJhbnNsaWF0c2lpL2F2ZnJndGg1LykKCtCY0L3RhNC+0YDQvNCw0YbQuNGP
+INC+INGB0LvQtdC00YPRjtGJ0LjRhSDQvtC90LvQsNC50L0t0LrQvtC90YTQtdGA0LXQvdGG0LjR
+j9GFINCy0Ysg0YHQvNC+0LbQtdGC0LUg0YPQt9C90LDRgtGMINCyINC90LDRiNC10Lwg0LrQsNC9
+0LDQu9C1IFRlbGVncmFtLCAoaHR0cHM6Ly9hbnRpLW1hbHdhcmUudXMxMC5saXN0LW1hbmFnZS5j
+b20vdHJhY2svY2xpY2s/dT1iYzRjOWRlZDNhZTJiNzE1M2U4MmJiZGUyJmlkPTg5ZWFlYmMyMDAm
+ZT0wZDM5OGY4MWY1KcKgWW91VHViZSAoaHR0cHM6Ly9hbnRpLW1hbHdhcmUudXMxMC5saXN0LW1h
+bmFnZS5jb20vdHJhY2svY2xpY2s/dT1iYzRjOWRlZDNhZTJiNzE1M2U4MmJiZGUyJmlkPTE2NWU3
+MWI4Y2MmZT0wZDM5OGY4MWY1KdC40LvQuCDQvdCwINGB0LDQudGC0LUgKGh0dHBzOi8vYW50aS1t
+YWx3YXJlLnVzMTAubGlzdC1tYW5hZ2UuY29tL3RyYWNrL2NsaWNrP3U9YmM0YzlkZWQzYWUyYjcx
+NTNlODJiYmRlMiZpZD1lNGIyNThhYjIwJmU9MGQzOThmODFmNSkuCgpAbWVkaWEgb25seSBzY3Jl
+ZW4gYW5kIChtYXgtd2lkdGg6IDQ4MHB4KXsgdGFibGUjY2Fuc3BhbUJhciB0ZHtmb250LXNpemU6
+MTRweCAhaW1wb3J0YW50O30gdGFibGUjY2Fuc3BhbUJhciB0ZCBhe2Rpc3BsYXk6YmxvY2sgIWlt
+cG9ydGFudDsgbWFyZ2luLXRvcDoxMHB4ICFpbXBvcnRhbnQ7fSB9CgrQp9GC0L7QsdGLINC+0YLQ
+v9C40YHQsNGC0YzRgdGPINC+0YIg0Y3RgtC+0Lkg0YDQsNGB0YHRi9C70LrQuCwg0L/QtdGA0LXQ
+udC00LjRgtC1INC/0L4g0YHRgdGL0LvQutC1IChodHRwczovL3VuaS5hbnRpbWFsd2FyZS5ydS9y
+dS91bnN1YnNjcmliZT9oYXNoPTY3cHVyd2hzcWQ2NmI3M2lnN2lmOGJ6bmRuM21kZ3l4czh4amE3
+dTRwcWJjYm81emJwY3FlNDVqYzFtamRiZ2c1dHk2NGNxb2JtZXdvYyNub190cmFja2luZykKCg==
+
+------=_Part_2150265_175988817.1733471942888
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+=09<title>DLP</title>
+=09<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+=09<style type=3D"text/css">a{
+=09=09=09outline:none;
+=09=09=09color:#000;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09a:hover{
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09.active:hover{
+=09=09=09opacity:.8;
+=09=09}
+=09=09.active{
+=09=09=09-webkit-transition:all .3s ease;
+=09=09=09-moz-transition:all .3s ease;
+=09=09=09-ms-transition:all .3s ease;
+=09=09=09transition:all .3s ease;
+=09=09}
+=09=09.active a:hover{
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09p{
+=09=09=09margin:0 !important;
+=09=09}
+=09=09a img{
+=09=09=09border:none;
+=09=09}
+=09=09img{
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table td{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09.ExternalClass,.ExternalClass a,.ExternalClass span,.ExternalClass b,=
+.ExternalClass br,.ExternalClass p,.ExternalClass div{
+=09=09=09line-height:inherit;
+=09=09}
+=09=09.tpl-content{
+=09=09=09padding:0 !important;
+=09=09}
+=09=09.cke_show_borders{
+=09=09=09background:#e4e4e4 !important;
+=09=09}
+=09=09.tpl-repeatmovewrap>.tpl-repeatmove{
+=09=09=09top:-15px !important;
+=09=09}
+=09@media only screen and (max-width:500px){
+=09=09.flexible{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.table-center{
+=09=09=09float:none !important;
+=09=09=09margin:0 auto !important;
+=09=09=09width:auto !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.hide{
+=09=09=09display:none !important;
+=09=09=09width:0 !important;
+=09=09=09height:0 !important;
+=09=09=09padding:0 !important;
+=09=09=09font-size:0 !important;
+=09=09=09line-height:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.img-flex img{
+=09=09=09width:100% !important;
+=09=09=09height:auto !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.aligncenter{
+=09=09=09text-align:center !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.table-holder{
+=09=09=09display:table !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.tcap{
+=09=09=09display:table-caption !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.thead{
+=09=09=09display:table-header-group !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.trow{
+=09=09=09display:table-row !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.tfoot{
+=09=09=09display:table-footer-group !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.flex{
+=09=09=09display:block !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.holder{
+=09=09=09padding-left:10px !important;
+=09=09=09padding-right:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.pl-10{
+=09=09=09padding-left:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.ico-characters{
+=09=09=09width:125px !important;
+=09=09}
+
+}=09@media only screen and (max-width:500px){
+=09=09.ico-characters img{
+=09=09=09width:115px !important;
+=09=09=09height:auto !important;
+=09=09}
+
+}
+=09</style>
+=09<!--[if !mso]><!--><!--<![endif]-->
+</head>
+<body bgcolor=3D"#ffffff" style=3D"margin:0; padding:0; -webkit-text-size-a=
+djust:100%; -ms-text-size-adjust:100%;">
+<table bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0" style=3D"min=
+-width:320px;" width=3D"100%">
+<!-- fix for gmail -->
+=09<tbody>
+=09=09<tr>
+=09=09=09<td style=3D"line-height: 0;mso-line-height-rule: exactly;">
+=09=09=09<div style=3D"display:none;white-space:nowrap;font:15px/1px courie=
+r;">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0</div>
+=09=09=09</td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td style=3D"mso-line-height-rule: exactly;">
+=09=09=09<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"flexible" style=3D"margin:0 auto;" width=3D"600">
+<!-- fix for gmail -->
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td class=3D"hide" style=3D"mso-line-height-rule: exactly=
+;">
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" style=3D"width=
+:600px !important;" width=3D"600">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td style=3D"min-width: 600px;font-size: 0;line-=
+height: 0;mso-line-height-rule: exactly;"></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<!-- content -->
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"mso-line-height-rule: exactly;">
+<!-- banner -->
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:repeatable=
+=3D"repeat_1" mc:repeatindex=3D"0" mc:variant=3D"banner" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"img-flex" style=3D=
+"padding: 0 0 21px;mso-line-height-rule: exactly;"><a href=3D"https://uni.a=
+ntimalware.ru/ru/mail_link_tracker?hash=3D6rs5aiosuytsrhspy9fns1s63bbmdgyxs=
+8xja7u4pqbcbo5zbpcqj1irbi5kwb1zponxx8r5wmis58fd56scqezqj8hu36a6uymjk94a&url=
+=3DaHR0cHM6Ly9saXZlLmFudGktbWFsd2FyZS5ydS90cmFuc2xpYXRzaWkvYXZmcmd0aDUv&uid=
+=3DNDgxNTk4NQ~~&ucs=3Dad3effb79c58970e993199c1a06c8081"><img alt=3D"=D0=9A=
+=D0=B0=D0=BA =D0=BF=D0=BE=D1=81=D1=82=D1=80=D0=BE=D0=B8=D1=82=D1=8C =D0=B1=
+=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D1=83=D1=8E =D0=B8=D0=BD=D1=84=
+=D1=80=D0=B0=D1=81=D1=82=D1=80=D1=83=D0=BA=D1=82=D1=83=D1=80=D1=83 =D0=B2=
+=D0=B8=D1=80=D1=82=D1=83=D0=B0=D0=BB=D1=8C=D0=BD=D1=8B=D1=85 =D1=80=D0=B0=
+=D0=B1=D0=BE=D1=87=D0=B8=D1=85 =D1=81=D1=82=D0=BE=D0=BB=D0=BE=D0=B2 (VDI)" =
+data-file-id=3D"5368979" src=3D"http://uni.antimalware.ru/ru/user_file?reso=
+urce=3Dhimg&user_id=3D4815985&name=3D6ik7orxkrxen5c9tn1e388kkxryu1h7t5otxn4=
+n8b8gmzzk5ki9dfbp5sqi5b1gagioxfr54xe3p19dcczriprw8qwc96nn3qkdd1rmkqa3fj3yns=
+qmry" style=3D"border: 0px; width: 605px; height: 340px; margin: 0px; outli=
+ne: none; text-decoration: none;"></a></td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:repeatable=
+=3D"repeat_1" mc:repeatindex=3D"1" mc:variant=3D"text_block" width=3D"100%"=
+>
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 10px 26px;mso-line-heigh=
+t-rule: exactly;">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"font: bold 18px/22px Arial=
+, Helvetica, sans-serif;color: #020200;padding: 0 0 11px;mso-line-height-ru=
+le: exactly;"><span style=3D"font-size:26px;"><span style=3D"font-family:he=
+lvetica neue,helvetica,arial,verdana,sans-serif">=D0=9D=D0=B5 =D0=BF=D1=80=
+=D0=BE=D0=BF=D1=83=D1=81=D1=82=D0=B8=D1=82=D0=B5 =D0=BF=D1=80=D1=8F=D0=BC=
+=D0=BE=D0=B9 =D1=8D=D1=84=D0=B8=D1=80!</span></span></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font: 16p=
+x/19px Arial, Helvetica, sans-serif;color: #010101;mso-line-height-rule: ex=
+actly;">
+=09=09=09=09=09=09=09=09=09=09=09=09<div style=3D"text-align: center;"></di=
+v>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<div style=3D"text-align: left;">
+<font face=3D"open sans, helvetica neue, helvetica, arial, sans-serif">=D0=
+=A5=D0=BE=D1=82=D0=B8=D0=BC =D0=BD=D0=B0=D0=BF=D0=BE=D0=BC=D0=BD=D0=B8=D1=
+=82=D1=8C =D0=92=D0=B0=D0=BC, =D1=87=D1=82=D0=BE =D1=81=D0=B5=D0=B3=D0=BE=
+=D0=B4=D0=BD=D1=8F =D1=81=D0=BE=D1=81=D1=82=D0=BE=D0=B8=D1=82=D1=81=D1=8F =
+=D0=BA=D0=BE=D0=BD=D1=84=D0=B5=D1=80=D0=B5=D0=BD=D1=86=D0=B8=D1=8F =D0=90=
+=D0=9C Live, =D0=BD=D0=B0 =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D0=BE=D0=B9 =D0=BC=
+=D1=8B =D0=BE=D0=B1=D1=81=D1=83=D0=B4=D0=B8=D0=BC, =D0=BA=D0=B0=D0=BA=D0=B8=
+=D0=B5 =D0=BF=D1=80=D0=B5=D0=B8=D0=BC=D1=83=D1=89=D0=B5=D1=81=D1=82=D0=B2=
+=D0=B0 =D1=81 =D1=82=D0=BE=D1=87=D0=BA=D0=B8 =D0=B7=D1=80=D0=B5=D0=BD=D0=B8=
+=D1=8F =D1=83=D0=B4=D0=BE=D0=B1=D1=81=D1=82=D0=B2=D0=B0 =D0=B1=D0=B5=D0=B7=
+=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D0=BE=D1=81=D1=82=D0=B8 =D0=B4=D0=B0=D0=B5=
+=D1=82 VDI. =D0=9A=D0=B0=D0=BA=D0=B8=D0=B5 =D1=80=D0=BE=D1=81=D1=81=D0=B8=
+=D0=B9=D1=81=D0=BA=D0=B8=D0=B5 =D0=B2=D0=B5=D0=BD=D0=B4=D0=BE=D1=80=D1=8B =
+=D0=B8 =D0=BF=D1=80=D0=BE=D0=B2=D0=B0=D0=B9=D0=B4=D0=B5=D1=80=D1=8B =D0=BF=
+=D1=80=D0=B5=D0=B4=D0=BB=D0=B0=D0=B3=D0=B0=D1=8E=D1=82 =D0=BD=D0=B0 =D1=80=
+=D1=8B=D0=BD=D0=BA=D0=B5 =D1=81=D0=B2=D0=BE=D0=B8 =D1=80=D0=B5=D1=88=D0=B5=
+=D0=BD=D0=B8=D1=8F. =D0=9A=D0=BE=D0=BC=D1=83 =D0=BF=D0=BE=D0=B4=D0=BE=D0=B9=
+=D0=B4=D0=B5=D1=82 VDI, =D0=BA=D0=BE=D0=BC=D1=83 =D0=BE=D0=BD =D0=BF=D1=80=
+=D0=BE=D1=82=D0=B8=D0=B2=D0=BE=D0=BF=D0=BE=D0=BA=D0=B0=D0=B7=D0=B0=D0=BD =
+=D0=B8 =D0=BA=D0=B0=D0=BA=D0=B8=D0=B5 =D0=B0=D0=BB=D1=8C=D1=82=D0=B5=D1=80=
+=D0=BD=D0=B0=D1=82=D0=B8=D0=B2=D1=8B =D0=B4=D0=BB=D1=8F VDI =D1=81=D1=83=D1=
+=89=D0=B5=D1=81=D1=82=D0=B2=D1=83=D1=8E=D1=82.</font><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=C2=A0
+=09=09=09=09=09=09=09=09=09=09=09=09<p class=3D"MsoNormal_mr_css_attr" styl=
+e=3D"margin: 10px 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;color: #202020;font-family: Helvetica;font-size: 16px;line-he=
+ight: 150%;text-align: left;"><font face=3D"open sans, helvetica neue, helv=
+etica, arial, sans-serif"><strong>=D0=A1=D1=81=D1=8B=D0=BB=D0=BA=D0=B0 =D0=
+=BD=D0=B0 =D1=82=D1=80=D0=B0=D0=BD=D1=81=D0=BB=D1=8F=D1=86=D0=B8=D1=8E</str=
+ong>:=C2=A0<a class=3D"MsoNormal_mr_css_attr" href=3D"https://uni.antimalwa=
+re.ru/ru/mail_link_tracker?hash=3D6bjtoqs8ie755gspy9fns1s63bbmdgyxs8xja7u4p=
+qbcbo5zbpcqbwxzpxa818s9eonxx8r5wmis58fd56scqezqj8hu36a6uymjk94a&url=3DaHR0c=
+HM6Ly9saXZlLmFudGktbWFsd2FyZS5ydS90cmFuc2xpYXRzaWkvYXZmcmd0aDUv&uid=3DNDgxN=
+Tk4NQ~~&ucs=3Dad3effb79c58970e993199c1a06c8081" rel=3D" noopener noreferrer=
+" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;text-decoration: underline;" target=3D"_blank"=
+>https://live.anti-malware.ru/transliatsii/avfrgth5/</a></font></p>
+=09=09=09=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09=09=09=09<font face=3D"open sans, helvetica neue=
+, helvetica, arial, sans-serif"><strong>=D0=98=D0=BD=D1=84=D0=BE=D1=80=D0=
+=BC=D0=B0=D1=86=D0=B8=D1=8F =D0=BE =D1=81=D0=BE=D0=B1=D1=8B=D1=82=D0=B8=D0=
+=B8</strong><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=D0=9D=D0=B0=D0=B7=D0=B2=D0=B0=D0=BD=D0=
+=B8=D0=B5: =D0=9A=D0=B0=D0=BA =D0=BF=D0=BE=D1=81=D1=82=D1=80=D0=BE=D0=B8=D1=
+=82=D1=8C =D0=B1=D0=B5=D0=B7=D0=BE=D0=BF=D0=B0=D1=81=D0=BD=D1=83=D1=8E =D0=
+=B8=D0=BD=D1=84=D1=80=D0=B0=D1=81=D1=82=D1=80=D1=83=D0=BA=D1=82=D1=83=D1=80=
+=D1=83 =D0=B2=D0=B8=D1=80=D1=82=D1=83=D0=B0=D0=BB=D1=8C=D0=BD=D1=8B=D1=85 =
+=D1=80=D0=B0=D0=B1=D0=BE=D1=87=D0=B8=D1=85 =D1=81=D1=82=D0=BE=D0=BB=D0=BE=
+=D0=B2 (VDI)<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=D0=94=D0=B0=D1=82=D0=B0 =D0=B8 =D0=B2=
+=D1=80=D0=B5=D0=BC=D1=8F: <strong>06 =D0=B4=D0=B5=D0=BA=D0=B0=D0=B1=D1=80=
+=D1=8F 2024 c 11:00 =D0=B4=D0=BE 13:00</strong><br>
+=09=09=09=09=09=09=09=09=09=09=09=09=D0=9C=D0=B5=D1=81=D1=82=D0=BE =D0=BF=
+=D1=80=D0=BE=D0=B2=D0=B5=D0=B4=D0=B5=D0=BD=D0=B8=D1=8F: online</font>
+</div>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" mc:repeatable=
+=3D"repeat_1" mc:repeatindex=3D"2" mc:variant=3D"button" width=3D"100%">
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td style=3D"padding: 0 10px 23px;mso-line-heigh=
+t-rule: exactly;">
+=09=09=09=09=09=09=09=09=09<table align=3D"center" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"margin:0 auto;">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" bgcolor=3D"#042C60=
+" class=3D"active" style=3D"font: bold 24px/24px Arial, Helvetica, sans-ser=
+if;color: #fff;mso-padding-alt: 11px 24px;mso-line-height-rule: exactly;-we=
+bkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition:=
+ all .3s ease;transition: all .3s ease;"><a href=3D"https://uni.antimalware=
+.ru/ru/mail_link_tracker?hash=3D68k3kad9c1ajawspy9fns1s63bbmdgyxs8xja7u4pqb=
+cbo5zbpcqyhw3p8n534ozoonxx8r5wmis58fd56scqezqj8hu36a6uymjk94a&url=3DaHR0cHM=
+6Ly9saXZlLmFudGktbWFsd2FyZS5ydS90cmFuc2xpYXRzaWkvYXZmcmd0aDUv&uid=3DNDgxNTk=
+4NQ~~&ucs=3Dad3effb79c58970e993199c1a06c8081" style=3D"text-decoration: non=
+e;color: #fff;display: block;padding: 11px 24px;outline: none;" target=3D"_=
+blank">=D0=9F=D0=BE=D0=B4=D0=BA=D0=BB=D1=8E=D1=87=D0=B8=D1=82=D1=8C=D1=81=
+=D1=8F</a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"mcnTextBlock_mr_css_attr" style=3D"min-width: 100%;border-collapse:=
+ collapse;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%">
+=09=09=09=09=09=09=09<tbody class=3D"mcnTextBlockOuter_mr_css_attr">
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"mcnTextBlockInner_mr_css_attr" styl=
+e=3D"padding-top: 9px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: =
+100%;" valign=3D"top">
+=09=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"mcnTextContentContainer_mr_css_attr" styl=
+e=3D"max-width: 100%;min-width: 100%;border-collapse: collapse;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"mcnTextContent_mr_css_attr=
+" style=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-l=
+eft: 18px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-br=
+eak: break-word;color: #202020;font-family: Helvetica;font-size: 16px;line-=
+height: 150%;text-align: left;" valign=3D"top">
+<br>
+=09=09=09=09=09=09=09=09=09=09=09=09=D0=98=D0=BD=D1=84=D0=BE=D1=80=D0=BC=D0=
+=B0=D1=86=D0=B8=D1=8F =D0=BE =D1=81=D0=BB=D0=B5=D0=B4=D1=83=D1=8E=D1=89=D0=
+=B8=D1=85 =D0=BE=D0=BD=D0=BB=D0=B0=D0=B9=D0=BD-=D0=BA=D0=BE=D0=BD=D1=84=D0=
+=B5=D1=80=D0=B5=D0=BD=D1=86=D0=B8=D1=8F=D1=85 =D0=B2=D1=8B =D1=81=D0=BC=D0=
+=BE=D0=B6=D0=B5=D1=82=D0=B5 =D1=83=D0=B7=D0=BD=D0=B0=D1=82=D1=8C =D0=B2 =D0=
+=BD=D0=B0=D1=88=D0=B5=D0=BC =D0=BA=D0=B0=D0=BD=D0=B0=D0=BB=D0=B5 <a class=
+=3D"MsoNormal_mr_css_attr" href=3D"https://uni.antimalware.ru/ru/mail_link_=
+tracker?hash=3D6urapfhpe4oz3cspy9fns1s63bbmdgyxs8xja7u4pqbcbo5zbpcqdmdt3rpg=
+e1fk47qntwuqrp6hm9fftdkot6bmat5e3garudmw35qo&url=3DaHR0cHM6Ly9hbnRpLW1hbHdh=
+cmUudXMxMC5saXN0LW1hbmFnZS5jb20vdHJhY2svY2xpY2s_dT1iYzRjOWRlZDNhZTJiNzE1M2U=
+4MmJiZGUyJmlkPTg5ZWFlYmMyMDAmZT0wZDM5OGY4MWY1&uid=3DNDgxNTk4NQ~~&ucs=3Dba6d=
+9c61bc24402b6a86dc6b2b4cc430" rel=3D" noopener noreferrer" style=3D"-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weig=
+ht: normal;text-decoration: underline;" target=3D"_blank">Telegram,</a>=C2=
+=A0<a class=3D"MsoNormal_mr_css_attr" href=3D"https://uni.antimalware.ru/ru=
+/mail_link_tracker?hash=3D6diq89b5k6gpnqspy9fns1s63bbmdgyxs8xja7u4pqbcbo5zb=
+pcqmuao9mymx43ebr1p5wszaksxczfftdkot6bmat5e3garudmw35qo&url=3DaHR0cHM6Ly9hb=
+nRpLW1hbHdhcmUudXMxMC5saXN0LW1hbmFnZS5jb20vdHJhY2svY2xpY2s_dT1iYzRjOWRlZDNh=
+ZTJiNzE1M2U4MmJiZGUyJmlkPTE2NWU3MWI4Y2MmZT0wZDM5OGY4MWY1&uid=3DNDgxNTk4NQ~~=
+&ucs=3D53053614bdf84d3a9b2219fb2152ea8c" rel=3D" noopener noreferrer" style=
+=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C8=
+9;font-weight: normal;text-decoration: underline;" target=3D"_blank">YouTub=
+e </a>=D0=B8=D0=BB=D0=B8 =D0=BD=D0=B0 <a class=3D"MsoNormal_mr_css_attr" hr=
+ef=3D"https://uni.antimalware.ru/ru/mail_link_tracker?hash=3D6psoyckx148fxc=
+spy9fns1s63bbmdgyxs8xja7u4pqbcbo5zbpcq8guxtqeg9mxsh96qjfd9yus58mfftdkot6bma=
+t5e3garudmw35qo&url=3DaHR0cHM6Ly9hbnRpLW1hbHdhcmUudXMxMC5saXN0LW1hbmFnZS5jb=
+20vdHJhY2svY2xpY2s_dT1iYzRjOWRlZDNhZTJiNzE1M2U4MmJiZGUyJmlkPWU0YjI1OGFiMjAm=
+ZT0wZDM5OGY4MWY1&uid=3DNDgxNTk4NQ~~&ucs=3D50665d36652a5fc917214e81dcee6efe"=
+ rel=3D" noopener noreferrer" style=3D"-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: u=
+nderline;" target=3D"_blank">=D1=81=D0=B0=D0=B9=D1=82=D0=B5</a>.</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<br>
+=09=09=09=09=09=09<!-- text block --><!-- btn --><!-- title --><!-- partner=
+s logo block --><!-- questions block --><!-- main characters --><!-- footer=
+ block --><!-- separator 5px --><!-- separator 10px --><!-- separator 20px =
+-->
+</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+<center>
+<br>
+<style type=3D"text/css">@media only screen and (max-width: 480px){
+                        table#canspamBar td{font-size:14px !important;}
+                        table#canspamBar td a{display:block !important; mar=
+gin-top:10px !important;}
+                    }
+</style>
+</center>
+<table bgcolor=3D"white" align=3D"left" width=3D"100%"><tr><td><span style=
+=3D"font-family: arial,helvetica,sans-serif; color: black; font-size: 12px;=
+"><p style=3D"text-align: center; color: #bababa;">=D0=A7=D1=82=D0=BE=D0=B1=
+=D1=8B =D0=BE=D1=82=D0=BF=D0=B8=D1=81=D0=B0=D1=82=D1=8C=D1=81=D1=8F =D0=BE=
+=D1=82 =D1=8D=D1=82=D0=BE=D0=B9 =D1=80=D0=B0=D1=81=D1=81=D1=8B=D0=BB=D0=BA=
+=D0=B8, =D0=BF=D0=B5=D1=80=D0=B5=D0=B9=D0=B4=D0=B8=D1=82=D0=B5 =D0=BF=D0=BE=
+ <a style=3D"color: #46a8c6;" href=3D"https://uni.antimalware.ru/ru/unsubsc=
+ribe?hash=3D67purwhsqd66b73ig7if8bzndn3mdgyxs8xja7u4pqbcbo5zbpcqe45jc1mjdbg=
+g5ty64cqobmewoc#no_tracking">=D1=81=D1=81=D1=8B=D0=BB=D0=BA=D0=B5</a></p></=
+span></td></tr></table><center><table><tr><td><img src=3D"https://uni.antim=
+alware.ru/ru/mail_read_tracker/4815985?hash=3D6pipz7hfseh7w39u8px8o5na9fjmd=
+gyxs8xja7u4pqbcbo5zbpcqgggxe7nrrj75ohk4y3uzop7ndq" width=3D"1" height=3D"1"=
+ alt=3D"" title=3D"" border=3D"0"></td></tr></table></center></body>
+</html>
+------=_Part_2150265_175988817.1733471942888--
+--MXRKVEVzLUZTRmNZcC1PRg==--

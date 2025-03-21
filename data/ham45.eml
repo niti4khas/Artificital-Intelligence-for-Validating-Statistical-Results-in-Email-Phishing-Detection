@@ -1,0 +1,145 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6a10:b01:b0:557:6677:286a with SMTP id rp1csp1595766pxb;
+        Fri, 3 May 2024 09:10:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUsgeg/KfjohwP9mAMwtZZRIAfbqwusVwMctA5/S8AI8DkID1GnuD+kmvPSaB/0LYDqH+s8iuWo7sCmOKQlf1KFVeONS7alYKfB
+X-Google-Smtp-Source: AGHT+IHy2Qms6cPqbXxANXbsuK38TYT5oxS26Z1acsQ7i9ZkfMtvBX2BE7Tj2w5WIe3XcMyAq9d0
+X-Received: by 2002:a05:620a:2724:b0:790:8926:a69e with SMTP id b36-20020a05620a272400b007908926a69emr3629348qkp.74.1714752620587;
+        Fri, 03 May 2024 09:10:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1714752620; cv=none;
+        d=google.com; s=arc-20160816;
+        b=MjmUMgh/UM5H9F8/16oed2R1EDKHixW2NJ/vTvMU+1Z/xgVfWLFztUQt0+oWTKfFwc
+         I8DCxEEQRzK45zVtvoAcM0arRnFSGsRa3Yki9pasUN+W0/8D84/fkU7NTI8ucqi8yoTa
+         GejlJ1quzT+RTjZcJSshtbaHivv2I77QmerY0f1MfuxXQnAQr4A0UErEcneal6MNLysJ
+         7mOwel/X0stTbCXQw3fyU66VHTj3OejDIkZ3cGM5v8KSRJ5sac+1eVDs4GD/za76s/gY
+         YY1SDtV+Z0us938e/1asOCB7kcrnmFWby2kHzuKWkMCmDZhkjNABZaxQrzQ7gm2xk4WP
+         2XfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=destinations:list-unsubscribe-post:list-unsubscribe:list-post
+         :list-archive:list-id:precedence:content-transfer-encoding
+         :mime-version:subject:references:in-reply-to:message-id:cc:to
+         :reply-to:from:date:dkim-signature;
+        bh=l1tkVbfhESzp3iNjlMnJvmdNPMHpTB6rGkZKrBqddRY=;
+        fh=jHQShB7tYNmFAjqhcjBMwlYSueb0VijAhekKtQA2U/M=;
+        b=KEi0tkDfE1govnmsVvHY1023hk4SDxMJmiXSJEwOFTmgnWpYBzWo8cMDFDV7uBSSRa
+         5xyUVIIQcbjuUzhoUzL45081KVP3byuxpD7aE7QGgIJ5gWEfKLKmPJs/5PzjoxXtUXAv
+         sJq2cwybMbgRxxPwIyJ09qs2t5MK7XPQSXPLQGAtuHVBHhIlEkhEzuS+juJIPgXQpLxI
+         2jt/Vtjd+/RC33UtySfiwwDvK3CzY7nCPH5Vk4R8fPGOrzhl4u/d7b59vLSt0OaihRZJ
+         9G9E5SLp4+4NJkFUVtEjTwpEsKTPGTgLsoCVK4w5nE73Qdx9rEjvk7d0ih/LGXmCHZ8y
+         6lhA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=K+84Yz3d;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.202 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-19.smtp.github.com (out-19.smtp.github.com. [192.30.252.202])
+        by mx.google.com with ESMTPS id ya26-20020a05620a5e5a00b00790f3e05925si3375417qkn.757.2024.05.03.09.10.19
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 May 2024 09:10:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.202 as permitted sender) client-ip=192.30.252.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2023 header.b=K+84Yz3d;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.202 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-dd69f7c.va3-iad.github.net [10.48.13.16])
+	by smtp.github.com (Postfix) with ESMTPA id C41EFE00F1
+	for <sminhaz18061997@gmail.com>; Fri,  3 May 2024 09:10:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2023; t=1714752619;
+	bh=l1tkVbfhESzp3iNjlMnJvmdNPMHpTB6rGkZKrBqddRY=;
+	h=Date:From:Reply-To:To:Cc:In-Reply-To:References:Subject:List-ID:
+	 List-Archive:List-Post:List-Unsubscribe:List-Unsubscribe-Post:
+	 From;
+	b=K+84Yz3dj8UJ32O1f9D3l9+qyXmjjbkSUtQo+/giiCE0grZ7uDkdA9FdR2hG3QM60
+	 L/TL11xm0kXkanrOo4vG93gGrBt5XUQ+1LiE4Rcz3x31vWEfOA4qTqlMlzQjxxuooa
+	 NbfOXRRdoNbnAl/7Pkz5lHy2eMvzLaVJkZUWCmjw=
+Date: Fri, 03 May 2024 09:10:19 -0700
+From: John Washam <sender@github.com>
+Reply-To: jwasham/coding-interview-university <reply+AQRTH3OSXREYRCEIB73LKAWEIDWWXEVBNHHA23GQ3M@reply.github.com>
+To: jwasham/coding-interview-university <ham@ham.email>
+Cc: Subscribed <subscribed@noreply.github.com>
+Message-ID: <jwasham/coding-interview-university/pull/199/c2093295970@github.com>
+In-Reply-To: <jwasham/coding-interview-university/pull/199@github.com>
+References: <jwasham/coding-interview-university/pull/199@github.com>
+Subject: Re: [jwasham/coding-interview-university] Update some words and
+ Adding in readme-hi.md (#199)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_66350c6bc1fea_ba17fc5233aa";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: jwasham
+X-GitHub-Recipient: minhaz1205013
+X-GitHub-Reason: subscribed
+List-ID: jwasham/coding-interview-university
+ <coding-interview-university.jwasham.github.com>
+List-Archive: https://github.com/jwasham/coding-interview-university
+List-Post: <mailto:reply+AQRTH3OSXREYRCEIB73LKAWEIDWWXEVBNHHA23GQ3M@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AQRTH3OSXREYRCEIB73LKAWEIDWWXEVBNHHA23GQ3M@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/one-click/AQRTH3IKHN3GM3B5G4PJEZLZAOZGXANCNFSM4DJQT3CQ>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Auto-Response-Suppress: All
+destinations: sminhaz18061997@gmail.com
+X-GitHub-Recipient-Address: sminhaz18061997@gmail.com
+
+
+----==_mimepart_66350c6bc1fea_ba17fc5233aa
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Closing due to age of this open pull request.
+
+-- 
+Reply to this email directly or view it on GitHub:
+https://github.com/jwasham/coding-interview-university/pull/199#issuecomment-2093295970
+You are receiving this because you are subscribed to this thread.
+
+Message ID: <jwasham/coding-interview-university/pull/199/c2093295970@github.com>
+----==_mimepart_66350c6bc1fea_ba17fc5233aa
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p></p>
+<p dir=3D"auto">Closing due to age of this open pull request.</p>
+
+<p style=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">&m=
+dash;<br />Reply to this email directly, <a href=3D"https://github.com/jw=
+asham/coding-interview-university/pull/199#issuecomment-2093295970">view =
+it on GitHub</a>, or <a href=3D"https://github.com/notifications/unsubscr=
+ibe-auth/AQRTH3LIJLNGNVPNI3HROW3ZAOZGXAVCNFSM4DJQT3C2U5DIOJSWCZC7NNSXTN2J=
+ONZXKZKDN5WW2ZLOOQ5TEMBZGMZDSNJZG4YA">unsubscribe</a>.<br />You are recei=
+ving this because you are subscribed to this thread.<img src=3D"https://g=
+ithub.com/notifications/beacon/AQRTH3JJHI6OFXYY7LCRZ43ZAOZGXA5CNFSM4DJQT3=
+C2YY3PNVWWK3TUL52HS4DFVREXG43VMVBW63LNMVXHJKTDN5WW2ZLOORPWSZGOPTCSSYQ.gif=
+" height=3D"1" width=3D"1" alt=3D"" /><span style=3D"color: transparent; =
+font-size: 0; display: none; visibility: hidden; overflow: hidden; opacit=
+y: 0; width: 0; height: 0; max-width: 0; max-height: 0; mso-hide: all">Me=
+ssage ID: <span>&lt;jwasham/coding-interview-university/pull/199/c2093295=
+970</span><span>@</span><span>github</span><span>.</span><span>com&gt;</s=
+pan></span></p>
+<script type=3D"application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/jwasham/coding-interview-university/pull/19=
+9#issuecomment-2093295970",
+"url": "https://github.com/jwasham/coding-interview-university/pull/199#i=
+ssuecomment-2093295970",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>=
+
+----==_mimepart_66350c6bc1fea_ba17fc5233aa--

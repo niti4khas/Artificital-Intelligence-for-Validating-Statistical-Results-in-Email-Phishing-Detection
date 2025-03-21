@@ -1,0 +1,425 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:6a10:d1c4:b0:5ad:3a31:c2ec with SMTP id m4csp4902283pxv;
+        Thu, 12 Dec 2024 09:36:11 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGvOacD/eMxQ6zBKAGzv1Tj02CSaD0vtPzajO9eP+veRyMe9ws8inJiuuVmviQ7zM+9vxCk
+X-Received: by 2002:a05:6871:6001:b0:29e:74fa:b7c with SMTP id 586e51a60fabf-2a3853878d6mr2343850fac.8.1734024971039;
+        Thu, 12 Dec 2024 09:36:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734024971; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DzhAD8KWg78fweqdGTAMZ8bOqgW3XpdIFBh7HIJNX3irPlYL/EsIjYVpkdudL16o2m
+         +JMWXYOU8AQ2Pt95oT1eFHCpSV85ZqUHOw0AjLp52/DaYJ4QszkcbYW7Ej4WZsVYDRdK
+         9EWp+SZ5g+Hglqc8H4zseZsQfnb5xzONItZ9qzQH2te+Iut+6npuid4Qr3ausSKoIywN
+         ruAR+SaBorbqDOmxXrbZoreyVb+MTRVL0609Qt6D/nZZ0dIgBU0j7g03QeO9xCas0g3m
+         av8oPpACjTCQ52bnCSlB9Bqk6mNpM+gJMtf+pQJwbhFRHmJTPLfmKeC/xoM22EauuqmT
+         6VyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:message-id:reply-to:mime-version:list-unsubscribe-post
+         :list-unsubscribe:date:subject:to:from:dkim-signature:dkim-signature;
+        bh=GP3O/uhD+X946TtIFfmh5b0eWXzg2P8kIJONXHmcn0M=;
+        fh=+zeab+GfNA7H4rvkJhXhgkuybJa6lZFKytJkOiDdans=;
+        b=MSlE09tBelrQJFNadd05dUQag/NEhK/MKT2c4PsTDKdbckHxL9sOX0jCRCSB9PW35E
+         HyyUNNzP9Vd+WtpLlttujH5U9cMz9GIGMEt8NaH7WuQj/BOOnkM7SYIjTq8Ze+DcocZd
+         gdY3n/NmNqR34kLWZz7T8JIAtwgFoehZcAnSy47rl8/JmdAO6EZHwCL1RwJdpiEM2iAx
+         WNCPth9B7jvTYR8ys+oHQhEIEgsTjb0MrLQTdvOCwoRqTsc+Q/Ia5vsxCoC6SBhjDaHm
+         I9rGB7fC+4l8fG+52TGP9UkdSFgvhWuGH+CF2d5T505Pul7TpcGrtTc/JHJhoa6kdpTA
+         HZxQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.continuum.washington.edu header.s=10dkim1 header.b=n2m9sMo8;
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=d++OjY9X;
+       spf=pass (google.com: domain of bounce-58_html-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu designates 13.111.20.184 as permitted sender) smtp.mailfrom=bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail.continuum.washington.edu
+Return-Path: <bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu>
+Received: from mta.mail.continuum.washington.edu (mta.mail.continuum.washington.edu. [13.111.20.184])
+        by mx.google.com with ESMTPS id 586e51a60fabf-29fc04a7a53si6742860fac.307.2024.12.12.09.36.10
+        for <minhaz18061997@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Dec 2024 09:36:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-58_html-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu designates 13.111.20.184 as permitted sender) client-ip=13.111.20.184;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.continuum.washington.edu header.s=10dkim1 header.b=n2m9sMo8;
+       dkim=pass header.i=@s10.y.mc.salesforce.com header.s=fbldkim10 header.b=d++OjY9X;
+       spf=pass (google.com: domain of bounce-58_html-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu designates 13.111.20.184 as permitted sender) smtp.mailfrom=bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mail.continuum.washington.edu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=10dkim1;
+ d=mail.continuum.washington.edu;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:Message-ID:Content-Type; i=continuum@mail.continuum.washington.edu;
+ bh=GP3O/uhD+X946TtIFfmh5b0eWXzg2P8kIJONXHmcn0M=;
+ b=n2m9sMo8vaHw+tILcJkdlC+T782ZQb/TIy0vB3FyCAjR/N7rQL0nnvJ/La/IHPUOFqNLD0+Tkxd3
+   Ci0IFV2I/xuM+az43zd4QZX2ClQzgGwW5KkHzF0w/pBeWAZ32suCJAQa927qvVGrrBP2RZQilRZ/
+   U8VXe3bgNnV9LUfYQ0aG/4gJCKqIuTKLV70OjsUTznibmOcMrdRCgUoaBgwV6oWkRCSBGwwZoIFW
+   9cB4opbq0ldTB8Ij3bTSVakkXjmH+TR1VyHiZ0bDour1RCLibqV7FBGogM3mmx2rlunUZYcImdFB
+   BTU0h7cQRZh8a9c/YbPJfkqxLcRwTlDkIMG//A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=fbldkim10; d=s10.y.mc.salesforce.com;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:Message-ID:
+ Content-Type;
+ bh=GP3O/uhD+X946TtIFfmh5b0eWXzg2P8kIJONXHmcn0M=;
+ b=d++OjY9Xs4VqDc45yegHqco89bCALmpAVY80UF7RPL1hOtEFKtYgx3jxn7RUaejYyn+OR8kcFix4
+   g++I7kdo55KAdp935t5IlLfVNQyIvfxEU7Ai1WCRcGbuRBOf6oWlB23R0UW2zy7O23aMJdmbWVU3
+   oqyty1VURVCIWUhpMm6oiEOHutJ6Yg1g/FN5KyAcRjTqPj9f453IQp4tR6e4OVr4NF9SPHTvjKHX
+   WifG+s8QvytyVWr8U6h6jas0wngLuQJVPnQbS589ZG3Y83bIohoqsMafXDqGVe0pL91B/vTQ9yrF
+   15bG4H2Kdsv3u7GfNqpbDA0embiJQ18f3VkqXQ==
+Received: by mta.mail.continuum.washington.edu id hbcfgm2fmd4d for <ham@ham.email>; Thu, 12 Dec 2024 17:35:59 +0000 (envelope-from <bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu>)
+From: "UW Professional and Continuing Education" <send@mail.continuum.washington.edu>
+To: <ham@ham.email>
+Subject: Last Chance to Enroll in Winter Programs
+Date: Thu, 12 Dec 2024 11:35:59 -0600
+List-Unsubscribe: <https://click.mail.continuum.washington.edu/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MTUwMTMxMjMiLCJzIjoiMzE5NjI0NTExIiwibGlkIjoiNTgiLCJqIjoiMjM2MTY3NSIsImpiIjoiNDAwNiIsImQiOiIxMDAyMTAifQ.B9-f4RWQDDM9D6ZgZAQA2x5lx9ViwMQCEmZ_kofuWWQ>, <mailto:leave-fd7e11781a3c402029-fe2f17717c620679701571-fe9116737365027a70-fe3a11717064057e741673-ff3510707562@leave.mail.continuum.washington.edu>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Reply-To: "UW Professional and Continuing Education" <send@mail.continuum.washington.edu>
+X-SFMC-Stack: 10
+x-job: 515013123_2361675
+Message-ID: <bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu>
+X-Return-Path: bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu
+Feedback-ID: 515013123:2361675:13.111.20.184:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="z3iOw7CH8VNd=_?:"
+
+This is a multi-part message in MIME format.
+
+--z3iOw7CH8VNd=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+UW Professional & Continuing Education Newsletter
+ 
+ 
+
+ 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdeb8a61699a051822d11e44b5cdb2c879b4888230473bb9abfcfd97377f3e5178f78575294bcea449b70b0b337491f0796fba5fd9cd5244f9 
+
+
+
+
+ 
+ 
+
+ 
+
+
+ Our Most Popular Stories of 2024
+
+ As 2024 draws to a close, we looked back to see which articles were the most visited. We don&rsquo;t want you to miss our most popular content, so read on to learn more about hot jobs and how to get ahead in your career.
+
+	1. 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd61f7b5f66a624067b2f5ccecad87accf57607aa57b5f2a596a6fa4969881233af98c03c21c9a05838f3d2c407c3256f03f11abeb3b97dfc4 
+Seattle's Most In-Demand Jobs 
+	2. 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd1a65f69720f2f7bdf687f2816d056a996028b6e2485b72d912b83d5ef5808750887351f92562f46db26f8c0edfab71c5cd0acb78bc1fcd91 
+10 Great Jobs You Can Get With a Certificate 
+	3. 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdad9187e810b13fd9170d3716293401f865327f9d549d7f625378d6be50a7501a14ec8d631280609d10a198e6b73e716343baf17c2fc1211e 
+Where to Find Scholarships for Your Certificate Program 
+	4. 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd4ba45a5af5c6989d6353688afc95dbcacc645d14a42a5903b61dc53ea70368e36dbeb7e609eb7cdee4c592ee35cf935fdd6483052a4a0f4f 
+5 Things You Didn't Know About Private Investigators 
+	5. 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd963f04289c8336c5249690405062e15115f40714ab50186c4810ef1b32f9a93c893c3ed0d5ea31c42a3fbc9c394231cc10304dc1ad8ef9d6 
+How to Become an Embedded Software Engineer 
+
+
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd5a7984c6d4a3d1d4645a25086340d9b5d299f0c96d8d7b0052cf4dfbe63977021a8dd9b1945340d0bac0ccaeeee0c439603a1ec08ee07194 
+
+
+8 Perks of Being a UWPCE Student
+
+As a token of our appreciation and to make your student journey a bit easier, we&rsquo;ve gathered some of the best student discounts and freebies just for you. Check out these 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd5a7984c6d4a3d1d4645a25086340d9b5d299f0c96d8d7b0052cf4dfbe63977021a8dd9b1945340d0bac0ccaeeee0c439603a1ec08ee07194 
+perks  and make the most of your student status!
+
+
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd5a7984c6d4a3d1d4645a25086340d9b5d299f0c96d8d7b0052cf4dfbe63977021a8dd9b1945340d0bac0ccaeeee0c439603a1ec08ee07194 
+View Perks 
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdc2c01980cd261883f4fa9736ba00c603dd799ec0db16d569b7c9f3a0c36f11827c8878945e3ae1fb52b2504cc7162ef07593d536c9e34a59 
+
+
+Making Digital Content Accessible for Everyone
+
+Interested in helping 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdc2c01980cd261883f4fa9736ba00c603dd799ec0db16d569b7c9f3a0c36f11827c8878945e3ae1fb52b2504cc7162ef07593d536c9e34a59 
+make digital content accessible for everyone ? Learn how our new UW Specialization in Web & Digital Accessibility can provide you with the skills to excel in this rapidly growing area.
+
+
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdc2c01980cd261883f4fa9736ba00c603dd799ec0db16d569b7c9f3a0c36f11827c8878945e3ae1fb52b2504cc7162ef07593d536c9e34a59 
+Learn More 
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd99cebca2a595584fd04f58d6e6dde5f98b8ea073f523c26e2e7ea71ec2f88aa00c7119264f700d4186a57dc6ccfb82f6bf909004ea996447 
+
+
+ Last Chance to Enroll in Winter Programs
+
+ Where do you want your career to go in 2025? Start building the future you want by giving yourself the gift of learning and secure your spot for one of our 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd99cebca2a595584fd04f58d6e6dde5f98b8ea073f523c26e2e7ea71ec2f88aa00c7119264f700d4186a57dc6ccfb82f6bf909004ea996447 
+winter programs  or 
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd296b0cd7acb2234d7176d241e9ae1b6db56d913f0f45175a06d4f2e9b8fd65481e4916103fdc20793c0a5d9502bc550ff39b1d1b438bdafd 
+new offerings for 2025 . Don&rsquo;t wait much longer; our winter start programs are filling up fast.
+
+
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd99cebca2a595584fd04f58d6e6dde5f98b8ea073f523c26e2e7ea71ec2f88aa00c7119264f700d4186a57dc6ccfb82f6bf909004ea996447 
+View Programs 
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd20b7d99582128c834510a59157c534a28c417f35b25a3d7fc61af92a73559d9c1923583c02b6c33c1c26f73b0229918619d6b4bf41e23a44 
+
+
+
+
+
+ 
+ 
+
+ 
+Follow Us:
+
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd654877a07253f79da9124bfad5b5d0c5f0db8f823d5e10f868666699a3edd97fc3b4b5e2257ca5114fa86cef2edda712e0e7b03c4a4416f3 
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd7f6a80b4003d9e2b2157eaf5d56593642ef0ce55c19a6c2df5dd08228bc2d9e8df1e8a512b12df8d05046bc60d1978ef4beadb523196e548 
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bde98a656c44ae371cae791872644df4a6304a81de7ddcff5f70c60e95ec6fcf954e76f21397a19ece79a3b3100db285ffdcc30d88526a9e4d 
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdbbcf4ef486df203f73e807db4ca4a471dced77f9ea095d7e579f0c9bfca3756c35b77bfcd9f5d21f1f03adc5591ebbd8db3b287d6bc95853 
+
+
+ Make sure you receive our emails! Add us to your address book to ensure that our emails land in your inbox. Please do not reply to this email.
+
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bda47c1db737fc21a393fbd08825bb0991c4208111d3cc35b032afebc60b4f3b07fbf822ebec546411f054bc2822c88ffdb2a79a75093c9b40 
+Our Privacy Policy  |  
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdd6a6cdc70b0ec160635aa4421b53305e9e4ad641adf93d90098d00a0a7526fbdf5455fbbe6a4d6f7ad1ac71f71fa64dd0e9604a16ce2237f 
+Manage Preferences  |  
+https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd092c5c3660c7c6b1c03e46dd5f7e28b382fcb3db60b6151000ee16af4fb67b3b6b51984b0d77864dbce6fecf7dd50d4b3695e4f9b91e28d2 
+Unsubscribe
+
+University of Washington | 4333 Brooklyn Ave NE | Seattle, WA 98105
+
+
+ 
+ 
+
+
+ 
+ 
+
+
+--z3iOw7CH8VNd=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head><title>UW Professional & Continuing Education Newsletter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+        h1 { font-size: 22px !important; line-height: normal !important;}
+        h2 { font-size: 20px !important; line-height: normal !important;}
+        h3 { font-size: 18px !important; line-height: normal !important;}
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type="text/css">           /* Begin Outlook Font Fix */               body, table, td {                  font-family : Arial, helvetica, sans-serif;                  line-height : 100%;                  font-size : 16px;                  color : #2B2B2B;               }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor="#EFEFEF" text="#808080" style="margin: 0px; -webkit-text-size-adjust:none;background-color : #EFEFEF; font-family : Arial, helvetica, sans-serif; line-height : 100%; font-size : 16px; color : #2B2B2B; padding : 20px; "><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Special Discounts for UWPCE Students | Top 5 Stories of 2024</div>
+    <div style="font-size:0; line-height:0;"><img src="https://click.mail.continuum.washington.edu/open.aspx?ffcb10-fe9116737365027a70-fe27167875660c7a701775-fe3a11717064057e741673-ff921178-fe2f17717c620679701571-ff3510707562&d=100210&bmt=0" width="1" height="1" alt=""></div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td align="center" valign="top">
+          
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <table cellspacing="0" cellpadding="0" border="0" width="600" class="container" align="center">
+            <tr>
+              <td>
+                <!-- added the border style here -->
+                <table style="background-color : #FFFFFF; border : 0px solid transparent;font-size : 16px; font-family : Arial, helvetica, sans-serif; line-height : 100%; color : #2B2B2B; " class="tb_properties border_style" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+                  <!-- end of comment -->
+                  <tr>
+                    <td align="center" valign="top">
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class="content_padding" style="border:0px;padding : 10px 0px 0px; ">
+                            <!-- end of comment -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                              <tr>
+                                <td align="left" class="header" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="slot-styling" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 24px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 0px; border-bottom: 1px solid #D8D9DA; border-left: 0px; " class="slot-styling"><tr><td style="padding: 10px 0px 20px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="text-align: center; background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner" align="center"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="left">
+<a style="font-weight:normal;color:#2A7BB6;text-decoration:none;line-height:100%;" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd317bc114d8a67399883c7cb542642881abe89e78908268ea0f52705867f0f2665689f2ea39b7e7f6047c409cc06ba9bc1c06aeb87577f38e" title="Homepage"   data-linkto="https://">
+<img src="https://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/Template%202020/pce-logo-eml-3c.png" alt="University of Washington Professional &amp; Continuing Education logo" height="50" width="210" style="display: block; height: 50px; width: 210px; text-align: left; padding: 0px;"></a></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="slot-styling"><tr><td style="padding: 0px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;"></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr>
+<td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><img src="http://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/NewsletterImages/top-stories-2024-thumb.jpg" alt="A person looks at their phone while holding a mug." width="552" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;"></td></tr></table></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid transparent; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 14px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><h1 style="font-family:Arial, helvetica, sans-serif;font-size:28px;color:#4B2E83;line-height:100%;font-weight:bold;font-style:normal;">
+ Our Most Popular Stories of 2024</h1><div style="line-height: 150%;">
+ <p style="font-family: helvetica, Arial, sans-serif; color:#2B2B2B; font-size: 16px;">
+  As 2024 draws to a close, we looked back to see which articles were the most visited. We don&rsquo;t want you to miss our most popular content, so read on to learn more about hot jobs and how to get ahead in your career.</p><ol>
+  <li>
+   <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd61f7b5f66a624067b2f5ccecad87accf57607aa57b5f2a596a6fa4969881233af98c03c21c9a05838f3d2c407c3256f03f11abeb3b97dfc4" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">Seattle's Most In-Demand Jobs</a></li><li>
+   <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd1a65f69720f2f7bdf687f2816d056a996028b6e2485b72d912b83d5ef5808750887351f92562f46db26f8c0edfab71c5cd0acb78bc1fcd91" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">10 Great Jobs You Can Get With a Certificate</a></li><li>
+   <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdad9187e810b13fd9170d3716293401f865327f9d549d7f625378d6be50a7501a14ec8d631280609d10a198e6b73e716343baf17c2fc1211e" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">Where to Find Scholarships for Your Certificate Program</a></li><li>
+   <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd4ba45a5af5c6989d6353688afc95dbcacc645d14a42a5903b61dc53ea70368e36dbeb7e609eb7cdee4c592ee35cf935fdd6483052a4a0f4f" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">5 Things You Didn't Know About Private Investigators</a></li><li>
+   <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd963f04289c8336c5249690405062e15115f40714ab50186c4810ef1b32f9a93c893c3ed0d5ea31c42a3fbc9c394231cc10304dc1ad8ef9d6" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">How to Become an Embedded Software Engineer</a></li></ol><p>
+ </p></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid #D8D9DA; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="text-align: center;">
+	<p style="font-family: helvetica, Arial, sans-serif; color:#444444; font-size: 16px;">
+	</p></div></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center">
+<a style="font-weight:normal;color:#2A7BB6;text-decoration:none;line-height:100%;" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd2c5077a415cbb518a33072c26ece60b8bfb320402d9cc3ff2fa472b1baaae61d8f9e0236a76fd6c19ea40a30aa4befd3d1b01cea56e88927" title="Perks of Being a Student"   data-linkto="https://">
+<img src="http://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/NewsletterImages/uwpce-student-perks-thumb.jpg" alt="View of the enterance of Suzzallo Libary on the UW Seattle campus and the broken obelisk statue." width="552" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;"></a></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid transparent; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 14px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><h1 style="font-family:Arial, helvetica, sans-serif;font-size:28px;color:#4B2E83;line-height:100%;font-weight:bold;font-style:normal;">
+	8 Perks of Being a UWPCE Student</h1><div style="line-height: 150%;">
+	<p style="font-family: helvetica, Arial, sans-serif; color:#2B2B2B; font-size: 16px;">
+		As a token of our appreciation and to make your student journey a bit easier, we&rsquo;ve gathered some of the best student discounts and freebies just for you. Check out these <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd5a7984c6d4a3d1d4645a25086340d9b5d299f0c96d8d7b0052cf4dfbe63977021a8dd9b1945340d0bac0ccaeeee0c439603a1ec08ee07194" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">perks</a> and make the most of your student status!</p></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 24px 20px; ">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 0px; border-bottom: 1px solid #D8D9DA; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 30px; " class="stylingblock-content-wrapper camarker-inner"><div><!--[if mso]>     
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.pce.uw.edu/news-features/articles/uwpce-student-perks?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=student%20perks" style="height:50px;v-text-anchor:middle;width:250px;" arcsize="10%" stroke="f" fill="t">       <v:fill type="tile" src="https://www.pce.uw.edu/news-features/articles/uwpce-student-perks?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=student%20perks" color="#4b2e83" />       <w:anchorlock/>       <center style="color:#ffffff;font-family:sans-serif;font-size:16px;font-weight:normal;">View Perks</center>     </v:roundrect>   <![endif]-->
+<a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd5a7984c6d4a3d1d4645a25086340d9b5d299f0c96d8d7b0052cf4dfbe63977021a8dd9b1945340d0bac0ccaeeee0c439603a1ec08ee07194" style="background-color:#4b2e83;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:normal;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">View Perks</a></div> </td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><a style="font-weight:normal;color:#2A7BB6;text-decoration:none;line-height:100%;" https:="" www.pce.uw.edu="" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd59d8703f1f7766066487a4e959b34b198bf1715175af3959a95d969f71180811e58ccd93841daa777aab5fd37d4d3bab788386b05829e9ee" title="Digital Content Accessibility"   data-linkto="https://">
+<img src="http://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/NewsletterImages/make-digital-content-accessible-thumb.jpg" alt="Three people work at laptops while laughing." width="552" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;"></a></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid transparent; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 14px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><h1 style="font-family:Arial, helvetica, sans-serif;font-size:28px;color:#4B2E83;line-height:100%;font-weight:bold;font-style:normal;">
+	Making Digital Content Accessible for Everyone</h1><div style="line-height: 150%;">
+	<p style="font-family: helvetica, Arial, sans-serif; color:#2B2B2B; font-size: 16px;">
+		Interested in helping <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdc2c01980cd261883f4fa9736ba00c603dd799ec0db16d569b7c9f3a0c36f11827c8878945e3ae1fb52b2504cc7162ef07593d536c9e34a59" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">make digital content accessible for everyone</a>? Learn how our new UW Specialization in Web &amp; Digital Accessibility can provide you with the skills to excel in this rapidly growing area.</p></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 24px 20px; ">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 0px; border-bottom: 1px solid #D8D9DA; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 30px; " class="stylingblock-content-wrapper camarker-inner"><div><!--[if mso]>     
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.pce.uw.edu/news-features/articles/making-digital-content-accessible-for-everyone?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=digital%20accessibilty" style="height:50px;v-text-anchor:middle;width:250px;" arcsize="10%" stroke="f" fill="t">       <v:fill type="tile" src="https://www.pce.uw.edu/news-features/articles/making-digital-content-accessible-for-everyone?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=digital%20accessibilty" color="#4b2e83" />       <w:anchorlock/>       <center style="color:#ffffff;font-family:sans-serif;font-size:16px;font-weight:normal;">Learn More</center>     </v:roundrect>   <![endif]-->
+<a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdc2c01980cd261883f4fa9736ba00c603dd799ec0db16d569b7c9f3a0c36f11827c8878945e3ae1fb52b2504cc7162ef07593d536c9e34a59" style="background-color:#4b2e83;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:normal;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">Learn More</a></div> </td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><a style="font-weight:normal;color:#2A7BB6;text-decoration:none;line-height:100%;" https:="" www.pce.uw.edu="" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdcefadbe8e6bd89114fe8212f9d02f01d76eeea721285a2d1b9440e3ef03af52bf66476111bb6ec167e3412c2b21fffd2fceb4f79933f9861" title="Winter Programs"   data-linkto="https://">
+<img src="http://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/NewsletterImages/winter-certificates-thumb-(5).jpg" alt="View of Mt. Rainier from Drumheller fountain on the UW Seattle campus. " width="552" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;"></a></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid transparent; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 14px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><h1 style="font-family:Arial, helvetica, sans-serif;font-size:28px;color:#4B2E83;line-height:100%;font-weight:bold;font-style:normal;">
+ Last Chance to Enroll in Winter Programs</h1><div style="line-height: 150%;">
+ <p style="font-family: helvetica, Arial, sans-serif; color:#2B2B2B; font-size: 16px;">
+  Where do you want your career to go in 2025? Start building the future you want by giving yourself the gift of learning and secure your spot for one of our <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd99cebca2a595584fd04f58d6e6dde5f98b8ea073f523c26e2e7ea71ec2f88aa00c7119264f700d4186a57dc6ccfb82f6bf909004ea996447" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">winter programs</a> or <a data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd296b0cd7acb2234d7176d241e9ae1b6db56d913f0f45175a06d4f2e9b8fd65481e4916103fdc20793c0a5d9502bc550ff39b1d1b438bdafd" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;" title="">new offerings for 2025</a>. Don&rsquo;t wait much longer; our winter start programs are filling up fast.</p></div></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 24px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 0px; border-right: 0px; border-bottom: 1px solid #D8D9DA; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px 0px 30px; " class="stylingblock-content-wrapper camarker-inner"><div><!--[if mso]>     
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.pce.uw.edu/winter-certificates?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=winter%20programs" style="height:50px;v-text-anchor:middle;width:250px;" arcsize="10%" stroke="f" fill="t">       <v:fill type="tile" src="https://www.pce.uw.edu/winter-certificates?utm_source=december%202024%20newsletter&utm_medium=email&utm_campaign=winter%20programs" color="#4b2e83" />       <w:anchorlock/>       <center style="color:#ffffff;font-family:sans-serif;font-size:16px;font-weight:normal;">View Programs</center>     </v:roundrect>   <![endif]-->
+<a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd99cebca2a595584fd04f58d6e6dde5f98b8ea073f523c26e2e7ea71ec2f88aa00c7119264f700d4186a57dc6ccfb82f6bf909004ea996447" style="background-color:#4b2e83;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:normal;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">View Programs</a></div> </td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; border: 0px; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 24px 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td><table cellspacing="0" cellpadding="0" style="width: 100%;"><tr><td valign="top" class="responsive-td" style="width: 100%;">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0" role="presentation"><tr><td align="center"><a style="font-weight:normal;color:#2A7BB6;text-decoration:none;line-height:100%;" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd9488d3331d6de02b91a2fa9e85214eea89521582da4d95c308e74d3f42bd52aa50d5c9ba4c0b5564f0fc603f0e864911f7abec7321fa19b4" title="RFI"   data-linkto="https://">
+<img src="https://www.pce.uw.edu/UWContinuingEducation/media/EmailImages/Template%202020/newsletter-here-to-help.jpg" alt="We're here to help: Monday through Friday 9 a.m. to 5 p.m. | 800-506-1325 | Request Information" width="552" style="display: block; padding: 0px 0px 10px; text-align: center; height: auto; width: 100%; border: 0px;"></a></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td align="left" class="" valign="top">
+                                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #FFFFFF; min-width: 100%; " class="slot-styling"><tr><td style="padding: 20px 0px 0px; " class="slot-styling camarker-inner"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 20px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; border-top: 1px solid #D8D9DA; border-right: 0px; border-bottom: 0px; border-left: 0px; " class="stylingblock-content-wrapper"><tr><td style="padding: 10px 0px 0px; " class="stylingblock-content-wrapper camarker-inner"><div style="text-align: center;">
+	<p style="font-family: helvetica, Arial, sans-serif; color:#444444; font-size: 16px;">
+		<b>Follow Us:</b></p></div></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" class="stylingblock-content-wrapper" style="min-width: 100%; "><tr><td class="stylingblock-content-margin-cell" style="padding: 0px 0px 30px; "><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 0px; " class="stylingblock-content-wrapper camarker-inner"><table cellpadding="0" cellspacing="0" class="socialshare-wrapper" width="100%"><tr><td align="center"><table cellpadding="0" cellspacing="0" align="center"><tr><td align="center"><!--[if mso]><table border="0" cellspacing="0" cellpadding="0"><tr><td style="padding-right:10px;"><![endif]-->
+<table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdae42959a84adcd6b8132c427cb0a342e50b1e0b09d2227422430c206b3621144a827a3272ec19adbc115df62c6ba0f20bacc41bcad682cfe" ><img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/e76b988d-8feb-4d15-b8d9-1ccf4bee17cd.png" alt="Facebook" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd2dd4ad57d640938921e790539990aa127ba3cb796087e0cdd22364c6c3e6e64b39ca285eb13fc8a776d6ab03cbd233860fe1fcfc9c3b3c64" >
+<img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/43511da8-7916-47f0-8134-5b478ce22f3c.png" alt="LinkedIn" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td></tr></table><!--[if mso]></td><td style="padding-right:10px;"><![endif]--><table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdcf2646df79712b86834f520e895e97eb3c9a0137753d39fd1e51f13007281db87a621fe85095b56f4fd648767365ef3b830236d967434a51" ><img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/a52c2f3b-22ab-4dfc-ad5e-c4b50bec5650.png" alt="Instagram" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td></tr></table><!--[if mso]></td><td><![endif]-->
+<table class="socialshare-innertable" style="display: inline-block"><tr><td style="padding:5px 10px"><a href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd14f3aaebddf1b6aec8084d7fbb1c30cc12464a6afafdb3e72abe871575ad7bfe50b5c8c32163aaeac737568bfb4389dc77a9e9d14ae90bbe" ><img src="https://image.s4.exct.net/lib/fe911573736c007d7d/m/2/cda3af82-7aa0-4d2d-983b-66d71f7765a6.png" alt="YouTube" width="24" height="24" style="display: block;; width: 24px !important; height: 24px !important"></a></td></tr></table><!--[if mso]></td></tr></table><![endif]--></td></tr></table></td></tr></table></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: #EFEFEF; min-width: 100%; " class="stylingblock-content-wrapper"><tr><td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">
+<div style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #3D3D3D; text-align: center; line-height: 1.5;">
+ Make sure you receive our emails! Add us to your address book to ensure that our emails land in your inbox. Please do not reply to this email.<br>
+ <br>
+ <a   data-linkto="http://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bda47c1db737fc21a393fbd08825bb0991c4208111d3cc35b032afebc60b4f3b07fbf822ebec546411f054bc2822c88ffdb2a79a75093c9b40" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;"><span style="color: #3D3D3D;">Our Privacy Policy</span></a><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #3D3D3D;">&nbsp;&nbsp;|&nbsp;&nbsp;</span><a   data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bdd6a6cdc70b0ec160635aa4421b53305e9e4ad641adf93d90098d00a0a7526fbdf5455fbbe6a4d6f7ad1ac71f71fa64dd0e9604a16ce2237f" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;"><span style="color: #3D3D3D;">Manage Preferences</span></a><span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #3D3D3D;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+<a   data-linkto="https://" href="https://click.mail.continuum.washington.edu/?qs=23d6add77a57b3bd092c5c3660c7c6b1c03e46dd5f7e28b382fcb3db60b6151000ee16af4fb67b3b6b51984b0d77864dbce6fecf7dd50d4b3695e4f9b91e28d2" style="color:#2A7BB6;text-decoration:none;font-weight:normal;line-height:100%;"><span style="color: #3D3D3D;">Unsubscribe</span></a><br>
+ <br>
+ <span style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #3D3D3D;">University of Washington | 4333 Brooklyn Ave NE | Seattle, WA 98105</span></div></td></tr></table></td></tr></table>
+                                  
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  
+<!--
+X-Return-Path: bounce-58_HTML-319624511-2361675-515013123-4006@bounce.mail.continuum.washington.edu
+-->
+</body>
+</html>
+
+--z3iOw7CH8VNd=_?:--
+

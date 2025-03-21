@@ -1,0 +1,1183 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:b903:b0:13b:4378:c279 with SMTP id dw3csp1137854dyb;
+        Thu, 5 Sep 2024 22:00:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFCbZ2rKZO7nEG8NO14cAvo2YwXmpJZ9jaLDEscItz3IppU+yxmw5NKoldNmkDIgL7NHErZ
+X-Received: by 2002:a05:620a:1a94:b0:7a6:6480:5295 with SMTP id af79cd13be357-7a9973409b5mr148862185a.27.1725598839721;
+        Thu, 05 Sep 2024 22:00:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1725598839; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UFkGTrvr8q+JfeMw39zU0iQoPX6tR2JAU9ZCVfZ3ZC/O4wxBH4zqSzjmXesVApdvdF
+         bbdhSMuGyEHNrKBkcsmwNDe2PwhrMx9goqpWKvOJtW0vn1HldMzAb9Jy+SNszkArNCFd
+         wQklMubS5dRxX+a+GgHepEbAecFqvOoz/u+DF/uIjjXrLgANn/x1HU5dGJwze/Xj2qks
+         Pvl7AQsR09vljhF0DQWJs+QF1u0Qnex9KjwaYzuj5gMiQ3JZGROfw1lyKDbo470j2NNI
+         643MGhc1mGrwWssdSgqUJvB6MP0fNEp0e306KARd7zF0wmui6L3dFOk2o3bJHgVuSPh1
+         gvxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=skRsknGwhLVTPAXelg6AeaF2HrUCkHlNxTK0lyrXbg0=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=fwSDqzNF6b5QkQ7KniNhDNAWNNgBDNcDgLX1DusEmCw0DNkNYKOsIra2lAKHb0YljL
+         jzP5cdt/CL5ypU8w2H6kuyCsDqIZu4unVFse/TM8kPQsdzNODDrorXXsPeXws7w2LQpS
+         Fhlf3Lfjtyb2MlZoVr6aDJyM17ge6yuCFqvsOFJeToD+37oX9I2MN4hL4+oP5HkgXqzQ
+         Tg0h80s6vacdSaFeOawUvYR31Vs44p9mithVyJgZs5GH7FOXn9XuX6THHemWJ8PEKVHz
+         bY3klqqvWgjsFWFWLeG9po9pEbR+ldmCmMnOfq08bZa/zbEdfd4pZVGVVTxg3N6SkfDt
+         57Kg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@housinganywhere.com header.s=s1 header.b=rVNmI9Rw;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yZlyFg0f;
+       spf=pass (google.com: domain of bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com designates 167.89.85.183 as permitted receiver) smtp.mailfrom="bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=housinganywhere.com
+Return-Path: <bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com>
+Received: from o1678985x183.outbound-mail.sendgrid.net (o1678985x183.outbound-mail.sendgrid.net. [167.89.85.183])
+        by mx.google.com with ESMTPS id af79cd13be357-7a98f03c2a2si349360185a.722.2024.09.05.22.00.39
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Sep 2024 22:00:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com designates 167.89.85.183 as permitted receiver) client-ip=167.89.85.183;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@housinganywhere.com header.s=s1 header.b=rVNmI9Rw;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yZlyFg0f;
+       spf=pass (google.com: domain of bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com designates 167.89.85.183 as permitted receiver) smtp.mailfrom="bounces+1803120-ed61-receiver.professional=gmail.com@email.housinganywhere.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=housinganywhere.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=housinganywhere.com; h=content-transfer-encoding:content-type:from:mime-version:subject: x-feedback-id:to:cc:content-type:from:subject:to; s=s1; bh=skRsknGwhLVTPAXelg6AeaF2HrUCkHlNxTK0lyrXbg0=; b=rVNmI9Rwnf8VUsvhcNozwM1uZ2Cex1fHSz1nVii6/WJl1zujpLgmjN3m40x+CzeREk+N axgPBuY10V0fHax80yiNZqKVh8a3VeYTL47Q2ZuAwkhU+2mQi5QtuKaB8onxcrJ6dhPaUT UmFw9pSwXW3fVmVer6dW5QOsrc6fUVb1lH9g8KXpvQtpYHZvFRjcowEvDaXgXoOsK8VoaM Vq7RuaWCYwMIa7D5DeCOWVUZwrvYNgYGSUew4erCjOJ+dr1FGJqkSezYHviA0B8zhh2MMY wohCcHcSa8SeHrsIstv6XCNu0NtxmcflIOCCtWQPy6RkOChf64WlF9uJMwlsdjIQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-transfer-encoding:content-type:from:mime-version:subject: x-feedback-id:to:cc:content-type:from:subject:to; s=smtpapi; bh=skRsknGwhLVTPAXelg6AeaF2HrUCkHlNxTK0lyrXbg0=; b=yZlyFg0fncB/lgullLOH7JGkDnIVxDRPWBJhUyMpFAlX8vCkrGRd6S9s6ol+yuD2t4yN 4sl8Iy82UsQmEgTVLEzS558jA0FbLrumYROvEvkLKveu76vd56unh+JuBcDAcmPAiQKJLy WcryxHqxotM2pKo9sEJfUfMDF0fB0pBbI=
+Received: by recvd-68b757b7d7-zqn2w with SMTP id recvd-68b757b7d7-zqn2w-1-66DA8C77-F 2024-09-06 05:00:39.131841681 +0000 UTC m=+1319906.693166043
+Received: from MTgwMzEyMA (unknown) by geopod-ismtpd-1 (SG) with HTTP id j79EOs6gREuMEroFUzSoJA Fri, 06 Sep 2024 05:00:39.093 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Fri, 06 Sep 2024 05:00:39 +0000 (UTC)
+From: HousingAnywhere <support@housinganywhere.com>
+Mime-Version: 1.0
+Message-ID: <j79EOs6gREuMEroFUzSoJA@geopod-ismtpd-1>
+Subject: Found a few more places for you in Berlin
+X-Ha-Sent-Via: commons-platform
+X-Feedback-ID: 1803120:SG
+X-SG-EID: u001.HTRFjESJvTIp1wIRpsjf6xEEDEsHQxvE7v7Yl1IGxQc6lXj8G7HRnF4nmp6iVjk/1K/xa9l/jeSd27m1+pPjk+FBEoLGSwUrR00NydNwCO+w7pT1yNbl7saU/FUpSETA8evedlwVGsUasQ02DVbNdsr2HtrGGD/9eL5QsNPe4On2LKXr0BEAYuj87h1VM/3LHfCYqkxRP9AvnR4a4HkZYXQ4mNfpSlRpXNzKrdr6RTCU3Tclze4luSp26Nb9SO6Kzz7q81w7EvDJLmFgZgpEQA==
+X-SG-ID: u001.SdBcvi+Evd/bQef8eZF3BmI13mej/c4uYBJRGZ8/JptKQVrTsuFW/k5q67HhOceTnuG8F/jV4PbmHYTgVP5qG4hbGbLRWFrDgnaxi/JPJzPpaSWGz91Vp7p8AYikElCwOnbYHk0u7FdaQTQY8GYVeR7pVMhP65Zc328s0WyXJJo=
+To: ham@ham.email
+X-Entity-ID: u001.HyWUrRL/wQsa0EZxns3iyw==
+
+<!-- add absolute links https://housinganywhere.com --><!DOCTYPE html PUBLI=
+C "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD=
+/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml"><hea=
+d>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+"/>
+    <title>HousingAnywhere</title>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0"/>
+   =20
+  <style type=3D"text/css">
+@import url(https://fonts.googleapis.com/css?family=3DInter:400,600);
+a:hover {
+  color: #ff9232;
+}
+.footer-link a:active {
+  color: #002630;
+}
+.footer-link a:hover {
+  color: #002630;
+}
+.footer-link a:visited {
+  color: #002630;
+}
+.footer-faq a:active {
+  color: #002630;
+}
+.footer-faq a:hover {
+  color: #002630;
+}
+.footer-faq a:visited {
+  color: #002630;
+}
+@media only screen and (max-width: 599px) {
+  .userinfo-separator-dot {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .mobile-padding {
+    padding: 0 16px;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .button-responsive {
+    width: 100%;
+    padding: 12px 0 !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .tenant__contact__container {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .tenant__contact {
+    display: block;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .listing-card__img {
+    width: 100% !important;
+    height: auto !important;
+    float: inherit !important;
+  }
+  .listing-card__price {
+    font-size: 18px !important;
+  }
+  .listing-card__info-container {
+    margin-left: 0 !important;
+  }
+  .listing-card__info {
+    font-size: 14px !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .review-address {
+    margin-top: 12px !important;
+    min-width: 0px !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .review-booking-period {
+    display: block !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .typography__header {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    line-height: 32px !important;
+  }
+}
+</style></head>
+
+  <body bgcolor=3D"#F0F6FA" style=3D"background-color: #F0F6FA; margin: 0; =
+padding: 0;">
+
+    <span class=3D"preheader" style=3D"display: none; font-size: 1px;">Safe=
+, contactless bookings with our online booking system and no-viewings polic=
+y. Rent out safe &amp; secure!</span>
+    <!-- If conversation show notification -->
+
+
+    <!-- wrapper -->
+    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+class=3D"responsive-max-width--600" style=3D"margin: 0 auto; max-width: 600=
+px; min-width: 300px;">
+      <tbody><tr>
+        <td class=3D"mobile-padding">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%">
+            <tbody><tr>
+              <td class=3D"p-b-24 p-t-40" style=3D"padding-bottom: 24px; pa=
+dding-top: 40px;">
+                <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?upn=3D=
+u001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6HUmDAnHnckYxMmJaD9jjEJ-2BE=
+VZbS4osgsiSc0nkDhm8FZqFaGLokYv0OFFykPDFKV1Zd8WOlNPOTz7DxdfDPedkKbNXVGWg44q3=
+PVh9u9q4QGMa9g-2FrPH3L3CeN-2BTKmWdi6YEnzZ-2Fn7DU54nht3M2CJrkG_QqbIknRS3eF6w=
+7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUaz=
+F6KiFj870eBrC4KvyAxFidyv9EsJUkPzSWzLZ5la2T0uziwrjW4frIwHTkUZozURScFjUAle5y4=
+5UCEM81Z9SE1JQrCH6MFAnJIZ5HizSsgyDTZYEMGEmTPClVMQujXHxKcWKX8dk8siHn7RoMErSP=
+2XoIXG7cpzOyI0Vj-2FPetIpj2oTA3cYXO5qq7M8SKKO3pnamNMAdGY1kgFqJEcJDFJ6pMwqZyG=
+1n8KW14ZOBp66VpCdGtR0D5XhkniENhis4BTA-3D-3D" target=3D"_blank">
+                  <img class=3D"block" src=3D"https://thumb.housinganywhere=
+.com/img/email_assets/HA_logo.png" alt=3D"HousingAnywhere Logo" height=3D"4=
+0" width=3D"140" style=3D"display: block;"/>
+                </a>
+              </td>
+            </tr>
+          </tbody></table>
+
+        <!-- dynamic content goes here-->
+        <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+          <tbody><tr>
+            <td>
+              <div class=3D"content-card m-b-16" style=3D"background-color:=
+ #fff; border-radius: 4px; color: #2D4658; font-family: Inter, &#39;Source =
+Sans Pro&#39;, Arial, Helvetica, sans-serif; font-size: 16px; font-weight: =
+normal; line-height: 24px; margin-bottom: 16px; overflow: hidden;">
+                <div class=3D"p-24" style=3D"padding: 24px;">
+                  <div class=3D"typography__header color__grey--700 m-b-24 =
+fa-align-center" style=3D"color: #2D4658; font-size: 26px; font-weight: bol=
+d; line-height: 36px; margin-bottom: 24px;">
+                    Could this be your new home?
+                  </div>
+             =20
+                  <div class=3D"color__grey--700 m-b-8" style=3D"color: #2D=
+4658; margin-bottom: 8px;">
+                      Hi receiver,
+                  </div>
+             =20
+                  <div class=3D"color__grey--700 m-b-16" style=3D"color: #2=
+D4658; margin-bottom: 16px;">
+                      You=E2=80=99re looking for a place in Berlin, right?
+                  </div>
+             =20
+                  <div class=3D"color__grey--700 m-b-16" style=3D"color: #2=
+D4658; margin-bottom: 16px;">
+                    To make sure you find a home as fast as possible, we we=
+nt ahead and found a few more listings. They=E2=80=99re not too far off fro=
+m what you=E2=80=99re interested in.=20
+                  </div>
+             =20
+                  <div class=3D"color__grey--700 m-b-16" style=3D"color: #2=
+D4658; margin-bottom: 16px;">
+                    Take a look at these:
+                  </div>
+             =20
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6EGiLn8PCLYVIn0xvcz1X1r=
+DvLJZ4IRaLJ4ldelINlk7LbRy2HZVXJtwuB1YJ5F5HCALFZWnPRXtaCHRGtggbufqxcirZkg1jM=
+i-2F2KZquuUjsfRp-2FAHg5xbRZd5fuSrSDtbWUb-2FGp6epfr0a68nDWBsABXrEqXvoq6a5sYh=
+AXwMsHwvPG1RsiRlumbDBxEz-2FnU5gqnO-2FJC1KFr9f5F0XFjB7Uyy_QqbIknRS3eF6w7aeeF=
+wlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6Krj=
+QOu8QssfcsCVZzAz-2FTFORIXp0L-2BBolPsi-2FTiVCZ5I3NL0N8DvTboXwiApUuX6SmNLOhsJ=
+G7TP0gXi3Zk35WpIUZTEPeegZSeGnJqowpATSFOHZrPR6r4Y9DGL8JHGmsiyeYZqRdbYmZ4az1c=
+FpkllHtMuuVg2zfKOQ1TXL5tUeXRQy7w9WF4AHYWjByAco9HAHdEm45XIs27p3-2Fne3XDRDa5-=
+2F7U6JRure9CSe7-2F1Cy3igW919NlcN03EWOCSDIg-3D-3D" class=3D"no-decoration" t=
+arget=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/roo=
+m/1906339/ecc0c176-013b-487c-ab40-64e1253e0a87.jpg?auto=3Dformat%2Ccompress=
+&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listing-car=
+d__img" alt=3D"Room photo" style=3D"display: block; float: left; height: 11=
+7px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2160
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>23 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6GO1nX0j6q0DPndp42na9YI=
+HwY6hVOn3EsfHkPQJLCCsbzUQGXa9tBxXdgkKazDfW-2FHmHSFPGbmgH2I3VO1Zj0srp0oA3e7E=
+KeGbuTSs1Q2hPHJ4voW5kxeEOx8a81MPcaf-2F2jHqpHItaFLJiWPeq6u0nxm7bIVqoGuKNENri=
+Clz1ZgL6XWxOlDwnpQUEJ5umk8ssywMXA-2BCZN8wANnYQ1lR0oV_QqbIknRS3eF6w7aeeFwlIf=
+-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KhMg99x=
+qW2OD3gd1mxI10j-2Bs8c6DRs4Ahu5cViptruXTs7lPx7drMCBK8ulyHzVqtIyDkHW2SOfWM5D2=
+YmjYAyx14Dd5oCUpTnLq2xj-2FdWwrtiZQINhdgCTXc8RLW2z2XYg2bxwNCHHrsBMc2WK1-2BZN=
+HvHjJMDIT25npi2ULowDm10qScTZyO09xY1XMuvAP81rJaSdwBp8rRsoti3mtA-2FJg22ZhFJ4u=
+Gh-2BAtdAKVcI-2FtJB8Tcql44dOInwO3bJVvg-3D-3D" class=3D"no-decoration" targe=
+t=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/uni=
+t_type/1536443/7a290ac6-153f-4b12-85c7-66a50c5a7533.jpg?auto=3Dformat%2Ccom=
+press&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listin=
+g-card__img" alt=3D"Room photo" style=3D"display: block; float: left; heigh=
+t: 117px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2036
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 1 person<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>25 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6FQqJp-2B2vez3y2wCVyxxT=
+YtuQOcB-2B-2F1MARzwkcSRlqTWoz-2BHqJoAk5IGQcytzgQr7RUVaEWHb-2F-2Bw0gMacfJS2h=
+EvUGlqQRKqu135oEEQy5jigv0DILIKrWql7sfCK7sUnxO4Qjqs0mKjNwtdpkmqz-2FTGYKCuGmw=
+wasFhzRImIhGbXh1XysreExSauExldoVCqIBZsEI0VDI-2FPXw9HQ3CM89pCD-_QqbIknRS3eF6=
+w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUa=
+zF6KiyHYIHHCXA1NNPP3l-2BAdIPrOC-2FKVXgvDxfS3WDo-2FaBe1bcbBswCsnnzJDNbtfazWv=
+v0l-2B5g6VcrGwGmRndJbo-2Bd3F3Iw0hMv-2Fu0WecVF3MhgY-2FIRhcZ4Q8NE2ImEMbDrIMPm=
+lDLj1EXl1wWTe5HUCXPEisxGZJkYFGe9oLhUSNqDAlJlwRLMOeOOfZdcrl7lufU7ZvoX0rKbKjB=
+T1f2QQP5eYeCgQOpLP4hacgncU6kmB3GtUIYwDGW5aqNkvG-2FAQ-3D-3D" class=3D"no-dec=
+oration" target=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/roo=
+m/1785109/80f28c4d-10ec-41b3-82c0-ff43966b3680.jpg?auto=3Dformat%2Ccompress=
+&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listing-car=
+d__img" alt=3D"Room photo" style=3D"display: block; float: left; height: 11=
+7px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2243
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>24 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6FvsAKo9P1VFmk7LQ5oLJxG=
+KgKJ38OjMdpsuoFDv4vcqs5vGsDQ6PFx9ID-2BdZM1o7ujSRGdmEawnLoZuyCXkMKg2RsEslhcj=
+GgmXEcIbMBoXvZfL-2BuBZINfxrzX6vVkqnaSpVCDWyPzhG7E4S9bmD4NQeT0KBK01MVnMy8Kdz=
+sriWhYUey2WmY81vtFe8Hjrrlo5ri-2BHFxp0IKx7YHE1duFK9bI_QqbIknRS3eF6w7aeeFwlIf=
+-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KlD75va=
+HFxDoeZcRf0ZjxlbDS-2BZ5llkLy-2BrjJkmL0hEdcN2szmRYSl7yrpsghO19ciTXYXyljdRDJq=
+qDqdyZcXsV7fVF5xJEQ8lm1tHKTgsHw9uffSqtf2LsjTlJBkyekWPhkolDawTsA2xx-2BDkxjGS=
+ZPRNyndvRDQ2X27VtcwG8HanfoTd7iFnYuMCbi9liI0erkQJ-2F0aGkMWmEjvZYJGh76tAd8AFe=
+ZdT4y69XJV3CRTpVH7RJftTEimNVgO2CxA-3D-3D" class=3D"no-decoration" target=3D=
+"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/uni=
+t_type/1362811/70950948-26c7-4bed-aff6-939f719e3631.jpg?auto=3Dformat%2Ccom=
+press&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listin=
+g-card__img" alt=3D"Room photo" style=3D"display: block; float: left; heigh=
+t: 117px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC1951
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 1 person<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>29 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6Fv3fsPJbNpBWmbHNpTTXD6=
+9-2FwuWYhcLZlECe-2BqhtsQCwP9EiUo-2Fy0tzBa4q4oLKTSUHH-2BgEKVbaXKGf3msSFw7ltC=
+HqK1ge-2BrGb1zoN7g-2BqFn4rfFjI-2BqQ3l-2BCAikunB7d9TTvdYUWSFbaPeKv0-2BTh8SA3=
+S8-2BIYKG-2FduQMt8eMhuMS6Rdwbu8Gs8iGboDofFbEB-2BzXTfaiIZpHOnPj5Ga8sUyI_QqbI=
+knRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhq=
+nM6zOYUazF6Kp-2FpJOM8C-2F6ca0tysMlyPvvOsJ3I5hbA4ZaJLs-2FtwCXVfHkErr9SLIGClU=
+B4D2MuCjcTamPtQsufkfyxC-2FHyOYpXBXvR3zzMFuygmYBv-2BF7UTCAK5oq8Cv4NMRiIHC-2B=
+HG3LB-2Bvi3b6LBEnHeKI1nE9gp0WWKxhTi4KBtAkuAegScYoUVDxF45XKNaEIPOkGTP5sTpbAj=
+cJ3Q8GvWq9O70CZ6jTFcSc3Xk7eOG-2Fsk24P9MQTE-2BFo7VkGKJfUYCxG45Q-3D-3D" class=
+=3D"no-decoration" target=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/uni=
+t_type/1357583/ab4bd2e7-7004-4be9-b78e-b5d1edf048d2.jpg?auto=3Dformat%2Ccom=
+press&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listin=
+g-card__img" alt=3D"Room photo" style=3D"display: block; float: left; heigh=
+t: 117px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2229
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 1 person<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>27 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6HVuPnrEm-2BHVCf8yNhkz7=
+QsrAlSpS1anFllnL6bIE2S4BmTlkVtwUqMiyr-2FH0QWRzvVWKM4w5-2Bk6UJFS4gp4oS1D7ibc=
+ZJ-2BFs6xjqe8KADxBrqbOjNqAW6tQfk5oY4lw1USPj5Q-2FHaxzr2zIaFvitlKrghUylgDILHk=
+fMb3IXwRi6gA7zBh5Ny6iAA1GxHjr44met3uURR-2FoBYgj11DeJkwtzdh_QqbIknRS3eF6w7ae=
+eFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6K=
+oUeWthZ1jJsVYzsm4AzoeiZ8kI9gcxbiPSYPbJ-2BuoEAmzjJJLrQH4ICQqMd7jcQl3q6zO67lA=
+e826C3D6pJSjMDdm6q29HGH1q981nrAeYivru-2B-2Fza3DAB0i7HnugxS-2BWeCPoB-2B-2F2g=
+I33twYsEgXGAtcdkzy69qIVayBLRYPjvoNdtlErTdQARsrqdwY4YXRNEMBG-2Bf5K8NvjIA5GVX=
+YImVURQDgno3Ll48-2B47FuLwW4-2BFLbkWTVPkYuvMggmFX4g-3D-3D" class=3D"no-decor=
+ation" target=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/roo=
+m/1791687/22934a0b-87c4-46ab-8001-dbb894938881.jpg?auto=3Dformat%2Ccompress=
+&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listing-car=
+d__img" alt=3D"Room photo" style=3D"display: block; float: left; height: 11=
+7px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2884
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>35 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6Fv3fsPJbNpBWmbHNpTTXD6=
+aHovF3jhdsOMNQUxZtBy9Iux9oP0CDgm8r-2B4Gpro2HrwCp0BuK-2F9d07r75C7PrE4yhn3wOK=
+iarCz4YNv4flpNjjddhFclmb9IRouA-2BiSIqD7KC87y4vsWeSbsly88rrLQOwLbH-2FqijAZUb=
+iW-2BmQNSOO1iZQrjFQN1cMhC7FTDyCg4K4H9-2FRNfG3HDLkCP2gytzdO_QqbIknRS3eF6w7ae=
+eFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6K=
+jbcrXwkZbmYnJ8Kq-2FtzZ7qkwU8ShwF0H1H0zhQ5TiwX9DwPh4qdtOCHl54RcuSKR5iiyCbXse=
+PYodN60NCwMdw0diHSYoEFNcXEqqurqYK9OlP05B2DaN2WZLdgQglEY9j014y7OgUxzK1O6vTq7=
+ekoQwgbLL8WS8GFdL9n7-2BiOOKe27soH9hIlnKp9LXzNTxOFI9cLVrWzOsf2GECxaREThYYraY=
+kGtrKFsmw-2FaEodYjc25TG9WxvBECkeAMWF8g-3D-3D" class=3D"no-decoration" targe=
+t=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/uni=
+t_type/1357586/51426b78-3e07-401f-8611-cbe55e515e2c.jpg?auto=3Dformat%2Ccom=
+press&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listin=
+g-card__img" alt=3D"Room photo" style=3D"display: block; float: left; heigh=
+t: 117px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2322
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>22 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6Fv3fsPJbNpBWmbHNpTTXD6=
+kCwgCS3AzhpWwvw4p-2F8ZGCC2NVFNgnAPtfL7DPtplj0VA3uPZJlhhbhuH9cwQgs-2BqF2D8nL=
+OmPjybkOkiPfkKukHMVqqmMfr-2FDVulKD0J4ipj6HZgHW9-2BJQPFnICObTIGOB4osVs-2FC7D=
+aDX-2FnlSlozmt8yHQWnBd61XHxW3LyTNPfjgrVV0zqbwcWGUczA91p9Nm_QqbIknRS3eF6w7ae=
+eFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6K=
+hqmZa85vj5ScORvkAF-2BaBbN-2BU1RWQfweBdFY5Xs-2FI53PhsABfg-2BtrwaLejEI4VegQ1v=
+K7NYbeQgkhftWH24i5xUei4NMH4R-2BCDQWUZt0MJmT5d-2BKX-2BJtgY8MwQw8bMd5AwY0bQ80=
+l3DWllchejc4I2hOzzz8niGmg2MX7PPuqNkj1gLVMzAzBwAjPEZnxHvc2PPi4kIH-2FCXI7HXi5=
+bRsE-2BsrWDs6wC0NdunPNPHTMSKeCv9ATcD9VwrkHGq849RVA-3D-3D" class=3D"no-decor=
+ation" target=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/uni=
+t_type/1357585/096df16f-938d-454d-8412-84c090dd63ed.jpg?auto=3Dformat%2Ccom=
+press&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listin=
+g-card__img" alt=3D"Room photo" style=3D"display: block; float: left; heigh=
+t: 117px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2539
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>27 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6H8qF-2FLyEiwMyZn8JAj04=
+hRXFB7rEa9JOPJJ1pcXKhkJd8iWaJmlxd7sgQTuZCNxtFNZHeq4UvV-2BH3E6SNe-2FPdgOANeg=
+TbhYkX7l5o4LjvQft-2FKEpVqC9IYRDJ9dCZ5mh8a9-2BPPLk79JdajVT-2FHGLjW6GKwfb-2Br=
+oroVNTqgOzEHF-2BbUm-2FnGsvE4TV4Jswf6mPS3Y0ugvR6IPhSg1u9-2FbRwdGO4x_QqbIknRS=
+3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6z=
+OYUazF6Kj5SPCmneOiWQaHnxLPzybwfmHjWQMmh5l0LxBA7uTOqLwt4QANFsKSgSWWVl1e3lslS=
+OkI1Fe46yw8HtmcXP1-2B4-2BFd8yz94m0CDhXs-2BOL443-2F2RZZJ3kONN4nkFBzsRTwnOkna=
+MDgKuwex8Htv95HxUhq9NUxqgsz1pvgGvIUbEXiteJVA0uuNcr5OaACNHaHdMK7h722hWPS6OYk=
+3RDYJYwRZlqa05j9SUekzDn3dc-2FgPiL-2Fn0Tqq6D7QXDwUSmQ-3D-3D" class=3D"no-dec=
+oration" target=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/roo=
+m/1777454/c40af314-5c38-41e0-95a6-b45ddf34c6ba.jpg?auto=3Dformat%2Ccompress=
+&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listing-car=
+d__img" alt=3D"Room photo" style=3D"display: block; float: left; height: 11=
+7px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC1532
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 1 person<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>27 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6FibqTPTWVp89DC-2FqAdnP=
+SOLOTdzevjvFOOyW1T2svFKMH-2FNKHB3pq-2FDaFOHPP8EGIOBbDJUXdtUcNkmtHh4Cw1a3LVH=
+WzlFFoVhMqvcbxup7t0jyUl4W5mCbO19usmwwH0AFn3I-2FAS918gnvz1896FW3jJp8Fo5u5E5-=
+2FI7xRiiUcvFjEWNZ6y-2BzxNlr1P7NcWLuxMynURWSBCdowOTWY0pnu4H_QqbIknRS3eF6w7ae=
+eFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6K=
+n5UR5RB0TeBBi1Q-2F0OvV2OvtifoQfZws7vjaeVrus2k8nKlP9b6WJo6Fozfld-2BYdJhEQhrq=
+6Dnc0hgoxSdYf26wN422wIvQL1Z7svcqFyDo9FlTHWzF-2F0Pn6YDxKwgHoYJ1O6rV8tnM2ajbM=
+nFqMdn2o6pNBjIoYGWTzL7d5yilGP47DAXroKj39hgKcnYKsISfXXN-2BAF5G836uGJg1-2FQD0=
+qAxxh0d4pXiJK58p8Eqr4VCfTHj7w0Sby75ptmpTsg-3D-3D" class=3D"no-decoration" t=
+arget=3D"_blank" style=3D"text-decoration: none;">
+                      <div class=3D"listing-card bg__grey--50 m-b-16" style=
+=3D"background-color: #F9F9F9; border-radius: 4px; margin-bottom: 16px; ove=
+rflow: hidden;">
+                        <div>
+                          <img src=3D"https://housinganywhere.imgix.net/roo=
+m/1837010/e7aea573-12a6-4be8-a782-1e62e7b8ea5a.jpg?auto=3Dformat%2Ccompress=
+&amp;cs=3Dsrgb&amp;fit=3Dclip&amp;h=3D300&amp;w=3D490" class=3D"listing-car=
+d__img" alt=3D"Room photo" style=3D"display: block; float: left; height: 11=
+7px; object-fit: cover; width: 176px;" align=3D"left"/>
+                        </div>
+                        <div class=3D"p-16 listing-card__info-container" st=
+yle=3D"margin-left: 176px; padding: 16px;">
+                          <div class=3D"m-b-10" style=3D"margin-bottom: 10p=
+x;">
+                            <span class=3D"listing-card__price color__secon=
+dary--dark" style=3D"color: #00af9e; display: inline-block; font-size: 20px=
+; font-weight: 600;">
+                                From =E2=82=AC2121
+                            </span><!--
+                            --><span class=3D"listing-card__bills color__gr=
+ey--600" style=3D"color: #566A79; font-size: 12px;"><span class=3D"listing-=
+card__bills__divider color__grey--500" style=3D"color: #808F9A; font-weight=
+: 600;">/</span>Month (Bills included)</span>
+                          </div>
+                          <div class=3D"listing-card__info color__grey--700=
+" style=3D"color: #2D4658; font-size: 16px; white-space: nowrap;">
+                            Studio<span class=3D"m-x-8 color__grey--400" st=
+yle=3D"color: #AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</spa=
+n>Space for 2 people<span class=3D"m-x-8 color__grey--400" style=3D"color: =
+#AAB4BB; margin-left: 8px; margin-right: 8px;">=E2=80=A2</span>19 m=C2=B2
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                 =20
+             =20
+                  <div class=3D"m-b-16" style=3D"margin-bottom: 16px;">
+                    <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?up=
+n=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6FRH-2B-2BdYyBP8KLHeo-2=
+FBdLIcvr40Bn28sYnZm3CBPzYQIyHLwBTHFh2uVPV1QTfkZ1C-2FQ6Y228WAEMkNkzppZnR0eoy=
+Uqo7rKr-2Bo6yOZgP-2FnLnBDKEJhoV35YYT8icKj32KPnhDD89heTZKKgNKcxX3WP0IcdpvYLM=
+RAW2PpDDx30IV0XHrK360jajMcbz-2BLF04xtXjRJ-2B8Enh-2B5izyux85QBg4nVvy-2BUgusZ=
+JlGp-2BUyJuAXPI9ODl966aAzpEhVmvSotoky1Sc-2Bib0wlhFDf0x-2F9fXAbppUyoT3z-2Bx6=
+u6c8RuPjlDeeSW1ZpZDMj5JfwgylHFFvVnVimzCRIn-2BQQ2GESV0Zr6X-2FHID6n5oN-2F6wx7=
+g-3D-3DGP0E_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0=
+XXOKsOCqHmDhLbhqnM6zOYUazF6KrRS6JwkM-2Fb3Wr5a1JfQ5tGjNdD7RuHitRxtlPfEQ-2BJl=
+4upwrKwcYd3gwiz2mXve8Pwp2JngFPpXRYMxEktIZKO5tTbW15tE9m2ACVKIcS1fmArA-2FUaq-=
+2FKTIci78-2BbC4HydVWND-2BfNpcHDVuUgFcD0k2XvWkstsV9PpduVtl0vSdTXM9wxeCah-2FO=
+JEMBdVCMMklNn1quLALakX4ayIUKkXdy35QNbmze9V1WWIMmDyT6bdxA-2FVwsTMLSF5plclLyA=
+g-3D-3D" class=3D"button-responsive bg__primary--main font-primary" target=
+=3D"_blank" style=3D"background-color: #8E5082; border-radius: 4px; color: =
+#FFF; display: inline-block; font-family: Inter, &#39;Source Sans Pro&#39;,=
+ Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1; padding: 12=
+px 14px; text-align: center; text-decoration: none; text-transform: upperca=
+se;">
+                        Show more properties
+                    </a>
+                  </div>
+             =20
+                  <div class=3D"color__grey--700 m-b-16" style=3D"color: #2=
+D4658; margin-bottom: 16px;">
+                    <div class=3D"font-weight--600" style=3D"font-weight: 6=
+00;"> Something catch your eye?  </div>
+                    <div class=3D"font-weight--400" style=3D"font-weight: 4=
+00;"> Send a booking request to increase your chances of success. Your drea=
+m home is just around the corner. </div>
+                  </div>
+             =20
+             =20
+                    <div class=3D"color__grey--700" style=3D"color: #2D4658=
+;">
+                      You can update your search preferences and even get i=
+nstant alerts by email or on WhatsApp.
+                      <div>
+                        <a class=3D"simple-link" href=3D"https://u1803120.c=
+t.sendgrid.net/ls/click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoN=
+oAx6GSHamW2BiZS7M4IJ7j2DobB3yXZKywNKzqp5Doz1uFwHP6D9xv13-2FU-2FFEMR9gCY3YVa=
+HA7IqVC9-2F5e662Kfgwc-2BMbartyF23iZ4MaVSqrrPkJDuBONhRflotbNMQHhG8E2g7SqYOGU=
+IfrrmQtzlVGJze0ncEVAOeZO2FL-2FVaVJctBC1dqWvijOhOqwxRCc2is-3Dlj4P_QqbIknRS3e=
+F6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOY=
+UazF6Kg40SF-2F784JpYk2E1TsOnxVP-2Bd3tEpSgU0vcfXsNNwnxiZcGU1X1hFG18fHdrxGbEp=
+t7CYa0NNv-2B5pAwUoiP7KbDEDQlqmNjl2xyUeP18mVK3nwfwn27oYUMrYdGx-2BFHV0bp-2Fkk=
+-2BVSVKbKJAn80elaFygT3jJ7bFd-2BVxHTv8x-2BV9ZQNKFH-2BNgI-2BjyyXFKjW4nkdq5LfH=
+LUuLP82-2BpyzJ8QMjNuE8lIIEgMu1S9z-2B4VYNeMUbsyJGClTBSmBjrrgRQg-3D-3D" targe=
+t=3D"_blank" style=3D"color: #00ad8e; text-decoration: none;">
+                          Manage your alerts
+                        </a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+       =20
+        </tbody></table>
+
+          <!--************************** Footer **************************-=
+->
+          <table align=3D"center" width=3D"100%" class=3D"responsive-max-wi=
+dth--600 font-primary footer" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" style=3D"color: #8E9EA2; font-family: Inter, &#39;Source Sans Pro&#39;,=
+ Arial, Helvetica, sans-serif; font-size: 14px; margin: 0 auto; max-width: =
+600px; min-width: 300px;">
+
+            <tbody><tr>
+              <td>
+                <!-- Related Links -->
+                <table width=3D"100%" class=3D"footer-content footer-faq" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"color: #2D474F; fo=
+nt-size: 16px; line-height: 21px; margin-bottom: 32px; padding: 0px 20px;">
+                  <tbody><tr>
+                    <td class=3D"footer-title" style=3D"font-weight: 600; l=
+ine-height: 30px;">
+                        Need help? Check out our FAQ
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUE0fSBpUcwsvOEcq4NBKkZmuD5gY9XOpwUXd0YNav4=
+ae5bDfp4fAPeLDWpBxJHW0H8CeRbEJccbqYHLVUeDhfJH534fqDDqYZjc6d-2BDHFF5-2BxS4p9=
+pqAabhrth7ucZV0jRCZveR-2B9VMgj7qXwS8VVpn6euQnujRfv1QQM1MKu7dvv8LiWHYQVx7Hc8=
+k66UIrmgOm8ktBAjUkj-2BCV-2BiA68J0QYVhA3qNn7g9-2FuNDCbpBiz7FbRM9HqXGj6MB-2By=
+52MOlOSID2zy3Rd6QoTFzNzZHS6ePsks15aIDwsr1HjgbLq7agx8LLoKmrFh9IJI9fcLwMdbNEP=
+VoYsv9VBSqtAEl4-3DS-fj_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2F=
+QvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KlTws8d1lObgBHxzog-2BBS9WllrOrd38fn9-=
+2Ba8vr-2BQ0QPRr2YLvjO9mIFHI1Q44iR2pgJJOK-2FhZDNRd-2FxPq-2BUSM8AZtV2WQ-2BIPW=
+TASNcplHKvMGfUbQIDzomlV2XDlJPkyzXUwD2olUbKIwJAbjsqapOnudt3Yy6-2FTi1YA86cWZZ=
+AZDfqKkOPMdRsXrnucI2MGiaxUvmRbOAzCvIp4ZR5XIEbcttg-2FbgiDo5PdKHyIN33gl5P8rld=
+Sn-2BY1a7adp0krw-3D-3D" target=3D"_blank" style=3D"color: #002630; display:=
+ inline-block; margin-top: 10px;">
+                        What is the HousingAnywhere booking fee and how do =
+I pay it?
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6FVlB3mAMULErIvOPx0wL=
+kfc7v433vQ-2FTEw88-2BRegwoUECwED-2Fbif36yX51cy3QQ-2BdBx4vNZ86YNF2094iJzbSDe=
+t5R6qtmrzR2j7yFJkIsvEM0vYY36i9CPJ-2Bs2kuaBHGspXhXNFz5e85ldd9RbEz-2FRguYINzv=
+8qeVVpf5XarHDvpN4hxrVHexAeZGdP3ueRjX5sy5Vh6MeTP0aCU-2FwhQRKi97sOppBcdq5rXbn=
+dmNs14W4-2F9VKKaMDvvGFAfgFEU-3DTX2O_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5G=
+KJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KiSWIgBY7VIGb9q2YP3q128J=
+mS9BjhN86lN1Q7qmKe0k3NwC3t6WD12UGAPDJWQ-2BnAd-2BWz2h4T9G2unxrJoCRAMueN7bosE=
+WwcfrnnCrwD9HHv9QgxL659mPBPec1kX4XrrLMaj-2BUP1htPL0Dfg6wqQgs4azUcZedMP2wX2C=
+iVXwAG2LoSC-2B2wNuA3zUG64aeu1Tx6JMCM37oq5qlJrsXnyZW2kg9xSGD1njuZSbMxMNgyYeG=
+r9bua4S9j4nfk6BCg-3D-3D" target=3D"_blank" style=3D"color: #002630; display=
+: inline-block; margin-top: 10px;">
+                        What are the best neighbourhoods to live in Berlin?
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUE0fSBpUcwsvOEcq4NBKkZmuD5gY9XOpwUXd0YNav4=
+ae5bDfp4fAPeLDWpBxJHW0H8CeRbEJccbqYHLVUeDhfJH534fqDDqYZjc6d-2BDHFF5-2BxS4p9=
+pqAabhrth7ucZV0jRCZveR-2B9VMgj7qXwS8VVpn6euQnujRfv1QQM1MKu7dvv8LiWHYQVx7Hc8=
+k66UIrmgOm8ktBAjUkj-2BCV-2BiA68J0QYVhA3qNn7g9-2FuNDCbpBiz7FbRM9HqXGj6MB-2By=
+52MOlOSID2zy3Rd6QoTFzNzZHS6ePsks15aIDwsr1HjgbLq7agx8LLoKmrFh9IJI9fcLwMdbNEP=
+VoYsv9VBSqtAEl4-3Daskn_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2F=
+QvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KihbbeRVtlL-2BCWFKZdPDqGR-2B-2F3zhwR0=
+oM4Q0zuSX2aLU1LqocgVuWL-2BbtrAkllKUSin6HAKb-2BQXfTNmkevVAyV5G8Fymcsch2n6EkT=
+9iguGU75n1CSQqDCUjg05a9FB5B6gCMgBegTwoVvq0p26up6GDfbXWNPCVzoVG2pek4OWMzxQsi=
+VitgSCh-2FDYHBWiUhrdtqmNFYA7-2FGBoNdxFB7d0YABzEgEBzZrXt0n9A-2BgQONnKq4i9-2F=
+1dDYjgrcZKvtJQ-3D-3D" target=3D"_blank" style=3D"color: #002630; display: i=
+nline-block; margin-top: 10px;">
+                        How much does living in Berlin cost?
+                      </a>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+           =20
+            <tr>
+              <td>
+                <!-- Questions -->
+                <table class=3D"footer-content footer-faq" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" style=3D"color: #2D474F; font-size: 16px; =
+line-height: 21px; margin-bottom: 32px; padding: 0px 20px;">
+                  <tbody><tr>
+                    <td class=3D"footer-title" style=3D"font-weight: 600; l=
+ine-height: 30px;">
+                      Have questions?
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Visit our=20
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUE0fSBpUcwsvOEcq4NBKkZloqOP03F7byOqJAkHLKo=
+S3XwIBNjLpxv31XJYGjl7XgQHymNPUwBJxBJGPMTytYDqkHKhJro2wDyeCRFa59UewQ-2BquczR=
+y216SkU82MkFgsIF7MYajselq1n-2FYzC2Qmalvd6Y2oGsYTsRWeRJaLGyMMzH6Oo-2FhSoIelp=
+WeCjZLJA-3D-3DJhRG_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvog=
+BGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KjQtC8y-2BDWPCpyG3UQOOInXYqsaRm1BtbPbcst9=
+2QJgt0b47H4SDk3l6s-2FWufj6qFxj5BsjUEncar9mQ7Nv-2B-2FdXIr3kTjyVyf3pRgpFuAJvf=
+b-2FuW27u9er4pRYZ0L8Ei4K9El2WndZAHK8-2BXLEBrJJu-2FKMAmKfkV3KjZcdg0TBok3GCmY=
+G72sKhVgWgT0c9FKiQvaoHJyVBGDDXmAH9zNP8J0Ri3aeHkNIgNjk2mNwHoK1XxYGtlNOyU61qq=
+3lo4fQ-3D-3D" target=3D"_blank" style=3D"color: #002630; display: inline-bl=
+ock; margin-top: 10px;">
+                        Help Center
+                      </a>
+                       or=20
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6ETczQRGruh5L0YMNDDRU=
+j8x9G99fwuNmePT6KyKsyAdwwkxBTQl6jo6AJCefWvnAPlGC73dat6gudrN5zI-2FBw-2Fwukg4=
+y3WWQ8Bz9LAnpGZaFqw0OLs7t-2FPn-2FsvtfTVmpA-2FgV-2BSBuzqyS4dCoOIObbvlr4UjZaM=
+2kANelqTDlLHhg-3D-3DfipO_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-=
+2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KkwMY9aFqQQiPb0C2v4pja-2BCQPFCF9AS3=
+GnbHMFSX6GXZMYT-2Bj-2BjDJFuKfF-2B0AiC4mykZWxYe0COZWTnhFSR4F-2FaBDsyW5kAHqb2=
+l79T8Ak-2BRgeLicswcUgMHZNr63XKGpQvpiYhruImlqp9TBtYPZkH3qEO3XLwna-2BcTG21rz8=
+oRw-2BKAwnj5qFwXEJYzUkqgJ6jbrHuM0FXD9bbMRRBSvvNoTOzoz1s41eCecQ4tdMQsCsNJAHW=
+wyaBmzOXZzib8A-3D-3D" target=3D"_blank" style=3D"color: #002630; display: i=
+nline-block; margin-top: 10px;">
+                        contact our Support team.
+                      </a>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <hr class=3D"footer-separator" style=3D"border-top: 1px sol=
+id #C7D6DF; margin: 0; width: 100%;"/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <!-- footer social icons -->
+                <table class=3D"footer-social-icons" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" style=3D"padding: 32px 20px;">
+                  <tbody><tr>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUGZLWLWbzKDEMpuDw4P8HqLovnWyjY049mM5=
+GIOXcREMDKGIeE7qs1j97tNFhhVdsQ-3D-3DZv_l_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A=
+4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KnOZM62FtEUCGgOZr2I=
+6eoLJuRnXTimokhkgRPCCbv2UG2FQXYJ-2BZx2HswKsTRnH12bLJ2VupDAHG9STfDxVF85qZVUj=
+gor3-2Beh33XuFzlOwhSEukak1bCWtZ5-2BBDtdmk-2BREZ3XvVkl2hrEZoWNWDyujf5TPP8A3s=
+Rhuj3tplLTXGdk3YvqplcJ2tX96EjA0cKiVG16JS1bZ573NvkETdxu2SEGgltl7zPDDA6VpGXt0=
+a-2FJ1NFeJQv2r9sU2fgvDTw-3D-3D" class=3D"block grey-link" target=3D"_blank"=
+ style=3D"color: #3e454e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"Facebook" border=3D"0" src=3D"https://thumb.housing=
+anywhere.com/img/email_assets/facebook_logo.png" width=3D"24" height=3D"24"=
+ style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radius:=
+ 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-r=
+adius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-r=
+adius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px=
+; border-top-left-radius: 3px; border-top-right-radius: 3px; display: block=
+; height: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right-r=
+adius: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUC-2BHV5QyMYfQlK3rMLMcJPI-2F2XR57ucV=
+jtcemUgXhOfh9su0guaRtANZeEfnzutYRg-3D-3DCAwn_QqbIknRS3eF6w7aeeFwlIf-2Frf-2F=
+Sj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6Kui-2BycWmJtIMn=
+lP4JjKsXXB-2BqRCtkg-2F2yLXg-2Ff-2FrKq-2Fm4ZAXBYr0jY1QxHDAn4CDBgQksPZJoVSwlg=
+b9f1uqb6bLwwvipERrywkl9EGvTdO5bHqD-2BL7LKcBePIC2MJGEOAVpTMshc0GZYY-2Bm-2BsA=
+3GhP4R2iaDyLjYSmjQCtVvx-2FBLTHbhYvnwWEFrbhny3DRH-2FNYcaRomwOOF8tG562luDeq6T=
+Dg-2B3yVGvA2LyxdOcvHDt03NPiGlZW08lltUerW1A-3D-3D" class=3D"block grey-link"=
+ target=3D"_blank" style=3D"color: #3e454e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"instagram" border=3D"0" src=3D"https://thumb.housin=
+ganywhere.com/img/email_assets/instagram_logo.png" width=3D"24" height=3D"2=
+4" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radiu=
+s: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right=
+-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right=
+-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3=
+px; border-top-left-radius: 3px; border-top-right-radius: 3px; display: blo=
+ck; height: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right=
+-radius: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUKeC0q6qZ1wuTUXnIcWRGmFcwXQT1GGVWR7v=
+QQQFdO3W_7e__QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun=
+0XXOKsOCqHmDhLbhqnM6zOYUazF6Kvl-2BDp6Zl5ucUvMewQVQc8CPCcE4qBEHcUTOz6Zn5SYFW=
+ZHTL9N97oV56UH4H-2FHhDO6Z7IpICJfFJsAzTfPyArf-2FvUQZvdbDjIbIQhuA7cVq7shlIvwM=
+5PF21iWMVImqyX7oax6p8fuwP93ZgNklLLvI27p9W5-2FOTUvDAFX-2BUUPf2-2BBnexmgjn5wy=
+n-2F48bzOxouUmNrmoUYcG0m5GcAdDTEm4mHcIHkz-2BhxbSCC9TZEaFzvjUxO0g5kXxewCSkkF=
+sw-3D-3D" class=3D"block grey-link" target=3D"_blank" style=3D"color: #3e45=
+4e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"Twitter" border=3D"0" src=3D"https://thumb.housinga=
+nywhere.com/img/email_assets/twitter_logo.png" width=3D"24" height=3D"24" s=
+tyle=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radius: 3=
+px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-rad=
+ius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-rad=
+ius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; =
+border-top-left-radius: 3px; border-top-right-radius: 3px; display: block; =
+height: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right-rad=
+ius: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUPoYHv8IyCQ7QImBxFjUrzB6pSQiQRHZYDXi=
+Uje0NgIg9t6rVzwo3Q5KHlbARgsHOQ-3D-3DaxZE_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A=
+4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6Kh6qK04GEMLplks3QK6=
+APAge092wltINQkL0GIFphhnnu-2BGp5wgfV-2Fxz3UT2rZG8H-2BAI69oTOhxdvIew1SngUsvq=
+pikpFK78K8jxPlfP0XOrXB3cjjm5YtlPqJgeORM0IS3QgyE-2FSNWHSolfmGs7UqtclgwihRdzr=
+RqjRMd1KJmlkCYzfVdKRLjVJVTT74ZOjhsd4-2BQPNWRfqqCNbHEVg2HHDA0sTQJC0PT3gobaaI=
+4ejDv2lrEcxsC-2FVao4T9nQDQ-3D-3D" class=3D"block grey-link" target=3D"_blan=
+k" style=3D"color: #3e454e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"linkedin" border=3D"0" src=3D"https://thumb.housing=
+anywhere.com/img/email_assets/linkedin_logo.png" width=3D"24" height=3D"24"=
+ style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radius:=
+ 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-r=
+adius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-r=
+adius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px=
+; border-top-left-radius: 3px; border-top-right-radius: 3px; display: block=
+; height: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right-r=
+adius: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUBMvrPiwXO0XVFXxmZqX2mrOyVljeu5RJNUC=
+4bctRDzoNVyB_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun=
+0XXOKsOCqHmDhLbhqnM6zOYUazF6KnEs1Z28BuLW4-2FFBiXiBh81R-2FqkjYg8DLm4ycHka3Td=
+9-2FgzoWasG-2FeZx-2BeWeWzNwYZbXcezyNAXG5lBNDkY9bqzOdlaKgrSq8SR0-2BLH1dLlnZr=
+F9UBc9JbnnHHd8hE8XTu8WkkyPX3HUYFGvelK5E07Qp60cUM3RP6ZWtDO1ESOF6mmELX-2F0yGN=
+fQmbYljZk2bTwd33qsto5hZvZM7UEWHsAj6GH-2BUiFTZ3Taz76iK9MUT9e03KrBbb4PpM9XpFS=
+Cw-3D-3D" class=3D"block grey-link" target=3D"_blank" style=3D"color: #3e45=
+4e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"tiktok" border=3D"0" src=3D"https://thumb.housingan=
+ywhere.com/img/email_assets/tiktok_logo.png" width=3D"24" height=3D"24" sty=
+le=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radius: 3px=
+; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-radiu=
+s: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radiu=
+s: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; bo=
+rder-top-left-radius: 3px; border-top-right-radius: 3px; display: block; he=
+ight: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right-radiu=
+s: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                    <td class=3D"social-icon-spread" style=3D"padding: 0 20=
+px 0 0; text-align: center;" align=3D"center">
+                      <table>
+                        <tbody><tr>
+                          <td class=3D"social-icon-container border-top bor=
+der-bottom" style=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-l=
+eft-radius: 3px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bot=
+tom-right-radius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-=
+top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-=
+radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; moz=
+-border-bottom-right-radius: 3px; moz-border-top-right-radius: 3px; padding=
+: 0; text-align: center;" align=3D"center">
+                            <a href=3D"https://u1803120.ct.sendgrid.net/ls/=
+click?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUKhsR5WhpkubP3cWLE4lVKPeeJ0ULfX8wtWh=
+NkJ1swXWFSUL2143ZNtpmRMCBo3HGg-3D-3DzJDE_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A=
+4pB5GKJi1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KhLNhpjs5itk59zsbXL=
+dHhSsNFP2ykt1MAy2A7neqGzdazAbMZMZuIkyqL3Vd9vRClFCH7VojVMKRgDNM-2FYquZlUdDuA=
+aTb7SeyeneVd13chL8iWAR5c5AkpCEeOujVZbJijCfLv0Roegld7ZkeBXB6q8bETSlNOIyYAkA2=
+p6u4YIuuJICmv5VEBemadxuI69XDkS3atDdQJaBLSsYy3mLbOyHxlgsRP1kwy-2FJgqsG9T3GEk=
+3aUec5JKEI2JfWoC3A-3D-3D" class=3D"block grey-link" target=3D"_blank" style=
+=3D"color: #3e454e; display: block;">
+                              <img class=3D"block social-icon-img border-to=
+p border-bottom" alt=3D"Youtube" border=3D"0" src=3D"https://thumb.housinga=
+nywhere.com/img/email_assets/youtube_logo.png" width=3D"24" height=3D"24" s=
+tyle=3D"-moz-border-bottom-left-radius: 3px; -moz-border-top-left-radius: 3=
+px; -webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-rad=
+ius: 3px; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-rad=
+ius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; =
+border-top-left-radius: 3px; border-top-right-radius: 3px; display: block; =
+height: 30px; moz-border-bottom-right-radius: 3px; moz-border-top-right-rad=
+ius: 3px; padding: 0; width: 30px;"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <!-- why receiving this email -->
+                <table class=3D"footer-content" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"line-height: 21px; padding: 0px 20px;">
+                  <tbody><tr>
+                    <td>
+                                                                </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <!-- footer links -->
+                <table class=3D"footer-links" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"padding: 20px;">
+                  <tbody><tr>
+                    <td align=3D"center" class=3D"footer-link" style=3D"fon=
+t-size: 14px; font-weight: 400; padding-right: 15px;">
+                      <a href=3D"https://u1803120.ct.sendgrid.net/ls/click?=
+upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6F8j2LPiQfZsGADQbljNn=
+p4qIsPGtKhItRPQ1qixmy5zg-3D-3DYNhO_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GK=
+Ji1m4djNB-2FQvogBGCxun0XXOKsOCqHmDhLbhqnM6zOYUazF6KgoqA4GlRHqjrN5U27nHFsEVA=
+yo8UaXXpS07IO19Xkj4y-2F2RkcvEiIr-2BYZYIS1OVFPxZnFlgexGia2tDzKaXaKf8gNs3XZAW=
+Ch5JdSq5y3A8dKIlx55y-2B-2Fwqkp22yvT1P0Iaa-2Bu6z-2BeP0GPM-2Buol5-2BDO-2B4z26=
+GJgMzi0tT58-2FoJtRmLeAPSmEHlCyC0m4VN6yhSLFTJuCcBbmriyg7AmBVjTP4gpOb7w212xaC=
+lCliBZz2FCOCtQQ-2F8RZCdJ7wmX4Q-3D-3D" target=3D"_blank" style=3D"color: #00=
+2630;">Privacy policy</a>
+                    </td>
+                      <td align=3D"center" class=3D"footer-link" style=3D"f=
+ont-size: 14px; font-weight: 400; padding-right: 15px;">
+                        <a href=3D"https://u1803120.ct.sendgrid.net/ls/clic=
+k?upn=3Du001.RN7M8xzo4LwS-2BFOss9zxUIZXxr7OzzDIzsRhoNoAx6GAkxnokDCYS6MZ4jvE=
+hz6qFw8B8DvfkNaCuw2A2HzVyY2dB-2FDJUEGdms8uWtKdGfv05EsjD4DDy6csmkKcL3-2BMckC=
+UQPZeWd5Mn2T5taNOuX1KHSbIvpijsEoG4lflBKvNIZvEIjpuCSvsEOrB6D50vX1EHzdFOFVXwQ=
+WQRtmnUh2OxR1oYa6AtcOEIxEIFq1ooALdODwbEDCu4d6xDjhNGccSruVjoZbqwfn9g7lk2A-3D=
+-3DNWbK_QqbIknRS3eF6w7aeeFwlIf-2Frf-2FSj9A4pB5GKJi1m4djNB-2FQvogBGCxun0XXOK=
+sOCqHmDhLbhqnM6zOYUazF6KtMGDU8hEv7NVlhN-2F7TpQO9OpoR9gViK4S4ovlh5xrUwANdYwE=
+HhUQYAVZZCqatQmFeX6xiBqIr9W4IsdI3YyS05kT693TAY-2Bh019ULrbbV1bLF0Y5k1DZ-2BCW=
+KYDfJ-2FUCXSc1THiRTpXY2S1wbw8qnll5i9mXmiXXfDDeIikcqyXZdyg8HHQ4TXardNfdnKIta=
+L0LL55Wkey9lF0JSFnmyK8u-2BLl0kAg203sS8G50zhp7Y5T5N4DREfMGT4nHDyAUA-3D-3D" t=
+arget=3D"_blank" style=3D"color: #002630;">Unsubscribe</a>
+                      </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <!-- office address -->
+                <table class=3D"footer-content" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" style=3D"line-height: 21px; padding: 0px 20px;">
+                  <tbody><tr>
+                    <td>
+                      HousingAnywhere B.V., Blaak 555, Rotterdam, Netherlan=
+ds 3011GB
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+            </tr>
+          </tbody></table>
+
+        </td>
+      </tr>
+    </tbody></table>
+ =20
+
+<img src=3D"https://u1803120.ct.sendgrid.net/wf/open?upn=3Du001.jjN7WJkxBP3=
+-2BmX45kHyWvvrQOvZdAkcz17PsMGuDwjB62wu-2FxcMAOGSL5i4wmzC3s8b2DHdJPuIn43ETfv=
+xBW5BwFFdfXOsCyYQqEVjLEfFqUGTHgmksrERhcjA7mR287jNbYD-2FoK2vOwIkhQQDayvIekdN=
+HkXjvQeKAK2ohpn9ibW-2BH4T55FdMpFWw0bLVFN2c1n-2B-2FYG5FlzwA2qOQ-2BOmRzbG7Xca=
+1fiAWDurInUCCel7P1bDO0r9FJZrMpdj9Cz1HKCh0D-2FtEKBHtqKd-2FAdLAvVVYgunHfyFExe=
+WLU3dL4QCIGD-2Fmq-2BaGlGtB1tZQ6beu-2FI2RBg2bBDJxRScL9XJspAZkrLnk5mMU5j5FUlk=
+8-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !i=
+mportant;width:1px !important;border-width:0 !important;margin-top:0 !impor=
+tant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !im=
+portant;padding-top:0 !important;padding-bottom:0 !important;padding-right:=
+0 !important;padding-left:0 !important;"/></body></html>

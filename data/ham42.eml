@@ -1,0 +1,565 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7108:18f6:b0:381:3f1d:c93e with SMTP id t22csp1376175gdi;
+        Thu, 23 May 2024 16:22:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFRme3uostIX0FE234KBhGMQSTG2YRv/IYSGnBhAcC/2eF2yTM9uX6FHq190ykrpoFe7j3E
+X-Received: by 2002:a05:6359:b9c:b0:18d:7ba5:ccaf with SMTP id e5c5f4694b2df-197e5468e4dmr83772655d.26.1716506521792;
+        Thu, 23 May 2024 16:22:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1716506521; cv=none;
+        d=google.com; s=arc-20160816;
+        b=rz5kwyZimWRgVVKpxfwX6nsRe1SU0wMstnzUJnETV0KuT8Hsl5EGpfFQL3yS5QekMa
+         sgIyEycb80WS0TOMvnz/mSZsaThU9OOi7eiUBJd3UgYwCo3f563xsVEfdPbboVMQkLp2
+         CW8cS2P17pBp/6S72JwS+m2Zy6KXypNt0HyvFYU1FZjnQQvHVydSbOkzosxylU9EG3tl
+         xHdDNyUteBLwsGG/bUSRC7Ksl/8LGqV2fQpo5FryZF2k7IK0ze423PThsFFEX3RsJCfR
+         40B7WeXecuKV8uTZ3lfZuo/Vg2M6JJ9mkdB4owFBQJq81hJ17vlN+Onj9I7j85Cfii6J
+         pZEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:list-unsubscribe:from:message-id:list-unsubscribe-post
+         :subject:reply-to:date:mime-version:to:dkim-signature;
+        bh=t9NZUouxB6u2XER/R/icsgcenzMAeBv09jRWEE278Ws=;
+        fh=0kXyVBQFLqDLD7nIsTXJ5X3X1RzebGREaH8Omcbyh3A=;
+        b=Dq35ZsIeibMhOelhtCB1k9LLDSdHJJOz6pfhn/mQeejlFf0PpapT6xJSNZEzgvkFXD
+         aM5jNxxD+i3oSk2nAVUYbWerTev+uSJyKsI2KeJ4oZmI8u6m+acfex8a2O12arttPTHe
+         etSK3h3wtq5e5eL3d/WSUItM6xDE/cVdLQnhLQ04Ii24MwqM6TZrp7N3F+Hk78xRwNQB
+         PV2kb8fhJ5Q1G2Mk9Rga93w1lx96uVS3jehmjxR39uWlaqTzEVDjzgF7At3Es6JEzydg
+         oU5bDXps/+FAm6nUr8b9NYDm4qYsAKfvTsS6eMO97+fvRkmtcZMbg7VOPI59OgBQc5Lb
+         wL/w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hackthebox.com header.s=intercom header.b=cC4v9qXY;
+       spf=pass (google.com: domain of bounces+172334101292213@outbound.intercom.hackthebox.com designates 192.174.84.115 as permitted sender) smtp.mailfrom=bounces+172334101292213@outbound.intercom.hackthebox.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=hackthebox.com
+Return-Path: <bounces+172334101292213@outbound.intercom.hackthebox.com>
+Received: from mta-174-84-115.intercom.com.sparkpostmail.com (mta-174-84-115.intercom.com.sparkpostmail.com. [192.174.84.115])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-68222ea5c14si166439a12.194.2024.05.23.16.22.01
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 23 May 2024 16:22:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+172334101292213@outbound.intercom.hackthebox.com designates 192.174.84.115 as permitted sender) client-ip=192.174.84.115;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hackthebox.com header.s=intercom header.b=cC4v9qXY;
+       spf=pass (google.com: domain of bounces+172334101292213@outbound.intercom.hackthebox.com designates 192.174.84.115 as permitted sender) smtp.mailfrom=bounces+172334101292213@outbound.intercom.hackthebox.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=hackthebox.com
+X-MSFBL: Iucv6c7I14RF4iXpA1OsEs/mdUrBFSe/C3B2KtfhsGg=|eyJjdXN0b21lcl9pZCI
+	6IjEiLCJzdWJhY2NvdW50X2lkIjoiMjY1NjM2IiwiciI6InNtaW5oYXoxODA2MTk
+	5N0BnbWFpbC5jb20iLCJ0ZW5hbnRfaWQiOiJpbnRlcmNvbSIsIm1lc3NhZ2VfaWQ
+	iOiI2NjQ0OTljZjRmNjZlN2FiN2VmYiJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hackthebox.com;
+	s=intercom; t=1716506521; i=@hackthebox.com;
+	bh=t9NZUouxB6u2XER/R/icsgcenzMAeBv09jRWEE278Ws=;
+	h=To:Content-Type:Date:Subject:List-Unsubscribe-Post:Message-ID:
+	 From:List-Unsubscribe:From:To:Cc:Subject;
+	b=cC4v9qXYU+rYAvX87151nrnds96q8GpC7JmgAD0lGb/OBTKRLu9Lmkm5tLiKFYXbU
+	 2qVQknCZj0mwMFlxxgFHe4Dh0BHyf84big4rFZbRSRoVnHknRtSrCK7cUPIdF6SPES
+	 U6pcuYrY8UPJRHHN5ZxuZ2BlBxuSn+I7QjpgqrpA=
+To: ham@ham.email
+Content-Type: multipart/alternative; boundary="_----nB9YAlmSy3MPu8zFoFZu3g===_8F/EF-39091-99FCF466"
+MIME-Version: 1.0
+X-Mailgun-Variables: {"app_id":"awwxrc0h","conversation_id":"172334101292213","user_id":"663e6069e8b7584454dfd7fb","intercom_localized_email_content_id":"48478549"}
+Date: Thu, 23 May 2024 23:22:01 +0000
+Reply-To: Hack The Box <crew@hackthebox.com>
+Subject: =?utf-8?B?WW91ciBzdHJlYWsgbWF5IGJlIGluIGRhbmdlciDwn5ix?=
+X-Intercom-App-Id: awwxrc0h
+X-Intercom-Bin: 100
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Message-ID: <800fc0a3-a6d0f236-1716506520-172334101292213@outbound.intercom.hackthebox.com>
+X-Report-Abuse: Please report spam or abuse to abuse@intercom.io
+From: "Hack The Box" <sender@hackthebox.com>
+X-Auto-Response-Suppress: OOF, AutoReply
+List-Unsubscribe: <mailto:unsubscribe_172334101292213_663e6069e8b7584454dfd7fb@hack-the-box.intercom-mail.com>, <https://hack-the-box.intercom-mail.com/subscriptions/unsubscribe_post?app_id=awwxrc0h&conversation_id=172334101292213&user_id=663e6069e8b7584454dfd7fb>
+Feedback-ID: email:128318492:awwxrc0h:intercom
+
+--_----nB9YAlmSy3MPu8zFoFZu3g===_8F/EF-39091-99FCF466
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+[Image "620b8836d79b114a07097f02.png"] [Image "65fc0738d4ee1c3694b74711.jpg=
+"] =0D=0A Hey =F0=9F=91=8B =0D=0A We noticed you haven't completed your =F0=
+=9F=94=A5 streak =F0=9F=94=A5 this week. =0D=0A In order to keep it alive, =
+make sure to gather 30 points before the week ends. SAVE YOUR STREAK =0D=0A=
+ You've got this! =C2=AD =0D=0A Also don=E2=80=99t forget to join the =F0=
+=9F=92=9A of our community: our Discord server! =0D=0A If you experience an=
+y problem make sure to check our knowledge base. =0D=0A Hack The Box =0D=0A=
+ 38 Walton Road, Folkestone, Kent, CT19 5QS, United Kingdom =0D=0A [Image "=
+linkedin_32px.png"] =C2=AD =0D=0A [Image "twitter_32px.png"] =C2=AD =0D=0A =
+[Image "instagram_32px.png"] =C2=AD =0D=0A [Image "youtube_32px.png"] =C2=
+=AD =0D=0A [Image "twitch_32px.png"] =C2=AD =0D=0A [Image "spotify_32px.png=
+"] =C2=AD =0D=0A [Image "facebook_32px.png"] =C2=AD =0D=0A [Image "reddit_3=
+2px.png"] =C2=AD
+--_----nB9YAlmSy3MPu8zFoFZu3g===_8F/EF-39091-99FCF466
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">=0D=0A<html xmlns=3D"http://www.w3.org/19=
+99/xhtml">=0D=0A<head>=0D=0A<meta http-equiv=3D"Content-Type" content=3D"te=
+xt/html; charset=3Dutf-8">=0D=0A<meta http-equiv=3D"X-UA-Compatible" conten=
+t=3D"IE=3Dedge">=0D=0A<meta name=3D"format-detection" content=3D"telephone=
+=3Dno">=0D=0A<meta name=3D"viewport" content=3D"width=3Ddevice-width, initi=
+al-scale=3D1.0">=0D=0A<title>Your streak is in danger =F0=9F=98=B1</title>=
+=0D=0A<style type=3D"text/css">#outlook a { padding:0; } .ExternalClass { w=
+idth:100%; } .ExternalClass, .ExternalClass p, .ExternalClass span, .Extern=
+alClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } =
+table td { border-collapse: collapse;  } .editable.image { font-size: 0 !im=
+portant; line-height: 0 !important; } .nl2go_preheader { display: none !imp=
+ortant;   visibility: hidden !important; line-height: 0px !important; font-=
+size: 0px !important; } body { width:100% !important; -webkit-text-size-adj=
+ust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; } img { outline:n=
+one; text-decoration:none; -ms-interpolation-mode: bicubic; } a img { borde=
+r:none; } table { border-collapse:collapse;   } th { font-weight: normal; t=
+ext-align: left; } *[class=3D"gmail-fix"] { display: none !important; } </s=
+tyle>=0D=0A<style type=3D"text/css"> @media (max-width: 600px) { .gmx-killp=
+ill { content: ' \03D1';} } </style>=0D=0A<style type=3D"text/css">@media (=
+max-width: 600px) { .gmx-killpill { content: ' \03D1';} .r0-o { border-styl=
+e: solid !important; margin: 0 auto 0 auto !important; width: 320px !import=
+ant } .r1-i { background-color: #111927 !important } .r2-c { box-sizing: bo=
+rder-box !important; text-align: center !important;  width: 100% !important=
+ } .r3-o { border-style: solid !important; margin: 0 auto 0 auto !important=
+; width: 100% !important } .r4-i { background-color: #111927 !important; pa=
+dding-bottom: 10px !important; padding-left: 15px !important; padding-right=
+: 15px !important; padding-top: 20px !important } .r5-c { box-sizing: borde=
+r-box !important; display: block !important;  width: 100% !important } .r6-=
+o { border-style: solid !important; width: 100% !important } .r7-i { paddin=
+g-left: 0px !important; padding-right: 0px !important } .r8-c { box-sizing:=
+ border-box !important; text-align: center !important;  width: 200px !impor=
+tant } .r9-o { background-size: auto !important; border-style: solid !impor=
+tant; margin: 0 auto 0 auto !important; width: 200px !important } .r10-i { =
+padding-bottom: 15px !important; padding-top: 15px !important } .r11-i { ba=
+ckground-color: #111927 !important; padding-bottom: 0px !important; padding=
+-left: 0px !important; padding-right: 0px !important; padding-top: 20px !im=
+portant } .r12-c { box-sizing: border-box !important; padding-bottom: 15px =
+!important; padding-top: 15px !important; text-align: center !important;  w=
+idth: 100% !important } .r13-i { background-color: #111927 !important; padd=
+ing-bottom: 20px !important; padding-left: 15px !important; padding-right: =
+15px !important; padding-top: 20px !important } .r14-c { box-sizing: border=
+-box !important; padding-bottom: 15px !important; padding-top: 15px !import=
+ant; text-align: left !important;  width: 100% !important } .r15-c { box-si=
+zing: border-box !important; padding: 0 !important; text-align: center !imp=
+ortant;  width: 100% !important } .r16-o { border-style: solid !important; =
+margin: 0 auto 0 auto !important; margin-bottom: 15px !important; margin-to=
+p: 15px !important; width: 100% !important } .r17-i { padding: 0 !important=
+; text-align: center !important } .r18-r { background-color: #9fef00 !impor=
+tant; border-radius: 4px !important; border-width: 0px !important; box-sizi=
+ng: border-box; height: initial !important; padding: 0 !important; padding-=
+bottom: 12px !important; padding-left: 5px !important; padding-right: 5px !=
+important; padding-top: 12px !important; text-align: center !important; wid=
+th: 100% !important } .r19-c { box-sizing: border-box !important; padding-b=
+ottom: 30px !important; padding-top: 30px !important; text-align: center !i=
+mportant; width: 100% !important } .r20-c { box-sizing: border-box !importa=
+nt; text-align: left !important;  width: 100% !important } .r21-o { border-=
+style: solid !important; margin: 0 auto 0 0 !important; width: 100% !import=
+ant } .r22-i { padding-bottom: 15px !important; padding-top: 15px !importan=
+t; text-align: center !important } .r23-c { box-sizing: border-box !importa=
+nt; text-align: center !important;  width: 320px !important } .r24-i { padd=
+ing-bottom: 20px !important; padding-left: 15px !important; padding-right: =
+15px !important; padding-top: 20px !important } .r25-i { padding-bottom: 0p=
+x !important; padding-top: 15px !important; text-align: center !important }=
+ .r26-i { padding-bottom: 0px !important; padding-top: 0px !important; text=
+-align: center !important } .r27-c { box-sizing: border-box !important; tex=
+t-align: center !important; width: 100% !important } .r28-o { border-style:=
+ solid !important; margin: 0 auto 0 auto !important; margin-bottom: 0px !im=
+portant; margin-top: 0px !important; width: 100% !important } .r29-i { font=
+-size: 0px !important; padding-bottom: 10px !important; padding-left: 65px =
+!important; padding-right: 65px !important; padding-top: 15px !important } =
+.r30-c { box-sizing: border-box !important; width: 32px !important } .r31-=
+o { border-style: solid !important; margin-right: 8px !important; width: 32=
+px !important } .r32-i { padding-bottom: 5px !important; padding-top: 5px !=
+important } .r33-i { font-size: 0px !important; padding-bottom: 15px !impor=
+tant; padding-left: 65px !important; padding-right: 65px !important; paddin=
+g-top: 0px !important } body { -webkit-text-size-adjust: none } .nl2go-resp=
+onsive-hide { display: none } .nl2go-body-table { min-width: unset !importa=
+nt } .mobshow { height: auto !important; overflow: visible !important; max-=
+height: unset !important; visibility: visible !important; border: none !imp=
+ortant } .resp-table { display: inline-table !important } .magic-resp { dis=
+play: table-cell !important } } </style>=0D=0A<!--[if !mso]><!--><style typ=
+e=3D"text/css">@import url("https://fonts.googleapis.com/css2=3Ffamily=3DMo=
+ntserrat"); @import url("https://fonts.googleapis.com/css2=3Ffamily=3DBitte=
+r&amp;family=3DLato&amp;family=3DLobster&amp;family=3DNoto Sans JP&amp;fami=
+ly=3DOpen Sans&amp;family=3DOswald&amp;family=3DPermanent Marker&amp;family=
+=3DPoiret One&amp;family=3DRaleway&amp;family=3DRoboto&amp;family=3DRoboto =
+Condensed&amp;family=3DRoboto Mono&amp;family=3DSource Sans Pro"); </style>=
+=0D=0A<!--<![endif]--><style type=3D"text/css">p, h1, h2, h3, h4, ol, ul, l=
+i { margin: 0; } a, a:link { color: #9fef00; font-style: normal; font-weigh=
+t: normal; text-decoration: none } .nl2go-default-textstyle { color: #a4b1c=
+d; font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 1=
+.7; word-break: break-word } .default-button { color: #111927; font-family=
+: arial,helvetica,sans-serif; font-size: 16px; font-style: normal; font-wei=
+ght: normal; line-height: 1.15; text-decoration: none; word-break: break-wo=
+rd } .default-heading1 { color: #9fef00; font-family: arial,helvetica,sans-=
+serif; font-size: 36px; word-break: break-word } .default-heading2 { color:=
+ #9fef00; font-family: arial,helvetica,sans-serif; font-size: 32px; word-br=
+eak: break-word } .default-heading3 { color: #9fef00; font-family: arial,he=
+lvetica,sans-serif; font-size: 24px; word-break: break-word } .default-head=
+ing4 { color: #9fef00; font-family: arial,helvetica,sans-serif; font-size: =
+18px; word-break: break-word } a[x-apple-data-detectors] { color: inherit !=
+important; text-decoration: inherit !important; font-size: inherit !importa=
+nt; font-family: inherit !important; font-weight: inherit !important; line-=
+height: inherit !important; } .no-show-for-you { border: none; display: non=
+e; float: none; font-size: 0; height: 0; line-height: 0; max-height: 0;  ov=
+erflow: hidden; table-layout: fixed; visibility: hidden; width: 0; } </styl=
+e>=0D=0A<!--[if mso]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:Pixe=
+lsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]-=
+-><style type=3D"text/css">a:link{color: #9fef00; font-style: normal; font-=
+weight: normal; text-decoration: none;}</style>=0D=0A<style>.right-to-left =
+{ direction: rtl }</style>=0D=0A<style>.ExternalClass {=0D=0Awidth: 100%;=
+=0D=0A}=0D=0A.ExternalClass {=0D=0Aline-height: 100%;=0D=0A}=0D=0Abody {=0D=
+=0Awidth: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; margin: 0; padding: 0;=0D=0A}=0D=0Aimg {=0D=0Aoutline: none; te=
+xt-decoration: none; -ms-interpolation-mode: bicubic;=0D=0A}=0D=0A</style>=
+=0D=0A</head>=0D=0A<body bgcolor=3D"#111927" style=3D"background-color: #11=
+1927; width: 100% !important; -webkit-text-size-adjust: 100%; -ms-text-size=
+-adjust: 100%; margin: 0; padding: 0px 0;">=0D=0A<div style=3D"color:transp=
+arent;visibility:hidden;opacity:0;font-size:0px;border:0;max-height:1px;wid=
+th:1px;margin:0px;padding:0px;border-width:0px!important;display:none!impor=
+tant;line-height:0px!important;"><img border=3D"0" width=3D"1" height=3D"1"=
+ src=3D"https://hack-the-box.intercom-mail.com/q/YY0rGoRlZA5k9Doj9d9MRQ~~/A=
+AAAAQA~/RgRoMlSZPVcIaW50ZXJjb21CCmZEmc9PZuerfvtSGXNtaW5oYXoxODA2MTk5N0BnbWF=
+pbC5jb21YBAAEDaQ~" alt=3D""/></div>=0D=0A <table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" class=3D"nl2go-body-table" width=3D"100%" style=3D"b=
+ackground-color: #111927; width: 100%; border-collapse: collapse;" bgcolor=
+=3D"#111927"><tbody><tr>=0D=0A<td style=3D"border-collapse: collapse;"> <ta=
+ble cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"600" align=3D=
+"center" class=3D"r0-o" style=3D"table-layout: fixed; width: 600px; border-=
+collapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" class=3D"r1-i" sty=
+le=3D"background-color: #111927; border-collapse: collapse;" bgcolor=3D"#11=
+1927"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100=
+%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 100=
+%; border-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r4-i" style=3D=
+"background-color: #111927; padding-bottom: 10px; padding-top: 20px; border=
+-collapse: collapse;" bgcolor=3D"#111927"> <table width=3D"100%" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse: collapse;"=
+><tbody><tr>=0D=0A<th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D=
+"font-weight: normal; text-align: left;" align=3D"left"> <table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r6-o" style=
+=3D"table-layout: fixed; width: 100%; border-collapse: collapse;"><tbody><t=
+r>=0D=0A<td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padd=
+ing-right: 15px; border-collapse: collapse;"> <table width=3D"100%" cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse: collaps=
+e;"><tbody><tr>=0D=0A<td class=3D"r8-c" align=3D"center" style=3D"border-co=
+llapse: collapse;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ width=3D"285" class=3D"r9-o" style=3D"table-layout: fixed; width: 285px; b=
+order-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r10-i" style=3D"fo=
+nt-size: 0px; line-height: 0px; padding-bottom: 15px; padding-top: 15px; bo=
+rder-collapse: collapse;"> <img src=3D"https://img.mailinblue.com/3579920/i=
+mages/content_library/original/620b8836d79b114a07097f02.png" width=3D"285" =
+style=3D"display: block; width: 100%; outline: none; text-decoration: none;=
+ -ms-interpolation-mode: bicubic;">=0D=0A</td> </tr></tbody></table>=0D=0A<=
+/td> </tr></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A</th> </tr=
+></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A<table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" align=3D"center" class=
+=3D"r3-o" style=3D"table-layout: fixed; width: 100%; border-collapse: colla=
+pse;"><tbody><tr>=0D=0A<td class=3D"r11-i" style=3D"background-color: #1119=
+27; padding-top: 20px; border-collapse: collapse;" bgcolor=3D"#111927"> <ta=
+ble width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"border-collapse: collapse;"><tbody><tr>=0D=0A<th width=3D"100%" valign=
+=3D"top" class=3D"r5-c" style=3D"font-weight: normal; text-align: left;" al=
+ign=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=
+=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%; border-=
+collapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" class=3D"r7-i" sty=
+le=3D"padding-left: 10px; padding-right: 10px; border-collapse: collapse;">=
+ <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" sty=
+le=3D"border-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r12-c" alig=
+n=3D"center" style=3D"border-radius: 25px; font-size: 0px; line-height: 0px=
+; padding-bottom: 15px; padding-top: 15px; border-collapse: collapse;"> <a =
+href=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=3DU5S2QoA9hyjGr5v=
+IKpF1qjLmgQwMk1wx5XyZPAJMNQFNUlSZJvN5w%2B8MziyqnPEv6lKphE6404o1QDVx4ZSiOKrZ=
+AB8J%2B5HuHbMu%2FTsZL%2FLemrbejTmCKvd84EY5%2FMGv&h=3Dba768c43cc4b5c8a1f6766=
+0748c8d3feded2c183-awwxrc0h_172334101292213" target=3D"_blank" style=3D"col=
+or: #9fef00; font-style: normal; font-weight: normal; text-decoration: none=
+;"> <img src=3D"https://img.mailinblue.com/3579920/images/content_library/o=
+riginal/65fc0738d4ee1c3694b74711.jpg" width=3D"580" style=3D"display: block=
+; width: 100%; border-radius: 25px; outline: none; text-decoration: none; -=
+ms-interpolation-mode: bicubic; border-style: none;"></a> </td> </tr></tbod=
+y></table>=0D=0A</td> </tr></tbody></table>=0D=0A</th> </tr></tbody></table=
+>=0D=0A</td> </tr></tbody></table>=0D=0A<table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" width=3D"100%" align=3D"center" class=3D"r3-o" style=
+=3D"table-layout: fixed; width: 100%; border-collapse: collapse;"><tbody><t=
+r>=0D=0A<td class=3D"r13-i" style=3D"background-color: #111927; padding-bot=
+tom: 20px; padding-top: 20px; border-collapse: collapse;" bgcolor=3D"#11192=
+7"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+style=3D"border-collapse: collapse;"><tbody><tr>=0D=0A<th width=3D"100%" va=
+lign=3D"top" class=3D"r5-c" style=3D"font-weight: normal; text-align: left;=
+" align=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" w=
+idth=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%; bor=
+der-collapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" class=3D"r7-i"=
+ style=3D"padding-left: 15px; padding-right: 15px; border-collapse: collaps=
+e;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ style=3D"border-collapse: collapse;"><tbody>=0D=0A<tr>=0D=0A<td class=3D"r=
+14-c nl2go-default-textstyle" align=3D"left" style=3D"color: #a4b1cd; font-=
+family: arial,helvetica,sans-serif; font-size: 16px; line-height: 1.7; word=
+-break: break-word; padding-bottom: 15px; padding-top: 15px; text-align: le=
+ft; border-collapse: collapse;"> <div>=0D=0A<p style=3D"margin: 0;">Hey =F0=
+=9F=91=8B</p>=0D=0A<p style=3D"margin: 0;">=C2=A0</p>=0D=0A<p style=3D"marg=
+in: 0;">We noticed you haven't completed your =F0=9F=94=A5 streak =F0=9F=94=
+=A5 this week.</p>=0D=0A<p style=3D"margin: 0;">=C2=A0</p>=0D=0A<p style=3D=
+"margin: 0;">In order to keep it alive, make sure to <span style=3D"color: =
+#9fef00;"><strong>gather 30 points before the week ends.</strong></span></p=
+>=0D=0A<p style=3D"margin: 0;">=C2=A0</p>=0D=0A</div> </td> </tr>=0D=0A<tr>=
+=0D=0A<td class=3D"r15-c" align=3D"center" style=3D"padding-bottom: 15px; p=
+adding-top: 15px; border-collapse: collapse;"> <table cellspacing=3D"0" cel=
+lpadding=3D"0" border=3D"0" width=3D"285" class=3D"r16-o" style=3D"backgrou=
+nd-color: #9fef00; border-collapse: separate; border-radius: 4px; table-lay=
+out: fixed; width: 285px; border: 0px solid #9fef00;" bgcolor=3D"#9fef00"><=
+tbody><tr>=0D=0A<td height=3D"18" align=3D"center" valign=3D"top" class=3D"=
+r17-i nl2go-default-textstyle" style=3D"word-break: break-word; background-=
+color: #9fef00; border-radius: 4px; color: #111927; font-family: arial,helv=
+etica,sans-serif; font-size: 16px; font-style: normal; line-height: 1.15; t=
+ext-align: center; border-collapse: collapse; padding: 12px 5px;" bgcolor=
+=3D"#9fef00"> <a href=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=
+=3DU5S2QoA9hyjGr5vIKpF1qjLmgQwMk1wx5XyZPAJMNQFNUlSZJvN5w%2B8MziyqnPEv6lKphE=
+6404o1QDVx4ZSiOKrZAB8J%2B5HuHbMu%2FTsZL%2FLemrbejTmCKvd84EY5%2FMGv&h=3Dba76=
+8c43cc4b5c8a1f67660748c8d3feded2c183-awwxrc0h_172334101292213" class=3D"r18=
+-r default-button" target=3D"_blank" style=3D"font-style: normal; font-weig=
+ht: normal; line-height: 1.15; text-decoration: none; word-break: break-wor=
+d; word-wrap: break-word; display: block; -webkit-text-size-adjust: none; c=
+olor: #111927; font-family: arial,helvetica,sans-serif; font-size: 16px;"> =
+<span><strong>SAVE YOUR STREAK</strong></span></a> </td> </tr></tbody></tab=
+le>=0D=0A</td> </tr>=0D=0A<tr>=0D=0A<td class=3D"r14-c nl2go-default-textst=
+yle" align=3D"left" style=3D"color: #a4b1cd; font-family: arial,helvetica,s=
+ans-serif; font-size: 16px; line-height: 1.7; word-break: break-word; paddi=
+ng-bottom: 15px; padding-top: 15px; text-align: left; border-collapse: coll=
+apse;"> <div><p style=3D"margin: 0;">You've got this!</p></div> </td> </tr>=
+=0D=0A<tr>=0D=0A<td class=3D"r19-c" align=3D"center" style=3D"padding-botto=
+m: 30px; padding-top: 30px; border-collapse: collapse;"> <table width=3D"10=
+0%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" height=3D"2" style=3D"=
+border-top-style: solid; background-clip: border-box; border-top-color: #9f=
+ef00; border-top-width: 2px; font-size: 2px; line-height: 2px; border-colla=
+pse: collapse;"><tbody><tr>=0D=0A<td height=3D"0" style=3D"font-size: 0px; =
+line-height: 0px; border-collapse: collapse;">=C2=AD</td> </tr></tbody></ta=
+ble>=0D=0A</td> </tr>=0D=0A<tr>=0D=0A<td class=3D"r20-c" align=3D"left" sty=
+le=3D"border-collapse: collapse;"> <table cellspacing=3D"0" cellpadding=3D"=
+0" border=3D"0" width=3D"100%" class=3D"r21-o" style=3D"table-layout: fixed=
+; width: 100%; border-collapse: collapse;"><tbody><tr>=0D=0A<td align=3D"ce=
+nter" valign=3D"top" class=3D"r22-i nl2go-default-textstyle" style=3D"color=
+: #a4b1cd; font-family: arial,helvetica,sans-serif; font-size: 16px; line-h=
+eight: 1.7; word-break: break-word; padding-bottom: 15px; padding-top: 15px=
+; text-align: center; border-collapse: collapse;"> <div>=0D=0A<p style=3D"m=
+argin: 0;">Also don=E2=80=99t forget to join the =F0=9F=92=9A of our commun=
+ity: our <a href=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=3D%2F=
+91hJH6nAoXGwFf3r%2Fcvv%2F7aOCRIeESAq3%2BdbpKy1cF07snrblUbVt%2BiBEnHqfw240M%=
+2Fp0ct%2FQ0u%2Bp2mEJrY%2BUCOr3tiyM53%2FqbpTPrWP51DH%2BP58NObTGWOh%2B1aznVMS=
+Did7Zz2fnYmajaMN9wPkA%3D%3D&h=3Dedd4a4012f9ca0aaa975b6f06cf0ca09a599cc66-aw=
+wxrc0h_172334101292213" target=3D"_blank" style=3D"color: #9fef00; font-sty=
+le: normal; font-weight: normal; text-decoration: none;"><span style=3D"col=
+or: #9fef00;">Discord server</span></a><span style=3D"color: #9fef00;">!</s=
+pan></p>=0D=0A<p style=3D"margin: 0;">If you experience any problem make su=
+re to check our <span style=3D"color: #9fef00;">knowledge base.</span></p>=
+=0D=0A</div> </td> </tr></tbody></table>=0D=0A</td> </tr>=0D=0A</tbody></ta=
+ble>=0D=0A</td> </tr></tbody></table>=0D=0A</th> </tr></tbody></table>=0D=
+=0A</td> </tr></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A<table=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" align=3D"c=
+enter" class=3D"r3-o" style=3D"table-layout: fixed; width: 100%; border-col=
+lapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" class=3D"r1-i" style=
+=3D"background-color: #111927; border-collapse: collapse;" bgcolor=3D"#1119=
+27"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"600" =
+align=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; width: 600px;=
+ border-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r24-i" style=3D"=
+padding-bottom: 20px; padding-top: 20px; border-collapse: collapse;"> <tabl=
+e width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"=
+border-collapse: collapse;"><tbody><tr>=0D=0A<th width=3D"100%" valign=3D"t=
+op" class=3D"r5-c" style=3D"font-weight: normal; text-align: left;" align=
+=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D=
+"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%; border-col=
+lapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" class=3D"r7-i" style=
+=3D"padding-left: 15px; padding-right: 15px; border-collapse: collapse;"> <=
+table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"border-collapse: collapse;"><tbody>=0D=0A<tr>=0D=0A<td class=3D"r20-c" =
+align=3D"left" style=3D"border-collapse: collapse;"> <table cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r21-o" style=3D"t=
+able-layout: fixed; width: 100%; border-collapse: collapse;"><tbody><tr>=0D=
+=0A<td align=3D"center" valign=3D"top" class=3D"r25-i nl2go-default-textsty=
+le" style=3D"color: #a4b1cd; font-family: arial,helvetica,sans-serif; word-=
+break: break-word; font-size: 18px; line-height: 1.5; padding-top: 15px; te=
+xt-align: center; border-collapse: collapse;"> <div><p style=3D"margin: 0;"=
+><span style=3D"color: #ffffff;"><strong>Hack The Box</strong></span></p></=
+div> </td> </tr></tbody></table>=0D=0A</td> </tr>=0D=0A<tr>=0D=0A<td class=
+=3D"r20-c" align=3D"left" style=3D"border-collapse: collapse;"> <table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r21-o"=
+ style=3D"table-layout: fixed; width: 100%; border-collapse: collapse;"><tb=
+ody><tr>=0D=0A<td align=3D"center" valign=3D"top" class=3D"r26-i nl2go-defa=
+ult-textstyle" style=3D"color: #a4b1cd; font-family: arial,helvetica,sans-s=
+erif; word-break: break-word; font-size: 18px; line-height: 1.5; text-align=
+: center; border-collapse: collapse;"> <div><p style=3D"font-size: 14px; ma=
+rgin: 0;"><span style=3D"color: #ffffff;">38 Walton Road, Folkestone, Kent,=
+ CT19 5QS, United Kingdom</span></p></div> </td> </tr></tbody></table>=0D=
+=0A</td> </tr>=0D=0A<tr>=0D=0A<td class=3D"r27-c" align=3D"center" style=3D=
+"border-collapse: collapse;"> <table cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" width=3D"570" align=3D"center" class=3D"r3-o" style=3D"table-lay=
+out: fixed; width: 570px; border-collapse: collapse;"><tbody><tr>=0D=0A<td =
+valign=3D"top" style=3D"border-collapse: collapse;"> <table width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse: =
+collapse;"><tbody><tr>=0D=0A<td class=3D"r27-c" align=3D"center" style=3D"d=
+isplay: inline-block; border-collapse: collapse;"> <table cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" width=3D"570" align=3D"center" class=3D"r28=
+-o" style=3D"table-layout: fixed; width: 570px; border-collapse: collapse;"=
+><tbody><tr>=0D=0A<td class=3D"r29-i" style=3D"border-collapse: collapse; p=
+adding: 15px 205px 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse;"><tbody><tr>=0D=
+=0A<th width=3D"40" class=3D"r30-c mobshow resp-table" style=3D"font-weight=
+: normal; text-align: left;" align=3D"left"> <table cellspacing=3D"0" cellp=
+adding=3D"0" border=3D"0" width=3D"100%" class=3D"r31-o" style=3D"table-lay=
+out: fixed; width: 100%; border-collapse: collapse;"><tbody><tr>=0D=0A<td c=
+lass=3D"r32-i" style=3D"font-size: 0px; line-height: 0px; padding-bottom: 5=
+px; padding-top: 5px; border-collapse: collapse;"> <a href=3D"https://hack-=
+the-box.intercom-mail.com/via/e=3Fob=3DM4AGkcFtCB5yB6Ka7hM0EKsJ0gleXc%2FQQA=
+MHEYDy0G9ROSIdmgqu9owAygHr014BuStP5xYM3jo%2BAdC9YZYdFjm%2BOnIOPg2XqyPvqM5ul=
+tbpDegMmKikJAex%2BdZCPBwK%2F0XJrqyHCycHYN7bnF7Bow%3D%3D&h=3D649f870507244e9=
+4b44fe52e910b8915669360e3-awwxrc0h_172334101292213" target=3D"_blank" style=
+=3D"color: #9fef00; font-style: normal; font-weight: normal; text-decoratio=
+n: none;"> <img src=3D"https://creative-assets.mailinblue.com/editor/social=
+-icons/rounded_light/linkedin_32px.png" width=3D"32" style=3D"display: bloc=
+k; width: 100%; outline: none; text-decoration: none; -ms-interpolation-mod=
+e: bicubic; border-style: none;"></a> </td> <td class=3D"nl2go-responsive-h=
+ide" width=3D"8" style=3D"font-size: 0px; line-height: 1px; border-collapse=
+: collapse;">=C2=AD </td> </tr></tbody></table>=0D=0A</th> <th width=3D"40"=
+ class=3D"r30-c mobshow resp-table" style=3D"font-weight: normal; text-alig=
+n: left;" align=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" width=3D"100%" class=3D"r31-o" style=3D"table-layout: fixed; width: =
+100%; border-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r32-i" styl=
+e=3D"font-size: 0px; line-height: 0px; padding-bottom: 5px; padding-top: 5p=
+x; border-collapse: collapse;"> <a href=3D"https://hack-the-box.intercom-ma=
+il.com/via/e=3Fob=3DS2qprtGrkXGz46r%2FTJU0pu15NB%2Fweo0F%2BDxOzMg3FOffguO9i=
+VVuYD8y3W9T7I09UlCpT%2BrWD%2B%2FDhkgsfBRXe8pf63TTCEQS0lb3Iqc15bjcdrOkBQv4gM=
+funkeeQCQ0AvPd0Us4yy8X8X%2F%2BWFedeg%3D%3D&h=3D3169f87bfdc6724db66ec4ca8665=
+1512715e2d9c-awwxrc0h_172334101292213" target=3D"_blank" style=3D"color: #9=
+fef00; font-style: normal; font-weight: normal; text-decoration: none;"> <i=
+mg src=3D"https://creative-assets.mailinblue.com/editor/social-icons/rounde=
+d_light/twitter_32px.png" width=3D"32" style=3D"display: block; width: 100%=
+; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; bo=
+rder-style: none;"></a> </td> <td class=3D"nl2go-responsive-hide" width=3D"=
+8" style=3D"font-size: 0px; line-height: 1px; border-collapse: collapse;">=
+=C2=AD </td> </tr></tbody></table>=0D=0A</th> <th width=3D"40" class=3D"r30=
+-c mobshow resp-table" style=3D"font-weight: normal; text-align: left;" ali=
+gn=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=
+=3D"100%" class=3D"r31-o" style=3D"table-layout: fixed; width: 100%; border=
+-collapse: collapse;"><tbody><tr>=0D=0A<td class=3D"r32-i" style=3D"font-si=
+ze: 0px; line-height: 0px; padding-bottom: 5px; padding-top: 5px; border-co=
+llapse: collapse;"> <a href=3D"https://hack-the-box.intercom-mail.com/via/e=
+=3Fob=3DxT%2BROtViaDCy5eSzjcrLi9N%2FVDQ7AVL%2FNoQ9IXMtGoYKx2dXca49zcFXZUsH6=
+mp0hag4ECfXKQszQsQ6W8WS0gbRxTqt30J%2BDV8lSMiPwv1r2wpEAGs0hhmGeoK4P55KAXHlTC=
+MXLrshP1hEs5ixtw%3D%3D&h=3D26b188f9efd72c9d3bf30fcddda42cfbd8a508a8-awwxrc0=
+h_172334101292213" target=3D"_blank" style=3D"color: #9fef00; font-style: n=
+ormal; font-weight: normal; text-decoration: none;"> <img src=3D"https://cr=
+eative-assets.mailinblue.com/editor/social-icons/rounded_light/instagram_32=
+px.png" width=3D"32" style=3D"display: block; width: 100%; outline: none; t=
+ext-decoration: none; -ms-interpolation-mode: bicubic; border-style: none;"=
+></a> </td> <td class=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-s=
+ize: 0px; line-height: 1px; border-collapse: collapse;">=C2=AD </td> </tr><=
+/tbody></table>=0D=0A</th> <th width=3D"40" class=3D"r30-c mobshow resp-tab=
+le" style=3D"font-weight: normal; text-align: left;" align=3D"left"> <table=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r=
+31-o" style=3D"table-layout: fixed; width: 100%; border-collapse: collapse;=
+"><tbody><tr>=0D=0A<td class=3D"r32-i" style=3D"font-size: 0px; line-height=
+: 0px; padding-bottom: 5px; padding-top: 5px; border-collapse: collapse;"> =
+<a href=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=3Des%2Bnw3gZki=
+SM6kWqz6CumaT8LvKv2nWn5sZIlAcB%2Beiyk9KR6aHN1M2ytx1QZxZ%2FIQHbtzEpsB4gPmXCu=
+fZne221rIMAFPP8M9pIre0c0qsObWB0gpe5grI3z8IRwtupek8PSiRjPts1oA4lRNBVjA%3D%3D=
+&h=3D07d5417b5962609ca3bf5b592c9216c7b0447813-awwxrc0h_172334101292213" tar=
+get=3D"_blank" style=3D"color: #9fef00; font-style: normal; font-weight: no=
+rmal; text-decoration: none;"> <img src=3D"https://creative-assets.mailinbl=
+ue.com/editor/social-icons/rounded_light/youtube_32px.png" width=3D"32" sty=
+le=3D"display: block; width: 100%; outline: none; text-decoration: none; -m=
+s-interpolation-mode: bicubic; border-style: none;"></a> </td> <td class=3D=
+"nl2go-responsive-hide" width=3D"8" style=3D"font-size: 0px; line-height: 1=
+px; border-collapse: collapse;">=C2=AD </td> </tr></tbody></table>=0D=0A</t=
+h> </tr></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A</td> </tr><=
+/tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A</td> </tr>=0D=0A<tr>=
+=0D=0A<td class=3D"r27-c" align=3D"center" style=3D"border-collapse: collap=
+se;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"570"=
+ align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 570px=
+; border-collapse: collapse;"><tbody><tr>=0D=0A<td valign=3D"top" style=3D"=
+border-collapse: collapse;"> <table width=3D"100%" cellspacing=3D"0" cellpa=
+dding=3D"0" border=3D"0" style=3D"border-collapse: collapse;"><tbody><tr>=
+=0D=0A<td class=3D"r27-c" align=3D"center" style=3D"display: inline-block; =
+border-collapse: collapse;"> <table cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" width=3D"570" align=3D"center" class=3D"r28-o" style=3D"table-lay=
+out: fixed; width: 570px; border-collapse: collapse;"><tbody><tr>=0D=0A<td =
+class=3D"r33-i" style=3D"padding-bottom: 15px; padding-left: 205px; padding=
+-right: 205px; border-collapse: collapse;"> <table width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" style=3D"border-collapse: collapse;=
+"><tbody><tr>=0D=0A<th width=3D"40" class=3D"r30-c mobshow resp-table" styl=
+e=3D"font-weight: normal; text-align: left;" align=3D"left"> <table cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r31-o" st=
+yle=3D"table-layout: fixed; width: 100%; border-collapse: collapse;"><tbody=
+><tr>=0D=0A<td class=3D"r32-i" style=3D"font-size: 0px; line-height: 0px; p=
+adding-bottom: 5px; padding-top: 5px; border-collapse: collapse;"> <a href=
+=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=3D13%2BfRXGAdZ%2Bl3QE=
+o0OJjl6tdoD9CoGRbDoMrKFNhOCVskR0CvtkwCJMD4KABrv1Pie3%2B5zmrgTO5Tcsx5U5kNdT3=
+eO9%2BdeEG5EiYhF2SNEI%2Fs4Im4%2FqnGbr%2FNs7F6gKeOR69ZscDbDHb6gn35%2BRyxQ%3D=
+%3D&h=3De3e001b4208b86da44169e37d3f74e2b93326cb8-awwxrc0h_172334101292213" =
+target=3D"_blank" style=3D"color: #9fef00; font-style: normal; font-weight:=
+ normal; text-decoration: none;"> <img src=3D"https://creative-assets.maili=
+nblue.com/editor/social-icons/rounded_light/twitch_32px.png" width=3D"32" s=
+tyle=3D"display: block; width: 100%; outline: none; text-decoration: none; =
+-ms-interpolation-mode: bicubic; border-style: none;"></a> </td> <td class=
+=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-size: 0px; line-height=
+: 1px; border-collapse: collapse;">=C2=AD </td> </tr></tbody></table>=0D=0A=
+</th> <th width=3D"40" class=3D"r30-c mobshow resp-table" style=3D"font-wei=
+ght: normal; text-align: left;" align=3D"left"> <table cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r31-o" style=3D"table-=
+layout: fixed; width: 100%; border-collapse: collapse;"><tbody><tr>=0D=0A<t=
+d class=3D"r32-i" style=3D"font-size: 0px; line-height: 0px; padding-bottom=
+: 5px; padding-top: 5px; border-collapse: collapse;"> <a href=3D"https://ha=
+ck-the-box.intercom-mail.com/via/e=3Fob=3Dk1z5pJLOdnglKE05JtRBwfeK%2FR%2Bfy=
+7HJ6aGZYEs4%2Be7UP0xll7N7j3Y6DxQe%2FByaxd1LENrUyLE1noHHRzSc2%2BYlw8bJCZU8pw=
+31T%2FSAOvQffJ9%2FfJJ0kf7elJiNL4Udw%2FCMw2AtADPchwRPLNdcfWYtsWNW7ELCMNnoYZj=
+t3cnLLsDaxyJPDPaLzlk07qM0&h=3D846b39ffef68f2b67f408bd0b6870ac50f0bf665-awwx=
+rc0h_172334101292213" target=3D"_blank" style=3D"color: #9fef00; font-style=
+: normal; font-weight: normal; text-decoration: none;"> <img src=3D"https:/=
+/creative-assets.mailinblue.com/editor/social-icons/rounded_light/spotify_3=
+2px.png" width=3D"32" style=3D"display: block; width: 100%; outline: none; =
+text-decoration: none; -ms-interpolation-mode: bicubic; border-style: none;=
+"></a> </td> <td class=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-=
+size: 0px; line-height: 1px; border-collapse: collapse;">=C2=AD </td> </tr>=
+</tbody></table>=0D=0A</th> <th width=3D"40" class=3D"r30-c mobshow resp-ta=
+ble" style=3D"font-weight: normal; text-align: left;" align=3D"left"> <tabl=
+e cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"=
+r31-o" style=3D"table-layout: fixed; width: 100%; border-collapse: collapse=
+;"><tbody><tr>=0D=0A<td class=3D"r32-i" style=3D"font-size: 0px; line-heigh=
+t: 0px; padding-bottom: 5px; padding-top: 5px; border-collapse: collapse;">=
+ <a href=3D"https://hack-the-box.intercom-mail.com/via/e=3Fob=3DKe1hUMQ877s=
+d%2FpAoepxHZAMKxnfQxejw80S0icE7SSO%2Bvy%2FeHBeJZlEMhIwlBKK31YzbMW7Yvxd9LW4c=
+Mt9u6qWtI4kUIqJECjEwrqKZxFW%2BqVtuPZvjMjdPJzJmzTOQexDnGYnYgpxcRTGgmDyppg%3D=
+%3D&h=3D41cf3665ebf9e4dad66facadb12e134cd1de64ac-awwxrc0h_172334101292213" =
+target=3D"_blank" style=3D"color: #9fef00; font-style: normal; font-weight:=
+ normal; text-decoration: none;"> <img src=3D"https://creative-assets.maili=
+nblue.com/editor/social-icons/rounded_light/facebook_32px.png" width=3D"32"=
+ style=3D"display: block; width: 100%; outline: none; text-decoration: none=
+; -ms-interpolation-mode: bicubic; border-style: none;"></a> </td> <td clas=
+s=3D"nl2go-responsive-hide" width=3D"8" style=3D"font-size: 0px; line-heigh=
+t: 1px; border-collapse: collapse;">=C2=AD </td> </tr></tbody></table>=0D=
+=0A</th> <th width=3D"40" class=3D"r30-c mobshow resp-table" style=3D"font-=
+weight: normal; text-align: left;" align=3D"left"> <table cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"r31-o" style=3D"tab=
+le-layout: fixed; width: 100%; border-collapse: collapse;"><tbody><tr>=0D=
+=0A<td class=3D"r32-i" style=3D"font-size: 0px; line-height: 0px; padding-b=
+ottom: 5px; padding-top: 5px; border-collapse: collapse;"> <a href=3D"https=
+://hack-the-box.intercom-mail.com/via/e=3Fob=3DnwjgWL49DdKVrQ0tQxJzF2lAEDzP=
+tfQpeKNbBJbb5fe6YMzhKFN8Ry4Plx2IcNBmruzseWnFlYYFzxATfLqB3M63TGSs7pFQ88259JA=
+iQ8gKpSba7Jjt%2Bes8EiGoEW%2FljZpuJVDy86A4yiguLOeWDQ%3D%3D&h=3Df14cbd86f63a0=
+eb363f0338393d130299a95e52a-awwxrc0h_172334101292213" target=3D"_blank" sty=
+le=3D"color: #9fef00; font-style: normal; font-weight: normal; text-decorat=
+ion: none;"> <img src=3D"https://creative-assets.mailinblue.com/editor/soci=
+al-icons/rounded_light/reddit_32px.png" width=3D"32" style=3D"display: bloc=
+k; width: 100%; outline: none; text-decoration: none; -ms-interpolation-mod=
+e: bicubic; border-style: none;"></a> </td> <td class=3D"nl2go-responsive-h=
+ide" width=3D"8" style=3D"font-size: 0px; line-height: 1px; border-collapse=
+: collapse;">=C2=AD </td> </tr></tbody></table>=0D=0A</th> </tr></tbody></t=
+able>=0D=0A</td> </tr></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=
+=0A</td> </tr></tbody></table>=0D=0A</td> </tr>=0D=0A</tbody></table>=0D=0A=
+</td> </tr></tbody></table>=0D=0A</th> </tr></tbody></table>=0D=0A</td> </t=
+r></tbody></table>=0D=0A</td> </tr></tbody></table>=0D=0A</td> </tr></tbody=
+></table>=0D=0A<p style=3D"text-align: center; color: grey; font-weight: bo=
+ld; font-family: Helvetica; font-size: 12px; margin: 0; padding: 10px;" ali=
+gn=3D"center">=0D=0A<a style=3D"text-decoration: none; color: inherit; font=
+-style: normal; font-weight: normal;" href=3D"https://hack-the-box.intercom=
+-mail.com/subscriptions/unsubscribe=3Fapp_id=3Dawwxrc0h&conversation_id=3D1=
+72334101292213&user_id=3D663e6069e8b7584454dfd7fb&source=3Dbody">Unsubscrib=
+e From This Mailing List</a>=0D=0A</p>=0D=0A<br>=0D=0A=0D=0A=0D=0A<img src=
+=3D"https://hack-the-box.intercom-mail.com/via/o=3Fh=3D5552f6d461057652e13f=
+a36eb7643dfc2eb3a60b-awwxrc0h_172334101292213" width=3D"1" height=3D"1" sty=
+le=3D"display: block;" alt=3D"intercom">=0D=0A=0D=0A<img border=3D"0" width=
+=3D"1" height=3D"1" alt=3D"" src=3D"https://hack-the-box.intercom-mail.com/=
+q/1-qrnC-bo2L3sDjMiRxXYw~~/AAAAAQA~/RgRoMlSZPlcIaW50ZXJjb21CCmZEmc9PZuerfvt=
+SGXNtaW5oYXoxODA2MTk5N0BnbWFpbC5jb21YBAAEDaQ~">=0D=0A</body>=0D=0A</html>
+--_----nB9YAlmSy3MPu8zFoFZu3g===_8F/EF-39091-99FCF466--
+

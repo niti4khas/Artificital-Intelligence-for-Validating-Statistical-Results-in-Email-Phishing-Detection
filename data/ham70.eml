@@ -1,0 +1,984 @@
+Delivered-To: ham@ham.email
+Received: by 2002:aa6:c3c4:0:b0:2ac:6419:e1b with SMTP id b4csp1173389lkq;
+        Tue, 10 Dec 2024 12:36:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGSt73ULtoqBTEkAdUmulUwMCKlvqB/DhqSsmshDPh8hAPfeJbBoWGh+QnDLYRLk8p9oWfW
+X-Received: by 2002:a05:6a20:9147:b0:1e1:adb9:d1bb with SMTP id adf61e73a8af0-1e1c1469876mr1063128637.44.1733862998058;
+        Tue, 10 Dec 2024 12:36:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733862998; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O4uU0vsPJ5igE+gA0wSsR5IdWAVj1zmOz6KlUb2fgg+zjYFa5qbMBf3/P1cr1e31j2
+         QxrmGzmtY6LNT+tohzn55vxWkinXicJ/V3PtoNsoLc31AbW07A8jOJUYFAmw5SD00AcK
+         RXZZLmm7+Z3+j2tTbhZhJ/Ibx/Zf6Fk87WNG2sD2qEHkmv66cbroTMiaZmRC6cJD5YIU
+         vn1M3LZ1pkx94XQm+3UP0kijw3QCyspjZHvaJJ8Z8UMGXIcRRO7fv1XobKRVNRO3X6bM
+         OaM2hjhqSn2DXuCU98t6jpJBQA9GCoSLhpYiLiDJkhzYDAdyBt0/WeOsU2DPprdh6R25
+         lthA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=RR6guR/sZlNB+dB2A6De9yalOR/jt3xAl7gku96yhMU=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=IgMIu1+dKxFbktzZAHesIJLAKVdRtITj5bgthoitghiBXZsktLK37Avagnbini6Itb
+         SPK41xquDjfzskL/6JOQkeTJMWDFu6Dz6yin+QUGOFTSeydx/tU20GEkSsgYDuwhTeJE
+         FpNME5Iw2PPzjKyplVifVulSiXH9zwor69qB9F+v+3e2uZCtn0Nk7ctcCCX7owjECCJg
+         CjDFtG9dQDYAmfmX3DIZqQVRwzmxjASJXlT+5NXoJ9hsYCPlirzpkQgyYK9Ca9nwhVL0
+         7Vtpc5TA0jcwpFRvVO7n7Taybw/61pch1Wn5I+Nuoic51ZcdVyxHYQH2vB6DPt3S9CnP
+         +Pfg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sheinnotice.com header.s=s1 header.b=OC+5Sahj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rMfQY7ll;
+       spf=pass (google.com: domain of bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com designates 159.183.105.129 as permitted sender) smtp.mailfrom="bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=sheinnotice.com
+Return-Path: <bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com>
+Received: from o24.ptr6393.sheinnotice.com (o24.ptr6393.sheinnotice.com. [159.183.105.129])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-7fd3fafcc3esi3349342a12.527.2024.12.10.12.36.37
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Dec 2024 12:36:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com designates 159.183.105.129 as permitted sender) client-ip=159.183.105.129;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sheinnotice.com header.s=s1 header.b=OC+5Sahj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rMfQY7ll;
+       spf=pass (google.com: domain of bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com designates 159.183.105.129 as permitted sender) smtp.mailfrom="bounces+25492214-5d6d-ham=ham.email@em6825.sheinnotice.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=sheinnotice.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sheinnotice.com; h=content-transfer-encoding:content-type:from:mime-version:subject: reply-to:x-feedback-id:to:cc:content-type:from:subject:to; s=s1; bh=RR6guR/sZlNB+dB2A6De9yalOR/jt3xAl7gku96yhMU=; b=OC+5Sahj/lmXDV31/fQoEekaF/C/Io38adD5uDKlhJ0H6WImgpGgf4Z3P4UTlieYpPPV 2yKCLmCV0UanFwgXMFtRahFUU4yM9vpBqy0blK60zKByBRp529PwF0m9PBKKJpuHTISsrF g5WqCp15QUcBXu3P0TVtLnVbOHm8+JShOCfbL+V5kpbKQA6jz4X5zAFkM4q7PITV7rV4g1 Hzk+gjuPHsysvd2OYqarQfEWSxkb4Beq6447W06RWFygqCUBQFKx4MfvAyZNUahaCMysYh yexYEanivm+zTaTXKR+TaYOcg5pSZGgmBJ/p5y/bmt/b/kvBmttDC/BPbCzICr3g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-transfer-encoding:content-type:from:mime-version:subject: reply-to:x-feedback-id:to:cc:content-type:from:subject:to; s=smtpapi; bh=RR6guR/sZlNB+dB2A6De9yalOR/jt3xAl7gku96yhMU=; b=rMfQY7llNtmfylNagH1mFgKv2yW7YotpS3y+bC7bakFKIxxQYXM65TDE7+Ak/N+XQmko E5wmClr1ki0L73F+/JU4Q8pty3qNes1VFzy4M87T1pEUkxUarwO2JvXPq4C622MoEt7CP8 n/sffGXNBk9I/QP3jMlyiahjzIKzR2Lz8=
+Received: by recvd-668fcdfd56-c6j4v with SMTP id recvd-668fcdfd56-c6j4v-1-6758A655-5 2024-12-10 20:36:37.347780454 +0000 UTC m=+2243685.860991115
+Received: from MjU0OTIyMTQ (unknown) by geopod-ismtpd-11 (SG) with HTTP id NWYpQZaMTrOejB0fEAz3VA Tue, 10 Dec 2024 20:36:37.259 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Tue, 10 Dec 2024 20:36:37 +0000 (UTC)
+From:  <sender@sender.com>
+Mime-Version: 1.0
+Message-ID: <NWYpQZaMTrOejB0fEAz3VA@geopod-ismtpd-11>
+Subject: Your SHEIN order has been shipped
+Reply-To:  <sender@sender.com>
+X-Feedback-ID: 25492214:SG
+X-SG-EID: u001.sS7LUAcVzHejsshY/HPC1/XpKGjS3hZf4uZ7y8nd1PHsrpGqv/sMKFwE5Zkfo48iukrYY6rBrQh1/pxxgM2+7fWZJM0QXuBnNxouUi0c1yL26hf+LLhqvQfkrknuiuX8vO5qbbAW1nD1mwUry26599IwJNTCEx4NJma9MN8v/4bx9FabUXN2xHLN2O6RLfPj2580VtVVqIp/Fgvhd1YjSwWducLkLi7blCEsPvrDPHBbsw3O0jhHVdw7GiU151Cw
+X-SG-ID: u001.SdBcvi+Evd/bQef8eZF3BpTL9BgbK5wfSJMJGMsmprDwlWIZfWWVChcF5RepLkJ274rrnSa9EzktHlzs7AHKDdmuIfagb5GS5NJhIXG0kNTvwVjuHcvVSh+sp1SnlIzsSTw/nLYYr3Gv8d5kMc7Lxw==
+To: ham@ham.email
+X-Entity-ID: u001.DcWAOmN5IgKKy5CDcb+HPA==
+
+<!--Freemarker<!DOCTYPE html>
+<html lang=3D"en" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office">
+<head>
+<meta charset=3D"utf-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3DEdge=EF=BC=8Cchrome=3D=
+1">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0, maximum-scale=3D1.0, user-scalable=3Dno">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta name=3D"format-detection" content=3D"date=3Dno">
+<meta name=3D"format-detection" content=3D"address=3Dno">
+<meta name=3D"format-detection" content=3D"email=3Dno">
+<meta name=3D"x-apple-disable-message-reformatting">
+<title>SHEIN</title>Freemarker-->
+<!--[if mso]>
+  <xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+<!--Freemarker<style>
+.hidden {
+=09display: none !important;
+=09max-height: 0px !important;
+=09overflow: hidden !important;
+=09font-size: 0 !important;
+=09line-height: 0 !important;
+}
+=09
+
+/* ANDROID CENTER FIX */
+div[style*=3D"margin: 16px 0;"] {
+=09margin: 0 !important;
+}
+body, table, td, a {
+=09-webkit-text-size-adjust: 100%;
+=09-ms-text-size-adjust: 100%;
+}
+table, td {
+=09mso-table-lspace: 0pt;
+=09mso-table-rspace: 0pt;
+}
+img {
+=09-ms-interpolation-mode: bicubic;
+}
+/*Forces Outlook.com to display normal line spacing*/
+
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,=
+ .ExternalClass td, .ExternalClass div {
+=09line-height: 100%;
+}
+/* RESET STYLES */
+
+img {
+=09border: 0;
+=09height: auto;
+=09line-height: 100%;
+=09outline: none;
+=09text-decoration: none;
+}
+table {
+=09border-collapse: collapse !important;
+}
+body {
+=09height: 100% !important;
+=09width: 100% !important;
+}
+th {
+=09padding: 0 !important;
+=09margin: 0 !important;
+=09border: 0 !important;
+}
+/* iOS BLUE LINKS */
+
+a[x-apple-data-detectors] {
+=09color: inherit !important;
+=09text-decoration: none !important;
+=09font-size: inherit !important;
+=09font-family: inherit !important;
+=09font-weight: inherit !important;
+=09line-height: inherit !important;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 620px) {
+.width100p {
+=09width: 100% !important;
+=09height: auto !important;
+}
+.width90p {
+=09width: 90% !important;
+}
+.width60 {
+=09width: 60% !important;
+=09float:left !important;
+}
+.width40 {
+=09width: 40% !important;
+=09float:left !important;
+}
+.productImage {
+=09width: 80% !important;
+=09padding: 10px !important;
+}
+.mobileFont {
+=09font-size: 24px !important;
+=09line-height: 24px !important;
+}
+.paddingT50 {
+=09padding-top: 50px !important;
+}
+.questionFont {
+=09font-size: 17px !important;
+=09line-height: 21px !important;
+}
+.greetingFont {
+=09font-size: 30px !important;
+=09line-height: 30px !important;
+}
+=09.paddingT40 {
+=09=09padding-top:40px !important;
+=09}
+}
+</style>
+</head>
+<body class=3D"body" style=3D"margin:0; padding:0; width:100% !important;">=
+Freemarker-->
+<!-- HIDDEN PREHEADER TEXT -->=20
+<!--[if !mso]><!-->
+<div style=3D"display: none; margin: 0; padding: 0; width: 0px; max-height:=
+ 0px; overflow: hidden; font-size: 0; line-height: 0;">
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" cl=
+ass=3D"hidden" style=3D"padding: 0; margin: 0;">
+    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding: 0; margin=
+: 0;">
+      <td align=3D"left" valign=3D"top" style=3D"padding: 0; margin: 0; fon=
+t-family: Arial, Helvetica, sans-serif; color: #5a5a5a; font-size: 1px; mso=
+-line-height-rule: exactly; line-height: 1px;">&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C </td>
+    </tr>
+  </tbody></table>
+</div>
+<!--<![endif]-->
+
+<table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+  <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding: 0; margin: =
+0;">
+    <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: 0;"><t=
+able border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"620" style=3D"padding: 0; margin: 0; width: 620px;" class=3D"widt=
+h100p">
+        <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding: 0; ma=
+rgin: 0;">
+          <td align=3D"center" style=3D"margin: 0; padding: 18px 0;"><a hre=
+f=3D"https://u25492214.ct.sendgrid.net/ls/click?upn=3Du001.Ni9F2bUzMGygU7I6=
+927xz8lGLwTQQUshRTnfhYgXi7g-3D5S95_TPuCO2sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU=
+8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0OquBZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2=
+F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI-2B8wM05-2Fe7nmAvtQ5QybzSyGhJ-2BU2=
+xrYiD4fT5hcdZdWZ-2BnPiPg4O-2F-2B9JfnApMffzz6ut3bOyOuqpgavx7STI-2BRNlaKudsrE=
+-2FlbROqxMiT8ZqveRrBtVScWKd5XUknPK-2FlPEEvLdXg49AmlWq4fd7dQftICkHQGP3GQoY2j=
+pwUGRL4e" title=3D"SHEIN" target=3D"_blank" style=3D"padding: 0; margin: 0;=
+ font-family: Arial, Helvetica, sans-serif; font-size: 35px; color: #000000=
+; letter-spacing: 2px;"><img src=3D"https://shein.ltwebstatic.com/advertise=
+/shein/www/images_sheIn/SheIn_logo1_1.png" alt=3D"SHEIN" width=3D"200" heig=
+ht=3D"46" border=3D"0" style=3D"padding: 0; margin: 0;"></a></td>
+        </tr>
+=09=09<tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" height=3D"1" style=3D"padding=
+: 0; margin: 0;">
+=09=09=09  <table border=3D"0" role=3D"presentation" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"200" style=3D"padding: 0; margin: 0; width: 200px; b=
+order-top: 1px solid #000000;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" height=3D"1" style=3D"p=
+adding: 0; margin: 0;">&nbsp;
+=09=09=09=09</td>
+=09=09      </tr>=09
+=09=09=09  </tbody></table>
+=09=09=09</td>
+=09=09</tr>
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: =
+0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0; padding-top: 40px;"><table border=3D"0" role=3D"presentation" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"80%" style=3D"padding: 0; margin: =
+0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0; font-size: 36px; font-family: Arial, Helvetica, sans-serif; =
+font-weight: bold; line-height: 42px; color: #000000;" class=3D"greetingFon=
+t"> Hi ham, </td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0; font-size: 18px; font-family: Arial, Helvetica, sans-serif; =
+line-height: 24px; color: #000000; padding-top: 30px;"> Your order  was shi=
+pped today. Please check the form for details: </td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"margin: =
+0; padding: 30px 0px;"><table border=3D"0" role=3D"presentation" cellpaddin=
+g=3D"0" cellspacing=3D"0" bgcolor=3D"#f4957f" style=3D"padding: 0; margin: =
+0;background:#f4957f;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"ma=
+rgin: 0; font-size: 26px; font-family: Arial, Helvetica, sans-serif; font-w=
+eight: bold; line-height: 26px; color: #ffffff; padding: 10px 20px;" class=
+=3D"mobileFont"><a href=3D"https://u25492214.ct.sendgrid.net/ls/click?upn=
+=3Du001.Ni9F2bUzMGygU7I6927xz4fyTPwxLEGbFO90mD7GEtYk5Cjxau49u9Appv5NYggcRpG=
+wOv4n3RTjMux00pSV-2FVHtypA-2F-2BMwftV7GRuNos-2BA-3DeCwY_TPuCO2sQqkk3NLSBg0I=
+ll2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0OquBZatFNV5vCiHX=
+1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI-2B8wM05-2Fe7=
+nmAvtQ5QybzSyGhJCcFaB1mCjIA43fm3lNTlxRL1duDTEG25P0j7r3X6uMDZxqkTf6-2BB4RiwM=
+9OrHFq74Q-2BOlLOZtLLMUIQVQLhUyzBT4GZU7srDH95rzE7ItwVuvfxhCowiFFiheJBqKXYdW-=
+2F4kIEYQfNj5UyZLFGRjt" target=3D"_blank" style=3D"padding: 0; margin: 0; co=
+lor: #ffffff; text-decoration: none;"> Track your order > </a></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"left" valign=3D"top" style=3D"padding: 0; margin: 0;=
+"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0;"><table align=3D"left" border=3D"0" role=3D"presentation" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"50%" class=3D"width100p" style=3D"padd=
+ing: 0; margin: 0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px 0px 40px; font-size: 20px; font-family: Arial, Helvetic=
+a, sans-serif; font-weight: 600; line-height: 36px; color: #000000;"> Order=
+ number:<br style=3D"padding: 0; margin: 0;">
+                        <span style=3D"padding: 0; margin: 0; font-size: 16=
+px; font-family: Arial, Helvetica, sans-serif; font-weight: 500; line-heigh=
+t: 24px; color: #000000;">GSONPH42B00MAR5,GSONPH42B00MART,GSONPH42B00MAR6</=
+span></td>
+                    </tr>
+                  </tbody></table>
+                  <table align=3D"left" border=3D"0" role=3D"presentation" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"49%" class=3D"width100p" style=
+=3D"padding: 0; margin: 0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px 0px 40px; font-size: 20px; font-family: Arial, Helvetic=
+a, sans-serif; font-weight: 600; line-height: 36px; color: #000000;"> Estim=
+ated shipping time:<br style=3D"padding: 0; margin: 0;">
+                        <span style=3D"padding: 0; margin: 0; font-size: 16=
+px; font-family: Arial, Helvetica, sans-serif; font-weight: 500; line-heigh=
+t: 24px; color: #000000;">18 Dec 2024-23 Dec 2024</span></td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+              <tr style=3D"padding: 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0;">
+=09=09=09=09=09<table align=3D"left" border=3D"0" role=3D"presentation" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"50%" class=3D"width100p" style=3D=
+"padding: 0; margin: 0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px 0px 40px; font-size: 20px; font-family: Arial, Helvetic=
+a, sans-serif; font-weight: 600; line-height: 36px; color: #000000;"> Track=
+ing number <br style=3D"padding: 0; margin: 0;">
+=09=09=09=09=09=09=09<span style=3D"padding: 0; margin: 0; font-size: 16px;=
+ font-family: Arial, Helvetica, sans-serif; font-weight: 500; line-height: =
+24px; color: #000000;">H1025725043341101017</span> <br style=3D"padding: 0;=
+margin: 0;">
+=09=09=09=09=09=09</td>
+                    </tr>
+                  </tbody></table>
+                  <table align=3D"left" border=3D"0" role=3D"presentation" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"49%" class=3D"width100p" style=
+=3D"padding: 0; margin: 0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px 0px 40px; font-size: 20px; font-family: Arial, Helvetic=
+a, sans-serif; font-weight: 600; line-height: 36px; color: #000000;">
+=09=09=09=09=09  </td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+              <tr style=3D"padding: 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0;"><table align=3D"left" border=3D"0" role=3D"presentation" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;"=
+>
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px 0px 40px; font-size: 20px; font-family: Arial, Helvetic=
+a, sans-serif; font-weight: 600; line-height: 36px; color: #000000;">Shippi=
+ng address:<br style=3D"padding: 0; margin: 0;">
+                        <span style=3D"padding: 0; margin: 0; font-size: 16=
+px; font-family: Arial, Helvetica, sans-serif; font-weight: 500; line-heigh=
+t: 24px; color: #000000;">=20
+=09=09=09=09=09=09   Ostendstr.<br style=3D"padding: 0; margin: 0;">
+                    =20
+                     27<br style=3D"padding: 0; margin: 0;">
+                     Berlin,<br style=3D"padding: 0; margin: 0;">
+                     Berlin<br style=3D"padding: 0; margin: 0;">
+
+                     12459<br style=3D"padding: 0; margin: 0;">
+                     Germany<br style=3D"padding: 0; margin: 0;">
+                     4915510917865=20
+=09=09=09=09=09=09</span></td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+=09=09
+        <!--=E8=B7=A8=E5=8D=95=E5=8F=91=E8=B4=A7-->
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: =
+0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"95%" class=3D"width90p" style=3D"padding: 0; margin: 0;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"left" valign=3D"top" style=3D" margin: 0; padd=
+ing-top: 50px;" class=3D"paddingT40"><table border=3D"0" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"padding: 0;=
+ margin: 0; border: 1px solid #b1b1b1;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" bgcolor=3D"#000000" style=3D"padding: 0; ma=
+rgin: 0;background:#000000;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"top" style=3D"marg=
+in: 0; padding: 15px 10px; font-size: 20px; font-family: Arial, Helvetica, =
+sans-serif; font-weight: bold; mso-line-height-rule: exactly; line-height: =
+20px; color: #ffffff;">0 Item(s) shipped:</td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09
+=09=09=09=09=09=09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"top" style=3D"marg=
+in: 0; padding: 25px 15px 0px 15px; font-size: 16px; font-family: Arial, He=
+lvetica, sans-serif; mso-line-height-rule: exactly; line-height: 24px; colo=
+r: #000000;">To protect the environment and reduce packaging waste, SHEIN h=
+as arranged a joint shipment for your packages. This package contains all a=
+vailable products from orders GSONPH42B00MAR5,GSONPH42B00MART,GSONPH42B00MA=
+R6.<br>
+View details below.</td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 40px 20px;"><table border=3D"0" role=3D"presentation" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;">
+=09=09=09=09=09=09=09  <!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09  =09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"top" style=3D"marg=
+in: 0; padding: 0 0 25px 20px; font-size: 20px; font-family: Arial, Helveti=
+ca, sans-serif; mso-line-height-rule: exactly; line-height: 28px; color: #0=
+00000;font-weight:600;">GSONPH42B00MAR5</td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09=09 <!--Freemarker =09Freemarker-->=09 =20
+=09=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" width=3D"33%" class=3D"width100p"=
+ style=3D"padding: 0; margin: 0;">
+                                <tbody style=3D"padding: 0; margin: 0;"><tr=
+ style=3D"padding: 0; margin: 0;">
+                                  <td align=3D"center" valign=3D"top" style=
+=3D"padding: 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"width60" style=3D"pa=
+dding: 0; margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0;"><img src=3D"http://img.ltwebstatic.com/im=
+ages3_spmp/2024/04/16/00/1713271113eec83db3c3b9bfd490d14f33b6820f16_thumbna=
+il_220x293.jpg" alt=3D"" border=3D"0" width=3D"140" style=3D"padding: 0; ma=
+rgin: 0; border: 0;" class=3D"productImage"></td>
+                                      </tr>
+                                    </tbody></table>
+                                    <table border=3D"0" role=3D"presentatio=
+n" cellspacing=3D"0" width=3D"100%" class=3D"width40" style=3D"padding: 0; =
+margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0; font-size: 14px; font-family: Arial, Helve=
+tica, sans-serif; font-weight: bold; line-height: 26px; color: #000000; pad=
+ding-bottom: 15px;" class=3D"paddingT50"> SIZE: A-Black-100cm/39.5inch <br =
+style=3D"padding: 0; margin: 0;">
+                                          QTY: 1 </td>
+                                      </tr>
+                                    </tbody></table></td>
+                                </tr>
+                              </tbody></table>
+=09=09=09=09=09=09=09  <!--Freemarker =09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>
+=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--Freemarker=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>=09 =20
+=09=09=09=09=09=09<!--FreemarkerFreemarker-->=09=09
+=09=09=09=09=09=09=09=09 =20
+                         =20
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 0 20px 40px;"><table border=3D"0" role=3D"presentation" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;">
+=09=09=09=09=09=09=09   <!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09  =09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"top" style=3D"marg=
+in: 0; padding: 0 0 25px 20px; font-size: 20px; font-family: Arial, Helveti=
+ca, sans-serif; mso-line-height-rule: exactly; line-height: 28px; color: #0=
+00000;font-weight:600;">GSONPH42B00MART</td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09=09<!--Freemarker Freemarker-->=09=09 =20
+=09=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" width=3D"33%" class=3D"width100p"=
+ style=3D"padding: 0; margin: 0;">
+                                <tbody style=3D"padding: 0; margin: 0;"><tr=
+ style=3D"padding: 0; margin: 0;">
+                                  <td align=3D"center" valign=3D"top" style=
+=3D"padding: 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"width60" style=3D"pa=
+dding: 0; margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0;"><img src=3D"http://img.ltwebstatic.com/im=
+ages3_spmp/2024/09/16/bf/1726468409b183598efd35b9d72488636f0b9fad68_thumbna=
+il_220x293.jpg" alt=3D"" border=3D"0" width=3D"140" style=3D"padding: 0; ma=
+rgin: 0; border: 0;" class=3D"productImage"></td>
+                                      </tr>
+                                    </tbody></table>
+                                    <table border=3D"0" role=3D"presentatio=
+n" cellspacing=3D"0" width=3D"100%" class=3D"width40" style=3D"padding: 0; =
+margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0; font-size: 14px; font-family: Arial, Helve=
+tica, sans-serif; font-weight: bold; line-height: 26px; color: #000000; pad=
+ding-bottom: 15px;" class=3D"paddingT50"> SIZE: A-White <br style=3D"paddin=
+g: 0; margin: 0;">
+                                          QTY: 1 </td>
+                                      </tr>
+                                    </tbody></table></td>
+                                </tr>
+                              </tbody></table>
+=09=09=09=09=09=09=09  <!--Freemarker =09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>
+=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--Freemarker=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>=09 =20
+=09=09=09=09=09=09<!--FreemarkerFreemarker-->=09=09
+=09=09=09=09=09
+                         =20
+                        </tbody></table></td>
+                    </tr>=09
+=09=09=09=09=09=09
+=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding:0 20px 40px;"><table border=3D"0" role=3D"presentation" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;">
+=09=09=09=09=09=09=09   <!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09  =09<tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"top" style=3D"marg=
+in: 0; padding: 0 0 25px 20px; font-size: 20px; font-family: Arial, Helveti=
+ca, sans-serif; mso-line-height-rule: exactly; line-height: 28px; color: #0=
+00000;font-weight:600;">GSONPH42B00MAR6</td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+=09=09=09=09=09<!--Freemarker Freemarker-->=09=09=09 =20
+=09=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--FreemarkerFreemarker-->
+=09=09=09=09=09=09=09=09<table align=3D"left" border=3D"0" role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" width=3D"33%" class=3D"width100p"=
+ style=3D"padding: 0; margin: 0;">
+                                <tbody style=3D"padding: 0; margin: 0;"><tr=
+ style=3D"padding: 0; margin: 0;">
+                                  <td align=3D"center" valign=3D"top" style=
+=3D"padding: 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"width60" style=3D"pa=
+dding: 0; margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0;"><img src=3D"http://img.ltwebstatic.com/im=
+ages3_spmp/2024/03/21/7e/17110070574b6a131cb92881dd8e8e91738fabd665_square_=
+thumbnail_220x293.jpg" alt=3D"" border=3D"0" width=3D"140" style=3D"padding=
+: 0; margin: 0; border: 0;" class=3D"productImage"></td>
+                                      </tr>
+                                    </tbody></table>
+                                    <table border=3D"0" role=3D"presentatio=
+n" cellspacing=3D"0" width=3D"100%" class=3D"width40" style=3D"padding: 0; =
+margin: 0;">
+                                      <tbody style=3D"padding: 0; margin: 0=
+;"><tr style=3D"padding: 0; margin: 0;">
+                                        <td align=3D"center" valign=3D"top"=
+ style=3D"padding: 0; margin: 0; font-size: 14px; font-family: Arial, Helve=
+tica, sans-serif; font-weight: bold; line-height: 26px; color: #000000; pad=
+ding-bottom: 15px;" class=3D"paddingT50"> SIZE: Black-White S M L 1 Pair Ea=
+ch <br style=3D"padding: 0; margin: 0;">
+                                          QTY: 1 </td>
+                                      </tr>
+                                    </tbody></table></td>
+                                </tr>
+                              </tbody></table>
+=09=09=09=09=09=09=09  <!--Freemarker =09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>
+=09=09=09=09=09=09  <tr style=3D"padding: 0; margin: 0;">
+                            <td align=3D"center" valign=3D"top" style=3D"pa=
+dding: 0; margin: 0;">
+=09=09=09=09=09=09=09=09<!--Freemarker=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09Freemarker-->
+=09=09=09=09=09=09=09=09=09</td>
+                          </tr>=09 =20
+=09=09=09=09=09=09<!--FreemarkerFreemarker-->=09=09
+=09=09=09=09=09                         =20
+                        </tbody></table></td>
+                    </tr>=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=09=09=09=09
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"padding: 0=
+; margin: 0;"><!--FreemarkerFreemarker-->=09<table border=3D"0" role=3D"pre=
+sentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgcolor=3D"#e=
+fefef" style=3D"padding: 0; margin: 0;background:#efefef;">
+=09=09=09=09=09=09  =20
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"right" valign=3D"top" style=3D"mar=
+gin: 0; padding: 18px 28px; font-size: 16px; font-family: Arial, Helvetica,=
+ sans-serif; line-height: 26px; color: #000000;"> QTY: 0</td>
+                          </tr>
+=09=09=09=09=09=09=20
+                        </tbody></table><!--FreemarkerFreemarker-->=09</td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+      =20
+=09=09
+=09=09
+       =20
+=09=09
+=09=09
+=09=09
+        <!--=E6=9C=AA=E5=8F=91=E8=B4=A7-->
+=09=09  =20
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: =
+0;">
+=09=09=09  <!--FreemarkerFreemarker-->=09=09
+=09=09</td>
+        </tr>
+=09=09
+=09=09=09
+=09=09  <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: =
+0; padding-top: 45px;">
+=09=09=09  <table border=3D"0" role=3D"presentation" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"95%" class=3D"width90p" style=3D"padding: 0; margin:=
+ 0;">            =20
+                                 =20
+=09=09=09 </table>
+=09=09  </td>
+          </tr>=09
+=09=09
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0; margin: =
+0; padding-top: 45px;"><table border=3D"0" role=3D"presentation" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"95%" class=3D"width90p" style=3D"padding=
+: 0; margin: 0;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" bgcolor=3D"#000000" style=3D"padding: 0; margin=
+: 0;background:#000000;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"left" valign=3D"top" style=3D"margin: 0;=
+ padding: 10px; font-size: 20px; font-family: Arial, Helvetica, sans-serif;=
+ font-weight: bold; line-height: 20px; color: #ffffff; background: #000;"> =
+We are here to help </td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+              <tr style=3D"padding: 0; margin: 0;">
+                <td align=3D"left" valign=3D"top" style=3D"padding: 0; marg=
+in: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+                    <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"pa=
+dding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW-2BrV4Po=
+KA4XklIi5qdtXywJGuixv5iWimd4qFWzWi3ym1Rkhco46AVkk01Ribs38uc-3DVJ2D_TPuCO2sQ=
+qkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0OquBZ=
+atFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI-2=
+B8wM05-2Fe7nmAvtQ5QybzSyGhLeurExkRUgc21qtB2KouZIpwiRicFQWZ2OQYKVijMmXwhY1dX=
+btleGhmuHb9DIToOVikjZB3ARfnse-2BY49XoxYgBPC-2BTP6vooLkPz9S2HlvYvUidNa1CCnFV=
+jBbIOUSxBLW5AWi0vVDuT-2FPH18mK2r" title=3D"" target=3D"_blank" style=3D"pad=
+ding: 0; margin: 0; text-decoration: none; color: #5c5c5c;">Why is my order=
+ delayed?</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW-2BrV4Po=
+KA4XklIi5qdtXywJGuixv5iWimd4qFWzWi3ymzdHBU2KhIYVH8xXr-2FhjFcg-3DuhOz_TPuCO2=
+sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0Oqu=
+BZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI=
+-2B8wM05-2Fe7nmAvtQ5QybzSyGhLtsWBprDoWb2j5K0Na5Pn68Ii-2BVYTX4gD10GXNHX2paPw=
+hc2PE5GsV4uvb4nmHfMSjTl1kIZLQyH3hu-2FovdyhxlHfIGQtxevxvfi8XVb-2FzE6O1bYkrce=
+QytMZGfR4JoiVjXQiD6cB6HPZEjgMx4q7f" title=3D"" target=3D"_blank" style=3D"p=
+adding: 0; margin: 0; text-decoration: none; color: #5c5c5c;">How can I tra=
+ck my order?</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW-2BrV4Po=
+KA4XklIi5qdtXywJGuixv5iWimd4qFWzWi3ym7UQUimK9Nw1z8-2BOD52-2BJiA-3DbxnK_TPuC=
+O2sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0O=
+quBZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6=
+FI-2B8wM05-2Fe7nmAvtQ5QybzSyGhJLfpZQho8P7dv91mfKedh5ZaXxDJpIbuy8Td2-2FXZIgd=
+JdBi2yPw1SZJhT6AUqpWP4QY5J9j6tVd5Nw7or1CgQm5cMx4NId8BaoC9OzbRWF07AigmQ-2BOn=
+J9LVWReU-2BXrrZTzAwMzr9S6OgzqzWq1b0Z" title=3D"" target=3D"_blank" style=3D=
+"padding: 0; margin: 0; text-decoration: none; color: #5c5c5c;">Why there i=
+s no tracking updated?</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW-2BrV4Po=
+KA4XklIi5qdtXywJGuixv5iWimd4qFWzWi3ym2sN2C5q10CLn8iqHpBoMNU-3DjtKt_TPuCO2sQ=
+qkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0OquBZ=
+atFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI-2=
+B8wM05-2Fe7nmAvtQ5QybzSyGhLCVB4S5uKPxEH-2BdglV3sJmldAlRyH3ZckDTZJYyFIXO3vLL=
+qkqZNO1oP55dsSIkuRAbvpUGJx8L10mKCb4Nxn9ASUF8yJ8ufNbZRTC-2FThFcZkDfM-2FlM2tf=
+6xmDcglP0O4KYBJi7tukZClMI1FEUwsS" title=3D"" target=3D"_blank" style=3D"pad=
+ding: 0; margin: 0; text-decoration: none; color: #5c5c5c;">What is your re=
+turn policy?</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW-2BrV4Po=
+KA4XklIi5qdtXywJGuixv5iWimd4qFWzWi3ym9Bh8Mqg8wD78pJxFzXy-2F4Y-3D6C9N_TPuCO2=
+sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0Oqu=
+BZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH6FI=
+-2B8wM05-2Fe7nmAvtQ5QybzSyGhKhmvkbviJWGJQCdt1pJFgGy-2Fs82YA8FHKJ5oImlCNRe8J=
+xvL6seodc37Pxsq7uDUQa2aS8h0zv42FKy7s4ThWsj1x6oX-2FPfO5IL84pR852RAjrktRPbxkN=
+UWwqvDD8RJtvsymmAoB9gzmqkgm3LdyM" title=3D"" target=3D"_blank" style=3D"pad=
+ding: 0; margin: 0; text-decoration: none; color: #5c5c5c;">Can I get full =
+refund for the return?</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                    <tr style=3D"padding: 0; margin: 0;">
+                      <td align=3D"center" valign=3D"top" style=3D"padding:=
+ 0; margin: 0;"><table border=3D"0" role=3D"presentation" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"90%" style=3D"padding: 0; margin: 0; border-bot=
+tom: 1px solid #e7e7e7;">
+                          <tbody style=3D"padding: 0; margin: 0;"><tr style=
+=3D"padding: 0; margin: 0;">
+                            <td align=3D"left" valign=3D"middle" width=3D"8=
+5%" style=3D"margin: 0; font-size: 20px; font-family: Arial, Helvetica, san=
+s-serif; font-weight: bold; line-height: 28px; color: #5c5c5c; padding: 25p=
+x 0;" class=3D"questionFont"><a href=3D"https://u25492214.ct.sendgrid.net/l=
+s/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz-2F6BwH5-2B0Dms5-2BeoR4JjGW8gVChu01=
+0z3RB-2F6NTDtBR7PiY8_TPuCO2sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0G=
+HI6qAtzgvz1HwCC-2Bglp2G0OquBZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CE=
+osbASsjIX7ddBwS-2Fs2gUnH6FI-2B8wM05-2Fe7nmAvtQ5QybzSyGhLrQbhtUD9cjB3klXAohJ=
+Ouq9IlexbgwYGpRwFmXZ746rNoBXOgVB4zdGhZXJvaf-2BXXoovj27PHAST95glfj-2FgBHhsgk=
+xgjU7pDx2thM-2BlsAGdF2p1Tbe9mcRkMJfmQRrm-2B-2BAKWcVukOEj2mBtYdiAg" title=3D=
+"" target=3D"_blank" style=3D"padding: 0; margin: 0; text-decoration: none;=
+ color: #5c5c5c;"> OTHERS</a></td>
+                            <td align=3D"right" valign=3D"middle" width=3D"=
+15%" style=3D"margin: 0; font-size: 30px; font-family: Arial, Helvetica, sa=
+ns-serif; font-weight: bold; line-height: 30px; color: #5c5c5c; padding: 10=
+px 0;">></td>
+                          </tr>
+                        </tbody></table></td>
+                    </tr>
+                  </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr style=3D"padding: 0; margin: 0;">
+          <td align=3D"left" valign=3D"top" style=3D"padding: 0; margin: 0;=
+"><table border=3D"0" role=3D"presentation" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"padding: 0; margin: 0;">
+              <tbody style=3D"padding: 0; margin: 0;"><tr style=3D"padding:=
+ 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"padding: 0; ma=
+rgin: 0;"><img src=3D"https://shein.ltwebstatic.com/advertise/shein/www/ima=
+ges_sheIn/fahuo_us.jpg" alt=3D"BONUS PONINTS" border=3D"0" width=3D"620" cl=
+ass=3D"width100p" style=3D"padding: 0; margin: 0; display: block; border: 0=
+;"></td>
+              </tr>
+              <tr style=3D"padding: 0; margin: 0;">
+                <td align=3D"center" valign=3D"top" style=3D"margin: 0; fon=
+t-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 30px;=
+ color: #000000; padding: 0 25px 20px;"> Share your thoughts and opinions o=
+n our products and logistic service <a href=3D"https://u25492214.ct.sendgri=
+d.net/ls/click?upn=3Du001.Ni9F2bUzMGygU7I6927xz4fyTPwxLEGbFO90mD7GEtYrqLGvi=
+pIL482g6FGlydPcn3V5_TPuCO2sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GH=
+I6qAtzgvz1HwCC-2Bglp2G0OquBZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEo=
+sbASsjIX7ddBwS-2Fs2gUnH6FI-2B8wM05-2Fe7nmAvtQ5QybzSyGhKniIthFb2Y7cztBYFLwXz=
+vyed753LQWWhrPdPnN8sWx1Xy0vYqHzpqinGL1MRfbdpAp6813gRgr6VuliGLP4u3oQW0VurBtJ=
+BFeHFF9XYoCOcvNMIyEWqtJTCv-2BCf7wnzdZ6MguLj3UlPQUNdFIE4p" title=3D"Earn Poi=
+nts" target=3D"_blank" style=3D"padding: 0; margin: 0; text-decoration: und=
+erline; color: #008bdb;">here</a> to earn SHEIN Points!<br style=3D"padding=
+: 0; margin: 0;">
+=09=09=09=09=09This is an automatically generated email, please do not repl=
+y. <br style=3D"padding: 0; margin: 0;">
+                  If you have any queries regarding your account, please co=
+ntact us <a href=3D"https://u25492214.ct.sendgrid.net/ls/click?upn=3Du001.N=
+i9F2bUzMGygU7I6927xzxuHX-2FDLdRYBfj6a8Xjg6WKWrCFMlyDtRv0VcuaJE-2BT3x402_TPu=
+CO2sQqkk3NLSBg0Ill2Gv-2FIiuABCp7lLsvU8JEVtb46a00b0GHI6qAtzgvz1HwCC-2Bglp2G0=
+OquBZatFNV5vCiHX1h3Nkf3yJQu3QMS3wY8-2F-2FJ9avzfK0CEosbASsjIX7ddBwS-2Fs2gUnH=
+6FI-2B8wM05-2Fe7nmAvtQ5QybzSyGhIV5rIv7Dw8pMo8Pub2GdJCoUuZgA5mm2W57ykKQxNBzg=
+aBJW8qBvWCb5S1Y9-2BygDbq7CC5xCwWAneK2mmRo6Z7s5SCtwMQ5gqa5uju3OtmCHvG4L2diXu=
+F8EAEh4LqoAO7h5tj5kjmDnCmup8398jV" title=3D"Contact Us" target=3D"_blank" s=
+tyle=3D"padding: 0; margin: 0; text-decoration: underline; color: #008bdb;"=
+>here</a></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+</tbody></table>
+<!--Freemarker<img src=3D"https://u25492214.ct.sendgrid.net/wf/open?upn=3Du=
+001.DbG6hbNTdvXdtD2-2FA3nr6-2BMSGEwxiLd88DDf0KsvgTf1YhJMK0-2BwP5WxDZE2JUnoT=
+nhpmeSQLBUBX69-2Fl-2BSG8NhL8e6sgPGB2yd-2BguADd8-2FuDi6uo5JLZeRtnXvmQn4b57Mq=
+bDoRscG-2FQak-2FeRIe7bieMzK5wMIg64J5fzy2GrnvWUugqApP8W-2Fgbd2rqj3xMLNj8iN7U=
+TdU4Hlry9NrsA4yYEGYl4pCUY6-2B2twrOY5TPVLy4iKtC-2BOHmr0e7mmxGj1j2nnTEuVJMB5a=
+DM4p92SbeINrT3IQA5nccmbX6TzlMNwnM7ZbBpgh45lLXhCm" alt=3D"" width=3D"1" heig=
+ht=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;b=
+order-width:0 !important;margin-top:0 !important;margin-bottom:0 !important=
+;margin-right:0 !important;margin-left:0 !important;padding-top:0 !importan=
+t;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !im=
+portant;"/></body>
+</html>Freemarker-->

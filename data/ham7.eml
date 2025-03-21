@@ -1,0 +1,221 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:6713:b0:137:3158:9850 with SMTP id x19csp221634dyh;
+        Mon, 19 Aug 2024 23:40:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEFWtj1gvhwtbZ/Z+dd7znuGi/snc/UARtLZwu5VgbWSrznNQTiVHKLWTl+nQiqdbgaPpbI
+X-Received: by 2002:a17:907:c7d7:b0:a7a:be06:d8e3 with SMTP id a640c23a62f3a-a8392a22287mr879390366b.46.1724136006733;
+        Mon, 19 Aug 2024 23:40:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1724136006; cv=none;
+        d=google.com; s=arc-20160816;
+        b=rFNO301vClic7f22rr4WHa931pKcHRCz8CYog01j/7OdX2njoCHiDmwI9l5n/o7lkD
+         PBcmj42rcVwavpQN2zYFd6GxwODXWNEdrXykYAa3EOcj+VSNZh/h8HUEeqr/Jyg733i4
+         rt3ECI+w09NdwTASb8lJO/CDPjCglGCrigSVUudp83F0MBw7x11/BiJWEADbkXaSNz0K
+         SvIbMcJl4S8R4qLIRm7nRolKyWGDg/Y9NEmUEGerVKPR566aMs67g7fD3jePHnDFHGDO
+         QerUsT/36VI6JzVsWiMrrsPPal6VQwTof0QQX+8QPIcHTxrE3eTTj1lfb7626Wl9g3rw
+         UUuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:mime-version:feedback-id:sender:reply-to:from
+         :subject:to;
+        bh=OeVG+BQmKOMgQtfum28/6Eam7cY4S3gMglCEN9aY+wQ=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=DsbFddg7t2alKJv/o6TdOWRwKxwvxfB1udIpI2l3IDGXVkqDN4tGkvQIXtX1Pa+Wc8
+         QTaOh/CVqheeKAqVsKN2Tn9D0YN+oQjc5f0Tr/ttwKtOJEmbPXpYWZBst+x7W1jj0ihf
+         ScxgAacpVA9lgOlizMiCl8kVKia2XdVMNedE/57tCnyPMbnBazt864wvqy0TR4T0umsq
+         DKQbz0Q0GpjhrgouI46dwQq6V1aH/XyYmrI9BDYLcNPfOj62Kca705Bp2hZ0kMOXyrav
+         W8XTp8sTaJrlNdraa7H3GQLFumbAfWBhWM6PzBvL5fbGLwFzsLwgLQnsQqwnrVvSONXR
+         IDuQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of root@wg-gesucht.de designates 136.243.32.100 as permitted sender) smtp.mailfrom=root@wg-gesucht.de;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=wg-gesucht.de
+Return-Path: <root@wg-gesucht.de>
+Received: from crazyharry.wg-gesucht.de (crazyharry.wg-gesucht.de. [136.243.32.100])
+        by mx.google.com with ESMTPS id a640c23a62f3a-a838398d406si633692166b.1043.2024.08.19.23.40.06
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Aug 2024 23:40:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of root@wg-gesucht.de designates 136.243.32.100 as permitted sender) client-ip=136.243.32.100;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of root@wg-gesucht.de designates 136.243.32.100 as permitted sender) smtp.mailfrom=root@wg-gesucht.de;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=wg-gesucht.de
+Received: from www-int.wg-gesucht.de (t1-www-1.clusternet [172.19.0.12]) by crazyharry.wg-gesucht.de (Postfix) with ESMTPS id 28E075000DC for <ham@ham.email>; Tue, 20 Aug 2024 06:40:06 +0000 (UTC)
+Received: by www-int.wg-gesucht.de (Postfix, from userid 0) id 24C813A9479; Tue, 20 Aug 2024 06:40:06 +0000 (UTC)
+To: ham@ham.email
+Subject: Faster into your new home with WG-Gesucht+
+From: "WG-Gesucht.de" <webmaster@wg-gesucht.de>
+Reply-To: "WG-Gesucht.de" <webmaster@wg-gesucht.de>
+Sender: "WG-Gesucht.de" <webmaster@wg-gesucht.de>
+X-Sender: "WG-Gesucht.de" <webmaster@wg-gesucht.de>
+X-Mailer: WG-GESUCHT.DE
+Feedback-ID: none:wg-gesucht.de:auto-search:smpmail
+Content-Type: multipart/alternative;boundary=np66c43a4621b60
+MIME-Version: 1.0
+Message-Id: <20240820064006.24C813A9479@www-int.wg-gesucht.de>
+Date: Tue, 20 Aug 2024 06:40:06 +0000 (UTC)
+
+--np66c43a4621b60
+Content-type: text/plain;charset=utf-8
+
+
+
+--np66c43a4621b60
+Content-type: text/html;charset=utf-8
+
+
+        <!DOCTYPE html>
+            <html>
+                <head>
+            <style>
+                @media print {
+                    .html_email_header {
+                        display: none !important;
+                    }
+                }
+            </style>
+        </head>
+                <body style='max-width:600px'>
+                    <table class='html_email_header' border='0' cellspacing='0' cellpadding='0' bgcolor=#f0871f style='width:100%; height: 80px;'>
+                        <tbody>
+                            <tr>
+                                <td style='text-align: center'>
+                                    <a href='https://www.wg-gesucht.de/en' target='_blank'>
+                                        <img src='https://www.wg-gesucht.de/img/emails/WGG_logo_rgb_ohne_Dach_weis.png' alt='WG-Gesucht.de logo' width='180'>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+            <table id='html_email_introduction_message' border='0' cellspacing='0' cellpadding='0' bgcolor='white' style='padding: 30px; font-family: Arial; color: #212121; width: 100%;'>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-size: 16px;'>
+                                Hello <b>Ms/Mrs</b>,
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-size: 16px;'>
+                                thank you for using WG-Gesucht.de. The search for a new home can be frustrating and take a long time. Therefore, we would like to support you in your search with WG-Gesucht+.
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p class='html_email_separator' style='margin: 0; height: 20px; background-color: #eceff1'></p>
+        
+            <table id='html_email_benefits_message' border='0' cellspacing='0' cellpadding='0' bgcolor='white' style='padding: 30px; font-family: Arial; color: #212121; width: 100%;'>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-weight: bold; font-size: 16px;'>
+                                Your benefits:
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-size: 16px;'>
+                                ✓ Higher visibility of your messages
+                                <br>
+                                ✓ Professional presentation via digital applicant portfolio
+                                <br>
+                                ✓ Highlighting of your profile as verified
+                                <br>
+                                ✓ Insight info exclusive offer statistics
+                                <br>
+                                ✓ Higher reach of your request ad
+                                <br>
+                                ✓ No commercial breaks
+                                <br>
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+            <table border='0' cellspacing='0' cellpadding='0' style='padding: 0 30px; font-family: Arial; width: 100%;'>
+                <tbody>
+                    <tr>
+                        <td colspan='2' style='width: 20vw;'></td>
+                        <td style='display: inline-block; width:100%;'>
+                            <table align='center' border='0' cellpadding='0' cellspacing='0' style='background-color: #03a9f4; border: 2px solid #03a9f4; border-radius: 6px; width: 100%; margin-bottom: 10px;'>
+                                <tbody>
+                                    <tr>
+                                        <td align='center' valign='middle' style='text-align: center; color: #FFFFFF; font-family: Arial; font-size: 14px; font-weight: bold; letter-spacing: 0.3px; line-height: 100%; padding: 10px 15px; '>
+                                            <a href='https://www.wg-gesucht.de/en/wgg-plus-info.html' target='_blank' style='color: #FFFFFF; text-decoration: none; text-transform: uppercase;'>
+                                                Get to know WG-Gesucht+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td colspan='2' style='width: 20vw;'></td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-size: 16px;'>
+                                With the exclusive additional features, you will draw more attention to your search and be one step ahead of your competitors. This optimises your chances of finding your new home faster.
+                            </p>
+                            <br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p class='html_email_separator' style='margin: 0; height: 20px; background-color: #eceff1'></p>
+        
+            <table id='html_email_contact_message' border='0' cellspacing='0' cellpadding='0' bgcolor='white' style='padding: 30px; font-family: Arial; color: #212121; width: 100%;'>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p style='margin: 0; font-size: 16px;'>
+                                Do you have any questions or need help? We will be happy to assist you at <a href='mailto:kontakt@wg-gesucht.de' style='color: #f0871f'>kontakt@wg-gesucht.de</a>.
+                            </p>
+                            <br>
+                            <p style='margin: 0; font-size: 16px;'>
+                                We wish you every success in your search for your dream home!
+                                <br>
+                                Your WG-Gesucht.de team
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+                    <table id='html_email_footer' border='0' cellspacing='0' cellpadding='0' bgcolor=#eceff1 style='font-family: Arial; width: 100%; height: 100px;'>
+                        <tbody>
+                            <tr style='font-size: 14px; color: #212121;'>
+                                <td align='center' style='padding-top: 20px;'>
+                                <b>
+                                    <a href='https://www.wg-gesucht.de/en' target='_blank' style='text-decoration: none; color: #212121;'>www.wg-gesucht.de
+                                    </a>
+                                </b>
+
+                                - Germany’s No. 1 for rooms in shared apartments
+                                </td>
+                            </tr>
+                            
+                <tr>
+                    <td align='center' style='font-size: 10px; padding-bottom: 20px;'>
+                        This email was generated automatically. Please do not reply to it.
+                    </td>
+                </tr>
+            
+                        </tbody>
+                    </table>
+                </body>
+            </html>
+        
+
+--np66c43a4621b60--

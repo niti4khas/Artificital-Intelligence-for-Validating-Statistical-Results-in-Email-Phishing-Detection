@@ -1,0 +1,67 @@
+Return-Path: <contact@windling.me>
+X-Original-To: honey@pot
+Delivered-To: honey@pot
+Authentication-Results: mailin028.protonmail.ch; dkim=pass (Good 1024
+    bit rsa-sha256 signature) header.d=windling.me header.a=rsa-sha256
+Authentication-Results: mailin028.protonmail.ch; dmarc=pass (p=quarantine dis=none)
+ header.from=windling.me
+Authentication-Results: mailin028.protonmail.ch; spf=pass smtp.mailfrom=windling.me
+Authentication-Results: mailin028.protonmail.ch; arc=none smtp.remote-ip=91.223.106.48
+Authentication-Results: mailin028.protonmail.ch; dkim=pass (1024-bit key)
+ header.d=windling.me header.i=@windling.me header.b="MbXeIB4s"
+Received: from omlyn.online-money-rio.com (unknown [91.223.106.48]) (using TLSv1.3 with
+ cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+  key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+ (No client certificate requested) by mailin028.protonmail.ch (Postfix) with ESMTPS id
+ 4Qh2kC5MTwz9vNPN for <honey@pot>; Wed, 14 Jun 2023 11:09:23 +0000 (UTC)
+Received: from [45.137.22.51] (helo=hosted-by.rootlayer.net) by ns.name.com with esmtpa
+ (Exim 4.92) (envelope-from <contact@windling.me>) id 1q9ONO-000ReF-HI for
+ honey@pot; Wed, 14 Jun 2023 07:09:22 -0400
+Dkim-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=windling.me ; s=mail;
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+ Date:Subject:To:From:Sender:Reply-To:Cc:Content-ID:Content-Description:
+ Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+ In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive; bh=fw8DVTDZfkGcLfQotBHH0i64tUzwTjzTKX49rRPf/HY=;
+ b=MbXeIB4sUD3vM05fDm+yaywb1R
+ 8A9c2VpYR7rDz8nM4TDzCyEqFIWXZbaNh7xsGTn9mJcnTkO00hWqTqchJagD3sSIHf8VWIV9MixPA
+ xG7ZQ+WIFCJzsEl73S6JzOXyTDaem12aRPZNfPF02lq8Ll+0pHbZTF2BgYdzKKJasHxs=;
+From: Proton mail support <contact@windling.me>
+To: honey@pot
+Subject: Upgrade your email quota NOW! honey@pot
+Date: 14 Jun 2023 13:09:20 +0200
+Message-Id: <20230614130920.C680D3C80FD0C173@windling.me>
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=---------------------f5fad6293c90540b9f3a9a756fdd2464
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Queue-Id: 4Qh2kC5MTwz9vNPN
+X-Spamd-Result: default: False [22.60 / 25.00]; DBL_SPAM(6.50)[urlzs.com:url];
+ RECEIVED_SPAMHAUS_SBL(6.00)[45.137.22.51:received];
+ RECEIVED_SPAMHAUS_DROP(6.00)[45.137.22.51:received]; HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+ HFILTER_HELO_IP_A(1.00)[omlyn.online-money-rio.com];
+ HFILTER_HELO_NORES_A_OR_MX(0.30)[omlyn.online-money-rio.com]; MIME_HTML_ONLY(0.20)[];
+ BAD_REP_POLICIES(0.10)[]; BAYES_HAM(-0.00)[16.02%]; ARC_NA(0.00)[];
+ R_DKIM_ALLOW(0.00)[windling.me:s=mail]; MID_RHS_MATCH_FROM(0.00)[]; FROM_HAS_DN(0.00)[];
+ NEURAL_HAM(-0.00)[-0.998]; TO_MATCH_ENVRCPT_ALL(0.00)[]; RCPT_COUNT_ONE(0.00)[1];
+ MIME_TRACE(0.00)[0:~]; ASN(0.00)[asn:44709, ipnet:91.223.106.0/24, country:IL];
+ DKIM_TRACE(0.00)[windling.me:+]; TO_DN_NONE(0.00)[]; R_SPF_ALLOW(0.00)[+a:c];
+ RCVD_COUNT_TWO(0.00)[2]; SUBJECT_HAS_EXCLAIM(0.00)[]; FROM_EQ_ENVFROM(0.00)[];
+ DMARC_POLICY_ALLOW(0.00)[windling.me,quarantine]; RCVD_TLS_LAST(0.00)[];
+ RCVD_VIA_SMTP_AUTH(0.00)[]
+X-Rspamd-Server: cp3-mailin-028.plabs.ch
+X-Spam: Yes
+X-Pm-Spam: 0yezJI6cihyJeYR3pi42biOwJlzaGuGlaZIysyNnIWaiQI2Oi5DgNOZWlzcDNGZ4Y
+ E3YTlGFZOMDxiEWYCLyJxldWijoINIj0lRDNWZyUY3YzmmNMNMm2jNTMzMhZ19In
+X-Pm-Origin: external
+X-Pm-Transfer-Encryption: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+X-Pm-Content-Encryption: on-delivery
+X-Pm-Spamscore: 0
+X-Pm-Spam-Action: phishing
+
+-----------------------f5fad6293c90540b9f3a9a756fdd2464
+Content-Type: multipart/related;boundary=---------------------afb3d566a878c9a66111a787c367685a
+
+-----------------------afb3d566a878c9a66111a787c367685a
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: base64
+

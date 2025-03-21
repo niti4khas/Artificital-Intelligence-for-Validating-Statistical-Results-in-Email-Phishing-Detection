@@ -1,0 +1,420 @@
+Delivered-To: ham@ham.email
+Received: by 2002:adf:f0c7:0:b0:381:b67e:83f8 with SMTP id x7csp334139wro;
+        Wed, 13 Nov 2024 07:15:48 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEhqg77aPZzR0GysTks9qb3JuO9A9gvIrPXM4II22d4hET8G2GWqCkqHacamxsC5RdCnW3H
+X-Received: by 2002:a05:6902:1827:b0:e28:6b10:51b5 with SMTP id 3f1490d57ef6-e337f8ca22emr15397233276.32.1731510948247;
+        Wed, 13 Nov 2024 07:15:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1731510948; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aGIcTkwAJuxApPwLgjkJi9SGCsukDcZ7eLwNxvSBBTqAXHQeSe6JjuaHh/5ouA+YUR
+         s8X6vyfGrC4qxD4yUsAImqd4oesgtKfD6W2fuHsDCYAvtI0oHfdV5IW3A1Naw6ZYdHyL
+         0FwKt1MQoLkAt98bOTYoq73udFL4/W9MmMhNqezG5ZwfsmRVuVLycZEx3sW4mOW4xO4a
+         +2K4JWwBI+sxqR1QADBOcLPKyNnVzFMpOK+3jU6EWqNrKrCkuLMiQoyD9+/3TzMxNvhS
+         qwBu4ZFCgcu+c3d8Qm+D0LeCwOH1h/lPzc3ZGz6uLeguYM6Mt+2JpZb2gU6ZZMelRb81
+         oIBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:precedence
+         :list-id:feedback-id:message-id:date:to:reply-to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=vHLeqvko1OPT6+vnR06Q/XJoe6lWfTNP2bffmv/BeCs=;
+        fh=3nXvuC8tWNtm4c2A2rIIeKxBg0kx/E4jYUyBwCB9ZEE=;
+        b=hVr4LqrxG71VpRVpdn/w/Gysv/UAXPHMiZ2gdLJBnV8UCmWCb38VJUsVqPPiNz+tGm
+         O7URnI6PSFL5jKq1HcgaQyu+WVcOc7vfmdv1XOpX3B9H+P10kOI84RKXLkz+9yKCafMd
+         FmzBJWo8LCacda9MXF/lT6H+Kbo35ljoTacgfDxqLiJotrq5bU8fKw/rXIV+lc/S5Iq7
+         Akd/RY1ghkyIQUP339xFcTBDdpkAKRmurjhYNvhuaXF0rrtNO9W4G/fwBzcIKi2nbrPP
+         EyVEg4hrjC5ZQlXyadBEeyDdlMpLjXU5Y9bowghd3mxa7gyLkIShkmCMrtmlRjB7gsDw
+         WGNQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k2 header.b=SdO4YGSb;
+       dkim=pass header.i=@malwation.com header.s=k3 header.b=BPHhr8ZG;
+       spf=pass (google.com: domain of bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net designates 205.201.128.43 as permitted sender) smtp.mailfrom=bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=malwation.com
+Return-Path: <bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net>
+Received: from mail43.us4.mcsv.net (mail43.us4.mcsv.net. [205.201.128.43])
+        by mx.google.com with ESMTPS id 3f1490d57ef6-e336ef2f53csi11136753276.139.2024.11.13.07.15.47
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 07:15:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net designates 205.201.128.43 as permitted sender) client-ip=205.201.128.43;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k2 header.b=SdO4YGSb;
+       dkim=pass header.i=@malwation.com header.s=k3 header.b=BPHhr8ZG;
+       spf=pass (google.com: domain of bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net designates 205.201.128.43 as permitted sender) smtp.mailfrom=bounce-mc.us18_211513978.11593005-4357ac00f3@mail43.us4.mcsv.net;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=malwation.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k2; t=1731510940; x=1731597340;
+	bh=vHLeqvko1OPT6+vnR06Q/XJoe6lWfTNP2bffmv/BeCs=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=SdO4YGSbxa7TZ8d0+br6s9oBcRAdZG2DG9gyGrEoxyxfy3IXz295OPu3sXXzzVRmr
+	 cuU4dfAmCh0yyTf0QWSHojG9im7iYVFHF9OqSfzUaV9p/G4HH8Csam7yFkbefHGUDJ
+	 0Ji8OWcr6LNyq/d9F+5ICys4GsyUIVBzCw3k7uBI3MGAXapz4oONKmianX96n40BMP
+	 SGNuS/6qXYR7b4DKeYKeNLgIIXFWW6VF8ncTIY41QG/NgfwFHZP6Duc2teH13pWMSn
+	 AQnz3/xZ8Sc6mSfqvPtAJlUHWW6N9Vuk4jSX4yLkBtD05GKtTeXO9Pos8XHqLO0QkJ
+	 dMDpaYMfF44Tw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=malwation.com; s=k3;
+	t=1731510940; x=1731771440; i=marketing@malwation.com;
+	bh=vHLeqvko1OPT6+vnR06Q/XJoe6lWfTNP2bffmv/BeCs=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=BPHhr8ZGV/7yEAR4LBKXw5AuGjLaXI5sg9vy4pdkxC7yNSfvfObXPeYJWMKIWV9KX
+	 KAZfCIuHcFtVkpLN07hoBEa9oEzgX6/ULsP6a35TuCU0aENvKl9QIvG7kAbKzVQo5L
+	 Cff06Rfdh+EAGUsm1ZwKmhBDm6ZnTvtj7QQNQn56dM4FBwoHurtVVrl9Ua4kM68mol
+	 YIpXfsdPOgO9sCE+ZRuONE8mxucxIcC+TtbumtUf7Viu2qvmU0ybcZRO7juGBfND1J
+	 zo2YtbszgLn4aV3K5nh23IEUOXts1iwxr52EsdbAu943TN9H1FwsTKJjW1Zv892ztV
+	 GDuSTi2u5R0kg==
+Received: from localhost (localhost [127.0.0.1])
+	by mail43.us4.mcsv.net (Mailchimp) with ESMTP id 4XpRgJ6GhVz5R3nlH
+	for <sminhaz18061997@gmail.com>; Wed, 13 Nov 2024 15:15:40 +0000 (GMT)
+Subject: =?utf-8?Q?Outage=20Notification=20for=20Threat.Zone?=
+From: "Threat.Zone" <sender@malwation.com>
+Reply-To: =?utf-8?Q?Threat.Zone?= <sender@malwation.com>
+To: <ham@ham.email>
+Date: Wed, 13 Nov 2024 15:15:36 +0000
+Message-ID: <bb723161e51fec685635c1751.4357ac00f3.20241113151529.8d40318b10.cb337e06@mail43.us4.mcsv.net>
+X-Mailer: Mailchimp Mailer - **CID8d40318b104357ac00f3**
+X-Campaign: mailchimpbb723161e51fec685635c1751.8d40318b10
+X-campaignid: mailchimpbb723161e51fec685635c1751.8d40318b10
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=bb723161e51fec685635c1751&id=8d40318b10&e=4357ac00f3
+X-MC-User: bb723161e51fec685635c1751
+Feedback-ID: 211513978:211513978.11593005:us18:mc
+List-ID: bb723161e51fec685635c1751mc list <bb723161e51fec685635c1751.293802.list-id.mcsv.net>
+Precedence: bulk
+X-Accounttype: pr
+List-Unsubscribe: <https://malwation.us18.list-manage.com/unsubscribe?u=bb723161e51fec685635c1751&id=0c71b927b0&t=h&e=4357ac00f3&c=8d40318b10>, <mailto:unsubscribe-mc.us18_bb723161e51fec685635c1751.8d40318b10-4357ac00f3@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1184068823"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1184068823
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+** Outage Notification for Threat.Zone
+------------------------------------------------------------
+
+
+** Start: 2024-11-14 03:30 UTC+0 - Estimated end: 2024-11-14 04:30 UTC+0
+------------------------------------------------------------
+
+During the above-mentioned time frame=2C we will be carrying out urgent ma=
+intenance work. During this work=2C network traffic will be interrupted=2C=
+ meaning that systems will not be accessible during this time.
+
+Please note that unfortunately it is not possible to postpone the date. We=
+ will keep the interruption as short as possible (max. 2 hours). After the=
+ maintenance work has been completed=2C your systems will be fully accessi=
+ble again. You do not need to take any further action.
+
+Our team is carrying out this maintenance work to ensure the long-term sec=
+urity and stability of our infrastructure. We apologize for any inconvenie=
+nce and thank you for your patience.
+
+View email in browser (https://mailchi.mp/threat.zone/outage-notification-=
+for-threatzone?e=3D4357ac00f3)
+Malwation . 16192 Coastal Hwy . Lewes=2C DE 19958-3608 . USA
+update your preferences (https://share.threat.zone/manage/preferences?u=3D=
+bb723161e51fec685635c1751&id=3D0c71b927b0&e=3D4357ac00f3&c=3D8d40318b10) or=
+ unsubscribe (https://malwation.us18.list-manage.com/unsubscribe?u=3Dbb723=
+161e51fec685635c1751&id=3D0c71b927b0&t=3Db&e=3D4357ac00f3&c=3D8d40318b10)
+--_----------=_MCPart_1184068823
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Outage Notification for Threat.Zone</title>
+<link rel=3D"preconnect" href=3D"https://fonts.googleapis.com" />
+<link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin=3D=
+"" />
+<style>          img{-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceColumn-forceSpan .mceButton a{min-width:0 !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceTextBlockContainer{padding-right:16px !important; padd=
+ing-left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceImage=2C .mceLogo{width: 100% !important; height: auto=
+ !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            .mceImageBorder {display: inline-block;}
+            .mceImageBorder img {border: 0 !important;}
+body=2C #bodyTable { background-color: rgb(244=2C 244=2C 244); }.mceText=
+=2C .mcnTextContent=2C .mceLabel { font-family: "Helvetica Neue"=2C Helvet=
+ica=2C Arial=2C Verdana=2C sans-serif; }.mceText=2C .mcnTextContent=2C .mc=
+eLabel { color: rgb(0=2C 0=2C 0); }.mceText h1 { margin-bottom: 0px; }.mce=
+Text p { margin-bottom: 0px; }.mceText label { margin-bottom: 0px; }.mceTe=
+xt input { margin-bottom: 0px; }.mceSpacing-12 .mceInput + .mceErrorMessag=
+e { margin-top: -6px; }.mceText h1 { margin-bottom: 0px; }.mceText p { mar=
+gin-bottom: 0px; }.mceText label { margin-bottom: 0px; }.mceText input { m=
+argin-bottom: 0px; }.mceSpacing-24 .mceInput + .mceErrorMessage { margin-t=
+op: -12px; }.mceInput { background-color: transparent; border: 2px solid r=
+gb(208=2C 208=2C 208); width: 60%; color: rgb(77=2C 77=2C 77); display: bl=
+ock; }.mceInput[type=3D"radio"]=2C .mceInput[type=3D"checkbox"] { float:=
+ left; margin-right: 12px; display: inline; width: auto !important; }.mceL=
+abel > .mceInput { margin-bottom: 0px; margin-top: 2px; }.mceLabel { displ=
+ay: block; }.mceText p=2C .mcnTextContent p { color: rgb(0=2C 0=2C 0); fon=
+t-family: "Helvetica Neue"=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;=
+ font-size: 16px; font-weight: normal; line-height: 150%; text-align: cent=
+er; direction: ltr; }.mceText h1=2C .mcnTextContent h1 { color: rgb(0=2C 0=
+=2C 0); font-family: "Helvetica Neue"=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif; font-size: 31px; font-weight: bold; line-height: 150%; text-a=
+lign: center; direction: ltr; }.mceText a=2C .mcnTextContent a { color: rg=
+b(0=2C 0=2C 0); font-style: normal; font-weight: normal; text-decoration:=
+ underline; direction: ltr; }.mceSectionHeader .mceText h1=2C .mceSectionH=
+eader .mcnTextContent h1 { }.mceSectionBody .mceText p=2C .mceSectionBody=
+ .mcnTextContent p { }.mceSectionFooter .mceText p=2C .mceSectionFooter .m=
+cnTextContent p { }.mceSectionFooter .mceText a=2C .mceSectionFooter .mcnT=
+extContent a { font-style: normal; }
+@media only screen and (max-width: 480px) {
+            .mceText p { margin: 0px; font-size: 16px !important; line-hei=
+ght: 150% !important; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceText h1 { font-size: 31px !important; line-height: 150% !i=
+mportant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }</s=
+tyle></head>
+<body>
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(244=2C 244=2C=
+ 244);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"3" class=3D"mceWrapper"><tr><td style=3D=
+"background-color:#f4f4f4" align=3D"center" valign=3D"top" class=3D"mceSec=
+tionHeader"><!--[if (gte mso 9)|(IE)]><table align=3D"center" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" width=3D"660" style=3D"width:660px;"=
+><tr><td><![endif]--><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%" style=3D"max-width:660px" role=3D"presentation"><tbody>=
+<tr><td style=3D"background-color:#ffffff" class=3D"mceWrapperInner" valig=
+n=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"2"><tbody><=
+tr class=3D"mceRow"><td style=3D"background-position:center;background-rep=
+eat:no-repeat;background-size:cover" valign=3D"top"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tb=
+ody><tr><td style=3D"padding-top:0;padding-bottom:0" class=3D"mceColumn" d=
+ata-block-id=3D"-4" valign=3D"top" colspan=3D"12" width=3D"100%"><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"pres=
+entation"><tbody><tr><td style=3D"background-color:#353535;padding-top:48p=
+x;padding-bottom:24px;padding-right:24px;padding-left:24px" class=3D"mceBl=
+ockContainer" align=3D"center" valign=3D"top"><span class=3D"mceImageBorde=
+r" style=3D"border:0;border-radius:0;vertical-align:top;margin:0"><img dat=
+a-block-id=3D"1" width=3D"311.3673805601318" height=3D"auto" style=3D"widt=
+h:311.3673805601318px;height:auto;max-width:311.3673805601318px !important=
+;border-radius:0;display:block" alt=3D"" src=3D"https://mcusercontent.com/=
+bb723161e51fec685635c1751/images/bb8a5743-e90e-44e2-5655-2cf34d09da00.png"=
+ role=3D"presentation" class=3D"imageDropZone mceLogo" /></span></td></tr>=
+<tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-le=
+ft:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;background-co=
+lor:#353535;border-radius:0;border-collapse:separate"><tbody><tr><td style=
+=3D"padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:1=
+2px" class=3D"mceTextBlockContainer"><div data-block-id=3D"15" class=3D"mc=
+eText" id=3D"dataBlockId-15" style=3D"width:100%"><h1><span style=3D"color=
+:#eef8ff;">Outage Notification for Threat.Zone</span></h1><h1 class=3D"las=
+t-child"><span style=3D"color:#eef8ff;"><span style=3D"font-size: 15px">St=
+art: 2024-11-14 03:30 UTC+0 - Estimated end: 2024-11-14 04:30 UTC+0</span>=
+</span></h1></div></td></tr></tbody></table></td></tr></tbody></table></td=
+></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>=
+<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbod=
+y><tbody data-block-id=3D"7" class=3D"mceWrapper"><tr><td style=3D"backgro=
+und-color:#f4f4f4" align=3D"center" valign=3D"top" class=3D"mceSectionBody=
+"><!--[if (gte mso 9)|(IE)]><table align=3D"center" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><=
+![endif]--><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"max-width:660px" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"background-color:#ffffff" class=3D"mceWrapperInner" valign=3D"top"=
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" role=3D"presentation" data-block-id=3D"6"><tbody><tr class=
+=3D"mceRow"><td style=3D"background-position:center;background-repeat:no-r=
+epeat;background-size:cover" valign=3D"top"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr>=
+<td style=3D"padding-top:0;padding-bottom:0" class=3D"mceColumn" data-bloc=
+k-id=3D"-5" valign=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation=
+"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;p=
+adding-left:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;back=
+ground-color:#353535;border-radius:0;border-collapse:separate"><tbody><tr>=
+<td style=3D"padding-left:24px;padding-right:24px;padding-top:12px;padding=
+-bottom:12px" class=3D"mceTextBlockContainer"><div data-block-id=3D"5" cla=
+ss=3D"mceText" id=3D"dataBlockId-5" style=3D"width:100%"><p><span style=3D=
+"color:#eef8ff;">During the above-mentioned time frame=2C we will be carry=
+ing out urgent maintenance work. During this work=2C network traffic will=
+ be interrupted=2C meaning that systems will not be accessible during this=
+ time.</span></p><p><br /></p><p><span style=3D"color:#eef8ff;">Please not=
+e that unfortunately it is not possible to postpone the date. We will keep=
+ the interruption as short as possible (max. 2 hours). After the maintenan=
+ce work has been completed=2C your systems will be fully accessible again.=
+ You do not need to take any further action.</span></p><p><br /></p><p cla=
+ss=3D"last-child"><span style=3D"color:#eef8ff;">Our team is carrying out=
+ this maintenance work to ensure the long-term security and stability of o=
+ur infrastructure. We apologize for any inconvenience and thank you for yo=
+ur patience.</span></p></div></td></tr></tbody></table></td></tr></tbody><=
+/table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbo=
+dy></table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td>=
+</tr></tbody><tbody data-block-id=3D"13" class=3D"mceWrapper"><tr><td styl=
+e=3D"background-color:#f4f4f4" align=3D"center" valign=3D"top" class=3D"mc=
+eSectionFooter"><!--[if (gte mso 9)|(IE)]><table align=3D"center" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"660" style=3D"width:66=
+0px;"><tr><td><![endif]--><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"max-width:660px" role=3D"presentation"><t=
+body><tr><td style=3D"background-color:#ffffff" class=3D"mceWrapperInner"=
+ valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"12"><=
+tbody><tr class=3D"mceRow"><td style=3D"background-position:center;backgro=
+und-repeat:no-repeat;background-size:cover" valign=3D"top"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presenta=
+tion"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0" class=3D"mce=
+Column" data-block-id=3D"-6" valign=3D"top" colspan=3D"12" width=3D"100%">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" rol=
+e=3D"presentation"><tbody><tr><td style=3D"background-color:#f4f4f4;paddin=
+g-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px" valign=3D=
+"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"11" id=3D"sec=
+tion_337e58fbfd57dc2a5502fbb0429ad194" class=3D"mceFooterSection"><tbody><=
+tr class=3D"mceRow"><td style=3D"background-color:#f4f4f4;background-posit=
+ion:center;background-repeat:no-repeat;background-size:cover;padding-top:0=
+px;padding-bottom:0px" valign=3D"top"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"12" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"padding-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=
+=3D"-3" valign=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><t=
+body><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;paddi=
+ng-left:0" align=3D"center" valign=3D"top"><table width=3D"100%" style=3D"=
+border:0;border-radius:0;border-collapse:separate"><tbody><tr><td style=3D=
+"padding-left:16px;padding-right:16px;padding-top:12px;padding-bottom:12px=
+" class=3D"mceTextBlockContainer"><div data-block-id=3D"9" class=3D"mceTex=
+t" id=3D"dataBlockId-9" style=3D"display:inline-block;width:100%"><p class=
+=3D"last-child"><a href=3D"https://mailchi.mp/threat.zone/outage-notificat=
+ion-for-threatzone?e=3D4357ac00f3"><span style=3D"font-size: 11px">View emai=
+l in browser</span></a><span style=3D"font-size: 11px"><br />
+Malwation &middot; 16192 Coastal Hwy &middot; Lewes=2C DE 19958-3608 &midd=
+ot; USA
+<br /></span><a href=3D"https://share.threat.zone/manage/preferences?u=3Db=
+b723161e51fec685635c1751&id=3D0c71b927b0&e=3D4357ac00f3&c=3D8d40318b10"><spa=
+n style=3D"font-size: 11px">update your preferences</span></a><span style=
+=3D"font-size: 11px"> or </span><a href=3D"https://malwation.us18.list-man=
+age.com/unsubscribe?u=3Dbb723161e51fec685635c1751&id=3D0c71b927b0&t=3Db&e=
+=3D4357ac00f3&c=3D8d40318b10"><span style=3D"font-size: 11px">unsubscribe</s=
+pan></a></p></div></td></tr></tbody></table></td></tr><tr><td class=3D"mce=
+LayoutContainer" align=3D"center" valign=3D"top"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"pre=
+sentation" data-block-id=3D"-2"><tbody><tr class=3D"mceRow"><td style=3D"b=
+ackground-position:center;background-repeat:no-repeat;background-size:cove=
+r;padding-top:0px;padding-bottom:0px" valign=3D"top"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"24" width=3D"100%" role=3D"presentation"><=
+tbody></tbody></table></td></tr></tbody></table></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody>=
+</table><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></t=
+r></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://malwation.us18.list-manage.com/track/open.php?u=3Dbb72=
+3161e51fec685635c1751&id=3D8d40318b10&e=3D4357ac00f3" height=3D"1" width=
+=3D"1" alt=3D""></body></html>
+--_----------=_MCPart_1184068823--

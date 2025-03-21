@@ -1,0 +1,168 @@
+Received: from MN0PR19MB6020.namprd19.prod.outlook.com (::1) by
+ MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS; Mon, 28 Nov 2022 23:49:03
+ +0000
+Received: from SA9PR13CA0108.namprd13.prod.outlook.com (2603:10b6:806:24::23)
+ by MN0PR19MB6020.namprd19.prod.outlook.com (2603:10b6:208:383::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.22; Mon, 28 Nov
+ 2022 23:49:01 +0000
+Received: from SN1NAM02FT0016.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:806:24:cafe::17) by SA9PR13CA0108.outlook.office365.com
+ (2603:10b6:806:24::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.23 via Frontend
+ Transport; Mon, 28 Nov 2022 23:49:01 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.221.48)
+ smtp.mailfrom=gmail.com; dkim=fail (body hash did not verify)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.221.48 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.221.48; helo=mail-wr1-f48.google.com; pr=C
+Received: from mail-wr1-f48.google.com (209.85.221.48) by
+ SN1NAM02FT0016.mail.protection.outlook.com (10.97.4.82) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5857.23 via Frontend Transport; Mon, 28 Nov 2022 23:49:01 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:D38B9CEE3697CF797AEA836814508B7A3AA151948775DBA96072E1167415D84A;UpperCasedChecksum:0AC18025ACD22AF0A0F5F1840DF37521DC97330A0683A043BDC1C997C15534AC;SizeAsReceived:2727;Count:18
+Received: by mail-wr1-f48.google.com with SMTP id z4so19564915wrr.3
+        for <phishing@pot>; Mon, 28 Nov 2022 15:49:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:date:subject:to:from
+         :reply-to:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=5kqxLkEaBMuuIcVKAMzRbmGAyhincrMcvXhuqBWBvq0=;
+        b=Oj/btOXr3pEmvQW/NF2QDkWuEKQCLn0lUPw91jSlxVHgEM5GEoBS2dMzvOkAx6jtF1
+         RJr6FkOUcS29G3S+kIQKJRHmGsMOftyjupmyRNCZC7UYipHfFTaDF58NqTvEZbH7PZAF
+         2jfvR5NxVWkm93XaMHxYDSvlf7e5GpNWwNAFWuJ9RArE0q5v1qfo59a5zprkVFcWqRxV
+         EVOpPFFXSzqfr1HteVPHAXm/rrZn2DhSu4E/qewFML+NWgFyks/ezL3919htnofmjgnd
+         dU3DFGFqB69g093waapXuaSpRT1Zw1nFT71jaueR79ypN6oBO2Bb8HWSFdMSQ7v7C6nT
+         9TcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:date:subject:to:from
+         :reply-to:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5kqxLkEaBMuuIcVKAMzRbmGAyhincrMcvXhuqBWBvq0=;
+        b=gKS9EEE9TtwqQR6LGEoYPhJ4ktPrHQkMUqtwA3B4cXluA7mkIvBo7JJ55sWm8uirSL
+         Hw75WQVZMxNHGrA6chFVbXlJ7n0554LqsdICLdFXmTs84LzeeRlLMQJ9ik7tKb3KPfxJ
+         HrgcEEgEXHRqY9wY2jI3yR3LuAR4XMcSDodpmYFsL3fJjOjqtiAv5Xy1ca/3U4Mimj9f
+         8/HItC7jvUelrD+kPuS8bnIFoGm++GKTCl8rXCMXNj1SCmXFVXm+UU4b+Qo4atH3886S
+         9y2Y4qDRrIovh7qL6ZgORD6ccF+DZmBlVg7g4glSL+WLXETsUfJzKK3aQARTRDBr+ks9
+         dxtA==
+X-Gm-Message-State: ANoB5pnzWLwImSFgQJm3o3ykAEB8JsbNlzYoZztN+T8FSAG1mtLqYKP1
+	jPmB4zQNvWfxcmwi5Mf6us8vGZlDph8xbHm2
+X-Google-Smtp-Source: AA0mqf5ckjmvnA1Peash2+53+qOdENBwatr/QiHtKvps448O4m0u6L9pOUwRKnwRobJbMYCZUnzk5w==
+X-Received: by 2002:a05:6000:90f:b0:241:cfbc:95a4 with SMTP id bz15-20020a056000090f00b00241cfbc95a4mr23690594wrb.453.1669679340954;
+        Mon, 28 Nov 2022 15:49:00 -0800 (PST)
+Return-Path: danieldedjaey@gmail.com
+Received: from DESKTOP-K6M8MNH ([217.138.207.226])
+        by smtp.gmail.com with ESMTPSA id y19-20020a1c4b13000000b003cf6a55d8e8sm132150wma.7.2022.11.28.15.48.59
+        for <phishing@pot>
+        (version=TLS1 cipher=DES-CBC3-SHA bits=112/168);
+        Mon, 28 Nov 2022 15:49:00 -0800 (PST)
+Message-ID: <054c1c77-44894-0ee72214940278@desktop-k6m8mnh>
+Reply-To: "Your Order #86765" <danieldedjaey@gmail.com>
+From: "Your Order #86765" <danieldedjaey@gmail.com>
+To: "Dear Customer" <phishing@pot>
+Subject: Order Confirmation
+Date: Tue, 29 Nov 2022 05:17:59 +0530
+Content-Type: text/html
+Content-Transfer-Encoding: 8bit
+X-IncomingHeaderCount: 18
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Nov 2022 23:49:01.7541
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ dbe0060d-740f-4647-e65f-08dad19b203f
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1NAM02FT0016:EE_|MN0PR19MB6020:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SN1NAM02FT0016.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/28/2022 11:38:37 PM
+X-MS-Office365-Filtering-Correlation-Id: dbe0060d-740f-4647-e65f-08dad19b203f
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.221.48
+X-SID-PRA: DANIELDEDJAEY@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2022 23:49:01.7228
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dbe0060d-740f-4647-e65f-08dad19b203f
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SN1NAM02FT0016.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR19MB6020
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.4605878
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5857.023
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;auth:1;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000305)(90000117)(90005022)(91005020)(91035115)(5061607266)(5061608174)(9050020)(9100338)(2008001134)(2008121020)(4810004)(4910033)(8820095)(10005027)(9610025)(9540006)(10160021)(9320005)(9245025);RF:JunkEmail;
+X-Message-Info:
+	6hMotsjLow/yd9U1ICXZ17EgFmgaJYPM8VsDYcGJr3b7slz/SANpLEYN8WaTmxD/Ej8snnRZwAjhodkXG09hcdukYyla8DTx3CFeSTpLzOhz/BBpq23RVrUiwih6rk+IdFcK5M+2AsmqcFFitjKttv0UpqcB9a3jwEw+0YFmIoOMC/u/v49N0kYC3bDNLV/iz+8UHduWG60wUMLvDIRmTQ==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0yO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Qm54SGd1NUJxMitvdWVuZ0pKeFlUUVd1YVJHeU9td2tPQmp5QUt1UDRRRFA1?=
+ =?utf-8?B?c3EyVzRUNHVJNnlIY1BKUnZSWXBiMDlaVStZalk4QzlFdEFTeU91d2RwbGJL?=
+ =?utf-8?B?SllCTEd6Z3RRdEYrQlR2Y2J6d01MN29xSE9uSU5CaG9HeXR6WlFBSURacHJQ?=
+ =?utf-8?B?TXIzUkUzbzVYM3Q0VjV6OEdadG9FU1hQdElheDQyK1JYYnRFdW92WHlwZ1c5?=
+ =?utf-8?B?YVVZa3hlNjZCRzMrT2pSS0F2UGdmWTN5SHRKV25wZ2ZCU25Na1AxQzlyU3lv?=
+ =?utf-8?B?bDNpdEM0OUxyM0FuN3YxQlBCNnFjTFlpR3B5SjZ2RUUxM2dkNmwvdmFYTFZZ?=
+ =?utf-8?B?OGlsYmNpRHRwclQvOEcwMm8wNmptcGRwUmlpbk14aWk0SFVSWnZxWUZlVFo3?=
+ =?utf-8?B?cGgzdFZtSzJSK3pMV2N4b2tYM253NFdFenJoblJLVnZmdXI0N2xXVnoxdVU2?=
+ =?utf-8?B?TVdsRUhTdGwxUjVpL3VZR0VqRFhQNHFnTWt4VHhVN0RKamhvNlFGNlZJY3B6?=
+ =?utf-8?B?ZjVyTWxWa0lBUGhIN1JQVEhJNHd3MHpCb0lncnZtcjg4Z0xrd29GSG0wYUpl?=
+ =?utf-8?B?RmpDbllhc0RQaGlJS295VGFhWGRMNTlmRUpaVkpNVjh5SGJ5TE9rM1pxVGE3?=
+ =?utf-8?B?cFBtMFpJZ0V2QTdwRmlXSzhTWUd4MXpjazVhUEl3M0ZKcWY1aTlDZHJvT2ZD?=
+ =?utf-8?B?MitPTTEvTlBFa2dFUGQ1RzdVWHJSK1NWaHl6eU05a3QxMGRqSkZaK1h2bE9z?=
+ =?utf-8?B?UVREc202Z1hFc1NvUEpTM2dJLzkxOFRuSHFqMGRoenJRUGs4K245UFFyWkR3?=
+ =?utf-8?B?czhEc2JPUnJIcmp0NmJuU2F2ZG5yYlFNU1RIWFhpTFlubkpTd1ZGODVYSCt2?=
+ =?utf-8?B?eitSUDlldzdZSHdyT2FDelltdVZWSytBVGIwRUczVml0WTRUQzRyN2I3dWY2?=
+ =?utf-8?B?ZTFNREFQNlRTTmRwZlZTRituRklVNEJFTTBEWnFmRDRVNFp6OWlOcGFqU1lx?=
+ =?utf-8?B?Z0hGSmlTUHlhRXZmanFPaWU5RGZPOW4rakUvWW91SEVCcmp5RFhZekd6KytG?=
+ =?utf-8?B?Q1VnQUNML3VDUTNRM1hKWXI0Q05sWFUyUEQvcXpsWmxFMW04TGlYaEU5OGtk?=
+ =?utf-8?B?RXJ2emJtb0xCdjNEVVRBYXhXTG9YUkxyL3lTZnVHbmMwWm14MFVBdFRMYTY4?=
+ =?utf-8?B?M0xpZTFzUW9zc1d0TUpjNHZMVkZlSTNUcWxEaFFYbE5KQ0FMMmlRZG5wb3lh?=
+ =?utf-8?B?SUE2L0JWQTMxcXp6SFdkdkU0aEdBSDVXaVJMNzI1WThHYUVJa3Zsd3lTVVZI?=
+ =?utf-8?B?R2VTVktKbEtLOWZkY0dsdlFzR05kU3JSR2NHQU5tSmlVd3p3SWxGR3krY0xK?=
+ =?utf-8?B?ZDJkaURqMSszdmxGM0gvREl2QkJyRFVxZE1rZTl0V0wrTElwRStLbjZGdXNM?=
+ =?utf-8?B?RjBjR2ovNjE2eEhOLzJjZ3haa3Bybk1Oa0FVeC8vOXRyTGp3U3daeE82MDBt?=
+ =?utf-8?B?ZGJOR0VZbVFpNmFMSnF3N05qaFRsbTZlV2pqOXpoMXQ5YUMzT0NJdUJDS0hR?=
+ =?utf-8?B?VFNKT0tMdVNFc2tIUHFTTXVSbDQzOGQ1MGozVmJ2UnlKS3hwaENpVllyK200?=
+ =?utf-8?B?QUpJUmpjeTJNejlVS2R2N2w5dzI3MjdncFhTQm9yYWlIRVdHK0RFUVdYb0tN?=
+ =?utf-8?B?NlJNNHdSOUNpc2pmNkZ3M3BTaWczdzJFRTZOL0RXSUVnVlRNWllWRzJmcFVN?=
+ =?utf-8?B?V3F0MEt6ZlRzRlJYZ3FsbXJYcy8xWWtNQlZ1a0lSYjBWVGl2RzRJUmFFbm9h?=
+ =?utf-8?B?cThnMlZCcU95TTBzaGN3MFFzdXpHcUxqSVN2UDV6SnptWnI0S1pMY0Q3b3Zz?=
+ =?utf-8?B?SWhJQktMK2liMXFhYitwdmltcHJYMFdEWXJaK3VHMS8vK3NtSVYzSzY0Mjha?=
+ =?utf-8?B?MDgwNnBYL2VvbEEzM0lQcHArNU9taGV4TzgvcVFPNnF4V1k0WU1jMHV3ZTlC?=
+ =?utf-8?B?RmxRLzBzbWpkc2ZBK29lQWJlKzlvWmtvdDl4T3NmRjd2NmVleVY0RUJrMWZW?=
+ =?utf-8?B?OW83aU5iLzBMclNVYnNZQ25rTFMyeVphS05iamM4S01mTXdVdXI1a0J1MnpN?=
+ =?utf-8?B?RDcveFZYaEc5RHQrMHdZeHVubjNOZ1FuSFBrVTk2Z2VyelRWazFNd1F0UWE5?=
+ =?utf-8?B?djU1dGNpMCtBc3k1WDR5Ymh0dEtqS1J6aXVoREgzeDdBWHFDcndhZTZ1c1RE?=
+ =?utf-8?B?V3c4aWR4OGtCZ0RsTHVEdTY1L1o2aUxyS2RqY2hTZVVLdW5pUFlXamZ3SHZP?=
+ =?utf-8?B?a1B2Um9aNHRnczRBYUhZL0M3WnFwc3l0MzVZZE1RWWRISUNDRUpBL2NGa0NJ?=
+ =?utf-8?B?YzNpTU5KU2tpdERMN2FCOWxkcHVqeEpiN1oxRmxGSEJWSHFVUXhLVVNZQlVJ?=
+ =?utf-8?B?RnpCeDM0R2hzbWFGZ1kwNnZHODFUVTZnZEhCNnlZUjhrb29YOGZDT2E4MW9i?=
+ =?utf-8?B?NEdIaVZsWHk5VlcyRmtoSThndk5kNHJ5S0hEQTFxazVJNkF3cXNGcUQrTzhZ?=
+ =?utf-8?B?VjlINjBIZXZVZDFaRzUxMks0OUxDNTF5bUl4eFdIc3d1NVM2a2k1cGRJMGdT?=
+ =?utf-8?B?eXNxcGFUandncmhpUUNDREgxK2xtZFdZdlk1YVBlM1BFSVIySlRqcVFQLzJ0?=
+ =?utf-8?B?eWZrR3ZkQzJuTDRSazM1L09RVGxiN1Ntam1MaWZDV1lNN2pUUE56YUdVZG5L?=
+ =?utf-8?B?QzJnSklSbGpyMFVhUDRLRVZNa0NBMnVSL3p0SEx5dXpwWUlhTTMxdnpPYUxt?=
+ =?utf-8?B?bjB6c3orcE5NR09UOEptaERzbUsvbU9uWm1za20wQktzT3V5R3ZZOTZvMnlr?=
+ =?utf-8?B?V1QzczFMVGt5UmF2K056UVpwS2ZNS2RlT1BVRFNRUjJiaDFscFF5V2h3ZTgw?=
+ =?utf-8?Q?0hUUeMCQYAhxwVgn?=
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+
+

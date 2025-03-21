@@ -1,0 +1,292 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:6743:0:b0:2ac:6419:e1b with SMTP id j3csp3489157lko;
+        Tue, 3 Dec 2024 05:42:05 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE5DjOKaOcTcXaIIQLVaBEblKnZnX5QmX2Ip8Hdvp87+JYYV757QfYa1kGGQvkuaghKICBG
+X-Received: by 2002:a05:620a:6885:b0:7b6:6642:b5f3 with SMTP id af79cd13be357-7b6a5d16794mr325898585a.9.1733233325074;
+        Tue, 03 Dec 2024 05:42:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733233325; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QUwDaWxHYlqJABwCFxsbA3lOIBr9iCiILh40zR9O/9raF3LKn1eqkf3UMLLuj1enzA
+         RMjfpYvkCJumuFGncQVy0L2KRT1awp4x0RuU7s6oxbMkGspIReqvnXqsGbvOKEQnBS5T
+         wn9Ui/vQILBNXAkjuLqbPOtPDFIf5VJUPrbGEu9dDbJCpIQksZs05FEnHwcAHq36zeC3
+         tbcR253DcF8uw0QeHwPdjdKKug3OTRmfvuEj5mUbyNfkwaCJC4f0++nXNaUUMaf9v1Xe
+         E6+vI5kt9GH749kFwDPzud/QS+6TSbGX0fS1meZyQZCHPrW/14A6iNJ+NepMJhDVnZKm
+         BpWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=4a3hzgGOW4mjGc/65Paf+ZSmzvlEAAxizYDasIK3fBg=;
+        fh=gnDswPkgLnzCV21X0P+Vha7qYi+IQWBi/XOhjmnIQg4=;
+        b=Hn8Y9qAFzq9B/mDHEENUFHl/CWrJTflkUBjEJ6KLiRmZ87LpZ41tRhMTHi8j6DP2oH
+         +hsoMz4Q94aQYZ88MqLja3UjP1Ul4MUcrgvt/Ea1VEF52J6OpE6pbASJIVtgUkku584D
+         Qu7vbM5DNQtmL1iBgtt73CfZ9A1fSlBIKpMMW859/5xbG0PqFqI++6yRq0LpQYXyYtDi
+         5eGUVgOxrYlNTAHftWPYDiHHJuonNJgAqGzP/s7uWUD/mR9T2zF0f1rMFO6xlhKN9SJ+
+         xvchJtYZ8SfYDJ0cyBxX/NjXS956l+2iRguauDRJylVCB2r8/YAQ1y2j3Hdqgjf9RPpz
+         uQlg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@beehiiv.com header.s=s1 header.b=QJRdiKFc;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=s9qLifi1;
+       spf=pass (google.com: domain of bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com designates 149.72.233.130 as permitted sender) smtp.mailfrom="bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+Return-Path: <bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com>
+Received: from o58.mail.praynews.com (o58.mail.praynews.com. [149.72.233.130])
+        by mx.google.com with ESMTPS id af79cd13be357-7b6849e62d6si1407860185a.565.2024.12.03.05.42.04
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Dec 2024 05:42:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com designates 149.72.233.130 as permitted sender) client-ip=149.72.233.130;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@beehiiv.com header.s=s1 header.b=QJRdiKFc;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=s9qLifi1;
+       spf=pass (google.com: domain of bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com designates 149.72.233.130 as permitted sender) smtp.mailfrom="bounces+20340470-e0b8-ham=ham.email@em9811.beehiiv.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=beehiiv.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=beehiiv.com; h=content-type:from:mime-version:subject:reply-to:list-unsubscribe: list-unsubscribe-post:x-feedback-id:to:cc:content-type:from:subject:to; s=s1; bh=4a3hzgGOW4mjGc/65Paf+ZSmzvlEAAxizYDasIK3fBg=; b=QJRdiKFciZXMkWUvznw4v4EHLFYvE9nbJBwU7lawUorSo7vC58Wu0Wbma1scLLJzIpQO WPNRgXw973NYf9TmKFf3U+rUI8URiXi419OFPaQvGX6QvYGFXuWx6LEK5XxbAYHk8j0tZ2 +dVxD0IPNroqkADdlIBEHXCHDzFuhN7dxhlh+Co5cBZUejJvR81Gl4IeBbCVHa07LKMFf+ AeTqkfk17owssI11EphTwguhImAmVLJk+YtiVuRBtJyIqrALKuxpCLxj8dkDk2VvNXBjAL PFPBxTNnsDu4wrlMAsZNrRx0IVjVZXmMwiHmxEarJiX411zCwmGQQCQUBCzyBNXA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:mime-version:subject:reply-to:list-unsubscribe: list-unsubscribe-post:x-feedback-id:to:cc:content-type:from:subject:to; s=smtpapi; bh=4a3hzgGOW4mjGc/65Paf+ZSmzvlEAAxizYDasIK3fBg=; b=s9qLifi14/xnoY/saqlZN+D715J8b+svPQ3lbk80hLGoMfR0pAbd5I2pxC9Jp+NEcYQm /PIf0wfQGQV+z2Ox9VJ+6UvNcSlS8YTNpOvivYUbQuv/6ecDBQh29r/+XZW2YPlhfNcsrZ 00QT8RBj7gwOtBX68AD2BHzaZqLjKqYCE=
+Received: by recvd-6c59464dcc-mmmhh with SMTP id recvd-6c59464dcc-mmmhh-1-674F0AAB-25 2024-12-03 13:42:03.525288906 +0000 UTC m=+1613814.460201612
+Received: from MjAzNDA0NzA (unknown) by geopod-ismtpd-10 (SG) with HTTP id C_csBpiRTk6iKmuKlpXbxQ Tue, 03 Dec 2024 13:42:03.455 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=d8938e316031f92feb29b634978e8e0dbb38ceb3e40810e20999a3bcebc0
+Date: Tue, 03 Dec 2024 13:42:03 +0000 (UTC)
+From: <sender@cx.beehiiv.com>
+Mime-Version: 1.0
+Message-ID: <C_csBpiRTk6iKmuKlpXbxQ@geopod-ismtpd-10>
+Subject: Final call to lock in the year's best pricing ⏳
+Reply-To: beehiiv Team <hiiv-team@beehiiv.com>
+X-Mailer: Customer.io (dgTf-wYDAKC9Op-9OgGTjLszqf4hSMwoqFOUKWE=; +https://whatis.customeriomail.com)
+X-Report-Abuse-To: badactor@customer.io
+List-Unsubscribe: <mailto:32.MRTVIZRNO5MUIQKLIM4U64BNHFHWOR2UNJGHG6TRMY2GQU2NO5XXCRSPKVFVORJ5@unsubscribe2.customer.io>, <https://email.cx.beehiiv.com/unsubscribe/dgTf-wYDAKC9Op-9OgGTjLszqf4hSMwoqFOUKWE=>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Feedback-ID: 20340470:SG
+X-SG-EID: u001.79cftgSSkESWiS3wdRbOMniIoVMsVaFnhaEeLSEeDD4ZIO+c+L4bawF1MxS0dNpD+dg3XFNK11RLlzD9QAvyikrM+XtrGkN1hNuNAY8b12BiMs2XhrnUBrpB6upzps6VY2jr/AoCitIVynL9ofVUYBrzCNN6QpbInpyRUEoTa5ykTMkJeHGDSsXDNqJuo+QTHrpn4vzoAh5tiH+VR0HR/qzQdLjtBqW5+SWRDdNwXmG0669w7VlUwS1fDqRBLXEfrgBXTjSiZLxyv+jngP6Ggw==
+X-SG-ID: u001.SdBcvi+Evd/bQef8eZF3BpTL9BgbK5wfSJMJGMsmprBhrCiPUZ830uaWoPv5c4qvX1Q2lskpGtHIi4UCtL5Qt4TJUM6/zRnhwP5U4yx1shYyyz82qd0cInRdWigF9B5x
+To: ham@ham.email
+X-Entity-ID: u001.89q+O2F5C9VLoUWc2I7KrA==
+
+--d8938e316031f92feb29b634978e8e0dbb38ceb3e40810e20999a3bcebc0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+Headline: ''Last Chance To Save'' ( https://u20340470.ct.sendgrid.net/ss/c/=
+u001.huAlnCwl1cX2-SarMljcXBdZZf4KtcMk3AtURZX0ToD71qJp_77PijPffTBgmf02GBpDDh=
+KS3PKvU4GYjnf09J6BbHELDFsq77qtgltaIWd_kk0H2z8Mlnr2UVGPCDS3jUabBIbMbOGmViwsX=
+jYb61FjAXnPg7C5-t4t2xMO9FjDf8LUnojVU9oZK1-kIJiJfcVLLU4HSMXCsWMidVOyPsmO66Ii=
+6QzJxLdOC_z_5fDjkVOY_3O_Fak5Tw0YI8LxPZLKbPX_a-f36tm6Gm-vAWM0QfFxriziwnE2mxZ=
+g27U/4bz/GsRkzpTmTJCkO-RUDH2eXQ/t0/h001.Vmk08hNh4cN5YXSSmicXXHyeTV6cfADAB4b=
+oip3lkw8 )Image of a female creator working on a laptop, with subscriber en=
+gagement figures overlaid. ( https://u20340470.ct.sendgrid.net/ss/c/u001.hu=
+AlnCwl1cX2-SarMljcXBdZZf4KtcMk3AtURZX0ToD71qJp_77PijPffTBgmf02GBpDDhKS3PKvU=
+4GYjnf09J6BbHELDFsq77qtgltaIWd_kk0H2z8Mlnr2UVGPCDS3jUabBIbMbOGmViwsXjYb61Fj=
+AXnPg7C5-t4t2xMO9FjDf8LUnojVU9oZK1-kIJiJfcVLLU4HSMXCsWMidVOyPsmO66Ii6QzJxLd=
+OC_z_5fDjkVOY_3O_Fak5Tw0YI8LxPZLKbPX_a-f36tm6Gm-vAWM0QfFxriziwnE2mxZg27U/4b=
+z/GsRkzpTmTJCkO-RUDH2eXQ/t1/h001.YNSUoGYmDRYCsnB_H8XlSryDzXYfiRl2ds00ubvDcO=
+g )Button: ''Lock In Your Savings'' ( https://u20340470.ct.sendgrid.net/ss/=
+c/u001.huAlnCwl1cX2-SarMljcXBdZZf4KtcMk3AtURZX0ToD71qJp_77PijPffTBgmf02GBpD=
+DhKS3PKvU4GYjnf09J6BbHELDFsq77qtgltaIWd_kk0H2z8Mlnr2UVGPCDS3jUabBIbMbOGmViw=
+sXjYb61FjAXnPg7C5-t4t2xMO9FjDf8LUnojVU9oZK1-kIJiJfcVLLU4HSMXCsWMidVOyPsmO66=
+Ii6QzJxLdOC_z_5fDjkVOY_3O_Fak5Tw0YI8LxPZLKbPX_a-f36tm6Gm-vAWM0QfFxriziwnE2m=
+xZg27U/4bz/GsRkzpTmTJCkO-RUDH2eXQ/t2/h001.Ou9pEaX-Vx1JLwCWKwrtzae4k_cgXhKPe=
+3wNvNJs6Qs )beehiiv logo=A92024=A0beehiiv
+
+228 Park Ave S., New York, NY 10003
+
+The email was sent to ham@ham.email. To no longer receive =
+these emails, unsubscribe ( https://u20340470.ct.sendgrid.net/ss/c/u001.9N3=
+B946t4CdK2ItQbLKvou9UHC3upL4UZK5UNoN9KbNm1ygvAFRQDhpyTJHeht7JlhSUgPJwr_YGE1=
+ksPHkTOiR1Zzk4EhoZFxMvUA4RxvA_OPmGdSl5Xm9-19vfCZnE/4bz/GsRkzpTmTJCkO-RUDH2e=
+XQ/t3/h001.7D7VvlY1JJdOwpnzBZcCX2hEUVZFqFgZQjchWB1Inbc ) here.
+--d8938e316031f92feb29b634978e8e0dbb38ceb3e40810e20999a3bcebc0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"/><me=
+ta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"/><!=
+--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerI=
+nch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:620px){.mobile_hide{display:none}.row-content{width:100%!importa=
+nt}.stack .column{width:100%;display:block}.mobile_hide{min-height:0;max-he=
+ight:0;max-width:0;overflow:hidden;font-size:0}.desktop_hide,.desktop_hide =
+table{display:table!important;max-height:none!important}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"background-color:#f7f5ff;margin:0;padding:0=
+;-webkit-text-size-adjust:none;text-size-adjust:none"><div style=3D"display=
+: none; max-height: 0px; overflow: hidden; mso-hide:all;">Use code BFCM24 f=
+or 20% off any annual plan.=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=A0</div><table class=3D"nl-container" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#f7f5ff"=
+><tbody><tr><td><table class=3D"row row-1" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"=
+row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;background-size:auto;border-radius:0;color:#000;width:600px;margin:0 au=
+to" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" s=
+tyle=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:le=
+ft;padding-bottom:30px;padding-top:30px;vertical-align:top;border-top:0;bor=
+der-right:0;border-bottom:0;border-left:0"><table class=3D"image_block bloc=
+k-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><t=
+r><td class=3D"pad" style=3D"width:100%"><div class=3D"alignment" align=3D"=
+center" style=3D"line-height:10px"><div style=3D"max-width:600px">
+<a href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.puihR7ggMGFkNSVkv_92=
+GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnVKKo7YkyGOOUWVSI3mm4WT_y2GFUBL=
+yJxUaR0G79xgaQoElJ4djscwPgKvdiWI3t9eO7UMFk-k84LMd3W-lAZVer1ZCXnklq3jfZ4S6_P=
+ZTNy6AyXXZ4P8d2JYuZfNVhkAr0Wk2jaIe39lc1pMfKsT2mhdGWpKKl8Qzpxvo5owY8Qnb5ovMm=
+qxhOYyTz1I88pk71Y3wVP5s1auNmt_4H_84VFM9mZepzTegDTYOAMODQJ4QOn6yrHw-NjLGmWBQ=
+aMWECmYjZasGeVqi1TbZCN6m6H_zjoScNLXI0NAgfzOPY0Y6NpQLot1X5vKmFKLY46Jk1YrfNtY=
+SO2a-YBMgpPlGwllDsj-ROBS0leILetNKSNRGzd_L3cweY1cR86SI-pikBVELoF9mRKE_6go9GV=
+m1ybM9wafrM28nABSgXpyVcbu_9TV5Kk4AMFuNLlFn-KyIY-GxmccHg9b_SgzGPAurb9P5r5BTK=
+CGv3YBx4ElQ8gETVfNzpV1Y5HdGCGeFb0re0u5mwqtwSJCm6EN3KHjfafOJfNGiFDXR7Hm0XUFs=
+uvzoNLaEYnAM9Qd8OXzmigQGhi5CUsCm7CzMM_G32hMsIoVJ9h4XxOfodece44qNlQCevF8cJxm=
+73vDgApVfZ29aXMTvExBySFSAMrqcUaCsDYBIuocUAW3arQtt9qsnfDoch4l0AX3xhZcrT9m8/4=
+bz/GsRkzpTmTJCkO-RUDH2eXQ/h4/h001.3ibzyNxWT7dVP1ly-yP7GUVAxoLZMAM1KeG9hE3oH=
+ko" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img src=3D"ht=
+tps://userimg-assets.customeriomail.com/images/client-env-114143/1732116981=
+690_bf_10_01JD53F9YE2QNAN4D7T14Z0DBN.png" style=3D"display:block;height:aut=
+o;border:0;width:100%" width=3D"600" alt=3D"Headline: &#39;&#39;Last Chance=
+ To Save&#39;&#39;" title=3D"Headline: &#39;&#39;Last Chance To Save&#39;&#=
+39;" height=3D"auto"/></a></div></div></td></tr></tbody></table><table clas=
+s=3D"image_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0"><tbody><tr><td class=3D"pad" style=3D"width:100%"><div class=3D"a=
+lignment" align=3D"center" style=3D"line-height:10px"><div style=3D"max-wid=
+th:600px"><a href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.puihR7ggMG=
+FkNSVkv_92GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnVKKo7YkyGOOUWVSI3mm4=
+WT_y2GFUBLyJxUaR0G79xgaQoElJ4djscwPgKvdiWI3t9eO7UMFk-k84LMd3W-lAZVer1ZCXnkl=
+q3jfZ4S6_PZTNy6AyXXZ4P8d2JYuZfNVhkAr0Wk2jaIe39lc1pMfKsT2mhdGWpKKl8Qzpxvo5ow=
+Y8Qnb5ovMmqxhOYyTz1I88pk71Y3wVP5s1auNmt_4H_84VFM9mZepzTegDTYOAMODQJ4QOn6yrH=
+w-NjLGmWBQaMWECmYjZasGeVqi1TbZCN6m6H_zjoScNLXI0NAgfzOPY0Y6NpQLot1X5vKmFKLY4=
+6Jk1YrfNtYSO2a-YBMgpPlGwllDsj-ROBS0leILetNKSNRGzd_L3cweY1cR86SI-pikBVELoF9m=
+RKE_6go9GVm1ybM9wafrM28nABSgXpyVcbu_9TV5Kk4AMFuNLlFn-KyIY-GxmccHg9b_SgzGPAu=
+rb9P5r5BTKCGv3YBx4ElQ8gETVfNzpV1Y5HdGCGeFb0re0u5mwqtwSJCm6EN3KHjfafOJfNGiFD=
+XR7Hm0XUFsuvzoNLaEYnAM9Qd8OXzmigQGhi5CUsCm7CzMM_G32hMsIoVJ9h4XxOfodece44qNl=
+QCevF8cJxm73vDgApVfZ29aXMTvExBySFSAMrqcUaCsDYBIuocUAW3arQtt9qsnfDoch4l0AX3x=
+hZcrT9m8/4bz/GsRkzpTmTJCkO-RUDH2eXQ/h5/h001.PuBBFS6oJkRTmVNLlBv8iCOowbjhJwo=
+cGPuYZYFJylA" target=3D"_blank" style=3D"outline:none" tabindex=3D"-1"><img=
+ src=3D"https://userimg-assets.customeriomail.com/images/client-env-114143/=
+1732116981987_bf_11_01JD53FA7QS2ZW8FQQVYPM707Q.png" style=3D"display:block;=
+height:auto;border:0;width:100%" width=3D"600" alt=3D"Image of a female cre=
+ator working on a laptop, with subscriber engagement figures overlaid." tit=
+le=3D"Image of a female creator working on a laptop, with subscriber engage=
+ment figures overlaid." height=3D"auto"/></a></div></div></td></tr></tbody>=
+</table><table class=3D"image_block block-3" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"pad" style=3D"width:10=
+0%"><div class=3D"alignment" align=3D"center" style=3D"line-height:10px"><d=
+iv style=3D"max-width:600px"><a href=3D"https://u20340470.ct.sendgrid.net/s=
+s/c/u001.puihR7ggMGFkNSVkv_92GK5TmbRCZMpQOwfANVXh1diVXsbS-TudXWbIOcwX_fYpnV=
+KKo7YkyGOOUWVSI3mm4WT_y2GFUBLyJxUaR0G79xgaQoElJ4djscwPgKvdiWI3t9eO7UMFk-k84=
+LMd3W-lAZVer1ZCXnklq3jfZ4S6_PZTNy6AyXXZ4P8d2JYuZfNVhkAr0Wk2jaIe39lc1pMfKsT2=
+mhdGWpKKl8Qzpxvo5owY8Qnb5ovMmqxhOYyTz1I88pk71Y3wVP5s1auNmt_4H_84VFM9mZepzTe=
+gDTYOAMODQJ4QOn6yrHw-NjLGmWBQaMWECmYjZasGeVqi1TbZCN6m6H_zjoScNLXI0NAgfzOPY0=
+Y6NpQLot1X5vKmFKLY46Jk1YrfNtYSO2a-YBMgpPlGwllDsj-ROBS0leILetNKSNRGzd_L3cweY=
+1cR86SI-pikBVELoF9mRKE_6go9GVm1ybM9wafrM28nABSgXpyVcbu_9TV5Kk4AMFuNLlFn-KyI=
+Y-GxmccHg9b_SgzGPAurb9P5r5BTKCGv3YBx4ElQ8gETVfNzpV1Y5HdGCGeFb0re0u5mwqtwSJC=
+m6EN3KHjfafOJfNGiFDXR7Hm0XUFsuvzoNLaEYnAM9Qd8OXzmigQGhi5CUsCm7CzMM_G32hMsIo=
+VJ9h4XxOfodece44qNlQCevF8cJxm73vDgApVfZ29aXMTvExBySFSAMrqcUaCsDYBIuocUAW3ar=
+Qtt9qsnfDoch4l0AX3xhZcrT9m8/4bz/GsRkzpTmTJCkO-RUDH2eXQ/h6/h001.-WVZi4M0hTQe=
+avi6_-GPm_29nxMrj088PAQtRKGIwTo" target=3D"_blank" style=3D"outline:none" t=
+abindex=3D"-1"><img src=3D"https://userimg-assets.customeriomail.com/images=
+/client-env-114143/1732116982401_bf_12_01JD53FAMN93V58ZFXVM89VFYS.png" styl=
+e=3D"display:block;height:auto;border:0;width:100%" width=3D"600" alt=3D"Bu=
+tton: &#39;&#39;Lock In Your Savings&#39;&#39;" title=3D"Button: &#39;&#39;=
+Lock In Your Savings&#39;&#39;" height=3D"auto"/></a></div></div></td></tr>=
+</tbody></table></td></tr></tbody></table></td></tr></tbody></table><table =
+class=3D"row row-2" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#f=
+ff;border-bottom:2px solid #060419;border-left:2px solid #060419;border-rad=
+ius:10px 10px 0 0;border-right:2px solid #060419;border-top:2px solid #0604=
+19;color:#343446;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td cl=
+ass=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;font-weight:400;text-align:left;padding-bottom:30px;padding-left=
+:30px;padding-right:30px;padding-top:30px;vertical-align:top;border-top:0;b=
+order-right:0;border-bottom:0;border-left:0"><table class=3D"image_block bl=
+ock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><t=
+r><td class=3D"pad" style=3D"width:100%"><div class=3D"alignment" align=3D"=
+center" style=3D"line-height:10px"><div style=3D"max-width:130px"><img src=
+=3D"https://userimg-assets.customeriomail.com/images/client-env-114143/1695=
+737065422_Frame%2052_01HB8WWBZEF1MY92WHQFXD6VPW.png" style=3D"display:block=
+;height:auto;border:0;width:100%" width=3D"130" alt=3D"beehiiv logo" title=
+=3D"beehiiv logo" height=3D"auto"/></div></div></td></tr></tbody></table><t=
+able class=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=
+=3D"10" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad"><di=
+v style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:12px;=
+font-family:&#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif;mso-line-he=
+ight-alt:14.399999999999999px;color:#2d2d34;line-height:1.2"><p style=3D"ma=
+rgin:0;font-size:12px;text-align:center;mso-line-height-alt:14.399999999999=
+999px"><span style=3D"word-break: break-word; font-size: 10px;">=C2=A92024=
+=C2=A0beehiiv</span><br/>
+<span style=3D"word-break: break-word; font-size: 10px;">228 Park Ave S., N=
+ew York, NY 10003</span></p></div></div></td></tr></tbody></table><table cl=
+ass=3D"text_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0;word-break:break-word"><tbody><tr><td class=3D"pad" style=3D"padd=
+ing-bottom:10px;padding-left:10px;padding-right:10px;padding-top:5px"><div =
+style=3D"font-family:sans-serif"><div class=3D"" style=3D"font-size:12px;fo=
+nt-family:&#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif;mso-line-heig=
+ht-alt:14.399999999999999px;color:#2d2d34;line-height:1.2"><p style=3D"marg=
+in:0;font-size:12px;text-align:center;mso-line-height-alt:14.39999999999999=
+9px"><span style=3D"word-break: break-word; font-size: 10px;">The email was=
+ sent to ham@ham.email. To no longer receive these emails,=
+ <a href=3D"https://u20340470.ct.sendgrid.net/ss/c/u001.puihR7ggMGFkNSVkv_9=
+2GK5TmbRCZMpQOwfANVXh1djuRsOyGim-2abhFQ8Bjuj-CuyRNGueGCheMswHOdZq5tBFKFYU5p=
+ySX2wPFkEkHAW8III46EtULKKy4I7ONpoW/4bz/GsRkzpTmTJCkO-RUDH2eXQ/h7/h001.9ynrY=
+9_LEpExYELpuos35yxZVmqPPV4VefDRajK6C4Y" target=3D"_blank" style=3D"text-dec=
+oration: underline; color: #3843d0;" rel=3D"noopener">unsubscribe</a> here.=
+</span></p></div></div></td></tr></tbody></table></td></tr>
+</tbody></table></td></tr></tbody></table></td></tr></tbody></table><!-- En=
+d --><img src=3D"https://email.cx.beehiiv.com/e/o/eyJlbWFpbF9pZCI6ImRnVGYtd=
+1lEQUtDOU9wLTlPZ0dUakxzenFmNGhTTXdvcUZPVUtXRT0ifQ=3D=3D" style=3D"height: 1=
+px !important; max-height: 1px !important; max-width: 1px !important; width=
+: 1px !important; display: none !important;" alt=3D""/><img src=3D"https://=
+u20340470.ct.sendgrid.net/ss/o/u001.rbNhsljbSs5hd8qQg2UWkw/4bz/GsRkzpTmTJCk=
+O-RUDH2eXQ/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"=
+height:1px !important;width:1px !important;border-width:0 !important;margin=
+-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;marg=
+in-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;p=
+adding-right:0 !important;padding-left:0 !important;"/></body></html>
+--d8938e316031f92feb29b634978e8e0dbb38ceb3e40810e20999a3bcebc0--

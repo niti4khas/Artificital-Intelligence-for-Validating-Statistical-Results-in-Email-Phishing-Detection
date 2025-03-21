@@ -1,0 +1,719 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a2e:8043:0:b0:2bf:ff53:556b with SMTP id p3csp865184ljg;
+        Mon, 25 Sep 2023 05:36:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFDA9MmVNjXmAebpP53jYPYhHsatuNJcnLytLE4ZdWlLjW5EmrXRNPSj7dZ3Hxbv9BtZOum
+X-Received: by 2002:a05:6830:1bd7:b0:6b8:6f94:d3a2 with SMTP id v23-20020a0568301bd700b006b86f94d3a2mr6229989ota.25.1695645391722;
+        Mon, 25 Sep 2023 05:36:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1695645391; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BipmfUyLhwEaSJj4hRzTRPX0CU0qAWGgyVIe3q5r5896ZvT2Lmggb0ux6qHEusFjAY
+         HEbVjmGDPeOo9c10p4wEdzjaF33cmaA9CIm9p+TAWQhwHkHOjWaZqW2unj/Zmrw64e53
+         MPL/X9isIydPfHsHSuPA/aQVSG34szVOt+lCFOcOROWeR2fLYgjeP0lsil/9/4sAgWd8
+         byEA+gRf1cwUKhzN0hg4HwwdKsYLUCCHwaIorb8iTguot2jCGDusnzbCyFA8PahTAAUi
+         sOCKr9sbblvm/YAzm4dL13BmFo+FHY8Dz8Zahxqj4qk//3a9HUHZDRiciYhNh08nXtIw
+         APkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:mime-version:date:message-id:subject:from
+         :dkim-signature:dkim-signature;
+        bh=rfSE6+FMwSDs90iuZvmFfnK6Ya/uuN66RgmvOHg5pkM=;
+        fh=+8icfbnRNHjZneL0tJh9Eon/CGsbdJIXsvnm+oustXo=;
+        b=Iwwv+iSIka4VUDOMJ0tn9DVe/Nos1TGBPr99Otzl/VJHe+qOHYzYoYnqm0GeGGHOE/
+         8wKi+2huKvD9Daqa6cWgDkT1nKneZL9TgrBATcyKRxjDL1dWBfuwBUXcx1LbdaHJPn/j
+         acG9hW+nGtz261ZfJeCB678PVtnoweCm/vNbrk2zPExAtj+MJl9/RgSQF8lBAwr7zgyp
+         YD+9AJ3O6DGVKJNrnCyIghpo2UBxcDa1jnKIVahFJ182rNu4uXrPez8hj5fD/DN2mvNl
+         nteFzOwYEeL8oLzHCuuAt54/EC2y5EpeMQYrOKF6+4ogjxNCLOuVff9PXxJGB6lCHZt/
+         4cSQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@overleaf.com header.s=s1 header.b=nE44G84G;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="V/Lero5f";
+       spf=pass (google.com: domain of bounces+794683-1882-receiver=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) smtp.mailfrom="bounces+794683-1882-receiver=gmail.com@email.overleaf.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=overleaf.com
+Return-Path: <bounces+794683-1882-receiver=gmail.com@email.overleaf.com>
+Received: from o1.email.overleaf.com (o1.email.overleaf.com. [50.31.42.215])
+        by mx.google.com with ESMTPS id n9-20020a63f809000000b0055b731aa9adsi9925164pgh.562.2023.09.25.05.36.30
+        for <ham@ham.email>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Sep 2023 05:36:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+794683-1882-receiver=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) client-ip=50.31.42.215;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@overleaf.com header.s=s1 header.b=nE44G84G;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="V/Lero5f";
+       spf=pass (google.com: domain of bounces+794683-1882-receiver=gmail.com@email.overleaf.com designates 50.31.42.215 as permitted sender) smtp.mailfrom="bounces+794683-1882-receiver=gmail.com@email.overleaf.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=overleaf.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=overleaf.com; h=content-type:from:subject:mime-version:reply-to:x-feedback-id:to:cc: content-type:from:subject:to; s=s1; bh=rfSE6+FMwSDs90iuZvmFfnK6Ya/uuN66RgmvOHg5pkM=; b=nE44G84GgUCTZIrtRIqzDGW/p3jfJd0ORFFkMWYS7W3LvXMrJ1yoI8jG4M4pzxlle8tz ZrrkghBiXC4gLISJ2w2jImOoHmbmToi+lVdfXNOuUn8utdFBoQtf+3T2fkjOCnv7BkbrLq Pe4iVLKdXGM6bG/ZCTlme2ipDXimZCCT0Rs6Y7dR8Ik26tjTBr6lUERtjgRjIPNxj1v9SJ i7GfQWHlxkPWjHMZU7s71dpTiitJmJ8av7zKTPgHxiq913sizEbc7t1UCRqVtcXuYrZB8o 0VC7qbLJhcFO2dBl+v7SoLDVw+tWAPpr8DFKoFHRbOYIyDDIByTHYAHpkRlEefTQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:subject:mime-version:reply-to:x-feedback-id:to:cc: content-type:from:subject:to; s=smtpapi; bh=rfSE6+FMwSDs90iuZvmFfnK6Ya/uuN66RgmvOHg5pkM=; b=V/Lero5fGeYRmQESZvEays6qNZJwuQr91LpIigj6tDlw2/bVRxkIy6B1ci/BTqEuZU2Y 21U6TdHZ2AgU8ReQz4/mOh7HISmh+3fyC0oB70yZKN0C9cTNLTakjBWjyz+lmQ8IXmFE3A knHM0LR2jFBdWN+h9g7P8XYGkKAfQbwyY=
+Received: by filterdrecv-6d7bd854f-qkhqb with SMTP id filterdrecv-6d7bd854f-qkhqb-1-65117ECD-4A
+        2023-09-25 12:36:29.825754054 +0000 UTC m=+11883487.651120203
+Received: from [127.0.0.1] (unknown) by geopod-ismtpd-21 (SG) with ESMTP id RqZ9MRumSuCySWwtrO1pVw for <ham@ham.email>; Mon, 25 Sep 2023 12:36:29.713 +0000 (UTC)
+Content-Type: multipart/alternative; boundary="--_NmP-655debe3093a1bdc-Part_1"
+From: Overleaf <welcome@overleaf.com>
+Subject: "EI2024-Secure University (Istanbul)" — shared by creutzburg@th-brandenburg.de
+Message-ID: <de332603-8459-aa20-498e-d10b9cf67491@overleaf.com>
+Date: Mon, 25 Sep 2023 12:36:29 +0000 (UTC)
+MIME-Version: 1.0
+Reply-To: creutzburg@th-brandenburg.de
+X-Feedback-ID: 794683:SG
+X-SG-EID: Cx1HqKKCEY65GkidJhReclwsYUO4vv0JvMlRqyTmp+QUa0xBjGyq7EI7TtVo8xvFuPr90XXiB+kw2c1COrNrgJdlgsPbSKhx/HrbM0g2ErT4pJ2vxbMji2/zWYAs74m036vnj1z9f+kveYkKD7pBjp1li4EOq1+YhdORniQj1/CYapaRX4TPHjgrxUbXf/s/o7xliPc2/NR2n5z0Czj/3E3Fx+0vzhFj3EZ91ynYQS+B54K02jIhad5Omd/Qk5wm
+To: ham@ham.email
+X-Entity-ID: mLZpemy74RikkufNtpi63w==
+
+----_NmP-655debe3093a1bdc-Part_1
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+
+
+You have been invited to an Overleaf project.
+
+ Project:
+
+EI2024-Secure University (Istanbul)
+
+ Shared by:
+
+creutzburg@th-brandenburg.de
+
+View project: https://www.overleaf.com/project/65117d4e16ece438b00c7338/inv=
+ite/token/91c0e4bf3c30ef1840c9d56fc42f51d296c9d9e221833337?project_name=3DE=
+I2024-Secure%20University%20(Istanbul)&user_first_name=3DReiner
+
+Regards,
+The Overleaf Team - https://www.overleaf.com
+----_NmP-655debe3093a1bdc-Part_1
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" xml:lang=3D"en" st=
+yle=3D"Margin: 0; background: #E4E8EE !important; margin: 0; min-height: 10=
+0%; padding: 0;">
+=09<head>
+=09=09<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+=09=09<meta name=3D"viewport" content=3D"width=3Ddevice-width">
+=09=09<style>.button td {
+=09border-radius: 9999px; }
+
+.force-overleaf-style a,
+.force-overleaf-style a[href] {
+=09color: #138A07 !important;
+=09text-decoration: none !important;
+=09-moz-hyphens: none;
+=09-ms-hyphens: none;
+=09-webkit-hyphens: none;
+=09hyphens: none; }
+=09.force-overleaf-style a:visited,
+=09.force-overleaf-style a[href]:visited {
+=09=09color: #138A07; }
+=09.force-overleaf-style a:hover,
+=09.force-overleaf-style a[href]:hover {
+=09=09color: #3d7935; }
+=09.force-overleaf-style a:active,
+=09.force-overleaf-style a[href]:active {
+=09=09color: #3d7935; }
+</style>
+=09=09<style>@media only screen {
+=09html {
+=09=09min-height: 100%;
+=09=09background: #f6f6f6;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09.small-float-center {
+=09=09margin: 0 auto !important;
+=09=09float: none !important;
+=09=09text-align: center !important;
+=09}
+
+=09.small-text-center {
+=09=09text-align: center !important;
+=09}
+
+=09.small-text-left {
+=09=09text-align: left !important;
+=09}
+
+=09.small-text-right {
+=09=09text-align: right !important;
+=09}
+
+=09.cta-table {
+=09=09table-layout: fixed;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09.hide-for-large {
+=09=09display: block !important;
+=09=09width: auto !important;
+=09=09overflow: visible !important;
+=09=09max-height: none !important;
+=09=09font-size: inherit !important;
+=09=09line-height: inherit !important;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09table.body table.container .hide-for-large,
+=09table.body table.container .row.hide-for-large {
+=09=09display: table !important;
+=09=09width: 100% !important;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09table.body table.container .callout-inner.hide-for-large {
+=09=09display: table-cell !important;
+=09=09width: 100% !important;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09table.body table.container .show-for-large {
+=09=09display: none !important;
+=09=09width: 0;
+=09=09mso-hide: all;
+=09=09overflow: hidden;
+=09}
+}
+
+@media only screen and (max-width: 596px) {
+=09table.body img {
+=09=09width: auto;
+=09=09height: auto;
+=09}
+
+=09table.body center {
+=09=09min-width: 0 !important;
+=09}
+
+=09table.body .container {
+=09=09width: 95% !important;
+=09}
+
+=09table.body .columns,
+=09table.body .column {
+=09=09height: auto !important;
+=09=09-moz-box-sizing: border-box;
+=09=09-webkit-box-sizing: border-box;
+=09=09box-sizing: border-box;
+=09=09padding-left: 16px !important;
+=09=09padding-right: 16px !important;
+=09}
+
+=09table.body .columns .column,
+=09table.body .columns .columns,
+=09table.body .column .column,
+=09table.body .column .columns {
+=09=09padding-left: 0 !important;
+=09=09padding-right: 0 !important;
+=09}
+
+=09table.body .collapse .columns,
+=09table.body .collapse .column {
+=09=09padding-left: 0 !important;
+=09=09padding-right: 0 !important;
+=09}
+
+=09td.small-1,
+=09th.small-1 {
+=09=09display: inline-block !important;
+=09=09width: 8.33333% !important;
+=09}
+
+=09td.small-2,
+=09th.small-2 {
+=09=09display: inline-block !important;
+=09=09width: 16.66667% !important;
+=09}
+
+=09td.small-3,
+=09th.small-3 {
+=09=09display: inline-block !important;
+=09=09width: 25% !important;
+=09}
+
+=09td.small-4,
+=09th.small-4 {
+=09=09display: inline-block !important;
+=09=09width: 33.33333% !important;
+=09}
+
+=09td.small-5,
+=09th.small-5 {
+=09=09display: inline-block !important;
+=09=09width: 41.66667% !important;
+=09}
+
+=09td.small-6,
+=09th.small-6 {
+=09=09display: inline-block !important;
+=09=09width: 50% !important;
+=09}
+
+=09td.small-7,
+=09th.small-7 {
+=09=09display: inline-block !important;
+=09=09width: 58.33333% !important;
+=09}
+
+=09td.small-8,
+=09th.small-8 {
+=09=09display: inline-block !important;
+=09=09width: 66.66667% !important;
+=09}
+
+=09td.small-9,
+=09th.small-9 {
+=09=09display: inline-block !important;
+=09=09width: 75% !important;
+=09}
+
+=09td.small-10,
+=09th.small-10 {
+=09=09display: inline-block !important;
+=09=09width: 83.33333% !important;
+=09}
+
+=09td.small-11,
+=09th.small-11 {
+=09=09display: inline-block !important;
+=09=09width: 91.66667% !important;
+=09}
+
+=09td.small-12,
+=09th.small-12 {
+=09=09display: inline-block !important;
+=09=09width: 100% !important;
+=09}
+
+=09.columns td.small-12,
+=09.column td.small-12,
+=09.columns th.small-12,
+=09.column th.small-12 {
+=09=09display: block !important;
+=09=09width: 100% !important;
+=09}
+
+=09table.body td.small-offset-1,
+=09table.body th.small-offset-1 {
+=09=09margin-left: 8.33333% !important;
+=09=09Margin-left: 8.33333% !important;
+=09}
+
+=09table.body td.small-offset-2,
+=09table.body th.small-offset-2 {
+=09=09margin-left: 16.66667% !important;
+=09=09Margin-left: 16.66667% !important;
+=09}
+
+=09table.body td.small-offset-3,
+=09table.body th.small-offset-3 {
+=09=09margin-left: 25% !important;
+=09=09Margin-left: 25% !important;
+=09}
+
+=09table.body td.small-offset-4,
+=09table.body th.small-offset-4 {
+=09=09margin-left: 33.33333% !important;
+=09=09Margin-left: 33.33333% !important;
+=09}
+
+=09table.body td.small-offset-5,
+=09table.body th.small-offset-5 {
+=09=09margin-left: 41.66667% !important;
+=09=09Margin-left: 41.66667% !important;
+=09}
+
+=09table.body td.small-offset-6,
+=09table.body th.small-offset-6 {
+=09=09margin-left: 50% !important;
+=09=09Margin-left: 50% !important;
+=09}
+
+=09table.body td.small-offset-7,
+=09table.body th.small-offset-7 {
+=09=09margin-left: 58.33333% !important;
+=09=09Margin-left: 58.33333% !important;
+=09}
+
+=09table.body td.small-offset-8,
+=09table.body th.small-offset-8 {
+=09=09margin-left: 66.66667% !important;
+=09=09Margin-left: 66.66667% !important;
+=09}
+
+=09table.body td.small-offset-9,
+=09table.body th.small-offset-9 {
+=09=09margin-left: 75% !important;
+=09=09Margin-left: 75% !important;
+=09}
+
+=09table.body td.small-offset-10,
+=09table.body th.small-offset-10 {
+=09=09margin-left: 83.33333% !important;
+=09=09Margin-left: 83.33333% !important;
+=09}
+
+=09table.body td.small-offset-11,
+=09table.body th.small-offset-11 {
+=09=09margin-left: 91.66667% !important;
+=09=09Margin-left: 91.66667% !important;
+=09}
+
+=09table.body table.columns td.expander,
+=09table.body table.columns th.expander {
+=09=09display: none !important;
+=09}
+
+=09table.body .right-text-pad,
+=09table.body .text-pad-right {
+=09=09padding-left: 10px !important;
+=09}
+
+=09table.body .left-text-pad,
+=09table.body .text-pad-left {
+=09=09padding-right: 10px !important;
+=09}
+
+=09table.menu {
+=09=09width: 100% !important;
+=09}
+
+=09table.menu td,
+=09table.menu th {
+=09=09width: auto !important;
+=09=09display: inline-block !important;
+=09}
+
+=09table.menu.vertical td,
+=09table.menu.vertical th,
+=09table.menu.small-vertical td,
+=09table.menu.small-vertical th {
+=09=09display: block !important;
+=09}
+
+=09table.menu[align=3D"center"] {
+=09=09width: auto !important;
+=09}
+
+=09table.button.small-expand,
+=09table.button.small-expanded {
+=09=09width: 100% !important;
+=09}
+
+=09table.button.small-expand table,
+=09table.button.small-expanded table {
+=09=09width: 100%;
+=09}
+
+=09table.button.small-expand table a,
+=09table.button.small-expanded table a {
+=09=09text-align: center !important;
+=09=09width: 100% !important;
+=09=09padding-left: 0 !important;
+=09=09padding-right: 0 !important;
+=09}
+
+=09table.button.small-expand center,
+=09table.button.small-expanded center {
+=09=09min-width: 0;
+=09}
+}</style>
+=09</head>
+=09<body leftmargin=3D"0" topmargin=3D"0" marginwidth=3D"0" marginheight=3D=
+"0" bgcolor=3D"#F6F6F6" style=3D"-moz-box-sizing: border-box; -ms-text-size=
+-adjust: 100%; -webkit-box-sizing: border-box; -webkit-text-size-adjust: 10=
+0%; Margin: 0; box-sizing: border-box; color: #5D6879; font-family: Helveti=
+ca, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1=
+.3; margin: 0; min-width: 100%; padding: 0; text-align: left; width: 100% !=
+important;">
+=09=09<!-- <span class=3D"preheader"></span> -->
+=09=09<table class=3D"body" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%" height=3D"100%" style=3D"Margin: 0; background: #E4E8EE; b=
+order-collapse: collapse; border-spacing: 0; color: #5D6879; font-family: H=
+elvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; height: =
+100%; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-a=
+lign: top; width: 100%;">
+=09=09=09<tr style=3D"padding: 0; text-align: left; vertical-align: top;">
+=09=09=09=09<td class=3D"body-cell" align=3D"center" valign=3D"top" bgcolor=
+=3D"#F6F6F6" style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0;=
+ background: #E4E8EE !important; border-collapse: collapse !important; colo=
+r: #5D6879; font-family: Helvetica, Arial, sans-serif; font-size: 16px; fon=
+t-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; p=
+adding-bottom: 20px; text-align: left; vertical-align: top; word-wrap: brea=
+k-word;">
+=09=09=09=09=09<center data-parsed=3D"" style=3D"min-width: 580px; width: 1=
+00%;">
+
+=09=09=09=09=09=09<table align=3D"center" class=3D"wrapper header float-cen=
+ter" style=3D"Margin: 0 auto; background: #1E2530; border-bottom: none; bor=
+der-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; pad=
+ding: 0; text-align: center; vertical-align: top; width: 100%;"><tr style=
+=3D"padding: 0; text-align: left; vertical-align: top;"><td class=3D"wrappe=
+r-inner" style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; bor=
+der-collapse: collapse !important; color: #5D6879; font-family: Helvetica, =
+Arial, sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; lin=
+e-height: 1.3; margin: 0; padding: 20px; text-align: left; vertical-align: =
+top; word-wrap: break-word;">
+=09=09=09=09=09=09=09<table align=3D"center" class=3D"container" style=3D"M=
+argin: 0 auto; background: transparent; border-collapse: collapse; border-s=
+pacing: 0; margin: 0 auto; padding: 0; text-align: inherit; vertical-align:=
+ top; width: 580px;"><tbody><tr style=3D"padding: 0; text-align: left; vert=
+ical-align: top;"><td style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; M=
+argin: 0; border-collapse: collapse !important; color: #5D6879; font-family=
+: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; hyphe=
+ns: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertic=
+al-align: top; word-wrap: break-word;">
+=09=09=09=09=09=09=09<table class=3D"row collapse" style=3D"border-collapse=
+: collapse; border-spacing: 0; display: table; padding: 0; position: relati=
+ve; text-align: left; vertical-align: top; width: 100%;"><tbody><tr style=
+=3D"padding: 0; text-align: left; vertical-align: top;">
+=09=09=09=09=09=09=09=09<th class=3D"small-12 large-12 columns first last" =
+style=3D"Margin: 0 auto; color: #5D6879; font-family: Helvetica, Arial, san=
+s-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0 =
+auto; padding: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; tex=
+t-align: left; width: 588px;"><table style=3D"border-collapse: collapse; bo=
+rder-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: =
+100%;"><tr style=3D"padding: 0; text-align: left; vertical-align: top;"><th=
+ style=3D"Margin: 0; color: #5D6879; font-family: Helvetica, Arial, sans-se=
+rif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; pad=
+ding: 0; text-align: left;">
+=09=09=09=09=09=09=09=09<h1 style=3D"Margin: 0; Margin-bottom: px; color: #=
+FFFFFF; font-family: Georgia, serif; font-size: 30px; font-weight: normal; =
+line-height: 1.3; margin: 0; margin-bottom: px; padding: 0; text-align: lef=
+t; word-wrap: normal;">
+=09=09=09=09=09=09=09=09=09Overleaf
+=09=09=09=09=09=09=09=09</h1>
+=09=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09=09<th class=3D"expander" style=3D"Margin: 0; color: #=
+5D6879; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-we=
+ight: normal; line-height: 1.3; margin: 0; padding: 0 !important; text-alig=
+n: left; visibility: hidden; width: 0;"></th></tr></table></th>
+=09=09=09=09=09=09=09</tr></tbody></table>
+=09=09=09=09=09=09=09</td></tr></tbody></table>
+=09=09=09=09=09=09</td></tr></table>
+=09=09=09=09=09=09<table class=3D"spacer float-center" style=3D"Margin: 0 a=
+uto; border-collapse: collapse; border-spacing: 0; float: none; margin: 0 a=
+uto; padding: 0; text-align: center; vertical-align: top; width: 100%;"><tb=
+ody><tr style=3D"padding: 0; text-align: left; vertical-align: top;"><td he=
+ight=3D"20px" style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0=
+; border-collapse: collapse !important; color: #5D6879; font-family: Helvet=
+ica, Arial, sans-serif; font-size: 20px; font-weight: normal; hyphens: auto=
+; line-height: 20px; margin: 0; mso-line-height-rule: exactly; padding: 0; =
+text-align: left; vertical-align: top; word-wrap: break-word;">&#xA0;</td><=
+/tr></tbody></table>
+=09=09=09=09=09=09<table align=3D"center" class=3D"container main float-cen=
+ter" style=3D"Margin: 0 auto; Margin-top: 10px; background: #FFFFFF; border=
+-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; margin=
+-top: 10px; padding: 0; text-align: center; vertical-align: top; width: 580=
+px;"><tbody><tr style=3D"padding: 0; text-align: left; vertical-align: top;=
+"><td style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border=
+-collapse: collapse !important; color: #5D6879; font-family: Helvetica, Ari=
+al, sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-h=
+eight: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; w=
+ord-wrap: break-word;">
+=09=09=09=09=09=09=09<table class=3D"spacer" style=3D"border-collapse: coll=
+apse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top;=
+ width: 100%;"><tbody><tr style=3D"padding: 0; text-align: left; vertical-a=
+lign: top;"><td height=3D"20px" style=3D"-moz-hyphens: auto; -webkit-hyphen=
+s: auto; Margin: 0; border-collapse: collapse !important; color: #5D6879; f=
+ont-family: Helvetica, Arial, sans-serif; font-size: 20px; font-weight: nor=
+mal; hyphens: auto; line-height: 20px; margin: 0; mso-line-height-rule: exa=
+ctly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-w=
+ord;">&#xA0;</td></tr></tbody></table>
+
+=09=09=09=09=09=09=09=09<table class=3D"row" style=3D"border-collapse: coll=
+apse; border-spacing: 0; display: table; padding: 0; position: relative; te=
+xt-align: left; vertical-align: top; width: 100%;">
+=09=09<tbody>
+=09=09=09<tr style=3D"padding: 0; vertical-align: top;">
+=09=09=09=09<th class=3D"small-12 columns" style=3D"line-height: 1.3; margi=
+n: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-ri=
+ght: 16px; text-align: left;">
+=09=09=09=09=09<table class=3D"cta-table" style=3D"border-collapse: collaps=
+e; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; wi=
+dth: 100%; color: #5D6879; font-family: Helvetica, Arial, sans-serif; font-=
+size: 16px; font-weight: normal; line-height: 1.3;">
+=09=09=09=09=09=09<tr style=3D"padding: 0; text-align: left; vertical-align=
+: top;">
+=09=09=09=09=09=09=09<th style=3D"margin: 0; padding: 0; text-align: left;"=
+>
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09<h3 class=3D"force-overleaf-style" style=3D"marg=
+in: 0; color: #5D6879; font-family: Georgia, serif; font-size: 24px; font-w=
+eight: normal; line-height: 1.3; padding: 0; text-align: left; word-wrap: n=
+ormal;">
+=09=09=09=09=09=09=09=09=09=09Project Invite
+=09=09=09=09=09=09=09=09=09</h3>
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09</th>
+=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09<td>
+=09=09=09=09=09=09=09=09=09<p style=3D"height: 20px; margin: 0; padding: 0;=
+">&#xA0;</p>
+
+=09=09=09=09=09=09=09=09=09
+
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"ma=
+rgin: 0 0 10px 0; padding: 0;">
+=09=09=09=09=09=09=09=09=09=09=09You have been invited to an Overleaf proje=
+ct.
+=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"ma=
+rgin: 0 0 10px 0; padding: 0;">
+=09=09=09=09=09=09=09=09=09=09=09<br /> Project:
+=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"ma=
+rgin: 0 0 10px 0; padding: 0;">
+=09=09=09=09=09=09=09=09=09=09=09<b>EI2024-Secure University (Istanbul)</b>
+=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"ma=
+rgin: 0 0 10px 0; padding: 0;">
+=09=09=09=09=09=09=09=09=09=09=09<br /> Shared by:
+=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"ma=
+rgin: 0 0 10px 0; padding: 0;">
+=09=09=09=09=09=09=09=09=09=09=09<b>creutzburg@th-brandenburg.de</b>
+=09=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09=09
+
+=09=09=09=09=09=09=09=09=09<p style=3D"margin: 0; padding: 0;">&#xA0;</p>
+
+=09=09=09=09=09=09=09=09=09<table style=3D"border-collapse: collapse; borde=
+r-spacing: 0; float: none; margin: 0 auto; padding: 0; text-align: center; =
+vertical-align: top; width: auto;">
+=09=09=09=09=09=09=09=09=09=09<tr style=3D"padding: 0; text-align: left; ve=
+rtical-align: top;">
+=09=09=09=09=09=09=09=09=09=09=09<td style=3D"-moz-hyphens: auto; -webkit-h=
+yphens: auto; border-collapse: collapse !important; border-radius: 9999px; =
+color: #5D6879; font-family: Helvetica, Arial, sans-serif; font-size: 16px;=
+ font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: =
+0; text-align: left; vertical-align: top; word-wrap: break-word;">
+=09=09=09=09=09=09=09=09=09=09=09=09<table style=3D"border-collapse: collap=
+se; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; w=
+idth: 100%;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09<tr style=3D"padding: 0; text-align:=
+ left; vertical-align: top;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"-moz-hyphens: auto; =
+-webkit-hyphens: auto; background: #4F9C45; border: none; border-collapse: =
+collapse !important; border-radius: 9999px; color: #fefefe; font-family: He=
+lvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; hyphens: =
+auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-a=
+lign: top; word-wrap: break-word;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<a href=3D"https://www.overlea=
+f.com/project/65117d4e16ece438b00c7338/invite/token/91c0e4bf3c30ef1840c9d56=
+fc42f51d296c9d9e221833337?project_name=3DEI2024-Secure%20University%20(Ista=
+nbul)&user_first_name=3DReiner" style=3D"border: 0 solid #4F9C45; border-ra=
+dius: 9999px; color: #fefefe; display: inline-block; font-family: Helvetica=
+, Arial, sans-serif; font-size: 16px; font-weight: bold; line-height: 1.3; =
+margin: 0; padding: 8px 16px 8px 16px; text-align: left; text-decoration: n=
+one;">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09View project
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09</a>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09
+
+=09=09=09=09=09=09=09=09=09<p style=3D"margin: 0; padding: 0;">&#xA0;</p>
+
+=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"font-=
+size: 12px;">
+=09=09=09=09=09=09=09=09=09=09If the button above does not appear, please c=
+opy and paste this link into your browser's address bar:
+=09=09=09=09=09=09=09=09=09</p>
+
+=09=09=09=09=09=09=09=09=09<p class=3D"force-overleaf-style" style=3D"font-=
+size: 12px;">
+=09=09=09=09=09=09=09=09=09=09https://www.overleaf.com/project/65117d4e16ec=
+e438b00c7338/invite/token/91c0e4bf3c30ef1840c9d56fc42f51d296c9d9e221833337?=
+project_name=3DEI2024-Secure%20University%20(Istanbul)&user_first_name=3DRe=
+iner
+=09=09=09=09=09=09=09=09=09</p>
+=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</tr>
+=09=09=09=09=09</table>
+=09=09=09=09</th>
+=09=09=09</tr>
+=09=09</tbody>
+=09</table>
+=09
+=09=09<script type=3D"application/ld+json">
+=09=09=09{"@context":"http://schema.org","@type":"EmailMessage","potentialA=
+ction":{"@type":"ViewAction","target":"https://www.overleaf.com/project/651=
+17d4e16ece438b00c7338/invite/token/91c0e4bf3c30ef1840c9d56fc42f51d296c9d9e2=
+21833337?project_name=3DEI2024-Secure%20University%20(Istanbul)\u0026user_f=
+irst_name=3DReiner","url":"https://www.overleaf.com/project/65117d4e16ece43=
+8b00c7338/invite/token/91c0e4bf3c30ef1840c9d56fc42f51d296c9d9e221833337?pro=
+ject_name=3DEI2024-Secure%20University%20(Istanbul)\u0026user_first_name=3D=
+Reiner","name":"View project"},"description":"Join EI2024-Secure University=
+ (Istanbul) at Overleaf"}
+=09=09</script>
+=09
+
+
+=09=09=09=09=09=09=09<table class=3D"wrapper secondary" align=3D"center" st=
+yle=3D"background: #E4E8EE; border-collapse: collapse; border-spacing: 0; p=
+adding: 0; text-align: left; vertical-align: top; width: 100%;"><tr style=
+=3D"padding: 0; text-align: left; vertical-align: top;"><td class=3D"wrappe=
+r-inner" style=3D"-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; bor=
+der-collapse: collapse !important; color: #5D6879; font-family: Helvetica, =
+Arial, sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; lin=
+e-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top=
+; word-wrap: break-word;">
+=09=09=09=09=09=09=09=09<table class=3D"spacer" style=3D"border-collapse: c=
+ollapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: t=
+op; width: 100%;"><tbody><tr style=3D"padding: 0; text-align: left; vertica=
+l-align: top;"><td height=3D"10px" style=3D"-moz-hyphens: auto; -webkit-hyp=
+hens: auto; Margin: 0; border-collapse: collapse !important; color: #5D6879=
+; font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: =
+normal; hyphens: auto; line-height: 10px; margin: 0; mso-line-height-rule: =
+exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: brea=
+k-word;">&#xA0;</td></tr></tbody></table>
+=09=09=09=09=09=09=09=09<p style=3D"Margin: 0; Margin-bottom: 10px; color: =
+#5D6879; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-w=
+eight: normal; line-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0=
+; text-align: left;"><small style=3D"color: #5D6879; font-size: 80%;">
+=09=09=09=09=09=09=09=09=09Overleaf &bull; <a href=3D"https://www.overleaf.=
+com" style=3D"Margin: 0; color: #0F7A06; font-family: Helvetica, Arial, san=
+s-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text=
+-align: left; text-decoration: none;">https://www.overleaf.com</a>
+=09=09=09=09=09=09=09=09</small></p>
+=09=09=09=09=09=09=09</td></tr></table>
+=09=09=09=09=09=09</td></tr></tbody></table>
+
+=09=09=09=09=09</center>
+=09=09=09=09</td>
+=09=09=09</tr>
+=09=09</table>
+=09=09<!-- prevent Gmail on iOS font size manipulation -->
+=09<div style=3D"display:none; white-space:nowrap; font:15px courier; line-=
+height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </d=
+iv>
+=09<img src=3D"http://email-link.overleaf.com/wf/open?upn=3DMDU2md1HVS54D49=
+URZ7w7s7aC04KNZL2ptLQhicU2uw8e1rrLSdli3Sy3fyRTIV2aAHGQhfOJ0lHvDviZKHvSoLUjH=
+kCse4VXO2HQRF5Ghsr2BR9cZWnLbhJgeP3n9yCqUiZTJ4Dxv1nV5r9A4lFp5-2B4xl-2B4-2Bg-=
+2BYBp-2BuKLW2LDjktN3qpc37uAf2ePNPRYvLC-2BeYvYL4gxzd-2BulKV7uxVWMdlnOuHkAaUT=
+z2-2B2aH91o-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"hei=
+ght:1px !important;width:1px !important;border-width:0 !important;margin-to=
+p:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-=
+left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padd=
+ing-right:0 !important;padding-left:0 !important;"/></body>
+</html>
+----_NmP-655debe3093a1bdc-Part_1--

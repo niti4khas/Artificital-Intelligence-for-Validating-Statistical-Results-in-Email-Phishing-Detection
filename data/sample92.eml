@@ -1,0 +1,55 @@
+Return-Path: <support@tik.toyota-industries.com>
+X-Original-To: honey@pot
+Delivered-To: honey@pot
+Received: from WIN-344VU98D3RU (unknown [94.131.99.130]) by mailin024.protonmail.ch
+ (Postfix) with ESMTP id 4RHCtq44RPz9vNPQ for <honey@pot>; Fri,
+  4 Aug 2023 04:49:55 +0000 (UTC)
+Received: from 127.0.0.1 ([127.0.0.1]) by WIN-344VU98D3RU with Microsoft
+ SMTPSVC(8.5.9600.16384);
+  Fri, 4 Aug 2023 04:49:48 -0700
+Authentication-Results: mailin024.protonmail.ch; dmarc=none (p=none dis=none)
+ header.from=tik.toyota-industries.com
+Authentication-Results: mailin024.protonmail.ch; spf=none
+ smtp.mailfrom=tik.toyota-industries.com
+Authentication-Results: mailin024.protonmail.ch; arc=none smtp.remote-ip=94.131.99.130
+Authentication-Results: mailin024.protonmail.ch; dkim=none
+From: proton.me
+  <support@tik.toyota-industries.com>
+To: honey@pot
+Subject: Suspension Notice honey@pot
+Date: 04 Aug 2023 04:49:47 -0700
+Message-Id: <20230804044947.845B5C48928233AF@tik.toyota-industries.com>
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=---------------------93a31dba29f7aab1470348ecd0128a57
+Content-Transfer-Encoding: quoted-printable
+X-Originalarrivaltime: 04 Aug 2023 11:49:48.0459 (UTC) FILETIME=[C5465FB0:01D9C6C9]
+X-Rspamd-Queue-Id: 4RHCtq44RPz9vNPQ
+X-Rspamd-Server: cp3-mailin-024.plabs.ch
+X-Spamd-Result: default: False [24.05 / 25.00]; SPAMHAUS_ZEN(7.00)[94.131.99.130:from];
+ INVALUEMENT_SIP_SUBNETS(6.00)[94.131.99.130:from]; DATE_IN_FUTURE(4.00)[6];
+ HFILTER_HELO_5(3.00)[WIN-344VU98D3RU]; HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+ AUTH_NA(1.00)[]; MIME_HTML_ONLY(0.20)[]; RCVD_NO_TLS_LAST(0.10)[];
+ ONCE_RECEIVED(0.10)[]; ZERO_FONT(0.10)[1]; MANY_INVISIBLE_PARTS(0.05)[1];
+ BAYES_SPAM(0.00)[34.44%]; R_DKIM_NA(0.00)[]; RCPT_COUNT_ONE(0.00)[1];
+ RCVD_COUNT_ONE(0.00)[1]; NEURAL_SPAM(0.00)[0.897]; R_SPF_NA(0.00)[no SPF record];
+ TO_DN_NONE(0.00)[]; ASN(0.00)[asn:44477, ipnet:94.131.99.0/24, country:GB];
+ DMARC_NA(0.00)[toyota-industries.com]; FROM_EQ_ENVFROM(0.00)[]; MIME_TRACE(0.00)[0:~];
+ TO_MATCH_ENVRCPT_ALL(0.00)[]; ARC_NA(0.00)[]; FROM_HAS_DN(0.00)[];
+ MID_RHS_MATCH_FROM(0.00)[]
+X-Rspamd-Action: add header
+X-Spam: Yes
+X-Pm-Spam: 0yezJI6cihyJeYR3pi42biOwJlzaGuGlaZIysyNnIWaiQI2OijGNNOMD30QGNGZxU
+ ViZWhGVNNNjliEDMCLyJxldWijoINIj0lRDNWZyUY3YzmmNMNMm2jNTMzMhZ19In
+X-Pm-Origin: external
+X-Pm-Transfer-Encryption: none
+X-Pm-Content-Encryption: on-delivery
+X-Pm-Spamscore: 0
+X-Pm-Spam-Action: phishing
+
+-----------------------93a31dba29f7aab1470348ecd0128a57
+Content-Type: multipart/related;boundary=---------------------641ab9e5f8a293a25bacfa790ff7e9b9
+
+-----------------------641ab9e5f8a293a25bacfa790ff7e9b9
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: base64
+

@@ -1,0 +1,931 @@
+Delivered-To: ham@ham.email
+Received: by 2002:adf:cf0c:0:b0:382:1ad3:a17b with SMTP id o12csp1329074wrj;
+        Mon, 25 Nov 2024 23:55:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGeUaQhQ4vl9jTTwTiQdP+eeI3YL/0t5q4x/2kLGlT85cDxfIvo79irT6x+ftaXNa2qwKzH
+X-Received: by 2002:a05:651c:889:b0:2fb:4b40:1e18 with SMTP id 38308e7fff4ca-2ffa716d35amr75184921fa.13.1732607726673;
+        Mon, 25 Nov 2024 23:55:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1732607726; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RJAuV9BPm8TLn2QmDRUEfU6xN2YJ2QioLFF+w9q93j7lVrRJiiWEGneaqSPB6NWIt+
+         coGBVeJTPErfqAtaXDFv9kaOlTOCemgwGlh+zPy0eXtjlVBLpdAi/VkkCNvIdSV8xnj9
+         Hvx/ZUARuuj0tAp3IiZeu03Ih7u6pv+1v+kBIj4GcYgydQo0dWa6nvnkIPxVEphf/1nv
+         fO4Ph4ofnnVvN6yXVG2wwyJX+JlQSQi4Pe8LjsqwFlbAWImdenG2eCW0R1jqMhgzFHOq
+         jOzCGqhx+KZa6txIBVmikxao2COu0uTSC1UkxOF1agpyO5ElQU5vPmm4XcDKWcdiIDaA
+         zDPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:reply-to:precedence:list-unsubscribe
+         :list-unsubscribe-post:feedback-id:message-id:date:to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=Q29/2odmM1auT1o8yi0Qzn+YFu82rfdynViK0rtyKyo=;
+        fh=UO+8zkL5arLMEKEfMlhQPSdFGnl9FeueH899m26O7Rs=;
+        b=jOR2n3T3LcO18bkvnPbbI1LOWdNTjANAKzUmi1wW4rLDpUspPsPd7CFGD7dUg99vFr
+         sMWvyg8hNjPEiJ0qD+WF5i25o1UvcCBt+8XENivlSvcv1LCRPyaty5+dJdKLg4NsBtp6
+         cd4fd4rPXcoPOqdjj71FyU5j5UPArXxJVP7GI2wod3M2NcTKMmYOPhiLFQO99ud5AzMw
+         REZw7G0fBsH9x/zX8dBf4nevhXBfddvxN5UUSKxbxDHbT0oX52Sws3dOWdBVZQC2gICC
+         Qp7IP+fdh/KBacQQqKhI08MI5BHmk7+JSn7H4vr9zRvLsnp8CW2lEfifbg09z6oHnYVv
+         yMMQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@simplegermany.com header.s=litesrv header.b=JdHJkwxX;
+       dkim=pass header.i=@mlsend.com header.s=litesrv header.b=QxEi6s2C;
+       spf=pass (google.com: domain of bounce-139049272725210765a906047@mlsend.com designates 185.225.161.44 as permitted sender) smtp.mailfrom=bounce-139049272725210765a906047@mlsend.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=simplegermany.com
+Return-Path: <bounce-139049272725210765a906047@mlsend.com>
+Received: from mail044.mlsend.com (mail044.mlsend.com. [185.225.161.44])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5d0677604f3si1081980a12.267.2024.11.25.23.55.26
+        for <sminhaz18061997@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Nov 2024 23:55:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-139049272725210765a906047@mlsend.com designates 185.225.161.44 as permitted sender) client-ip=185.225.161.44;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@simplegermany.com header.s=litesrv header.b=JdHJkwxX;
+       dkim=pass header.i=@mlsend.com header.s=litesrv header.b=QxEi6s2C;
+       spf=pass (google.com: domain of bounce-139049272725210765a906047@mlsend.com designates 185.225.161.44 as permitted sender) smtp.mailfrom=bounce-139049272725210765a906047@mlsend.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=simplegermany.com
+DKIM-Signature: a=rsa-sha256; bh=Q29/2odmM1auT1o8yi0Qzn+YFu82rfdynViK0rtyKyo=;
+ c=relaxed/relaxed; d=simplegermany.com;
+ h=DKIM-Signature:X-Mailer-Info:Subject:From:To:Date:Message-ID:x-mailer-recipientid:Feedback-ID:List-Unsubscribe-Post:List-Unsubscribe:Precedence:X-Mailru-Msgtype:X-CampaignID:reply-to:MIME-Version:Content-Type;
+ s=litesrv; t=1732607720; v=1;
+ b=JdHJkwxXAD05+qoTi1SjujPsYTMlyynSfJhlIpyGYgGbXGewgKx78GGUr4INyKdmZ5WQKA7m
+ ACBnB//hwDHoAKMLatPRtlCQrUXeEx+I8PYYz60DkCDQq9Y+ogGKchMUvUTzx+R+u8dx9z4DAJ7
+ 4omzobM870rc39tEWrG6FfYw=
+DKIM-Signature: a=rsa-sha256; bh=Q29/2odmM1auT1o8yi0Qzn+YFu82rfdynViK0rtyKyo=;
+ c=relaxed/relaxed; d=mlsend.com;
+ h=X-Mailer-Info:Subject:From:To:Date:Message-ID:x-mailer-recipientid:Feedback-ID:List-Unsubscribe-Post:List-Unsubscribe:Precedence:X-Mailru-Msgtype:X-CampaignID:reply-to:MIME-Version:Content-Type;
+ s=litesrv; t=1732607720; v=1;
+ b=QxEi6s2Cv+Gvp+xfjwjfQmK4uU4LJG6EQj5k2kTmiMmUP3JQv6GfBLL5In3RexuW2LO4K0wn
+ ksxxN+BzdJCMeLRvYe3+0tEWXDHp1KpWWEEmtVVqhS43gWGdwV8d3prw3GKFhepfxf6MoKUWC/u
+ nG+TS8xFKWAoc/ta+xF0D5b8=
+X-Mailer-Info: 10.QY1R3btFGdp9mb.QY1R3btFGdp9mbxIzNxETOxYTN0gzM5ETMwADN.wctlm
+ boFmexgDM2ETO5cDQn1WYpxmLj9Wb.QMzkDM0kjM3IzNyUjMxAzN2UTY5AjNwQzN....
+Subject: How long does it take to get hired in Germany?
+From: Jen from Simple Germany <sender@simplegermany.com>
+To: "ham@ham.email" <ham@ham.email>
+Date: 26 Nov 2024 07:55:20 -0000
+Message-ID: <139049272725210765a906047@mlsend.com>
+x-mailer-recipientid: 139049272725210765a906047
+Feedback-ID: automation127119163657291164:906047:automation:MailerLite
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://apvmga.clicks.mlsend.com/tl/cl/eyJ2Ijoie1wiYVwiOjkwNjA0NyxcImxcIjoxMzQwMDQxMDg2MDc2MjA5ODcsXCJyXCI6MTM5MDQ5MjcyNzI1MjEwNzY1fSIsInMiOiI0M2I4N2FhYzQ5YzY5MjcxIn0>
+Precedence: bulk
+X-Mailru-Msgtype: 139049272725210765
+X-CampaignID: 127119165483911004
+reply-to: Jen from Simple Germany <jen@simplegermany.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="==5260ed8e82a072ae1684c6dc15b0b391"
+
+This is a multi-part message in MIME format.
+
+--==5260ed8e82a072ae1684c6dc15b0b391
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+You have received a newsletter from Purple Ideas GmbH.
+
+However, your email software can't display HTML emails. You can view the=
+ newsletter by clicking here:
+
+https://preview.mailerlite.io/emails/webview/906047/139049272725210765{l=
+ink-id:134004108667389862}{link-id:134003465941681416}
+
+
+
+You're receiving this newsletter because you have shown interest in Purp=
+le Ideas GmbH.
+Not interested anymore? Click here to unsubscribe:
+https://unsubscribe.mailerlite.io/unsubscribe/906047/139049272725210765?=
+signature=3De91df82c940659b6f0e2c5abaf0cdbbbea393c1c0b2b8a8a4b99754a0e04=
+9bb5{link-id:134004108662146978}{link-id:134003465936438529}
+
+--==5260ed8e82a072ae1684c6dc15b0b391
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang dir=3D"ltr" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=
+=3D"urn:schemas-microsoft-com:office:office"><head>
+    <meta charset=3D"utf-8">
+   =20
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sca=
+le=3D1, user-scalable=3Dyes">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno=
+, address=3Dno, email=3Dno, url=3Dno">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <!--[if !mso]>
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <![endif]-->
+    <!--[if mso]>
+    <style>
+        * { font-family: sans-serif !important; }
+    </style>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type=3D"text/css">
+        /* Outlines the grids, remove when sending */
+        /*table td { border: 1px solid cyan; }*/
+        /* RESET STYLES */
+        html, body { margin: 0 !important; padding: 0 !important; width:=
+ 100% !important; height: 100% !important; }
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smooth=
+ing: grayscale; text-rendering: optimizeLegibility;}
+        .document { margin: 0 !important; padding: 0 !important; width: =
+100% !important; }
+        img { border: 0; outline: none; text-decoration: none;  -ms-inte=
+rpolation-mode: bicubic; }
+        table { border-collapse: collapse; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; }
+        h1, h2, h3, h4, h5, p { margin:0;}
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+        /* ANDROID CENTER FIX */
+        div[style*=3D"margin: 16px 0;"] { margin: 0 !important; }
+        /* MEDIA QUERIES */
+        @media all and (max-width:639px){
+            .wrapper{ width:100%!important; }
+            .container{ width:100%!important; min-width:100%!important; =
+padding: 0 !important; }
+            .row{padding-left: 20px!important; padding-right: 20px!impor=
+tant;}
+            .col-mobile {width: 20px!important;}
+            .col{display: block!important; width: 100%!important;}
+            .mobile-center{text-align: center!important; float: none!imp=
+ortant;}
+            .mobile-mx-auto {margin: 0 auto!important; float: none!impor=
+tant;}
+            .mobile-left{text-align: center!important; float: left!impor=
+tant;}
+            .mobile-hide{display: none!important;}
+            .img{ width:100% !important; height:auto !important; }
+            .ml-btn { width: 100% !important; max-width: 100%!important;=
+}
+            .ml-btn-container { width: 100% !important; max-width: 100%!=
+important;}
+            *[class=3D"mobileOff"] { width: 0px !important; display: non=
+e !important; }
+            *[class*=3D"mobileOn"] { display: block !important; max-heig=
+ht:none !important; }
+            .mlContentTable{ width: 100%!important; min-width: 10%!impor=
+tant; margin: 0!important; float: none!important; }
+            .mlContentButton a { display: block!important; width: auto!i=
+mportant; }
+            .mlContentOuter { padding-bottom: 0px!important; padding-lef=
+t: 15px!important; padding-right: 15px!important; padding-top: 0px!impor=
+tant; }
+            .mlContentSurvey { float: none!important; margin-bottom: 10p=
+x!important; width:100%!important; }
+            .multiple-choice-item-table { width: 100% !important; margin=
+-bottom: 20px !important; min-width: 10% !important; float: none !import=
+ant; }
+            .ml-default, .ml-card, .ml-fullwidth { width: 100%; min-widt=
+h: 100%; }
+        }
+
+        /* Carousel style */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .webkit {
+                display: block !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .non-webkit {
+                display: none !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            /* TARGET OUTLOOK.COM */
+            [class=3D"x_non-webkit"] {
+                display: block !important;
+            }
+        }  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            [class=3D"x_webkit"] {
+                display: none !important;
+            }
+        }
+    </style>
+   =20
+    <style type=3D"text/css">@import url("https://assets.mlcdn.com/fonts=
+-v2.css?version=3D1727775");</style>
+<style type=3D"text/css">
+            @media screen {
+                body {
+                    font-family: 'Inter', sans-serif;
+                }
+            }
+        </style><meta name=3D"robots" content=3D"noindex, nofollow">
+<title>How long does it take to get hired in Germany?</title>
+</head>
+<body style=3D"margin: 0 !important; padding: 0 !important; background-c=
+olor:#F4F7FA;">
+
+   =20
+       =20
+       =20
+   =20
+
+   =20
+
+       =20
+           =20
+
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+
+           =20
+       =20
+
+       =20
+           =20
+
+           =20
+       =20
+
+   =20
+
+   =20
+
+       =20
+
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+           =20
+       =20
+
+       =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+           =20
+
+           =20
+               =20
+               =20
+           =20
+
+       =20
+   =20
+
+    <div class=3D"document" role=3D"article" aria-roledescription=3D"ema=
+il" aria-label lang dir=3D"ltr" style=3D"background-color:#F4F7FA; line-=
+height: 100%; font-size:medium; font-size:max(16px, 1rem);">
+
+        <!--[if gte mso 9]>
+        <v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"=
+t" if=3D"variable.bodyBackgroundImage.value">
+            <v:fill type=3D"tile" src=3D"" color=3D"#F4F7FA"/>
+        </v:background>
+        <![endif]-->
+
+        <div style=3D"display: none; max-height: 0px; overflow: hidden;"=
+>
+           =20
+        </div>
+
+       =20
+
+        <table width=3D"100%" align=3D"center" cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0">
+            <tr>
+                <td class background bgcolor=3D"#F4F7FA" align=3D"center=
+" valign=3D"top" style=3D"padding: 0 8px;">
+
+                    <table class=3D"container" align=3D"center" width=3D=
+"640" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"max-widt=
+h: 640px;">
+    <tr>
+        <td align=3D"center">
+           =20
+
+               =20
+
+                <table align=3D"center" width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0">
+                    <tr>
+                        <td colspan=3D"2" height=3D"20" style=3D"line-he=
+ight: 20px"></td>
+                    </tr>
+                    <tr>
+                       =20
+                        <td align=3D"left" style=3D"font-family: 'Inter'=
+, sans-serif; color: #111111; font-size: 12px; line-height: 18px;">
+                           =20
+                           =20
+                        </td>
+                        <td align=3D"right" style=3D"font-family: 'Inter=
+', sans-serif; color: #111111; font-size: 12px; line-height: 18px;">
+                            <a style=3D"color: #111111; font-weight: nor=
+mal; font-style: normal; text-decoration: underline;" href=3D"https://ap=
+vmga.clicks.mlsend.com/tl/cl/eyJ2Ijoie1wiYVwiOjkwNjA0NyxcImxcIjoxMzQwMDQ=
+xMDg2MDEzMjk1MjMsXCJyXCI6MTM5MDQ5MjcyNzI1MjEwNzY1fSIsInMiOiI1NjExYzc2NzQ=
+yNmVhNmMzIn0" data-link-id=3D"134004108601329523" data-link-type=3D"webv=
+iew">View in browser</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=3D"2" height=3D"20" style=3D"line-he=
+ight: 20px;"></td>
+                    </tr>
+                </table>
+
+               =20
+
+               =20
+                   =20
+                   =20
+                   =20
+               =20
+
+               =20
+                   =20
+                   =20
+               =20
+
+           =20
+        </td>
+    </tr>
+</table>
+
+
+                    <table width=3D"640" class=3D"wrapper" align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"
+                        max-width: 640px;
+                        border:1px solid #EAECED;
+                        border-radius:8px; border-collapse: separate!imp=
+ortant; overflow: hidden;
+                        ">
+                        <tr>
+                            <td align=3D"center">
+
+                               =20
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-4 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"color: #222222; width: 640px; min-width: 64=
+0px;">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"20" style=3D"line-height: 20px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+   =20
+    <p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; fo=
+nt-size: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">H=
+ey <span class=3D"redactor-component" data-redactor-type=3D"variable-ml"=
+>Minhaz</span>,</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">So, w=
+hat does the hiring process in Germany really look like?</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">It is=
+ slow - that's the number 1 feedback we get from other internationals.</=
+p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Don't=
+ expect responses the next day.</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Howev=
+er, be persistent and confident and ask for feedback if it is overdue.</=
+p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Durin=
+g your interview process, you may experience some or all of the followin=
+g:</p>
+<ul style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-=
+size: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">
+<li>a phone/video interview</li>
+<li>one or several in-person interviews</li>
+<li>an assignment to test your skills</li>
+<li>a trial day</li>
+</ul>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Depen=
+ding on the size of the company, it is not only HR or a hiring manager t=
+hat makes the decision to hire you and send you a job offer.</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">If yo=
+ur future employer has a work council (typically bigger companies have o=
+ne), they must approve your contract as well...</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">This =
+is for your protection only and is usually purely a paper matter...</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">...bu=
+t it takes time...</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Getti=
+ng hired in Germany can take 2 weeks or 3 months.</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">So se=
+t your expectations correctly and stay hungry for that job in Germany!</=
+p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Until=
+ tomorrow!</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Smoot=
+hly yours,</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">Jen</=
+p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 10px;">P.S. =
+Tomorrow's email is about the important topic of what is considered a go=
+od salary in Germany?</p>
+<p style=3D"font-family: 'Quicksand', sans-serif; color: #222222; font-s=
+ize: 16px; line-height: 165%; margin-top: 0; margin-bottom: 0;"></p>
+
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"20" style=3D"line-height: 20px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+   =20
+   =20
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-6 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"20" style=3D"line-height: 20px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td>
+
+   =20
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+    <tr>
+        <td class=3D"row" style=3D"padding: 0 50px;" align=3D"center">
+            <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td height=3D"1" style=3D"border-top: 1px solid #EAE=
+CED; line-height: 1px;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+   =20
+
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"20" style=3D"line-height: 20px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+    <!--  -->
+<table class=3D"ml-default" width=3D"100%" bgcolor align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+        <td style>
+           =20
+
+               =20
+               =20
+
+               =20
+               =20
+
+                <table class=3D"container ml-8 ml-default-border" width=3D=
+"640" bgcolor=3D"#ffffff" align=3D"center" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" style=3D"
+                width: 640px; min-width: 640px;
+                ;
+               =20
+                ">
+                    <tr>
+                        <td class=3D"ml-default-border container" height=
+=3D"20" style=3D"line-height: 20px; min-width: 640px;"></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"row" style=3D"padding: 0 50px;">
+
+
+   =20
+   =20
+
+<table align=3D"center" width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0">
+   =20
+   =20
+   =20
+   =20
+   =20
+    <tr>
+        <td align=3D"center" style=3D"text-align: center!important;">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #222222=
+; font-size: 11px; line-height: 150%; display: inline-block; margin-bott=
+om: 0;"></p>
+        </td>
+    </tr>
+    <tr>
+        <td align=3D"center" style=3D"text-align: center!important;">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #222222=
+; font-size: 11px; line-height: 150%; display: inline-block; margin-bott=
+om: 0;">Purple Ideas GmbH<br>Brehmstra=C3=9Fe 3, 40239 D=C3=BCsseldorf<b=
+r>Germany</p>
+        </td>
+    </tr>
+    <tr>
+        <td height=3D"12" style=3D"line-height: 12px;"></td>
+    </tr>
+    <tr>
+        <td align=3D"center" style=3D"text-align: center!important;">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #222222=
+; font-size: 11px; line-height: 150%; display: inline-block; margin-bott=
+om: 0;">No longer want to receive these emails?&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td height=3D"8" style=3D"line-height: 8px;"></td>
+    </tr>
+    <tr>
+        <td align=3D"center">
+            <p style=3D"font-family: 'Inter', sans-serif; color: #222222=
+; font-size: 11px; line-height: 150%; display: inline-block; margin-bott=
+om: 0;">
+                <a href=3D"https://apvmga.clicks.mlsend.com/tl/cl/eyJ2Ij=
+oie1wiYVwiOjkwNjA0NyxcImxcIjoxMzQwMDQxMDg2MDc2MjA5ODcsXCJyXCI6MTM5MDQ5Mj=
+cyNzI1MjEwNzY1fSIsInMiOiI0M2I4N2FhYzQ5YzY5MjcxIn0" style=3D"color: #2222=
+22; font-weight: bold; font-style: normal; text-decoration: underline;" =
+data-link-id=3D"134004108607620987" data-link-type=3D"unsubscribe">Unsub=
+scribe</a>
+               =20
+               =20
+               =20
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+
+   =20
+   =20
+
+
+
+
+
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+   =20
+   =20
+
+
+   =20
+   =20
+   =20
+
+
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td height=3D"40" style=3D"line-height: 40px;"><=
+/td>
+                    </tr>
+                </table>
+               =20
+                   =20
+                   =20
+               =20
+           =20
+        </td>
+    </tr>
+</table>
+<!--  -->
+
+
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0" align=3D"center" width=3D"640" style=3D"max-width: 640px; width: 100=
+%;">
+   =20
+   =20
+   =20
+</table>
+
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+   =20
+
+   =20
+
+<span style=3D"display:none"><img src=3D"https://apvmga.clicks.mlsend.co=
+m/tl/o/eyJpdiI6IkNhMEZvMXVaeUtLaExrOXVHZEp2cmc9PSIsInZhbHVlIjoiUitBWFJ5S=
+mo0MWMwYTdsYkNPQ1BqQU5UWTVaZDRXTTJUM3BTd1FtTVRHQUwwRXlKblFwNjBnOWhySjJVY=
+WZWZ1RVNDEyY0c2ZzErUjJtTFB3aFd2ZnVMUkQzQitaZWZUSEtZR2svMXdHaEk9IiwibWFjI=
+joiZjFmYjY2NTJlM2IzZGNiYmMzOTlkMGIyYjFiYjkzMjhkYmNiMDFhY2FjOGU3ZDEzNmNhM=
+2MyZDg3ZGNmMDUwYyIsInRhZyI6IiJ9?signature=3Dc2250b0e8f65209f563d2b038c95=
+ef7e8e85d025d7e5c3ce6a7e2742d6eccc83" width=3D"1" height=3D"1" alt style=
+=3D"display:block;height:0px;width:0px;max-width:0px;max-height:0px;over=
+flow:hidden;" border=3D"0"></span></body>
+</html>
+
+--==5260ed8e82a072ae1684c6dc15b0b391--

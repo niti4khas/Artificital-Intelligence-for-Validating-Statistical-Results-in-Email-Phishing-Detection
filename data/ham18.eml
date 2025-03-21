@@ -1,0 +1,126 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a05:7300:b7a6:b0:117:1fd:cd05 with SMTP id cx38csp3182956dyb;
+        Tue, 21 May 2024 06:12:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGgxxzN6rTat9w8mw1olwupdjaaI1aO9vGow7hGyKM/8ijL7X3dRP5ZOEkNUzmVpyvmOYAW
+X-Received: by 2002:a50:9558:0:b0:574:ec33:208a with SMTP id 4fb4d7f45d1cf-574ec33601cmr14236888a12.28.1716297171345;
+        Tue, 21 May 2024 06:12:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1716297171; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vBeTnCP6G2FY22C8K7X2cXy4ImKONiils2YbvaWaYUb1IEt7P7aRCqqdSfKOxGFU2P
+         4burl5qlXImR9K3fCznaiiKGgf/5nVVpbUMrZN3ATfqHVHBCkiwloG2QATJhAnTQ3QRi
+         Te0C50kupYQbKXcgGcd2MypsOImLCVeJmRXMJPH4w4lPYtkPWK2Q2SYbIzLfAbZ1ip3I
+         FS8wdCo7cFGCKZsF/YpEmrN6n/00z3Tz75UQUg9q/b6hFQkIA6m1JRea8S9j3Db9WTaU
+         BXlgkTHVvQOWTKyAZkbhkeDokd/RbnEBu9cuWIOaEFoqUfeW3qCafLy9Zn1G1xXiaK3s
+         jG6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=importance:mime-version:subject:references:in-reply-to:message-id
+         :to:from:date;
+        bh=UX2+RYA1xeVD8EG8lrAEw/7EPHdbILWiIwaied3K2hc=;
+        fh=P64XxtFax2USW7WeDQOHMsch6Z6e/qlD3oZihD0PUUo=;
+        b=WevGZcvzoQBq9gR2Vn/QcKnOSHVna0ST8Ums46C6aLaPxzt5hFCbViPfa25Ipkkcvz
+         lfMYhUrDEHyWLj/OT8Ymi+N1aMqgCoNyjPUFfuLv6OQPrmHK0JNrtBKWtc3oBoNOYWxu
+         pGWg1sq5wBOtKotN9jP1E/WRtLH75FDzVMRstr+aQQaR+VUXKWJ6uIfmk2QLKZiWsr0z
+         rtKihzq5zXcadxbShIV0BpA1D1yyjYXntLpeD3Or8W72mh39i5JYTKAqmpkhew8R7Ih6
+         fcD7jZQcpYROSsAjrpIlIbrgeS6VUdPMj5xahBTiVYSu0sA0kXwiBQjjA78tAN0ulyUF
+         wOAg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of info@cybermacs.eu designates 188.121.53.226 as permitted sender) smtp.mailfrom=info@cybermacs.eu
+Return-Path: <info@cybermacs.eu>
+Received: from sxb1plwbeout05.prod.sxb1.secureserver.net (sxb1plwbeout05.prod.sxb1.secureserver.net. [188.121.53.226])
+        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-578233ca5desi730701a12.99.2024.05.21.06.12.50
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 21 May 2024 06:12:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@cybermacs.eu designates 188.121.53.226 as permitted sender) client-ip=188.121.53.226;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of info@cybermacs.eu designates 188.121.53.226 as permitted sender) smtp.mailfrom=info@cybermacs.eu
+X-MW-NODE: 
+X-CMAE-Analysis: v=2.4 cv=Q5cZ4J2a c=1 sm=1 tr=0 ts=664c9dd2 a=xZsz1WqYln3YGRp0IohaNA==:117 a=xZsz1WqYln3YGRp0IohaNA==:17 a=ZPoPlOjXdmEA:10 a=pGLkceISAAAA:8 a=pWN-mBolmYAgr8q4zaoA:9 a=QEXdDO2ut3YA:10 a=Nijn6NzCh3VaE90UhjQA:9 a=2wGxG8mIjCtBE5uY:21 a=_W_S_7VecoQA:10 a=m3Tn036rMoaPK5X_GIqr:22
+X-SECURESERVER-ACCT: info@cybermacs.eu
+X-SID: 9PIOsfuXwOgWr
+Date: Tue, 21 May 2024 16:12:48 +0300 (TRT)
+From: Info CyberMACS <info@cybermacs.eu>
+To: receiver Poudel <ham@ham.email>
+Message-ID: <1254007891.508014.1716297168760@eu1.myprofessionalmail.com>
+In-Reply-To: <CAOYVRwVyGfFHU1_uivjXovChXwER0d_o+oG+R4yu9toTt60oTA@mail.gmail.com>
+References: <CAOYVRwVyGfFHU1_uivjXovChXwER0d_o+oG+R4yu9toTt60oTA@mail.gmail.com>
+Subject: Re: Regarding Internship portal
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_508013_1388965032.1716297168759"
+X-Priority: 3
+Importance: Normal
+X-Mailer: Open-Xchange Mailer v8.24.36
+X-Originating-IP: 31.145.7.2
+X-Originating-Client: open-xchange-appsuite
+X-CMAE-Envelope: MS4xfCyklURoq2Bc6r2sz69b7RKDGXTPhiBViaYE1gT5cvO7XXlNUL9D35/7N4enDaGB12kw3yqhOitYItt2cLdi/u5dI140Y530UC6ECiHkwIndUl8p22h6 JP7R1oG1EoxpZf1mS6VhqJFKnYX1OP9val1Y+3cGt6q8h6BnU/2sc1oRV6asyL5s7y1J4JtKX5fCzgMoqW0Zij+fvhmiTbP15caggEpBDl9XK9wRMnzGASXq pHzFDt5FI9i9gqMClaSusQ==
+
+------=_Part_508013_1388965032.1716297168759
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear receiver!
+The percentage option has been enabled in the system. Please check it.
+Best
+CyberMACS Team
+
+> On 20/05/2024 22:31 +03 receiver Poudel <ham@ham.email> wrote:
+>  
+>  
+> Dear CyberMacs Team,
+> My undergraduate score is in percentage and not in gpa. My total score has 4 digits and I am not able to put that value in the internship portal. I got an error. Please look into it.
+>  
+> Regards,
+> receiver
+> 
+
+------=_Part_508013_1388965032.1716297168759
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+ </head>
+ <body>
+  <div>
+   Dear receiver!
+   <br>
+   The percentage option has been enabled in the system. Please check it.
+   <br>
+   Best
+   <br>
+   CyberMACS Team
+  </div>
+  <blockquote type="cite">
+   <div>
+    On 20/05/2024 22:31 +03 receiver Poudel &lt;ham@ham.email&gt; wrote:
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div>
+    &nbsp;
+   </div>
+   <div dir="ltr">
+    Dear CyberMacs Team, 
+    <div>
+     My undergraduate score is in percentage and not in gpa. My total score has 4 digits and I am not able to put that value in the internship portal. I got an error. Please look into it.
+    </div>
+    <div>
+     &nbsp;
+    </div>
+    <div>
+     Regards,
+    </div>
+    <div>
+     receiver
+    </div>
+   </div>
+  </blockquote>
+ </body>
+</html>
+------=_Part_508013_1388965032.1716297168759--

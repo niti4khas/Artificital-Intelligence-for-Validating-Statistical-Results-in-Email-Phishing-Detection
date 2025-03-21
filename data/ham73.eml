@@ -1,0 +1,3408 @@
+Delivered-To: ham@ham.email
+Received: by 2002:a9a:5617:0:b0:2ac:6419:e1b with SMTP id u23csp2028886lke;
+        Sun, 8 Dec 2024 09:26:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFN+W1OuaDAxcPWWwUElYT4ovHVxFRd1c3yQhyIRQ+iSacyHacUAnzfOjsCAFj5SW9KmHWv
+X-Received: by 2002:a05:6602:2cce:b0:843:ec18:82e2 with SMTP id ca18e2360f4ac-8447e2283a7mr1177754839f.8.1733678782322;
+        Sun, 08 Dec 2024 09:26:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733678782; cv=none;
+        d=google.com; s=arc-20240605;
+        b=k8+PwnjMX6Mo7Tb+Nz52XhXKPmpgIcH64E+fPbfb3tXBXfq4I4NzU9RjFE8kX8putn
+         DGKZiH5RB/WCfa7LiExzRcSE9Iola4ThjNaPf+XyWrPMnCIN1qqkwdyOgRv0cmqmtYAo
+         5Wm6QdUywWfNLs+P9OGjzuIEkHJU20b/LuvvWzI69vwjqEVkTzPkTNI48QN6RNz+X2Fb
+         mtxgigFuxk8a055DtGgPlVEwKHbmQT0+nehCJDCNhpC2VAl47AUIWCvavLlCEp8HuRsD
+         d1GvmXRsm5fZ5J+z7Lne6NJ/Opsitj5Oj1FMxDa1CtEemMoIrsm6YpMliva+AxUfteQZ
+         ib8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=require-recipient-valid-since:feedback-id:list-unsubscribe-post
+         :list-unsubscribe:date:to:mime-version:subject:message-id:from
+         :dkim-signature:dkim-signature;
+        bh=p9v3Q07Knk86pH5jVN5DLbQeHqHZzDu7L0xr34ige3M=;
+        fh=ltMmrTTMldivHoTlPf9jPeI3l5WYswuIbr9ylc2nmFg=;
+        b=D69ERauzrKE1FFvlYwHhUkJPh8QAPClBp8afJG2jI7nBcdnJ0KJyKPrtp4597OYjiw
+         qtsos8l9DiZpqExVfL7rxE4UDRpWUhaDQX5pAqH4B78ox9W5WybuJwmN1ukDn0rlM2lu
+         SJxpqTxcxc26VBGhF0+ivJR2NjKi7XFrblNq9rIagu1VoOMkXWausmUIc/089L4Khux5
+         sv4Qa19hpWVOcJwI3w03M6fWYUEZNzDD2bfOWWN5lDnSJ/I7sE6l8P/7BNdphcFirClS
+         fY8pX+z/Ol3txna9G5dVmjS7CKR0420KaQwnJM5F+qenRQ6IkNADU+UfSXfqZh0K+FRv
+         T18Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=l56yPjPQ;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=Hybnhfcr;
+       spf=pass (google.com: domain of s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com designates 108.174.3.194 as permitted sender) smtp.mailfrom=s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+Return-Path: <s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com>
+Received: from maile-ab.linkedin.com (maile-ab.linkedin.com. [108.174.3.194])
+        by mx.google.com with ESMTPS id ca18e2360f4ac-844738e4b6esi441101639f.33.2024.12.08.09.26.22
+        for <ham@ham.email>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 08 Dec 2024 09:26:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com designates 108.174.3.194 as permitted sender) client-ip=108.174.3.194;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@maile.linkedin.com header.s=d2048-202308-0e header.b=l56yPjPQ;
+       dkim=pass header.i=@linkedin.com header.s=d2048-202308-00 header.b=Hybnhfcr;
+       spf=pass (google.com: domain of s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com designates 108.174.3.194 as permitted sender) smtp.mailfrom=s-2dc731fvb0pcawghlwx6s6gpdui7353d62e3s2ty0uymsxjnhtor46d3@bounce.linkedin.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=linkedin.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maile.linkedin.com; s=d2048-202308-0e; t=1733678781; bh=p9v3Q07Knk86pH5jVN5DLbQeHqHZzDu7L0xr34ige3M=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=l56yPjPQtFRxWOkmzvhXgz59bBURDAfXwq0l1qwD7wxLAngFTWyRrVZvGdQo4qXfa
+	 vztDWJJXQ3Da0Wi/gLdym6uklMTJBhvsPaJtgY8d/xUM5WZnk7EpSF1BygEb3/yMvk
+	 gej2i0cW2im6857hc57PvfBJzOkCtAgxi9jgET2inFIxCY4l/9Gjl1CeUaj+u/wOmz
+	 4vuz5EL6H4YnEzBRuaqyGFIFq/RTv7pOBh+4722agtKy2Gy4fPfJpo1WHYcNMxuH1z
+	 oTE7dmNLTOMcnUkgbSl1z3ubeO6KG1Y3OczXMsGutCVAkGLZ0sgubXljXpCMUQXpF4
+	 5khkxzqwiM4oA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linkedin.com; s=d2048-202308-00; t=1733678781; bh=p9v3Q07Knk86pH5jVN5DLbQeHqHZzDu7L0xr34ige3M=; h=From:Subject:MIME-Version:Content-Type:To:Date:X-LinkedIn-Class:
+	 X-LinkedIn-Template:X-LinkedIn-fbl; b=HybnhfcrztJcGQanwJJ6yN8aE1XPAm8U+Ajc8/b/qA+0jucqxyXtbyahg8zh0hgaG
+	 N6hXOse07RqlAeztc1bF9ZyMHlVXgNNrVIOwUas5T8ndrSzO9HYp9zPRsFDaXnNRrz
+	 0dYzxDZsuMXxjsVDdgcXGUiHFzRo9F3egysRHNoK55c8qM+Jx1Lpr0HQbJCr6PJ7St
+	 BhfhN5BBuDlzfh7Kmjy4TXXju9QotZNv/KUAX1G1/m5LLu1AKEstJlD7cGHU749R03
+	 l7MKXLpv21R7/n/DR0RkYf8TII6Ze6brluOauVoTRjxU6YegWaGm4dRwnuC9nE7dlt
+	 MTw95LUkzXMyA==
+From: "Cyber Security News ® через LinkedIn" <sender-noreply@linkedin.com>
+Message-ID: <920992003.10523532.1733678781473@lva1-app58835.prod.linkedin.com>
+Subject: Weekly Cybersecurity Bulletin: Data Leaks, Vulnerabilities & Cybersecurity News
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_10523530_459829708.1733678781467"
+To: <ham@ham.email>
+Date: Sun, 8 Dec 2024 17:26:21 +0000 (UTC)
+X-LinkedIn-Class: EMAIL-DEFAULT
+X-LinkedIn-Template: email_series_follow_newsletter_01
+X-LinkedIn-fbl: m2-clvfuzp0x9ztvryc7enmynd5d4lu8qfuh5qq3h084jfq3qk9f01c2txd6ed7dumwy2jx6b9kdymp7rrsamakdxx6ew6epp2bvhvhtzko3b1eziukve55pkq1ouh2uq5qsxnvw5t7
+X-LinkedIn-Id: hdesgg-m4fvko4y-gs
+List-Unsubscribe: <https://www.linkedin.com/comm/series-notifications/?action=unsubscribe&memberToken=ADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6Ok&newsletterId=7045874934954278912&newsletterTitle=Cyber%20Security%20News&lipi=urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&midToken=AQGhw_YagvtrXA&midSig=3FG5xuhIWSVrw1&trk=eml-email_series_follow_newsletter_01-unsub-0-unsub&trkEmail=eml-email_series_follow_newsletter_01-unsub-0-unsub-null-hdesgg~m4fvko4y~gs-null-null&eid=hdesgg-m4fvko4y-gs&otpToken=MTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: email_series_follow_newsletter_01:linkedin
+Require-Recipient-Valid-Since: ham@ham.email; Fri, 14 Oct 2022 13:41:35 +0000
+
+------=_Part_10523530_459829708.1733678781467
+Content-Type: text/plain;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: text-body
+
+Cyber Security News
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+
+=D0=90=D0=B2=D1=82=D0=BE=D1=80: Cyber Security News =C2=AE
+
+   =20
+   =20
+    =D0=9F=D1=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=
+=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=
+=D1=8B =D0=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=
+=D1=8C=D1=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=
+=D0=B8=D1=8E
+=D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=B2 LinkedIn
+https://www.linkedin.com/comm/pulse/weekly-cybersecurity-bulletin-data-leak=
+s-vulnerabilities-oyzec?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_=
+newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&midToken=3DAQGhw_YagvtrXA&=
+midSig=3D3FG5xuhIWSVrw1&trk=3Deml-email_series_follow_newsletter_01-null-0-=
+read_more_banner_cta_&trkEmail=3Deml-email_series_follow_newsletter_01-null=
+-0-read_more_banner_cta_-null-hdesgg~m4fvko4y~gs-null-null&eid=3Dhdesgg-m4f=
+vko4y-gs&otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk=
+5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMz=
+hlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D
+ =20
+
+=D0=9F=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=D1=8C=D1=
+=81=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=D0=B8=D1=
+=8E
+https://www.linkedin.com/comm/pulse/weekly-cybersecurity-bulletin-data-leak=
+s-vulnerabilities-oyzec?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_=
+newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&midToken=3DAQGhw_YagvtrXA&=
+midSig=3D3FG5xuhIWSVrw1&trk=3Deml-email_series_follow_newsletter_01-newslet=
+ter_content_preview_text-0-readmore_button_&trkEmail=3Deml-email_series_fol=
+low_newsletter_01-newsletter_content_preview_text-0-readmore_button_-null-h=
+desgg~m4fvko4y~gs-null-null&eid=3Dhdesgg-m4fvko4y-gs&otpToken=3DMTMwNTFiZTA=
+xNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNW=
+YzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5L=
+DEsMQ%3D%3D
+ =20
+     =20
+
+----------------------------------------
+
+=D0=AD=D1=82=D0=BE =D1=81=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D0=B5 =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D1=8B =D0=B0=D0=B4=D1=80=D0=B5=
+=D1=81=D0=BE=D0=B2=D0=B0=D0=BD=D0=BE =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D1=83 (Cybersecurity specialist | CEH)
+=D0=A7=D1=82=D0=BE =D1=8D=D1=82=D0=BE =D0=B7=D0=BD=D0=B0=D1=87=D0=B8=D1=82:=
+ https://www.linkedin.com/help/linkedin/answer/4788?lang=3Dru&lipi=3Durn%3A=
+li%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6v=
+HS7xA%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D3FG5xuhIWSVrw1&trk=3Deml-ema=
+il_series_follow_newsletter_01-SecurityHelp-0-textfooterglimmer&trkEmail=3D=
+eml-email_series_follow_newsletter_01-SecurityHelp-0-textfooterglimmer-null=
+-hdesgg~m4fvko4y~gs-null-null&eid=3Dhdesgg-m4fvko4y-gs&otpToken=3DMTMwNTFiZ=
+TAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRm=
+NWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM=
+5LDEsMQ%3D%3D
+=D0=92=D1=8B =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=
+=D0=B2=D0=B5=D0=B4=D0=BE=D0=BC=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =
+=D1=8D=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =
+=D0=94=D1=80=D1=83=D0=B3=D0=B8=D0=B5 =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=
+=D0=B8=D0=BA=D0=B8 =D0=BC=D0=BE=D0=B3=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=
+=D1=82=D1=8C, =D1=87=D1=82=D0=BE =D0=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=
+=B5=D1=82=D0=B5=D1=81=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=
+=B8=D0=BA=D0=BE=D0=BC.
+
+=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=
+=D0=B8=D1=81=D0=BA=D1=83: https://www.linkedin.com/comm/series-notification=
+s/?action=3Dunsubscribe&memberToken=3DADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6=
+Ok&newsletterId=3D7045874934954278912&newsletterTitle=3DCyber%20Security%20=
+News&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbn=
+WrYX%2BSJaV6e%2B6vHS7xA%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D3FG5xuhIWS=
+Vrw1&trk=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimme=
+r&trkEmail=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlim=
+mer-null-hdesgg~m4fvko4y~gs-null-null&eid=3Dhdesgg-m4fvko4y-gs&otpToken=3DM=
+TMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0=
+YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTN=
+kYTEyMTM5LDEsMQ%3D%3D=C2=A0=C2=A0=C2=B7=C2=A0=C2=A0=D0=A1=D0=BF=D1=80=D0=B0=
+=D0=B2=D0=BA=D0=B0: https://www.linkedin.com/help/linkedin/answer/67?lang=
+=3Dru&lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFb=
+nWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&midToken=3DAQGhw_YagvtrXA&midSig=3D3FG5xuhIW=
+SVrw1&trk=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer&=
+trkEmail=3Deml-email_series_follow_newsletter_01-help-0-textfooterglimmer-n=
+ull-hdesgg~m4fvko4y~gs-null-null&eid=3Dhdesgg-m4fvko4y-gs&otpToken=3DMTMwNT=
+FiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhN=
+TRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEy=
+MTM5LDEsMQ%3D%3D
+
+=C2=A9 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dubl=
+in 2 (=D0=98=D1=80=D0=BB=D0=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2024=C2=A0=D0=B3.L=
+inkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=
+=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=
+=BD=D1=8B=D0=BC =D1=84=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=BD=D1=8B=D0=BC =D0=
+=BD=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5=D0=BC=
+ =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 LinkedIn Ireland Unlimite=
+d Company.
+LinkedIn =D0=B8 =D1=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=BC=D0=B0 LinkedIn =D1=8F=
+=D0=B2=D0=BB=D1=8F=D1=8E=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=
+=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=
+=BC=D0=B8 =D1=82=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=8B=D0=BC=D0=B8 =D0=B7=D0=
+=BD=D0=B0=D0=BA=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=
+=B8=D0=B8 LinkedIn.
+------=_Part_10523530_459829708.1733678781467
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: html-body
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"ru" xml:lang=3D"ru"> <=
+head> <meta http-equiv=3D"Content-Type" content=3D"text/html;charset=3Dutf-=
+8"> <meta name=3D"HandheldFriendly" content=3D"true"> <meta name=3D"viewpor=
+t" content=3D"width=3Ddevice-width; initial-scale=3D0.666667; user-scalable=
+=3D0"> <meta name=3D"viewport" content=3D"width=3Ddevice-width"> <title></t=
+itle> <style>
+            @media (max-width: 512px) { .mercado-container { width: 100% !i=
+mportant; } }
+          </style> <style>
+            @media (max-width: 480px) { .inline-button, .inline-button tabl=
+e { display: none !important; }
+            .full-width-button, .full-width-button table { display: table !=
+important; } }
+          </style> <style>body {font-family: -apple-system, system-ui, Blin=
+kMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+            'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid S=
+ans', 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica=
+, Arial, sans-serif;}</style> <!--[if mso]><style type=3D"text/css"> </styl=
+e><![endif]--> <!--[if IE]><style type=3D"text/css"> </style><![endif]--> <=
+style>
+@media (max-width: 480px) {
+  .inline-button,
+.inline-button table {
+    display: none !important;
+  }
+
+  .full-width-button,
+.full-width-button table {
+    display: table !important;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content,
+.pulse .article-main__content > * {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h2,
+.pulse .article-main__content h2 span {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content p,
+.pulse .article-main__content p span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .pulse .article-main__content blockquote {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-img=
+ {
+    width: 48px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"][data-entity-typ=
+e=3D"organization"] .pub-entity-img img {
+    height: 48px;
+    width: 48px;
+    border-radius: 0px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"][data-entity-typ=
+e=3D"member"] .pub-entity-img img {
+    height: 56px;
+    width: 56px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t {
+    padding-left: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t h1 {
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t h3 {
+    margin-bottom: 2px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .pulse .article-main__content [data-type=3D"entityEmbed"] .pub-entity-tex=
+t p {
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content,
+.advice .article-main__content > * {
+    font-size: 20px;
+  }
+
+  .advice .qa-redesign-article-content .article-main__content > * {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h1 {
+    font-size: 48px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h2,
+.advice .article-main__content h2 span {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice.redesign .article-main__content h2,
+.advice.redesign .article-main__content h2 span {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content h3 {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content p,
+.advice .article-main__content p span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .advice .article-main__content blockquote {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar__wrapper.navbar__wrapper--x-article-split-layout {
+    margin-left: 24px;
+  }
+}
+@media (min-width: 1440px) {
+  .navbar__wrapper.navbar__wrapper--x-article-split-layout {
+    margin-left: 48px;
+  }
+}
+@media (min-width: 992px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 8px - 392px);
+  }
+}
+@media (min-width: 1200px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 32px - 392px);
+  }
+}
+@media (min-width: 1440px) {
+  [data-id=3D'member-nav-header__container'] {
+    margin-left: calc(40% - 64px - 392px);
+  }
+}
+@media (min-width: 992px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 8px;
+  }
+}
+@media (min-width: 1200px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 32px;
+  }
+}
+@media (min-width: 1440px) {
+  .member-nav-header__subnav--x-article-split-layout {
+    padding-left: 64px;
+  }
+}
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1128px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 1680px) {}
+@media (min-width: 1920px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media screen and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media screen and (max-width: 991px) {}
+@media (max-width: 991px) {
+  .search-bar.isExpanded .search-bar__placeholder {
+    display: none;
+  }
+
+  .search-bar.isExpanded .base-search-bar__form {
+    display: flex;
+  }
+}
+@media screen and (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 992px) {}
+@media (forced-colors: active) {}
+@media (-ms-high-contrast: active), (forced-colors: active) {}
+@media (min-width: 992px) {}
+@media (min-width: 576px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1440px) {}
+@media (min-width: 992px) {}
+@media (max-width: 575px) {}
+@media (max-width: 640px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media screen and (max-width: 767px) {}
+@media (max-width: 767px) {}
+@media (min-width: 245px) {}
+@media (min-width: 330px) {}
+@media only screen and (min-width: 30.06em) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (max-width: 767px) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 992px) {}
+@media (min-width: 992px) {
+  .papabear\:tab-vertical.tab-selected:after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:pointer-events-none::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:absolute::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:\!left-\[-19px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:\!top-\[6px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:bottom-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:left-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:right-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:top-0::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:ml-0\.5::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:ml-\[74px\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:block::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:h-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:w-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:rounded-full::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-1::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-solid::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:border-color-divider::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:bg-gradient-to-b::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:from-color-transparent::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:to-color-background-scrim::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:text-color-text-low-emphasis::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:no-underline::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:shadow-\[0_0_0_500px_var\(--color-scrim\)\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\"\"\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\'\'\]::after {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .after\:content-\[\'\/\'\]::after {
+    content: "";
+  }
+}
+@media (min-width: 576px) {
+  .xs\:sticky {
+    position: sticky;
+  }
+
+  .xs\:left-\[-52px\] {
+    left: -52px;
+  }
+
+  .xs\:left-\[-56px\] {
+    left: -56px;
+  }
+
+  .xs\:top-0 {
+    top: 0px;
+  }
+}
+@media (min-width: 768px) {
+  .sm\:m-0 {
+    margin: 0px;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:pl-0\.5 {
+    padding-left: 4px;
+  }
+
+  .sm\:text-sm {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) {
+  .md\:\!absolute {
+    position: absolute !important;
+  }
+
+  .md\:absolute {
+    position: absolute;
+  }
+
+  .md\:left-\[-44px\] {
+    left: -44px;
+  }
+
+  .md\:left-\[-52px\] {
+    left: -52px;
+  }
+
+  .md\:left-\[-53px\] {
+    left: -53px;
+  }
+
+  .md\:left-\[-60px\] {
+    left: -60px;
+  }
+
+  .md\:right-\[19px\] {
+    right: 19px;
+  }
+
+  .md\:m-2 {
+    margin: 16px;
+  }
+
+  .md\:-ml-1 {
+    margin-left: -8px;
+  }
+
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:mb-8 {
+    margin-bottom: 64px;
+  }
+
+  .md\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .md\:ml-\[-12px\] {
+    margin-left: -12px;
+  }
+
+  .md\:ml-\[-41px\] {
+    margin-left: -41px;
+  }
+
+  .md\:mr-0 {
+    margin-right: 0px;
+  }
+
+  .md\:mr-4 {
+    margin-right: 32px;
+  }
+
+  .md\:mr-6 {
+    margin-right: 48px;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:box-content {
+    box-sizing: content-box;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:inline-flex {
+    display: inline-flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:h-4 {
+    height: 32px;
+  }
+
+  .md\:h-56 {
+    height: 448px;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
+  .md\:w-2\/5 {
+    width: 40%;
+  }
+
+  .md\:w-3\/5 {
+    width: 60%;
+  }
+
+  .md\:w-4 {
+    width: 32px;
+  }
+
+  .md\:w-\[280px\] {
+    width: 280px;
+  }
+
+  .md\:w-\[392px\] {
+    width: 392px;
+  }
+
+  .md\:w-\[452px\] {
+    width: 452px;
+  }
+
+  .md\:w-\[500px\] {
+    width: 500px;
+  }
+
+  .md\:w-\[calc\(100\%\+44px\)\] {
+    width: calc(100% + 44px);
+  }
+
+  .md\:w-\[calc\(37\%-40px\)\] {
+    width: calc(37% - 40px);
+  }
+
+  .md\:w-\[calc\(50\%-40px\)\] {
+    width: calc(50% - 40px);
+  }
+
+  .md\:max-w-\[392px\] {
+    max-width: 392px;
+  }
+
+  .md\:max-w-\[576px\] {
+    max-width: 576px;
+  }
+
+  .md\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
+  }
+
+  .md\:px-1 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .md\:px-3 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .md\:py-1\.5 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .md\:py-4 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .md\:py-6 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .md\:pb-2 {
+    padding-bottom: 16px;
+  }
+
+  .md\:pb-6 {
+    padding-bottom: 48px;
+  }
+
+  .md\:pb-\[200px\] {
+    padding-bottom: 200px;
+  }
+
+  .md\:pl-1 {
+    padding-left: 8px;
+  }
+
+  .md\:pl-4 {
+    padding-left: 32px;
+  }
+
+  .md\:pl-\[32px\] {
+    padding-left: 32px;
+  }
+
+  .md\:pl-\[41px\] {
+    padding-left: 41px;
+  }
+
+  .md\:pl-\[56px\] {
+    padding-left: 56px;
+  }
+
+  .md\:pr-1 {
+    padding-right: 8px;
+  }
+
+  .md\:pr-\[320px\] {
+    padding-right: 320px;
+  }
+
+  .md\:pr-\[88px\] {
+    padding-right: 88px;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
+  }
+
+  .md\:pt-1 {
+    padding-top: 8px;
+  }
+
+  .md\:pt-6 {
+    padding-top: 48px;
+  }
+
+  .md\:text-\[40px\] {
+    font-size: 40px;
+  }
+
+  .md\:text-md {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .lg\:\!absolute {
+    position: absolute !important;
+  }
+
+  .lg\:left-\[-48px\] {
+    left: -48px;
+  }
+
+  .lg\:left-\[-56px\] {
+    left: -56px;
+  }
+
+  .lg\:left-\[-58px\] {
+    left: -58px;
+  }
+
+  .lg\:right-\[8px\] {
+    right: 8px;
+  }
+
+  .lg\:my-6 {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .lg\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .lg\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .lg\:ml-12 {
+    margin-left: 96px;
+  }
+
+  .lg\:ml-3 {
+    margin-left: 24px;
+  }
+
+  .lg\:ml-\[-33px\] {
+    margin-left: -33px;
+  }
+
+  .lg\:ml-\[10px\] {
+    margin-left: 10px;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:inline-flex {
+    display: inline-flex;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:h-4 {
+    height: 32px;
+  }
+
+  .lg\:h-6 {
+    height: 48px;
+  }
+
+  .lg\:h-\[20px\] {
+    height: 20px;
+  }
+
+  .lg\:w-4 {
+    width: 32px;
+  }
+
+  .lg\:w-6 {
+    width: 48px;
+  }
+
+  .lg\:w-\[20px\] {
+    width: 20px;
+  }
+
+  .lg\:w-\[calc\(100\%\+56px\)\] {
+    width: calc(100% + 56px);
+  }
+
+  .lg\:w-\[calc\(37\%-32px\)\] {
+    width: calc(37% - 32px);
+  }
+
+  .lg\:w-\[calc\(50\%-32px\)\] {
+    width: calc(50% - 32px);
+  }
+
+  .lg\:max-w-x-article-width {
+    max-width: 816px;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:pl-4 {
+    padding-left: 32px;
+  }
+
+  .lg\:pl-\[33px\] {
+    padding-left: 33px;
+  }
+
+  .lg\:pl-\[40px\] {
+    padding-left: 40px;
+  }
+
+  .lg\:pl-\[41px\] {
+    padding-left: 41px;
+  }
+
+  .lg\:pl-\[88px\] {
+    padding-left: 88px;
+  }
+
+  .lg\:pr-1 {
+    padding-right: 8px;
+  }
+
+  .lg\:pr-4 {
+    padding-right: 32px;
+  }
+
+  .lg\:text-\[40px\] {
+    font-size: 40px;
+  }
+
+  .lg\:text-display-lg {
+    font-size: 48px;
+  }
+
+  .lg\:text-lg {
+    font-size: 20px;
+  }
+
+  .lg\:text-md {
+    font-size: 16px;
+  }
+
+  .lg\:text-sm {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1440px) {
+  .xl\:ml-6 {
+    margin-left: 48px;
+  }
+
+  .xl\:w-6 {
+    width: 48px;
+  }
+
+  .xl\:w-\[50px\] {
+    width: 50px;
+  }
+
+  .xl\:pl-8 {
+    padding-left: 64px;
+  }
+
+  .xl\:pl-\[120px\] {
+    padding-left: 120px;
+  }
+
+  .xl\:pr-8 {
+    padding-right: 64px;
+  }
+}
+@media (max-width: 767px) {
+  .babybear\:\!-top-0\.5 {
+    top: -4px !important;
+  }
+
+  .babybear\:-top-1 {
+    top: -8px;
+  }
+
+  .babybear\:bottom-0 {
+    bottom: 0px;
+  }
+
+  .babybear\:bottom-\[120\%\] {
+    bottom: 120%;
+  }
+
+  .babybear\:left-3 {
+    left: 24px;
+  }
+
+  .babybear\:right-4 {
+    right: 32px;
+  }
+
+  .babybear\:top-0\.5 {
+    top: 4px;
+  }
+
+  .babybear\:z-0 {
+    z-index: 0;
+  }
+
+  .babybear\:order-last {
+    order: 9999;
+  }
+
+  .babybear\:m-0 {
+    margin: 0px;
+  }
+
+  .babybear\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .babybear\:mx-1\.5 {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .babybear\:my-2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .babybear\:-mt-0\.5 {
+    margin-top: -4px;
+  }
+
+  .babybear\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .babybear\:mb-0\.5 {
+    margin-bottom: 4px;
+  }
+
+  .babybear\:mb-1 {
+    margin-bottom: 8px;
+  }
+
+  .babybear\:mb-2 {
+    margin-bottom: 16px;
+  }
+
+  .babybear\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .babybear\:ml-1 {
+    margin-left: 8px;
+  }
+
+  .babybear\:mr-0 {
+    margin-right: 0px;
+  }
+
+  .babybear\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .babybear\:mt-0\.5 {
+    margin-top: 4px;
+  }
+
+  .babybear\:mt-\[6px\] {
+    margin-top: 6px;
+  }
+
+  .babybear\:hidden {
+    display: none;
+  }
+
+  .babybear\:h-4 {
+    height: 32px;
+  }
+
+  .babybear\:h-6 {
+    height: 48px;
+  }
+
+  .babybear\:h-\[180px\] {
+    height: 180px;
+  }
+
+  .babybear\:h-\[26px\] {
+    height: 26px;
+  }
+
+  .babybear\:h-\[360px\] {
+    height: 360px;
+  }
+
+  .babybear\:h-\[59px\] {
+    height: 59px;
+  }
+
+  .babybear\:h-\[64px\] {
+    height: 64px;
+  }
+
+  .babybear\:h-\[72px\] {
+    height: 72px;
+  }
+
+  .babybear\:h-auto {
+    height: auto;
+  }
+
+  .babybear\:max-h-4 {
+    max-height: 32px;
+  }
+
+  .babybear\:max-h-\[225px\] {
+    max-height: 225px;
+  }
+
+  .babybear\:max-h-\[250px\] {
+    max-height: 250px;
+  }
+
+  .babybear\:max-h-\[400px\] {
+    max-height: 400px;
+  }
+
+  .babybear\:min-h-\[134px\] {
+    min-height: 134px;
+  }
+
+  .babybear\:w-1 {
+    width: 8px;
+  }
+
+  .babybear\:w-11\/12 {
+    width: 91.666667%;
+  }
+
+  .babybear\:w-6 {
+    width: 48px;
+  }
+
+  .babybear\:w-\[105px\] {
+    width: 105px;
+  }
+
+  .babybear\:w-\[199px\] {
+    width: 199px;
+  }
+
+  .babybear\:w-\[26px\] {
+    width: 26px;
+  }
+
+  .babybear\:w-\[360px\] {
+    width: 360px;
+  }
+
+  .babybear\:w-\[64px\] {
+    width: 64px;
+  }
+
+  .babybear\:w-\[calc\(100\%-68px\)\] {
+    width: calc(100% - 68px);
+  }
+
+  .babybear\:w-fit {
+    width: fit-content;
+  }
+
+  .babybear\:w-full {
+    width: 100%;
+  }
+
+  .babybear\:min-w-full {
+    min-width: 100%;
+  }
+
+  .babybear\:max-w-\[300px\] {
+    max-width: 300px;
+  }
+
+  .babybear\:max-w-\[32px\] {
+    max-width: 32px;
+  }
+
+  .babybear\:max-w-\[790px\] {
+    max-width: 790px;
+  }
+
+  .babybear\:max-w-md {
+    max-width: 28rem;
+  }
+
+  .babybear\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .babybear\:flex-none {
+    flex: none;
+  }
+
+  .babybear\:basis-0 {
+    flex-basis: 0px;
+  }
+
+  .babybear\:-translate-x-50\% {
+    transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY=
+(1);
+  }
+
+  @media (max-width: 767px) {
+    .babybear\:-translate-x-50\% {
+      transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(=
+1) scaleY(1);
+    }
+
+    @media (max-width: 767px) {
+      .babybear\:-translate-x-50\% {
+        transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scale=
+X(1) scaleY(1);
+      }
+
+      @media (max-width: 767px) {
+        .babybear\:-translate-x-50\% {
+          transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) sca=
+leX(1) scaleY(1);
+        }
+
+        @media (max-width: 767px) {
+          .babybear\:-translate-x-50\% {
+            transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0) s=
+caleX(1) scaleY(1);
+          }
+
+          @media (max-width: 767px) {
+            .babybear\:-translate-x-50\% {
+              transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(0)=
+ scaleX(1) scaleY(1);
+            }
+
+            @media (max-width: 767px) {
+              .babybear\:-translate-x-50\% {
+                transform: translate(-50%, 0) rotate(90deg) skewX(0) skewY(=
+0) scaleX(1) scaleY(1);
+              }
+
+              @media (max-width: 767px) {
+                .babybear\:-translate-x-50\% {
+                  transform: translate(-50%, 0) rotate(90deg) skewX(0) skew=
+Y(0) scaleX(1) scaleY(1);
+                }
+
+                @media (max-width: 767px) {
+                  .babybear\:-translate-x-50\% {
+                    transform: translate(-50%, 0) rotate(90deg) skewX(0) sk=
+ewY(0) scaleX(1) scaleY(1);
+                  }
+
+                  @media (max-width: 767px) {
+                    .babybear\:-translate-x-50\% {
+                      transform: translate(-50%, 0) rotate(90deg) skewX(0) =
+skewY(0) scaleX(1) scaleY(1);
+                    }
+
+                    @media (max-width: 767px) {
+                      .babybear\:-translate-x-50\% {
+                        transform: translate(-50%, 0) rotate(90deg) skewX(0=
+) skewY(0) scaleX(1) scaleY(1);
+                      }
+
+                      @media (max-width: 767px) {
+                        .babybear\:-translate-x-50\% {
+                          transform: translate(-50%, 0) rotate(90deg) skewX=
+(0) skewY(0) scaleX(1) scaleY(1);
+                        }
+
+                        @media (max-width: 767px) {
+                          .babybear\:-translate-x-50\% {
+                            transform: translate(-50%, 0) rotate(90deg) ske=
+wX(0) skewY(0) scaleX(1) scaleY(1);
+                          }
+
+                          @media (max-width: 767px) {
+                            .babybear\:-translate-x-50\% {
+                              transform: translate(-50%, 0) rotate(90deg) s=
+kewX(0) skewY(0) scaleX(1) scaleY(1);
+                            }
+
+                            @media (max-width: 767px) {
+                              .babybear\:-translate-x-50\% {
+                                transform: translate(-50%, 0) rotate(90deg)=
+ skewX(0) skewY(0) scaleX(1) scaleY(1);
+                              }
+
+                              @media transform: translate(0, 0) rotate(0) s=
+kewX(0) skewY(0) scaleX(1) scaleY(1);
+     (max-width: 767px) {
+                                .babybear\:rotate-90 {
+                                  transform: translate(-50%, 0) rotate(90de=
+g) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                }
+
+                                @media (max-width: 767px) {
+                                  .babybear\:rotate-90 {
+                                    transform: translate(-50%, 0) rotate(90=
+deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                  }
+
+                                  @media (max-width: 767px) {
+                                    .babybear\:rotate-90 {
+                                      transform: translate(-50%, 0) rotate(=
+90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                    }
+
+                                    @media (max-width: 767px) {
+                                      .babybear\:rotate-90 {
+                                        transform: translate(-50%, 0) rotat=
+e(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                      }
+
+                                      @media (max-width: 767px) {
+                                        .babybear\:rotate-90 {
+                                          transform: translate(-50%, 0) rot=
+ate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                        }
+
+                                        @media (max-width: 767px) {
+                                          .babybear\:rotate-90 {
+                                            transform: translate(-50%, 0) r=
+otate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                          }
+
+                                          @media (max-width: 767px) {
+                                            .babybear\:rotate-90 {
+                                              transform: translate(-50%, 0)=
+ rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                            }
+
+                                            @media (max-width: 767px) {
+                                              .babybear\:rotate-90 {
+                                                transform: translate(-50%, =
+0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                              }
+
+                                              @media (max-width: 767px) {
+                                                .babybear\:rotate-90 {
+                                                  transform: translate(-50%=
+, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                }
+
+                                                @media (max-width: 767px) {
+                                                  .babybear\:rotate-90 {
+                                                    transform: translate(-5=
+0%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                  }
+
+                                                  @media (max-width: 767px)=
+ {
+                                                    .babybear\:rotate-90 {
+                                                      transform: translate(=
+-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                    }
+
+                                                    @media (max-width: 767p=
+x) {
+                                                      .babybear\:rotate-90 =
+{
+                                                        transform: translat=
+e(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                      }
+
+                                                      @media (max-width: 76=
+7px) {
+                                                        .babybear\:rotate-9=
+0 {
+                                                          transform: transl=
+ate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                        }
+
+                                                        @media (max-width: =
+767px) {
+                                                          .babybear\:rotate=
+-90 {
+                                                            transform: tran=
+slate(-50%, 0) rotate(90deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+                                                          }
+
+                                                          flex-direction: r=
+ow;
+    .babybear\:flex-col {
+                                                            flex-direction:=
+ column;
+                                                          }
+
+                                                          .babybear\:flex-w=
+rap {
+                                                            flex-wrap: wrap=
+;
+                                                          }
+
+                                                          .babybear\:items-=
+start {
+                                                            align-items: fl=
+ex-start;
+                                                          }
+
+                                                          .babybear\:items-=
+center {
+                                                            align-items: ce=
+nter;
+                                                          }
+
+                                                          .babybear\:justif=
+y-start {
+                                                            justify-content=
+: flex-start;
+                                                          }
+
+                                                          .babybear\:justif=
+y-end {
+                                                            justify-content=
+: flex-end;
+                                                          }
+
+                                                          .babybear\:justif=
+y-center {
+                                                            justify-content=
+: center;
+                                                          }
+
+                                                          .babybear\:justif=
+y-between {
+                                                            justify-content=
+: space-between;
+                                                          }
+
+                                                          .babybear\:justif=
+y-around {
+                                                            justify-content=
+: space-around;
+                                                          }
+
+                                                          .babybear\:self-s=
+tart {
+                                                            align-self: fle=
+x-start;
+                                                          }
+
+                                                          .babybear\:self-c=
+enter {
+                                                            align-self: cen=
+ter;
+                                                          }
+
+                                                          .babybear\:overfl=
+ow-y-auto {
+                                                            overflow-y: aut=
+o;
+                                                          }
+
+                                                          .babybear\:rounde=
+d-\[0px\] {
+                                                            border-radius: =
+0px;
+                                                          }
+
+                                                          .babybear\:border=
+-b-1 {
+                                                            border-bottom-w=
+idth: 1px;
+                                                          }
+
+                                                          .babybear\:border=
+-r-0 {
+                                                            border-right-wi=
+dth: 0;
+                                                          }
+
+                                                          .babybear\:border=
+-solid {
+                                                            border-style: s=
+olid;
+                                                          }
+
+                                                          .babybear\:border=
+-color-border-low-emphasis {
+                                                            border-color: r=
+gba(0, 0, 0, 0.3);
+                                                          }
+
+                                                          .babybear\:bg-col=
+or-brand {
+                                                            background-colo=
+r: #0a66c2;
+                                                          }
+
+                                                          .babybear\:p-2 {
+                                                            padding: 16px;
+                                                          }
+
+                                                          .babybear\:px-0 {
+                                                            padding-left: 0=
+px;
+                                                            padding-right: =
+0px;
+                                                          }
+
+                                                          .babybear\:px-2 {
+                                                            padding-left: 1=
+6px;
+                                                            padding-right: =
+16px;
+                                                          }
+
+                                                          .babybear\:px-mob=
+ile-container-padding {
+                                                            padding-left: 1=
+6px;
+                                                            padding-right: =
+16px;
+                                                          }
+
+                                                          .babybear\:py-1 {
+                                                            padding-top: 8p=
+x;
+                                                            padding-bottom:=
+ 8px;
+                                                          }
+
+                                                          .babybear\:py-3 {
+                                                            padding-top: 24=
+px;
+                                                            padding-bottom:=
+ 24px;
+                                                          }
+
+                                                          .babybear\:pb-0 {
+                                                            padding-bottom:=
+ 0px;
+                                                          }
+
+                                                          .babybear\:pb-2 {
+                                                            padding-bottom:=
+ 16px;
+                                                          }
+
+                                                          .babybear\:pl-0\.=
+5 {
+                                                            padding-left: 4=
+px;
+                                                          }
+
+                                                          .babybear\:pr-0 {
+                                                            padding-right: =
+0px;
+                                                          }
+
+                                                          .babybear\:pr-0\.=
+5 {
+                                                            padding-right: =
+4px;
+                                                          }
+
+                                                          .babybear\:pt-0 {
+                                                            padding-top: 0p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-0\.=
+5 {
+                                                            padding-top: 4p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-1 {
+                                                            padding-top: 8p=
+x;
+                                                          }
+
+                                                          .babybear\:pt-4 {
+                                                            padding-top: 32=
+px;
+                                                          }
+
+                                                          .babybear\:text-\=
+[10px\] {
+                                                            font-size: 10px=
+;
+                                                          }
+
+                                                          .babybear\:text-l=
+g {
+                                                            font-size: 20px=
+;
+                                                          }
+
+                                                          .babybear\:text-m=
+d {
+                                                            font-size: 16px=
+;
+                                                          }
+
+                                                          .babybear\:text-s=
+m {
+                                                            font-size: 14px=
+;
+                                                          }
+
+                                                          .babybear\:text-x=
+l {
+                                                            font-size: 24px=
+;
+                                                          }
+
+                                                          .babybear\:text-x=
+s {
+                                                            font-size: 12px=
+;
+                                                          }
+
+                                                          .babybear\:font-b=
+old {
+                                                            font-weight: 60=
+0;
+                                                          }
+
+                                                          .babybear\:leadin=
+g-\[150px\] {
+                                                            line-height: 15=
+0px;
+                                                          }
+
+                                                          .babybear\:last\:=
+border-b-0:last-child {
+                                                            border-bottom-w=
+idth: 0;
+                                                          }
+
+                                                        }
+
+                                                      }
+
+                                                    }
+
+                                                  }
+
+                                                }
+
+                                              }
+
+                                            }
+
+                                          }
+
+                                        }
+
+                                      }
+
+                                    }
+
+                                  }
+
+                                }
+
+                              }
+
+                            }
+
+                          }
+
+                        }
+
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+}
+@media (max-width: 991px) {
+  .babymamabear\:invisible {
+    visibility: hidden;
+  }
+
+  .babymamabear\:static {
+    position: static;
+  }
+
+  .babymamabear\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .babymamabear\:mx-mobile-container-padding {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .babymamabear\:mb-1\.5 {
+    margin-bottom: 12px;
+  }
+
+  .babymamabear\:ml-\[-9999px\] {
+    margin-left: -9999px;
+  }
+
+  .babymamabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .babymamabear\:flex {
+    display: flex;
+  }
+
+  .babymamabear\:hidden {
+    display: none;
+  }
+
+  .babymamabear\:h-\[1px\] {
+    height: 1px;
+  }
+
+  .babymamabear\:h-\[48px\] {
+    height: 48px;
+  }
+
+  .babymamabear\:w-\[100vw\] {
+    width: 100vw;
+  }
+
+  .babymamabear\:w-\[1px\] {
+    width: 1px;
+  }
+
+  .babymamabear\:w-full {
+    width: 100%;
+  }
+
+  .babymamabear\:min-w-\[50px\] {
+    min-width: 50px;
+  }
+
+  .babymamabear\:basis-1\/2 {
+    flex-basis: 50%;
+  }
+
+  .babymamabear\:flex-col {
+    flex-direction: column;
+  }
+
+  .babymamabear\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .babymamabear\:bg-color-transparent {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .babymamabear\:p-0 {
+    padding: 0px;
+  }
+
+  .babymamabear\:px-mobile-container-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .babymamabear\:py-1\.5 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .mamabear\:absolute {
+    position: absolute;
+  }
+
+  .mamabear\:-top-0\.5 {
+    top: -4px;
+  }
+
+  .mamabear\:-top-1 {
+    top: -8px;
+  }
+
+  .mamabear\:right-4 {
+    right: 32px;
+  }
+
+  .mamabear\:top-\[58px\] {
+    top: 58px;
+  }
+
+  .mamabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .mamabear\:mt-\[68px\] {
+    margin-top: 68px;
+  }
+
+  .mamabear\:hidden {
+    display: none;
+  }
+
+  .mamabear\:\!h-4 {
+    height: 32px !important;
+  }
+
+  .mamabear\:h-\[100\%\] {
+    height: 100%;
+  }
+
+  .mamabear\:\!min-h-\[32px\] {
+    min-height: 32px !important;
+  }
+
+  .mamabear\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .mamabear\:w-48 {
+    width: 384px;
+  }
+
+  .mamabear\:w-\[744px\] {
+    width: 744px;
+  }
+
+  .mamabear\:w-\[calc\(100\%-97px\)\] {
+    width: calc(100% - 97px);
+  }
+
+  .mamabear\:w-full {
+    width: 100%;
+  }
+
+  .mamabear\:min-w-0 {
+    min-width: 0px;
+  }
+
+  .mamabear\:min-w-full {
+    min-width: 100%;
+  }
+
+  .mamabear\:max-w-\[790px\] {
+    max-width: 790px;
+  }
+
+  .mamabear\:flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .mamabear\:flex-row {
+    flex-direction: row;
+  }
+
+  .mamabear\:items-start {
+    align-items: flex-start;
+  }
+
+  .mamabear\:items-center {
+    align-items: center;
+  }
+
+  .mamabear\:self-center {
+    align-self: center;
+  }
+
+  .mamabear\:rounded-tr-none {
+    border-top-right-radius: 0px;
+  }
+
+  .mamabear\:px-2 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mamabear\:px-3 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .mamabear\:px-mobile-container-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mamabear\:py-3 {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .mamabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .mamabear\:text-center {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  .papamamabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .after\:papamamabear\:\!h-\[37px\]::after {
+    content: undefined;
+    height: 37px !important;
+  }
+
+  @media (min-width: 768px) {
+    .after\:papamamabear\:\!h-\[37px\]::after {
+      content: "";
+    }
+
+    content: "".after\:papamamabear\:\!h-\[37px\]::after:content-\[\'\'\]::=
+after {
+      content: "";
+    }
+
+    .after\:papamamabear\:\!h-\[37px\]::after:content-\[\"\"\]::after {
+      content: "";
+    }
+
+    .after\:papamamabear\:up-down-divider::after {
+      display: flex;
+      height: 100%;
+      width: 1px;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      content: undefined;
+    }
+
+    @media (min-width: 768px) {
+      .after\:papamamabear\:up-down-divider::after {
+        content: "";
+      }
+
+      content: "".after\:papamamabear\:up-down-divider::after:content-\[\'\=
+'\]::after {
+        content: "";
+      }
+
+      .after\:papamamabear\:up-down-divider::after:content-\[\"\"\]::after =
+{
+        content: "";
+      }
+
+    }
+
+  }
+}
+@media (min-width: 992px) {
+  .papabear\:absolute {
+    position: absolute;
+  }
+
+  .papabear\:-top-1 {
+    top: -8px;
+  }
+
+  .papabear\:top-\[58px\] {
+    top: 58px;
+  }
+
+  .papabear\:\!mx-2 {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .papabear\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .papabear\:mb-\[18px\] {
+    margin-bottom: 18px;
+  }
+
+  .papabear\:ml-column-gutter {
+    margin-left: 24px;
+  }
+
+  .papabear\:mr-2 {
+    margin-right: 16px;
+  }
+
+  .papabear\:mr-3 {
+    margin-right: 24px;
+  }
+
+  .papabear\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .papabear\:mt-0\.5 {
+    margin-top: 4px;
+  }
+
+  .papabear\:mt-\[-100px\] {
+    margin-top: -100px;
+  }
+
+  .papabear\:mt-\[68px\] {
+    margin-top: 68px;
+  }
+
+  .papabear\:inline-block {
+    display: inline-block;
+  }
+
+  .papabear\:flex {
+    display: flex;
+  }
+
+  .papabear\:hidden {
+    display: none;
+  }
+
+  .papabear\:\!h-4 {
+    height: 32px !important;
+  }
+
+  .papabear\:h-6 {
+    height: 48px;
+  }
+
+  .papabear\:h-\[100\%\] {
+    height: 100%;
+  }
+
+  .papabear\:\!min-h-\[32px\] {
+    min-height: 32px !important;
+  }
+
+  .papabear\:min-h-\[96px\] {
+    min-height: 96px;
+  }
+
+  .papabear\:w-48 {
+    width: 384px;
+  }
+
+  .papabear\:w-\[1128px\] {
+    width: 1128px;
+  }
+
+  .papabear\:w-\[219px\] {
+    width: 219px;
+  }
+
+  .papabear\:w-\[400px\] {
+    width: 400px;
+  }
+
+  .papabear\:w-\[calc\(100\%-97px\)\] {
+    width: calc(100% - 97px);
+  }
+
+  .papabear\:w-auto {
+    width: auto;
+  }
+
+  .papabear\:w-content-max-w {
+    width: 1128px;
+  }
+
+  .papabear\:w-core-rail-width {
+    width: 784px;
+  }
+
+  .papabear\:w-right-rail-width {
+    width: calc(1128px - 24px - 784px);
+  }
+
+  .papabear\:min-w-0 {
+    min-width: 0px;
+  }
+
+  .papabear\:max-w-\[550px\] {
+    max-width: 550px;
+  }
+
+  .papabear\:flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .papabear\:flex-col {
+    flex-direction: column;
+  }
+
+  .papabear\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .papabear\:items-start {
+    align-items: flex-start;
+  }
+
+  .papabear\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .papabear\:justify-center {
+    justify-content: center;
+  }
+
+  .papabear\:self-start {
+    align-self: flex-start;
+  }
+
+  .papabear\:rounded-tr-none {
+    border-top-right-radius: 0px;
+  }
+
+  .papabear\:border-4 {
+    border-width: 4px;
+  }
+
+  .papabear\:p-0 {
+    padding: 0px;
+  }
+
+  .papabear\:p-details-container-padding {
+    padding: 24px;
+  }
+
+  .papabear\:py-2 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .papabear\:pt-desktop-content-top-margin {
+    padding-top: 16px;
+  }
+
+  .papabear\:text-xl {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .-md\:ml-2 {
+    margin-left: 16px;
+  }
+
+  .-md\:mt-1 {
+    margin-top: 8px;
+  }
+
+  .-md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+</style></head> <body dir=3D"ltr" class=3D"font-sans bg-color-background-ca=
+nvas w-full m-0 p-0 pt-1" style=3D"-webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; margin: 0px; width: 100%; background-color: #f3f2f0; pa=
+dding: 0px; padding-top: 8px; font-family: -apple-system, system-ui, BlinkM=
+acSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Ox=
+ygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe U=
+I Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, =
+Arial, sans-serif;"> <div class=3D"h-0 opacity-0 text-transparent invisible=
+ overflow-hidden w-0 max-h-[0]" style=3D"visibility: hidden; height: 0px; m=
+ax-height: 0; width: 0px; overflow: hidden; opacity: 0; mso-hide: all;" dat=
+a-email-preheader=3D"true"></div> <div class=3D"h-0 opacity-0 text-transpar=
+ent invisible overflow-hidden w-0 max-h-[0]" style=3D"visibility: hidden; h=
+eight: 0px; max-height: 0; width: 0px; overflow: hidden; opacity: 0; mso-hi=
+de: all;"> =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=
+=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=
+=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0 =CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0 =CD=8F=C2=A0=CD=8F=
+=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=A0=CD=8F=C2=
+=A0=CD=8F=C2=A0=CD=8F=C2=A0 </div> <table role=3D"presentation" valign=3D"t=
+op" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"512" align=3D=
+"center" class=3D"mercado-container w-[512px] max-w-[512px] mx-auto my-0 p-=
+0 bg-color-background-container" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; ma=
+rgin-left: auto; margin-right: auto; margin-top: 0px; margin-bottom: 0px; w=
+idth: 512px; max-width: 512px; background-color: #ffffff; padding: 0px;"> <=
+tbody> <tr> <td class=3D"text-center p-3" style=3D"-webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace=
+: 0pt; padding: 24px; text-align: center;"> <table role=3D"presentation" va=
+lign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" class=3D"min-w-full" style=3D"-webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 1=
+00%;"> <tbody> <tr> <td align=3D"left" valign=3D"middle" style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/feed/?lipi=
+=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJ=
+aV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSV=
+rw1&amp;trk=3Deml-email_series_follow_newsletter_01-header-0-home_glimmer_d=
+ynamic_badging_high_dpi&amp;trkEmail=3Deml-email_series_follow_newsletter_0=
+1-header-0-home_glimmer_dynamic_badging_high_dpi-null-hdesgg~m4fvko4y~gs-nu=
+ll-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGI=
+yMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NG=
+ZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D"=
+ target=3D"_blank" class=3D"w-[84px]" style=3D"color: #0a66c2; cursor: poin=
+ter; display: inline-block; text-decoration: none; -webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; width: 84px;"> <img class=3D"h-[37px] w=
+-[101px]" alt=3D"LinkedIn" src=3D"https://www.linkedin.com/comm/dms/logo/v2=
+?badgeTheme=3Dmercado&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follo=
+w_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midSig=3D3FG5xuhIWSV=
+rw1&amp;midToken=3DAQGhw_YagvtrXA&amp;trkEmail=3Deml-email_series_follow_ne=
+wsletter_01-null-0-comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2-null-hdesgg%7Em=
+4fvko4y%7Egs-null-null&amp;trk=3Deml-email_series_follow_newsletter_01-null=
+-0-comms%7Ebadging%7Edynamic%7Eglimmer%7Ev2&amp;_sig=3D0xXz_DJTqSVrw1" data=
+-test-header-dynamic-badging-img-high-dpi style=3D"outline: none; text-deco=
+ration: none; -ms-interpolation-mode: bicubic; height: 37px; width: 101px;"=
+ width=3D"101" height=3D"37"> </a> </td> <td valign=3D"middle" align=3D"rig=
+ht" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; ms=
+o-table-lspace: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentation" =
+valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"10=
+0%" data-test-header-profile style=3D"-webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbo=
+dy> <tr> <td align=3D"right" valign=3D"middle" class=3D"w-[32px]" style=3D"=
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; width: 32px;" width=3D"32"> <a href=3D"https=
+://de.linkedin.com/comm/in/ham-414963253?lipi=3Durn%3Ali%3=
+Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7x=
+A%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=
+=3Deml-email_series_follow_newsletter_01-header-0-profile_glimmer&amp;trkEm=
+ail=3Deml-email_series_follow_newsletter_01-header-0-profile_glimmer-null-h=
+desgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTM=
+wNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0Yj=
+VhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkY=
+TEyMTM5LDEsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: poi=
+nter; display: inline-block; text-decoration: none; -webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%;"> <img alt=3D"ham " sr=
+c=3D"https://media.licdn.com/dms/image/v2/D4D03AQEM1vk0gR-4FA/profile-displ=
+ayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1715028073439?=
+e=3D2147483647&amp;v=3Dbeta&amp;t=3DWi3Eduwafs4wgwPld37nysUW8pRLTBn3Pe9ZB5x=
+gYMU" class=3D"rounded-[100%] w-[32px] h-[32px]" style=3D"outline: none; te=
+xt-decoration: none; -ms-interpolation-mode: bicubic; height: 32px; width: =
+32px; border-radius: 100%;" width=3D"32" height=3D"32"> </a> </td> </tr> </=
+tbody> </table> </td> </tr> </tbody> </table> </td> </tr> <tr> <td class=3D=
+"px-0 pb-3" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: =
+100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-left: 0px; padd=
+ing-right: 0px; padding-bottom: 24px;"> <div> <table role=3D"presentation" =
+valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"10=
+0%" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; ms=
+o-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td data-test-id=
+=3D"newsletter-entity-lockup" class=3D"px-3 pt-1" style=3D"-webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt; padding-left: 24px; padding-right: 24px; padding-top: 8px;">=
+ <table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%" class=3D"font-sans" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; font-family: -apple-system, system-ui, BlinkMacSystemFon=
+t, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxyg=
+en Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', '=
+Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans=
+-serif;"> <tbody> <tr> <td valign=3D"top" class=3D"pr-1 w-6" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt; width: 48px; padding-right: 8px;" width=3D"48"> <=
+a href=3D"https://www.linkedin.com/comm/newsletters/7045874934954278912?lip=
+i=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BS=
+JaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWS=
+Vrw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_entity_lock=
+up-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_series_follow_newslette=
+r_01-newsletter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4fvko4y~=
+gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYz=
+ljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY=
+2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3=
+D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; display: =
+inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%;"> <img class=3D"inline-block relative bg-color-entity=
+-ghost-background w-6 h-6 rounded-md" src=3D"https://media.licdn.com/dms/im=
+age/v2/D5612AQHy-Bq-v0EHTg/series-logo_image-shrink_100_100/series-logo_ima=
+ge-shrink_100_100/0/1679867465184?e=3D2147483647&amp;v=3Dbeta&amp;t=3D8G7Ox=
+vphOftgFYq_VwaM8_8xM7zUZAEmYJa6cGY_6xo" alt=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=
+=8B=D1=82=D1=8C: Cyber Security News" style=3D"outline: none; text-decorati=
+on: none; -ms-interpolation-mode: bicubic; position: relative; display: inl=
+ine-block; height: 48px; width: 48px; border-radius: 8px; background-color:=
+ #eae6df;" width=3D"48" height=3D"48"> </a> </td> <td valign=3D"top" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <table role=3D"presentation" valign=3D=
+"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/newsletters/7=
+045874934954278912?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsl=
+etter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&a=
+mp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newsletter_01-=
+newsletter_entity_lockup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_s=
+eries_follow_newsletter_01-newsletter_entity_lockup-0-newsletter_entity_cta=
+-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToke=
+n=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA=
+0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYT=
+k0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" class=3D"no-underline" style=
+=3D"color: #0a66c2; cursor: pointer; display: inline-block; text-decoration=
+: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-de=
+coration-line: none;"> <div class=3D"pb-0.5" style=3D"padding-bottom: 4px;"=
+> <span class=3D"text-md font-bold text-color-text break-words leading-regu=
+lar" style=3D"overflow-wrap: break-word; font-size: 16px; font-weight: 600;=
+ line-height: 1.25; color: rgba(0, 0, 0, 0.9);"> Cyber Security News </span=
+> </div> </a> </td> </tr> <tr> <td style=3D"-webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"=
+> <a href=3D"https://www.linkedin.com/comm/newsletters/7045874934954278912?=
+lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%=
+2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuh=
+IWSVrw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_entity_l=
+ockup-0-newsletter_entity_cta&amp;trkEmail=3Deml-email_series_follow_newsle=
+tter_01-newsletter_entity_lockup-0-newsletter_entity_cta-null-hdesgg~m4fvko=
+4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJ=
+iYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZD=
+dkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsM=
+Q%3D%3D" target=3D"_blank" class=3D"no-underline" style=3D"color: #0a66c2; =
+cursor: pointer; display: inline-block; text-decoration: none; -webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line: none;=
+"> <span class=3D"text-xs text-color-text-low-emphasis leading-regular" sty=
+le=3D"font-size: 12px; line-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Get =
+Daily Cyber Security News Letters Directly From Cyber Space </span> </a> </=
+td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> <tr d=
+ata-test-id=3D"newsletter-content-preview"> <td class=3D"px-3 pt-2" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; padding-left: 24px; padding-right: 24px;=
+ padding-top: 16px;"> <table role=3D"presentation" valign=3D"top" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"-webkit-tex=
+t-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt;"> <tbody> <tr> <td class=3D"overflow-hidden " style=3D"=
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt; overflow: hidden;"> <table role=3D"presentat=
+ion" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=
+=3D"100%" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/co=
+mm/pulse/weekly-cybersecurity-bulletin-data-leaks-vulnerabilities-oyzec?lip=
+i=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BS=
+JaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWS=
+Vrw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_content_pre=
+view-0-headline_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsl=
+etter_content_preview-0-headline_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=
+=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZG=
+U0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5Y=
+TJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_bla=
+nk" class=3D"w-full" style=3D"color: #0a66c2; cursor: pointer; display: inl=
+ine-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; width: 100%;"> <img class=3D"block w-full aspect-[744/40=
+0] object-cover overflow-hidden" data-test-id=3D"newsletter-content-preview=
+__cover-image" alt=3D"=D0=93=D0=BB=D0=B0=D0=B2=D0=BD=D0=BE=D0=B5 =D0=B8=D0=
+=B7=D0=BE=D0=B1=D1=80=D0=B0=D0=B6=D0=B5=D0=BD=D0=B8=D0=B5 =D1=80=D0=B0=D1=
+=81=D1=81=D1=8B=D0=BB=D0=BA=D0=B8" src=3D"https://media.licdn.com/dms/image=
+/v2/D5612AQHUNOp6u2G65w/article-cover_image-shrink_720_1280/article-cover_i=
+mage-shrink_720_1280/0/1733672991691?e=3D2147483647&amp;v=3Dbeta&amp;t=3DqD=
+7HVWYtnn40ksuionEW98Z-sH7rKr0vqhTsZHDAaCg" style=3D"outline: none; text-dec=
+oration: none; -ms-interpolation-mode: bicubic; display: block; aspect-rati=
+o: 744/400; width: 100%; overflow: hidden; object-fit: cover;"> </a> </td> =
+</tr> <tr> <td class=3D"py-2" style=3D"-webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; paddi=
+ng-top: 16px; padding-bottom: 16px;"> <table role=3D"presentation" valign=
+=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody> <tr> <td style=3D"-webkit-t=
+ext-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; m=
+so-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/week=
+ly-cybersecurity-bulletin-data-leaks-vulnerabilities-oyzec?lipi=3Durn%3Ali%=
+3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7=
+xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=
+=3Deml-email_series_follow_newsletter_01-newsletter_content_preview-0-title=
+_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_content_p=
+review-0-title_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y=
+-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5=
+YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzh=
+lYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" class=3D"no-un=
+derline font-medium text-sm m-0 text-system-gray-90" style=3D"cursor: point=
+er; display: inline-block; text-decoration: none; -webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; margin: 0px; font-size: 14px; font-weigh=
+t: 500; color: #282828; text-decoration-line: none;"> <h2 class=3D"m-0 text=
+-display-sm leading-regular text-color-text font-bold font-sans" style=3D"m=
+argin: 0px; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Seg=
+oe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans=
+', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe U=
+I Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;=
+ font-size: 24px; font-weight: 600; line-height: 1.25; color: rgba(0, 0, 0,=
+ 0.9);"> Weekly Cybersecurity Bulletin: Data Leaks, Vulnerabilities &amp; C=
+ybersecurity News </h2> </a> </td> </tr> <tr> <td style=3D"-webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt;"> <table role=3D"presentation" valign=3D"top" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"100%" data-test-id=3D"newslette=
+r-author-lockup-redesign" class=3D"mt-1 mb-2" style=3D"-webkit-text-size-ad=
+just: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; margin-bottom: 16px; margin-top: 8px;"> <tbody> <tr> <td valign=
+=3D"middle" align=3D"left" class=3D"w-3" style=3D"-webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace:=
+ 0pt; width: 24px;" width=3D"24"> <a href=3D"https://www.linkedin.com/comm/=
+company/cybersecurity-news?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_foll=
+ow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_Ya=
+gvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newsle=
+tter_01-newsletter_content_preview-0-author_&amp;trkEmail=3Deml-email_serie=
+s_follow_newsletter_01-newsletter_content_preview-0-author_-null-hdesgg~m4f=
+vko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAx=
+NjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWY=
+zZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LD=
+EsMQ%3D%3D" target=3D"_blank" style=3D"color: #0a66c2; cursor: pointer; dis=
+play: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%;"> <img class=3D"inline-block relative bg-color-=
+entity-ghost-background w-4 h-4 align-middle" src=3D"https://media.licdn.co=
+m/dms/image/v2/C510BAQHWcytRG2ULdA/company-logo_100_100/company-logo_100_10=
+0/0/1630626984749/cybersecurity_news_logo?e=3D2147483647&amp;v=3Dbeta&amp;t=
+=3DYb5f1OLa5WlNYNOAE8euP_8-pFUGluW3LLF3RFp1CFQ" alt=3D"=D0=98=D0=B7=D0=BE=
+=D0=B1=D1=80=D0=B0=D0=B6=D0=B5=D0=BD=D0=B8=D0=B5 =D0=B0=D0=B2=D1=82=D0=BE=
+=D1=80=D0=B0" style=3D"outline: none; text-decoration: none; -ms-interpolat=
+ion-mode: bicubic; position: relative; display: inline-block; height: 32px;=
+ width: 32px; background-color: #eae6df; vertical-align: middle;" width=3D"=
+32" height=3D"32"> </a> </td> <td style=3D"-webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">=
+ <a href=3D"https://www.linkedin.com/comm/company/cybersecurity-news?lipi=
+=3Durn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJ=
+aV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSV=
+rw1&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_content_prev=
+iew-0-author_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newslett=
+er_content_preview-0-author_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhd=
+esgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI=
+4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMD=
+kxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" c=
+lass=3D"no-underline ml-1" style=3D"color: #0a66c2; cursor: pointer; displa=
+y: inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; margin-left: 8px; text-decoration-line: none;"> <s=
+pan class=3D"font-sans font-bold text-sm mb-3 text-color-text-low-emphasis =
+leading-regular" style=3D"margin-bottom: 24px; font-family: -apple-system, =
+system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira =
+Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color=
+ Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Gra=
+nde', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; line=
+-height: 1.25; color: rgba(0, 0, 0, 0.6);"> Cyber Security News =C2=AE </sp=
+an> </a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td class=3D"pb-1" =
+style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 8px;"> <div class=
+=3D"p-3 bg-color-surface-tint rounded-md font-sans" data-test-id=3D"newslet=
+ter-cta-banner" style=3D"border-radius: 8px; background-color: #f5f7f9; pad=
+ding: 24px; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Seg=
+oe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans=
+', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe U=
+I Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;=
+"> <div class=3D"mb-1.5" style=3D"margin-bottom: 12px;"> <span class=3D"tex=
+t-md leading-regular font-bold text-color-text" style=3D"font-size: 16px; f=
+ont-weight: 600; line-height: 1.25; color: rgba(0, 0, 0, 0.9);"> =D0=9F=D1=
+=80=D0=BE=D1=87=D1=82=D0=B8=D1=82=D0=B5 =D1=8D=D1=82=D1=83 =D1=81=D1=82=D0=
+=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn, =D1=87=D1=82=D0=BE=D0=B1=D1=8B =D0=
+=BF=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=B4=D0=B8=D0=BD=D0=B8=D1=82=D1=8C=D1=81=
+=D1=8F =D0=BA =D0=BE=D0=B1=D1=81=D1=83=D0=B6=D0=B4=D0=B5=D0=BD=D0=B8=D1=8E =
+</span> </div> <table role=3D"presentation" valign=3D"top" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"email-button " dat=
+a-test-id=3D"email-button" style=3D"-webkit-text-size-adjust: 100%; -ms-tex=
+t-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <tbody=
+> <tr> <td valign=3D"middle" align=3D"left" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt;"> <a href=3D"https://www.linkedin.com/comm/pulse/weekly-cybersecur=
+ity-bulletin-data-leaks-vulnerabilities-oyzec?lipi=3Durn%3Ali%3Apage%3Aemai=
+l_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;=
+midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_s=
+eries_follow_newsletter_01-newsletter_content_preview-0-read_more_banner_ct=
+a_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-newsletter_content_=
+preview-0-read_more_banner_cta_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=
+=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZG=
+U0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5Y=
+TJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_bla=
+nk" aria-label=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=8B=D1=82=D1=8C =D1=8D=D1=82=
+=D1=83 =D1=81=D1=82=D0=B0=D1=82=D1=8C=D1=8E =D0=B2 LinkedIn" class=3D"align=
+-top no-underline " style=3D"color: #0a66c2; cursor: pointer; display: inli=
+ne-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-s=
+ize-adjust: 100%; vertical-align: top; text-decoration-line: none;"> <table=
+ role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" width=3D"auto" class=3D"border-separate " style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; border-collapse: separate;"> <tbody> <tr> <td class=3D"b=
+tn-sm btn-primary border-color-brand button-link leading-regular !min-h-[au=
+to] !shadow-none border-1 border-solid" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; height: min-content; border-radius: 24px; padding-top: 7px; padding-bo=
+ttom: 7px; padding-left: 16px; padding-right: 16px; text-align: center; fon=
+t-size: 14px; font-weight: 600; cursor: pointer; text-decoration-line: none=
+; background-color: #0a66c2; color: #ffffff; border-width: 1px; border-styl=
+e: solid; border-color: #0a66c2; line-height: 1.25; min-height: auto !impor=
+tant; box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000 !important;"> <a href=3D"=
+https://www.linkedin.com/comm/pulse/weekly-cybersecurity-bulletin-data-leak=
+s-vulnerabilities-oyzec?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_=
+newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_Yagvt=
+rXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newslette=
+r_01-newsletter_content_preview-0-read_more_banner_cta_&amp;trkEmail=3Deml-=
+email_series_follow_newsletter_01-newsletter_content_preview-0-read_more_ba=
+nner_cta_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&am=
+p;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OT=
+ZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3M=
+WUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" tabindex=3D"-1" aria=
+-hidden=3D"true" class=3D"no-underline" style=3D"color: #0a66c2; cursor: po=
+inter; display: inline-block; text-decoration: none; -webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; text-decoration-line: none;"> <span c=
+lass=3D"no-underline text-white" style=3D"color: #ffffff; text-decoration-l=
+ine: none;"> =D0=9F=D1=80=D0=BE=D1=87=D0=B8=D1=82=D0=B0=D1=82=D1=8C =D0=B2 =
+LinkedIn </span> </a> </td> </tr> </tbody> </table> </a> </td> </tr> </tbod=
+y> </table> </div> </td> </tr> <tr data-test-id=3D"newsletter-content-previ=
+ew--content"> <td class=3D"series-article-body" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Se=
+goe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen San=
+s', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe =
+UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif=
+; font-size: 16px; line-height: 1.5; color: rgba(0, 0, 0, 0.9);"> <p style=
+=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-he=
+ight: 1.5;">Welcome to this week=E2=80=99s Cybersecurity Newsletter, where =
+we explore the most recent developments and essential updates in the world =
+of cybersecurity.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0=
+.8em; font-size: 1em; line-height: 1.5;">Your role in this rapidly evolving=
+ digital landscape is crucial, and we're here to equip you with the latest =
+insights and updates. This edition concentrates on new threats and the exis=
+ting state of defenses in our swiftly changing digital environment. We will=
+ examine significant issues such as advanced ransomware attacks and the eff=
+ects of state-sponsored cyber activities on global security.</p><p style=3D=
+"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-heigh=
+t: 1.5;">Our analysis will feature a detailed exploration of the changing n=
+ature of these threats, along with strategic suggestions for strengthening =
+your organization=E2=80=99s defenses. We will investigate how cutting-edge =
+technologies like artificial intelligence (AI), machine learning (ML), and =
+quantum computing are not only reshaping cybersecurity frameworks but also =
+being misused by adversaries, such as in the case of AI-powered phishing at=
+tacks, ML-driven malware, and quantum computing-enabled decryption of secur=
+e communications.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0=
+.8em; font-size: 1em; line-height: 1.5;">Furthermore, we will offer insight=
+s into how different sectors are urgently adjusting to cybersecurity challe=
+nges, such as securing remote work setups and addressing vulnerabilities in=
+ IoT devices. The urgency of these challenges underscores the need for imme=
+diate action.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em=
+; font-size: 1em; line-height: 1.5;">We will also highlight the most recent=
+ regulatory changes impacting cybersecurity measures worldwide, emphasizing=
+ how new laws like the EU's General Data Protection Regulation (GDPR) and C=
+alifornia's Consumer Privacy Act (CCPA) are shaping data privacy and securi=
+ty standards, ensuring that your compliance strategies are up to date with =
+current mandates.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0=
+.8em; font-size: 1em; line-height: 1.5;">Join us each week as we address th=
+ese intricate issues and more, arming you with the knowledge needed to rema=
+in ahead in the ever-evolving field of cybersecurity.</p><h3 style=3D"margi=
+n: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: =
+4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: =
+-0.02em; color: rgba(0, 0, 0, 0.9);">Vulnerabilities</h3><h3 style=3D"margi=
+n: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: =
+4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: =
+-0.02em; color: rgba(0, 0, 0, 0.9);">1. Windows Server 2012 Zero-Day Vulner=
+ability</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; fon=
+t-size: 1em; line-height: 1.5;">A critical zero-day vulnerability has been =
+identified in Windows Server 2012, which could allow attackers to exploit s=
+ystems remotely. Microsoft has yet to release a patch, making it essential =
+for administrators to monitor and mitigate risks until an update is availab=
+le. <em style=3D"font-style: italic;">Read more: </em><a href=3D"https://cy=
+bersecuritynews.com/windows-server-2012-0-day-vulnerability/" target=3D"_bl=
+ank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cursor: po=
+inter; font-weight: 600; color: #0a66c2; text-decoration-line: none;"><em s=
+tyle=3D"font-style: italic;">Windows Server 2012 Zero-Day Vulnerability</em=
+></a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margi=
+n-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-hei=
+ght: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">2. Trellix =
+Enterprise Security Manager Flaw</h3><p style=3D"margin: 0; font-weight: 40=
+0; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">A security flaw in=
+ Trellix Enterprise Security Manager has been discovered, potentially expos=
+ing sensitive enterprise data. Organizations using this platform are urged =
+to apply the latest updates to secure their systems. <em style=3D"font-styl=
+e: italic;">Read more: </em><a href=3D"https://cybersecuritynews.com/trelli=
+x-enterprise-security-manager-flaw/" target=3D"_blank" rel=3D"nofollow noop=
+ener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-t=
+ext-size-adjust: 100%; display: inline; cursor: pointer; font-weight: 600; =
+color: #0a66c2; text-decoration-line: none;"><em style=3D"font-style: itali=
+c;">Trellix Enterprise Security Manager Flaw</em></a></p><h3 style=3D"margi=
+n: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: =
+4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: =
+-0.02em; color: rgba(0, 0, 0, 0.9);">3. Apple Safari Remote Code Execution =
+Vulnerability</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8e=
+m; font-size: 1em; line-height: 1.5;">Apple Safari users are at risk due to=
+ a newly disclosed remote code execution vulnerability. Exploiting this fla=
+w could allow attackers to take control of affected devices. Apple is expec=
+ted to release a fix soon. <em style=3D"font-style: italic;">Read more: </e=
+m><a href=3D"https://cybersecuritynews.com/apple-safari-remote-code-executi=
+on-vulnerability/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"tex=
+t-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 1=
+00%; display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; te=
+xt-decoration-line: none;"><em style=3D"font-style: italic;">Apple Safari R=
+emote Code Execution Vulnerability</em></a></p><h3 style=3D"margin: 0; marg=
+in-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-=
+size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; c=
+olor: rgba(0, 0, 0, 0.9);">4. MediaTek Chipset Bluetooth Vulnerabilities</h=
+3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1e=
+m; line-height: 1.5;">Multiple vulnerabilities in MediaTek chipsets' Blueto=
+oth functionality have been reported, potentially impacting millions of dev=
+ices globally. Users should ensure their devices are updated with the lates=
+t firmware patches. <em style=3D"font-style: italic;">Read more: </em><a hr=
+ef=3D"https://cybersecuritynews.com/mediatek-chipset-bluetooth-vulnerabilit=
+ies/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration:=
+ none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display:=
+ inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration=
+-line: none;"><em style=3D"font-style: italic;">MediaTek Chipset Bluetooth =
+Vulnerabilities</em></a></p><h3 style=3D"margin: 0; margin-left: 0px; margi=
+n-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-we=
+ight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0,=
+ 0.9);">5. IBM Security Verify Vulnerabilities</h3><p style=3D"margin: 0; f=
+ont-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">IBM'=
+s Security Verify platform has been found vulnerable to attacks that could =
+compromise authentication processes. IBM has released security updates addr=
+essing these issues, and users are advised to apply them promptly. <em styl=
+e=3D"font-style: italic;">Read more: </em><a href=3D"https://cybersecurityn=
+ews.com/ibm-security-verify-vulnerabilities/" target=3D"_blank" rel=3D"nofo=
+llow noopener" style=3D"text-decoration: none; -webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-weig=
+ht: 600; color: #0a66c2; text-decoration-line: none;"><em style=3D"font-sty=
+le: italic;">IBM Security Verify Vulnerabilities</em></a></p><h3 style=3D"m=
+argin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bott=
+om: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spaci=
+ng: -0.02em; color: rgba(0, 0, 0, 0.9);">6. HPE IceWall Products Vulnerabil=
+ity</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-si=
+ze: 1em; line-height: 1.5;">Hewlett Packard Enterprise (HPE) has identified=
+ a security vulnerability in its IceWall products, which could be exploited=
+ by attackers to gain unauthorized access. Affected users should implement =
+the recommended security patches immediately. <em style=3D"font-style: ital=
+ic;">Read more: </em><a href=3D"https://cybersecuritynews.com/hpe-icewall-p=
+roducts-vulnerability/" target=3D"_blank" rel=3D"nofollow noopener" style=
+=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; display: inline; cursor: pointer; font-weight: 600; color: #0a6=
+6c2; text-decoration-line: none;"><em style=3D"font-style: italic;">HPE Ice=
+Wall Products Vulnerability</em></a></p><h3 style=3D"margin: 0; margin-left=
+: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 1=
+6px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: r=
+gba(0, 0, 0, 0.9);">7. Proof-of-Concept Exploit for Windows Task Scheduler<=
+/h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: =
+1em; line-height: 1.5;">A proof-of-concept exploit targeting a vulnerabilit=
+y in Windows Task Scheduler has been released, raising concerns about poten=
+tial misuse by threat actors. Users are advised to apply the latest Windows=
+ updates to safeguard their systems. <em style=3D"font-style: italic;">Read=
+ more: </em><a href=3D"https://cybersecuritynews.com/poc-exploit-windows-ta=
+sk-scheduler/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-de=
+coration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-d=
+ecoration-line: none;"><em style=3D"font-style: italic;">PoC Exploit for Wi=
+ndows Task Scheduler</em></a></p><h3 style=3D"margin: 0; margin-left: 0px; =
+margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; fo=
+nt-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, =
+0, 0, 0.9);">8. Windows Driver Use-After-Free Vulnerability</h3><p style=3D=
+"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-heigh=
+t: 1.5;">A serious use-after-free vulnerability in a Windows driver has bee=
+n disclosed, which could lead to privilege escalation or system compromise =
+if exploited. Microsoft is working on a patch for this issue. <em style=3D"=
+font-style: italic;">Read more: </em><a href=3D"https://cybersecuritynews.c=
+om/windows-driver-use-after-free-vulnerability/" target=3D"_blank" rel=3D"n=
+ofollow noopener" style=3D"text-decoration: none; -webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-w=
+eight: 600; color: #0a66c2; text-decoration-line: none;"><em style=3D"font-=
+style: italic;">Windows Driver Use-After-Free Vulnerability</em></a></p><h3=
+ style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; =
+margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; l=
+etter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">9. Google Chrome Type C=
+onfusion Vulnerability</h3><p style=3D"margin: 0; font-weight: 400; margin-=
+top: 0.8em; font-size: 1em; line-height: 1.5;">Google Chrome has addressed =
+a type confusion vulnerability that could allow attackers to execute arbitr=
+ary code on affected systems. Users should update their browsers immediatel=
+y to stay protected. <em style=3D"font-style: italic;">Read more: </em><a h=
+ref=3D"https://cybersecuritynews.com/google-chrome-type-confusion-vulnerabi=
+lity/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration=
+: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display=
+: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoratio=
+n-line: none;"><em style=3D"font-style: italic;">Google Chrome Type Confusi=
+on Vulnerability</em></a></p><h3 style=3D"margin: 0; margin-left: 0px; marg=
+in-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-w=
+eight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0=
+, 0.9);">Data Breach</h3><h3 style=3D"margin: 0; margin-left: 0px; margin-r=
+ight: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weigh=
+t: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.=
+9);">1. Deloitte Denies Data Breach Allegations</h3><p style=3D"margin: 0; =
+font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Del=
+oitte, a leading global consulting firm, has recently denied allegations of=
+ a data breach. Reports surfaced claiming that sensitive client information=
+ may have been exposed, but the company has firmly stated that there is no =
+evidence to support these claims. Deloitte continues to monitor its systems=
+ to ensure the security of its data.</p><p style=3D"margin: 0; font-weight:=
+ 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;"><em style=3D"fo=
+nt-style: italic;">Read more:</em> <a href=3D"https://cybersecuritynews.com=
+/deliotte-data-breach-denied/" target=3D"_blank" rel=3D"nofollow noopener" =
+style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-si=
+ze-adjust: 100%; display: inline; cursor: pointer; font-weight: 600; color:=
+ #0a66c2; text-decoration-line: none;">Deloitte Data Breach Denied</a></p><=
+h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px=
+; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.25;=
+ letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">2. Fuji Ransomware At=
+tack Compromises Data</h3><p style=3D"margin: 0; font-weight: 400; margin-t=
+op: 0.8em; font-size: 1em; line-height: 1.5;">In another significant incide=
+nt, Fuji has fallen victim to a ransomware attack. Hackers reportedly gaine=
+d access to sensitive data and are demanding a ransom for its release. The =
+breach has raised concerns about the company's cybersecurity measures and p=
+rompted investigations into how the attackers infiltrated their systems.</p=
+><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em=
+; line-height: 1.5;"><em style=3D"font-style: italic;">Read more:</em> <a h=
+ref=3D"https://cybersecuritynews.com/fuji-ransomware-breach/" target=3D"_bl=
+ank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cursor: po=
+inter; font-weight: 600; color: #0a66c2; text-decoration-line: none;">Fuji =
+Ransomware Breach</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-r=
+ight: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weigh=
+t: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.=
+9);">3. EazyDiner Allegedly Breached by Hackers</h3><p style=3D"margin: 0; =
+font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Hac=
+kers have claimed responsibility for a breach targeting EazyDiner, a popula=
+r dining platform. Allegations suggest that user data, including personal d=
+etails, may have been compromised. EazyDiner has yet to confirm the breach =
+but is reportedly investigating the matter to determine the extent of the d=
+amage.</p><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-=
+size: 1em; line-height: 1.5;"><em style=3D"font-style: italic;">Read more:<=
+/em> <a href=3D"https://cybersecuritynews.com/hackers-allegedly-claims-brea=
+ch-of-eazydiner/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text=
+-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; tex=
+t-decoration-line: none;">EazyDiner Breach Allegation</a></p><h3 style=3D"m=
+argin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bott=
+om: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spaci=
+ng: -0.02em; color: rgba(0, 0, 0, 0.9);">Cyber Attack</h3><h3 style=3D"marg=
+in: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom:=
+ 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing:=
+ -0.02em; color: rgba(0, 0, 0, 0.9);">1. Hackers Exploit Weaponized Resumes=
+</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size:=
+ 1em; line-height: 1.5;">Hackers have been using maliciously crafted resume=
+s as a vector to deliver malware. This tactic targets HR departments, explo=
+iting their need to open attachments from unknown sources. The malicious fi=
+les can compromise systems and steal sensitive data.</p><p style=3D"margin:=
+ 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;"=
+><em style=3D"font-style: italic;">Read more</em>: <a href=3D"https://cyber=
+securitynews.com/hackers-used-weaponized-resume/" target=3D"_blank" rel=3D"=
+nofollow noopener" style=3D"text-decoration: none; -webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-=
+weight: 600; color: #0a66c2; text-decoration-line: none;">Hackers Used Weap=
+onized Resume</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right=
+: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 6=
+00; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);"=
+>2. Windows Event Logs Tool Exploited by Hackers</h3><p style=3D"margin: 0;=
+ font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Cy=
+bercriminals have leveraged vulnerabilities in the Windows Event Logs tool =
+to execute attacks. This tool, integral for system monitoring, has been tur=
+ned against users to hide malicious activities and bypass detection.</p><p =
+style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; li=
+ne-height: 1.5;"><em style=3D"font-style: italic;">Read more</em>: <a href=
+=3D"https://cybersecuritynews.com/hackers-exploited-windows-event-logs-tool=
+/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: no=
+ne; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: in=
+line; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-li=
+ne: none;">Hackers Exploited Windows Event Logs Tool</a></p><h3 style=3D"ma=
+rgin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-botto=
+m: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacin=
+g: -0.02em; color: rgba(0, 0, 0, 0.9);">3. TP-Link Archer Zero-Day Vulnerab=
+ility</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-=
+size: 1em; line-height: 1.5;">A zero-day vulnerability in TP-Link Archer ro=
+uters has been uncovered, allowing attackers to gain unauthorized access an=
+d control over the devices. This flaw poses significant risks to home and e=
+nterprise networks relying on these routers.</p><p style=3D"margin: 0; font=
+-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;"><em sty=
+le=3D"font-style: italic;">Read more</em>: <a href=3D"https://cybersecurity=
+news.com/tp-link-archer-zero-day-vulnerability/" target=3D"_blank" rel=3D"n=
+ofollow noopener" style=3D"text-decoration: none; -webkit-text-size-adjust:=
+ 100%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-w=
+eight: 600; color: #0a66c2; text-decoration-line: none;">TP-Link Archer Zer=
+o-Day Vulnerability</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin=
+-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-wei=
+ght: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, =
+0.9);">4. Alleged Breach of EazyDiner by Hackers</h3><p style=3D"margin: 0;=
+ font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Ha=
+ckers have claimed responsibility for breaching EazyDiner, a popular dining=
+ platform, potentially compromising user data. Investigations are ongoing t=
+o confirm the extent of the breach and its impact on customers.</p><p style=
+=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-he=
+ight: 1.5;"><em style=3D"font-style: italic;">Read more</em>: <a href=3D"ht=
+tps://cybersecuritynews.com/hackers-allegedly-claims-breach-of-eazydiner/" =
+target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inlin=
+e; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line:=
+ none;">Hackers Allegedly Claim Breach of EazyDiner</a></p><h3 style=3D"mar=
+gin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom=
+: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing=
+: -0.02em; color: rgba(0, 0, 0, 0.9);">5. Cisco VPN Vulnerability Exploited=
+</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size:=
+ 1em; line-height: 1.5;">A Cross-Site Scripting (XSS) vulnerability in Cisc=
+o VPN products has been exploited by attackers. This flaw could allow unaut=
+horized access or manipulation of data, raising concerns for organizations =
+relying on Cisco's solutions.</p><p style=3D"margin: 0; font-weight: 400; m=
+argin-top: 0.8em; font-size: 1em; line-height: 1.5;"><em style=3D"font-styl=
+e: italic;">Read more</em>: <a href=3D"https://cybersecuritynews.com/exploi=
+tation-of-cisco-xss-vpn-vulnerability/" target=3D"_blank" rel=3D"nofollow n=
+oopener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; display: inline; cursor: pointer; font-weight: 60=
+0; color: #0a66c2; text-decoration-line: none;">Exploitation of Cisco XSS V=
+PN Vulnerability</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-ri=
+ght: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight=
+: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9=
+);">6. U.S. Organization in China Targeted</h3><p style=3D"margin: 0; font-=
+weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">A U.S.-b=
+ased organization operating in China was attacked by hackers, highlighting =
+the risks faced by entities working in geopolitically sensitive regions. Th=
+e attack underscores the importance of robust cybersecurity measures.</p><p=
+ style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; l=
+ine-height: 1.5;"><em style=3D"font-style: italic;">Read more</em>: <a href=
+=3D"https://cybersecuritynews.com/u-s-organization-in-china-attacked-by-hac=
+kers/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration=
+: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display=
+: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoratio=
+n-line: none;">U.S. Organization in China Attacked by Hackers</a></p><h3 st=
+yle=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; mar=
+gin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; lett=
+er-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">7. Top Five Industries Tar=
+geted by Phishing Attacks</h3><p style=3D"margin: 0; font-weight: 400; marg=
+in-top: 0.8em; font-size: 1em; line-height: 1.5;">The report identifies the=
+ top five industries most frequently targeted by phishing attacks, emphasiz=
+ing the need for sector-specific defenses against this persistent threat.</=
+p><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1e=
+m; line-height: 1.5;"><em style=3D"font-style: italic;">Read more</em>: <a =
+href=3D"https://cybersecuritynews.com/top-five-industries-targeted-by-phish=
+ing-attacks/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-dec=
+oration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; =
+display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-de=
+coration-line: none;">Top Five Industries Targeted by Phishing Attacks</a><=
+/p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top:=
+ 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1=
+.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">8. Black Basta Ra=
+nsomware Targets Microsoft Systems</h3><p style=3D"margin: 0; font-weight: =
+400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">The Black Basta =
+ransomware group has been observed targeting Microsoft systems, exploiting =
+vulnerabilities to encrypt data and demand ransoms from victims.</p><p styl=
+e=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-h=
+eight: 1.5;"><em style=3D"font-style: italic;">Read more</em>: <a href=3D"h=
+ttps://cybersecuritynews.com/black-basta-ransomware-microsoft/" target=3D"_=
+blank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cursor: =
+pointer; font-weight: 600; color: #0a66c2; text-decoration-line: none;">Bla=
+ck Basta Ransomware Targets Microsoft</a></p><h3 style=3D"margin: 0; margin=
+-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-si=
+ze: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; col=
+or: rgba(0, 0, 0, 0.9);">Cyber Threats</h3><h3 style=3D"margin: 0; margin-l=
+eft: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size=
+: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color=
+: rgba(0, 0, 0, 0.9);">1. Black Basta Ransomware Delivered via RMM Tools</h=
+3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1e=
+m; line-height: 1.5;">Threat actors are leveraging Remote Monitoring and Ma=
+nagement (RMM) tools to distribute the Black Basta ransomware. This tactic =
+allows attackers to exploit legitimate software for malicious purposes, pos=
+ing a significant risk to organizations using these tools. <em style=3D"fon=
+t-style: italic;">Read more:</em> <a href=3D"http://cybersecuritynews.com" =
+target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inlin=
+e; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line:=
+ none;">cybersecuritynews.com</a></p><h3 style=3D"margin: 0; margin-left: 0=
+px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px=
+; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba=
+(0, 0, 0, 0.9);">2. Gafgyt Malware Targets Docker API Servers</h3><p style=
+=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-he=
+ight: 1.5;">The Gafgyt malware has been observed exploiting unsecured Docke=
+r API servers to deploy malicious containers. This highlights the importanc=
+e of securing APIs to prevent such attacks on containerized environments. <=
+em style=3D"font-style: italic;">Read more:</em> <a href=3D"http://cybersec=
+uritynews.com" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-de=
+coration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-d=
+ecoration-line: none;">cybersecuritynews.com</a></p><h3 style=3D"margin: 0;=
+ margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; =
+font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02=
+em; color: rgba(0, 0, 0, 0.9);">3. Chinese APT Group Hacks Telecom Networks=
+</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size:=
+ 1em; line-height: 1.5;">A Chinese advanced persistent threat (APT) group, =
+dubbed "Salt Typhoon," has reportedly compromised eight telecommunications =
+companies. The attack is part of a broader espionage campaign targeting sen=
+sitive communications data. <em style=3D"font-style: italic;">Read more:</e=
+m> <a href=3D"http://cybersecuritynews.com" target=3D"_blank" rel=3D"nofoll=
+ow noopener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%=
+; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-weight=
+: 600; color: #0a66c2; text-decoration-line: none;">cybersecuritynews.com</=
+a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-t=
+op: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height=
+: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">4. Secret Bliz=
+zard Malware Campaign Uncovered</h3><p style=3D"margin: 0; font-weight: 400=
+; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Researchers have id=
+entified a new malware campaign, "Secret Blizzard," which employs sophistic=
+ated techniques to evade detection and compromise systems across various se=
+ctors. <em style=3D"font-style: italic;">Read more:</em> <a href=3D"http://=
+cybersecuritynews.com" target=3D"_blank" rel=3D"nofollow noopener" style=3D=
+"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjus=
+t: 100%; display: inline; cursor: pointer; font-weight: 600; color: #0a66c2=
+; text-decoration-line: none;">cybersecuritynews.com</a></p><h3 style=3D"ma=
+rgin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-botto=
+m: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacin=
+g: -0.02em; color: rgba(0, 0, 0, 0.9);">5. HR &amp; Payroll Phishing Attack=
+ Alert</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font=
+-size: 1em; line-height: 1.5;">Cybercriminals are targeting employees with =
+phishing emails disguised as HR or payroll notifications. These emails aim =
+to steal login credentials and other sensitive information. <em style=3D"fo=
+nt-style: italic;">Read more:</em> <a href=3D"http://cybersecuritynews.com"=
+ target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none=
+; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inli=
+ne; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line=
+: none;">cybersecuritynews.com</a></p><h3 style=3D"margin: 0; margin-left: =
+0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16p=
+x; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgb=
+a(0, 0, 0, 0.9);">6. Moonshine Kit Exploits Android Messaging Apps</h3><p s=
+tyle=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; lin=
+e-height: 1.5;">A new attack toolkit, "Moonshine," has been discovered expl=
+oiting vulnerabilities in Android messaging apps to deliver spyware and ste=
+al user data. <em style=3D"font-style: italic;">Read more:</em> <a href=3D"=
+http://cybersecuritynews.com" target=3D"_blank" rel=3D"nofollow noopener" s=
+tyle=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; display: inline; cursor: pointer; font-weight: 600; color: =
+#0a66c2; text-decoration-line: none;">cybersecuritynews.com</a></p><h3 styl=
+e=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margi=
+n-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter=
+-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">7. Russian Spyware Found on =
+Developer's Phone</h3><p style=3D"margin: 0; font-weight: 400; margin-top: =
+0.8em; font-size: 1em; line-height: 1.5;">Spyware targeting Android devices=
+ was found on the phone of a Russian programmer, raising concerns about tar=
+geted surveillance and espionage activities in the region. <em style=3D"fon=
+t-style: italic;">Read more:</em> <a href=3D"http://cybersecuritynews.com" =
+target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inlin=
+e; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line:=
+ none;">cybersecuritynews.com</a></p><h3 style=3D"margin: 0; margin-left: 0=
+px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px=
+; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba=
+(0, 0, 0, 0.9);">8. BlueAlpha APT Abuses Cloudflare Tunnels</h3><p style=3D=
+"margin: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-heigh=
+t: 1.5;">The BlueAlpha APT group has been exploiting Cloudflare tunnels to =
+mask their malicious activities, making it harder for defenders to detect a=
+nd respond to their attacks effectively. <em style=3D"font-style: italic;">=
+Read more:</em> <a href=3D"http://cybersecuritynews.com" target=3D"_blank" =
+rel=3D"nofollow noopener" style=3D"text-decoration: none; -webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer=
+; font-weight: 600; color: #0a66c2; text-decoration-line: none;">cybersecur=
+itynews.com</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: =
+0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600=
+; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">O=
+ther News</h3><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; =
+margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; lin=
+e-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">1. Ama=
+zon GuardDuty Introduces AI-Powered Threat Detection</h3><p style=3D"margin=
+: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;=
+">Amazon has unveiled an AI-powered enhancement to its GuardDuty service, a=
+imed at improving threat detection capabilities. This innovation leverages =
+machine learning to identify and mitigate potential security threats more e=
+ffectively. <em style=3D"font-style: italic;">Read more</em>: <a href=3D"ht=
+tps://cybersecuritynews.com/amazon-guardduty-unveils-ai-powered-threat-dete=
+ction/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoratio=
+n: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; displa=
+y: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-decorati=
+on-line: none;">Amazon GuardDuty Unveils AI-Powered Threat Detection</a></p=
+><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8=
+px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.2=
+5; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">2. Notepad++ v8.7.2=
+ Released</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; f=
+ont-size: 1em; line-height: 1.5;">The latest version of Notepad++, v8.7.2, =
+has been launched, featuring various updates and bug fixes to enhance user =
+experience and security. <em style=3D"font-style: italic;">Read more</em>: =
+<a href=3D"https://cybersecuritynews.com/notepad-v8-7-2-launched/" target=
+=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cur=
+sor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line: none;=
+">Notepad++ v8.7.2 Launched</a></p><h3 style=3D"margin: 0; margin-left: 0px=
+; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; =
+font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0=
+, 0, 0, 0.9);">3. Linux Kernel 6.13 Update</h3><p style=3D"margin: 0; font-=
+weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">Linux Ke=
+rnel 6.13 has been released, introducing new features and addressing vulner=
+abilities to strengthen system security and performance. <em style=3D"font-=
+style: italic;">Read more</em>: <a href=3D"https://cybersecuritynews.com/li=
+nux-kernel-6-13/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text=
+-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; tex=
+t-decoration-line: none;">Linux Kernel 6.13</a></p><h3 style=3D"margin: 0; =
+margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; f=
+ont-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02e=
+m; color: rgba(0, 0, 0, 0.9);">4. GitHub Copilot for Azure Simplifies ASP.N=
+ET Core Deployment</h3><p style=3D"margin: 0; font-weight: 400; margin-top:=
+ 0.8em; font-size: 1em; line-height: 1.5;">GitHub Copilot now integrates wi=
+th Azure to streamline the deployment of <a href=3D"http://ASP.NET" target=
+=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none; -webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inline; cur=
+sor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line: none;=
+">ASP.NET</a> Core Web APIs, making it easier for developers to build secur=
+e applications. <em style=3D"font-style: italic;">Read more</em>: <a href=
+=3D"https://cybersecuritynews.com/github-copilot-for-azure-simplifies-deplo=
+yment-of-asp-net-core-web-api/" target=3D"_blank" rel=3D"nofollow noopener"=
+ style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-s=
+ize-adjust: 100%; display: inline; cursor: pointer; font-weight: 600; color=
+: #0a66c2; text-decoration-line: none;">GitHub Copilot for Azure Simplifies=
+ Deployment</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: =
+0px; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600=
+; line-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">5=
+. Microsoft Launches Windows Resiliency Initiative</h3><p style=3D"margin: =
+0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">=
+Microsoft has announced a new initiative focused on improving the resilienc=
+y of Windows systems against cyber threats, aiming to bolster defenses in e=
+nterprise environments. <em style=3D"font-style: italic;">Read more</em>: <=
+a href=3D"https://cybersecuritynews.com/microsoft-unveils-windows-resilienc=
+y-initiative/" target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-de=
+coration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ display: inline; cursor: pointer; font-weight: 600; color: #0a66c2; text-d=
+ecoration-line: none;">Windows Resiliency Initiative</a></p><h3 style=3D"ma=
+rgin: 0; margin-left: 0px; margin-right: 0px; margin-top: 8px; margin-botto=
+m: 4px; font-size: 16px; font-weight: 600; line-height: 1.25; letter-spacin=
+g: -0.02em; color: rgba(0, 0, 0, 0.9);">6. Updates from Microsoft Ignite 20=
+24</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-siz=
+e: 1em; line-height: 1.5;">Microsoft Ignite 2024 showcased groundbreaking i=
+nnovations in cybersecurity, cloud computing, and AI technologies, highligh=
+ting the company's vision for the future of secure digital transformation. =
+<em style=3D"font-style: italic;">Read more</em>: <a href=3D"https://cybers=
+ecuritynews.com/microsoft-ignite-2024/" target=3D"_blank" rel=3D"nofollow n=
+oopener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -m=
+s-text-size-adjust: 100%; display: inline; cursor: pointer; font-weight: 60=
+0; color: #0a66c2; text-decoration-line: none;">Microsoft Ignite 2024</a></=
+p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margin-top: =
+8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-height: 1.=
+25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">7. AWS Security In=
+cident Response Enhancements</h3><p style=3D"margin: 0; font-weight: 400; m=
+argin-top: 0.8em; font-size: 1em; line-height: 1.5;">AWS has introduced new=
+ tools and best practices for incident response, helping organizations bett=
+er prepare for and manage security incidents in the cloud environment. <em =
+style=3D"font-style: italic;">Read more</em>: <a href=3D"https://cybersecur=
+itynews.com/aws-security-incident-response/" target=3D"_blank" rel=3D"nofol=
+low noopener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; display: inline; cursor: pointer; font-weigh=
+t: 600; color: #0a66c2; text-decoration-line: none;">AWS Security Incident =
+Response</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px=
+; margin-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; l=
+ine-height: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">8. H=
+ydra Developer Sentenced to Lifetime Imprisonment</h3><p style=3D"margin: 0=
+; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5;">T=
+he developer behind Hydra, a notorious darknet marketplace, has been senten=
+ced to life imprisonment, marking a significant victory in global cybercrim=
+e enforcement efforts. <em style=3D"font-style: italic;">Read more</em>: <a=
+ href=3D"https://cybersecuritynews.com/lifetime-jail-for-hydra-developer/" =
+target=3D"_blank" rel=3D"nofollow noopener" style=3D"text-decoration: none;=
+ -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; display: inlin=
+e; cursor: pointer; font-weight: 600; color: #0a66c2; text-decoration-line:=
+ none;">Lifetime Jail for Hydra Developer</a></p><h3 style=3D"margin: 0; ma=
+rgin-left: 0px; margin-right: 0px; margin-top: 8px; margin-bottom: 4px; fon=
+t-size: 16px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em;=
+ color: rgba(0, 0, 0, 0.9);">9. Authorities Dismantle Matrix Secret Chat Ne=
+twork</h3><p style=3D"margin: 0; font-weight: 400; margin-top: 0.8em; font-=
+size: 1em; line-height: 1.5;">Law enforcement agencies have successfully di=
+smantled the Matrix secret chat network used by cybercriminals for illicit =
+activities, disrupting their operations significantly. <em style=3D"font-st=
+yle: italic;">Read more</em>: <a href=3D"https://cybersecuritynews.com/auth=
+orities-dismantle-matrix-secret-chat/" target=3D"_blank" rel=3D"nofollow no=
+opener" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100%; display: inline; cursor: pointer; font-weight: 600=
+; color: #0a66c2; text-decoration-line: none;">Matrix Secret Chat Dismantle=
+d</a></p><h3 style=3D"margin: 0; margin-left: 0px; margin-right: 0px; margi=
+n-top: 8px; margin-bottom: 4px; font-size: 16px; font-weight: 600; line-hei=
+ght: 1.25; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.9);">10. HackSyn=
+th: Autonomous Penetration Testing Framework Released</h3><p style=3D"margi=
+n: 0; font-weight: 400; margin-top: 0.8em; font-size: 1em; line-height: 1.5=
+;">HackSynth, a new autonomous penetration testing framework, has been laun=
+ched to assist organizations in identifying vulnerabilities efficiently and=
+ proactively securing their systems. <em style=3D"font-style: italic;">Read=
+ more</em>: <a href=3D"https://cybersecuritynews.com/hacksynth-an-autonomou=
+s-penetration-testing-framework/" target=3D"_blank" rel=3D"nofollow noopene=
+r" style=3D"text-decoration: none; -webkit-text-size-adjust: 100%; -ms-text=
+-size-adjust: 100%; display: inline; cursor: pointer; font-weight: 600; col=
+or: #0a66c2; text-decoration-line: none;">HackSynth Penetration Testing Fra=
+mework</a></p> </td> </tr> <tr> <td class=3D"pt-2 no-underline" style=3D"-w=
+ebkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; padding-top: 16px; text-decoration-line: none;=
+"> <table role=3D"presentation" valign=3D"top" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" width=3D"100%" class=3D"email-button series-content-pr=
+eview__bottom-cta" data-test-id=3D"email-button" style=3D"-webkit-text-size=
+-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table=
+-rspace: 0pt;"> <tbody> <tr> <td valign=3D"middle" align=3D"left" style=3D"=
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspac=
+e: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https://www.linkedin.com/comm/p=
+ulse/weekly-cybersecurity-bulletin-data-leaks-vulnerabilities-oyzec?lipi=3D=
+urn%3Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6=
+e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1=
+&amp;trk=3Deml-email_series_follow_newsletter_01-newsletter_content_preview=
+-0-readmore_button_&amp;trkEmail=3Deml-email_series_follow_newsletter_01-ne=
+wsletter_content_preview-0-readmore_button_-null-hdesgg~m4fvko4y~gs-null-nu=
+ll&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEw=
+ZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWV=
+iZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" targ=
+et=3D"_blank" aria-label=3D"=D0=9E=D1=82=D0=BA=D1=80=D1=8B=D1=82=D1=8C =D0=
+=B2 LinkedIn: Cyber Security News" class=3D"align-top no-underline " style=
+=3D"color: #0a66c2; cursor: pointer; display: inline-block; text-decoration=
+: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; vertica=
+l-align: top; text-decoration-line: none; width: 100%;"> <table role=3D"pre=
+sentation" valign=3D"top" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+width=3D"100%" class=3D"border-separate " style=3D"-webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace=
+: 0pt; border-collapse: separate; width: 100%;"> <tbody> <tr> <td class=3D"=
+btn-md btn-secondary-emphasis border-color-brand button-link leading-regula=
+r !min-h-[auto] !shadow-none border-1 border-solid font-sans" data-test-id=
+=3D"newsletter-content-preview-redesign-bottom-cta" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; height: min-content; border-radius: 24px; padding-top: 12p=
+x; padding-bottom: 12px; padding-left: 24px; padding-right: 24px; text-alig=
+n: center; font-size: 16px; font-weight: 600; cursor: pointer; text-decorat=
+ion-line: none; background-color: rgba(0, 0, 0, 0); color: #0a66c2; border-=
+width: 1px; border-style: solid; border-color: #0a66c2; font-family: -apple=
+-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue=
+', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Ap=
+ple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'L=
+ucida Grande', Helvetica, Arial, sans-serif; line-height: 1.25; min-height:=
+ auto !important; box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000 !important;">=
+ <a href=3D"https://www.linkedin.com/comm/pulse/weekly-cybersecurity-bullet=
+in-data-leaks-vulnerabilities-oyzec?lipi=3Durn%3Ali%3Apage%3Aemail_email_se=
+ries_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=
+=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_fo=
+llow_newsletter_01-newsletter_content_preview-0-readmore_button_&amp;trkEma=
+il=3Deml-email_series_follow_newsletter_01-newsletter_content_preview-0-rea=
+dmore_button_-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-g=
+s&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YT=
+g4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlY=
+jg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" tabindex=3D"-1" =
+aria-hidden=3D"true" class=3D"no-underline" style=3D"color: #0a66c2; cursor=
+: pointer; display: inline-block; text-decoration: none; -webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; text-decoration-line: none; width=
+: 100%;"> <span class=3D"no-underline text-color-brand" style=3D"color: #0a=
+66c2; text-decoration-line: none;"> =D0=9F=D1=80=D0=B8=D1=81=D0=BE=D0=B5=D0=
+=B4=D0=B8=D0=BD=D0=B8=D1=82=D0=B5=D1=81=D1=8C =D0=BA =D0=BE=D0=B1=D1=81=D1=
+=83=D0=B6=D0=B4=D0=B5=D0=BD=D0=B8=D1=8E </span> </a> </td> </tr> </tbody> <=
+/table> </a> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </=
+td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbo=
+dy> </table> </div> </td> </tr> <tr> <td class=3D"bg-color-background-canva=
+s p-3" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f3f2f0; p=
+adding: 24px;"> <table role=3D"presentation" valign=3D"top" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"100%" class=3D"text-xs" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; font-size: 12px;"> <tbody> <tr> <td class=
+=3D"pb-1 m-0" data-test-id=3D"email-footer__intended" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; margin: 0px; padding-bottom: 8px;"> =D0=AD=D1=82=D0=BE =
+=D1=81=D0=BE=D0=BE=D0=B1=D1=89=D0=B5=D0=BD=D0=B8=D0=B5 =D1=8D=D0=BB.=C2=A0=
+=D0=BF=D0=BE=D1=87=D1=82=D1=8B =D0=B0=D0=B4=D1=80=D0=B5=D1=81=D0=BE=D0=B2=
+=D0=B0=D0=BD=D0=BE =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=D0=BA=D1=83 A=
+igerim Moldakhanova (Cybersecurity specialist | CEH) </td> </tr> <tr> <td c=
+lass=3D"pb-1 m-0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0px; padd=
+ing-bottom: 8px;"> <a href=3D"https://www.linkedin.com/help/linkedin/answer=
+/4788?lang=3Dru&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_news=
+letter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&=
+amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newsletter_01=
+-SecurityHelp-0-footerglimmer&amp;trkEmail=3Deml-email_series_follow_newsle=
+tter_01-SecurityHelp-0-footerglimmer-null-hdesgg~m4fvko4y~gs-null-null&amp;=
+eid=3Dhdesgg-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDE=
+xZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yj=
+k5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_=
+blank" class=3D"text-inherit underline" style=3D"cursor: pointer; display: =
+inline-block; text-decoration: none; -webkit-text-size-adjust: 100%; -ms-te=
+xt-size-adjust: 100%; color: inherit; text-decoration-line: underline;">=D0=
+=A3=D0=B7=D0=BD=D0=B0=D0=B9=D1=82=D0=B5, =D0=BF=D0=BE=D1=87=D0=B5=D0=BC=D1=
+=83 =D1=8D=D1=82=D0=BE =D0=B7=D0=B4=D0=B5=D1=81=D1=8C =D1=83=D0=BA=D0=B0=D0=
+=B7=D0=B0=D0=BD=D0=BE.</a> </td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; margin: 0px; padding-bottom: 8px;">=D0=92=
+=D1=8B =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D1=82=D0=B5 =D1=83=D0=B2=
+=D0=B5=D0=B4=D0=BE=D0=BC=D0=BB=D0=B5=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE =D1=8D=
+=D0=BB.=C2=A0=D0=BF=D0=BE=D1=87=D1=82=D0=B5 =D0=BE=D1=82 LinkedIn. =D0=94=
+=D1=80=D1=83=D0=B3=D0=B8=D0=B5 =D1=83=D1=87=D0=B0=D1=81=D1=82=D0=BD=D0=B8=
+=D0=BA=D0=B8 =D0=BC=D0=BE=D0=B3=D1=83=D1=82 =D0=B2=D0=B8=D0=B4=D0=B5=D1=82=
+=D1=8C, =D1=87=D1=82=D0=BE =D0=B2=D1=8B =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=
+=82=D0=B5=D1=81=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D1=87=D0=B8=D0=
+=BA=D0=BE=D0=BC.</td> </tr> <tr> <td class=3D"pb-1 m-0" style=3D"-webkit-te=
+xt-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; ms=
+o-table-rspace: 0pt; margin: 0px; padding-bottom: 8px;"> <a href=3D"https:/=
+/www.linkedin.com/comm/series-notifications/?action=3Dunsubscribe&amp;membe=
+rToken=3DADoAAD6cmJABZPgpbXUnlaTxubyQwFKMcq1Y6Ok&amp;newsletterId=3D7045874=
+934954278912&amp;newsletterTitle=3DCyber%20Security%20News&amp;lipi=3Durn%3=
+Ali%3Apage%3Aemail_email_series_follow_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6=
+vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;=
+trk=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimmer&amp=
+;trkEmail=3Deml-email_series_follow_newsletter_01-unsubscribe-0-footerGlimm=
+er-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4fvko4y-gs&amp;otpTo=
+ken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZDc0OTk5YTg4OTZlN2JjZ=
+jA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZjVmMzhlYjg3MWUwZjYz=
+YTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" class=3D"text-inherit under=
+line" style=3D"cursor: pointer; display: inline-block; text-decoration: non=
+e; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: inher=
+it; text-decoration-line: underline;">=D0=9E=D1=82=D0=BC=D0=B5=D0=BD=D0=B8=
+=D1=82=D1=8C =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D0=BA=D1=83</a> =C2=A0=C2=
+=A0=C2=B7=C2=A0=C2=A0 <a href=3D"https://www.linkedin.com/help/linkedin/ans=
+wer/67?lang=3Dru&amp;lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow_new=
+sletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_YagvtrXA=
+&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newsletter_0=
+1-help-0-footerglimmer&amp;trkEmail=3Deml-email_series_follow_newsletter_01=
+-help-0-footerglimmer-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesgg-m4=
+fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OGM2ZD=
+c0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxMzUyZ=
+jVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" class=3D=
+"text-inherit underline" style=3D"cursor: pointer; display: inline-block; t=
+ext-decoration: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust:=
+ 100%; color: inherit; text-decoration-line: underline;">=D0=A1=D0=BF=D1=80=
+=D0=B0=D0=B2=D0=BA=D0=B0</a> </td> </tr> <tr> <td class=3D"pb-1" style=3D"-=
+webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt; padding-bottom: 8px;"> <a href=3D"https://www=
+.linkedin.com/comm/feed/?lipi=3Durn%3Ali%3Apage%3Aemail_email_series_follow=
+_newsletter_01%3BFbnWrYX%2BSJaV6e%2B6vHS7xA%3D%3D&amp;midToken=3DAQGhw_Yagv=
+trXA&amp;midSig=3D3FG5xuhIWSVrw1&amp;trk=3Deml-email_series_follow_newslett=
+er_01-footer-0-logoGlimmer&amp;trkEmail=3Deml-email_series_follow_newslette=
+r_01-footer-0-logoGlimmer-null-hdesgg~m4fvko4y~gs-null-null&amp;eid=3Dhdesg=
+g-m4fvko4y-gs&amp;otpToken=3DMTMwNTFiZTAxNjJiYzljNGIyMmEwZmViNDExZGU0YjI4OG=
+M2ZDc0OTk5YTg4OTZlN2JjZjA0Njk0YjVhNTRmNWYzZDdkY2U5NGZmMWViZjM3Yjk5YTJiMDkxM=
+zUyZjVmMzhlYjg3MWUwZjYzYTk0OTNkYTEyMTM5LDEsMQ%3D%3D" target=3D"_blank" styl=
+e=3D"color: #0a66c2; cursor: pointer; display: inline-block; text-decoratio=
+n: none; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;"> <img=
+ src=3D"https://static.licdn.com/aero-v1/sc/h/9ehe6n39fa07dc5edzv0rla4e" al=
+t=3D"LinkedIn" class=3D"block h-[14px] w-[56px] image-rendering-crisp" styl=
+e=3D"outline: none; text-decoration: none; image-rendering: -moz-crisp-edge=
+s; image-rendering: -o-crisp-edges; image-rendering: -webkit-optimize-contr=
+ast; image-rendering: crisp-edges; -ms-interpolation-mode: nearest-neighbor=
+; display: block; height: 14px; width: 56px;" width=3D"56" height=3D"14"> <=
+/a> </td> </tr> <tr> <td data-test-copyright-text style=3D"-webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt;"> =C2=A9 LinkedIn Ireland Unlimited Company, Wilton Plaza, W=
+ilton Place, Dublin 2 (=D0=98=D1=80=D0=BB=D0=B0=D0=BD=D0=B4=D0=B8=D1=8F), 2=
+024=C2=A0=D0=B3. LinkedIn =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =
+=D0=B7=D0=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=
+=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=BC =D1=84=D0=B8=D1=80=D0=BC=D0=B5=D0=BD=D0=
+=BD=D1=8B=D0=BC =D0=BD=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=D0=B0=D0=
+=BD=D0=B8=D0=B5=D0=BC =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 Link=
+edIn Ireland Unlimited Company. <span data-test-trademarks-text> LinkedIn =
+=D0=B8 =D1=8D=D0=BC=D0=B1=D0=BB=D0=B5=D0=BC=D0=B0 LinkedIn =D1=8F=D0=B2=D0=
+=BB=D1=8F=D1=8E=D1=82=D1=81=D1=8F =D0=B7=D0=B0=D1=80=D0=B5=D0=B3=D0=B8=D1=
+=81=D1=82=D1=80=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=BD=D1=8B=D0=BC=D0=B8=
+ =D1=82=D0=BE=D0=B2=D0=B0=D1=80=D0=BD=D1=8B=D0=BC=D0=B8 =D0=B7=D0=BD=D0=B0=
+=D0=BA=D0=B0=D0=BC=D0=B8 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 L=
+inkedIn. </span> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table=
+> <img alt role=3D"presentation" src=3D"https://www.linkedin.com/emimp/ip_Y=
+UdSbGMyZG5MVzAwWm5acmJ6UjVMV2R6OlpXMWhhV3hmYzJWeWFXVnpYMlp2Ykd4dmQxOXVaWGR6=
+YkdWMGRHVnlYekF4OmRYSnVPbXhwT214cGJtdGxaRWx1UVhKMGFXTnNaVG8zTWpjeE5UVXhOVFk=
+zTWpZd09UYzFNVEEw.gif" style=3D"outline: none; text-decoration: none; -ms-i=
+nterpolation-mode: bicubic; width: 1px; height: 1px;" width=3D"1" height=3D=
+"1"> </body> </html>
+------=_Part_10523530_459829708.1733678781467--

@@ -1,0 +1,53 @@
+Return-Path: <support@tik.toyota-industries.com>
+X-Original-To: honey@pot
+Delivered-To: honey@pot
+Received: from jackson.jp (unknown [188.93.233.218]) by mailin013.protonmail.ch (Postfix)
+ with ESMTP id 4RFnR21HJXz7QQ5W for <honey@pot>; Tue,
+  1 Aug 2023 20:54:22 +0000 (UTC)
+Received: from tik.toyota-industries.com (jackson.jp [IPv6:::1]) by jackson.jp (Postfix)
+ with ESMTP id D26E92D2690 for <honey@pot>; Tue,
+  1 Aug 2023 20:41:08 +0000 (UTC)
+Authentication-Results: mailin013.protonmail.ch; dmarc=none (p=none dis=none)
+ header.from=tik.toyota-industries.com
+Authentication-Results: mailin013.protonmail.ch; spf=none
+ smtp.mailfrom=tik.toyota-industries.com
+Authentication-Results: mailin013.protonmail.ch; arc=none smtp.remote-ip=188.93.233.218
+Authentication-Results: mailin013.protonmail.ch; dkim=none
+From: proton.me
+   <support@tik.toyota-industries.com>
+To: honey@pot
+Subject: Password Expired honey@pot
+Date: 1 Aug 2023 16:41:09 -0400
+Message-Id: <20230801164108.4D3F182D9615DA97@tik.toyota-industries.com>
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=---------------------b40ab00c9b6e2447d3aae8044c14d761
+Content-Transfer-Encoding: quoted-printable
+X-Spamd-Result: default: False [9.90 / 25.00]; BARRACUDA_FROM(6.00)[188.93.233.218:from];
+ HFILTER_HOSTNAME_UNKNOWN(2.50)[]; AUTH_NA(1.00)[]; MIME_HTML_ONLY(0.20)[];
+ ONCE_RECEIVED(0.10)[]; RCVD_NO_TLS_LAST(0.10)[]; BAYES_SPAM(0.00)[29.23%];
+ R_SPF_NA(0.00)[no SPF record]; R_DKIM_NA(0.00)[]; MIME_TRACE(0.00)[0:~];
+ FROM_EQ_ENVFROM(0.00)[]; MID_RHS_MATCH_FROM(0.00)[]; ASN(0.00)[asn:47674,
+ ipnet:188.93.233.0/24, country:MO]; RCVD_COUNT_ONE(0.00)[1]; NEURAL_SPAM(0.00)[0.952];
+ RCPT_COUNT_ONE(0.00)[1]; TO_MATCH_ENVRCPT_ALL(0.00)[]; FROM_HAS_DN(0.00)[];
+ DMARC_NA(0.00)[toyota-industries.com];
+ PREVIOUSLY_DELIVERED(0.00)[honey@pot]; HAS_WP_URI(0.00)[];
+ TO_DN_NONE(0.00)[]; ARC_NA(0.00)[]
+X-Rspamd-Server: cp4-mailin-013.plabs.ch
+X-Rspamd-Action: add header
+X-Rspamd-Queue-Id: 4RFnR21HJXz7QQ5W
+X-Spam: Yes
+X-Pm-Spam: 0yezJI6cihyJeYR3pi42biOwJlzaGuGlaZIysyNnIWaiQI2Oi5GMNNBzmlRTZWN5M
+ ZkNmlGFNNRGjiMTYCLyJxldWijoINIj0lRDNWZyUY3YzmmNMNMm2jNTMzMhZ19In
+X-Pm-Origin: external
+X-Pm-Transfer-Encryption: none
+X-Pm-Content-Encryption: on-delivery
+X-Pm-Spamscore: 0
+X-Pm-Spam-Action: phishing
+
+-----------------------b40ab00c9b6e2447d3aae8044c14d761
+Content-Type: multipart/related;boundary=---------------------207b928b5d0e618d6c23f7148f16d110
+
+-----------------------207b928b5d0e618d6c23f7148f16d110
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: base64
+
